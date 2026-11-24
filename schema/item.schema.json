@@ -1,0 +1,712 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pharos.local/schema/item.schema.json",
+  "title": "Pharos Item Schema v0.3.1",
+  "description": "파로스 앱·게임 평가 1건. 정적 웹 프론트엔드가 서버 없이 하드 필터와 축별 가중치를 브라우저에서 계산할 수 있도록, 판정에 쓰이는 원자료(flags)와 티어별 필터 결과(hard_filters), 축 점수(axes), 근거 등급(evidence_grade), 출처(sources)를 모두 담는다. v0.3은 장르·용도별 비교군(arenas)을 더했고, v0.3.1은 maintenance_status(active·feature_complete·stale_unknown·abandoned)를 더해 '완결된 작품'과 '방치'를 구분한다 — feature_complete 는 stale_over_12m 필터에서 면제되며, 필터 결과는 status 'exempt' 로 기록한다. 계산 계약은 최상위 x-pharos.client 참조.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "category",
+    "platforms",
+    "developer",
+    "one_liner",
+    "assessed_at",
+    "maintenance_status",
+    "arenas",
+    "sources",
+    "flags",
+    "tiers",
+    "axes",
+    "verdict",
+    "review_snapshot",
+    "update_profile",
+    "monetization",
+    "data_quality"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.3.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "정적 사이트의 안정 식별자(슬러그). URL·파일명으로 그대로 쓴다."
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "category": {
+      "type": "string",
+      "enum": ["game", "app", "service", "tool"]
+    },
+    "arenas": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "description": "이 아이템이 속한 비교군(Arena) id 목록. 하나의 아이템이 여러 비교군에 들어갈 수 있다. 정의는 x-pharos.client.arenas 에 있고, 여기서는 id만 참조한다."
+    },
+    "arena_notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z0-9][a-z0-9-]*$": { "type": "string", "minLength": 1 }
+      },
+      "description": "비교군별 핵심 비교 포인트 한 줄. 키는 arenas 에 포함된 id 여야 한다(validate.py 가 검사)."
+    },
+    "genres": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/platform" }
+    },
+    "developer": { "type": "string" },
+    "publisher": { "type": ["string", "null"] },
+    "release_date": { "type": ["string", "null"], "format": "date" },
+    "one_liner": {
+      "type": "string",
+      "description": "마케팅 문구를 걷어낸 한 줄 정의."
+    },
+    "taste_tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "취향 결 매칭용 태그(local-first, minimal-ui, one-time-purchase, no-account 등)."
+    },
+    "assessed_at": { "type": "string", "format": "date" },
+    "method": {
+      "type": "string",
+      "enum": ["desk_research", "hands_on", "mixed"],
+      "description": "평가 방법. 데스크 리서치면 직접 플레이·설치 없이 공개 정보만 썼다는 뜻."
+    },
+    "maintenance_status": {
+      "type": "string",
+      "enum": ["active", "feature_complete", "stale_unknown", "abandoned"],
+      "description": "제품이 지금 어떤 수명 단계인가. active=업데이트·운영이 이어짐, feature_complete=개발사가 완결을 선언(패키지 게임 등)해 업데이트 공백이 방치가 아님, stale_unknown=오래 멈췄고 완결·방치 여부를 확인하지 못함, abandoned=12개월 이상 중단 + 공약 미이행. feature_complete 만 stale_over_12m 필터에서 면제된다(x-pharos.client.stale_exemption)."
+    },
+    "maintenance_note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "maintenance_status 판단 근거 한 줄(선택이지만 feature_complete·abandoned 에는 사실상 필수)."
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "flags": { "$ref": "#/$defs/flags" },
+    "tiers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/tier" }
+    },
+    "axes": { "$ref": "#/$defs/axes" },
+    "verdict": { "$ref": "#/$defs/verdict" },
+    "review_snapshot": { "$ref": "#/$defs/reviewSnapshot" },
+    "update_profile": { "$ref": "#/$defs/updateProfile" },
+    "monetization": { "$ref": "#/$defs/monetization" },
+    "data_quality": { "$ref": "#/$defs/dataQuality" }
+  },
+  "$defs": {
+    "grade": {
+      "type": "string",
+      "enum": ["A", "B", "C", "A/B", "A/C", "B/C", "unknown"],
+      "description": "A=스토어·공식 직접 확인, B=언론·공식 발표 인용, C=3자 집계·개별 리뷰·커뮤니티."
+    },
+    "tri": {
+      "type": "string",
+      "enum": ["yes", "no", "unknown", "not_assessed"],
+      "description": "3값 사실 + 미평가. unknown/not_assessed는 통과로 치지 않고 '주의'로 표시한다."
+    },
+    "signal": {
+      "type": "string",
+      "enum": ["green", "yellow", "red", "unknown"]
+    },
+    "verdictValue": {
+      "type": "string",
+      "enum": ["recommend", "conditional", "avoid"]
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["steam", "android", "ios", "windows", "macos", "linux", "web", "console", "other"]
+    },
+    "sourceIdList": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+      "description": "sources[].id 참조."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "url", "type", "grade", "accessed_at"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+        "title": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "type": {
+          "type": "string",
+          "enum": ["store", "official", "press", "aggregator", "community"]
+        },
+        "grade": { "$ref": "#/$defs/grade" },
+        "accessed_at": { "type": "string", "format": "date" },
+        "note": { "type": "string" }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "evidence_grade", "source_ids", "note"],
+      "properties": {
+        "value": { "$ref": "#/$defs/tri" },
+        "evidence_grade": { "$ref": "#/$defs/grade" },
+        "source_ids": { "$ref": "#/$defs/sourceIdList" },
+        "verification": {
+          "type": "string",
+          "enum": ["direct", "reported_only", "inferred", "absent"],
+          "description": "direct=직접 화면/문서 확인, reported_only=3자 서술 인용, inferred=정황 추론, absent=부재 근거(보도·불만 없음)."
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "하드 필터가 직접 읽는 원자료. 값은 yes/no/unknown/not_assessed이며 반드시 근거 등급을 동반한다.",
+      "required": [
+        "contains_ads",
+        "gacha_random_items",
+        "forced_ad_before_use",
+        "bait_ad",
+        "p2w",
+        "iap_required_to_progress"
+      ],
+      "properties": {
+        "contains_ads": { "$ref": "#/$defs/fact" },
+        "gacha_random_items": { "$ref": "#/$defs/fact" },
+        "forced_ad_before_use": { "$ref": "#/$defs/fact" },
+        "bait_ad": { "$ref": "#/$defs/fact" },
+        "p2w": { "$ref": "#/$defs/fact" },
+        "iap_required_to_progress": { "$ref": "#/$defs/fact" },
+        "subscription_required": { "$ref": "#/$defs/fact" },
+        "account_required": { "$ref": "#/$defs/fact" },
+        "stale_over_12m": { "$ref": "#/$defs/fact" },
+        "compat_risk": {
+          "$ref": "#/$defs/fact",
+          "description": "보안·OS 호환성 이슈라는 별도 신호(선택). maintenance_status 'feature_complete' 로 stale_over_12m 을 면제받은 항목이라도 이 값이 yes 면 추천까지 가지 않고 '조건부 경고'로 내린다."
+        },
+        "data_collected": { "$ref": "#/$defs/fact" },
+        "data_export": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "evidence_grade", "source_ids", "note"],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": ["full", "partial", "none", "unknown"]
+            },
+            "evidence_grade": { "$ref": "#/$defs/grade" },
+            "source_ids": { "$ref": "#/$defs/sourceIdList" },
+            "note": { "type": "string" }
+          }
+        }
+      }
+    },
+    "money": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": { "type": "number", "minimum": 0 },
+        "currency": { "type": "string", "enum": ["KRW", "USD", "EUR", "JPY", "GBP"] }
+      }
+    },
+    "hardFilterResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence_grade", "note"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "fail", "unknown", "exempt"],
+          "description": "pass=필터에 걸리지 않음, fail=걸림(거름), unknown=근거 부족 → '주의', exempt=필터 대상이지만 면제 규칙 적용으로 거름 아님(현재 stale_over_12m + maintenance_status 'feature_complete' 에서만 허용)."
+        },
+        "evidence_grade": { "$ref": "#/$defs/grade" },
+        "note": { "type": "string" },
+        "source_ids": { "$ref": "#/$defs/sourceIdList" }
+      }
+    },
+    "hardFilters": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "티어별 하드 필터 판정. 9개 키를 모두 채운다(클라이언트 토글과 1:1).",
+      "required": [
+        "forced_ads",
+        "gacha_random_items",
+        "bait_ad",
+        "p2w",
+        "iap_required_to_progress",
+        "stale_over_12m",
+        "subscription_required",
+        "account_required",
+        "data_collection"
+      ],
+      "properties": {
+        "forced_ads": { "$ref": "#/$defs/hardFilterResult" },
+        "gacha_random_items": { "$ref": "#/$defs/hardFilterResult" },
+        "bait_ad": { "$ref": "#/$defs/hardFilterResult" },
+        "p2w": { "$ref": "#/$defs/hardFilterResult" },
+        "iap_required_to_progress": { "$ref": "#/$defs/hardFilterResult" },
+        "stale_over_12m": { "$ref": "#/$defs/hardFilterResult" },
+        "subscription_required": { "$ref": "#/$defs/hardFilterResult" },
+        "account_required": { "$ref": "#/$defs/hardFilterResult" },
+        "data_collection": { "$ref": "#/$defs/hardFilterResult" }
+      }
+    },
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tier_id",
+        "label",
+        "kind",
+        "price",
+        "hard_filters",
+        "verdict",
+        "one_liner",
+        "recommended_path"
+      ],
+      "properties": {
+        "tier_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+        "label": { "type": "string" },
+        "kind": {
+          "type": "string",
+          "enum": ["free", "freemium", "demo", "one_time", "subscription", "license", "consumable"]
+        },
+        "price": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["amount", "currency", "period", "display"],
+          "properties": {
+            "amount": { "type": ["number", "null"], "minimum": 0 },
+            "currency": { "type": "string", "enum": ["KRW", "USD", "EUR", "JPY", "GBP", "none"] },
+            "period": { "type": "string", "enum": ["none", "month", "year", "one_time"] },
+            "display": { "type": "string", "description": "사람이 읽는 가격 표기(플랫폼별 차이 포함)." }
+          }
+        },
+        "limits": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "무료 한도·제약(노트 수, 기기 수, 저장량 등)."
+        },
+        "hard_filters": { "$ref": "#/$defs/hardFilters" },
+        "axis_overrides": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "티어가 실질적으로 다른 경험을 줄 때만 축 점수·신호를 덮어쓴다. 반드시 사유(note)를 적는다.",
+          "properties": {
+            "user_rating": { "$ref": "#/$defs/axisOverride" },
+            "objective": { "$ref": "#/$defs/axisOverride" },
+            "ai_review": { "$ref": "#/$defs/axisOverride" },
+            "personal_fit": { "$ref": "#/$defs/axisOverride" }
+          }
+        },
+        "verdict": { "$ref": "#/$defs/verdictValue" },
+        "one_liner": { "type": "string" },
+        "recommended_path": {
+          "type": "boolean",
+          "description": "이 티어가 '최소 비용 추천 경로'인지. 티어당 1개만 true."
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "axisOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "signal", "note"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "signal": { "$ref": "#/$defs/signal" },
+        "note": { "type": "string" }
+      }
+    },
+    "axis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "signal", "evidence_grade", "confidence", "summary"],
+      "properties": {
+        "score": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 100,
+          "description": "0~100 정규화 점수. 근거가 없으면 null(가중치 계산에서 제외)."
+        },
+        "signal": { "$ref": "#/$defs/signal" },
+        "signal_basis": {
+          "type": "string",
+          "enum": ["score", "review_override"],
+          "description": "score=임계값 자동 산출, review_override=사람 검토로 덮어씀(사유 필수)."
+        },
+        "evidence_grade": { "$ref": "#/$defs/grade" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "summary": { "type": "string" },
+        "source_ids": { "$ref": "#/$defs/sourceIdList" },
+        "profile_id": {
+          "type": "string",
+          "description": "personal_fit 축이 특정 프로필 기준일 때(예: P1). 프로필 전용 축임을 표시."
+        },
+        "override_reason": {
+          "type": "string",
+          "description": "signal_basis=review_override일 때 임계값과 다르게 판단한 이유."
+        }
+      }
+    },
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["user_rating", "objective", "ai_review"],
+      "properties": {
+        "user_rating": {
+          "$ref": "#/$defs/axis",
+          "description": "축1 사용자(대중) 평가. 최근 구간 우선, 없으면 누적."
+        },
+        "objective": {
+          "$ref": "#/$defs/axis",
+          "description": "축2 객관·신뢰 지표(과금·광고·유지보수·양산성)."
+        },
+        "ai_review": {
+          "$ref": "#/$defs/axis",
+          "description": "축3 AI 자동 검토(본질·완성도·정직성)."
+        },
+        "personal_fit": {
+          "$ref": "#/$defs/axis",
+          "description": "축4 나만의 기준 적합도. 프로필이 있을 때만 계산에 포함(기본 가중치 0)."
+        }
+      }
+    },
+    "verdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "tier_of_record", "signals", "one_liner", "reasons", "hard_filter_blocked"],
+      "properties": {
+        "overall": { "$ref": "#/$defs/verdictValue" },
+        "tier_of_record": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "description": "앱 전체를 대표하는 티어의 tier_id."
+        },
+        "signals": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["user_rating", "objective", "ai_review"],
+          "properties": {
+            "user_rating": { "$ref": "#/$defs/signal" },
+            "objective": { "$ref": "#/$defs/signal" },
+            "ai_review": { "$ref": "#/$defs/signal" },
+            "personal_fit": { "$ref": "#/$defs/signal" }
+          }
+        },
+        "one_liner": { "type": "string" },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "hard_filter_blocked": {
+          "type": "boolean",
+          "description": "대표 티어가 기본 활성 필터 세트에 걸렸는지."
+        },
+        "condition_notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "reviewMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric", "value", "scale", "count", "evidence_grade"],
+      "properties": {
+        "metric": {
+          "type": "string",
+          "enum": ["positive_rate", "stars", "score"]
+        },
+        "value": { "type": "number", "minimum": 0 },
+        "scale": { "type": "string", "enum": ["percent", "stars5", "out_of_10"] },
+        "count": { "type": ["integer", "null"], "minimum": 0 },
+        "window": { "type": "string", "description": "집계 기간(예: 최근 30일, 2026-06-08~2026-11-01)." },
+        "evidence_grade": { "$ref": "#/$defs/grade" }
+      }
+    },
+    "reviewSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min_sample", "platforms", "sample_sufficient", "downgrade_applied", "summary"],
+      "properties": {
+        "min_sample": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "최근 리뷰 최소 표본(기준표 v0.2: 100)."
+        },
+        "platforms": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["platform", "cumulative"],
+            "properties": {
+              "platform": { "$ref": "#/$defs/platform" },
+              "cumulative": { "$ref": "#/$defs/reviewMetric" },
+              "recent": { "$ref": "#/$defs/reviewMetric" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "sample_sufficient": { "type": "boolean" },
+        "downgrade_applied": { "type": "boolean" },
+        "summary": { "type": "string" }
+      }
+    },
+    "updateProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["latest_update", "cadence", "entries", "maintenance_quality", "assessment"],
+      "properties": {
+        "latest_update": { "type": ["string", "null"], "format": "date" },
+        "latest_update_platform": { "$ref": "#/$defs/platform" },
+        "cadence": { "type": "string", "enum": ["active", "irregular", "dormant", "unknown"] },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "evidence_grade", "note"],
+            "properties": {
+              "date": { "type": ["string", "null"], "format": "date" },
+              "type": {
+                "type": "string",
+                "enum": ["bugfix", "performance", "content", "monetization_terms", "policy_terms", "other", "unknown"]
+              },
+              "platform": { "$ref": "#/$defs/platform" },
+              "promise_status": {
+                "type": "string",
+                "enum": ["not_applicable", "on_time", "delayed", "delivered_late", "unfulfilled"]
+              },
+              "evidence_grade": { "$ref": "#/$defs/grade" },
+              "source_ids": { "$ref": "#/$defs/sourceIdList" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "maintenance_quality": {
+          "type": "string",
+          "enum": ["healthy", "risky_terms", "stalled_but_trusted", "abandoned", "unknown"],
+          "description": "healthy / risky_terms(과금·약관 변경이 평가 급락과 겹침) / stalled_but_trusted(과금 압박 없는 지연) / abandoned / unknown."
+        },
+        "assessment": { "type": "string" }
+      }
+    },
+    "monetization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ads", "iap", "summary"],
+      "properties": {
+        "ads": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["in_app_exposure", "ad_types", "store_declares_ads", "inflow_ad"],
+          "properties": {
+            "in_app_exposure": {
+              "type": "string",
+              "enum": ["none", "low", "medium", "high", "unknown"]
+            },
+            "ad_types": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["none", "rewarded", "interstitial", "banner", "native", "forced_interstitial", "unknown"]
+              }
+            },
+            "store_declares_ads": {
+              "type": ["boolean", "null"],
+              "description": "스토어 'Contains ads' 표기 여부. null=미확인."
+            },
+            "inflow_ad": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["present", "honesty", "evidence_grade", "note"],
+              "properties": {
+                "present": { "$ref": "#/$defs/tri" },
+                "honesty": {
+                  "type": "string",
+                  "enum": ["honest", "partly_misleading", "misleading", "unknown", "not_assessed"]
+                },
+                "evidence_grade": { "$ref": "#/$defs/grade" },
+                "source_ids": { "$ref": "#/$defs/sourceIdList" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        },
+        "iap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["present", "random_items", "first_purchase_prompt", "p2w", "required_to_progress", "evidence_grade"],
+          "properties": {
+            "present": { "$ref": "#/$defs/tri" },
+            "random_items": { "$ref": "#/$defs/tri" },
+            "price_range": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["min", "max", "evidence_grade", "note"],
+              "properties": {
+                "min": { "anyOf": [{ "$ref": "#/$defs/money" }, { "type": "null" }] },
+                "max": { "anyOf": [{ "$ref": "#/$defs/money" }, { "type": "null" }] },
+                "evidence_grade": { "$ref": "#/$defs/grade" },
+                "note": { "type": "string" }
+              }
+            },
+            "first_purchase_prompt": {
+              "type": "string",
+              "enum": ["immediate", "early", "mid", "late", "none", "unknown"]
+            },
+            "p2w": { "$ref": "#/$defs/tri" },
+            "required_to_progress": { "$ref": "#/$defs/tri" },
+            "evidence_grade": { "$ref": "#/$defs/grade" },
+            "source_ids": { "$ref": "#/$defs/sourceIdList" }
+          }
+        },
+        "subscription": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["present", "display"],
+          "properties": {
+            "present": { "$ref": "#/$defs/tri" },
+            "display": { "type": "string" }
+          }
+        },
+        "summary": { "type": "string" }
+      }
+    },
+    "dataQuality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall_grade", "unverified", "conflicts", "limitations"],
+      "properties": {
+        "overall_grade": { "$ref": "#/$defs/grade" },
+        "unverified": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "확인하지 못한 수치·주장. 추정으로 채우지 않고 여기에 남긴다."
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["field", "values", "resolution"],
+            "properties": {
+              "field": { "type": "string" },
+              "values": { "type": "array", "items": { "type": "string" } },
+              "resolution": { "type": "string" },
+              "source_ids": { "$ref": "#/$defs/sourceIdList" }
+            }
+          }
+        },
+        "limitations": { "type": "string" }
+      }
+    }
+  },
+  "x-pharos": {
+    "schema_version": "0.3.1",
+    "criteria_doc": "projects/pharos/criteria.md",
+    "client": {
+      "note": "정적 웹 프론트엔드가 서버 없이 계산하는 계약. 아이템 1건 × 티어 1개 단위로 적용한다.",
+      "arenas": [
+        {
+          "id": "pkm-notes",
+          "label": "노트·지식관리",
+          "category": "productivity",
+          "description": "내 노트와 지식을 어디에 두고 어떻게 꺼내 쓰는가 — 파일 소유권·계정·동기화·내보내기에서 갈린다."
+        },
+        {
+          "id": "roguelike-deckbuilder",
+          "label": "덱빌딩 게임",
+          "category": "game",
+          "description": "한 판씩 덱을 만들어 다시 도는 싱글플레이 덱빌딩 — 1회 구매 완결형과 부분유료형이 같은 자리에 있다."
+        },
+        {
+          "id": "mobile-gacha-rpg",
+          "label": "모바일 수집형 RPG",
+          "category": "game",
+          "description": "캐릭터 수집·확률형 뽑기·서버 경쟁이 수익 구조인 모바일 RPG — 파로스가 가장 먼저 걷어내는 비교군."
+        }
+      ],
+      "arena_rules": "비교군 선택은 카테고리·검색과 AND로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 비교군 기준으로 다시 계산한다. 아이템의 arenas 는 비울 수 없고, arena_notes 의 키는 arenas 에 포함된 id 여야 한다.",
+      "axes": [
+        { "key": "user_rating", "label": "사용자 평가", "default_weight": 0.4, "path": "axes.user_rating.score" },
+        { "key": "objective", "label": "객관·신뢰 지표", "default_weight": 0.35, "path": "axes.objective.score" },
+        { "key": "ai_review", "label": "AI 검토", "default_weight": 0.25, "path": "axes.ai_review.score" },
+        { "key": "personal_fit", "label": "내 기준 적합", "default_weight": 0.0, "path": "axes.personal_fit.score", "profile_scoped": true }
+      ],
+      "hard_filters": [
+        { "key": "forced_ads", "label": "강제 전면 광고 제외", "flag": "flags.forced_ad_before_use" },
+        { "key": "gacha_random_items", "label": "확률형 아이템 제외", "flag": "flags.gacha_random_items" },
+        { "key": "bait_ad", "label": "미끼형 광고 제외", "flag": "flags.bait_ad" },
+        { "key": "p2w", "label": "P2W 제외", "flag": "flags.p2w" },
+        { "key": "iap_required_to_progress", "label": "과금 없이 진행 불가 제외", "flag": "flags.iap_required_to_progress" },
+        { "key": "stale_over_12m", "label": "12개월 이상 방치 제외", "flag": "flags.stale_over_12m" },
+        { "key": "subscription_required", "label": "구독 필수 제외", "flag": "flags.subscription_required" },
+        { "key": "account_required", "label": "계정 필수 제외", "flag": "flags.account_required" },
+        { "key": "data_collection", "label": "과도한 데이터 수집 제외", "flag": "flags.data_collected" }
+      ],
+      "default_enabled_filters": ["forced_ads", "gacha_random_items", "p2w", "stale_over_12m"],
+      "maintenance_statuses": [
+        { "key": "active", "label": "개발 중", "tone": "ok", "description": "업데이트·운영이 이어지고 있다" },
+        { "key": "feature_complete", "label": "완결작", "tone": "ok", "description": "개발사가 완결을 선언 — 업데이트 공백이 방치와 다르다" },
+        { "key": "stale_unknown", "label": "상태 미확인", "tone": "warn", "description": "오래 멈췄고 완결인지 방치인지 확인하지 못했다" },
+        { "key": "abandoned", "label": "방치", "tone": "bad", "description": "12개월 이상 중단 + 공약 미이행" }
+      ],
+      "stale_exemption": {
+        "field": "maintenance_status",
+        "exempt_value": "feature_complete",
+        "filter_key": "stale_over_12m",
+        "recorded_status": "exempt",
+        "rule": "tier.hard_filters.stale_over_12m.status == 'fail' 이라도 item.maintenance_status == 'feature_complete' 이면 거름으로 잡지 않고 'exempt' 로 계산한다. 단 flags.compat_risk.value == 'yes'(보안·OS 호환성 별도 신호)면 추천 대신 '조건부 경고'로 내린다. abandoned·stale_unknown 과 서비스형 앱·라이브 게임의 12개월 이상 중단은 그대로 fail 로 거른다."
+      },
+      "score_formula": "score = Σ(w_k × s_k) / Σ(w_k); s_k는 0~100, s_k가 null인 축은 분자·분모에서 제외. 입력 가중치는 합계로 정규화한다.",
+      "signal_thresholds": { "green_min": 75, "yellow_min": 50 },
+      "verdict_rules": [
+        "1. 활성 필터 중 tier.hard_filters[key].status == 'fail' → avoid (strict_evidence=false 이고 evidence_grade=='C'면 2단계로 진행하며 '근거 약함' 배지). status 'exempt'(완결작 면제)는 fail 이 아니다.",
+        "2. 유효 신호에서 red 개수 >= 2 → avoid",
+        "3. red 개수 == 1 → conditional",
+        "4. yellow 개수 >= 2 → conditional",
+        "5. score >= 80 이고 yellow <= 1 이면 recommend",
+        "6. 그 외 conditional",
+        "7. 완결작 면제(exempt)에 flags.compat_risk.value == 'yes' 가 붙으면 위 결과가 recommend 여도 conditional('완결작 · 호환성 주의')로 내린다."
+      ],
+      "effective_signal": "tier.axis_overrides[key].signal ?? axes[key].signal",
+      "effective_score": "tier.axis_overrides[key].score ?? axes[key].score",
+      "evidence_rules": {
+        "recent_sample_min": 100,
+        "sample_downgrade": "최근 리뷰 표본 < 100 → 신호 1단계 하향(green→yellow→red)",
+        "primary_over_third_party": true,
+        "strict_evidence_default": true,
+        "unspecified_value": "score가 null이면 ⚪로 표시하고 가중 계산에서 제외. unknown 필터는 통과가 아니라 '주의'."
+      },
+      "display": {
+        "card_signals": "verdict.signals 또는 티어 유효 신호 3~4개",
+        "tier_badges": "tiers[].label + tiers[].verdict (최대 2개)",
+        "cheapest_path": "tiers[].recommended_path == true 인 티어를 하단 고정",
+        "maintenance_badge": "item.maintenance_status 가 active 가 아니면 카드에 상태 배지(완결작·상태 미확인·방치) + title=maintenance_note, 상세 06번 섹션에 항상 상태 필"
+      }
+    }
+  }
+}

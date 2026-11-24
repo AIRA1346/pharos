@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+<title>파로스 Pharos — 별점 대신, 내 기준으로 거르는 앱·게임 선별</title>
+<meta name="description" content="파로스는 사용자 평가·객관 신뢰 지표·AI 검토를 내 가중치로 합치고, 강제 광고·확률형 아이템 같은 절대 거름 조건을 적용해 앱과 게임을 선별합니다. 모든 계산은 브라우저에서 실시간으로 이뤄집니다." />
+<link rel="stylesheet" href="./styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070e19'/%3E%3Cpath d='M16 5l3.2 6.4L16 27l-3.2-15.6z' fill='%23f4b75e'/%3E%3Ccircle cx='16' cy='9' r='1.6' fill='%23fff8ea'/%3E%3C/svg%3E" />
+</head>
+<body>
+<a class="skip-link" href="#results">선별 결과로 건너뛰기</a>
+
+<div class="sea" aria-hidden="true">
+  <div class="beam-sweep"></div>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe3ae" />
+          <stop offset="100%" stop-color="#f4b75e" stop-opacity="0.15" />
+        </linearGradient>
+      </defs>
+      <path class="mark-beam" d="M24 6 L10 26 H17 L24 6 Z" fill="url(#beamGrad)" opacity="0.75" />
+      <path class="mark-beam" d="M24 6 L38 26 H31 L24 6 Z" fill="url(#beamGrad)" opacity="0.45" />
+      <path d="M21.2 6h5.6l2.2 26H19z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+      <path d="M18.4 32h11.2l2 8H16.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+      <circle cx="24" cy="12" r="2" fill="currentColor" />
+      <path d="M15 44h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+    <div class="brand-text">
+      <p class="wordmark">PHAROS<span class="wordmark-sub">파로스</span></p>
+      <p class="tagline">별점 대신, 내 기준으로 거르는 앱·게임 선별</p>
+    </div>
+  </div>
+  <div class="topbar-side">
+    <span class="dataset-chip" id="datasetChip" title="데이터·스키마 버전">불러오는 중…</span>
+    <button type="button" class="ghost-btn" id="themeToggle" aria-pressed="true">
+      <span class="ghost-ico" aria-hidden="true">◐</span><span id="themeLabel">다크</span>
+    </button>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="controls" id="controls" aria-label="선별 기준 설정">
+    <section class="panel" id="weightsPanel">
+      <div class="panel-head">
+        <h2>축 가중치</h2>
+        <span class="panel-hint">합계 100%로 정규화</span>
+      </div>
+      <p class="hint">세 축의 상대 비중을 정합니다. 점수가 없는 축은 계산에서 빠집니다.</p>
+      <div id="weights" class="weights"></div>
+      <div class="weight-bar" id="weightBar" aria-hidden="true"></div>
+      <div class="preset-block">
+        <p class="mini-label">프리셋</p>
+        <div class="preset-row" id="presets"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="filtersPanel">
+      <div class="panel-head">
+        <h2>하드 필터</h2>
+        <span class="panel-hint" id="filterCount">0/0</span>
+      </div>
+      <p class="hint">켜진 필터에 하나라도 걸리면 그 티어는 곧바로 <strong>거름</strong>입니다.</p>
+      <div id="filters" class="filter-list"></div>
+      <button type="button" class="text-btn" id="resetFilters">기본 세트로 되돌리기</button>
+    </section>
+
+    <section class="panel" id="strictPanel">
+      <div class="panel-head">
+        <h2>근거 엄격 모드</h2>
+        <span class="panel-hint" id="strictState">ON</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="strictToggle" checked />
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        <span class="switch-text"><code>strict_evidence</code> — 등급 C 근거만 있는 필터 적중도 거름으로 처리</span>
+      </label>
+      <p class="hint" id="strictHint">끄면 근거가 약한(등급 C) 필터 적중은 ‘근거 약함’ 경고가 붙은 <strong>조건부</strong>로 완화됩니다.</p>
+    </section>
+
+    <p class="controls-foot" id="controlsFoot">데이터를 불러오는 중입니다.</p>
+  </aside>
+
+  <main id="results" class="results">
+    <p class="boot-note" id="bootNote">
+      이 페이지는 <strong>정적 HTTP 서버</strong>로 열어야 합니다. <code>projects/pharos/web</code> 폴더에서
+      <code>python3 -m http.server 8000</code> 을 실행한 뒤 <code>http://localhost:8000/</code> 로 접속해 주세요.
+    </p>
+    <section class="toolbar" aria-label="목록 필터">
+      <div class="arena-bar">
+        <span class="arena-title">비교군</span>
+        <div class="segmented" id="arenas" role="group" aria-label="비교군 선택"></div>
+        <span class="arena-help" id="arenaHelp">같은 자리를 두고 겨루는 대체제끼리 묶어 봅니다</span>
+      </div>
+      <button type="button" class="ghost-btn mobile-only" id="controlsToggle" aria-expanded="false" aria-controls="controls">
+        <span class="ghost-ico" aria-hidden="true">⚙</span>내 기준
+      </button>
+      <div class="segmented" id="categories" role="group" aria-label="카테고리"></div>
+      <label class="search">
+        <span class="search-ico" aria-hidden="true">⌕</span>
+        <input type="search" id="search" placeholder="이름·개발자·장르 검색" autocomplete="off" aria-label="이름 검색" />
+      </label>
+      <div class="select-row">
+        <label class="select-label" for="sort">정렬</label>
+        <select id="sort">
+          <option value="score">점수 높은 순</option>
+          <option value="score-asc">점수 낮은 순</option>
+          <option value="risk">최근 평가 위험 순</option>
+          <option value="name">이름순</option>
+        </select>
+      </div>
+      <label class="check-row">
+        <input type="checkbox" id="showAvoided" checked />
+        <span>거름 항목 표시</span>
+      </label>
+      <span class="panel-hint" id="listCount">0건</span>
+    </section>
+
+    <section class="summary" id="summary" aria-label="요약"></section>
+
+    <section class="result-section" id="pickSection">
+      <div class="section-head">
+        <h2>선별 결과</h2>
+        <span class="section-hint" id="pickCount"></span>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="emptyPick" hidden>조건에 맞는 항목이 없습니다. 필터를 줄이거나 검색어를 비워보세요.</p>
+    </section>
+
+    <section class="result-section" id="avoidSection">
+      <div class="section-head">
+        <h2><span class="verdict-dot verdict-dot--bad"></span>거름 — 왜 걸렸는지</h2>
+        <span class="section-hint" id="avoidCount"></span>
+      </div>
+      <p class="hint section-sub">필터가 작동한 이유를 그대로 보여줍니다. 켜진 필터에 걸린 항목은 점수와 무관하게 아래로 내려갑니다.</p>
+      <div class="grid grid--avoided" id="avoidGrid"></div>
+      <p class="empty" id="emptyAvoid" hidden>지금 설정에서 거름으로 내려간 항목이 없습니다.</p>
+    </section>
+
+    <footer class="page-foot">
+      <p id="footData"></p>
+      <p class="foot-note">
+        모든 점수·판정은 이 브라우저에서 <code>x-pharos.client</code> 계약으로 실시간 재계산됩니다.
+        서버·빌드 없이 정적 파일만으로 동작합니다.
+      </p>
+    </footer>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-head">
+      <div class="modal-titles">
+        <div class="chips" id="modalChips"></div>
+        <h2 id="modalTitle">—</h2>
+        <p class="modal-dev" id="modalDev"></p>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="icon-btn" id="modalClose" aria-label="상세 닫기">✕</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<noscript>
+  <p class="noscript">파로스는 브라우저에서 계산합니다. JavaScript를 켜야 선별 결과가 보입니다.</p>
+</noscript>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
