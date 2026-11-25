@@ -12,6 +12,8 @@
 거르고 싶으면 미세조정의 `strict_monetization`(기본 OFF)을 켭니다. Black Desert 54.15→**80.1 🟢**, Guild Wars 2 →**77.2 🟡**,
 Bloons TD 6 →**81.3 🟢**, Limbus Company →**78.7 🟡** 로 재적용하고, Lost Ark·Clash Royale·Plants vs. Zombies 2·Archero·Hero Wars·Genshin Impact 는 `core`(🔴)로 남겼습니다.
 
+**모바일 게임 3차 확장 (2026-11-25):** 전체 **29건**. `모바일 수집형 RPG` 에 승리의 여신: 니케(69.65 🔴)·블루 아카이브(75.5 🟡)·붕괴: 스타레일(70.1 🔴), `모바일 전략·디펜스` 에 Clash of Clans(78.5 🟡)·Arknights(80.2 🟢)를 더했습니다. 같은 확률형이라도 마일리지 교환·확정 천장 이월·90연 천장으로 강도가 갈리고, 무료+시간 게이트(CoC)와 타워디펜스+확률형 수집(Arknights)이 한 표에 놓입니다.
+
 ## v2 — 4단 탐색으로 개편
 
 `spec/plan.md` v2.0 의 2단계 결과물입니다. 비교군 → 앱/게임 역전 구조와 `전체` 평균 혼합을 폐기하고,
