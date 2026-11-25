@@ -1309,7 +1309,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "문서 협업과 접근성은 최고. 다만 15GB를 나눠 쓰고 암호화는 기본이 아니다.",
         "recommended_path": true
       },
@@ -1382,7 +1382,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "월 US$1.99로 100GB. 저장공간만 필요하면 가장 싼 선택지 중 하나.",
         "recommended_path": false
       }
@@ -1401,12 +1401,12 @@
         ]
       },
       "objective": {
-        "score": 52,
+        "score": 66,
         "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "15GB를 Gmail·Photos와 공유해 실제 여유가 작고, 개인용은 종단간 암호화가 아니며 CSE는 Enterprise Plus 전용이다. 초과 상태가 2년 이어지면 데이터가 삭제될 수 있다. 무료·100GB 가격 자체는 저렴하다.",
+        "summary": "15GB를 Gmail·Photos와 공유해 실제 여유가 작고, 개인용은 종단간 암호화가 아니며, 초과가 2년 이어지면 데이터가 삭제될 수 있다. v0.5.0 객관 기준으로 Docs·Sheets 협업, 검색·공유, 기기 폭과 안정성을 최상급으로 반영했다 — '클라우드라서' 깎지 않는다.",
         "source_ids": [
           "gdrive-storage",
           "gdrive-quota",
@@ -1415,12 +1415,12 @@
         ]
       },
       "ai_review": {
-        "score": 72,
-        "signal": "yellow",
+        "score": 80,
+        "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "Docs·Sheets·Slides 협업과 검색·공유 편의성은 대체가 어렵다. 감점: '내 파일'이라기보다 'Google 계정에 붙은 공간'에 가깝고, 암호화·삭제 규칙이 개인 사용자에게 불리하게 설계돼 있다.",
+        "summary": "본질(어디서나 열리는 문서·검색·공유·협업)의 완성도는 최상급이고 앱 안정성도 높다. v0.5.0은 소유권·암호화 같은 조건을 AI 검토에서 다시 깎지 않고 객관 축·한도·조건에만 남긴다(같은 사실 두 번 감점 금지).",
         "source_ids": [
           "gdrive-cse",
           "gdrive-quota"
@@ -1428,18 +1428,18 @@
       }
     },
     "verdict": {
-      "overall": "conditional",
+      "overall": "recommend",
       "tier_of_record": "free",
       "signals": {
         "user_rating": "green",
         "objective": "yellow",
-        "ai_review": "yellow"
+        "ai_review": "green"
       },
-      "one_liner": "협업은 최고, 소유권은 약하다. 15GB는 Gmail·Photos와 나눠 쓴다.",
+      "one_liner": "협업과 접근성은 최상급 — 대신 15GB를 Gmail·Photos와 나눠 쓰고, 개인용 암호화는 기본이 아니다.",
       "reasons": [
         "Play 4.3★(1,086만)·iOS 4.79★(35만)로 접근성·협업 만족도가 높다.",
         "15GB를 Gmail·Photos와 공유하고, 개인용은 종단간 암호화가 아니다.",
-        "할당량 초과가 2년 이어지면 Gmail·Drive·Photos 데이터가 삭제될 수 있다."
+        "v0.5.0은 '클라우드라서' 깎지 않는다 — 기능 완성도·생태계·안정성을 반영해 81.5, 암호화·삭제 규칙은 조건으로 남긴다."
       ],
       "hard_filter_blocked": false,
       "condition_notes": [
@@ -1563,6 +1563,10 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 한국 통화 가격과 세금은 확인하지 않았다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 기능 완성도·생태계(Workspace 연동)·안정성을 상급으로 반영(52→66). E2EE 부재·공유 쿼터·2년 삭제 규칙은 실제 보안·정책 감점으로 유지.",
+      "ai_review": "v0.5.0: '내 파일이 아니라 계정에 붙은 공간'이라는 소유권 감점을 AI 축에서 빼고 본질 완성도로 재평가(72→80). 그 사실은 objective 66과 limits·condition_notes 에 그대로 남긴다."
     }
   },
   {
@@ -1953,12 +1957,12 @@
         ]
       },
       "objective": {
-        "score": 48,
-        "signal": "red",
+        "score": 56,
+        "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "무료 2GB·3기기 제한이 이 비교군에서 가장 빡빡하고, 한도를 넘으면 Dropbox가 오래된 파일을 삭제할 수 있다. 종단간 암호화가 아니며 사용 활동을 구독 홍보에 쓴다. 유료 가격 대비 용량도 불리하다.",
+        "summary": "동기화·충돌 처리·선택적 동기화 완성도와 앱 안정성은 여전히 정교하다. 감점: 무료 2GB·3기기, 한도 초과 시 오래된 파일 삭제, E2EE 없음, 사용 활동을 구독 홍보에 사용, 가격 대비 용량.",
         "source_ids": [
           "dbx-basic",
           "dbx-devices",
@@ -1967,12 +1971,12 @@
         ]
       },
       "ai_review": {
-        "score": 62,
+        "score": 68,
         "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "동기화·충돌 처리·선택적 동기화는 여전히 정교하고 앱 완성도도 높다. 감점: 무료 티어가 '체험판'이 됐고, 초과 시 파일 삭제라는 강한 규칙을 사용자가 떠안는다.",
+        "summary": "동기화·충돌 처리·선택적 동기화는 여전히 정교하고 앱 완성도도 높다. v0.5.0은 무료 한도·삭제 규칙을 AI 검토에서 다시 깎지 않고(같은 사실 두 번 감점 금지) 객관 축·한도에 남긴다.",
         "source_ids": [
           "dbx-overquota",
           "dbx-basic"
@@ -1984,10 +1988,10 @@
       "tier_of_record": "basic",
       "signals": {
         "user_rating": "green",
-        "objective": "red",
+        "objective": "yellow",
         "ai_review": "yellow"
       },
-      "one_liner": "동기화는 좋지만 무료가 2GB·3기기. 넘치면 파일이 삭제될 수 있다.",
+      "one_liner": "동기화는 여전히 정교하지만 무료가 2GB·3기기. 넘치면 파일이 삭제될 수 있다.",
       "reasons": [
         "Play 4.3★(233만)·iOS 4.72★(1.5만)로 앱 평가는 안정적이다.",
         "무료 2GB·3기기 제한에 한도 초과 시 오래된 파일부터 삭제될 수 있다.",
@@ -2114,6 +2118,10 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 요금은 공식 페이지와 3자 이력(등급 C)을 함께 확인했다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 동기화 완성도·안정성을 상급으로 반영(48→56). 무료 한도·삭제 규칙·E2EE 부재는 유지.",
+      "ai_review": "v0.5.0: 무료 티어·삭제 규칙 감점을 AI 축에서 덜어냄(62→68). 그 사실은 objective 56과 limits 에 그대로 남긴다."
     }
   },
   {
@@ -2394,7 +2402,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "5GB는 문서 몇 개면 끝. Office 웹과 묶어 쓰는 정도.",
         "recommended_path": true
       },
@@ -2468,7 +2476,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "연 US$19.99로 100GB. 같은 값에 더 큰 용량을 주는 곳이 있다.",
         "recommended_path": false
       }
@@ -2487,12 +2495,12 @@
         ]
       },
       "objective": {
-        "score": 55,
+        "score": 64,
         "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "무료 5GB·100GB 연 US$19.99는 나쁘지 않지만, 한도 초과가 3개월 이어지면 계정이 얼고 6개월이면 파일이 삭제될 수 있다. 개인용은 종단간 암호화가 아니고 계정 기반 데이터가 결합된다.",
+        "summary": "무료 5GB·100GB 연 US$19.99는 나쁘지 않고, Windows 탐색기·Office 결합과 앱 안정성은 최상급이다. 감점: 한도 초과 3개월이면 계정 동결·6개월이면 파일 삭제, 개인용 E2EE 없음, 저장공간 개편 반복.",
         "source_ids": [
           "ms-quotas",
           "ms-plans",
@@ -2500,12 +2508,12 @@
         ]
       },
       "ai_review": {
-        "score": 70,
-        "signal": "yellow",
+        "score": 77,
+        "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "Windows 파일 탐색기·Office와의 결합은 대체가 어렵고 앱 안정성도 좋다. 감점: '내 파일'의 통제권이 약하고(암호화·삭제 규칙), 저장공간 개편이 반복돼 조건을 계속 다시 읽어야 한다.",
+        "summary": "본질(Windows·Office 와 붙는 파일 동기화)의 완성도와 앱 안정성은 높다. v0.5.0은 '내 파일 통제권' 같은 조건을 AI 검토에서 다시 깎지 않고 객관 축·한도·조건에만 남긴다.",
         "source_ids": [
           "ms-quotas",
           "ms-webapps"
@@ -2513,18 +2521,18 @@
       }
     },
     "verdict": {
-      "overall": "conditional",
+      "overall": "recommend",
       "tier_of_record": "free",
       "signals": {
         "user_rating": "green",
         "objective": "yellow",
-        "ai_review": "yellow"
+        "ai_review": "green"
       },
-      "one_liner": "Windows에서는 편하다. 다만 무료 5GB는 작고, 한도 초과가 길면 계정이 얼어붙는다.",
+      "one_liner": "Windows에서는 가장 매끄러운 클라우드 — 무료 5GB는 작고, 한도 초과가 길면 계정이 얼어붙는다.",
       "reasons": [
         "Play 4.6★(744만)·iOS 4.69★(2.6만)로 앱 평가가 높다.",
         "무료 5GB·100GB 연 US$19.99로 용량 대비 가격이 경쟁력 있지 않다.",
-        "한도 초과 3개월이면 계정 정지, 6개월이면 삭제 가능. 종단간 암호화도 아니다."
+        "v0.5.0은 클라우드 구조를 감점하지 않는다 — Windows·Office 결합과 안정성을 반영해 81.3, 동결·삭제 규칙은 조건으로 남긴다."
       ],
       "hard_filter_blocked": false,
       "condition_notes": [
@@ -2651,6 +2659,10 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 저장공간 개편은 신규·기존 구독자 조건이 달라 표를 함께 읽어야 한다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 연동성·안정성을 상급으로 반영(55→64). 동결·삭제 규칙과 E2EE 부재는 실제 감점으로 유지.",
+      "ai_review": "v0.5.0: 소유권·삭제 규칙 감점을 AI 축에서 빼고 본질 완성도로 재평가(70→77). 동결·삭제 규칙은 objective 64와 limits 에 그대로 남긴다."
     }
   }
 ]

@@ -2,8 +2,8 @@
   "schema_version": "0.4.0",
   "note": "분할 데이터에서 자동 생성된 경량 인덱스. 손으로 고치지 않는다(scripts/sync_web_data.py).",
   "weights": {
-    "user_rating": 0.4,
-    "objective": 0.35,
+    "user_rating": 0.5,
+    "objective": 0.25,
     "ai_review": 0.25
   },
   "counts": {
@@ -12,23 +12,23 @@
     "categories": 10,
     "arenas": 12
   },
-  "content_hash": "a7a63490324068b9dde294f48b1d0635db5be84d411eebc5483d762bd2326058",
+  "content_hash": "d8a77e1005517c801ba92213b73e7581e084a07035c39d16607f5a5987eb70b0",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
       "domain": "app",
       "category": "productivity",
       "count": 5,
-      "avg_score": 69.8,
+      "avg_score": 71.2,
       "verdicts": {
-        "recommend": 1,
-        "conditional": 4,
+        "recommend": 2,
+        "conditional": 3,
         "avoid": 0
       },
       "top_item": {
-        "id": "joplin",
-        "name": "Joplin",
-        "score": 82.0
+        "id": "obsidian",
+        "name": "Obsidian",
+        "score": 82.5
       },
       "items": [
         "evernote",
@@ -43,16 +43,16 @@
       "domain": "app",
       "category": "productivity",
       "count": 5,
-      "avg_score": 79.9,
+      "avg_score": 82.5,
       "verdicts": {
         "recommend": 4,
         "conditional": 0,
         "avoid": 1
       },
       "top_item": {
-        "id": "tasks-org",
-        "name": "Tasks.org",
-        "score": 88.0
+        "id": "things-3",
+        "name": "Things 3",
+        "score": 89.0
       },
       "items": [
         "microsoft-to-do",
@@ -67,7 +67,7 @@
       "domain": "app",
       "category": "security-utilities",
       "count": 4,
-      "avg_score": 83.3,
+      "avg_score": 84.9,
       "verdicts": {
         "recommend": 3,
         "conditional": 1,
@@ -76,7 +76,7 @@
       "top_item": {
         "id": "bitwarden",
         "name": "Bitwarden",
-        "score": 91.7
+        "score": 91.5
       },
       "items": [
         "1password",
@@ -90,16 +90,16 @@
       "domain": "game",
       "category": "strategy-card",
       "count": 4,
-      "avg_score": 80.3,
+      "avg_score": 82.2,
       "verdicts": {
         "recommend": 3,
-        "conditional": 0,
-        "avoid": 1
+        "conditional": 1,
+        "avoid": 0
       },
       "top_item": {
         "id": "balatro",
         "name": "Balatro",
-        "score": 94.65
+        "score": 94.75
       },
       "items": [
         "balatro",
@@ -113,16 +113,16 @@
       "domain": "game",
       "category": "rpg",
       "count": 6,
-      "avg_score": 68.8,
+      "avg_score": 71.0,
       "verdicts": {
-        "recommend": 1,
-        "conditional": 2,
+        "recommend": 2,
+        "conditional": 1,
         "avoid": 3
       },
       "top_item": {
         "id": "goddess-of-victory-nikke",
         "name": "승리의 여신: 니케 (GODDESS OF VICTORY: NIKKE)",
-        "score": 81.2
+        "score": 83.0
       },
       "items": [
         "blue-archive",
@@ -138,7 +138,7 @@
       "domain": "game",
       "category": "action-indie",
       "count": 4,
-      "avg_score": 77.9,
+      "avg_score": 80.9,
       "verdicts": {
         "recommend": 3,
         "conditional": 0,
@@ -147,7 +147,7 @@
       "top_item": {
         "id": "vampire-survivors",
         "name": "Vampire Survivors",
-        "score": 89.8
+        "score": 91.0
       },
       "items": [
         "archero",
@@ -161,7 +161,7 @@
       "domain": "game",
       "category": "mmorpg",
       "count": 4,
-      "avg_score": 69.9,
+      "avg_score": 71.2,
       "verdicts": {
         "recommend": 2,
         "conditional": 1,
@@ -170,7 +170,7 @@
       "top_item": {
         "id": "final-fantasy-xiv",
         "name": "FINAL FANTASY XIV",
-        "score": 80.7
+        "score": 82.5
       },
       "items": [
         "black-desert",
@@ -184,16 +184,16 @@
       "domain": "game",
       "category": "mobile-strategy",
       "count": 6,
-      "avg_score": 70.6,
+      "avg_score": 74.2,
       "verdicts": {
-        "recommend": 3,
-        "conditional": 1,
+        "recommend": 4,
+        "conditional": 0,
         "avoid": 2
       },
       "top_item": {
         "id": "bloons-td-6",
         "name": "Bloons TD 6",
-        "score": 81.3
+        "score": 84.5
       },
       "items": [
         "arknights",
@@ -209,7 +209,7 @@
       "domain": "app",
       "category": "internet-privacy",
       "count": 5,
-      "avg_score": 77.1,
+      "avg_score": 80.7,
       "verdicts": {
         "recommend": 2,
         "conditional": 3,
@@ -218,7 +218,7 @@
       "top_item": {
         "id": "brave",
         "name": "Brave",
-        "score": 86.2
+        "score": 88.0
       },
       "items": [
         "brave",
@@ -233,16 +233,16 @@
       "domain": "app",
       "category": "security-utilities",
       "count": 5,
-      "avg_score": 76.3,
+      "avg_score": 81.7,
       "verdicts": {
-        "recommend": 1,
-        "conditional": 4,
+        "recommend": 3,
+        "conditional": 2,
         "avoid": 0
       },
       "top_item": {
         "id": "proton-drive",
         "name": "Proton Drive",
-        "score": 87.2
+        "score": 87.0
       },
       "items": [
         "dropbox",
@@ -257,16 +257,16 @@
       "domain": "ai",
       "category": "ai-chat-research",
       "count": 5,
-      "avg_score": 80.3,
+      "avg_score": 83.3,
       "verdicts": {
-        "recommend": 2,
-        "conditional": 3,
+        "recommend": 4,
+        "conditional": 1,
         "avoid": 0
       },
       "top_item": {
         "id": "claude",
         "name": "Claude",
-        "score": 86.4
+        "score": 87.5
       },
       "items": [
         "chatgpt",
@@ -281,16 +281,16 @@
       "domain": "ai",
       "category": "ai-coding",
       "count": 4,
-      "avg_score": 78.9,
+      "avg_score": 81.1,
       "verdicts": {
         "recommend": 2,
         "conditional": 2,
         "avoid": 0
       },
       "top_item": {
-        "id": "cline",
-        "name": "Cline",
-        "score": 85.75
+        "id": "github-copilot",
+        "name": "GitHub Copilot",
+        "score": 84.5
       },
       "items": [
         "cline",
@@ -305,21 +305,9 @@
     "min_store_stars": 4.0,
     "items": [
       "hero-wars-alliance",
-      "microsoft-to-do",
       "archero",
-      "notion",
-      "clash-royale",
-      "edge",
-      "chrome",
-      "onedrive",
-      "dropbox",
-      "chatgpt",
-      "dashlane",
-      "gemini",
-      "google-drive",
-      "nextcloud",
-      "vivaldi",
-      "le-chat"
+      "microsoft-to-do",
+      "clash-royale"
     ]
   },
   "items": [
@@ -369,7 +357,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "individual",
-      "score": 82.4,
+      "score": 86.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -382,7 +370,7 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 70",
+          "label": "객관·신뢰 지표 🟡 74",
           "tone": "warn"
         }
       ],
@@ -429,7 +417,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "free",
-      "score": 53.85,
+      "score": 58.25,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
@@ -455,8 +443,8 @@
         "platform": "android",
         "count": 1740000,
         "stars_score": 84.0,
-        "score": 53.85,
-        "delta": 30.1,
+        "score": 58.25,
+        "delta": 25.8,
         "verdict": "avoid"
       }
     },
@@ -508,7 +496,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 80.2,
+      "score": 82.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -563,7 +551,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "buy_once",
-      "score": 94.65,
+      "score": 94.75,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
@@ -619,7 +607,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 91.7,
+      "score": 91.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -675,10 +663,10 @@
         "강화",
         "보화의 함"
       ],
-      "verdict": "recommend",
-      "stored_verdict": "recommend",
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
       "tier_of_record": "steam",
-      "score": 80.1,
+      "score": 79.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -741,7 +729,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "play",
-      "score": 81.3,
+      "score": 84.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -807,7 +795,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 75.5,
+      "score": 77.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -875,7 +863,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 86.2,
+      "score": 88.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -932,10 +920,10 @@
         "GPT",
         "AI"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 79.3,
+      "score": 84.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -948,19 +936,11 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 58",
+          "label": "객관·신뢰 지표 🟡 62",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.8,
-        "platform": "android",
-        "count": 69700000,
-        "stars_score": 96.0,
-        "score": 79.3,
-        "delta": 16.7,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "chrome",
@@ -1007,7 +987,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 62.9,
+      "score": 70.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B/C",
@@ -1020,23 +1000,15 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🔴 40",
-          "tone": "bad"
+          "label": "객관·신뢰 지표 🟡 50",
+          "tone": "warn"
         },
         {
           "label": "AI 검토 🟡 58",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.1,
-        "platform": "android",
-        "count": 49627351,
-        "stars_score": 82.0,
-        "score": 62.9,
-        "delta": 19.1,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "clash-of-clans",
@@ -1082,10 +1054,10 @@
         "슈퍼셀",
         "TH19"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 78.5,
+      "score": 81.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -1147,7 +1119,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "play",
-      "score": 55.2,
+      "score": 61.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1173,8 +1145,8 @@
         "platform": "android",
         "count": 41900000,
         "stars_score": 80.0,
-        "score": 55.2,
-        "delta": 24.8,
+        "score": 61.0,
+        "delta": 19.0,
         "verdict": "avoid"
       }
     },
@@ -1224,7 +1196,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 86.4,
+      "score": 87.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1284,7 +1256,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "open-source",
-      "score": 85.75,
+      "score": 84.25,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1339,7 +1311,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "premium",
-      "score": 71.3,
+      "score": 78.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
@@ -1351,7 +1323,7 @@
           "tone": "warn"
         },
         {
-          "label": "객관·신뢰 지표 🔴 40",
+          "label": "객관·신뢰 지표 🔴 46",
           "tone": "bad"
         }
       ],
@@ -1401,7 +1373,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "premium",
-      "score": 74.45,
+      "score": 78.25,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1422,15 +1394,7 @@
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.5,
-        "platform": "android",
-        "count": 244000,
-        "stars_score": 90.0,
-        "score": 74.45,
-        "delta": 15.5,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "dead-cells",
@@ -1480,7 +1444,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "steam",
-      "score": 85.4,
+      "score": 88.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -1543,7 +1507,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "basic",
-      "score": 67.9,
+      "score": 75.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1556,23 +1520,15 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🔴 48",
-          "tone": "bad"
+          "label": "객관·신뢰 지표 🟡 56",
+          "tone": "warn"
         },
         {
-          "label": "AI 검토 🟡 62",
+          "label": "AI 검토 🟡 68",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.3,
-        "platform": "android",
-        "count": 2329073,
-        "stars_score": 86.0,
-        "score": 67.9,
-        "delta": 18.1,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "edge",
@@ -1620,7 +1576,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 71.45,
+      "score": 76.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -1633,7 +1589,7 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 55",
+          "label": "객관·신뢰 지표 🟡 58",
           "tone": "warn"
         },
         {
@@ -1641,15 +1597,7 @@
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.7,
-        "platform": "android",
-        "count": 1644020,
-        "stars_score": 94.0,
-        "score": 71.45,
-        "delta": 22.5,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "evernote",
@@ -1689,7 +1637,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "paid_starter",
-      "score": 44.25,
+      "score": 41.75,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "B",
@@ -1763,7 +1711,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "kr-30d",
-      "score": 80.7,
+      "score": 82.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1823,7 +1771,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 85.8,
+      "score": 87.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -1879,10 +1827,10 @@
         "google",
         "AI"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 76.2,
+      "score": 81.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -1895,19 +1843,11 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 56",
+          "label": "객관·신뢰 지표 🟡 62",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.5,
-        "platform": "android",
-        "count": 52782487,
-        "stars_score": 90.0,
-        "score": 76.2,
-        "delta": 13.8,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "genshin-impact",
@@ -1954,7 +1894,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "free",
-      "score": 72.7,
+      "score": 74.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
@@ -2019,7 +1959,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "pro",
-      "score": 83.8,
+      "score": 84.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -2075,7 +2015,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 81.2,
+      "score": 83.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -2139,10 +2079,10 @@
         "클라우드",
         "구글 원"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 72.2,
+      "score": 81.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -2155,23 +2095,11 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 52",
-          "tone": "warn"
-        },
-        {
-          "label": "AI 검토 🟡 72",
+          "label": "객관·신뢰 지표 🟡 66",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.3,
-        "platform": "android",
-        "count": 10866667,
-        "stars_score": 86.0,
-        "score": 72.2,
-        "delta": 13.8,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "guild-wars-2",
@@ -2212,10 +2140,10 @@
         "확장팩",
         "자유도"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "core-free",
-      "score": 77.2,
+      "score": 80.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -2272,7 +2200,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "steam",
-      "score": 82.7,
+      "score": 86.5,
       "maintenance_status": "feature_complete",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -2324,7 +2252,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "free",
-      "score": 34.6,
+      "score": 38.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "B",
@@ -2350,8 +2278,8 @@
         "platform": "android",
         "count": 1810000,
         "stars_score": 92.0,
-        "score": 34.6,
-        "delta": 57.4,
+        "score": 38.0,
+        "delta": 54.0,
         "verdict": "avoid"
       }
     },
@@ -2404,7 +2332,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "free",
-      "score": 70.1,
+      "score": 71.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -2460,7 +2388,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "buy_once",
-      "score": 80.15,
+      "score": 84.25,
       "maintenance_status": "feature_complete",
       "assessed_at": "2026-11-24",
       "evidence_grade": "B",
@@ -2515,7 +2443,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 82.0,
+      "score": 81.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
@@ -2575,7 +2503,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 84.67,
+      "score": 84.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -2627,7 +2555,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "play",
-      "score": 80.2,
+      "score": 84.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -2692,7 +2620,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 77.4,
+      "score": 79.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B/C",
@@ -2717,15 +2645,7 @@
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.5,
-        "platform": "android",
-        "count": 49986,
-        "stars_score": 90.0,
-        "score": 77.4,
-        "delta": 12.6,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "limbus-company",
@@ -2769,10 +2689,10 @@
         "프로젝트문",
         "Project Moon"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 78.7,
+      "score": 81.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -2834,7 +2754,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "steam-f2p",
-      "score": 41.45,
+      "score": 42.75,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
@@ -2897,7 +2817,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "free",
-      "score": 60.45,
+      "score": 66.75,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -2923,8 +2843,8 @@
         "platform": "android",
         "count": 486000,
         "stars_score": 92.0,
-        "score": 60.45,
-        "delta": 31.5,
+        "score": 66.75,
+        "delta": 25.2,
         "verdict": "avoid"
       }
     },
@@ -2974,7 +2894,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "community",
-      "score": 80.8,
+      "score": 83.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -2995,15 +2915,7 @@
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.7,
-        "platform": "android",
-        "count": 88222,
-        "stars_score": 94.0,
-        "score": 80.8,
-        "delta": 13.2,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "night-of-the-full-moon",
@@ -3039,10 +2951,10 @@
         "달빛 아래의 밤",
         "노템"
       ],
-      "verdict": "avoid",
-      "stored_verdict": "avoid",
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 54.25,
+      "score": 57.25,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "C",
@@ -3108,11 +3020,11 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 66.6,
+      "score": 77.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A/C",
-      "user_rating": 64,
+      "user_rating": 82,
       "store_stars": {
         "value": 4.6,
         "count": 408966,
@@ -3121,27 +3033,11 @@
       },
       "drivers": [
         {
-          "label": "사용자 평가 🟡 64",
-          "tone": "warn"
-        },
-        {
-          "label": "객관·신뢰 지표 🟡 70",
-          "tone": "warn"
-        },
-        {
           "label": "AI 검토 🟡 66",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.6,
-        "platform": "android",
-        "count": 408966,
-        "stars_score": 92.0,
-        "score": 66.6,
-        "delta": 25.4,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "obsidian",
@@ -3179,14 +3075,14 @@
       "keywords": [
         "옵시디언"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 82.0,
+      "score": 82.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
-      "user_rating": 82,
+      "user_rating": 85,
       "store_stars": {
         "value": 4.4,
         "count": 19500,
@@ -3243,10 +3139,10 @@
         "마이크로소프트",
         "클라우드"
       ],
-      "verdict": "conditional",
-      "stored_verdict": "conditional",
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 73.55,
+      "score": 81.25,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -3259,23 +3155,11 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 55",
-          "tone": "warn"
-        },
-        {
-          "label": "AI 검토 🟡 70",
+          "label": "객관·신뢰 지표 🟡 64",
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.6,
-        "platform": "android",
-        "count": 7438424,
-        "stars_score": 92.0,
-        "score": 73.55,
-        "delta": 18.5,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "perplexity",
@@ -3322,7 +3206,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 82.2,
+      "score": 84.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B/C",
@@ -3385,7 +3269,7 @@
       "verdict": "avoid",
       "stored_verdict": "avoid",
       "tier_of_record": "play",
-      "score": 48.0,
+      "score": 52.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -3453,7 +3337,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 87.2,
+      "score": 87.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -3512,7 +3396,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 74.0,
+      "score": 73.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A/C",
@@ -3576,7 +3460,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "buy_once",
-      "score": 92.2,
+      "score": 92.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
@@ -3690,7 +3574,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "iphone",
-      "score": 87.3,
+      "score": 89.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -3750,7 +3634,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "free",
-      "score": 80.8,
+      "score": 83.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
@@ -3814,7 +3698,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "beginner",
-      "score": 83.0,
+      "score": 85.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -3878,7 +3762,7 @@
       "verdict": "recommend",
       "stored_verdict": "recommend",
       "tier_of_record": "steam",
-      "score": 89.8,
+      "score": 91.0,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -3936,7 +3820,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "free",
-      "score": 79.3,
+      "score": 82.25,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
@@ -3949,7 +3833,7 @@
       },
       "drivers": [
         {
-          "label": "객관·신뢰 지표 🟡 70",
+          "label": "객관·신뢰 지표 🟡 73",
           "tone": "warn"
         },
         {
@@ -3957,15 +3841,7 @@
           "tone": "warn"
         }
       ],
-      "gap": {
-        "stars": 4.6,
-        "platform": "android",
-        "count": 138044,
-        "stars_score": 92.0,
-        "score": 79.3,
-        "delta": 12.7,
-        "verdict": "conditional"
-      }
+      "gap": null
     },
     {
       "id": "windsurf",
@@ -4014,7 +3890,7 @@
       "verdict": "conditional",
       "stored_verdict": "conditional",
       "tier_of_record": "pro",
-      "score": 74.7,
+      "score": 77.5,
       "maintenance_status": "active",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",

@@ -129,7 +129,17 @@
     "review_snapshot": { "$ref": "#/$defs/reviewSnapshot" },
     "update_profile": { "$ref": "#/$defs/updateProfile" },
     "monetization": { "$ref": "#/$defs/monetization" },
-    "data_quality": { "$ref": "#/$defs/dataQuality" }
+    "data_quality": { "$ref": "#/$defs/dataQuality" },
+    "score_notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "user_rating": { "type": "string", "minLength": 1 },
+        "objective": { "type": "string", "minLength": 1 },
+        "ai_review": { "type": "string", "minLength": 1 }
+      },
+      "description": "v0.5.0 축 점수 산정 메모 — 사실(스토어 평점·표본 수·플래그)은 그대로 두고, 어떤 원칙(표본 규모 검증·비편향 객관 평가)이 점수를 움직였는지만 남긴다. 점수가 바뀐 축에는 반드시 채운다."
+    }
   },
   "$defs": {
     "grade": {
@@ -396,11 +406,11 @@
       "properties": {
         "user_rating": {
           "$ref": "#/$defs/axis",
-          "description": "축1 사용자(대중) 평가. 최근 구간 우선, 없으면 누적."
+          "description": "축1 사용자(대중) 평가. 최근 구간 우선, 없으면 누적. v0.5.0은 표본 규모를 검증해(수십만~수백만 누적 + 4.4★ 이상) 수백 건짜리 3자 최근 표본이 큰 누적을 통째로 덮지 않게 한다(x-pharos.client.sample_scale)."
         },
         "objective": {
           "$ref": "#/$defs/axis",
-          "description": "축2 객관·신뢰 지표(과금·광고·유지보수·양산성)."
+          "description": "축2 객관·신뢰 지표. v0.5.0은 기능 완성도·생태계/연동성·안정성·보안·정책/과금 투명성으로 평가하며, 클라우드·비공개 소스라는 이유만으로 깎지 않는다. 로컬·계정·데이터 수집 여부는 flags 사실과 필터·프리셋으로 가른다."
         },
         "ai_review": {
           "$ref": "#/$defs/axis",
@@ -664,6 +674,7 @@
   },
   "x-pharos": {
     "schema_version": "0.4.0",
+    "criteria_version": "0.5.0",
     "criteria_doc": "projects/pharos/criteria.md",
     "client": {
       "note": "정적 웹 프론트엔드가 서버 없이 계산하는 계약. 아이템 1건 × 티어 1개 단위로 적용한다.",
@@ -686,8 +697,8 @@
       },
       "arena_rules": "비교군 정의(도메인·대분류·데이터 파일)는 data/catalog.json 에 있다. 비교군 선택은 대분류·검색과 AND로 적용하고, 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 비교군 기준으로만 계산한다. 아이템의 arenas 는 비울 수 없고, arena_notes 의 키는 arenas 에 포함된 id 여야 한다.",
       "axes": [
-        { "key": "user_rating", "label": "사용자 평가", "default_weight": 0.4, "path": "axes.user_rating.score" },
-        { "key": "objective", "label": "객관·신뢰 지표", "default_weight": 0.35, "path": "axes.objective.score" },
+        { "key": "user_rating", "label": "사용자 평가", "default_weight": 0.5, "path": "axes.user_rating.score" },
+        { "key": "objective", "label": "객관·신뢰 지표", "default_weight": 0.25, "path": "axes.objective.score" },
         { "key": "ai_review", "label": "AI 검토", "default_weight": 0.25, "path": "axes.ai_review.score" },
         { "key": "personal_fit", "label": "내 기준 적합", "default_weight": 0.0, "path": "axes.personal_fit.score", "profile_scoped": true }
       ],
@@ -737,7 +748,25 @@
         "badge": { "optional": "선택 과금 · 무과금 가능", "core": "핵심 과금" },
         "consistency": "impact 'optional' ⟺ monetization.free_play.value 'sufficient'(근거 필수). impact 'core' 면 free_play 는 'constrained'·'blocked'. impact 는 gacha_random_items·p2w 에만 쓴다."
       },
-      "score_formula": "score = Σ(w_k × s_k) / Σ(w_k); s_k는 0~100, s_k가 null인 축은 분자·분모에서 제외. 입력 가중치는 합계로 정규화한다.",
+      "score_formula": "score = Σ(w_k × s_k) / Σ(w_k); s_k는 0~100, s_k가 null인 축은 분자·분모에서 제외. 입력 가중치는 합계로 정규화한다. 가중치가 0인 축(프로필 전용 personal_fit 등)의 신호는 판정 개수(red·yellow)에 세지 않는다 — 기본 화면에는 프로필이 없으므로 그 축은 판정에 참여하지 않는다.",
+      "default_weights_note": "v0.5.0 기본 배분은 사용자 평가 50% · 객관 25% · AI 25%. 대중이 실제로 검증한 평점의 무게를 높이고, 로컬·오픈소스 여부 같은 구조적 취향은 점수가 아니라 필터·프리셋(privacy)으로 가른다.",
+      "sample_scale": {
+        "axis": "user_rating",
+        "note": "v0.5.0 — 같은 4.4~4.6★이라도 표본 규모가 다르면 검증의 무게가 다르다. 표본 등급은 누적 리뷰 수로 나눈다.",
+        "grades": [
+          { "key": "massive", "label": "대규모 활성 유저", "min_count": 1000000 },
+          { "key": "large", "label": "대형", "min_count": 100000 },
+          { "key": "medium", "label": "중형", "min_count": 10000 },
+          { "key": "small", "label": "소형", "min_count": 1000 },
+          { "key": "tiny", "label": "미세 표본", "min_count": 100 },
+          { "key": "none", "label": "표본 없음", "min_count": 0 }
+        ],
+        "thin_recent_rule": "최근 구간이 3자 집계(등급 C)이고 표본이 1,000건 미만인데, 같은 플랫폼의 스토어 누적이 등급 A/B·10만 건 이상·4.4★(88) 이상이면 최근 구간은 '하락 방향 신호'로만 쓰고 그 플랫폼의 사용자 점수는 (누적+최근)/2 로 둔다. 수십만~수백만 명이 검증한 누적 평점을 수백 건짜리 3자 표본이 통째로 덮지 않게 하기 위해서다.",
+        "risky_terms_exception": "최근 급락이 과금·약관 변경(update_profile.maintenance_quality=risky_terms)과 겹치면 이 완화를 적용하지 않는다 — 돈·조건이 바뀌어 생긴 하락은 표본이 얇아도 실제 신호다(에버노트).",
+        "tiny_sample_rule": "누적 표본 1,000건 미만(미세·표본 없음)은 규모 검증을 받지 못하므로 최근 값을 그대로 쓰고 신호를 한 단계 낮춘다(기존 규칙 유지). 점수를 새로 올리는 가산은 없다 — Hero Wars 처럼 표본이 커도 별점과 실제 불만이 어긋나는 사례를 자동으로 구제하지 않기 위해서다.",
+        "field": "axes.user_rating.score",
+        "note_field": "score_notes.user_rating"
+      },
       "signal_thresholds": { "green_min": 75, "yellow_min": 50 },
       "verdict_rules": [
         "1. 활성 필터 중 tier.hard_filters[key].status == 'fail' 이고 (impact != 'optional' 또는 strict_monetization == true) → avoid (strict_evidence=false 이고 evidence_grade=='C'면 2단계로 진행하며 '근거 약함' 배지). impact 'optional' 은 거름이 아니라 '선택 과금 · 무과금 가능' 배지로만 쓰고 2~6단계로 판정한다. status 'exempt'(완결작 면제)는 fail 이 아니다.",

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """파로스 정적 웹 v2 동작 검증 (Playwright + headless Chromium).
 
-무엇을 검증하는가 — 4단 계층 개편(스키마 v0.4.0 · 카탈로그 · 분할 로딩) + v3 정보 계층 + v0.4.2 분야 확장
+무엇을 검증하는가 — 4단 계층 개편(스키마 v0.4.0 · 카탈로그 · 분할 로딩) + v3 정보 계층 + v0.4.3 분야 확장 + v0.5.0 평가 배분
   0) 3단 정보 계층: (1) 홈·도메인 = 장르 이름 + 그 장르의 추천 항목 타일,
      (2) 비교군 화면 = 핵심만 남긴 목록 카드, (3) 상세 모달 = 3축 점수·필터·가격 티어까지 전부.
   1) 로드·계약: catalog.json·search-index.json·schema 를 읽고, 홈에서는 비교군 파일을 내려받지 않는다(지연 로딩).
      콘솔 에러·페이지 예외·HTTP 4xx/5xx 0건, 모든 요청이 web/ 배포 루트 안에서 해결됨.
   2) 홈 쇼케이스: 장르 블록 9개(카탈로그 순서)에 그 장르의 추천/조건부 3~4개가 공식 아이콘(40px+)·이름·
      판정 배지·가중 점수 타일로 바로 보이고, 타일 클릭 = 상세 모달, 장르 헤더·'전체 N종 비교 →' = 비교군 이동.
-     '별점은 높은데 거름 판정' 리포트(Hero Wars 4.6★ vs 34.6, Microsoft To Do 4.6★ vs 60.45, Archero 4.2★ vs 53.85,
-     Notion 4.6★ vs 66.6), 통합 검색(이름·별칭·키워드), 보관함 섹션.
+     '별점은 높은데 거름 판정' 리포트(Hero Wars 4.6★ vs 38.0, Archero 4.2★ vs 58.25, Microsoft To Do 4.6★ vs 66.75,
+     Clash Royale 4.0★ vs 61.0 — 거름(avoid)만), 통합 검색(이름·별칭·키워드), 보관함 섹션.
   3) 4단 탐색: 홈 → 도메인(앱·게임·AI 도구) → 대분류 → 비교군 → 항목. 도메인·대분류 화면도 장르별 추천 타일로 시작하고,
      비교군을 바꾸면 그 파일만 지연 로딩되며 요약(추천/조건부/거름·평균)은 같은 비교군 안에서만 재계산된다.
   4) 첫 화면 경량화: 히어로는 250px 이내, 기본 '균형 기본' 프리셋, 가중치·하드 필터·엄격 모드는 '내 기준 미세조정' 드로어 안.
@@ -18,10 +18,12 @@
      공유 요약 복사, 정정 제보 링크, 보관함 담기.
   7) URL 딥링크(domain·category·arena·item·compare·preset), 북마크(localStorage) 지속, 방법론 모달.
   8) 엔진 단위 테스트(가중 평균·6단 규칙·엄격/완화·완결작 면제·compat_risk·신선도·대체제·요약 텍스트).
-  9) 공식 아이콘(v2.1): 42종 아이콘 파일이 모두 실제 이미지로 로드되고, 카드 44~48px·상세 52~56px·
+  9) 공식 아이콘(v2.1): 57종 아이콘 파일이 모두 실제 이미지로 로드되고, 카드 44~48px·상세 52~56px·
      비교표 32px·추천 타일 40px+·갭 리포트·검색 결과에 object-fit: cover 둥근 사각형으로 들어가며,
      로드 실패 시 이니셜 배지로 대체된다.
-  10) 스크린샷: preview-v3-home.png · preview-v3-arena.png · preview-v3-compare.png · preview-v3-mobile.png.
+  10) v0.4.3 분야 확장: 새 대분류 2개(인터넷 · 프라이버시 · 대화 · 리서치)와 새 비교군 3개
+     (웹 브라우저·클라우드 스토리지·AI 어시스턴트)의 목록·요약·상세, AI 탭의 두 비교군 전환, 신규 15종 아이콘 192×192 로드.
+  11) 스크린샷: preview-v3-home.png · preview-v3-arena.png · preview-v3-compare.png · preview-v3-mobile.png.
 
 실행:
   pip install playwright
@@ -216,9 +218,9 @@ def main() -> int:
         expect(not any("/data/app/" in url or "/data/game/" in url for url in served),
                "홈에서는 비교군 분할 파일을 내려받지 않음(지연 로딩)", str([u for u in served if "/data/app/" in u or "/data/game/" in u]))
         chip = page.inner_text("#datasetChip")
-        expect("스키마 v0.4.0" in chip and "42건" in chip and "비교군 9" in chip, "데이터 칩 = v0.4.0 · 42건 · 비교군 9", chip)
+        expect("스키마 v0.4.0" in chip and "57건" in chip and "비교군 12" in chip, "데이터 칩 = v0.4.0 · 57건 · 비교군 12", chip)
         counts = page.evaluate("window.Pharos.state.core.index.counts")
-        expect(counts == {"items": 42, "domains": 3, "categories": 8, "arenas": 9}, "카탈로그 계층 집계 42/3/8/9", str(counts))
+        expect(counts == {"items": 57, "domains": 3, "categories": 10, "arenas": 12}, "카탈로그 계층 집계 57/3/10/12", str(counts))
         domains = page.evaluate("window.Pharos.state.core.catalog.domains.map(d => d.id)")
         expect(domains == ["app", "game", "ai"], "도메인 = 앱·게임·AI 도구", str(domains))
         tabs = page.eval_on_selector_all("#domainTabs button", "els => els.map(e => e.innerText.trim())")
@@ -234,14 +236,14 @@ def main() -> int:
         expect(show_top < 640, "스크롤 없이 장르별 추천이 첫 화면에 들어옴", str(show_top))
         expect(page.inner_text("#bookmarkSection").startswith("☆ 내 보관함"), "홈에 보관함 섹션")
         genres = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(genres == ["pkm-notes", "task-managers", "password-managers", "roguelike-deckbuilder",
-                          "action-roguelike", "mobile-gacha-rpg", "pc-mmorpg", "mobile-strategy-defense",
-                          "ai-coding-tools"],
-               "홈 장르 블록 9개(카탈로그 순서)", str(genres))
+        expect(genres == ["pkm-notes", "task-managers", "password-managers", "cloud-storage", "web-browsers",
+                          "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg", "pc-mmorpg",
+                          "mobile-strategy-defense", "ai-assistants", "ai-coding-tools"],
+               "홈 장르 블록 12개(카탈로그 순서)", str(genres))
         expect(page.eval_on_selector_all(".arena-card, .category-card", "els => els.length") == 0,
                "홈에는 장황한 비교군 소개 카드가 없음", "")
         first = page.eval_on_selector('.genre-block[data-arena="pkm-notes"]', "e => e.innerText.replace(/\\n/g, ' | ')")
-        expect("노트·지식관리" in first and "5종" in first and "추천 1" in first,
+        expect("노트·지식관리" in first and "5종" in first and "추천 2" in first,
                "첫 장르 블록 = 노트·지식관리(5종·추천 1)", first[:140])
         expect("전체 5종 비교" in first, "장르 블록에 '전체 N종 비교' 링크", first[:180])
 
@@ -250,13 +252,13 @@ def main() -> int:
             "els => els.map(e => ({id: e.dataset.item, verdict: e.dataset.verdict, score: e.dataset.score,"
             " text: e.innerText.replace(/\\n/g, ' | ')}))",
         )
-        expect([p["id"] for p in picks] == ["joplin", "obsidian", "simplenote", "notion"],
+        expect([p["id"] for p in picks] == ["obsidian", "joplin", "notion", "simplenote"],
                "장르 타일 = 추천 우선 → 조건부 점수순(최대 4)", str([p["id"] for p in picks]))
-        expect(picks[0]["verdict"] == "recommend" and abs(float(picks[0]["score"]) - 82.0) < 0.05
-               and "추천" in picks[0]["text"] and "82.0" in picks[0]["text"],
+        expect(picks[0]["verdict"] == "recommend" and abs(float(picks[0]["score"]) - 82.5) < 0.05
+               and "추천" in picks[0]["text"] and "82.5" in picks[0]["text"],
                "타일에 판정 배지·가중 점수", picks[0]["text"])
-        expect(picks[1]["verdict"] == "conditional" and "조건부" in picks[1]["text"],
-               "조건부 항목은 🟡 조건부로 표시", picks[1]["text"])
+        expect(picks[2]["verdict"] == "conditional" and "조건부" in picks[2]["text"],
+               "조건부 항목은 🟡 조건부로 표시", picks[2]["text"])
         gacha_picks = page.eval_on_selector_all('.genre-block[data-arena="mobile-gacha-rpg"] .pick-tile',
                                                 "els => els.map(e => e.dataset.item)")
         expect(gacha_picks == ["goddess-of-victory-nikke", "limbus-company", "blue-archive"],
@@ -291,15 +293,16 @@ def main() -> int:
 
         gap_rows = page.eval_on_selector_all(".gap-row", "els => els.map(e => e.innerText.replace(/\\n/g, ' | '))")
         expect(len(gap_rows) == 4, "'별점은 높은데 거름 판정' 리포트 4건", str(len(gap_rows)))
-        expect("Hero Wars: Alliance" in gap_rows[0] and "4.6" in gap_rows[0] and "34.6" in gap_rows[0] and "거름" in gap_rows[0],
-               "Hero Wars 4.6★ vs 34.6점 거름", gap_rows[0])
+        expect("Hero Wars: Alliance" in gap_rows[0] and "4.6" in gap_rows[0] and "38" in gap_rows[0] and "거름" in gap_rows[0],
+               "Hero Wars 4.6★ vs 38점 거름", gap_rows[0])
         expect("확률형 아이템" in gap_rows[0] and "P2W" in gap_rows[0], "갭 리포트에 걸린 필터 사유", gap_rows[0])
-        expect("Microsoft To Do" in gap_rows[1] and "4.6" in gap_rows[1] and "60.45" in gap_rows[1] and "거름" in gap_rows[1],
-               "Microsoft To Do 4.6★ vs 60.45 거름(2027-06-30 종료 예고)", gap_rows[1])
-        expect("종료" in gap_rows[1] or "AI 검토" in gap_rows[1], "MS To Do 갭 리포트에 걸린 사유", gap_rows[1])
-        expect("Archero" in gap_rows[2] and "4.2" in gap_rows[2] and "53.85" in gap_rows[2] and "거름" in gap_rows[2],
-               "Archero 4.2★ vs 53.85 거름", gap_rows[2])
-        expect("Notion" in gap_rows[3] and "66.6" in gap_rows[3], "Notion 4.6★ vs 66.6 조건부", gap_rows[3])
+        expect("Microsoft To Do" in gap_rows[2] and "4.6" in gap_rows[2] and "66.75" in gap_rows[2] and "거름" in gap_rows[2],
+               "Microsoft To Do 4.6★ vs 66.75 거름(2027-06-30 종료 예고)", gap_rows[2])
+        expect("종료" in gap_rows[2] or "AI 검토" in gap_rows[2], "MS To Do 갭 리포트에 걸린 사유", gap_rows[2])
+        expect("Archero" in gap_rows[1] and "4.2" in gap_rows[1] and "58.25" in gap_rows[1] and "거름" in gap_rows[1],
+               "Archero 4.2★ vs 58.25 거름", gap_rows[1])
+        expect("Clash Royale" in gap_rows[3] and "61" in gap_rows[3], "Clash Royale 4.0★ vs 61 거름", gap_rows[3])
+        expect(all("Notion" not in row for row in gap_rows), "규모가 검증된 Notion 은 '거름' 리포트에서 제외", str(gap_rows))
         expect(all("Obsidian" not in row for row in gap_rows), "별점·점수 격차가 작은 Obsidian 은 리포트에서 제외", str(gap_rows))
 
         # --------------------------------------------------------- 3 통합 검색
@@ -370,22 +373,22 @@ def main() -> int:
         state = cards(page)
         expect(len(state) == 4, "덱빌딩 비교군 카드 4건(추천 3 + 거름 1)", str([c["id"] for c in state]))
         summary = stats(page)
-        expect(summary.get("추천") == "3" and summary.get("조건부") == "0" and summary.get("거름") == "1",
-               "비교군 요약 3/0/1", str(summary))
-        expect(summary.get("평균 가중 점수") == "80.3", "비교군 평균 80.3", str(summary))
+        expect(summary.get("추천") == "3" and summary.get("조건부") == "1" and summary.get("거름") == "0",
+               "비교군 요약 3/1/0", str(summary))
+        expect(summary.get("평균 가중 점수") == "82.2", "비교군 평균 82.2", str(summary))
         expect(page.inner_text("#listCount").strip() == "4/4건", "목록 건수 4/4", page.inner_text("#listCount"))
 
         by_id = {c["id"]: c for c in state}
-        for item_id, verdict, score in (("balatro", "recommend", 94.65), ("slay-the-spire", "recommend", 92.20),
-                                        ("inscryption", "recommend", 80.15), ("night-of-the-full-moon", "avoid", 54.25)):
+        for item_id, verdict, score in (("balatro", "recommend", 94.75), ("slay-the-spire", "recommend", 92.50),
+                                        ("inscryption", "recommend", 84.25), ("night-of-the-full-moon", "conditional", 57.25)):
             c = by_id.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
                 continue
             expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
             expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
-        expect(by_id["night-of-the-full-moon"]["avoid"] is True, "거름 항목은 하단 분리 영역")
-        expect("🔴 신호 2개" in by_id["night-of-the-full-moon"]["text"], "Night of the Full Moon 신호 기준 거름", by_id["night-of-the-full-moon"]["text"][-90:])
+        expect(by_id["night-of-the-full-moon"]["avoid"] is False, "조건부 항목은 일반 목록(덱빌딩에 거름 없음)")
+        expect("조건부" in by_id["night-of-the-full-moon"]["text"] and "57.3" in by_id["night-of-the-full-moon"]["text"], "Night of the Full Moon 조건부·57.3", by_id["night-of-the-full-moon"]["text"][-120:])
 
         # 목록 카드는 핵심만: 아이콘 + 이름 + 개발사/장르 + 판정 + 점수 / 한 줄 요약 / 핵심 태그 2개
         head = page.eval_on_selector(
@@ -399,7 +402,7 @@ def main() -> int:
         )
         expect(head["icon"] and head["name"] == "Balatro" and "LocalThunk" in head["dev"],
                "카드 상단 = 공식 아이콘·이름·개발사/장르", str(head))
-        expect(head["score"] == "94.7" and "추천" in head["verdict"], "카드 상단 = 판정 배지 + 가중 점수", str(head))
+        expect(head["score"] == "94.8" and "추천" in head["verdict"], "카드 상단 = 판정 배지 + 가중 점수", str(head))
         expect(head["summary"] and len(head["summary"]) > 10, "카드 중간 = 핵심 한 줄 요약", str(head["summary"]))
         for item_id in ("balatro", "slay-the-spire", "inscryption", "night-of-the-full-moon"):
             scope = f'#grid .card[data-id="{item_id}"], #avoidGrid .card[data-id="{item_id}"]'
@@ -423,7 +426,7 @@ def main() -> int:
         page.select_option("#sort", "name")
         wait(page, 250)
         picks = [c["id"] for c in cards(page) if not c["avoid"]]
-        expect(picks == ["balatro", "inscryption", "slay-the-spire"], "이름순 정렬", str(picks))
+        expect(picks == ["balatro", "inscryption", "night-of-the-full-moon", "slay-the-spire"], "이름순 정렬", str(picks))
         page.select_option("#sort", "score")
         wait(page, 250)
 
@@ -433,9 +436,9 @@ def main() -> int:
         expect(page.is_visible("#tuneDrawer"), "미세조정 드로어 열림")
         expect(page.get_attribute("#tuneBtn", "aria-expanded") == "true", "드로어 토글 aria-expanded")
         presets = page.eval_on_selector_all("#tuneBody .preset", "els => els.map(e => e.innerText.trim())")
-        expect(presets == ["균형 기본", "대중 평가 중심", "쾌적성·노과금 중심", "AI 완성도 중심"], "프리셋 4종", str(presets))
+        expect(presets == ["균형 기본", "대중 평가 중심", "쾌적성·노과금 중심", "프라이버시·로컬 중시", "AI 완성도 중심"], "프리셋 5종", str(presets))
         sliders = page.eval_on_selector_all("#tuneBody input[type=range]", "els => els.map(e => e.value)")
-        expect(sliders == ["40", "35", "25"], "기본 가중치 40/35/25", str(sliders))
+        expect(sliders == ["50", "25", "25"], "기본 가중치 50/25/25", str(sliders))
         packs = page.eval_on_selector_all("#tuneBody .filter-pack summary", "els => els.map(e => e.innerText.split('\\n')[0])")
         expect(packs[0].startswith("게임 팩") and packs[1].startswith("앱 팩") and packs[2].startswith("AI 도구 팩")
                and packs[3].startswith("공통 코어"),
@@ -443,6 +446,22 @@ def main() -> int:
         open_packs = page.eval_on_selector_all("#tuneBody .filter-pack", "els => els.map(e => e.open)")
         expect(open_packs == [True, False, False, False], "현재 도메인 팩만 펼침", str(open_packs))
         expect(page.inner_text("#filterCount").strip() == "4/9", "필터 카운트 4/9", page.inner_text("#filterCount"))
+
+        page.click('#tuneBody [data-preset="privacy"]')
+        wait(page, 500)
+        expect(page.eval_on_selector_all("#tuneBody input[type=range]", "els => els.map(e => e.value)") == ["25", "55", "20"],
+               "프라이버시 프리셋 → 25/55/20")
+        expect(page.inner_text("#filterCount").strip() == "6/9", "프라이버시 프리셋 → 계정·데이터 수집 필터 자동 6/9", page.inner_text("#filterCount"))
+        expect(page.eval_on_selector('#tuneBody input[data-filter="account_required"]', "e => e.checked") is True,
+               "프라이버시 프리셋이 account_required 필터를 켬")
+        expect(page.eval_on_selector('#tuneBody input[data-filter="data_collection"]', "e => e.checked") is True,
+               "프라이버시 프리셋이 data_collection 필터를 켬")
+        expect("preset=privacy" in page.url, "프라이버시 프리셋 URL 반영", path_id(page))
+        page.click('#tuneBody [data-preset="balanced"]')
+        wait(page, 500)
+        expect(page.inner_text("#filterCount").strip() == "4/9", "프리셋을 떠나면 프리셋이 켠 필터만 되돌림 4/9", page.inner_text("#filterCount"))
+        expect(page.eval_on_selector_all("#tuneBody input[type=range]", "els => els.map(e => e.value)") == ["50", "25", "25"],
+               "균형 기본으로 복귀 50/25/25")
 
         page.click('#tuneBody [data-preset="ai"]')
         wait(page, 450)
@@ -493,7 +512,7 @@ def main() -> int:
         for label in ["가중 점수", "대표 티어 · 가격", "축 · 사용자 평가", "걸린 하드 필터", "누적 별점·평점", "최근 리뷰", "수명 단계", "평가 신선도"]:
             expect(label in labels, f"비교 표 '{label}' 행", str(labels)[:160])
         table_text = page.inner_text("#compareTable")
-        expect("94.7" in table_text and "92.2" in table_text, "비교 표에 두 항목 점수", table_text[:200])
+        expect("94.8" in table_text and "92.5" in table_text, "비교 표에 두 항목 점수", table_text[:200])
 
         # 목록으로 돌아가 3개째 추가 → 4개째는 차단
         page.click('a[data-action="arena"], button[data-action="arena"]')
@@ -504,7 +523,7 @@ def main() -> int:
         page.evaluate(
             """() => { const el = document.querySelector('[data-item="night-of-the-full-moon"]'); if (el) el.scrollIntoView(); }"""
         )
-        page.check('#avoidGrid .card[data-id="night-of-the-full-moon"] input[data-compare]', force=True)
+        page.check('#grid .card[data-id="night-of-the-full-moon"] input[data-compare]', force=True)
         wait(page, 300)
         expect("night-of-the-full-moon" not in page.url, "네 번째 항목은 비교에 담기지 않음(최대 3개)", path_id(page))
         toast_text = page.inner_text("#toast") if page.is_visible("#toast") else ""
@@ -542,7 +561,7 @@ def main() -> int:
         page.click('[data-share="inscryption"]')
         wait(page, 400)
         clip = page.evaluate("navigator.clipboard.readText()")
-        expect("Inscryption" in clip and "가중 점수 80.2" in clip and "파로스" in clip, "공유 요약 복사", clip[:120])
+        expect("Inscryption" in clip and "가중 점수 84.3" in clip and "파로스" in clip, "공유 요약 복사", clip[:120])
 
         # 보관함 담기(모달)
         page.click('#modalActions [data-bookmark="inscryption"]')
@@ -558,14 +577,24 @@ def main() -> int:
         wait(page, 700)
         expect(page.inner_text("#modalTitle") == "Evernote", "딥링크로 Evernote 상세", page.inner_text("#modalTitle"))
         alts = page.eval_on_selector_all("#secAlternatives .alt-row", "els => els.map(e => e.dataset.item)")
-        expect(alts == ["joplin"], "Evernote 대체제 = 같은 비교군 추천 Joplin 만", str(alts))
+        expect(alts == ["obsidian", "joplin"], "Evernote 대체제 = 같은 비교군 추천 2건(점수순)", str(alts))
         page.click('#secAlternatives .alt-row')
         wait(page, 700)
-        expect(page.inner_text("#modalTitle") == "Joplin", "대체제 클릭 → Joplin 상세", page.inner_text("#modalTitle"))
-        expect("item=joplin" in page.url, "대체제 이동 URL", path_id(page))
+        expect(page.inner_text("#modalTitle") == "Obsidian", "대체제 클릭 → Obsidian 상세", page.inner_text("#modalTitle"))
+        expect("item=obsidian" in page.url, "대체제 이동 URL", path_id(page))
         close_modal(page)
         wait(page, 300)
         expect(len(cards(page)) == 5, "노트 비교군 카드 5건", str(len(cards(page))))
+
+        # v0.5.0 프라이버시·로컬 중시 프리셋 — 계정·데이터 수집 필터로 로컬·프라이버시 목적을 가른다
+        page.goto(f"{base}/?domain=app&arena=pkm-notes&preset=privacy", wait_until="networkidle")
+        wait(page, 700)
+        expect(card(page, "notion")["avoid"] is True, "프라이버시 프리셋 → 계정 필수인 Notion 거름",
+               str(card(page, "notion"))[:120])
+        expect(card(page, "obsidian")["avoid"] is False and card(page, "joplin")["avoid"] is False,
+               "프라이버시 프리셋에서도 계정 없는 Obsidian·Joplin 은 유지")
+        page.goto(f"{base}/?domain=app&arena=pkm-notes", wait_until="networkidle")
+        wait(page, 600)
         page.screenshot(path=str(shots / "preview-v3-arena.png"), full_page=True)
 
         # ------------------------------------------------------ 8 방법론·딥링크
@@ -573,7 +602,7 @@ def main() -> int:
         wait(page, 400)
         expect(page.is_visible("#methodModal"), "방법론 모달 열림")
         method = page.inner_text("#methodBody")
-        for label in ["4단 구조", "네 축과 가중 점수", "근거 등급 A/B/C", "확률형·P2W 강도 3단계", "판정 규칙", "독립성", "용어 도움말"]:
+        for label in ["4단 구조", "네 축과 가중 점수", "표본 규모 검증", "근거 등급 A/B/C", "확률형·P2W 강도 3단계", "판정 규칙", "독립성", "용어 도움말"]:
             expect(label in method, f"방법론 '{label}' 섹션")
         expect("어필리에이트 링크·유료 광고·협찬 배치를 쓰지 않습니다" in method, "독립성·어필리에이트 배제 선언")
         expect("재검토 필요" in method and "180" in method, "용어 도움말에 신선도 기준")
@@ -681,7 +710,17 @@ def main() -> int:
             ];
             const alts = engine.alternatives({id:'y', arenas:['a1']}, pool, settings(wBal));
 
+            const fitItem = mk({
+              user_rating:{score:90, signal:'green', evidence_grade:'A'},
+              objective:{score:90, signal:'green', evidence_grade:'A'},
+              ai_review:{score:90, signal:'green', evidence_grade:'A'},
+              personal_fit:{score:20, signal:'red', evidence_grade:'A'},
+            });
+            const fitOff = engine.evaluateTier(fitItem, fitItem.tiers[0], settings({user_rating:50, objective:25, ai_review:25}));
+            const fitOn = engine.evaluateTier(fitItem, fitItem.tiers[0], settings({user_rating:50, objective:25, ai_review:25, personal_fit:25}));
+
             return {
+              fitOff: fitOff.verdict, fitOffScore: fitOff.score, fitOn: fitOn.verdict, fitOnScore: fitOn.score,
               score: a.score, excluded: b.score, rule: a.rule, verdict: a.verdict,
               norm: [norm.user_rating, norm.objective, norm.ai_review], thresholds,
               strictVerdict: strict.verdict, strictRule: strict.rule,
@@ -715,7 +754,11 @@ def main() -> int:
         expect(unit["compatVerdict"] == "conditional" and unit["compatRule"] == "1c", "엔진: compat_risk → 조건부 경고", f'{unit["compatVerdict"]}/{unit["compatRule"]}')
         expect(unit["freshOld"][0] is True and unit["freshOld"][1] == "재검토 필요", "엔진: 180일 초과 → 재검토 필요", str(unit["freshOld"]))
         expect(unit["freshNew"][0] is False and unit["freshNew"][1] == "최신", "엔진: 최근 평가 → 최신", str(unit["freshNew"]))
-        expect(unit["defaults"] == {"user_rating": 40, "objective": 35, "ai_review": 25}, "엔진: 기본 가중치 40/35/25", str(unit["defaults"]))
+        expect(unit["defaults"] == {"user_rating": 50, "objective": 25, "ai_review": 25}, "엔진: 기본 가중치 50/25/25", str(unit["defaults"]))
+        expect(unit["fitOff"] == "recommend" and abs(unit["fitOffScore"] - 90) < 0.01,
+               "엔진: 가중치 0인 personal_fit(🔴)은 판정에 세지 않음", f'{unit["fitOff"]}/{unit["fitOffScore"]}')
+        expect(unit["fitOn"] == "conditional" and abs(unit["fitOnScore"] - 76) < 0.01,
+               "엔진: personal_fit 가중치를 주면 4번째 축으로 참여", f'{unit["fitOn"]}/{unit["fitOnScore"]}')
         expect(unit["altIds"] == ["x"], "엔진: 대체제는 같은 비교군·추천만", str(unit["altIds"]))
 
         # ----------------------------------------- 10-1 새 비교군: 액션 로그라이크
@@ -727,10 +770,10 @@ def main() -> int:
         summary = stats(page)
         expect(summary.get("추천") == "3" and summary.get("조건부") == "0" and summary.get("거름") == "1",
                "액션 로그라이크 요약 3/0/1", str(summary))
-        expect(summary.get("평균 가중 점수") == "77.9", "액션 로그라이크 평균 77.9", str(summary))
+        expect(summary.get("평균 가중 점수") == "80.9", "액션 로그라이크 평균 80.9", str(summary))
         ar = {c["id"]: c for c in arena_state}
-        for item_id, verdict, score in (("hades", "recommend", 82.7), ("vampire-survivors", "recommend", 89.8),
-                                        ("dead-cells", "recommend", 85.4), ("archero", "avoid", 53.85)):
+        for item_id, verdict, score in (("hades", "recommend", 86.5), ("vampire-survivors", "recommend", 91.0),
+                                        ("dead-cells", "recommend", 88.0), ("archero", "avoid", 58.25)):
             c = ar.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -752,7 +795,7 @@ def main() -> int:
         headers = page.eval_on_selector_all("#compareTable thead th", "els => els.map(e => e.innerText.split('\\n')[0])")
         expect(headers == ["기준", "Hades", "Vampire Survivors"], "액션 로그라이크 비교 표", str(headers))
         compare_text = page.inner_text("#compareTable")
-        expect("82.7" in compare_text and "89.8" in compare_text, "비교 표에 두 항목 점수", compare_text[:200])
+        expect("86.5" in compare_text and "91.0" in compare_text, "비교 표에 두 항목 점수", compare_text[:200])
 
         page.goto(f"{base}/?domain=game&arena=action-roguelike&item=hades", wait_until="networkidle")
         wait(page, 700)
@@ -797,22 +840,22 @@ def main() -> int:
         expect(len(gacha) == 6, "모바일 수집형 RPG 6건", str([c["id"] for c in gacha]))
         expect(page.inner_text("#listCount").strip() == "6/6건", "가챠 목록 건수 6/6", page.inner_text("#listCount"))
         gsummary = stats(page)
-        expect(gsummary.get("추천") == "1" and gsummary.get("조건부") == "2" and gsummary.get("거름") == "3",
-               "가챠 비교군 요약 1/2/3", str(gsummary))
-        expect(gsummary.get("평균 가중 점수") == "68.8", "가챠 비교군 평균 68.8", str(gsummary))
+        expect(gsummary.get("추천") == "2" and gsummary.get("조건부") == "1" and gsummary.get("거름") == "3",
+               "가챠 비교군 요약 2/1/3", str(gsummary))
+        expect(gsummary.get("평균 가중 점수") == "71.0", "가챠 비교군 평균 71.0", str(gsummary))
         g = {c["id"]: c for c in gacha}
-        expect(g["limbus-company"]["score"] and abs(float(g["limbus-company"]["score"]) - 78.7) < 0.05,
-               "Limbus Company 78.7", g["limbus-company"]["score"])
-        expect(g["genshin-impact"]["score"] and abs(float(g["genshin-impact"]["score"]) - 72.7) < 0.05,
-               "Genshin Impact 72.7", g["genshin-impact"]["score"])
-        expect(g["limbus-company"]["verdict"] == "conditional" and g["limbus-company"]["avoid"] is False,
-               "Limbus Company = 조건부(선택 과금)", g["limbus-company"]["verdict"])
+        expect(g["limbus-company"]["score"] and abs(float(g["limbus-company"]["score"]) - 81.5) < 0.05,
+               "Limbus Company 81.5", g["limbus-company"]["score"])
+        expect(g["genshin-impact"]["score"] and abs(float(g["genshin-impact"]["score"]) - 74.5) < 0.05,
+               "Genshin Impact 74.5", g["genshin-impact"]["score"])
+        expect(g["limbus-company"]["verdict"] == "recommend" and g["limbus-company"]["avoid"] is False,
+               "Limbus Company = 추천(선택 과금)", g["limbus-company"]["verdict"])
         expect(g["hero-wars-alliance"]["avoid"] is True and g["genshin-impact"]["avoid"] is True,
                "Hero Wars·Genshin 은 거름 영역(impact core)", str([c["id"] for c in gacha if c["avoid"]]))
 
-        for item_id, verdict, score in (("goddess-of-victory-nikke", "recommend", 81.20),
-                                        ("blue-archive", "conditional", 75.50),
-                                        ("honkai-star-rail", "avoid", 70.10)):
+        for item_id, verdict, score in (("goddess-of-victory-nikke", "recommend", 83.00),
+                                        ("blue-archive", "conditional", 77.50),
+                                        ("honkai-star-rail", "avoid", 71.50)):
             c = g.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -875,18 +918,18 @@ def main() -> int:
         ms = stats(page)
         expect(ms.get("추천") == "2" and ms.get("조건부") == "1" and ms.get("거름") == "1",
                "PC MMORPG 요약 2/1/1", str(ms))
-        expect(ms.get("평균 가중 점수") == "69.9", "PC MMORPG 평균 69.9", str(ms))
+        expect(ms.get("평균 가중 점수") == "71.2", "PC MMORPG 평균 71.2", str(ms))
         m = {c["id"]: c for c in mmo}
-        for item_id, verdict, score in (("final-fantasy-xiv", "recommend", 80.7), ("guild-wars-2", "conditional", 77.2),
-                                        ("lost-ark", "avoid", 41.45), ("black-desert", "recommend", 80.1)):
+        for item_id, verdict, score in (("final-fantasy-xiv", "recommend", 82.5), ("guild-wars-2", "recommend", 80.0),
+                                        ("lost-ark", "avoid", 42.75), ("black-desert", "conditional", 79.5)):
             c = m.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
                 continue
             expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
             expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
-        expect(m["guild-wars-2"]["avoid"] is False and m["lost-ark"]["avoid"] is True,
-               "Lost Ark 만 하단 거름 영역(GW2 는 조건부로 복귀)")
+        expect(m["guild-wars-2"]["avoid"] is False and m["black-desert"]["avoid"] is False and m["lost-ark"]["avoid"] is True,
+               "Lost Ark 만 하단 거름 영역(GW2 는 추천, BDO 는 조건부)")
         expect("선택 과금 · 무과금 가능" in m["black-desert"]["text"], "BDO 카드에 '선택 과금 · 무과금 가능' 배지",
                m["black-desert"]["text"][:180])
         expect("선택 과금 · 무과금 가능" in m["guild-wars-2"]["text"], "GW2 카드에 '선택 과금' 배지",
@@ -908,7 +951,7 @@ def main() -> int:
         expect("블랙 라이온" in body, "GW2 블랙 라이온 상자 서술", "")
         expect("무과금 충분성" in body and "무과금으로 충분" in body, "GW2 무과금 충분성 표기", "")
         alts = page.eval_on_selector_all("#secAlternatives .alt-row", "els => els.map(e => e.dataset.item)")
-        expect(alts == ["final-fantasy-xiv", "black-desert"], "GW2 대체제 = 같은 비교군 추천 2건", str(alts))
+        expect(alts == ["final-fantasy-xiv"], "GW2 대체제 = 같은 비교군 추천 1건(BDO 는 조건부)", str(alts))
         close_modal(page)
 
         page.goto(f"{base}/?domain=game&arena=mobile-strategy-defense", wait_until="networkidle")
@@ -917,12 +960,12 @@ def main() -> int:
         mob = cards(page)
         expect(len(mob) == 6, "모바일 전략·디펜스 카드 6건", str([c["id"] for c in mob]))
         mst = stats(page)
-        expect(mst.get("추천") == "3" and mst.get("조건부") == "1" and mst.get("거름") == "2",
-               "모바일 전략·디펜스 요약 3/1/2", str(mst))
-        expect(mst.get("평균 가중 점수") == "70.6", "모바일 전략·디펜스 평균 70.6", str(mst))
+        expect(mst.get("추천") == "4" and mst.get("조건부") == "0" and mst.get("거름") == "2",
+               "모바일 전략·디펜스 요약 4/0/2", str(mst))
+        expect(mst.get("평균 가중 점수") == "74.3", "모바일 전략·디펜스 평균 74.3", str(mst))
         d = {c["id"]: c for c in mob}
-        for item_id, verdict, score in (("bloons-td-6", "recommend", 81.3), ("kingdom-rush-vengeance", "recommend", 80.2),
-                                        ("clash-royale", "avoid", 55.2), ("plants-vs-zombies-2", "avoid", 48.0)):
+        for item_id, verdict, score in (("bloons-td-6", "recommend", 84.5), ("kingdom-rush-vengeance", "recommend", 84.0),
+                                        ("clash-royale", "avoid", 61.0), ("plants-vs-zombies-2", "avoid", 52.5)):
             c = d.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -930,7 +973,7 @@ def main() -> int:
             expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
             expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
 
-        for item_id, verdict, score in (("clash-of-clans", "conditional", 78.50), ("arknights", "recommend", 80.20)):
+        for item_id, verdict, score in (("clash-of-clans", "recommend", 81.50), ("arknights", "recommend", 82.00)):
             c = d.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -995,7 +1038,7 @@ def main() -> int:
         expect(page.inner_text("#strictMonetizationState").strip() == "OFF", "strict_monetization 되돌리기")
         expect("strictmon" not in page.url, "끄면 URL 에서 빠짐", path_id(page))
         bdo_off = card(page, "black-desert")
-        expect(bdo_off and bdo_off["verdict"] == "recommend", "strict OFF → BDO 추천", str(bdo_off)[:100])
+        expect(bdo_off and bdo_off["verdict"] == "conditional", "strict OFF → BDO 조건부(79.5)", str(bdo_off)[:100])
         close_drawer(page)
 
         page.goto(f"{base}/?domain=game&arena=mobile-strategy-defense", wait_until="networkidle")
@@ -1065,8 +1108,8 @@ def main() -> int:
                     missing: items.filter(i => !i.icon).map(i => i.id)};
         }"""
         )
-        expect(icon_index["withIcon"] == 42 and icon_index["total"] == 42,
-               "검색 인덱스 42건 모두 icon 경로를 가짐", str(icon_index))
+        expect(icon_index["withIcon"] == 57 and icon_index["total"] == 57,
+               "검색 인덱스 57건 모두 icon 경로를 가짐", str(icon_index))
 
         icon_load = page.evaluate(
             """async () => {
@@ -1082,7 +1125,7 @@ def main() -> int:
                     bad: items.filter((_, k) => !results[k]).map(i => i.id)};
         }"""
         )
-        expect(icon_load["ok"] == 42, "42종 공식 아이콘 파일이 모두 실제 이미지로 로드됨", str(icon_load))
+        expect(icon_load["ok"] == 57, "57종 공식 아이콘 파일이 모두 실제 이미지로 로드됨", str(icon_load))
 
         page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg", wait_until="networkidle")
         wait(page, 700)
@@ -1196,20 +1239,20 @@ def main() -> int:
         wait(page, 600)
         app_head = page.inner_text(".level-head")
         app_h1 = page.inner_text(".level-head h1")
-        expect("앱 — 장르 3 · 14건" in app_h1, "앱 도메인 헤더 = 장르 3 · 14건", app_h1)
+        expect("앱 — 장르 5 · 24건" in app_h1, "앱 도메인 헤더 = 장르 5 · 24건", app_h1)
         app_cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
-        expect(app_cats == ["productivity", "security-utilities"], "앱 도메인 대분류 2개(생산성·보안)", str(app_cats))
+        expect(app_cats == ["productivity", "security-utilities", "internet-privacy"], "앱 도메인 대분류 3개(생산성·보안·인터넷)", str(app_cats))
         app_arenas = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(app_arenas == ["pkm-notes", "task-managers", "password-managers"], "앱 도메인 장르 블록 3개", str(app_arenas))
-        expect("보안 · 유틸리티" in app_head and "필터 팩 · 앱 팩" in app_head, "앱 도메인에 새 대분류·필터 팩 표시", app_head)
+        expect(app_arenas == ["pkm-notes", "task-managers", "password-managers", "web-browsers", "cloud-storage"], "앱 도메인 장르 블록 5개", str(app_arenas))
+        expect("보안 · 유틸리티" in app_head and "인터넷 · 프라이버시" in app_head and "필터 팩 · 앱 팩" in app_head, "앱 도메인에 새 대분류·필터 팩 표시", app_head)
 
         todo_picks = page.eval_on_selector_all('.genre-block[data-arena="task-managers"] .pick-tile',
                                                "els => els.map(e => e.dataset.item)")
-        expect(todo_picks == ["tasks-org", "things-3", "todoist", "ticktick"],
+        expect(todo_picks == ["things-3", "tasks-org", "todoist", "ticktick"],
                "할 일 장르 타일 = 추천 점수순 4개(거름 MS To Do 제외)", str(todo_picks))
         pw_picks = page.eval_on_selector_all('.genre-block[data-arena="password-managers"] .pick-tile',
                                              "els => els.map(e => e.dataset.item)")
-        expect(pw_picks == ["bitwarden", "keepassxc", "1password", "dashlane"],
+        expect(pw_picks == ["bitwarden", "1password", "keepassxc", "dashlane"],
                "비밀번호 장르 타일 = 추천 3 + 조건부 1", str(pw_picks))
         new_tile_icons = page.eval_on_selector_all(
             '.genre-block[data-arena="task-managers"] .pick-tile .item-icon, '
@@ -1229,11 +1272,11 @@ def main() -> int:
         expect(page.inner_text("#listCount").strip() == "5/5건", "할 일 목록 건수 5/5", page.inner_text("#listCount"))
         tms = stats(page)
         expect(tms.get("추천") == "4" and tms.get("조건부") == "0" and tms.get("거름") == "1", "할 일 요약 4/0/1", str(tms))
-        expect(tms.get("평균 가중 점수") == "79.9", "할 일 평균 79.9", str(tms))
+        expect(tms.get("평균 가중 점수") == "82.5", "할 일 평균 82.5", str(tms))
         tm_by = {c["id"]: c for c in tm}
-        for item_id, verdict, score in (("tasks-org", "recommend", 88.0), ("things-3", "recommend", 87.3),
-                                        ("todoist", "recommend", 83.0), ("ticktick", "recommend", 80.8),
-                                        ("microsoft-to-do", "avoid", 60.45)):
+        for item_id, verdict, score in (("tasks-org", "recommend", 88.0), ("things-3", "recommend", 89.0),
+                                        ("todoist", "recommend", 85.0), ("ticktick", "recommend", 83.5),
+                                        ("microsoft-to-do", "avoid", 66.75)):
             c = tm_by.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -1266,10 +1309,10 @@ def main() -> int:
         expect(len(pw) == 4, "비밀번호 비교군 4건", str([c["id"] for c in pw]))
         pws = stats(page)
         expect(pws.get("추천") == "3" and pws.get("조건부") == "1" and pws.get("거름") == "0", "비밀번호 요약 3/1/0", str(pws))
-        expect(pws.get("평균 가중 점수") == "83.3", "비밀번호 평균 83.3", str(pws))
+        expect(pws.get("평균 가중 점수") == "84.9", "비밀번호 평균 84.9", str(pws))
         pw_by = {c["id"]: c for c in pw}
-        for item_id, verdict, score in (("bitwarden", "recommend", 91.7), ("keepassxc", "recommend", 84.67),
-                                        ("1password", "recommend", 82.4), ("dashlane", "conditional", 74.45)):
+        for item_id, verdict, score in (("bitwarden", "recommend", 91.5), ("keepassxc", "recommend", 84.0),
+                                        ("1password", "recommend", 86.0), ("dashlane", "conditional", 78.25)):
             c = pw_by.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -1314,15 +1357,15 @@ def main() -> int:
         wait(page, 700)
         expect("domain=ai" in page.url, "AI 도구 도메인 URL", path_id(page))
         ai_head = page.inner_text(".level-head")
-        expect("AI 도구 — 장르 1 · 4건" in page.inner_text(".level-head h1"), "AI 도메인 헤더 = 장르 1 · 4건", ai_head[:120])
+        expect("AI 도구 — 장르 2 · 9건" in page.inner_text(".level-head h1"), "AI 도메인 헤더 = 장르 2 · 9건", ai_head[:120])
         ai_cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
-        expect(ai_cats == ["ai-coding"], "AI 도메인 대분류 1개(개발·코딩)", str(ai_cats))
+        expect(ai_cats == ["ai-chat-research", "ai-coding"], "AI 도메인 대분류 2개(대화·리서치·개발·코딩)", str(ai_cats))
         expect("AI 도구 팩" in ai_head, "AI 도메인 필터 팩 표시", ai_head)
         ai_blocks = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(ai_blocks == ["ai-coding-tools"], "AI 도메인 장르 블록 1개", str(ai_blocks))
+        expect(ai_blocks == ["ai-assistants", "ai-coding-tools"], "AI 도메인 장르 블록 2개", str(ai_blocks))
         ai_dom_picks = page.eval_on_selector_all('.genre-block[data-arena="ai-coding-tools"] .pick-tile',
                                                  "els => els.map(e => e.dataset.item)")
-        expect(ai_dom_picks == ["cline", "github-copilot", "windsurf", "cursor"], "AI 도메인 추천 타일 4개", str(ai_dom_picks))
+        expect(ai_dom_picks == ["github-copilot", "cline", "cursor", "windsurf"], "AI 도메인 추천 타일 4개", str(ai_dom_picks))
 
         page.goto(f"{base}/?domain=ai&arena=ai-coding-tools", wait_until="networkidle")
         wait(page, 700)
@@ -1330,10 +1373,10 @@ def main() -> int:
         expect(len(ai) == 4, "AI 코딩 비교군 4건", str([c["id"] for c in ai]))
         ais = stats(page)
         expect(ais.get("추천") == "2" and ais.get("조건부") == "2" and ais.get("거름") == "0", "AI 코딩 요약 2/2/0", str(ais))
-        expect(ais.get("평균 가중 점수") == "78.9", "AI 코딩 평균 78.9", str(ais))
+        expect(ais.get("평균 가중 점수") == "81.1", "AI 코딩 평균 81.1", str(ais))
         ai_by = {c["id"]: c for c in ai}
-        for item_id, verdict, score in (("cline", "recommend", 85.75), ("github-copilot", "recommend", 83.8),
-                                        ("windsurf", "conditional", 74.7), ("cursor", "conditional", 71.3)):
+        for item_id, verdict, score in (("cline", "recommend", 84.25), ("github-copilot", "recommend", 84.5),
+                                        ("windsurf", "conditional", 77.5), ("cursor", "conditional", 78.0)):
             c = ai_by.get(item_id)
             expect(c is not None, f"{item_id} 카드 존재")
             if not c:
@@ -1384,12 +1427,211 @@ def main() -> int:
         expect("Apache" in body and "BYOK" in body, "Cline 오픈소스·BYOK 서술", "")
         close_modal(page)
 
+        # --------------------------- 10-7 v0.4.3 분야 확장: 브라우저 · 클라우드 · AI 어시스턴트
+        page.goto(f"{base}/?domain=app", wait_until="networkidle")
+        wait(page, 600)
+        for arena, picks in (
+            ("web-browsers", ["brave", "firefox", "vivaldi", "edge"]),
+            ("cloud-storage", ["proton-drive", "google-drive", "onedrive", "nextcloud"]),
+        ):
+            tiles = page.eval_on_selector_all(f'.genre-block[data-arena="{arena}"] .pick-tile',
+                                              "els => els.map(e => e.dataset.item)")
+            expect(tiles == picks, f"{arena} 장르 타일 = 추천 점수순 4개", str(tiles))
+        new_blocks = page.eval_on_selector_all(
+            '.genre-block[data-arena="web-browsers"], .genre-block[data-arena="cloud-storage"]',
+            "els => els.map(e => ({arena: e.dataset.arena, text: e.innerText.replace(/\\n/g, ' | ')}))")
+        expect(len(new_blocks) == 2 and all("전체 5종 비교" in b["text"] for b in new_blocks),
+               "새 앱 비교군 2개 블록에 '전체 5종 비교' 링크", str(new_blocks)[:160])
+        expect("인터넷 · 프라이버시" in new_blocks[0]["text"] and "보안 · 유틸리티" in new_blocks[1]["text"],
+               "새 블록이 각자의 새 대분류를 표시", str([b["text"][:47] for b in new_blocks]))
+        new_block_icons = page.eval_on_selector_all(
+            '.genre-block[data-arena="web-browsers"] .pick-tile .item-icon, '
+            '.genre-block[data-arena="cloud-storage"] .pick-tile .item-icon',
+            "els => els.map(e => { const img = e.querySelector('img');"
+            " return {size: Math.round(e.getBoundingClientRect().width), loaded: !!img && img.complete && img.naturalWidth > 0}; })")
+        expect(len(new_block_icons) == 8 and all(40 <= t["size"] <= 48 and t["loaded"] for t in new_block_icons),
+               "새 앱 비교군 타일 아이콘 8건 40px+ 로드", str(new_block_icons[:3]))
+
+        # --- 웹 브라우저 비교군
+        page.goto(f"{base}/?domain=app&arena=web-browsers", wait_until="networkidle")
+        wait(page, 700)
+        wb = cards(page)
+        expect(len(wb) == 5, "웹 브라우저 비교군 5건", str([c["id"] for c in wb]))
+        expect(page.inner_text("#listCount").strip() == "5/5건", "웹 브라우저 목록 건수 5/5", page.inner_text("#listCount"))
+        wbs = stats(page)
+        expect(wbs.get("추천") == "2" and wbs.get("조건부") == "3" and wbs.get("거름") == "0", "웹 브라우저 요약 2/3/0", str(wbs))
+        expect(wbs.get("평균 가중 점수") == "80.7", "웹 브라우저 평균 80.7", str(wbs))
+        wb_by = {c["id"]: c for c in wb}
+        for item_id, verdict, score in (("brave", "recommend", 88.0), ("firefox", "recommend", 87.0),
+                                        ("vivaldi", "conditional", 82.25), ("edge", "conditional", 76.0),
+                                        ("chrome", "conditional", 70.0)):
+            c = wb_by.get(item_id)
+            expect(c is not None, f"{item_id} 카드 존재")
+            if not c:
+                continue
+            expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
+            expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
+        expect(all(c["avoid"] is False for c in wb), "웹 브라우저는 모두 거름 영역 밖", str([c["id"] for c in wb if c["avoid"]]))
+        expect("인터넷 · 프라이버시" in page.inner_text(".level-head") and "웹 브라우저" in page.inner_text("#breadcrumb"),
+               "웹 브라우저 화면의 대분류·경로 표시", page.inner_text(".level-head")[:80])
+        expect("Manifest" not in wb_by["firefox"]["text"], "목록 카드에는 MV3 서술을 넣지 않음", wb_by["firefox"]["text"][:120])
+
+        page.goto(f"{base}/?domain=app&arena=web-browsers&item=chrome", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("uBlock Origin" in body and "MV2" in body, "Chrome 상세에 MV2·uBlock Origin 제한 서술", body[:200])
+        expect("서드파티 쿠키" in body and "Privacy Sandbox" in body, "Chrome 상세에 쿠키·Privacy Sandbox 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=app&arena=web-browsers&item=brave", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("Shields" in body and "기본" in body, "Brave 상세에 Shields 기본 차단 서술", "")
+        expect("자사 광고" in body or "Brave Ads" in body, "Brave 상세에 자사 광고 기본 노출 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=app&arena=web-browsers&item=firefox", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("Total Cookie Protection" in body and "MV2" in body, "Firefox 상세에 쿠키 격리·MV2 유지 서술", "")
+        expect("텔레메트리" in body, "Firefox 상세에 텔레메트리 기본값 서술", "")
+        close_modal(page)
+
+        # --- 클라우드 스토리지 비교군
+        page.goto(f"{base}/?domain=app&arena=cloud-storage", wait_until="networkidle")
+        wait(page, 700)
+        cs = cards(page)
+        expect(len(cs) == 5, "클라우드 비교군 5건", str([c["id"] for c in cs]))
+        css = stats(page)
+        expect(css.get("추천") == "3" and css.get("조건부") == "2" and css.get("거름") == "0", "클라우드 요약 3/2/0", str(css))
+        expect(css.get("평균 가중 점수") == "81.7", "클라우드 평균 81.7", str(css))
+        cs_by = {c["id"]: c for c in cs}
+        for item_id, verdict, score in (("proton-drive", "recommend", 87.0), ("nextcloud", "conditional", 83.0),
+                                        ("google-drive", "recommend", 81.5), ("dropbox", "conditional", 75.5),
+                                        ("onedrive", "recommend", 81.25)):
+            c = cs_by.get(item_id)
+            expect(c is not None, f"{item_id} 카드 존재")
+            if not c:
+                continue
+            expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
+            expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
+        expect("보안 · 유틸리티" in page.inner_text("#breadcrumb"), "클라우드는 기존 보안 · 유틸리티 대분류 아래", page.inner_text("#breadcrumb"))
+
+        page.goto(f"{base}/?domain=app&arena=cloud-storage&item=proton-drive", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("종단간" in body and "12개월" in body, "Proton 상세에 E2EE·12개월 유예 서술", body[:200])
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=app&arena=cloud-storage&item=dropbox", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("2GB" in body and "3기기" in body, "Dropbox 상세에 무료 2GB·3기기 서술", "")
+        expect("삭제" in body and "30일" in body, "Dropbox 상세에 초과 시 삭제·30일 복구 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=app&arena=cloud-storage&item=onedrive", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("3개월" in body and "6개월" in body, "OneDrive 상세에 동결 3개월·삭제 6개월 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=app&arena=cloud-storage&item=nextcloud", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("자체 호스팅" in body and "AGPL" in body, "Nextcloud 상세에 자체 호스팅·AGPL 서술", "")
+        close_modal(page)
+
+        # --- AI 어시스턴트 · 검색 비교군 + AI 도메인의 두 비교군
+        page.goto(f"{base}/?domain=ai&arena=ai-assistants", wait_until="networkidle")
+        wait(page, 700)
+        ai2 = cards(page)
+        expect(len(ai2) == 5, "AI 어시스턴트 비교군 5건", str([c["id"] for c in ai2]))
+        expect(page.inner_text("#listCount").strip() == "5/5건", "AI 어시스턴트 목록 건수 5/5", page.inner_text("#listCount"))
+        ais = stats(page)
+        expect(ais.get("추천") == "4" and ais.get("조건부") == "1" and ais.get("거름") == "0", "AI 어시스턴트 요약 4/1/0", str(ais))
+        expect(ais.get("평균 가중 점수") == "83.3", "AI 어시스턴트 평균 83.3", str(ais))
+        ai_by = {c["id"]: c for c in ai2}
+        for item_id, verdict, score in (("claude", "recommend", 87.5), ("perplexity", "recommend", 84.5),
+                                        ("chatgpt", "recommend", 84.0), ("gemini", "recommend", 81.5),
+                                        ("le-chat", "conditional", 79.0)):
+            c = ai_by.get(item_id)
+            expect(c is not None, f"{item_id} 카드 존재")
+            if not c:
+                continue
+            expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
+            expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
+        expect("대화 · 리서치" in page.inner_text(".level-head") and "AI 어시스턴트" in page.inner_text("#breadcrumb"),
+               "AI 어시스턴트 화면의 새 대분류·경로", page.inner_text(".level-head")[:80])
+        # AI 탭에는 두 비교군(대화·리서치 / 개발·코딩)이 함께 보이고 서로 전환된다
+        page.click('#domainTabs [data-domain="ai"]')
+        wait(page, 600)
+        ai_tiles = page.eval_on_selector_all('.genre-block[data-arena="ai-assistants"] .pick-tile',
+                                             "els => els.map(e => e.dataset.item)")
+        expect(ai_tiles == ["claude", "perplexity", "chatgpt", "gemini"], "AI 어시스턴트 장르 타일 4개", str(ai_tiles))
+        ai_blocks = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
+        expect(ai_blocks == ["ai-assistants", "ai-coding-tools"], "AI 탭 = 두 비교군 블록", str(ai_blocks))
+        ai_cat_chips = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
+        expect(ai_cat_chips == ["ai-chat-research", "ai-coding"], "AI 탭 = 두 대분류 칩", str(ai_cat_chips))
+        page.click('.genre-block[data-arena="ai-assistants"] .genre-title')
+        wait(page, 700)
+        expect("arena=ai-assistants" in page.url, "AI 탭에서 어시스턴트 비교군으로 이동", path_id(page))
+        page.click('#domainTabs [data-domain="ai"]')
+        wait(page, 500)
+        page.click('.chip--link[data-category="ai-chat-research"]')
+        wait(page, 500)
+        expect("category=ai-chat-research" in page.url, "AI 대분류 '대화 · 리서치' URL", path_id(page))
+        expect(page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)") == ["ai-assistants"],
+               "대화 · 리서치 대분류 아래 비교군 1개")
+
+        page.goto(f"{base}/?domain=ai&arena=ai-assistants&item=chatgpt", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("광고" in body and "Free" in body, "ChatGPT 상세에 무료 광고 서술", body[:200])
+        expect("Improve the model" in body or "학습" in body, "ChatGPT 상세에 학습 사용 기본값 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=ai&arena=ai-assistants&item=gemini", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("Flash-Lite" in body, "Gemini 상세에 무료 Flash-Lite 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=ai&arena=ai-assistants&item=claude", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("ad-free" in body or "광고 없음" in body, "Claude 상세에 광고 없음 서술", "")
+        expect("5년" in body, "Claude 상세에 학습 보존 5년 서술", "")
+        close_modal(page)
+
+        # 신규 15종 아이콘 — 파일 규칙과 로드 (검색 인덱스 경유)
+        new_icons = page.evaluate(
+            """async () => {
+            const ids = ['claude','chatgpt','perplexity','gemini','le-chat','firefox','brave','vivaldi','chrome','edge',
+                         'proton-drive','nextcloud','google-drive','dropbox','onedrive'];
+            const items = window.Pharos.state.core.index.items.filter(i => ids.includes(i.id));
+            const load = (src) => new Promise((res) => { const im = new Image();
+              im.onload = () => res(im.naturalWidth === 192 && im.naturalHeight === 192); im.onerror = () => res(false);
+              im.src = './' + src; });
+            const results = await Promise.all(items.map(i => load(i.icon)));
+            return {total: items.length, ok: results.filter(Boolean).length,
+                    paths: items.map(i => i.icon), bad: items.filter((_, k) => !results[k]).map(i => i.id)};
+        }"""
+        )
+        expect(new_icons["total"] == 15 and new_icons["ok"] == 15, "신규 15종 아이콘이 192×192로 로드", str(new_icons["bad"]))
+        expect(all(p.startswith("assets/icons/") and p.endswith(".webp") for p in new_icons["paths"]),
+               "신규 아이콘 경로 = assets/icons/{id}.webp", str(new_icons["paths"][:3]))
+        compare_manifest = page.evaluate(
+            """() => { const m = window.Pharos.state.core.index.items; return m.length; }"""
+        )
+        expect(compare_manifest == 57, "인덱스 57건 기준 신규 아이콘 검사", str(compare_manifest))
+
         # ------------------------------------------------------------- 11 스크린샷
         desktop = context.new_page()
         desktop.set_viewport_size({"width": 1440, "height": 1100})
         desktop.goto(f"{base}/", wait_until="networkidle")
         wait(desktop, 600)
-        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == 9, "스크린샷: 홈 장르 블록 9개")
+        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == 12, "스크린샷: 홈 장르 블록 12개")
         desktop.screenshot(path=str(shots / "preview-v3-home.png"), full_page=True)
 
         desktop.goto(f"{base}/?domain=game", wait_until="networkidle")

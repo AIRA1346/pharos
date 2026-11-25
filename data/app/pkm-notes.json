@@ -279,7 +279,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "무료로 시작해 파일이 내 것으로 남는다. Sync를 사지 않고 iCloud·동기화 프로그램으로 쓰는 경로가 최저 비용.",
         "recommended_path": true,
         "notes": "P1 기준 최소 비용 경로. Markdown·플러그인 학습곡선과 모바일 결함은 감수해야 한다."
@@ -369,7 +369,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "모바일·데스크톱 자동 동기화를 원할 때만 지불. 파일 소유권은 그대로 유지된다.",
         "recommended_path": false,
         "notes": "3자 커뮤니티 리포트카드 Sync 4.6/5(등급 C)."
@@ -459,7 +459,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "노트를 웹으로 공개할 때만 필요한 부가 티어. 일반 사용자에게는 불필요.",
         "recommended_path": false,
         "notes": "웹 게시 전용. 일반 개인 사용자에게는 권하지 않는다."
@@ -551,7 +551,7 @@
             ]
           }
         },
-        "verdict": "conditional",
+        "verdict": "recommend",
         "one_liner": "회사·수익 활동에서 쓰면 필요한 라이선스. 개인 사용에는 해당 없음.",
         "recommended_path": false,
         "notes": "조직 도입 시 인원수만큼 비용이 늘어난다."
@@ -559,12 +559,12 @@
     ],
     "axes": {
       "user_rating": {
-        "score": 82,
+        "score": 85,
         "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A/C",
         "confidence": "high",
-        "summary": "Google Play 4.4★/19,500개 리뷰, 5M+ 다운로드. 3자 분석 최근 100개 4.06★(1.14.4 이후 4.32★)로 누적과 큰 괴리 없음. G2도 \"강력하지만 학습곡선\"으로 수렴.",
+        "summary": "Play 4.4★(1.95만). 최근 3자 집계 100건은 4.06★로 조금 낮지만, v0.5.0 표본 규모 검증으로 (누적+최근)÷2 보정해 85로 둔다.",
         "source_ids": [
           "play-obsidian",
           "advisor-obsidian",
@@ -611,7 +611,7 @@
       }
     },
     "verdict": {
-      "overall": "conditional",
+      "overall": "recommend",
       "tier_of_record": "free",
       "signals": {
         "user_rating": "green",
@@ -619,11 +619,11 @@
         "ai_review": "yellow",
         "personal_fit": "yellow"
       },
-      "one_liner": "\"무료로 시작해 평생 내 파일로 남는다\"는 점은 P1에 최적이지만, Markdown·플러그인 학습곡선과 모바일 결함을 감수할 사람에게만 권한다.",
+      "one_liner": "무료로 시작해 평생 내 파일로 남는 노트 — Markdown·플러그인 생태계가 강점이고, 학습곡선과 모바일 결함이 조건이다.",
       "reasons": [
         "광고·계정·과금 없이 전 기능을 쓸 수 있어 하드 필터를 모두 통과한다.",
-        "학습곡선과 모바일 결함이 진입 비용이며, AI 검토·취향 적합이 🟡다.",
-        "Sync 없이 쓰는 최소 비용 경로가 존재한다."
+        "강점은 파일 소유권·플러그인 생태계·Markdown 평문 보관. 학습곡선과 모바일 결함이 진입 비용이다.",
+        "Sync 없이 쓰는 최소 비용 경로가 존재한다. 취향 적합(P1)은 기본 판정에 세지 않는다(v0.5.0)."
       ],
       "hard_filter_blocked": false,
       "condition_notes": [
@@ -732,6 +732,9 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 직접 설치·사용 없이 공개 데이터만 사용했다. 수치는 2026-11-24 확인값이다."
+    },
+    "score_notes": {
+      "user_rating": "v0.5.0: 누적 4.4★(19,500, 등급 A) 대비 3자 최근 100건(4.06★, 등급 C)이 낮아 (누적+최근)÷2 로 보정(82→85). 얇은 최근 표본이 큰 누적을 덮지 않게 한 규칙."
     }
   },
   {
@@ -1907,24 +1910,24 @@
     ],
     "axes": {
       "user_rating": {
-        "score": 64,
-        "signal": "yellow",
+        "score": 82,
+        "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A/C",
         "confidence": "medium",
-        "summary": "누적은 높다 — Play 4.6★(40.9만 평가), App Store 4.8★. 그러나 최근 100개는 Android 3.80★, iOS 2.68★로 갈라진다. AI 노출·모바일 속도·데이터 유실 불만이 최근 구간을 끌어내렸다.",
+        "summary": "누적은 압도적이다 — Play 4.6★(40.9만), App Store 4.8★(9.1만). 최근 3자 집계 100건은 Android 3.80★·iOS 2.68★로 낮지만, v0.5.0 표본 규모 검증으로 그 하락은 방향 신호로만 쓰고 누적과 반씩 섞어 82로 둔다. AI 노출·모바일 속도·데이터 유실 불만은 사실로 남는다.",
         "source_ids": [
           "play-notion",
           "prodapps-notion"
         ]
       },
       "objective": {
-        "score": 70,
-        "signal": "yellow",
+        "score": 78,
+        "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "광고는 없고 2026-11-18까지 활발히 업데이트된다. 대신 계정·클라우드 전제, 7일 히스토리, AI는 Business부터 — 과금은 구독과 AI 크레딧으로 유도된다.",
+        "summary": "광고는 없고 2026-11-18까지 활발히 업데이트된다. v0.5.0 객관 기준(기능 완성도·생태계/연동성·안정성·보안·정책/과금 투명성)으로 보면 페이지·DB·템플릿 생태계와 연동은 최상급이다. 감점은 계정·클라우드가 아니라 실제 제약에만 둔다 — 7일 히스토리, AI가 Business부터, AI 크레딧 과금 불투명, 데이터 보안 항목 미확인.",
         "source_ids": [
           "notion-pricing",
           "play-notion",
@@ -1960,21 +1963,22 @@
       "overall": "conditional",
       "tier_of_record": "free",
       "signals": {
-        "user_rating": "yellow",
-        "objective": "yellow",
+        "user_rating": "green",
+        "objective": "green",
         "ai_review": "yellow",
         "personal_fit": "red"
       },
-      "one_liner": "올인원 도구로서의 힘은 분명하지만, '내 노트를 내 것으로 유지하는가'라는 파로스의 기준에서는 계정·클라우드·구독이 계속 발목을 잡는다.",
+      "one_liner": "올인원 워크스페이스로는 이 비교군에서 가장 넓다. 무료로도 페이지·DB·위키가 열려 있지만, AI는 Business부터이고 모바일 속도·유실 불만이 남는다.",
       "reasons": [
-        "광고·확률형 아이템·P2W가 없고 최근까지 활발히 업데이트된다.",
-        "계정·워크스페이스가 전제라 계정 필수 필터에 걸린다(기본 세트에는 미포함).",
-        "최근 모바일 평가가 누적 대비 크게 낮다 — AI 노출과 속도·유실 불만."
+        "광고·확률형 아이템·P2W가 없고 2026-11-18까지 활발히 업데이트된다.",
+        "페이지·DB·템플릿 생태계와 연동은 최상급 — v0.5.0 객관 기준에서 '계정·클라우드 전제'는 감점이 아니다(필터·프라이버시 프리셋이 가른다).",
+        "최근 3자 표본(100건씩)은 낮지만 누적 4.6~4.8★(약 50만)과 반씩 섞어 사용자 82로 본다. AI 노출·모바일 속도·유실 불만은 사실로 남는다."
       ],
       "hard_filter_blocked": false,
       "condition_notes": [
         "무료 플랜의 파일 업로드·히스토리 한도 수치는 확인하지 못했다(⚪).",
-        "Notion AI 크레딧 소모·추가 과금 체계는 미확인."
+        "Notion AI 크레딧 소모·추가 과금 체계는 미확인.",
+        "계정·클라우드 전제는 기본 판정에서 감점하지 않는다 — '프라이버시·로컬 중시' 프리셋이나 account_required 필터로 거른다."
       ]
     },
     "review_snapshot": {
@@ -2135,6 +2139,10 @@
         }
       ],
       "limitations": "데스크 리서치. 직접 설치·사용 없이 공개 데이터만 사용했다. 최근 구간 수치는 3자 집계 의존이다. 수치는 2026-11-24 확인값이며 가격은 USD 표기다."
+    },
+    "score_notes": {
+      "user_rating": "v0.5.0: 스토어 누적 4.6~4.8★(약 50만 표본, 등급 A/B) 대비 3자 최근 100건(등급 C)이 크게 낮아 최근은 하락 방향 신호로만 쓰고 (누적+최근)÷2 로 보정(64→82). 과금·약관 변경이 급락과 겹친 사례가 아니라 완화 예외에 해당하지 않는다.",
+      "objective": "v0.5.0: '계정·클라우드 전제'라는 이유의 감점을 제거하고(그 사실은 account_required 필터·프리미엄 프리셋이 가른다) 기능 완성도·생태계·안정성·보안·정책 투명성으로 재평가(70→78). 히스토리·AI 게이트·크레딧 불투명은 감점으로 유지."
     }
   },
   {
@@ -3020,12 +3028,12 @@
         ]
       },
       "objective": {
-        "score": 82,
+        "score": 84,
         "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "광고·IAP·구독 없이 무료, 2026-11-18 업데이트, 전체 노트 내보내기 가능. 대신 계정·클라우드 전제이고 서식·첨부가 거의 없다.",
+        "summary": "광고·IAP·구독 없이 무료, 2026-11-18 업데이트, 전체 노트 내보내기. v0.5.0은 '계정·클라우드 전제'를 객관 감점에서 빼고(그 사실은 account_required 필터로), 실제 감점은 서식·첨부가 거의 없는 기능 빈약함에만 둔다.",
         "source_ids": [
           "play-simplenote",
           "simplenote-help"
@@ -3192,6 +3200,9 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 직접 설치·사용 없이 공개 데이터만 사용했다. 최근 100개 평점은 3자 집계(등급 C)다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 계정·클라우드 전제 감점 제거(82→84). 기능 빈약함은 유지."
     }
   }
 ]

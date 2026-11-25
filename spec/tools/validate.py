@@ -37,7 +37,7 @@ WEB_DATA_DIR = WEB_DIR / "data"
 WEB_SCHEMA_PATH = WEB_DIR / "schema" / "item.schema.json"
 WEB_JS_DIR = WEB_DIR / "js"
 
-AXES = [("user_rating", 0.40), ("objective", 0.35), ("ai_review", 0.25)]
+AXES = [("user_rating", 0.50), ("objective", 0.25), ("ai_review", 0.25)]
 THRESHOLDS = {"green_min": 75, "yellow_min": 50}
 DEFAULT_FILTERS = ["forced_ads", "gacha_random_items", "p2w", "stale_over_12m"]
 MONETIZATION_IMPACT_KEYS = {"gacha_random_items", "p2w"}
@@ -159,6 +159,10 @@ def compute_verdict(item, tier, enabled=None, strict=True, strict_monetization=F
 
     signals = []
     for key in ("user_rating", "objective", "ai_review", "personal_fit"):
+        weight = dict(AXES).get(key, 0.0)
+        if weight <= 0:
+            # 가중치 0인 축(프로필 전용 personal_fit 등)은 판정 개수에 세지 않는다(v0.5.0).
+            continue
         _, sig, _ = effective_axis(item, tier, key)
         if sig:
             signals.append(sig)
@@ -447,6 +451,29 @@ def semantic_errors(item, ctx, arena_id=None):
             "yellow" if score < THRESHOLDS["green_min"] else "green")
         if axis.get("signal") != expected:
             errs.append(f"축 {name}: 점수 {score} → 기대 신호 {expected}, 실제 {axis.get('signal')}")
+
+    # 표본 규모 검증(v0.5.0) — 얇은 3자 최근 표본이 큰 스토어 누적을 덮은 경우 산정 메모를 요구한다.
+    notes = item.get("score_notes") or {}
+    risky_terms = (item.get("update_profile") or {}).get("maintenance_quality") == "risky_terms"
+    needs_scale_note = False
+    if not risky_terms:
+        for row in item.get("review_snapshot", {}).get("platforms") or []:
+            recent = row.get("recent") or {}
+            cumulative = row.get("cumulative") or {}
+            count = recent.get("count")
+            base = cumulative.get("count")
+            if (
+                recent
+                and recent.get("evidence_grade") == "C"
+                and isinstance(count, int) and count < 1000
+                and cumulative.get("evidence_grade") in ("A", "B")
+                and isinstance(base, int) and base >= max(100000, count * 100)
+                and isinstance(cumulative.get("value"), (int, float))
+                and cumulative.get("scale") == "stars5" and cumulative["value"] >= 4.4
+            ):
+                needs_scale_note = True
+    if needs_scale_note and not (notes.get("user_rating") or "").strip():
+        errs.append("표본 규모 검증 대상인데 score_notes.user_rating 산정 메모가 없음")
 
     for fkey, fnode in item["flags"].items():
         if fkey == "data_export":
@@ -1090,6 +1117,17 @@ def main():
     impact_meta = contract.get("monetization_impact") or {}
     if set(impact_meta.get("keys") or []) != MONETIZATION_IMPACT_KEYS:
         meta_errors.append("monetization_impact.keys 가 gacha_random_items·p2w 와 다름")
+    contract_weights = {a.get("key"): a.get("default_weight") for a in contract.get("axes") or []}
+    for key, weight in AXES:
+        try:
+            same = abs(float(contract_weights.get(key)) - weight) < 1e-9
+        except (TypeError, ValueError):
+            same = False
+        if not same:
+            meta_errors.append(f"axes[{key}].default_weight 가 v0.5.0 기본 배분({weight})과 다름: {contract_weights.get(key)!r}")
+    sample_scale = contract.get("sample_scale") or {}
+    if sample_scale.get("axis") != "user_rating" or not sample_scale.get("thin_recent_rule") or not sample_scale.get("risky_terms_exception"):
+        meta_errors.append("sample_scale(사용자 축 표본 규모 검증) 계약이 없음")
     if {level.get("key") for level in impact_meta.get("levels") or []} != IMPACT_VALUES:
         meta_errors.append("monetization_impact.levels 가 none·optional·core 와 다름")
     toggle = impact_meta.get("strict_toggle") or {}

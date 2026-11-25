@@ -1221,12 +1221,12 @@
         ]
       },
       "objective": {
-        "score": 70,
+        "score": 73,
         "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "프로파일링·데이터 판매가 없고 수익 구조를 공개했으며 차단기를 2026-11에 재구축했다. 감점: 기본 차단 수준이 'Light'라 트래커 일부만 막고, 파트너 검색 광고는 기본 허용이며, UI 5%가 폐쇄 소스다.",
+        "summary": "프로파일링·데이터 판매가 없고 수익 구조를 공개했으며 차단기를 2026-11에 재구축했다. v0.5.0은 'UI 5% 폐쇄 소스'라는 이유의 감점을 뺐다. 감점: 기본 차단 'Light', 파트너 검색 광고 기본 허용.",
         "source_ids": [
           "vivaldi-blocker",
           "vivaldi-83",
@@ -1379,6 +1379,9 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 8.3 차단기를 직접 켜서 사이트별 차단률을 재지는 않았다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 폐쇄 소스 감점 제거(70→73). 기본 차단 수준·파트너 광고는 유지."
     }
   },
   {
@@ -1662,12 +1665,12 @@
         ]
       },
       "objective": {
-        "score": 40,
-        "signal": "red",
+        "score": 50,
+        "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "B",
         "confidence": "high",
-        "summary": "트래커를 기본으로 막지 않고 서드파티 쿠키도 기본 허용이며, MV2를 완전히 제거해 전체 uBlock Origin을 쓸 수 없다. Privacy Sandbox는 폐기됐고 AI 기능이 계속 추가된다. 반면 보안 격리·업데이트 속도는 업계 최상이다.",
+        "summary": "트래커를 기본으로 막지 않고 서드파티 쿠키도 기본 허용이며, MV2를 완전히 제거해 전체 uBlock Origin을 쓸 수 없다. v0.5.0은 확장 생태계·호환성·보안 격리·업데이트 속도를 상급으로 인정해 50으로 올렸고(클라우드·비공개 소스 감점 아님), 추적 기본값·MV3 제한은 그대로 감점이다.",
         "source_ids": [
           "chrome-mv2",
           "chrome-engines",
@@ -1692,7 +1695,7 @@
       "tier_of_record": "free",
       "signals": {
         "user_rating": "green",
-        "objective": "red",
+        "objective": "yellow",
         "ai_review": "yellow"
       },
       "one_liner": "가장 빠르고 호환성 좋은 브라우저. 대신 프라이버시는 기본값이 아니다.",
@@ -1831,6 +1834,9 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 공식 문서 대신 보도·3자 비교로 정책 변경을 확인한 항목이 있다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 기능 완성도·생태계·안정성·보안 격리를 반영(40→50). 추적 기본 허용·MV3 제한은 실제 제품/정책 감점으로 유지(🔴→🟡 경계)."
     }
   },
   {
@@ -2133,12 +2139,12 @@
         ]
       },
       "objective": {
-        "score": 55,
+        "score": 58,
         "signal": "yellow",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "Balanced 추적 방지가 기본이라 Chrome보다 낫다. 다만 분석 트래커는 제한하지 않고, MV2를 2026년 말까지 종료하며, Copilot·쇼핑 기능이 기본 탑재돼 브라우저 밖 목적이 섞인다.",
+        "summary": "Balanced 추적 방지가 기본이라 Chrome보다 낫다. v0.5.0은 Sleeping Tabs·PDF·번역 같은 실사용 기능과 안정성을 상급으로 반영했다. 감점: 분석 트래커 미제한, MV2 2026년 말 종료, Copilot·쇼핑 기본 탑재.",
         "source_ids": [
           "edge-tracking",
           "edge-mv3",
@@ -2316,6 +2322,9 @@
         }
       ],
       "limitations": "데스크 리서치. 쇼핑·Copilot 기본 노출은 지역·로그인 상태에 따라 달라 직접 확인하지 않았다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 기능·안정성 반영(55→58). 트래커·MV2 종료·기본 탑재 블로트는 유지."
     }
   }
 ]

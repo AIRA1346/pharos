@@ -22,20 +22,27 @@ const PRESETS = [
   {
     id: 'balanced',
     label: '균형 기본',
-    weights: { user_rating: 40, objective: 35, ai_review: 25 },
-    hint: '사용자 40 · 객관 35 · AI 25',
+    weights: { user_rating: 50, objective: 25, ai_review: 25 },
+    hint: '사용자 50 · 객관 25 · AI 25',
   },
   {
     id: 'popular',
     label: '대중 평가 중심',
-    weights: { user_rating: 60, objective: 25, ai_review: 15 },
-    hint: '최근 리뷰가 좋은 것을 먼저',
+    weights: { user_rating: 65, objective: 20, ai_review: 15 },
+    hint: '수십만~수백만 명이 매긴 평점을 가장 무겁게',
   },
   {
     id: 'comfort',
     label: '쾌적성·노과금 중심',
     weights: { user_rating: 20, objective: 60, ai_review: 20 },
     hint: '광고·과금·유지보수를 무겁게',
+  },
+  {
+    id: 'privacy',
+    label: '프라이버시·로컬 중시',
+    weights: { user_rating: 25, objective: 55, ai_review: 20 },
+    filters: ['account_required', 'data_collection'],
+    hint: '계정·데이터 수집 필터를 함께 켭니다',
   },
   {
     id: 'ai',
@@ -356,7 +363,13 @@ function parseUrl() {
       state.preset = detectPreset() || 'custom';
     }
   } else if (preset) {
-    state.weights = { ...engine.defaultWeights(contract()), ...PRESETS.find((p) => p.id === preset).weights };
+    const chosen = PRESETS.find((p) => p.id === preset);
+    state.weights = { ...engine.defaultWeights(contract()), ...chosen.weights };
+    if (Array.isArray(chosen.filters)) {
+      const known = new Set((contract().hard_filters || []).map((f) => f.key));
+      const base = contract().default_enabled_filters || [];
+      state.enabledFilters = [...new Set([...base, ...chosen.filters])].filter((key) => known.has(key));
+    }
   }
   const filters = params.get('filters');
   if (filters !== null) {
@@ -2219,11 +2232,26 @@ function applyPreset(id) {
   for (const [key, value] of Object.entries(preset.weights)) {
     if (key in state.weights) state.weights[key] = value;
   }
+  const known = new Set((contract().hard_filters || []).map((f) => f.key));
+  const leaving = PRESETS.find((row) => row.id === state.preset)?.filters || [];
+  const adding = preset.filters || [];
+  // 프리셋이 켠 필터만 되돌린다 — 사용자가 직접 켜 둔 필터는 건드리지 않는다.
+  const kept = state.enabledFilters.filter((key) => !leaving.includes(key));
+  state.enabledFilters = [...new Set([...kept, ...adding])].filter((key) => known.has(key));
   state.preset = id;
   savePrefs();
   renderWeights();
+  syncFilterInputs();
   updateTuneMeta();
-  refreshAfterSettingChange();
+  refreshAfterSettingChange({ filters: true });
+}
+
+/** 프리셋이 켠·끈 필터를 드로어 체크박스에 맞춘다(applyPreset 은 드로어를 다시 그리지 않는다). */
+function syncFilterInputs() {
+  document.querySelectorAll('#tuneBody input[data-filter]').forEach((input) => {
+    input.checked = state.enabledFilters.includes(input.dataset.filter);
+  });
+  renderTunePacksActiveState();
 }
 
 function refreshAfterSettingChange({ filters = false } = {}) {
@@ -2298,10 +2326,10 @@ function buildMethodBody() {
               (axis) =>
                 `<tr><td>${esc(axis.label)}${axis.profile_scoped ? ' <span class="muted">(프로필 전용)</span>' : ''}</td><td>${
                   {
-                    user_rating: '최근 구간 vs 누적 괴리, 표본 신뢰도 보정',
-                    objective: '가격 투명성·유지/지속성·정직성(광고·과금·락인)',
+                    user_rating: '최근 구간 vs 누적 괴리 + 표본 규모 검증(수십만~수백만 누적 우대)',
+                    objective: '기능 완성도·생태계/연동성·안정성·보안·정책/과금 투명성 — 클라우드·비공개 소스라는 이유만으로 깎지 않음',
                     ai_review: '본질 완성도·함정 구조·강점/약점',
-                    personal_fit: '취향 태그·프로필 적합도(있을 때만)',
+                    personal_fit: '취향 태그·프로필 적합도(있을 때만 — 켜지지 않은 프로필 축은 판정에 세지 않음)',
                   }[axis.key] || ''
                 }</td><td>${pct(axis.default_weight ?? 0)}</td></tr>`,
             )
@@ -2309,6 +2337,22 @@ function buildMethodBody() {
         </tbody>
       </table></div>
       <p class="m-sec-note">가중 점수 = Σ(w×s) ÷ Σw. 점수가 없는 축(⚪)은 분자·분모에서 모두 빠집니다. 입력 가중치는 합계로 정규화합니다. 과금의 <b>강도</b>는 점수 대신 impact·free_play 로 따로 기록해, 같은 사실을 두 번 감점하지 않습니다.</p>
+      <p class="m-sec-note"><b>v0.5.0 기본 배분은 사용자 50 · 객관 25 · AI 25.</b> 대중이 실제로 검증한 평점의 무게를 높였습니다. 가중치가 0인 축(내 기준 적합)은 신호가 있어도 추천/거름 계산에 세지 않습니다 — 프로필을 켰을 때만 네 번째 축이 됩니다.</p>
+    </section>
+
+    <section class="m-sec">
+      <div class="m-sec-head"><span class="sec-num">B2</span><h3>사용자 평가의 표본 규모 검증</h3></div>
+      <p class="m-sec-note">같은 4.4~4.6★이라도 <b>리뷰 1만 개와 수십만~수백만 개</b>는 검증의 무게가 다릅니다. 누적 표본으로 규모 등급을 매기고, 얇은 3자 최근 표본이 큰 스토어 누적을 통째로 덮지 않게 합니다.</p>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>누적 표본</th><th>규모 등급</th><th>쓰는 법</th></tr></thead>
+        <tbody>
+          <tr><td>100만 이상</td><td>대규모 활성 유저</td><td>4.4★(88) 이상 유지 시 🟢 검증 하한(75)</td></tr>
+          <tr><td>10만~100만</td><td>대형</td><td>같은 하한 적용</td></tr>
+          <tr><td>1만~10만</td><td>중형</td><td>점수 보정 없음 — 있는 그대로</td></tr>
+          <tr><td>1천 미만</td><td>소형·미세 표본</td><td>최근 값 우선 + 신호 한 단계 하향(과대평가 방지)</td></tr>
+        </tbody>
+      </table></div>
+      <p class="m-sec-note">최근 구간이 <b>3자 집계(등급 C)·1,000건 미만</b>인데 스토어 누적이 <b>등급 A/B·10만 건 이상·4.4★ 이상</b>이면, 최근 값은 ‘하락 방향 신호’로만 쓰고 그 플랫폼 점수는 (누적+최근)÷2로 둡니다. 단 과금·약관 변경이 급락과 겹친 경우(예: 에버노트 가격 인상)는 완화하지 않습니다 — 돈·조건이 바뀌어 생긴 하락은 표본이 얇아도 실제 신호입니다.</p>
     </section>
 
     <section class="m-sec">
@@ -2366,6 +2410,8 @@ function buildMethodBody() {
         <dt>strict_monetization</dt><dd>‘내 기준 미세조정’의 토글(기본 OFF). 켜면 상품이 있기만 해도 거름 — v0.3.1 과 같은 동작입니다.</dd>
         <dt>엄격 모드</dt><dd>등급 C 근거의 필터 적중도 거름으로 처리. 끄면 ‘근거 약함’ 조건부 경고로 완화합니다.</dd>
         <dt>면제(exempt)</dt><dd>완결작이 12개월 넘게 업데이트가 없어도 방치가 아니라고 판단한 상태. 거름이 아닙니다.</dd>
+        <dt>표본 규모 검증</dt><dd>수십만~수백만 명이 매긴 누적 평점은 수백 건짜리 3자 최근 표본보다 무겁게 봅니다. 얇은 최근 표본은 ‘하락 방향 신호’로만 쓰고, 큰 누적과 반씩 섞습니다(v0.5.0).</dd>
+        <dt>프라이버시·로컬 중시 프리셋</dt><dd>객관 비중을 높이고 ‘계정 필수·과도한 데이터 수집’ 필터를 함께 켜는 프리셋. 기본 화면은 클라우드·비공개 소스를 깎지 않고, 로컬·프라이버시가 목적일 때 이 프리셋으로 가릅니다.</dd>
         <dt>비교군</dt><dd>같은 자리를 두고 겨루는 대체제 묶음. 평균·순위는 이 안에서만 냅니다.</dd>
         <dt>⚪ 미확인</dt><dd>근거를 찾지 못한 값. 통과로 치지 않고 ‘주의’로 표시합니다.</dd>
         <dt>재검토 필요</dt><dd>평가일 이후 ${contract().freshness?.review_after_days ?? 180}일이 지난 판정. 최신 사실로 읽지 마세요.</dd>

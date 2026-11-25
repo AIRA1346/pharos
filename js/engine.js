@@ -338,12 +338,12 @@ export function evaluateTier(item, tier, settings) {
     check.optional = optionalFails.includes(check);
   }
 
-  const reds = axisStates.filter((axis) => axis.signal === 'red');
-  const yellows = axisStates.filter((axis) => axis.signal === 'yellow');
+  // 가중치 0인 축(프로필 전용 personal_fit 등)은 판정 개수에 세지 않는다 — 기본 화면에는 프로필이 없다(v0.5.0).
+  const counted = axisStates.filter((axis) => axis.weight > 0);
+  const reds = counted.filter((axis) => axis.signal === 'red');
+  const yellows = counted.filter((axis) => axis.signal === 'yellow');
   // 프로필 전용 축(personal_fit)이 데이터에 없을 때는 '미확인 축'으로 세지 않는다 — 그 축은 기본 가중치 0이다.
-  const unknowns = axisStates.filter(
-    (axis) => (axis.signal === 'unknown' || axis.score === null) && !(axis.profileScoped && axis.source === 'absent'),
-  );
+  const unknowns = counted.filter((axis) => axis.signal === 'unknown' || axis.score === null);
 
   let verdict;
   let rule;

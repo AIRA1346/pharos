@@ -445,12 +445,12 @@
         "override_reason": "최근 분기 표본 24건(<100) — 표본 하향 규칙을 한 단계만 적용(7절)."
       },
       "objective": {
-        "score": 40,
+        "score": 46,
         "signal": "red",
         "signal_basis": "score",
         "evidence_grade": "A/B",
         "confidence": "high",
-        "summary": "요금 구조가 2026-10에 급변했다: 플랜 값에는 Grok·Composer만 포함되고 Claude·GPT·Gemini는 첫 요청부터 API 정가로 별도 청구된다. 'Plus의 4배'라고만 쓰고 기준 사용량은 공개하지 않았으며, on-demand 청구 분쟁 보고도 있다. 폐쇄 소스·VS Code 포크.",
+        "summary": "요금 구조가 2026-10에 급변했다: 플랜 값에는 Grok·Composer만 포함되고 Claude·GPT·Gemini는 첫 요청부터 API 정가로 별도 청구된다. 'Plus의 4배'라고만 쓰고 기준 사용량은 공개하지 않았으며 on-demand 청구 분쟁 보고도 있다. v0.5.0은 비공개 소스·VS Code 포크라는 이유의 감점을 뺐지만, 과금 투명성 문제만으로 46(🔴)이다. 에디터 기능·생태계는 상급이다.",
         "source_ids": [
           "cursor-pricing",
           "cursor-models",
@@ -617,6 +617,9 @@
         }
       ],
       "limitations": "데스크 리서치. 실제 결제·사용량 청구를 확인하지 않았고, G2 외 스토어 평점 표본이 없다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: '폐쇄 소스' 감점 제거(40→46). 과금 불투명·한도 비공개·청구 분쟁은 객관 기준의 '정책/과금 투명성' 위반으로 남겨 🔴 유지."
     }
   },
   {
@@ -1040,12 +1043,12 @@
         ]
       },
       "objective": {
-        "score": 82,
+        "score": 84,
         "signal": "green",
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "2026-06 사용량 과금으로 바뀌었지만 기본 요금은 그대로이고, 코드 완성은 크레딧을 쓰지 않으며 Free 티어가 유지된다. 크레딧 단가(1크레딧=US$0.01)와 월 한도를 숫자로 공개했다. 감점: 폐쇄 소스, BYOK 불가.",
+        "summary": "2026-06 사용량 과금으로 바뀌었지만 기본 요금은 그대로이고, 코드 완성은 크레딧을 쓰지 않으며 Free 티어가 유지된다. 크레딧 단가(1크레딧=US$0.01)와 월 한도를 숫자로 공개했다. v0.5.0은 폐쇄 소스라는 이유의 감점을 뺐고, BYOK 불가만 유연성 감점으로 남긴다.",
         "source_ids": [
           "copilot-plans",
           "copilot-billing",
@@ -1188,6 +1191,9 @@
       ],
       "conflicts": [],
       "limitations": "데스크 리서치. 크레딧이 실제 작업에서 얼마나 소모되는지는 직접 측정하지 않았다."
+    },
+    "score_notes": {
+      "objective": "v0.5.0: 비공개 소스 감점 제거(BYOK 불가만 감점) 82→84."
     }
   },
   {
