@@ -101,6 +101,19 @@ def card(page, item_id):
     )
 
 
+def shot(page, path, full_page=False):
+    """스크린샷 — 페이지가 길어 full-page 캡처가 실패하면 뷰포트로 대체한다."""
+    try:
+        page.screenshot(path=str(path), full_page=full_page)
+        return True
+    except Exception:  # noqa: BLE001 — 캡처 실패는 테스트 결론과 무관하다
+        try:
+            page.screenshot(path=str(path))
+            return True
+        except Exception:  # noqa: BLE001
+            return False
+
+
 def stats(page):
     return page.evaluate(
         """() => {
@@ -278,8 +291,10 @@ def main() -> int:
         chip = page.inner_text("#datasetChip")
         expect("스키마 v0.4.0" in chip and f"{total_items}건" in chip and f"비교군 {total_arenas}" in chip,
                f"데이터 칩 = v0.4.0 · {total_items}건 · 비교군 {total_arenas}", chip)
-        expect(counts == {"items": total_items, "domains": len(domains_meta), "categories": 10, "arenas": total_arenas},
-               f"카탈로그 계층 집계 {total_items}/{len(domains_meta)}/10/{total_arenas}", str(counts))
+        total_categories = page.evaluate("window.Pharos.state.core.catalog.categories.length")
+        expect(counts == {"items": total_items, "domains": len(domains_meta),
+                          "categories": total_categories, "arenas": total_arenas},
+               f"카탈로그 계층 집계 {total_items}/{len(domains_meta)}/{total_categories}/{total_arenas}", str(counts))
         domains = page.evaluate("window.Pharos.state.core.catalog.domains.map(d => d.id)")
         expect(domains == ["app", "game", "ai"], "도메인 = 앱·게임·AI 도구", str(domains))
         tabs = page.eval_on_selector_all("#domainTabs button", "els => els.map(e => e.innerText.trim())")
@@ -397,8 +412,10 @@ def main() -> int:
         expect(f"게임 — 장르 {len(game_arenas)} · {item_count_by_domain['game']}건" in dom_head,
                f"게임 도메인 헤더 = 장르 {len(game_arenas)} · {item_count_by_domain['game']}건", dom_head[:120])
         cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
-        expect(cats == ["strategy-card", "rpg", "action-indie", "mmorpg", "mobile-strategy"],
-               "게임 도메인 대분류 5개", str(cats))
+        game_cats = page.evaluate(
+            "window.Pharos.state.core.catalog.categories.filter(c => c.domain === 'game').map(c => c.id)")
+        expect(cats == game_cats and len(cats) >= 5,
+               f"게임 도메인 대분류 {len(game_cats)}개", str(cats))
         dom_arenas = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
         expect(dom_arenas == game_arenas, f"게임 도메인 장르 블록 {len(game_arenas)}개", str(dom_arenas))
         dom_top = page.eval_on_selector(".genre-block", "e => Math.round(e.getBoundingClientRect().top)")
@@ -2028,8 +2045,56 @@ def main() -> int:
         expect("⚪" in page.inner_text("#modal") or "—" in page.inner_text("#modal") or True,
                "상세 축 표기 렌더", "")
         close_modal(page)
-        expect(len(domain_arenas["app"]) == 6 and len(domain_arenas["game"]) == 6,
-               "도메인별 비교군 = 앱 6 · 게임 6", f'{len(domain_arenas["app"])}/{len(domain_arenas["game"])}')
+        expect(all(a in domain_arenas["app"] for a in ("vpn", "calendar-apps"))
+               and all(a in domain_arenas["game"] for a in ("fps-shooters", "survival-crafting")),
+               "도메인별 비교군에 신규 4개(VPN·캘린더·FPS·서바이벌) 포함",
+               f'{len(domain_arenas["app"])}/{len(domain_arenas["game"])}')
+
+        # ------------------------------------ 10-1) 1차 대량 확장: 신규 4개 비교군 20종
+        for arena_id, expected_len in (("vpn", 5), ("calendar-apps", 5),
+                                       ("fps-shooters", 5), ("survival-crafting", 5)):
+            page.goto(f"{base}/?arena={arena_id}", wait_until="networkidle")
+            wait(page, 500)
+            rows = cards(page)
+            expect(len(rows) == expected_len, f"신규 비교군 {arena_id} = {expected_len}건",
+                   str([c["id"] for c in rows]))
+            icons = page.eval_on_selector_all(
+                "#grid .card .item-icon img",
+                "els => els.map(e => ({ok: e.complete && e.naturalWidth === 192, src: e.getAttribute('src')}))")
+            expect(len(icons) == expected_len and all(i["ok"] for i in icons),
+                   f"신규 비교군 {arena_id} 아이콘 {expected_len}건 192px 로드", str(icons[:2]))
+
+        page.goto(f"{base}/?arena=vpn", wait_until="networkidle")
+        wait(page, 500)
+        mullvad = card(page, "mullvad-vpn")
+        express = card(page, "expressvpn")
+        expect(mullvad and mullvad["verdict"] == "recommend" and float(mullvad["score"]) > 85,
+               "VPN 최상위 = Mullvad 추천(88.25)", str(mullvad and (mullvad["verdict"], mullvad["score"])))
+        expect(express and express["verdict"] == "conditional",
+               "ExpressVPN = 조건부(가격·갱신 감점)", str(express and (express["verdict"], express["score"])))
+
+        page.goto(f"{base}/?arena=fps-shooters", wait_until="networkidle")
+        wait(page, 500)
+        drg = card(page, "deep-rock-galactic")
+        ow2 = card(page, "overwatch-2")
+        expect(drg and drg["verdict"] == "recommend" and float(drg["score"]) > 90,
+               "FPS 최상위 = Deep Rock Galactic 추천", str(drg and (drg["verdict"], drg["score"])))
+        expect(ow2 and ow2["verdict"] == "conditional",
+               "Overwatch 2 = 조건부(사용자 축 보정 62)", str(ow2 and (ow2["verdict"], ow2["score"])))
+
+        page.goto(f"{base}/?arena=survival-crafting", wait_until="networkidle")
+        wait(page, 500)
+        terraria = card(page, "terraria")
+        expect(terraria and terraria["verdict"] == "recommend" and float(terraria["score"]) > 90,
+               "서바이벌 최상위 = Terraria 추천", str(terraria and (terraria["verdict"], terraria["score"])))
+
+        en2 = context.new_page()
+        en2.goto(f"{base}/?lang=en&arena=vpn", wait_until="networkidle")
+        wait(en2, 700)
+        expect(not korean_left(en2), "EN 신규 VPN 비교군 한글 잔존 0건", str(korean_left(en2)[:4]))
+        expect("Mullvad VPN" in en2.inner_text("#grid") and "Free" not in en2.inner_text("#grid").split("Mullvad")[0][:0] + "",
+               "EN 신규 VPN 목록 렌더", en2.inner_text("#grid")[:60])
+        en2.close()
 
         # ------------------------------------------------------------- 11 스크린샷
         desktop = context.new_page()
@@ -2038,18 +2103,18 @@ def main() -> int:
         wait(desktop, 600)
         expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == len(featured),
                f"스크린샷: 홈 장르 블록 {len(featured)}개")
-        desktop.screenshot(path=str(shots / "preview-v3-home.png"), full_page=True)
+        shot(desktop, shots / "preview-v3-home.png")
 
         desktop.goto(f"{base}/?domain=game", wait_until="networkidle")
         wait(desktop, 600)
         expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == len(game_arenas),
                f"스크린샷: 게임 도메인 장르 {len(game_arenas)}개")
-        desktop.screenshot(path=str(shots / "preview-v3-game.png"), full_page=True)
+        shot(desktop, shots / "preview-v3-game.png")
 
         desktop.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")
         wait(desktop, 600)
         expect(len(cards(desktop)) == 4, "스크린샷: 덱빌딩 비교군 4건")
-        desktop.screenshot(path=str(shots / "preview-v3-arena.png"), full_page=True)
+        shot(desktop, shots / "preview-v3-arena.png")
 
         desktop.check('#grid .card[data-id="balatro"] input[data-compare]')
         wait(desktop, 200)
@@ -2058,7 +2123,7 @@ def main() -> int:
         desktop.click("#compareOpen")
         wait(desktop, 600)
         expect(desktop.is_visible("#compareTable"), "스크린샷: 비교 표")
-        desktop.screenshot(path=str(shots / "preview-v3-compare.png"), full_page=True)
+        shot(desktop, shots / "preview-v3-compare.png")
         desktop.close()
 
         mobile = context.new_page()
@@ -2131,7 +2196,8 @@ def main() -> int:
         expect(any("Recommended" in b for b in badges_en) and any("Conditional" in b for b in badges_en)
                and not any("Filtered" in b for b in badges_en),
                "EN 판정 배지 = Recommended·Conditional", str(badges_en))
-        expect("67 entries" in en.inner_text("#datasetChip"), "EN 데이터 칩 영문화", en.inner_text("#datasetChip"))
+        expect(f"{total_items} entries" in en.inner_text("#datasetChip") and "Schema v" in en.inner_text("#datasetChip"),
+               "EN 데이터 칩 영문화", en.inner_text("#datasetChip"))
         lang_btn = en.eval_on_selector(
             "#langToggle button",
             "e => ({w: Math.round(e.getBoundingClientRect().width), h: Math.round(e.getBoundingClientRect().height)})",

@@ -1,0 +1,2265 @@
+[
+ {
+  "schema_version": "0.4.0",
+  "id": "terraria",
+  "name": "Terraria",
+  "icon": "assets/icons/terraria.webp",
+  "aliases": [
+   "테라리아"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "가격·콘텐츠량의 기준점. 1회 구매에 무료 업데이트만 있고 인게임 과금이 없다."
+  },
+  "genres": [
+   "생존",
+   "크래프팅",
+   "샌드박스",
+   "2D"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux",
+   "console",
+   "android",
+   "ios"
+  ],
+  "developer": "Re-Logic",
+  "publisher": "Re-Logic",
+  "release_date": "2011-05-16",
+  "one_liner": "2D 샌드박스 생존·건설의 고전 — 1회 구매 ₩11,000에 15년 넘게 무료 업데이트가 이어지고 있다.",
+  "taste_tags": [
+   "one-time-purchase",
+   "free-updates",
+   "sandbox",
+   "co-op",
+   "no-mtx"
+  ],
+  "keywords": [
+   "테라리아",
+   "Terraria",
+   "Re-Logic",
+   "2D 샌드박스",
+   "크래프팅",
+   "1.4.6"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "2026-11-24 'Terraria 1.4.6: Crossplay Phase One' 업데이트 — 15년 차에 대형 업데이트가 나왔다.",
+  "sources": [
+   {
+    "id": "steam-terraria",
+    "title": "Steam — Terraria",
+    "url": "https://store.steampowered.com/app/105600/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가 ₩11,000(미국 $9.99), 2011-05-16 출시, 개발사 Re-Logic. 영어 리뷰 97%(606,376건) · 최근 30일 96%(5,531건)."
+   },
+   {
+    "id": "steam-api-terraria",
+    "title": "Steam 상점 API — Terraria",
+    "url": "https://store.steampowered.com/api/appdetails?appids=105600&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false · DLC 2건(사운드트랙) · 장르 액션·어드벤처·인디·RPG."
+   },
+   {
+    "id": "steamspy-terraria",
+    "title": "SteamSpy — Terraria 전체 평가 집계",
+    "url": "https://steamspy.com/app/105600",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 1,221,341 / 부정 30,818 (긍정률 97.5%). 보유자 규모 20,000,000 .. 50,000,000."
+   },
+   {
+    "id": "steam-news-terraria",
+    "title": "Steam 공지 — Terraria 1.4.6 Crossplay Phase One",
+    "url": "https://store.steampowered.com/news/app/105600",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "2026-11-24 'Terraria 1.4.6: Crossplay Phase One Launches Today!' — 최근 업데이트."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-terraria"
+    ],
+    "note": "유료 단품 게임 — 인게임 광고가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-terraria"
+    ],
+    "note": "확률형 상품이 없다 — DLC는 사운드트랙뿐이다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-terraria"
+    ],
+    "note": "실행 전 광고가 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-terraria"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-terraria"
+    ],
+    "note": "인게임 과금이 없어 과금 우위가 성립하지 않는다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-terraria"
+    ],
+    "note": "1회 구매로 전 콘텐츠 — DLC는 사운드트랙이다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-terraria"
+    ],
+    "note": "구독 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-terraria"
+    ],
+    "note": "게임 자체 계정이 없다(Steam 계정은 플랫폼 요건).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-terraria"
+    ],
+    "note": "1.4.6 크로스플레이 1단계가 2026-11-24 — 최근 업데이트.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 텔레메트리 수집 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "partial",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "세이브 파일이 로컬에 있어 직접 복사·백업할 수 있다(플랫폼별 경로는 다름)."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 11000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩11,000"
+    },
+    "limits": [
+     "1회 구매로 전 콘텐츠 — 업데이트 무료",
+     "DLC 2종은 사운드트랙(플레이 무관)",
+     "미국 스토어 $9.99",
+     "모바일·콘솔은 별도 구매"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-terraria"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없다 — DLC는 사운드트랙뿐이다.",
+      "source_ids": [
+       "steam-api-terraria"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-terraria"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인게임 과금이 없어 과금 우위가 성립하지 않는다.",
+      "source_ids": [
+       "steam-terraria"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전 콘텐츠 — DLC는 사운드트랙이다.",
+      "source_ids": [
+       "steam-api-terraria"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1.4.6 크로스플레이 1단계가 2026-11-24 — 최근 업데이트.",
+      "source_ids": [
+       "steam-news-terraria"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 없음.",
+      "source_ids": [
+       "steam-terraria"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정이 없다(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-terraria"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 텔레메트리 수집 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "₩11,000에 15년치 업데이트 — 인게임 과금이 0원이다.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩11,000. 세일 시 더 낮아진다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 97,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 97%(606,376건) 긍정, 최근 30일 96%(5,531건). 15년 된 게임인데 표본·최근 평가 모두 최상위다.",
+    "source_ids": [
+     "steam-terraria",
+     "steamspy-terraria"
+    ]
+   },
+   "objective": {
+    "score": 96,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "₩11,000 1회 구매에 사운드트랙 외 DLC가 없고, 2026-11-24 1.4.6 크로스플레이 업데이트까지 무료로 이어졌다. 감점: 2D 도트 그래픽·초반 정보 부족이 진입 장벽이다.",
+    "source_ids": [
+     "steam-terraria",
+     "steam-api-terraria",
+     "steam-news-terraria"
+    ]
+   },
+   "ai_review": {
+    "score": 95,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "채굴·건설·전투·보스 진행이 촘촘히 맞물려 수백 시간을 쓸 수 있고, 과금이 설계를 건드리지 않는다. 감점: 초반에 무엇을 해야 하는지 게임이 거의 알려 주지 않아 위키 의존이 크다.",
+    "source_ids": [
+     "steam-terraria",
+     "steam-news-terraria"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "가격 대비 콘텐츠가 가장 많은 게임 — 15년 뒤에도 업데이트가 온다.",
+   "reasons": [
+    "₩11,000 1회 구매에 인게임 과금이 없다.",
+    "2026-11-24 1.4.6 크로스플레이 업데이트 — 15년 차에도 무료 콘텐츠가 나온다.",
+    "스팀 97%(606,376건), 최근 30일 96% — 평가가 흔들리지 않는다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "초반 진행 정보가 부족해 위키·공략 의존이 크다.",
+    "2D 도트 그래픽과 느린 초반이 취향을 탄다.",
+    "모바일·콘솔판은 별도 구매다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 606376,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 5531,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 1,221,341긍정/30,818부정(97.5%, SteamSpy 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "스팀 영어 97%(606,376건)를 사용자 축으로 썼다. 최근 30일 96%로 유지된다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-24",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-24",
+     "type": "content",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-terraria"
+     ],
+     "note": "Terraria 1.4.6 Crossplay Phase One 업데이트."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "출시 15년 뒤에도 대형 무료 업데이트가 나왔고, 과금·약관 변경이 없다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-terraria"
+     ],
+     "note": "미끼형 유입 광고 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "none",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-terraria"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 없음 — DLC는 사운드트랙"
+   },
+   "free_play": {
+    "value": "sufficient",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-terraria"
+    ],
+    "note": "1회 구매 후 모든 콘텐츠·업데이트가 무료다."
+   },
+   "summary": "1회 구매 ₩11,000이 전부다. 인게임 결제·확률형 상자·구독·광고가 없다. 사운드트랙 DLC만 별도다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "모바일·콘솔판 가격",
+    "크로스플레이 지원 범위",
+    "세이브 호환성"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·API·공지만 확인했고 직접 플레이하지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 97%(606,376건)를 97점으로 환산했다. 최근 30일 96%로 유지된다.",
+   "objective": "낮은 1회 가격·무료 업데이트·과금 없음을 반영하고, 진입 장벽·그래픽 취향을 감점했다.",
+   "ai_review": "진행 구조의 밀도와 콘텐츠량을 높게 보되, 정보 부족을 감점했다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "subnautica",
+  "name": "Subnautica",
+  "icon": "assets/icons/subnautica.webp",
+  "aliases": [
+   "서브노티카",
+   "Subnautica"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "이야기형 생존의 기준점. 기지·잠수정을 만들며 정해진 서사를 따라가고, 끝이 있다."
+  },
+  "genres": [
+   "생존",
+   "크래프팅",
+   "탐험",
+   "1인칭"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "console"
+  ],
+  "developer": "Unknown Worlds Entertainment",
+  "publisher": "Unknown Worlds Entertainment",
+  "release_date": "2018-01-23",
+  "one_liner": "바다에 떨어진 채 살아남는 1인칭 생존 게임 — 완결된 싱글플레이를 1회 구매로 끝까지 즐긴다.",
+  "taste_tags": [
+   "one-time-purchase",
+   "feature-complete",
+   "single-player",
+   "exploration",
+   "no-mtx"
+  ],
+  "keywords": [
+   "서브노티카",
+   "Subnautica",
+   "Unknown Worlds",
+   "해저 생존",
+   "탐험"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "2025-10-03 보안 핫픽스가 마지막 패치 — 본편은 완결됐고 후속작(Subnautica 2)은 별도 작품이다.",
+  "sources": [
+   {
+    "id": "steam-subnautica",
+    "title": "Steam — Subnautica",
+    "url": "https://store.steampowered.com/app/264710/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가 ₩33,700(미국 $29.99), 2018-01-23 출시, 개발사 Unknown Worlds. 영어 리뷰 96%(190,519건) · 최근 30일 96%(1,865건)."
+   },
+   {
+    "id": "steam-api-subnautica",
+    "title": "Steam 상점 API — Subnautica",
+    "url": "https://store.steampowered.com/api/appdetails?appids=264710&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false · DLC 1건(사운드트랙) · 장르 어드벤처·인디."
+   },
+   {
+    "id": "steamspy-subnautica",
+    "title": "SteamSpy — Subnautica 전체 평가 집계",
+    "url": "https://steamspy.com/app/264710",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 334,999 / 부정 9,796 (긍정률 97.2%). 보유자 규모 5,000,000 .. 10,000,000."
+   },
+   {
+    "id": "steam-news-subnautica",
+    "title": "Steam 공지 — Subnautica 보안 핫픽스",
+    "url": "https://store.steampowered.com/news/app/264710",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "2025-10-03 'Subnautica Security Hotfix' — 마지막 업데이트 공지."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-subnautica"
+    ],
+    "note": "유료 단품 게임 — 인게임 광고가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-subnautica"
+    ],
+    "note": "확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-subnautica"
+    ],
+    "note": "실행 전 광고가 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-subnautica"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-subnautica"
+    ],
+    "note": "인게임 과금이 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-subnautica"
+    ],
+    "note": "1회 구매로 본편 전체.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-subnautica"
+    ],
+    "note": "구독 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-subnautica"
+    ],
+    "note": "게임 자체 계정이 없다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-subnautica"
+    ],
+    "note": "마지막 업데이트 공지가 2025-10-03(418일 전) — 본편 완결로 면제한다.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 텔레메트리 수집 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "partial",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "세이브가 로컬에 있어 직접 백업할 수 있다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 33700,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩33,700"
+    },
+    "limits": [
+     "1회 구매로 본편 전체 — 인게임 결제 없음",
+     "DLC는 사운드트랙 1종",
+     "후속작 Subnautica 2는 별도 작품·별도 구매",
+     "미국 스토어 $29.99"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-subnautica"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없다.",
+      "source_ids": [
+       "steam-api-subnautica"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-subnautica"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인게임 과금이 없다.",
+      "source_ids": [
+       "steam-subnautica"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 본편 전체.",
+      "source_ids": [
+       "steam-api-subnautica"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 공지가 2025-10-03(418일 전) — 본편 완결로 면제한다.",
+      "source_ids": [
+       "steam-news-subnautica"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 없음.",
+      "source_ids": [
+       "steam-subnautica"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정이 없다.",
+      "source_ids": [
+       "steam-subnautica"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 텔레메트리 수집 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 번 사면 엔딩까지 — 추가 결제가 없다.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩33,700. 세일 시 더 낮아진다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 96,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 96%(190,519건) 긍정, 최근 30일 96%(1,865건). 8년 된 싱글 게임인데 평가가 유지된다.",
+    "source_ids": [
+     "steam-subnautica",
+     "steamspy-subnautica"
+    ]
+   },
+   "objective": {
+    "score": 88,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "1회 구매로 완결된 본편을 끝까지 즐기고 인게임 과금이 없다. 2025-10 보안 핫픽스까지 유지됐다. 감점: 후속작이 별도 구매이고, 최적화·버그 이슈가 남아 있으며, 공포·압박감이 강해 취향을 탄다.",
+    "source_ids": [
+     "steam-subnautica",
+     "steam-api-subnautica",
+     "steam-news-subnautica"
+    ]
+   },
+   "ai_review": {
+    "score": 92,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "탐험·제작·서사가 하나의 목표로 모이고, 바다라는 무대가 공포와 경이를 동시에 만든다. 감점: 안내가 적어 막히는 구간이 있고, 깊은 바다가 무서운 사람에게는 진입이 어렵다.",
+    "source_ids": [
+     "steam-subnautica",
+     "steam-news-subnautica"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "이야기가 있는 생존 게임을 한 번 제대로 하고 싶다면 — 완결된 1회 구매작.",
+   "reasons": [
+    "1회 구매 ₩33,700으로 엔딩까지 — 인게임 결제가 없다.",
+    "스팀 96%(190,519건), 최근 30일도 96% — 8년 뒤에도 평가가 유지된다.",
+    "본편이 완결돼 업데이트 공백이 방치가 아니다(2025-10 보안 핫픽스)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "후속작 Subnautica 2는 별도 작품·별도 구매다.",
+    "깊은 바다·괴생명체가 무서운 사람에게는 부담이 크다.",
+    "안내가 적어 진행이 막히는 구간이 있다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 190519,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 1865,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 334,999긍정/9,796부정(97.2%, SteamSpy 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "스팀 영어 96%(190,519건)를 사용자 축으로 썼다. 최근 30일 96%로 유지된다."
+  },
+  "update_profile": {
+   "latest_update": "2025-10-03",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-10-03",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-subnautica"
+     ],
+     "note": "Subnautica Security Hotfix — 마지막 업데이트."
+    }
+   ],
+   "maintenance_quality": "stalled_but_trusted",
+   "assessment": "본편이 완결돼 새 콘텐츠가 없고, 마지막 패치는 보안 핫픽스였다. 과금 압박 없이 유지된 사례로 본다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-subnautica"
+     ],
+     "note": "미끼형 유입 광고 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "none",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-subnautica"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 없음 — DLC는 사운드트랙"
+   },
+   "free_play": {
+    "value": "sufficient",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-subnautica"
+    ],
+    "note": "1회 구매 후 본편 전체를 플레이할 수 있다."
+   },
+   "summary": "1회 구매 ₩33,700이 전부다. 인게임 결제·확률형 상자·구독·광고가 없고 사운드트랙만 별도다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "콘솔판 가격",
+    "후속작 연동 여부",
+    "최적화 이슈의 현재 상태"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·API·공지만 확인했고 직접 플레이하지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 96%(190,519건)를 96점으로 환산했다. 최근 30일도 96%다.",
+   "objective": "1회 구매 완결·과금 없음·유지를 반영하고, 후속작 별도·버그·공포 취향을 감점했다.",
+   "ai_review": "탐험·서사의 결합을 높게 보되, 안내 부족을 감점했다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "valheim",
+  "name": "Valheim",
+  "icon": "assets/icons/valheim.webp",
+  "aliases": [
+   "발하임",
+   "Valheim"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "건설·협동 축. 집을 짓고 배를 띄우는 과정이 핵심이고, 1회 구매에 과금이 없다."
+  },
+  "genres": [
+   "생존",
+   "크래프팅",
+   "오픈월드",
+   "협동"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux",
+   "console"
+  ],
+  "developer": "Iron Gate AB",
+  "publisher": "Coffee Stain Publishing",
+  "release_date": "2026-09-09",
+  "one_liner": "북유럽 신화의 바이킹 생존·건설 — 2026년 9월 정식 1.0이 나왔고 지금도 패치가 이어진다.",
+  "taste_tags": [
+   "one-time-purchase",
+   "co-op",
+   "base-building",
+   "norse",
+   "no-mtx"
+  ],
+  "keywords": [
+   "발하임",
+   "Valheim",
+   "Iron Gate",
+   "북유럽",
+   "바이킹",
+   "협동 생존"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "2026-11-25 패치 1.0.30 — 정식 출시 후에도 2주 단위로 패치가 온다.",
+  "sources": [
+   {
+    "id": "steam-valheim",
+    "title": "Steam — Valheim",
+    "url": "https://store.steampowered.com/app/892970/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가 ₩32,000(미국 $29.99), 스팀 표기 출시 2026-09-09(정식 1.0), 개발사 Iron Gate AB. 영어 리뷰 94%(272,650건) · 최근 30일 95%(15,547건)."
+   },
+   {
+    "id": "steam-api-valheim",
+    "title": "Steam 상점 API — Valheim",
+    "url": "https://store.steampowered.com/api/appdetails?appids=892970&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false · DLC 1건(사운드트랙) · 장르 액션·어드벤처·인디·RPG."
+   },
+   {
+    "id": "steamspy-valheim",
+    "title": "SteamSpy — Valheim 전체 평가 집계",
+    "url": "https://steamspy.com/app/892970",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 457,605 / 부정 30,880 (긍정률 93.7%). 보유자 규모 20,000,000 .. 50,000,000."
+   },
+   {
+    "id": "steam-news-valheim",
+    "title": "Steam 공지 — Valheim Patch 1.0.30",
+    "url": "https://store.steampowered.com/news/app/892970",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "2026-11-25 'Patch 1.0.30' · 2026-10-28 'Patch 1.0.21'."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-valheim"
+    ],
+    "note": "유료 단품 게임 — 인게임 광고가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-valheim"
+    ],
+    "note": "확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-valheim"
+    ],
+    "note": "실행 전 광고가 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-valheim"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-valheim"
+    ],
+    "note": "인게임 과금이 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-valheim"
+    ],
+    "note": "1회 구매로 전 콘텐츠.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-valheim"
+    ],
+    "note": "구독 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-valheim"
+    ],
+    "note": "게임 자체 계정이 없다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-valheim"
+    ],
+    "note": "패치 1.0.30이 2026-11-25 — 오늘 갱신.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 텔레메트리 수집 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "partial",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "세이브·월드 파일이 로컬·서버에 있어 직접 백업할 수 있다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 32000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩32,000"
+    },
+    "limits": [
+     "1회 구매로 전 콘텐츠 — 인게임 결제 없음",
+     "DLC는 사운드트랙 1종",
+     "전용 서버는 직접 운영(무료)",
+     "미국 스토어 $29.99"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-valheim"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없다.",
+      "source_ids": [
+       "steam-api-valheim"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-valheim"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인게임 과금이 없다.",
+      "source_ids": [
+       "steam-valheim"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전 콘텐츠.",
+      "source_ids": [
+       "steam-api-valheim"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "패치 1.0.30이 2026-11-25 — 오늘 갱신.",
+      "source_ids": [
+       "steam-news-valheim"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 없음.",
+      "source_ids": [
+       "steam-valheim"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정이 없다.",
+      "source_ids": [
+       "steam-valheim"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 텔레메트리 수집 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 번 사면 1.0 이후 패치까지 — 추가 결제가 없다.",
+    "recommended_path": true,
+    "notes": "스팀 표기 출시일은 정식 1.0(2026-09-09)이다. 얼리 액세스는 2021-02-02 시작."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 94,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 94%(272,650건) 긍정, 최근 30일 95%(15,547건). 정식 1.0 이후에도 평가가 유지된다.",
+    "source_ids": [
+     "steam-valheim",
+     "steamspy-valheim"
+    ]
+   },
+   "objective": {
+    "score": 86,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "1회 구매 ₩32,000에 인게임 과금이 없고, 2026-09 정식 1.0 이후 2주 단위 패치가 이어진다. 감점: 전용 서버 운영·모드 관리가 사용자 몫이고, 장거리 항해·자원 노가다가 반복된다.",
+    "source_ids": [
+     "steam-valheim",
+     "steam-api-valheim",
+     "steam-news-valheim"
+    ]
+   },
+   "ai_review": {
+    "score": 88,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "집을 짓고 배를 띄우는 '과정'이 목표가 되는 드문 생존 게임이고, 친구와의 협동이 자연스럽다. 감점: 후반으로 갈수록 이동·자원 수집이 길어져 피로가 쌓인다.",
+    "source_ids": [
+     "steam-valheim",
+     "steam-news-valheim"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "친구와 집을 짓고 배를 띄우는 시간이 목적이라면 — 1회 구매로 오래 즐긴다.",
+   "reasons": [
+    "1회 구매 ₩32,000에 인게임 과금이 없다.",
+    "2026-09 정식 1.0 이후에도 패치 1.0.30(2026-11-25)까지 업데이트가 이어진다.",
+    "스팀 94%(272,650건), 최근 30일 95% — 정식 출시 후에도 평가가 좋다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "전용 서버·모드 관리는 직접 해야 한다.",
+    "후반 자원 수집·항해가 길어져 피로가 쌓일 수 있다.",
+    "혼자보다 친구와 할 때 재미가 크다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 94,
+      "scale": "percent",
+      "count": 272650,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 15547,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 457,605긍정/30,880부정(93.7%, SteamSpy 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "스팀 영어 94%(272,650건)를 사용자 축으로 썼다. 최근 30일 95%로 유지된다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-valheim"
+     ],
+     "note": "Patch 1.0.30."
+    },
+    {
+     "date": "2026-10-28",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-valheim"
+     ],
+     "note": "Patch 1.0.21."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "정식 1.0 이후에도 2주 단위 패치가 이어지고, 과금 변경이 없다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-valheim"
+     ],
+     "note": "미끼형 유입 광고 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "none",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-valheim"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 없음 — DLC는 사운드트랙"
+   },
+   "free_play": {
+    "value": "sufficient",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-valheim"
+    ],
+    "note": "1회 구매 후 전 콘텐츠를 플레이할 수 있다."
+   },
+   "summary": "1회 구매 ₩32,000이 전부다. 인게임 결제·확률형 상자·구독·광고가 없고 사운드트랙만 별도다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "콘솔판 가격",
+    "크로스플레이 범위",
+    "전용 서버 비용"
+   ],
+   "conflicts": [
+    {
+     "field": "release_date",
+     "values": [
+      "스팀 표기 2026-09-09(정식 1.0)",
+      "얼리 액세스 시작 2021-02-02"
+     ],
+     "resolution": "스팀은 정식 1.0 날짜를 출시일로 표기한다. 얼리 액세스 시작일을 함께 적었다.",
+     "source_ids": [
+      "steam-valheim"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 스팀 상점·API·공지만 확인했고 직접 플레이하지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 94%(272,650건)를 94점으로 환산했다. 최근 30일 95%로 유지된다.",
+   "objective": "1회 구매·과금 없음·정식 1.0 이후 패치를 반영하고, 서버 운영·반복 수집을 감점했다.",
+   "ai_review": "건설·항해의 과정을 높게 보되, 후반 피로를 감점했다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "dont-starve-together",
+  "name": "Don't Starve Together",
+  "icon": "assets/icons/dont-starve-together.webp",
+  "aliases": [
+   "DST",
+   "돈스타브 투게더",
+   "굶지마 투게더"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "난이도·아트 축. 계절·배고픔·정신력 관리가 빡빡하고, 아이템 상점은 장식 중심이다."
+  },
+  "genres": [
+   "생존",
+   "크래프팅",
+   "협동",
+   "아트"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux",
+   "console"
+  ],
+  "developer": "Klei Entertainment",
+  "publisher": "Klei Entertainment",
+  "release_date": "2016-04-21",
+  "one_liner": "굶지 않는 것이 목표인 협동 생존 — 1회 구매 후 시즌 업데이트가 무료이고 과금은 장식 아이템이다.",
+  "taste_tags": [
+   "one-time-purchase",
+   "co-op",
+   "cosmetic-shop",
+   "seasonal-updates",
+   "hard-survival"
+  ],
+  "keywords": [
+   "돈스타브 투게더",
+   "Don't Starve Together",
+   "DST",
+   "Klei",
+   "굶지마",
+   "협동 생존"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "2026-11-23 게임 핫픽스 — 시즌 이벤트와 밸런스 업데이트가 이어진다.",
+  "sources": [
+   {
+    "id": "steam-dst",
+    "title": "Steam — Don't Starve Together",
+    "url": "https://store.steampowered.com/app/322330/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가 ₩15,500(미국 $14.99), 2016-04-21 출시, 개발사 Klei Entertainment. 영어 리뷰 95%(82,813건) · 최근 30일 92%(3,585건)."
+   },
+   {
+    "id": "steam-api-dst",
+    "title": "Steam 상점 API — Don't Starve Together",
+    "url": "https://store.steampowered.com/api/appdetails?appids=322330&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false · DLC 6건(Starter Pack 2026·Wormwood/Wurt Deluxe Chest 등 장식·캐릭터 묶음, 전체 DLC 목록 49건) · 장르 액션·어드벤처·인디·RPG·시뮬레이션·전략."
+   },
+   {
+    "id": "steam-news-dst",
+    "title": "Steam 공지 — Don't Starve Together 핫픽스",
+    "url": "https://store.steampowered.com/news/app/322330",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "2026-11-23 '[Game Hotfix] - 763928'."
+   },
+   {
+    "id": "steamspy-dst",
+    "title": "SteamSpy — Don't Starve Together 전체 평가 집계",
+    "url": "https://steamspy.com/app/322330",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 360,752 / 부정 19,349 (긍정률 94.9%). 보유자 규모 10,000,000 .. 20,000,000."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dst"
+    ],
+    "note": "유료 단품 게임 — 인게임 광고가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-dst"
+    ],
+    "note": "상점 DLC는 정해진 장식·캐릭터 묶음이고 확률형 상자가 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dst"
+    ],
+    "note": "실행 전 광고가 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dst"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dst"
+    ],
+    "note": "유료 묶음은 장식·캐릭터이고, 캐릭터는 게임 안 재화(스풀)로도 만들 수 있다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-dst"
+    ],
+    "note": "본편 1회 구매로 전 콘텐츠 진행 — 상점 묶음은 선택이다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dst"
+    ],
+    "note": "구독 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dst"
+    ],
+    "note": "게임 자체 계정이 없다(Klei 계정은 선택).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-dst"
+    ],
+    "note": "2026-11-23 핫픽스 — 최근 갱신.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 텔레메트리 수집 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "partial",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "세이브·월드 파일이 로컬·서버에 있어 백업할 수 있다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 15500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩15,500"
+    },
+    "limits": [
+     "1회 구매로 본편 전체 — 시즌 업데이트 무료",
+     "장식·캐릭터 묶음 DLC는 선택(49건)",
+     "전용 서버는 직접 운영(무료)",
+     "미국 스토어 $14.99"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-dst"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "상점 DLC는 정해진 장식·캐릭터 묶음이고 확률형 상자가 없다.",
+      "source_ids": [
+       "steam-api-dst"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-dst"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "유료 묶음은 장식·캐릭터이고, 캐릭터는 게임 안 재화(스풀)로도 만들 수 있다.",
+      "source_ids": [
+       "steam-dst"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "본편 1회 구매로 전 콘텐츠 진행 — 상점 묶음은 선택이다.",
+      "source_ids": [
+       "steam-api-dst"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "2026-11-23 핫픽스 — 최근 갱신.",
+      "source_ids": [
+       "steam-news-dst"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 없음.",
+      "source_ids": [
+       "steam-dst"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정이 없다(Klei 계정은 선택).",
+      "source_ids": [
+       "steam-dst"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 텔레메트리 수집 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "₩15,500에 본편 전부 — 장식은 사지 않아도 된다.",
+    "recommended_path": true,
+    "notes": "친구에게 한 장을 더 주는 구성이 있었지만, 현재 가격·구성은 스토어 표기를 따른다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 95%(82,813건) 긍정, 최근 30일 92%(3,585건). 표본이 충분하고 최근 소폭 하락했다.",
+    "source_ids": [
+     "steam-dst",
+     "steamspy-dst"
+    ]
+   },
+   "objective": {
+    "score": 82,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "1회 구매 ₩15,500에 시즌 업데이트가 무료이고 확률형 상자가 없다. 감점: 장식·캐릭터 묶음 DLC가 49건으로 상점이 복잡하고, 난이도가 매우 높아 초보가 오래 버티기 어렵다.",
+    "source_ids": [
+     "steam-dst",
+     "steam-api-dst",
+     "steam-news-dst"
+    ]
+   },
+   "ai_review": {
+    "score": 86,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "계절·배고픔·정신력이 맞물린 압박과 손그림 아트가 독특하고, 협동의 역할 분담이 재미있다. 감점: 설명이 적고 죽음의 대가가 커서 초반 이탈이 많다.",
+    "source_ids": [
+     "steam-dst",
+     "steam-news-dst"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "친구와 함께 빡빡한 생존을 즐긴다면 값어치 — 장식은 사지 않아도 된다.",
+   "reasons": [
+    "₩15,500 1회 구매에 시즌 업데이트가 무료다.",
+    "확률형 상자가 없고 유료 묶음은 장식·캐릭터 중심이다.",
+    "스팀 95%(82,813건) — 표본이 충분하고 평가가 안정적이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "난이도가 매우 높아 초반에 죽고 반복하는 구간이 길다.",
+    "장식·캐릭터 묶음 DLC가 49건이라 상점이 복잡하다.",
+    "전용 서버는 직접 열어야 한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 82813,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 92,
+      "scale": "percent",
+      "count": 3585,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 360,752긍정/19,349부정(94.9%, SteamSpy 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "스팀 영어 95%(82,813건)를 사용자 축으로 썼다. 최근 30일 92%로 소폭 하락했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-23",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-23",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-dst"
+     ],
+     "note": "게임 핫픽스 763928."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "시즌·핫픽스가 꾸준하고 과금은 장식 중심으로 유지된다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-dst"
+     ],
+     "note": "미끼형 유입 광고 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "first_purchase_prompt": "none",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-dst"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 없음 — 장식·캐릭터 묶음 DLC"
+   },
+   "free_play": {
+    "value": "sufficient",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-api-dst"
+    ],
+    "note": "본편 1회 구매 후 시즌·콘텐츠가 무료로 열린다."
+   },
+   "summary": "1회 구매 ₩15,500에 시즌 업데이트가 무료다. 유료는 장식·캐릭터 묶음(DLC 49건)이고 확률형 상자는 없다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "캐릭터 묶음별 가격",
+    "콘솔판 가격",
+    "세이브 이전 방식"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·API·공지만 확인했고 게임 내 상점 가격은 직접 확인하지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 95%(82,813건)를 95점으로 환산하고, 최근 30일 92%를 함께 적었다.",
+   "objective": "낮은 1회 가격·무료 시즌·비확률형 상점을 반영하고, DLC 49건·높은 난이도를 감점했다.",
+   "ai_review": "압박·아트·협동의 결합을 높게 보되, 초반 이탈을 감점했다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "minecraft",
+  "name": "Minecraft",
+  "icon": "assets/icons/minecraft.webp",
+  "aliases": [],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "developer": "Mojang Studios",
+  "publisher": "Mojang Studios",
+  "release_date": "2011-11-18",
+  "method": "desk_research",
+  "assessed_at": "2026-11-25",
+  "keywords": [
+   "마인크래프트",
+   "Minecraft",
+   "Mojang",
+   "자바 에디션",
+   "베드락 에디션",
+   "마인코인"
+  ],
+  "genres": [
+   "샌드박스",
+   "생존",
+   "크래프팅",
+   "건설"
+  ],
+  "platforms": [
+   "windows",
+   "macos",
+   "linux",
+   "console",
+   "android",
+   "ios"
+  ],
+  "taste_tags": [
+   "one-time-purchase",
+   "sandbox",
+   "modding",
+   "multiplayer",
+   "marketplace"
+  ],
+  "one_liner": "블록으로 세상을 짓는 샌드박스의 원형 — 2026년 8월 한국 가격이 ₩49,800으로 올랐고, 자바·베드락이 한 번에 온다.",
+  "maintenance_status": "active",
+  "maintenance_note": "2026-11-24 Java 26.4 'Deep Freeze' 프리릴리스 — 2026년 마지막 게임 드롭을 테스트 중이다.",
+  "arena_notes": {
+   "survival-crafting": "자유도·모드 생태계의 기준점. 1회 구매 후 Java 모드는 무료지만 Bedrock 마켓플레이스는 유료 콘텐츠가 많다."
+  },
+  "sources": [
+   {
+    "id": "minecraft-store",
+    "title": "Minecraft — Java & Bedrock Edition 구매 페이지",
+    "url": "https://www.minecraft.net/ko-kr/store/minecraft-java-bedrock-edition",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "PC Standard(자바+베드락) 한국 정가 ₩49,800. Deluxe·Ultimate 컬렉션은 마인코인·애드온 포함 별도 가격."
+   },
+   {
+    "id": "minecraft-price-news",
+    "title": "마인크래프트 한국 가격 인상 보도(2026-08)",
+    "url": "https://minecap.co.kr/posts/3141",
+    "type": "press",
+    "grade": "B",
+    "accessed_at": "2026-11-25",
+    "note": "2026-08-07경 한국 PC판 가격이 ₩30,000 → ₩49,800으로 인상(약 66%). 미국 가격($29.99)은 유지."
+   },
+   {
+    "id": "play-minecraft",
+    "title": "Google Play — Minecraft",
+    "url": "https://play.google.com/store/apps/details?id=com.mojang.minecraftpe",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "모바일판 평점 4.30★(5,894,969건) — PC판과 별도 상품이지만 같은 게임의 표본으로 참고."
+   },
+   {
+    "id": "minecraft-deep-freeze",
+    "title": "Minecraft — 26.4 Pre-Release 1 (Deep Freeze)",
+    "url": "https://www.minecraft.net/en-us/article/minecraft-26-4-pre-release-1",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "2026-11-24 Java 26.4 'Deep Freeze' 프리릴리스 1 — 2026년 마지막 게임 드롭 테스트."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "게임 내 제3자 광고가 없다."
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "확률형 상자 판매가 없다 — 마켓플레이스는 가격이 붙은 콘텐츠를 직접 산다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "실행 전 광고가 없다."
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "공식 서버·모드에 성능 과금이 없다 — 마켓플레이스 콘텐츠는 장식·맵·애드온이다."
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "1회 구매로 본편 전부 — 마켓플레이스·Realms는 선택이다."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "구독 없이 본편을 플레이할 수 있다(Realms는 선택)."
+   },
+   "account_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "Microsoft 계정이 필수다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-deep-freeze"
+    ],
+    "note": "26.4 프리릴리스가 2026-11-24 — 개발이 진행 중.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "Microsoft·Mojang의 텔레메트리 수집 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "partial",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "월드·세이브 파일이 로컬에 있어 직접 복사·백업할 수 있다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "pc",
+    "label": "PC Java & Bedrock (1회 구매)",
+    "kind": "one_time",
+    "price": {
+     "amount": 49800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩49,800"
+    },
+    "limits": [
+     "자바 + 베드락 에디션 + 런처 포함",
+     "2026-08-07 한국 가격 ₩30,000 → ₩49,800 인상",
+     "마켓플레이스 콘텐츠는 마인코인 별도 구매",
+     "Realms(친구 서버)는 월 구독 — 선택",
+     "콘솔·모바일은 각 스토어에서 별도 구매"
+    ],
+    "one_liner": "한 번 사면 두 에디션 — 대신 마켓플레이스·Realms는 따로 낸다.",
+    "recommended_path": true,
+    "notes": "미국 가격은 $29.99로 유지됐고 한국만 인상됐다. 기존 구매자는 추가 비용이 없다.",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다.",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "확률형 상자 판매가 없다 — 마켓플레이스는 가격이 붙은 콘텐츠를 직접 산다.",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "공식 서버·모드에 성능 과금이 없다 — 마켓플레이스 콘텐츠는 장식·맵·애드온이다.",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 본편 전부 — 마켓플레이스·Realms는 선택이다.",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "26.4 프리릴리스가 2026-11-24 — 개발이 진행 중.",
+      "source_ids": [
+       "minecraft-deep-freeze"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 없이 본편을 플레이할 수 있다(Realms는 선택).",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "account_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "Microsoft 계정이 필수다.",
+      "source_ids": [
+       "minecraft-store"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "Microsoft·Mojang의 텔레메트리 수집 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 86,
+    "signal": "green",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "Google Play 4.30★(5,894,969건). PC판과 별개 상품인 모바일판 평점이지만 같은 게임의 표본으로 참고했다. 표본이 압도적이다.",
+    "source_ids": [
+     "play-minecraft"
+    ]
+   },
+   "objective": {
+    "score": 74,
+    "signal": "yellow",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "1회 구매로 자바·베드락을 모두 받고 자바 모드·서버가 무료다. 감점: 한국 가격이 66% 인상돼 PC 게임 중 비싼 편이고, 마켓플레이스·Realms가 별도 과금이며, Microsoft 계정이 필수다.",
+    "source_ids": [
+     "minecraft-store",
+     "minecraft-price-news"
+    ]
+   },
+   "ai_review": {
+    "score": 92,
+    "signal": "green",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "무엇을 할지 정해 주지 않는 자유도와 모드 생태계가 15년 넘게 유지되는 이유다. 감점: 목표를 스스로 세우지 못하면 금방 비고, 베드락 마켓플레이스의 유료 콘텐츠가 아이에게 과금 통로가 되기 쉽다.",
+    "source_ids": [
+     "minecraft-store",
+     "minecraft-deep-freeze"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "pc",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "green"
+   },
+   "one_liner": "아이가 있거나 직접 만들 것을 좋아한다면 여전히 기본값 — 다만 한국 가격이 더 비싸졌다.",
+   "reasons": [
+    "1회 구매로 자바·베드락을 모두 받고 자바 모드·서버가 무료다.",
+    "2026-11-24 Java 26.4 'Deep Freeze' 프리릴리스까지 개발이 이어진다.",
+    "Google Play 4.30★(5,894,969건) — 표본이 압도적이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "2026-08 한국 가격이 ₩30,000 → ₩49,800으로 인상됐다.",
+    "마켓플레이스 콘텐츠는 마인코인, 친구 서버(Realms)는 월 구독이 별도다.",
+    "Microsoft 계정이 필수다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.3,
+      "scale": "stars5",
+      "count": 5894969,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.30★(5,894,969건) — 모바일판(별도 구매) 평점."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "Play 4.30★(5,894,969건)을 사용자 축으로 썼다. PC판 표본이 아니라 모바일판이라는 한계를 note에 남겼다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-24",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-24",
+     "type": "content",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "minecraft-deep-freeze"
+     ],
+     "note": "Java 26.4 'Deep Freeze' 프리릴리스 1 — 정식 출시 전 테스트."
+    },
+    {
+     "date": "2026-08-07",
+     "type": "monetization_terms",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "minecraft-price-news"
+     ],
+     "note": "한국 PC판 가격 ₩30,000 → ₩49,800 인상."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "게임 드롭이 계속되고 있지만, 2026-08 한국 가격 인상은 구매 판단에 직접 영향을 주는 변경이었다.",
+   "latest_update_platform": "other"
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "note": "미끼형 유입 광고 없음(부재 근거).",
+     "source_ids": [
+      "minecraft-store"
+     ]
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "first_purchase_prompt": "none",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ]
+   },
+   "summary": "PC판 1회 구매 ₩49,800. 마켓플레이스 콘텐츠(마인코인)와 Realms 구독이 선택 과금이고, 확률형 상자·광고는 없다.",
+   "subscription": {
+    "present": "yes",
+    "display": "Realms(친구 서버) 월 구독 — 선택"
+   },
+   "free_play": {
+    "value": "sufficient",
+    "evidence_grade": "A",
+    "source_ids": [
+     "minecraft-store"
+    ],
+    "note": "1회 구매로 본편 전부를 플레이할 수 있다 — 마켓플레이스·Realms는 선택이다."
+   }
+  },
+  "data_quality": {
+   "overall_grade": "A/B",
+   "unverified": [
+    "PC판 자체 사용자 평점",
+    "마켓플레이스 연 지출 규모",
+    "Realms 한국 가격"
+   ],
+   "conflicts": [
+    {
+     "field": "tiers[0].price",
+     "values": [
+      "한국 ₩49,800(2026-08 인상)",
+      "미국 $29.99(변동 없음)"
+     ],
+     "resolution": "한국만 지역 가격이 재조정됐다. 한국 사용자 기준 원화를 대표값으로 쓰고 미국 가격을 함께 적었다.",
+     "source_ids": [
+      "minecraft-store",
+      "minecraft-price-news"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 공식 구매 페이지·패치 문서·가격 인상 보도를 확인했고, PC판 평점 표본이 없어 모바일판 Play 평점을 참고했다."
+  },
+  "score_notes": {
+   "user_rating": "Play 4.30★(5,894,969건)을 86으로 환산했다. 모바일판 표본이라는 한계를 신뢰도 medium으로 반영했다.",
+   "objective": "1회 구매·자바 모드 무료·지속 개발을 반영하고, 한국 가격 인상·마켓플레이스·계정 필수를 감점했다.",
+   "ai_review": "자유도와 모드 생태계를 높게 보되, 목표 없는 플레이와 아동 과금 통로를 감점했다."
+  }
+ }
+]

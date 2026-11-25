@@ -1,0 +1,2381 @@
+[
+ {
+  "schema_version": "0.4.0",
+  "id": "mullvad-vpn",
+  "name": "Mullvad VPN",
+  "aliases": [
+   "멀바드",
+   "Mullvad"
+  ],
+  "domain": "app",
+  "category": "security-utilities",
+  "arenas": [
+   "vpn"
+  ],
+  "arena_notes": {
+   "vpn": "가격·익명성의 기준점. 할인도 갱신 인상도 없고 대신 기기 5대·포트 포워딩 없음이라는 제한이 분명하다."
+  },
+  "genres": [
+   "VPN",
+   "프라이버시",
+   "스웨덴",
+   "익명 결제"
+  ],
+  "platforms": [
+   "ios",
+   "android",
+   "windows",
+   "macos",
+   "linux",
+   "web"
+  ],
+  "developer": "Amagicom AB",
+  "publisher": "Mullvad VPN AB",
+  "release_date": "2020-04-08",
+  "one_liner": "월 €5 정액에 이메일 없이 계정 번호만 발급하는 스웨덴 VPN — 요금도 기기 수(5대)도 몇 년째 그대로다.",
+  "taste_tags": [
+   "flat-pricing",
+   "anonymous-account",
+   "no-logs",
+   "open-source",
+   "privacy-first",
+   "no-discounts"
+  ],
+  "keywords": [
+   "멀바드",
+   "Mullvad",
+   "DAITA",
+   "계정 번호",
+   "현금 결제",
+   "스웨덴 VPN"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "iOS 앱 2026.8이 2026-11-24 릴리스, 데스크톱 앱도 꾸준히 갱신된다. 가격은 2009년 이후 €5로 변하지 않았다.",
+  "sources": [
+   {
+    "id": "itunes-mullvad-vpn",
+    "title": "Apple App Store — Mullvad VPN",
+    "url": "https://apps.apple.com/kr/app/id1488466513",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "가격 무료, KR 4.16★(31) · US 4.14★(1,500), 버전 2026.8(2026-11-24), 앱 내 구입 있음 — 30 days subscription ￦8,300, 30 day subscription ￦7,400, 90 day subscription ￦22,000, 90 days subscription ￦24,900."
+   },
+   {
+    "id": "mullvad-pricing",
+    "title": "Mullvad — Pricing",
+    "url": "https://mullvad.net/en/pricing",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "1개월·1년·10년 모두 €5/월(VAT 포함). 14일 환불(현금 결제 제외). '가격은 출시 이후 그대로'라고 명시."
+   },
+   {
+    "id": "mullvad-vpn",
+    "title": "Mullvad — VPN (기능·FAQ)",
+    "url": "https://mullvad.net/en/vpn",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "계정 하나로 최대 5대 사용 · 개인정보(이메일 포함)를 받지 않는 익명 계정 · 독립 감사 수행 · 스웨덴 · 포트 포워딩은 2023-05-29부터 신규 중단."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "구독만으로 운영되는 유료 서비스 — 앱·웹에 광고가 없다."
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "확률형 상품이 없는 구독 서비스다."
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "실행 전 광고·구독 안내 화면이 없다."
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "할인·미끼형 유입 광고를 쓰지 않는다고 가격 페이지에서 밝힌다 — '장기 약정으로 묶지 않는다'(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "경쟁·성장 구조가 없어 과금 우위가 성립하지 않는다."
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "구독이 곧 상품이다 — 기능별 추가 결제나 크레딧이 없다."
+   },
+   "subscription_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "무료 플랜이 없다 — 1개월 €5부터. 1년·10년을 내도 월 요금이 같다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-vpn"
+    ],
+    "note": "이메일·개인정보 없이 계정 번호만 발급한다 — '개인 계정'이 아니라 익명 번호다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-mullvad-vpn"
+    ],
+    "note": "iOS 2026.8이 2026-11-24 릴리스 — 최근 갱신.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "mullvad-vpn"
+    ],
+    "note": "무로그 정책을 독립 감사로 확인받는다고 밝히고, 계정에도 개인정보를 받지 않는다. 앱 진단 데이터의 세부 범위는 이번 확인 범위 밖이다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "구독·계정 정보는 계정 페이지에서 확인할 수 있으나, 설정 내보내기 기능은 확인하지 못했다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "label": "월 구독 (€5 정액)",
+    "kind": "subscription",
+    "price": {
+     "amount": 8300,
+     "currency": "KRW",
+     "period": "month",
+     "display": "월 ₩8,300 (€5 · App Store 기준)"
+    },
+    "limits": [
+     "1개월·1년·10년 모두 월 €5 — 장기 약정 할인이 없다",
+     "동시 5대까지",
+     "포트 포워딩 없음(2023-05-29 신규 중단)",
+     "14일 환불 — 현금·암호화폐 결제는 제외",
+     "App Store 인앱: 30일 ₩8,300 · 90일 ₩22,000"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고·구독 안내 화면이 없다.",
+      "source_ids": [
+       "mullvad-pricing"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없는 구독 서비스다.",
+      "source_ids": [
+       "mullvad-pricing"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "할인·미끼형 유입 광고를 쓰지 않는다고 가격 페이지에서 밝힌다 — '장기 약정으로 묶지 않는다'(부재 근거).",
+      "source_ids": [
+       "mullvad-pricing"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "경쟁·성장 구조가 없어 과금 우위가 성립하지 않는다.",
+      "source_ids": [
+       "mullvad-pricing"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독이 곧 상품이다 — 기능별 추가 결제나 크레딧이 없다.",
+      "source_ids": [
+       "mullvad-pricing"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "iOS 2026.8이 2026-11-24 릴리스 — 최근 갱신.",
+      "source_ids": [
+       "itunes-mullvad-vpn"
+      ]
+     },
+     "subscription_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "무료 플랜이 없다 — 1개월 €5부터. 1년·10년을 내도 월 요금이 같다.",
+      "source_ids": [
+       "mullvad-pricing"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "이메일·개인정보 없이 계정 번호만 발급한다 — '개인 계정'이 아니라 익명 번호다.",
+      "source_ids": [
+       "mullvad-vpn"
+      ]
+     },
+     "data_collection": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "무로그 정책을 독립 감사로 확인받는다고 밝히고, 계정에도 개인정보를 받지 않는다. 앱 진단 데이터의 세부 범위는 이번 확인 범위 밖이다.",
+      "source_ids": [
+       "mullvad-vpn"
+      ]
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 달에 한 번 같은 값 — 오래 약정해도 싸지지 않는다.",
+    "recommended_path": true,
+    "notes": "웹은 €5/월(VAT 포함), 한국 App Store는 30일 ₩8,300·90일 ₩22,000. 환율·결제 경로에 따라 원화 표기가 달라진다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 83,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "미국 App Store 4.14★(1,500건), 한국 4.16★(31건). 표본이 큰 미국 값을 썼다. 리뷰가 적은 편이라 만족도보다 '불만이 적다'로 읽어야 한다.",
+    "source_ids": [
+     "itunes-mullvad-vpn"
+    ]
+   },
+   "objective": {
+    "score": 95,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "2009년 이후 €5 정액으로 가격 인상·갱신 함정이 없고, 이메일 없이 익명 계정을 발급하며 독립 감사를 받는다. 앱이 오픈소스이고 스웨덴 법인이다. 감점: 동시 5대 제한, 포트 포워딩 없음.",
+    "source_ids": [
+     "mullvad-pricing",
+     "mullvad-vpn"
+    ]
+   },
+   "ai_review": {
+    "score": 92,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "가격·프라이버시·기능 어느 쪽도 '함정'이 없는 드문 구조다. 감점: 기기 5대 제한과 포트 포워딩 중단으로 공유기 전체·서버 운영 용도에는 맞지 않는다.",
+    "source_ids": [
+     "mullvad-pricing",
+     "mullvad-vpn"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "가격과 익명성에서 가장 정직한 VPN — 기기 5대·포트 포워딩 없음은 감수해야 한다.",
+   "reasons": [
+    "월 €5 정액 — 1년·10년을 내도 같은 값이라 갱신 폭등이 없다.",
+    "이메일 없이 계정 번호만 발급하고, 독립 감사·오픈소스·스웨덴 법인으로 신뢰 근거가 분명하다.",
+    "미국 App Store 4.14★(1,500건) — 표본은 얇지만 불만이 특정 기능 제한에 집중돼 있다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "동시 5대까지만 연결된다 — 기기가 많으면 부족하다.",
+    "포트 포워딩이 없어 토렌트 시딩·홈서버 접속 용도로는 부적합하다.",
+    "한국 OTT 우회용으로 최적화된 서버 구성은 아니다 — 스트리밍 목적이면 다른 비교가 필요하다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.14,
+      "scale": "stars5",
+      "count": 1500,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.14★(1,500건) · KR 4.16★(31건). 리뷰 수가 적어 표본 신뢰도는 중간."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "iOS 미국 4.14★(1,500건)를 사용자 축으로 썼다. 한국 표본(31건)은 너무 적어 교차 확인용으로만 적었다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-24",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-24",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-mullvad-vpn"
+     ],
+     "note": "iOS 앱 2026.8 릴리스(스토어 표기)."
+    },
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "mullvad-pricing"
+     ],
+     "note": "가격 페이지 확인 — 1개월·1년·10년 모두 €5, 14일 환불 정책 유지."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "앱 릴리스와 가격 정책이 모두 안정적이고, 과금·약관 변경으로 평가가 흔들린 이력이 없다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "mullvad-pricing"
+     ],
+     "note": "할인·미끼형 유입 광고를 쓰지 않는다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "price_range": {
+     "min": {
+      "amount": 7400.0,
+      "currency": "KRW"
+     },
+     "max": {
+      "amount": 24900.0,
+      "currency": "KRW"
+     },
+     "evidence_grade": "A",
+     "note": "App Store '앱 내 구입' 목록의 최저·최고 표시가."
+    },
+    "first_purchase_prompt": "early",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ]
+   },
+   "subscription": {
+    "present": "yes",
+    "display": "월 €5 (App Store 30일 ₩8,300 · 90일 ₩22,000)"
+   },
+   "free_play": {
+    "value": "blocked",
+    "evidence_grade": "A",
+    "source_ids": [
+     "mullvad-pricing"
+    ],
+    "note": "무료 플랜이 없다 — 서비스를 쓰려면 구독이 필요하다."
+   },
+   "summary": "월 €5 정액 하나뿐이다. 장기 할인·갱신 인상·기기 추가 과금·광고가 없다. 앱스토어 결제는 30일 ₩8,300, 90일 ₩22,000."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "한국에서의 실제 속도·서버 위치",
+    "DAITA의 플랫폼별 적용 범위",
+    "앱 진단 데이터 수집 범위"
+   ],
+   "conflicts": [
+    {
+     "field": "tiers[0].price",
+     "values": [
+      "웹 €5/월 (VAT 포함)",
+      "App Store 30일 ₩8,300"
+     ],
+     "resolution": "결제 경로가 다르면 통화·금액이 달라진다. 한국 사용자 기준 앱스토어 원화를 대표값으로 쓰고 유로 정가를 함께 적었다.",
+     "source_ids": [
+      "mullvad-pricing",
+      "itunes-mullvad-vpn"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 공식 가격·기능 페이지와 App Store 표기만 확인했고 직접 결제·연결해 속도를 재지는 않았다."
+  },
+  "score_notes": {
+   "user_rating": "미국 App Store 4.14★(1,500건)을 83으로 환산했다. 한국 4.16★(31건)은 표본이 적어 가중하지 않았다.",
+   "objective": "정액 가격·익명 계정·독립 감사·오픈소스·스웨덴을 반영하고, 5대 제한과 포트 포워딩 중단을 감점했다.",
+   "ai_review": "함정 없는 가격 구조와 프라이버시 설계를 높게 보되, 기기 수·기능 제한을 감점으로 남겼다."
+  },
+  "icon": "assets/icons/mullvad-vpn.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "proton-vpn",
+  "name": "Proton VPN",
+  "aliases": [
+   "프로톤 VPN",
+   "ProtonVPN"
+  ],
+  "domain": "app",
+  "category": "security-utilities",
+  "arenas": [
+   "vpn"
+  ],
+  "arena_notes": {
+   "vpn": "무료 플랜의 기준점(1대·10개국·중간 속도). 유료 VPN Plus는 10대·20,000대 서버로 넓어진다."
+  },
+  "genres": [
+   "VPN",
+   "프라이버시",
+   "스위스",
+   "무료 플랜"
+  ],
+  "platforms": [
+   "ios",
+   "android",
+   "windows",
+   "macos",
+   "linux",
+   "web"
+  ],
+  "developer": "Proton AG",
+  "publisher": "Proton AG",
+  "release_date": "2018-11-12",
+  "one_liner": "무료로도 데이터 무제한인 스위스 VPN — 무로그 감사·오픈소스 앱이 기본이고, 유료는 10대·140개국·최고 속도다.",
+  "taste_tags": [
+   "freemium",
+   "no-logs",
+   "open-source",
+   "privacy-first",
+   "free-tier",
+   "swiss"
+  ],
+  "keywords": [
+   "프로톤 VPN",
+   "Proton VPN",
+   "무료 VPN",
+   "무제한 데이터",
+   "스위스",
+   "VPN Plus"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "iOS 8.0.0이 2026-11-09 릴리스 — 메이저 버전이 올라갔다.",
+  "sources": [
+   {
+    "id": "itunes-proton-vpn",
+    "title": "Apple App Store — Proton VPN: 초고속 안전한 프라이버시",
+    "url": "https://apps.apple.com/kr/app/id1437005085",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "가격 무료, KR 4.51★(2,964) · US 4.65★(136,681), 버전 8.0.0(2026-11-09), 앱 내 구입 있음 — VPN Plus ￦9,900, VPN Plus ￦83,900, Proton Unlimited (1 month) ￦14,900, Proton Unlimited ￦119,000."
+   },
+   {
+    "id": "protonvpn-pricing",
+    "title": "Proton VPN — 요금제",
+    "url": "https://protonvpn.com/pricing",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "Free: 1대·10개국(무작위)·중간 속도·광고 없음. VPN Plus $9.99/월, 2년 결제 시 $2.99/월(첫 12개월 $35.88, 이후 $83.88/년) · 10대 · 20,000+ 서버 · 140+ 국가. 30일 환불."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "무료 플랜에도 광고가 없다고 요금 페이지에 표시된다."
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "확률형 상품이 없는 구독 서비스다."
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "실행 전 광고가 없다. 가입 후 업셀 안내는 있다."
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). 다만 '90% 할인' 첫 달 프로모션은 정가가 아니다.",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "경쟁·성장 구조가 없다."
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "무료 플랜으로도 VPN이 동작한다 — 유료는 속도·기기 수·국가 확장이다."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "무료 플랜이 있고 구독은 선택이다."
+   },
+   "account_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "Proton 계정이 필요하다 — 익명 결제는 지원하지 않는다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-proton-vpn"
+    ],
+    "note": "iOS 8.0.0이 2026-11-09 릴리스.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "무로그 정책과 독립 감사를 내세우고 앱이 오픈소스다. 계정·결제 정보는 수집되며 처리방침 원문 조항은 이번 확인 범위 밖이다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "설정·구독 정보 확인 방법은 확인하지 못했다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "label": "Proton Free",
+    "kind": "free",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "동시 1대",
+     "10개국 서버(무작위 배정)",
+     "중간 속도",
+     "데이터 무제한",
+     "광고 없음"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다. 가입 후 업셀 안내는 있다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없는 구독 서비스다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). 다만 '90% 할인' 첫 달 프로모션은 정가가 아니다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "경쟁·성장 구조가 없다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "무료 플랜으로도 VPN이 동작한다 — 유료는 속도·기기 수·국가 확장이다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "iOS 8.0.0이 2026-11-09 릴리스.",
+      "source_ids": [
+       "itunes-proton-vpn"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "무료 플랜이 있고 구독은 선택이다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "account_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "Proton 계정이 필요하다 — 익명 결제는 지원하지 않는다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "data_collection": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "무로그 정책과 독립 감사를 내세우고 앱이 오픈소스다. 계정·결제 정보는 수집되며 처리방침 원문 조항은 이번 확인 범위 밖이다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 대만 쓰고 국가를 가리지 않으면 공짜로 충분하다.",
+    "recommended_path": true,
+    "notes": "무료 플랜은 서버 국가를 고를 수 없고 속도가 제한된다."
+   },
+   {
+    "tier_id": "plus",
+    "label": "VPN Plus (구독)",
+    "kind": "subscription",
+    "price": {
+     "amount": 9900,
+     "currency": "KRW",
+     "period": "month",
+     "display": "월 ₩9,900 (연 ₩83,900)"
+    },
+    "limits": [
+     "동시 10대",
+     "20,000+ 서버 · 140+ 국가",
+     "최고 속도",
+     "P2P·광고·악성코드 차단",
+     "연 결제 시 월 $2.99(첫 12개월 $35.88, 이후 $83.88/년)",
+     "App Store: 월 ₩9,900 · 연 ₩83,900"
+    ],
+    "one_liner": "기기 10대·국가 선택·최고 속도가 필요해지면 올리는 티어.",
+    "recommended_path": false,
+    "notes": "2년 결제 프로모션은 첫 12개월만 $2.99/월이고 이후 $83.88/년으로 갱신된다.",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다. 가입 후 업셀 안내는 있다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없는 구독 서비스다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). 다만 '90% 할인' 첫 달 프로모션은 정가가 아니다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "경쟁·성장 구조가 없다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "무료 플랜으로도 VPN이 동작한다 — 유료는 속도·기기 수·국가 확장이다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "iOS 8.0.0이 2026-11-09 릴리스.",
+      "source_ids": [
+       "itunes-proton-vpn"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "무료 플랜이 있고 구독은 선택이다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "account_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "Proton 계정이 필요하다 — 익명 결제는 지원하지 않는다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     },
+     "data_collection": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "무로그 정책과 독립 감사를 내세우고 앱이 오픈소스다. 계정·결제 정보는 수집되며 처리방침 원문 조항은 이번 확인 범위 밖이다.",
+      "source_ids": [
+       "protonvpn-pricing"
+      ]
+     }
+    },
+    "verdict": "recommend"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 93,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "미국 App Store 4.65★(136,681건), 한국 4.51★(2,964건). 표본이 두꺼운 미국 값을 썼다.",
+    "source_ids": [
+     "itunes-proton-vpn"
+    ]
+   },
+   "objective": {
+    "score": 88,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "무료 플랜이 데이터 무제한이고 광고가 없으며, 무로그 감사·오픈소스 앱·스위스 법인으로 신뢰 근거가 갖춰져 있다. 유료는 10대·20,000+ 서버. 감점: 무료는 1대·10개국·중간 속도로 제한되고 계정이 필수다.",
+    "source_ids": [
+     "protonvpn-pricing",
+     "itunes-proton-vpn"
+    ]
+   },
+   "ai_review": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "무료 VPN 중 '데이터 무제한 + 광고 없음'을 동시에 지키는 드문 사례다. 감점: 무료 국가가 무작위라 스트리밍·특정 국가 용도에는 유료가 사실상 필요하다.",
+    "source_ids": [
+     "protonvpn-pricing"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "공짜로 시작해 필요해지면 올리는 구조 — 무료 VPN 중 가장 믿을 만한 기본값.",
+   "reasons": [
+    "무료 플랜이 데이터 무제한·광고 없음 — 한 대만 쓰면 비용이 0원이다.",
+    "무로그 독립 감사·오픈소스 앱·스위스 법인으로 신뢰 근거가 분명하다.",
+    "미국 App Store 4.65★(136,681건)로 표본이 두껍고 최근 갱신도 이어진다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "무료는 동시 1대·10개국(무작위)·중간 속도다.",
+    "Proton 계정이 필수이고 익명 결제가 없다.",
+    "'2년 $2.99/월'은 첫 12개월 프로모션 — 이후 $83.88/년으로 갱신된다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.65,
+      "scale": "stars5",
+      "count": 136681,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.65★(136,681건) · KR 4.51★(2,964건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "iOS 미국 4.65★(136,681건)를 사용자 축으로 썼다. 한국 표본(2,964건)도 충분해 방향이 같다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-09",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-09",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-proton-vpn"
+     ],
+     "note": "iOS 8.0.0 릴리스(스토어 표기)."
+    },
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "protonvpn-pricing"
+     ],
+     "note": "요금제 확인 — Free·VPN Plus·Unlimited 구성과 30일 환불 유지."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "메이저 버전 릴리스와 요금제 개편이 이어지지만, 과금 변경이 평가 급락과 겹친 이력은 없다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "protonvpn-pricing"
+     ],
+     "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "price_range": {
+     "min": {
+      "amount": 9900.0,
+      "currency": "KRW"
+     },
+     "max": {
+      "amount": 119000.0,
+      "currency": "KRW"
+     },
+     "evidence_grade": "A",
+     "note": "App Store '앱 내 구입' 목록의 최저·최고 표시가."
+    },
+    "first_purchase_prompt": "early",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-proton-vpn"
+    ]
+   },
+   "subscription": {
+    "present": "yes",
+    "display": "VPN Plus 월 ₩9,900 · 연 ₩83,900 / 웹 $9.99월 · $83.88년"
+   },
+   "free_play": {
+    "value": "sufficient",
+    "evidence_grade": "A",
+    "source_ids": [
+     "protonvpn-pricing"
+    ],
+    "note": "무료로 데이터 무제한 VPN을 쓸 수 있다 — 1대·10개국·중간 속도 제한이 있다."
+   },
+   "summary": "무료 플랜(1대·10개국·중간 속도)으로 시작하고, 10대·140개국·최고 속도가 필요하면 VPN Plus(월 ₩9,900)로 올린다. 광고는 없고, 2년 프로모션은 첫 12개월만 저렴하다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "무료 플랜의 실제 속도",
+    "한국 서버 제공 여부",
+    "개인정보 처리방침 원문의 수집 항목"
+   ],
+   "conflicts": [
+    {
+     "field": "tiers[1].price",
+     "values": [
+      "App Store 월 ₩9,900 · 연 ₩83,900",
+      "웹 2년 결제 $2.99/월(첫 12개월 $35.88, 이후 $83.88/년)"
+     ],
+     "resolution": "결제 경로·약정 기간에 따라 금액이 다르다. 앱 결제 원화를 대표값으로 쓰고 웹 프로모션 조건을 함께 적었다.",
+     "source_ids": [
+      "itunes-proton-vpn",
+      "protonvpn-pricing"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 무료·유료 회선을 직접 연결해 속도를 재지는 않았다."
+  },
+  "score_notes": {
+   "user_rating": "미국 App Store 4.65★(136,681건)을 93으로 환산하고, 한국 4.51★(2,964건)으로 방향을 교차 확인했다.",
+   "objective": "무료 무제한·무광고·무로그 감사·오픈소스·스위스를 반영하고, 무료 1대·10개국 제한과 계정 필수를 감점했다.",
+   "ai_review": "무료 VPN의 신뢰 기준을 세운 점을 높게 보되, 스트리밍·국가 선택에는 유료가 필요하다는 점을 감점했다."
+  },
+  "icon": "assets/icons/proton-vpn.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "nordvpn",
+  "name": "NordVPN",
+  "aliases": [
+   "노드VPN",
+   "Nord VPN"
+  ],
+  "domain": "app",
+  "category": "security-utilities",
+  "arenas": [
+   "vpn"
+  ],
+  "arena_notes": {
+   "vpn": "서버망·속도의 기준점. 10대까지 붙지만 '2년 할인가 → 연 갱신가'의 차이가 가장 큰 항목이다."
+  },
+  "genres": [
+   "VPN",
+   "프라이버시",
+   "파나마",
+   "구독"
+  ],
+  "platforms": [
+   "ios",
+   "android",
+   "windows",
+   "macos",
+   "linux",
+   "web"
+  ],
+  "developer": "Nord Security",
+  "publisher": "Nordvpn S.A.",
+  "release_date": "2014-12-09",
+  "one_liner": "10대까지 붙는 파나마 VPN — 2년 할인가가 낮지만 갱신가는 연 $139로 뛴다.",
+  "taste_tags": [
+   "freemium",
+   "no-logs",
+   "big-network",
+   "discount-heavy",
+   "subscription"
+  ],
+  "keywords": [
+   "노드VPN",
+   "NordVPN",
+   "Nord",
+   "메시넷",
+   "파나마",
+   "2년 할인"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "iOS 9.18.0이 2026-11-17 릴리스 — 2주 단위로 갱신된다.",
+  "sources": [
+   {
+    "id": "itunes-nordvpn",
+    "title": "Apple App Store — NordVPN: 제한 없는 인터넷 경험, 초고속 VPN",
+    "url": "https://apps.apple.com/kr/app/id905953485",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "가격 무료, KR 4.54★(13,209) · US 4.66★(717,275), 버전 9.18.0(2026-11-17), 앱 내 구입 있음 — 최저가로 만나는 1년 플랜 ￦135,000, NordVPN: 1-month plan ￦18,700, NordVPN: 1-month plan ￦18,700, NordVPN: 1-month plan ￦18,700."
+   },
+   {
+    "id": "nordvpn-pricing",
+    "title": "NordVPN — 요금제",
+    "url": "https://nordvpn.com/pricing/",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "Basic 2년: $2.99/월 · 27개월 $80.73, 이후 연 $139.08 갱신. 1년: $4.99/월 · 15개월 $74.85. 1개월: $14.99. 모든 플랜 10대·30일 환불. 갱신가가 소개가보다 높다고 명시."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "유료 구독 서비스 — 앱 안에 제3자 광고가 없다."
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "확률형 상품이 없다."
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "실행 전 광고가 없다(플랜 업셀 안내는 있음)."
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "제휴 마케팅이 많고 '74% 할인'을 전면에 내세우지만, 요금 페이지에 갱신가를 함께 표기한다 — 미끼형으로 단정하지 않는다.",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "경쟁 구조가 없다."
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "구독이 상품 자체다 — 기능별 추가 결제가 없다."
+   },
+   "subscription_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "무료 플랜이 없다 — 1개월 $14.99부터."
+   },
+   "account_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "Nord 계정으로 기기 10대를 묶는다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-nordvpn"
+    ],
+    "note": "iOS 9.18.0이 2026-11-17 릴리스.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "무로그 정책을 내세우고 독립 감사를 받았다고 밝힌다. 다만 마케팅·계정 정보 수집 범위는 처리방침 원문 확인이 필요하다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "계정·구독 정보 외 설정 내보내기는 확인하지 못했다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "label": "Basic 2년 (구독)",
+    "kind": "subscription",
+    "price": {
+     "amount": 3900,
+     "currency": "USD",
+     "period": "month",
+     "display": "$2.99/월 (27개월 $80.73 · 이후 $139.08/년)"
+    },
+    "limits": [
+     "2년 결제 + 3개월: 27개월 $80.73",
+     "1년 결제: 15개월 $74.85 (월 $4.99)",
+     "1개월 결제: $14.99",
+     "갱신은 연 $139.08 — 소개가의 약 4배",
+     "동시 10대 · 30일 환불",
+     "App Store: 1개월 ₩18,700 · 1년 ₩135,000"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다(플랜 업셀 안내는 있음).",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없다.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "제휴 마케팅이 많고 '74% 할인'을 전면에 내세우지만, 요금 페이지에 갱신가를 함께 표기한다 — 미끼형으로 단정하지 않는다.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "경쟁 구조가 없다.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독이 상품 자체다 — 기능별 추가 결제가 없다.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "iOS 9.18.0이 2026-11-17 릴리스.",
+      "source_ids": [
+       "itunes-nordvpn"
+      ]
+     },
+     "subscription_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "무료 플랜이 없다 — 1개월 $14.99부터.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "account_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "Nord 계정으로 기기 10대를 묶는다.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     },
+     "data_collection": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "무로그 정책을 내세우고 독립 감사를 받았다고 밝힌다. 다만 마케팅·계정 정보 수집 범위는 처리방침 원문 확인이 필요하다.",
+      "source_ids": [
+       "nordvpn-pricing"
+      ]
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "처음 2년은 싸고, 그다음 해부터는 연 $139이다.",
+    "recommended_path": true,
+    "notes": "2년 할인은 첫 약정에만 적용된다. 갱신 전에 해지 알림을 챙겨야 한다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 93,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "미국 App Store 4.66★(717,275건), 한국 4.54★(13,209건). 표본이 매우 두꺼워 방향이 분명하다.",
+    "source_ids": [
+     "itunes-nordvpn"
+    ]
+   },
+   "objective": {
+    "score": 70,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "10대·30일 환불·감사받은 무로그 정책은 표준 이상이다. 감점: 소개가($2.99/월)와 갱신가(연 $139.08)의 차이가 크고, 무료 플랜이 없으며, 제휴 마케팅이 공격적이다.",
+    "source_ids": [
+     "nordvpn-pricing"
+    ]
+   },
+   "ai_review": {
+    "score": 82,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "속도·서버망·앱 완성도는 상위권이고 10대는 가족용으로 넉넉하다. 감점: 첫 결제와 갱신 결제의 체감 가격 차이가 커서 '싸다'는 인상이 오래가지 않는다.",
+    "source_ids": [
+     "nordvpn-pricing",
+     "itunes-nordvpn"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "green"
+   },
+   "one_liner": "기기 10대·속도가 필요하면 좋지만, 2년 뒤 연 $139 갱신을 미리 계산해야 한다.",
+   "reasons": [
+    "10대 동시 연결·30일 환불·감사받은 무로그 정책으로 기본기는 충분하다.",
+    "미국 App Store 4.66★(717,275건) — 표본이 매우 두껍다.",
+    "소개가 $2.99/월은 27개월 약정 기준이고, 이후 연 $139.08로 갱신된다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "갱신가가 소개가의 약 4배 — 2년 뒤 비용을 미리 계산해야 한다.",
+    "무료 플랜이 없다.",
+    "한국 결제는 App Store 기준 1개월 ₩18,700 · 1년 ₩135,000이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.66,
+      "scale": "stars5",
+      "count": 717275,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.66★(717,275건) · KR 4.54★(13,209건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "iOS 미국 4.66★(717,275건)를 사용자 축으로 썼다. 표본이 두꺼워 조정 없이 반영했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-17",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-17",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-nordvpn"
+     ],
+     "note": "iOS 9.18.0 릴리스(스토어 표기)."
+    },
+    {
+     "date": "2026-11-20",
+     "type": "monetization_terms",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "nordvpn-pricing"
+     ],
+     "note": "블랙프라이데이 2년 프로모션 — 갱신가(연 $139.08)를 요금 페이지에 명시."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "앱 갱신이 빠르고 요금 페이지에 갱신가를 숨기지 않는다. 다만 프로모션 가격이 정가처럼 보이는 마케팅은 주의가 필요하다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "partly_misleading",
+     "evidence_grade": "B",
+     "source_ids": [
+      "nordvpn-pricing"
+     ],
+     "note": "'74% 할인'은 갱신가 대비 계산 — 미끼형 유입 광고는 아니지만 강조 방식은 주의."
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "price_range": {
+     "min": {
+      "amount": 18700.0,
+      "currency": "KRW"
+     },
+     "max": {
+      "amount": 135000.0,
+      "currency": "KRW"
+     },
+     "evidence_grade": "A",
+     "note": "App Store '앱 내 구입' 목록의 최저·최고 표시가."
+    },
+    "first_purchase_prompt": "early",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-nordvpn"
+    ]
+   },
+   "subscription": {
+    "present": "yes",
+    "display": "2년 $2.99/월(27개월 $80.73) → 연 $139.08 갱신"
+   },
+   "free_play": {
+    "value": "blocked",
+    "evidence_grade": "A",
+    "source_ids": [
+     "nordvpn-pricing"
+    ],
+    "note": "무료 플랜이 없다 — 구독해야 쓸 수 있다."
+   },
+   "summary": "2년 약정 소개가 $2.99/월, 1년은 $4.99/월, 1개월은 $14.99다. 이후 연 $139.08로 갱신되고 30일 환불이 있다. 광고·확률형 상품은 없다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "한국 결제 총액(세금 포함)",
+    "무로그 감사의 최신 연도",
+    "한국 서버 속도"
+   ],
+   "conflicts": [
+    {
+     "field": "tiers[0].price",
+     "values": [
+      "웹 2년 $2.99/월 ($80.73/27개월)",
+      "App Store 1년 ₩135,000 · 1개월 ₩18,700"
+     ],
+     "resolution": "웹 프로모션과 앱 결제 금액이 다르다. 웹 할인 조건을 대표로 쓰고 앱 결제 원화를 함께 적었다.",
+     "source_ids": [
+      "nordvpn-pricing",
+      "itunes-nordvpn"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 세금 포함 최종 결제액과 실제 속도는 재지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "미국 App Store 4.66★(717,275건)을 93으로 환산했다. 표본이 커 최근 구간 보정 없이 반영했다.",
+   "objective": "10대·환불·무로그를 반영하되, 소개가와 갱신가의 4배 차이·무료 플랜 부재·공격적 마케팅을 감점했다.",
+   "ai_review": "속도·앱 완성도를 인정하되, 갱신 충격이 '가성비' 인상을 상쇄한다고 봤다."
+  },
+  "icon": "assets/icons/nordvpn.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "surfshark",
+  "name": "Surfshark",
+  "aliases": [
+   "서프샤크",
+   "Surfshark VPN"
+  ],
+  "domain": "app",
+  "category": "security-utilities",
+  "arenas": [
+   "vpn"
+  ],
+  "arena_notes": {
+   "vpn": "기기 수 제한이 없는 유일한 항목 — 가족·여러 기기에서 유리하고, 대신 갱신가와 번들 상품 구성을 봐야 한다."
+  },
+  "genres": [
+   "VPN",
+   "프라이버시",
+   "네덜란드",
+   "무제한 기기"
+  ],
+  "platforms": [
+   "ios",
+   "android",
+   "windows",
+   "macos",
+   "linux",
+   "web"
+  ],
+  "developer": "Surfshark B.V.",
+  "publisher": "SURFSHARK LTD",
+  "release_date": "2018-08-02",
+  "one_liner": "기기 수 제한이 없는 네덜란드 VPN — 2년 $2.49/월로 시작하지만 갱신가와 소유 구조를 함께 봐야 한다.",
+  "taste_tags": [
+   "freemium",
+   "unlimited-devices",
+   "no-logs",
+   "discount-heavy",
+   "subscription"
+  ],
+  "keywords": [
+   "서프샤크",
+   "Surfshark",
+   "무제한 기기",
+   "네덜란드",
+   "Surfshark One"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "iOS 5.3.0이 2026-11-19 릴리스 — 월 단위로 갱신된다.",
+  "sources": [
+   {
+    "id": "itunes-surfshark",
+    "title": "Apple App Store — Surfshark VPN: 프리미엄 VPN 경험",
+    "url": "https://apps.apple.com/kr/app/id1391782046",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "가격 무료, KR 4.61★(3,341) · US 4.69★(134,442), 버전 5.3.0(2026-11-19), 앱 내 구입 있음 — 12개월 동안 즐길 수 있는 무제한 VPN! ￦66,000, 1 Month ￦15,000, 1개월 무제한 VPN! ￦15,700, 1 Month of Unlimited VPN! ￦17,800."
+   },
+   {
+    "id": "surfshark-pricing",
+    "title": "Surfshark — 요금제",
+    "url": "https://surfshark.com/pricing",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "Starter 2년: $2.49/월 · 27개월 $67.23(블랙프라이데이, VAT 별도). 동시 기기 무제한. 4,500+ 서버·100개국. 30일 환불. 감사받은 무로그 정책."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "유료 구독 서비스 — 앱 안에 제3자 광고가 없다."
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "확률형 상품이 없다."
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "실행 전 광고가 없다(플랜 안내는 있음)."
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). '87% 할인' 카운트다운은 프로모션 강조 방식이다.",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "경쟁 구조가 없다."
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "구독이 상품이다 — 기능별 추가 결제가 없다."
+   },
+   "subscription_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "무료 플랜이 없다 — 1개월 결제부터."
+   },
+   "account_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "계정 하나로 기기 수 제한 없이 연결한다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-surfshark"
+    ],
+    "note": "iOS 5.3.0이 2026-11-19 릴리스.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "감사받은 무로그 정책을 내세운다. 다만 번들 상품(Alert·Antivirus)은 별도 데이터 처리가 있어 이용 시 확인이 필요하다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "설정 내보내기는 확인하지 못했다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "label": "Starter 2년 (구독)",
+    "kind": "subscription",
+    "price": {
+     "amount": 249,
+     "currency": "USD",
+     "period": "month",
+     "display": "$2.49/월 (27개월 $67.23)"
+    },
+    "limits": [
+     "2년 결제 + 3개월: 27개월 $67.23",
+     "갱신가는 결제 화면에서 별도 확인 필요",
+     "동시 기기 무제한",
+     "4,500+ 서버 · 100개국",
+     "1개월 결제 옵션도 있다(앱스토어 1개월 ₩15,000)",
+     "App Store: 12개월 ₩66,000"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다(플랜 안내는 있음).",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없다.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). '87% 할인' 카운트다운은 프로모션 강조 방식이다.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "경쟁 구조가 없다.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독이 상품이다 — 기능별 추가 결제가 없다.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "iOS 5.3.0이 2026-11-19 릴리스.",
+      "source_ids": [
+       "itunes-surfshark"
+      ]
+     },
+     "subscription_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "무료 플랜이 없다 — 1개월 결제부터.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "account_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "계정 하나로 기기 수 제한 없이 연결한다.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     },
+     "data_collection": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "감사받은 무로그 정책을 내세운다. 다만 번들 상품(Alert·Antivirus)은 별도 데이터 처리가 있어 이용 시 확인이 필요하다.",
+      "source_ids": [
+       "surfshark-pricing"
+      ]
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "기기 수 제한 없이 2년을 $67로 — 대신 갱신가를 확인해야 한다.",
+    "recommended_path": true,
+    "notes": "블랙프라이데이 프로모션 기준. 월 결제·1년 결제 가격은 화면마다 달라 결제 직전 확인이 필요하다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 94,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "미국 App Store 4.69★(134,442건), 한국 4.61★(3,341건). 표본이 두껍고 두 시장의 방향이 같다.",
+    "source_ids": [
+     "itunes-surfshark"
+    ]
+   },
+   "objective": {
+    "score": 68,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "기기 무제한·4,500+ 서버·30일 환불·감사받은 무로그는 강점이다. 감점: 소개가와 갱신가의 차이가 크고, 번들 상품(One·One+)이 섞여 실제 필요한 기능의 가격을 알아보기 어렵다. 소유 구조(2022년 Nord Security와 합병)도 함께 봐야 한다.",
+    "source_ids": [
+     "surfshark-pricing"
+    ]
+   },
+   "ai_review": {
+    "score": 76,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "medium",
+    "summary": "무제한 기기는 가족·다기기 사용에서 확실한 장점이고 앱 완성도도 높다. 감점: 가격이 프로모션·번들·갱신에 따라 크게 달라져 '얼마인지'가 한눈에 잡히지 않는다.",
+    "source_ids": [
+     "surfshark-pricing",
+     "itunes-surfshark"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "green"
+   },
+   "one_liner": "기기가 많으면 가장 실용적 — 가격은 프로모션이 끝난 뒤를 기준으로 판단해야 한다.",
+   "reasons": [
+    "동시 기기 무제한 — 가족·집 전체를 한 계정으로 묶을 수 있다.",
+    "2년 27개월 $67.23(월 $2.49)로 총액이 낮고 30일 환불이 있다.",
+    "미국 App Store 4.69★(134,442건) — 표본이 두껍다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "2년 프로모션 이후 갱신가가 크게 오른다 — 결제 화면에서 확인해야 한다.",
+    "무료 플랜이 없다.",
+    "Antivirus·Alert 등 번들 상품은 별도 데이터 처리가 있다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.69,
+      "scale": "stars5",
+      "count": 134442,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.69★(134,442건) · KR 4.61★(3,341건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "iOS 미국 4.69★(134,442건)를 사용자 축으로 썼다. 표본이 두꺼워 조정 없이 반영했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-19",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-19",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-surfshark"
+     ],
+     "note": "iOS 5.3.0 릴리스(스토어 표기)."
+    },
+    {
+     "date": "2026-11-25",
+     "type": "monetization_terms",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "surfshark-pricing"
+     ],
+     "note": "블랙프라이데이 프로모션 진행 — 2년 $2.49/월, 27개월 $67.23."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "앱 갱신이 빠르고 무로그 정책이 유지된다. 프로모션·번들 가격이 자주 바뀌어 결제 직전 확인이 필요하다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "partly_misleading",
+     "evidence_grade": "B",
+     "source_ids": [
+      "surfshark-pricing"
+     ],
+     "note": "미끼형 유입 광고는 없지만 '87% 할인' 카운트다운 강조는 주의."
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "price_range": {
+     "min": {
+      "amount": 15000.0,
+      "currency": "KRW"
+     },
+     "max": {
+      "amount": 66000.0,
+      "currency": "KRW"
+     },
+     "evidence_grade": "A",
+     "note": "App Store '앱 내 구입' 목록의 최저·최고 표시가."
+    },
+    "first_purchase_prompt": "early",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-surfshark"
+    ]
+   },
+   "subscription": {
+    "present": "yes",
+    "display": "2년 $2.49/월(27개월 $67.23) · 앱스토어 1개월 ₩15,000 · 12개월 ₩66,000"
+   },
+   "free_play": {
+    "value": "blocked",
+    "evidence_grade": "A",
+    "source_ids": [
+     "surfshark-pricing"
+    ],
+    "note": "무료 플랜이 없다 — 30일 환불만 있다."
+   },
+   "summary": "2년 약정이 가장 싸고(27개월 $67.23), 1년·1개월 결제도 있다. 기기 수 제한이 없고 30일 환불이 있다. 갱신가는 결제 화면에서 확인해야 한다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "갱신 시 정확한 연 가격",
+    "월 결제 정가",
+    "한국 서버 속도"
+   ],
+   "conflicts": [
+    {
+     "field": "tiers[0].price",
+     "values": [
+      "웹 2년 $2.49/월 ($67.23/27개월)",
+      "App Store 1개월 ₩15,000 · 12개월 ₩66,000"
+     ],
+     "resolution": "웹 프로모션과 앱 결제가 다르다. 웹 2년 총액을 대표로 쓰고 앱 결제 원화를 함께 적었다.",
+     "source_ids": [
+      "surfshark-pricing",
+      "itunes-surfshark"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 갱신가 전체 표와 실제 연결 속도는 확인하지 못했다."
+  },
+  "score_notes": {
+   "user_rating": "미국 App Store 4.69★(134,442건)을 94로 환산했다. 표본이 커 최근 구간 보정 없이 반영했다.",
+   "objective": "기기 무제한·서버망·환불·무로그를 반영하고, 갱신가 불투명·번들 복잡성·소유 구조를 감점했다.",
+   "ai_review": "가족·다기기 적합성을 높게 보되, 가격 구조의 불투명성을 감점했다."
+  },
+  "icon": "assets/icons/surfshark.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "expressvpn",
+  "name": "ExpressVPN",
+  "aliases": [
+   "익스프레스VPN",
+   "Express VPN"
+  ],
+  "domain": "app",
+  "category": "security-utilities",
+  "arenas": [
+   "vpn"
+  ],
+  "arena_notes": {
+   "vpn": "가장 비싼 축. 앱 완성도·속도는 상위권이지만 같은 기기 수(10대)에서 NordVPN보다 총액이 높다."
+  },
+  "genres": [
+   "VPN",
+   "프라이버시",
+   "영국령 버진아일랜드",
+   "프리미엄"
+  ],
+  "platforms": [
+   "ios",
+   "android",
+   "windows",
+   "macos",
+   "linux",
+   "web"
+  ],
+  "developer": "ExpressVPN International Ltd.",
+  "publisher": "Expressco Services, LLC",
+  "release_date": "2015-11-24",
+  "one_liner": "10대까지 붙는 영국령 버진아일랜드 VPN — 앱은 매끄럽지만 같은 조건에서 가장 비싸다.",
+  "taste_tags": [
+   "premium-price",
+   "no-logs",
+   "easy-app",
+   "subscription",
+   "kape-owned"
+  ],
+  "keywords": [
+   "익스프레스VPN",
+   "ExpressVPN",
+   "TrustedServer",
+   "영국령 버진아일랜드",
+   "Kape"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "iOS 13.0.2가 2026-11-25 릴리스 — 오늘 갱신됐다.",
+  "sources": [
+   {
+    "id": "itunes-expressvpn",
+    "title": "Apple App Store — ExpressVPN: 초강력 보안 VPN",
+    "url": "https://apps.apple.com/kr/app/id886492891",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "가격 무료, KR 4.35★(7,745) · US 4.68★(420,430), 버전 13.0.2(2026-11-25), 앱 내 구입 있음 — 12개월 정액제 ￦149,000, 12개월 정액제 ￦125,000, 1개월 정액제 ￦16,500, 12개월 정액제 ￦125,000."
+   },
+   {
+    "id": "expressvpn-order",
+    "title": "ExpressVPN — 요금제",
+    "url": "https://www.expressvpn.com/order",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "Basic 2년+4개월: $2.79/월 · $78.12(28개월), 이후 연 $99.95 갱신 · 10대. Advanced $3.99/월 · 12대, 이후 연 $119.95. Pro $6.99/월. 30일 환불."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "유료 구독 서비스 — 앱 안에 제3자 광고가 없다."
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "확률형 상품이 없다."
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "실행 전 광고가 없다(플랜 안내는 있음)."
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). '81% 할인'은 28개월 선결제 기준이다.",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "경쟁 구조가 없다."
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "구독이 상품이다 — 기능별 추가 결제가 없다(전용 IP는 애드온)."
+   },
+   "subscription_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "무료 플랜이 없다 — 28개월 선결제 또는 1개월 결제."
+   },
+   "account_required": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "ExpressVPN 계정으로 기기를 묶는다.",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-expressvpn"
+    ],
+    "note": "iOS 13.0.2가 2026-11-25 릴리스.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "무로그 정책과 TrustedServer(RAM 전용) 구조를 내세운다. 모회사 Kape Technologies의 데이터 사업 이력은 별도로 봐야 한다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "설정 내보내기는 확인하지 못했다."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "label": "Basic 2년 (구독)",
+    "kind": "subscription",
+    "price": {
+     "amount": 279,
+     "currency": "USD",
+     "period": "month",
+     "display": "$2.79/월 (28개월 $78.12 · 이후 $99.95/년)"
+    },
+    "limits": [
+     "2년 + 4개월: 28개월 $78.12",
+     "갱신은 연 $99.95 (Advanced는 연 $119.95)",
+     "Basic 동시 10대 · Advanced 12대",
+     "전용 IP는 애드온",
+     "App Store: 1개월 ₩16,500 · 12개월 ₩125,000~149,000"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고가 없다(플랜 안내는 있음).",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "확률형 상품이 없다.",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). '81% 할인'은 28개월 선결제 기준이다.",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "경쟁 구조가 없다.",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독이 상품이다 — 기능별 추가 결제가 없다(전용 IP는 애드온).",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "iOS 13.0.2가 2026-11-25 릴리스.",
+      "source_ids": [
+       "itunes-expressvpn"
+      ]
+     },
+     "subscription_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "무료 플랜이 없다 — 28개월 선결제 또는 1개월 결제.",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "account_required": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "ExpressVPN 계정으로 기기를 묶는다.",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     },
+     "data_collection": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "무로그 정책과 TrustedServer(RAM 전용) 구조를 내세운다. 모회사 Kape Technologies의 데이터 사업 이력은 별도로 봐야 한다.",
+      "source_ids": [
+       "expressvpn-order"
+      ]
+     }
+    },
+    "verdict": "conditional",
+    "one_liner": "28개월을 한 번에 내면 월 $2.79 — 갱신하면 연 $99.95다.",
+    "recommended_path": true,
+    "notes": "2026 블랙프라이데이 기준. Advanced·Pro는 번들(AI·비밀번호 관리자 등)이 붙어 가격이 올라간다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 94,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "미국 App Store 4.68★(420,430건), 한국 4.35★(7,745건). 표본이 두껍고 미국 만족도가 높다.",
+    "source_ids": [
+     "itunes-expressvpn"
+    ]
+   },
+   "objective": {
+    "score": 62,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "10대·30일 환불·무로그·RAM 전용 서버는 좋다. 감점: 같은 조건에서 총액이 가장 비싸고(연 $99.95 갱신), 모회사 Kape의 데이터 사업 이력이 프라이버시 신뢰와 긴장 관계다.",
+    "source_ids": [
+     "expressvpn-order"
+    ]
+   },
+   "ai_review": {
+    "score": 72,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "medium",
+    "summary": "앱이 가장 매끄럽고 초보자가 쓰기 쉽다는 평가가 일관된다. 감점: 가격 프리미엄을 정당화할 기능 차이가 크지 않고, 프라이버시를 최우선하면 Mullvad·Proton이 앞선다.",
+    "source_ids": [
+     "expressvpn-order",
+     "itunes-expressvpn"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "쓰기 쉬운 앱에 돈을 더 낼 수 있다면 — 가성비·프라이버시 기준에서는 조건부.",
+   "reasons": [
+    "앱 완성도·초보자 사용성이 좋고 미국 App Store 4.68★(420,430건)로 만족도가 높다.",
+    "10대·30일 환불·무로그·RAM 전용 서버로 기본 기능은 충실하다.",
+    "같은 조건에서 가장 비싸고, 갱신가가 연 $99.95다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "2년 프로모션($2.79/월)은 28개월 선결제 기준 — 이후 연 $99.95로 갱신된다.",
+    "Advanced·Pro는 번들이 붙어 실제 필요한 기능만 골라 쓰기 어렵다.",
+    "모회사 Kape Technologies의 데이터 사업 이력을 감안해야 한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.68,
+      "scale": "stars5",
+      "count": 420430,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.68★(420,430건) · KR 4.35★(7,745건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "iOS 미국 4.68★(420,430건)를 사용자 축으로 썼다. 한국 표본(7,745건)은 더 낮지만 방향은 같다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-expressvpn"
+     ],
+     "note": "iOS 13.0.2 릴리스(스토어 표기)."
+    },
+    {
+     "date": "2026-11-25",
+     "type": "monetization_terms",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "expressvpn-order"
+     ],
+     "note": "블랙프라이데이 요금 확인 — Basic 28개월 $78.12, 이후 연 $99.95."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "앱 갱신이 활발하고 요금 구조가 페이지에 명시된다. 다만 갱신가가 소개가와 크게 달라 장기 비용을 따로 계산해야 한다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "partly_misleading",
+     "evidence_grade": "B",
+     "source_ids": [
+      "expressvpn-order"
+     ],
+     "note": "'81% 할인'은 28개월 선결제 대비 — 미끼형 광고는 아니다."
+    }
+   },
+   "iap": {
+    "present": "yes",
+    "random_items": "no",
+    "price_range": {
+     "min": {
+      "amount": 14000.0,
+      "currency": "KRW"
+     },
+     "max": {
+      "amount": 149000.0,
+      "currency": "KRW"
+     },
+     "evidence_grade": "A",
+     "note": "App Store '앱 내 구입' 목록의 최저·최고 표시가."
+    },
+    "first_purchase_prompt": "early",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-expressvpn"
+    ]
+   },
+   "subscription": {
+    "present": "yes",
+    "display": "28개월 $78.12($2.79/월) → 연 $99.95 갱신"
+   },
+   "free_play": {
+    "value": "blocked",
+    "evidence_grade": "A",
+    "source_ids": [
+     "expressvpn-order"
+    ],
+    "note": "무료 플랜이 없다 — 30일 환불만 있다."
+   },
+   "summary": "28개월 선결제 $78.12가 가장 싸고, 이후 연 $99.95로 갱신된다. Advanced $3.99/월(12대), Pro $6.99/월. 광고·확률형 상품은 없다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "한국 결제 최종 금액",
+    "Kape의 현재 데이터 처리 방식",
+    "한국 서버 속도"
+   ],
+   "conflicts": [
+    {
+     "field": "tiers[0].price",
+     "values": [
+      "웹 28개월 $78.12 ($2.79/월)",
+      "App Store 1개월 ₩16,500 · 12개월 ₩125,000~149,000"
+     ],
+     "resolution": "웹 선결제와 앱 결제 금액이 다르다. 웹 28개월 총액을 대표로 쓰고 앱 결제 원화를 함께 적었다.",
+     "source_ids": [
+      "expressvpn-order",
+      "itunes-expressvpn"
+     ]
+    }
+   ],
+   "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 직접 연결해 속도를 재거나 Kape 관련 보도를 원문 확인하지는 않았다."
+  },
+  "score_notes": {
+   "user_rating": "미국 App Store 4.68★(420,430건)을 94로 환산했다. 한국 4.35★(7,745건)은 더 낮지만 표본 차이로 미국 값을 대표로 썼다.",
+   "objective": "기기 수·환불·무로그를 반영하되, 최고가·갱신가·모회사 이력을 크게 감점했다.",
+   "ai_review": "앱 사용성을 인정하되 가격 프리미엄의 근거가 약하다고 봤다."
+  },
+  "icon": "assets/icons/expressvpn.webp"
+ }
+]

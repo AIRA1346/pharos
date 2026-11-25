@@ -1,7 +1,7 @@
 {
   "schema_version": "0.4.0",
   "title": "Pharos 데이터 카탈로그",
-  "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다.",
+  "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종).",
   "path_base": "이 파일이 있는 폴더(data/) 기준 상대경로",
   "domains": [
     {
@@ -99,6 +99,18 @@
       "domain": "game",
       "label": "모바일 전략 · 디펜스",
       "description": "한 손으로 한 판을 푸는 모바일 전략·타워디펜스 — 유료 1회 구매와 무료+광고·과금 구조가 갈린다."
+    },
+    {
+      "id": "action-shooter",
+      "domain": "game",
+      "label": "액션 · 슈팅",
+      "description": "조준과 교전이 중심인 슈팅 — 무료 플레이의 확률형 상자·배틀패스, 커널 안티치트, 경쟁전 운영이 판정을 가른다."
+    },
+    {
+      "id": "survival-sim",
+      "domain": "game",
+      "label": "생존 · 시뮬레이션",
+      "description": "자원을 모아 짓고 버티는 생존·건설 — 1회 구매 완결형과 마켓플레이스·구독이 붙는 샌드박스가 갈린다."
     },
     {
       "id": "ai-chat-research",
@@ -211,6 +223,38 @@
       "data_file": "app/cloud-storage.json"
     },
     {
+      "id": "vpn",
+      "domain": "app",
+      "category": "security-utilities",
+      "label": "VPN",
+      "description": "접속 경로를 바꾸는 VPN — 무로그 감사, 정액 vs 할인·갱신 폭등, 기기 수 제한, 커널 수준 안티치트·계정 요구에서 갈린다.",
+      "data_file": "app/vpn.json"
+    },
+    {
+      "id": "calendar-apps",
+      "domain": "app",
+      "category": "productivity",
+      "label": "캘린더 · 시간 관리",
+      "description": "일정을 어디에 두고 어떻게 굴리는가 — 종단간 암호화 여부, 무료 캘린더 수·공유 범위, 구독 가격, 계정 종속에서 갈린다.",
+      "data_file": "app/calendar-apps.json"
+    },
+    {
+      "id": "fps-shooters",
+      "domain": "game",
+      "category": "action-shooter",
+      "label": "FPS · 슈팅",
+      "description": "경쟁·협동 슈팅 — 1회 구매와 무료 플레이, 확률형 상자·배틀패스, 커널 안티치트, 지역 제공 여부가 판정을 가른다.",
+      "data_file": "game/fps-shooters.json"
+    },
+    {
+      "id": "survival-crafting",
+      "domain": "game",
+      "category": "survival-sim",
+      "label": "서바이벌 · 크래프팅",
+      "description": "채집·제작·건설로 버티는 생존 — 1회 구매 완결형, 무료 업데이트 지속성, 마켓플레이스·구독 과금이 갈린다.",
+      "data_file": "game/survival-crafting.json"
+    },
+    {
       "id": "ai-assistants",
       "domain": "ai",
       "category": "ai-chat-research",
@@ -288,6 +332,8 @@
   },
   "home": {
     "featured_arenas": [
+      "vpn",
+      "calendar-apps",
       "pkm-notes",
       "task-managers",
       "password-managers",
@@ -297,6 +343,8 @@
       "roguelike-deckbuilder",
       "action-roguelike",
       "metroidvania-platformer",
+      "fps-shooters",
+      "survival-crafting",
       "mobile-gacha-rpg",
       "pc-mmorpg",
       "mobile-strategy-defense",
