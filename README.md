@@ -57,10 +57,10 @@ data/catalog.json          도메인·대분류·비교군 정의 + 도메인 �
 data/search-index.json     경량 인덱스 (분할 데이터에서 자동 생성)
 data/app/pkm-notes.json    노트·지식관리 5건
 data/game/roguelike-deckbuilder.json  덱빌딩 4건
-data/game/mobile-gacha-rpg.json       모바일 수집형 RPG 3건
+data/game/mobile-gacha-rpg.json       모바일 수집형 RPG 6건
 data/game/action-roguelike.json       액션 로그라이크 4건
 data/game/pc-mmorpg.json              PC MMORPG 4건
-data/game/mobile-strategy-defense.json 모바일 전략·디펜스 4건
+data/game/mobile-strategy-defense.json 모바일 전략·디펜스 6건
 schema/item.schema.json    스키마 v0.4.0 + 클라이언트 계산 계약(x-pharos.client)
 .github/ISSUE_TEMPLATE/correction.yml  정정·이의제기 양식
 spec/                      설계 문서 (vision · criteria · plan · pilot-test)와 검증 도구

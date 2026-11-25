@@ -264,7 +264,7 @@ rows:
 
 - 장르·분류를 수백 개 미리 정의하지 않는다. **사용자가 실제로 대체제를 고르는 단위**로 묶고, 하나의 아이템은 여러 비교군에 속할 수 있다(`arenas: string[]`).
 - 비교군 정의는 `data/catalog.json` 의 `arenas`(id·domain·category·label·description·data_file)에 두고, 아이템은 id만 참조한다. 비교군별 핵심 비교 포인트는 `arena_notes`(id → 한 줄)에 남긴다. 키는 반드시 `arenas`에 포함된 id여야 한다. 한 아이템의 비교군들은 같은 도메인·대분류에 속해야 하며, 아이템의 `domain`·`category` 도 그 값과 같아야 한다(validate.py 가 검사).
-- 2026-11-25 게임 도메인 2차 확장으로 비교군은 6개, 대분류는 6개다(RPG·MMORPG 대분류와 PC MMORPG, 모바일 전략·디펜스 대분류와 모바일 전략·디펜스 비교군 추가). 전체 24건.
+- 2026-11-25 게임 도메인 2차 확장으로 비교군은 6개, 대분류는 6개다(RPG·MMORPG 대분류와 PC MMORPG, 모바일 전략·디펜스 대분류와 모바일 전략·디펜스 비교군 추가). 이어진 **3차 확장**에서 `모바일 수집형 RPG` 에 승리의 여신: 니케·블루 아카이브·붕괴: 스타레일, `모바일 전략·디펜스` 에 Clash of Clans·Arknights 를 더해 **전체 29건**이다.
 
 ```table
 title: 현재 비교군 (2026-11-25)
@@ -272,19 +272,19 @@ headers: ["id", "라벨", "구성", "무엇으로 갈리는가"]
 rows:
   - ["pkm-notes", "노트·지식관리", "Obsidian·Evernote·Notion·Joplin·Simplenote", "파일 소유권 · 계정 · 동기화 · 내보내기"]
   - ["roguelike-deckbuilder", "덱빌딩 게임", "Balatro·Slay the Spire·Inscryption·Night of the Full Moon", "1회 구매 완결형 vs 부분유료·광고형"]
-  - ["mobile-gacha-rpg", "모바일 수집형 RPG", "Hero Wars·Limbus Company·Genshin Impact", "확률형 뽑기 · P2W · 미끼형 광고 / 광고·PvP 없이도 확률형이면 거름"]
+  - ["mobile-gacha-rpg", "모바일 수집형 RPG", "Hero Wars·Limbus Company·Genshin Impact·승리의 여신: 니케·블루 아카이브·붕괴: 스타레일", "확률형 뽑기의 강도 — 마일리지 교환 · 확정 천장 이월 · 160레벨 벽"]
   - ["action-roguelike", "액션 로그라이크", "Hades·Vampire Survivors·Dead Cells·Archero", "1회 구매 완결형 · DLC 분기 · 부분유료·광고형 대조"]
   - ["pc-mmorpg", "PC MMORPG", "FINAL FANTASY XIV·Guild Wars 2·Lost Ark·Black Desert", "정액제 · 확장팩 1회 구매 · 무료+확률형 캐시샵 · 강화 과금"]
-  - ["mobile-strategy-defense", "모바일 전략·디펜스", "Bloons TD 6·Kingdom Rush Vengeance·Clash Royale·Plants vs. Zombies 2", "유료 무광고 vs 유료+광고 · 상자 뽑기 · 식물·카드 성장 과금"]
+  - ["mobile-strategy-defense", "모바일 전략·디펜스", "Bloons TD 6·Kingdom Rush Vengeance·Clash Royale·Plants vs. Zombies 2·Clash of Clans·Arknights", "유료 무광고 vs 무료+시간 게이트 · 상자 뽑기 · 타워디펜스+확률형 수집"]
 ```
 
 - 비교군 선택은 카테고리·검색과 **AND**로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 묶음 기준으로 즉시 다시 계산한다.
 - 판정 산식(8절)은 비교군 안에서도 그대로다. 비교군은 "무엇을 같은 표에 놓는가"만 바꾸고, 점수와 필터는 바꾸지 않는다.
 - 액션 로그라이크 비교군은 완결작(Hades), 1회 구매 + DLC 분기(Dead Cells), PC/모바일 티어가 갈리는 작품(Vampire Survivors), 부분유료·확률형 대조군(Archero)이 한 표에 놓이는 자리다. 티어별 조건은 `axis_overrides` 로 분리해 기록한다.
-- 모바일 수집형 RPG 비교군은 미끼형 광고·P2W가 확인되는 Hero Wars, 광고·PvP 없이 확률형 추출이 있는 Limbus Company, 품질은 최상급이지만 확률형 뽑기가 수익 구조인 Genshin Impact 를 나란히 둔다. v0.4.0에서 **Limbus Company는 자판기 정가 구조를 근거로 `impact: optional` → 🟡 조건부(78.7)** 로 내려왔고, Hero Wars·Genshin Impact는 `core` 로 남아 🔴 거름이다. 같은 필터 적중이라도 강도와 판정이 갈린다. 대체제 섹션은 티어가 여러 개인 항목을 만나면 추천 판정인 티어를 기준으로 평가해 같은 비교군 안에서만 연결한다.
+- 모바일 수집형 RPG 비교군은 미끼형 광고·P2W가 확인되는 Hero Wars, 광고·PvP 없이 확률형 추출이 있는 Limbus Company, 품질은 최상급이지만 확률형 뽑기가 수익 구조인 Genshin Impact 를 나란히 두고, 3차 확장에서 **같은 확률형이라도 강도가 갈리는 세 사례**를 더했다: 마일리지 200장 교환과 160레벨 벽으로 성장을 묶는 승리의 여신: 니케(`core`·🔴), 2026-11-10 개편으로 100회 ★3 확정·200회 픽업 확정에 스택 이월까지 갖추고 등급 간 보상 차이가 작은 블루 아카이브(`optional`·🟡), 90연 천장·50:50 구조에 캐릭터 인플레이션이 빠른 붕괴: 스타레일(`core`·🔴)이다. v0.4.0에서 **Limbus Company는 자판기 정가 구조를 근거로 `impact: optional` → 🟡 조건부(78.7)** 로 내려왔고, Hero Wars·Genshin Impact는 `core` 로 남아 🔴 거름이다. 같은 필터 적중이라도 강도와 판정이 갈린다. 대체제 섹션은 티어가 여러 개인 항목을 만나면 추천 판정인 티어를 기준으로 평가해 같은 비교군 안에서만 연결한다.
 - 덱빌딩 비교군은 v0.3.1에서 **1회 구매 완결작(Inscryption·Balatro·Slay the Spire)과 부분유료·광고형(Night of the Full Moon)** 이 한 표에 나란히 놓이는 자리다. 완결작 면제 덕분에 Inscryption이 '업데이트 공백'이 아니라 '과금 없음·완결'로 비교된다.
 - PC MMORPG 비교군은 **정액제+확장팩**(FINAL FANTASY XIV 🟢 80.7), **본편 무료+확장팩 1회 구매**(Guild Wars 2 🟡 77.2), **무료+성장 재화·확률형 카드 팩**(Lost Ark 🔴 41.45), **본편 구매+강화 지원·확률형 보화 상자**(Black Desert 🟢 80.1)를 한 표에 둔다. 네 항목의 '구독 필수' 해석과 확장팩·캐시샵 경계가 2차 확장에서 가장 많이 걸린 지점이다(10절 10~12번). v0.4.0에서 Guild Wars 2는 코스메틱 상자 → `optional`(조건부), Black Desert는 시즌 장비·거래소 경로 → `optional`(추천)로 자리를 찾았고, Lost Ark는 성장 재화 판매가 핵심이라 `core`(거름)로 남겼다.
-- 모바일 전략·디펜스 비교군은 **유료·무광고(Bloons TD 6 🟢 81.3)**, **유료인데 광고·영웅 별매(Kingdom Rush Vengeance 🟢 80.2)**, **무료+상자 뽑기 PvP(Clash Royale 🔴 55.2)**, **무료+광고+확률형·식물 과금(Plants vs. Zombies 2 🔴 48.0)** 을 둔다. 같은 장르에서 '무료'가 무엇을 뜻하는지 대조하는 자리다. Bloons TD 6는 스토어의 '확률형 아이템 포함' 표기 때문에 v0.3.1에서 거름이 된 사례다 — v0.4.0은 상품이 선택형임을 근거로 `impact: optional` 로 분류해 **추천으로 되돌렸다**(10절 13번 닫힌 항목).
+- 모바일 전략·디펜스 비교군은 **유료·무광고(Bloons TD 6 🟢 81.3)**, **유료인데 광고·영웅 별매(Kingdom Rush Vengeance 🟢 80.2)**, **무료+상자 뽑기 PvP(Clash Royale 🔴 55.2)**, **무료+광고+확률형·식물 과금(Plants vs. Zombies 2 🔴 48.0)** 을 두고, 3차 확장에서 **무료+시간 게이트·골드 패스(Clash of Clans 🟡 78.5)** 와 **타워디펜스+확률형 수집이지만 저레어 클리어가 가능한 Arknights(🟢 80.2)** 를 더했다. 같은 장르에서 '무료'가 무엇을 뜻하는지 대조하는 자리다. Bloons TD 6는 스토어의 '확률형 아이템 포함' 표기 때문에 v0.3.1에서 거름이 된 사례다 — v0.4.0은 상품이 선택형임을 근거로 `impact: optional` 로 분류해 **추천으로 되돌렸다**(10절 13번 닫힌 항목).
 
 ## 10. 남은 빈틈 (다음 개정 후보)
 
@@ -305,6 +305,13 @@ rows:
 14. **impact 재분류에 따른 objective 축 재정렬**: Black Desert의 objective 를 33→78로 올리면서, 비슷한 조건의 Guild Wars 2(60)·Limbus Company(62)보다 높아졌다. 이번에는 '무과금 경로의 확인 여부'와 '가격·확률 공개'를 더 무겁게 봤지만, v0.4 기준으로 objective 축의 절대 눈금을 다시 맞추는 작업이 남는다(2차 개정 후보 1순위).
 
 15. **무과금 충분성의 시간 비용**: `free_play: sufficient` 는 "즐길 수 있다"는 판단이지 "같은 시간에 도달한다"는 뜻이 아니다. 무과금으로 최상위 구간까지 가는 데 걸리는 시간을 신호로 쓰려면 별도 필드(`time_to_cap` 등)와 측정 기준이 필요하다.
+
+16. **'성장 벽'을 무과금 판정의 근거로 쓸 수 있는가 — 니케 160벽 사례**: 승리의 여신: 니케는 캐릭터 획득이 모집뿐이고 3돌 SSR 5명이 없으면 160레벨에서 성장이 멈춰 `impact: core` 로 판정했다. 다만 무과금도 위시리스트·실버 마일리지·선택권으로 2.5~4개월이면 넘는다는 정리(등급 C)가 있어, '영구히 막히는 벽'과 '시간이 걸리는 문'을 구분할 필드가 없다. 해결안: `growth_gate`(none·time·dupe·paywall)와 무과금 도달 기간(`time_to_gate`)을 두고, `core` 판정을 '시간으로 넘을 수 있는가'로 세분화한다.
+
+17. **천장·과금 개편의 방향성 — 완화는 healthy, 강화는 risky_terms**: 블루 아카이브의 2026-11-10 개편(모집 포인트 폐지 → 모집 스택 이월·마일리지 보상·무료 모집 200회)은 과금 부담을 낮춘 `monetization_terms` 변경이라 4절의 `risky_terms` 가 아니라 `healthy` 로 기록했다. 지금은 `monetization_terms` 에 방향 필드가 없어, 부담을 높이는 변경과 낮추는 변경을 같은 태그로 다룬다. 해결안: `monetization_terms.direction`(relaxed·tightened·neutral). 또 스택 이월·마일리지 티켓이 붙으면서 '천장 200회'라는 숫자만으로는 배너 간 실제 부담을 비교할 수 없게 됐다 — `effective_pity`(무료 티켓·이월 반영 실효 천장) 필드 후보.
+
+18. **지역·플랫폼 평점 격차 — 어느 표본을 1차로 두는가**: 붕괴: 스타레일은 Play 한국 3.6★(52.8만)·iOS 한국 3.98★(7,627)·iOS 미국 4.40★(5.35만)로 갈리고, 명일방주는 국내 서비스 빌드(4.3★·2.13만)와 글로벌 빌드(5.0★·20.7만)가 스토어에 별도 앱으로 존재한다. 이번에는 '국내 서비스 우선'을 사유로만 적고 `data_quality` 에 남겼다. 10절 12번(지역 서비스 분리)과 묶어 `review_region`·`service_build` 필드를 두고, 사용자 지역 표본을 1차로 삼는 규칙을 정해야 한다.
+
 
 ## 11. 정적 배포 — web/ 폴더 하나로 동작한다
 

@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 24,
+    "items": 29,
     "domains": 2,
     "categories": 6,
     "arenas": 6
   },
-  "content_hash": "5ba5f8e57985b1e40b6a8e6b580d913d24bebe4d3848e4acdd5c3450c10de6a2",
+  "content_hash": "c908126b3c0a8470a7359275d4444e5284b7648e90fa9927609f07569b5a3385",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -65,12 +65,12 @@
       "label": "모바일 수집형 RPG",
       "domain": "game",
       "category": "rpg",
-      "count": 3,
-      "avg_score": 62.0,
+      "count": 6,
+      "avg_score": 66.9,
       "verdicts": {
         "recommend": 0,
-        "conditional": 1,
-        "avoid": 2
+        "conditional": 2,
+        "avoid": 4
       },
       "top_item": {
         "id": "limbus-company",
@@ -78,8 +78,11 @@
         "score": 78.7
       },
       "items": [
+        "blue-archive",
         "genshin-impact",
+        "goddess-of-victory-nikke",
         "hero-wars-alliance",
+        "honkai-star-rail",
         "limbus-company"
       ]
     },
@@ -133,11 +136,11 @@
       "label": "모바일 전략·디펜스",
       "domain": "game",
       "category": "mobile-strategy",
-      "count": 4,
-      "avg_score": 66.2,
+      "count": 6,
+      "avg_score": 70.6,
       "verdicts": {
-        "recommend": 2,
-        "conditional": 0,
+        "recommend": 3,
+        "conditional": 1,
         "avoid": 2
       },
       "top_item": {
@@ -146,7 +149,9 @@
         "score": 81.3
       },
       "items": [
+        "arknights",
         "bloons-td-6",
+        "clash-of-clans",
         "clash-royale",
         "kingdom-rush-vengeance",
         "plants-vs-zombies-2"
@@ -160,7 +165,8 @@
       "hero-wars-alliance",
       "archero",
       "notion",
-      "clash-royale"
+      "clash-royale",
+      "goddess-of-victory-nikke"
     ]
   },
   "items": [
@@ -227,6 +233,65 @@
         "delta": 30.1,
         "verdict": "avoid"
       }
+    },
+    {
+      "id": "arknights",
+      "name": "Arknights (명일방주)",
+      "aliases": [
+        "명일방주",
+        "아크나이츠",
+        "明日方舟",
+        "Arknights"
+      ],
+      "domain": "game",
+      "category": "mobile-strategy",
+      "arenas": [
+        "mobile-strategy-defense"
+      ],
+      "developer": "Hypergryph",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "오퍼레이터를 배치해 적의 진로를 막는 타워디펜스 — 캐릭터는 확률형으로 모으지만, 낮은 등급 조합으로도 스토리를 끝까지 공략하는 전략 게임이다.",
+      "taste_tags": [
+        "gacha",
+        "tower-defense",
+        "story-rich",
+        "no-ads",
+        "single-player",
+        "long-term"
+      ],
+      "keywords": [
+        "명일방주",
+        "아크나이츠",
+        "헤드헌팅",
+        "오퍼레이터",
+        "로도스 아일랜드",
+        "Hypergryph",
+        "요스타"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 80.2,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 86,
+      "store_stars": {
+        "value": 4.3,
+        "count": 21300,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
     },
     {
       "id": "balatro",
@@ -368,6 +433,126 @@
       "store_stars": {
         "value": 4.7,
         "count": 403000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "blue-archive",
+      "name": "블루 아카이브 (Blue Archive)",
+      "aliases": [
+        "블루아카",
+        "블아",
+        "Blue Archive",
+        "블루 아카이브"
+      ],
+      "domain": "game",
+      "category": "rpg",
+      "arenas": [
+        "mobile-gacha-rpg"
+      ],
+      "developer": "Nexon Games",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "학원도시 키보토스의 학생들을 지휘하는 수집형 RPG — 3D 전투와 스토리가 중심이고, 2026-11 개편으로 200회 확정 천장에 스택 이월이 붙었다.",
+      "taste_tags": [
+        "gacha",
+        "story-rich",
+        "no-ads",
+        "character-collection",
+        "always-online"
+      ],
+      "keywords": [
+        "블루아카이브",
+        "블루아카",
+        "총력전",
+        "모집 스택",
+        "천장",
+        "넥슨",
+        "키보토스"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "free",
+      "score": 75.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 82,
+      "store_stars": {
+        "value": 4.1,
+        "count": 151000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "clash-of-clans",
+      "name": "Clash of Clans",
+      "aliases": [
+        "클래시 오브 클랜",
+        "클래오클",
+        "CoC",
+        "코크"
+      ],
+      "domain": "game",
+      "category": "mobile-strategy",
+      "arenas": [
+        "mobile-strategy-defense"
+      ],
+      "developer": "Supercell",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "마을을 짓고 클랜전으로 겨루는 무료 빌드·배틀 — 결제는 주로 업그레이드 시간을 사고, 전투 자체는 유닛·건물 레벨과 배치 싸움이다.",
+      "taste_tags": [
+        "free-to-play",
+        "pvp",
+        "long-term",
+        "clan-play",
+        "always-online"
+      ],
+      "keywords": [
+        "클래시",
+        "클랜전",
+        "마을회관",
+        "골드 패스",
+        "Supercell",
+        "슈퍼셀",
+        "TH19"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "free",
+      "score": 78.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.5,
+        "count": 61200000,
         "platform": "android",
         "evidence_grade": "A"
       },
@@ -674,6 +859,76 @@
       "gap": null
     },
     {
+      "id": "goddess-of-victory-nikke",
+      "name": "승리의 여신: 니케 (GODDESS OF VICTORY: NIKKE)",
+      "aliases": [
+        "니케",
+        "NIKKE",
+        "승리의 여신 니케",
+        "Goddess of Victory: Nikke"
+      ],
+      "domain": "game",
+      "category": "rpg",
+      "arenas": [
+        "mobile-gacha-rpg"
+      ],
+      "developer": "SHIFT UP",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "백 뷰 슈팅으로 니케를 조작하는 수집형 RPG — 뽑기 확률은 4%로 후하지만, 3돌 SSR 5명이 없으면 160레벨에서 성장이 멈춘다.",
+      "taste_tags": [
+        "gacha",
+        "story-rich",
+        "no-ads",
+        "character-collection",
+        "always-online"
+      ],
+      "keywords": [
+        "니케",
+        "NIKKE",
+        "마일리지",
+        "160벽",
+        "챔피언 아레나",
+        "시프트업",
+        "레벨 인피니트"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 69.65,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 86,
+      "store_stars": {
+        "value": 4.3,
+        "count": 628000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": {
+        "stars": 4.3,
+        "platform": "android",
+        "count": 628000,
+        "stars_score": 86.0,
+        "score": 69.65,
+        "delta": 16.3,
+        "verdict": "avoid"
+      }
+    },
+    {
       "id": "guild-wars-2",
       "name": "Guild Wars 2",
       "aliases": [
@@ -831,6 +1086,66 @@
         "delta": 57.4,
         "verdict": "avoid"
       }
+    },
+    {
+      "id": "honkai-star-rail",
+      "name": "붕괴: 스타레일 (Honkai: Star Rail)",
+      "aliases": [
+        "스타레일",
+        "붕스",
+        "Honkai: Star Rail",
+        "HSR"
+      ],
+      "domain": "game",
+      "category": "rpg",
+      "arenas": [
+        "mobile-gacha-rpg"
+      ],
+      "developer": "HoYoverse",
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "console"
+      ],
+      "one_liner": "은하열차를 타고 세계를 도는 턴제 수집형 RPG — 연출·음악·전투 완성도가 높지만 캐릭터·광추는 워프로만 얻는다.",
+      "taste_tags": [
+        "gacha",
+        "story-rich",
+        "no-ads",
+        "turn-based",
+        "cross-platform"
+      ],
+      "keywords": [
+        "스타레일",
+        "붕괴",
+        "호요버스",
+        "워프",
+        "성옥",
+        "개척",
+        "아하"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 70.1,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 72,
+      "store_stars": {
+        "value": 3.6,
+        "count": 528000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
     },
     {
       "id": "inscryption",

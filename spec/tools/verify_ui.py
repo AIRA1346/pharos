@@ -210,9 +210,9 @@ def main() -> int:
         expect(not any("/data/app/" in url or "/data/game/" in url for url in served),
                "홈에서는 비교군 분할 파일을 내려받지 않음(지연 로딩)", str([u for u in served if "/data/app/" in u or "/data/game/" in u]))
         chip = page.inner_text("#datasetChip")
-        expect("스키마 v0.4.0" in chip and "24건" in chip and "비교군 6" in chip, "데이터 칩 = v0.4.0 · 24건 · 비교군 6", chip)
+        expect("스키마 v0.4.0" in chip and "29건" in chip and "비교군 6" in chip, "데이터 칩 = v0.4.0 · 29건 · 비교군 6", chip)
         counts = page.evaluate("window.Pharos.state.core.index.counts")
-        expect(counts == {"items": 24, "domains": 2, "categories": 6, "arenas": 6}, "카탈로그 계층 집계 24/2/6/6", str(counts))
+        expect(counts == {"items": 29, "domains": 2, "categories": 6, "arenas": 6}, "카탈로그 계층 집계 29/2/6/6", str(counts))
         domains = page.evaluate("window.Pharos.state.core.catalog.domains.map(d => d.id)")
         expect(domains == ["app", "game"], "도메인 = 앱·게임", str(domains))
         tabs = page.eval_on_selector_all("#domainTabs button", "els => els.map(e => e.innerText.trim())")
@@ -230,12 +230,12 @@ def main() -> int:
                "덱빌딩 비교군 카드(4건·평균 80.3)", shortcuts[1])
         expect("액션 로그라이크" in shortcuts[2] and "4건" in shortcuts[2] and "평균 77.9" in shortcuts[2],
                "액션 로그라이크 비교군 카드(4건·평균 77.9)", shortcuts[2])
-        expect("모바일 수집형 RPG" in shortcuts[3] and "3건" in shortcuts[3] and "평균 62" in shortcuts[3],
-               "가챠 비교군 카드(3건·평균 62.0)", shortcuts[3])
+        expect("모바일 수집형 RPG" in shortcuts[3] and "6건" in shortcuts[3] and "평균 66.9" in shortcuts[3],
+               "가챠 비교군 카드(6건·평균 66.9)", shortcuts[3])
         expect("PC MMORPG" in shortcuts[4] and "4건" in shortcuts[4] and "평균 69.9" in shortcuts[4],
                "PC MMORPG 비교군 카드(4건·평균 69.9)", shortcuts[4])
-        expect("모바일 전략·디펜스" in shortcuts[5] and "4건" in shortcuts[5] and "평균 66.2" in shortcuts[5],
-               "모바일 전략·디펜스 비교군 카드(4건·평균 66.2)", shortcuts[5])
+        expect("모바일 전략·디펜스" in shortcuts[5] and "6건" in shortcuts[5] and "평균 70.6" in shortcuts[5],
+               "모바일 전략·디펜스 비교군 카드(6건·평균 70.6)", shortcuts[5])
 
         gap_rows = page.eval_on_selector_all(".gap-row", "els => els.map(e => e.innerText.replace(/\\n/g, ' | '))")
         expect(len(gap_rows) == 4, "'별점은 높은데 거름 판정' 리포트 4건", str(len(gap_rows)))
@@ -701,12 +701,12 @@ def main() -> int:
         page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg", wait_until="networkidle")
         wait(page, 700)
         gacha = cards(page)
-        expect(len(gacha) == 3, "모바일 수집형 RPG 3건", str([c["id"] for c in gacha]))
-        expect(page.inner_text("#listCount").strip() == "3/3건", "가챠 목록 건수 3/3", page.inner_text("#listCount"))
+        expect(len(gacha) == 6, "모바일 수집형 RPG 6건", str([c["id"] for c in gacha]))
+        expect(page.inner_text("#listCount").strip() == "6/6건", "가챠 목록 건수 6/6", page.inner_text("#listCount"))
         gsummary = stats(page)
-        expect(gsummary.get("추천") == "0" and gsummary.get("조건부") == "1" and gsummary.get("거름") == "2",
-               "가챠 비교군 요약 0/1/2", str(gsummary))
-        expect(gsummary.get("평균 가중 점수") == "62.0", "가챠 비교군 평균 62.0", str(gsummary))
+        expect(gsummary.get("추천") == "0" and gsummary.get("조건부") == "2" and gsummary.get("거름") == "4",
+               "가챠 비교군 요약 0/2/4", str(gsummary))
+        expect(gsummary.get("평균 가중 점수") == "66.9", "가챠 비교군 평균 66.9", str(gsummary))
         g = {c["id"]: c for c in gacha}
         expect(g["limbus-company"]["score"] and abs(float(g["limbus-company"]["score"]) - 78.7) < 0.05,
                "Limbus Company 78.7", g["limbus-company"]["score"])
@@ -716,6 +716,43 @@ def main() -> int:
                "Limbus Company = 조건부(선택 과금)", g["limbus-company"]["verdict"])
         expect(g["hero-wars-alliance"]["avoid"] is True and g["genshin-impact"]["avoid"] is True,
                "Hero Wars·Genshin 은 거름 영역(impact core)", str([c["id"] for c in gacha if c["avoid"]]))
+
+        for item_id, verdict, score in (("goddess-of-victory-nikke", "avoid", 69.65),
+                                        ("blue-archive", "conditional", 75.50),
+                                        ("honkai-star-rail", "avoid", 70.10)):
+            c = g.get(item_id)
+            expect(c is not None, f"{item_id} 카드 존재")
+            if not c:
+                continue
+            expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
+            expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
+        expect(g["goddess-of-victory-nikke"]["avoid"] is True and g["honkai-star-rail"]["avoid"] is True
+               and g["blue-archive"]["avoid"] is False,
+               "니케·스타레일은 하단 거름, 블루 아카이브는 조건부", str([c["id"] for c in gacha if c["avoid"]]))
+        expect("선택 과금 · 무과금 가능" in g["blue-archive"]["text"], "블루 아카이브 카드에 '선택 과금' 배지",
+               g["blue-archive"]["text"][:180])
+        expect("선택 과금 · 무과금 가능" not in g["goddess-of-victory-nikke"]["text"],
+               "니케 카드에는 선택 과금 배지 없음(core)", g["goddess-of-victory-nikke"]["text"][:180])
+
+        page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg&item=goddess-of-victory-nikke", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("160" in body and "마일리지" in body, "니케 160벽·마일리지 서술", "")
+        expect("무과금 충분성" in body and "제한적" in body, "니케 무과금 = 제한적 표기", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg&item=blue-archive", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("무과금 충분성" in body and "200회" in body, "블루 아카이브 무과금 충분성·200회 천장", "")
+        expect("모집 스택" in body or "100회" in body, "블루 아카이브 모집 스택 서술", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg&item=honkai-star-rail", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("워프" in body and "확률형" in body, "스타레일 워프·확률형 사유", "")
+        close_modal(page)
 
         page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg&item=limbus-company", wait_until="networkidle")
         wait(page, 700)
@@ -773,11 +810,11 @@ def main() -> int:
         wait(page, 700)
         expect("arena=mobile-strategy-defense" in page.url, "모바일 전략·디펜스 비교군 URL", path_id(page))
         mob = cards(page)
-        expect(len(mob) == 4, "모바일 전략·디펜스 카드 4건", str([c["id"] for c in mob]))
+        expect(len(mob) == 6, "모바일 전략·디펜스 카드 6건", str([c["id"] for c in mob]))
         mst = stats(page)
-        expect(mst.get("추천") == "2" and mst.get("조건부") == "0" and mst.get("거름") == "2",
-               "모바일 전략·디펜스 요약 2/0/2", str(mst))
-        expect(mst.get("평균 가중 점수") == "66.2", "모바일 전략·디펜스 평균 66.2", str(mst))
+        expect(mst.get("추천") == "3" and mst.get("조건부") == "1" and mst.get("거름") == "2",
+               "모바일 전략·디펜스 요약 3/1/2", str(mst))
+        expect(mst.get("평균 가중 점수") == "70.6", "모바일 전략·디펜스 평균 70.6", str(mst))
         d = {c["id"]: c for c in mob}
         for item_id, verdict, score in (("bloons-td-6", "recommend", 81.3), ("kingdom-rush-vengeance", "recommend", 80.2),
                                         ("clash-royale", "avoid", 55.2), ("plants-vs-zombies-2", "avoid", 48.0)):
@@ -787,6 +824,34 @@ def main() -> int:
                 continue
             expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
             expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
+
+        for item_id, verdict, score in (("clash-of-clans", "conditional", 78.50), ("arknights", "recommend", 80.20)):
+            c = d.get(item_id)
+            expect(c is not None, f"{item_id} 카드 존재")
+            if not c:
+                continue
+            expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
+            expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
+        expect(d["arknights"]["avoid"] is False and d["clash-of-clans"]["avoid"] is False,
+               "아크나이츠·클래시 오브 클랜은 거름 아님", str([c["id"] for c in mob if c["avoid"]]))
+        expect("선택 과금 · 무과금 가능" in d["arknights"]["text"], "아크나이츠 카드에 '선택 과금' 배지",
+               d["arknights"]["text"][:180])
+        expect("선택 과금 · 무과금 가능" in d["clash-of-clans"]["text"], "클래시 오브 클랜 카드에 '선택 과금' 배지",
+               d["clash-of-clans"]["text"][:180])
+
+        page.goto(f"{base}/?domain=game&arena=mobile-strategy-defense&item=clash-of-clans", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("무작위 아이템" in body and "골드 패스" in body, "CoC 무작위 아이템·골드 패스 서술", "")
+        expect("무과금 충분성" in body and "무과금으로 충분" in body, "CoC 무과금 충분성 표기", "")
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=game&arena=mobile-strategy-defense&item=arknights", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("6성 2%" in body and "150" in body, "아크나이츠 6성 2%·150 보장 서술", "")
+        expect("무과금 충분성" in body and "무과금으로 충분" in body, "아크나이츠 무과금 충분성 표기", "")
+        close_modal(page)
 
         page.goto(f"{base}/?domain=game&arena=mobile-strategy-defense&item=bloons-td-6", wait_until="networkidle")
         wait(page, 700)
