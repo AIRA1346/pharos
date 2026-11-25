@@ -423,3 +423,75 @@ export function moneyText(money) {
 export function weakestGradeOf(item) {
   return gradeWeakest(item.data_quality?.overall_grade || 'unknown');
 }
+
+/* ------------------------------------------------ v0.4.0 — 4단 탐색·상세 보강 도우미 */
+
+/** 스키마 계약의 기본 가중치(0~100 표기). */
+export function defaultWeights(contract) {
+  const axes = (contract?.axes || []).filter((def) => !def.profile_scoped);
+  return Object.fromEntries(axes.map((def) => [def.key, Math.round((def.default_weight ?? 0) * 100)]));
+}
+
+/**
+ * 평가 신선도 — assessed_at 기준 경과일과 '재검토 필요' 여부.
+ * 임계값은 스키마 계약(x-pharos.client.freshness.review_after_days, 기본 180일)을 따른다.
+ */
+export function freshness(item, contract, now = new Date()) {
+  const limit = contract?.freshness?.review_after_days ?? 180;
+  const raw = item?.assessed_at;
+  const assessed = raw ? new Date(`${raw}T00:00:00`) : null;
+  if (!assessed || Number.isNaN(assessed.getTime())) {
+    return { assessedAt: raw || null, elapsed: null, limit, stale: true, label: '평가일 미확인' };
+  }
+  const base = now instanceof Date ? now : new Date(now);
+  const elapsed = Math.floor((base.getTime() - assessed.getTime()) / 86400000);
+  return {
+    assessedAt: raw,
+    elapsed,
+    limit,
+    stale: elapsed > limit,
+    label: elapsed > limit ? contract?.freshness?.stale_label || '재검토 필요' : contract?.freshness?.fresh_label || '최신',
+  };
+}
+
+/**
+ * 같은 비교군 안의 대체제 — 거름·조건부 항목 상세 하단에 붙인다.
+ * 다른 비교군·도메인으로는 건너뛰지 않고, 추천 판정인 항목만 점수 순으로 돌려준다.
+ */
+export function alternatives(item, pool, settings) {
+  const arenas = new Set(item?.arenas || []);
+  return (pool || [])
+    .filter((other) => other.id !== item.id && (other.arenas || []).some((id) => arenas.has(id)))
+    .map((other) => {
+      const tier = recommendedTier(other) || (other.tiers || [])[0];
+      return { item: other, tier, evaluation: evaluateTier(other, tier, settings) };
+    })
+    .filter((row) => row.evaluation.verdict === 'recommend')
+    .sort((a, b) => (b.evaluation.score ?? -1) - (a.evaluation.score ?? -1));
+}
+
+/** 비교 표에 쓸 하드 필터 적중 목록(유효 상태 기준). */
+export function failedFilters(evaluation) {
+  return (evaluation?.filterChecks || []).filter((check) => check.status === 'fail');
+}
+
+/** 공유·복사용 한 줄 요약 텍스트. */
+export function summaryText(item, tier, evaluation, options = {}) {
+  const verdict = VERDICT_META[evaluation.verdict] || VERDICT_META.conditional;
+  const parts = [
+    `${item.name} — ${verdict.emoji} ${verdict.label}`,
+    `가중 점수 ${evaluation.score != null ? evaluation.score.toFixed(1) : '—'}`,
+    tier?.label ? `대표 티어 ${tier.label}` : '',
+    (evaluation.axisStates || [])
+      .filter((axis) => !axis.profileScoped)
+      .map((axis) => `${axis.label} ${axis.score ?? '—'}`)
+      .join(' · '),
+    (evaluation.blocking || []).length
+      ? `걸린 필터: ${evaluation.blocking.map((f) => f.label).join(', ')}`
+      : '',
+    item.assessed_at ? `평가일 ${item.assessed_at}` : '',
+    options.url ? `기준·근거 ${options.url}` : '',
+    '— 파로스 Pharos',
+  ];
+  return parts.filter(Boolean).join('\n');
+}

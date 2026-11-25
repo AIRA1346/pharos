@@ -1,14 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pharos.local/schema/item.schema.json",
-  "title": "Pharos Item Schema v0.3.1",
-  "description": "파로스 앱·게임 평가 1건. 정적 웹 프론트엔드가 서버 없이 하드 필터와 축별 가중치를 브라우저에서 계산할 수 있도록, 판정에 쓰이는 원자료(flags)와 티어별 필터 결과(hard_filters), 축 점수(axes), 근거 등급(evidence_grade), 출처(sources)를 모두 담는다. v0.3은 장르·용도별 비교군(arenas)을 더했고, v0.3.1은 maintenance_status(active·feature_complete·stale_unknown·abandoned)를 더해 '완결된 작품'과 '방치'를 구분한다 — feature_complete 는 stale_over_12m 필터에서 면제되며, 필터 결과는 status 'exempt' 로 기록한다. 계산 계약은 최상위 x-pharos.client 참조.",
+  "title": "Pharos Item Schema v0.4.0",
+  "description": "파로스 앱·게임 평가 1건. 정적 웹 프론트엔드가 서버 없이 하드 필터와 축별 가중치를 브라우저에서 계산할 수 있도록, 판정에 쓰이는 원자료(flags)와 티어별 필터 결과(hard_filters), 축 점수(axes), 근거 등급(evidence_grade), 출처(sources)를 모두 담는다. v0.3은 장르·용도별 비교군(arenas)을 더했고, v0.3.1은 maintenance_status(active·feature_complete·stale_unknown·abandoned)를 더해 '완결된 작품'과 '방치'를 구분한다. v0.4.0은 4단 계층(도메인→대분류→비교군→항목)으로 개편하며, 아이템에 domain(도메인 id)과 category(대분류 id)를 명시하고 비교군·대분류·도메인 정의와 파일 위치는 data/catalog.json 으로 옮겼다(x-pharos.client.arenas 제거). 계산 계약은 최상위 x-pharos.client 참조.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
     "id",
     "name",
+    "domain",
     "category",
     "platforms",
     "developer",
@@ -28,7 +29,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "0.3.1"
+      "const": "0.4.0"
     },
     "id": {
       "type": "string",
@@ -40,16 +41,27 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "domain": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "description": "최상위 도메인 id — data/catalog.json 의 domains[].id 를 참조한다(app·game, 추후 content·ai_tool·product). 목록·평균·순위는 도메인을 섞지 않는다."
+    },
     "category": {
       "type": "string",
-      "enum": ["game", "app", "service", "tool"]
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "description": "도메인 아래 대분류 id — data/catalog.json 의 categories[].id 를 참조한다(productivity·strategy-card·rpg 등). 아이템의 domain·category 는 소속 비교군의 domain·category 와 같아야 한다(validate.py 가 검사)."
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "통합 검색 보조 키워드(선택). 이름·별칭·개발사·장르·취향 태그·한 줄 정의로 잡히지 않는 검색어(옛 이름, 대체 대상 등)를 적는다."
     },
     "arenas": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
-      "description": "이 아이템이 속한 비교군(Arena) id 목록. 하나의 아이템이 여러 비교군에 들어갈 수 있다. 정의는 x-pharos.client.arenas 에 있고, 여기서는 id만 참조한다."
+      "description": "이 아이템이 속한 비교군(Arena) id 목록. 하나의 아이템이 여러 비교군에 들어갈 수 있다. 정의(도메인·대분류·데이터 파일)는 data/catalog.json 의 arenas 에 있고, 여기서는 id만 참조한다."
     },
     "arena_notes": {
       "type": "object",
@@ -625,31 +637,28 @@
     }
   },
   "x-pharos": {
-    "schema_version": "0.3.1",
+    "schema_version": "0.4.0",
     "criteria_doc": "projects/pharos/criteria.md",
     "client": {
       "note": "정적 웹 프론트엔드가 서버 없이 계산하는 계약. 아이템 1건 × 티어 1개 단위로 적용한다.",
-      "arenas": [
-        {
-          "id": "pkm-notes",
-          "label": "노트·지식관리",
-          "category": "productivity",
-          "description": "내 노트와 지식을 어디에 두고 어떻게 꺼내 쓰는가 — 파일 소유권·계정·동기화·내보내기에서 갈린다."
-        },
-        {
-          "id": "roguelike-deckbuilder",
-          "label": "덱빌딩 게임",
-          "category": "game",
-          "description": "한 판씩 덱을 만들어 다시 도는 싱글플레이 덱빌딩 — 1회 구매 완결형과 부분유료형이 같은 자리에 있다."
-        },
-        {
-          "id": "mobile-gacha-rpg",
-          "label": "모바일 수집형 RPG",
-          "category": "game",
-          "description": "캐릭터 수집·확률형 뽑기·서버 경쟁이 수익 구조인 모바일 RPG — 파로스가 가장 먼저 걷어내는 비교군."
-        }
-      ],
-      "arena_rules": "비교군 선택은 카테고리·검색과 AND로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 비교군 기준으로 다시 계산한다. 아이템의 arenas 는 비울 수 없고, arena_notes 의 키는 arenas 에 포함된 id 여야 한다.",
+      "catalog": {
+        "file": "data/catalog.json",
+        "search_index": "data/search-index.json",
+        "note": "도메인·대분류·비교군 정의와 데이터 파일 위치는 catalog.json 이 단일 소스다. 아이템은 domain·category·arenas id 만 참조하고, 각 비교군의 data_file 은 catalog.json 이 있는 폴더 기준 상대경로다(웹에서는 data/catalog.json 을 기준으로 data_file 을 지연 로딩)."
+      },
+      "navigation": {
+        "levels": ["domain", "category", "arena", "item"],
+        "home": "홈",
+        "note": "홈 / 앱 / 게임 도메인 전환 → 대분류 → 비교군 → 항목·티어. 점수 평균·순위·요약은 오직 같은 비교군 안에서만 계산하며, 서로 다른 분야의 평균을 섞지 않는다."
+      },
+      "freshness": {
+        "field": "assessed_at",
+        "review_after_days": 180,
+        "stale_label": "재검토 필요",
+        "fresh_label": "최신",
+        "note": "assessed_at 이후 review_after_days 를 넘기면 카드·상세에 '재검토 필요' 경고를 붙인다."
+      },
+      "arena_rules": "비교군 정의(도메인·대분류·데이터 파일)는 data/catalog.json 에 있다. 비교군 선택은 대분류·검색과 AND로 적용하고, 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 비교군 기준으로만 계산한다. 아이템의 arenas 는 비울 수 없고, arena_notes 의 키는 arenas 에 포함된 id 여야 한다.",
       "axes": [
         { "key": "user_rating", "label": "사용자 평가", "default_weight": 0.4, "path": "axes.user_rating.score" },
         { "key": "objective", "label": "객관·신뢰 지표", "default_weight": 0.35, "path": "axes.objective.score" },
@@ -705,7 +714,10 @@
         "card_signals": "verdict.signals 또는 티어 유효 신호 3~4개",
         "tier_badges": "tiers[].label + tiers[].verdict (최대 2개)",
         "cheapest_path": "tiers[].recommended_path == true 인 티어를 하단 고정",
-        "maintenance_badge": "item.maintenance_status 가 active 가 아니면 카드에 상태 배지(완결작·상태 미확인·방치) + title=maintenance_note, 상세 06번 섹션에 항상 상태 필"
+        "maintenance_badge": "item.maintenance_status 가 active 가 아니면 카드에 상태 배지(완결작·상태 미확인·방치) + title=maintenance_note, 상세 06번 섹션에 항상 상태 필",
+        "alternatives": "거름(avoid)·조건부(conditional) 항목의 상세 하단에 같은 비교군 안에서 추천 판정이 높은 대체제를 점수 순으로 노출한다. 다른 비교군·도메인으로 건너뛰지 않는다.",
+        "freshness_badge": "x-pharos.client.freshness.review_after_days 를 넘긴 assessed_at 은 '재검토 필요' 로 표기하고, 아니면 '최신'과 경과일을 보여준다.",
+        "fact_vs_opinion": "스토어 표기·가격·업데이트 날짜·출처 URL 등 사실(Fact)과 AI/편집 검토 의견(Opinion)을 상세에서 분리해 표기한다."
       }
     }
   }

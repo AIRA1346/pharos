@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-"""Pharos v0.3.1 데이터 검증 스크립트.
+"""Pharos v0.4.0 데이터 검증 스크립트.
 
-1) item.schema.json 자체가 유효한 JSON Schema(Draft 2020-12)인지 검사
-2) data/items.json 의 모든 아이템을 스키마로 검증 (타입/필수 필드/열거값)
-3) 스키마로는 잡히지 않는 의미 규칙 검사
-   (출처 참조, 티어, 플래그-필터 일치, 신호 임계값, 비교군, maintenance_status ↔ stale_over_12m)
-4) 기준표 v0.3.1 산식으로 판정을 다시 계산해 저장된 판정과 대조 (완결작 면제 포함)
-5) 검증기가 비어 있지 않음을 보이기 위한 음성 테스트(고의 오류를 잡는지)
-6) 완결작 면제 규칙의 양성/음성 테스트 (feature_complete 는 면제, abandoned 는 거름, compat_risk 는 조건부)
-7) 웹 배포 사본(web/data/items.json, web/schema/item.schema.json)이 원본과 같은지(단일 소스) 검사
+검사 항목
+  1) 스키마(item.schema.json) 자체가 유효한 JSON Schema(Draft 2020-12)인지
+  2) 카탈로그(data/catalog.json) — 도메인 → 대분류 → 비교군 계층, data_file 존재·중복 없음
+  3) 비교군별 분할 데이터(data/{domain}/{arena}.json) — 스키마 검증 + 의미 규칙 + 판정 재계산
+     · 아이템의 domain·category 가 소속 비교군과 일치하는지, 파일과 비교군이 맞는지
+     · 출처 참조, 티어, 플래그-필터 일치, 신호 임계값, arena_notes, maintenance_status ↔ stale_over_12m
+  4) 경량 인덱스(data/search-index.json)가 분할 데이터에서 자동 생성한 결과와 같은지(신선도)
+  5) 음성 테스트(고의 오류를 잡는지) — 스키마·카탈로그·인덱스
+  6) 완결작 면제 규칙(feature_complete ↔ stale_over_12m) 양성/음성 테스트
+  7) 웹 배포 사본(web/)이 원본과 바이트 단위로 같은지(단일 소스), 웹 JS 가 웹 폴더 밖을 참조하지 않는지
 
-사용: python3 projects/pharos/schema/validate.py
+사용:
+  python3 projects/pharos/schema/validate.py
+  (웹 사본이 낡았다면 python3 projects/pharos/scripts/sync_web_data.py 먼저 실행)
 종료 코드 0 = 전부 통과, 1 = 실패.
 """
 
@@ -24,17 +28,20 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]  # projects/pharos
 SCHEMA_PATH = ROOT / "schema" / "item.schema.json"
-DATA_PATH = ROOT / "data" / "items.json"
+CATALOG_PATH = ROOT / "data" / "catalog.json"
+INDEX_PATH = ROOT / "data" / "search-index.json"
+DATA_DIR = ROOT / "data"
 WEB_DIR = ROOT / "web"
-WEB_APP_PATH = WEB_DIR / "js" / "app.js"
-WEB_DATA_PATH = WEB_DIR / "data" / "items.json"
+WEB_DATA_DIR = WEB_DIR / "data"
 WEB_SCHEMA_PATH = WEB_DIR / "schema" / "item.schema.json"
+WEB_JS_DIR = WEB_DIR / "js"
 
 AXES = [("user_rating", 0.40), ("objective", 0.35), ("ai_review", 0.25)]
 THRESHOLDS = {"green_min": 75, "yellow_min": 50}
 DEFAULT_FILTERS = ["forced_ads", "gacha_random_items", "p2w", "stale_over_12m"]
-NON_FILTER_FLAGS = {"contains_ads", "data_export", "compat_risk"}  # 표시용·보조 신호, 필터 키 없음
+NON_FILTER_FLAGS = {"contains_ads", "data_export", "compat_risk"}
 MAINTENANCE_STATUSES = {"active", "feature_complete", "stale_unknown", "abandoned"}
+ID_PATTERN = "^[a-z0-9][a-z0-9_-]*$"
 
 FILTER_TO_FLAG = {
     "forced_ads": "forced_ad_before_use",
@@ -96,11 +103,7 @@ def weighted_score(item, tier):
 
 
 def stale_status(item, tier):
-    """stale_over_12m 의 유효 상태 — 완결작 면제 규칙(기준표 v0.3.1 6.1)을 적용한다.
-
-    데이터에 fail 로 기록돼 있어도 maintenance_status 가 feature_complete 면 exempt 로 계산하고,
-    반대로 면제 기록이 있는데 상태가 feature_complete 가 아니면 fail 로 되돌린다.
-    """
+    """stale_over_12m 의 유효 상태 — 완결작 면제 규칙(기준표 v0.3.1 6.1)을 적용한다."""
     status = tier["hard_filters"]["stale_over_12m"]["status"]
     if status == "fail" and item.get("maintenance_status") == "feature_complete":
         return "exempt"
@@ -110,14 +113,13 @@ def stale_status(item, tier):
 
 
 def filter_status(item, tier, key):
-    """티어 필터의 유효 상태 (stale_over_12m 만 면제 규칙 적용)."""
     if key == "stale_over_12m":
         return stale_status(item, tier)
     return tier["hard_filters"][key]["status"]
 
 
 def compute_verdict(item, tier, enabled=None, strict=True):
-    """기준표 v0.3.1 8절 판정 규칙. 반환: (판정, 규칙 사유)."""
+    """기준표 8절 판정 규칙. 반환: (판정, 규칙 사유)."""
     enabled = DEFAULT_FILTERS if enabled is None else enabled
     fails = []
     for key in enabled:
@@ -125,7 +127,7 @@ def compute_verdict(item, tier, enabled=None, strict=True):
         if status != "fail":
             continue
         if not strict and grade_rank(tier["hard_filters"][key]["evidence_grade"]) >= 2:
-            continue  # 완화 모드: 등급 C 근거의 fail은 경고로 내림
+            continue
         fails.append(key)
     if fails:
         return "avoid", f"hard_filter:{','.join(fails)}"
@@ -149,7 +151,6 @@ def compute_verdict(item, tier, enabled=None, strict=True):
     elif score is not None and score >= 80 and yellows <= 1:
         verdict, why = "recommend", f"score={score}"
 
-    # ⑦ 완결작 면제 + 보안·OS 호환성 별도 신호 → 추천에서 조건부 경고로 내린다
     exempted = [key for key in enabled if filter_status(item, tier, key) == "exempt"]
     compat = (item.get("flags") or {}).get("compat_risk", {}).get("value")
     if verdict == "recommend" and exempted and compat == "yes":
@@ -157,12 +158,127 @@ def compute_verdict(item, tier, enabled=None, strict=True):
     return verdict, why
 
 
-def semantic_errors(item, arena_ids=None):
+# --------------------------------------------------------------------------- 카탈로그
+
+def catalog_errors(catalog, data_dir):
+    """도메인 → 대분류 → 비교군 계층과 데이터 파일 정의 검사."""
+    errs = []
+    if not isinstance(catalog, dict):
+        return ["catalog.json 최상위는 객체여야 함"]
+    domains = catalog.get("domains") or []
+    categories = catalog.get("categories") or []
+    arenas = catalog.get("arenas") or []
+    if not domains:
+        errs.append("domains 가 비어 있음")
+    if not categories:
+        errs.append("categories 가 비어 있음")
+    if not arenas:
+        errs.append("arenas 가 비어 있음")
+
+    domain_ids = [d.get("id") for d in domains]
+    if len(domain_ids) != len(set(domain_ids)):
+        errs.append(f"domains id 중복: {domain_ids}")
+    for dom in domains:
+        for key in ("id", "label", "description", "filter_pack"):
+            if not dom.get(key):
+                errs.append(f"domain {dom.get('id', '?')}: 필수 키 누락 {key}")
+        if dom.get("id") and not __import__("re").match(ID_PATTERN, dom["id"]):
+            errs.append(f"domain id 규칙 위반: {dom['id']!r}")
+    planned = [d.get("id") for d in catalog.get("planned_domains") or []]
+    if set(planned) & set(domain_ids):
+        errs.append(f"planned_domains 가 domains 와 겹침: {sorted(set(planned) & set(domain_ids))}")
+
+    packs = catalog.get("filter_packs") or {}
+    filter_keys = set(FILTER_TO_FLAG)
+    for key, pack in packs.items():
+        bad = sorted(set(pack.get("filters") or []) - filter_keys)
+        if bad:
+            errs.append(f"filter_pack {key}: 스키마에 없는 필터 {bad}")
+        if not pack.get("filters"):
+            errs.append(f"filter_pack {key}: filters 가 비어 있음")
+    for dom in domains:
+        if dom.get("filter_pack") and dom["filter_pack"] not in packs:
+            errs.append(f"domain {dom.get('id')}: 정의되지 않은 filter_pack {dom['filter_pack']!r}")
+
+    category_ids = [c.get("id") for c in categories]
+    if len(category_ids) != len(set(category_ids)):
+        errs.append(f"categories id 중복: {category_ids}")
+    for cat in categories:
+        for key in ("id", "domain", "label"):
+            if not cat.get(key):
+                errs.append(f"category {cat.get('id', '?')}: 필수 키 누락 {key}")
+        if cat.get("domain") and cat["domain"] not in domain_ids:
+            errs.append(f"category {cat.get('id')}: 정의되지 않은 도메인 {cat['domain']!r}")
+        if cat.get("id") and not __import__("re").match(ID_PATTERN, cat["id"]):
+            errs.append(f"category id 규칙 위반: {cat['id']!r}")
+    for dom in domains:
+        if not any(c.get("domain") == dom.get("id") for c in categories):
+            errs.append(f"도메인 {dom.get('id')} 에 대분류가 하나도 없음")
+
+    arena_ids = [a.get("id") for a in arenas]
+    if len(arena_ids) != len(set(arena_ids)):
+        errs.append(f"arenas id 중복: {arena_ids}")
+    data_files = []
+    for arena in arenas:
+        for key in ("id", "domain", "category", "label", "description", "data_file"):
+            if not arena.get(key):
+                errs.append(f"arena {arena.get('id', '?')}: 필수 키 누락 {key}")
+        if arena.get("id") and not __import__("re").match(ID_PATTERN, arena["id"]):
+            errs.append(f"arena id 규칙 위반: {arena['id']!r}")
+        if arena.get("domain") and arena["domain"] not in domain_ids:
+            errs.append(f"arena {arena.get('id')}: 정의되지 않은 도메인 {arena['domain']!r}")
+        cat = next((c for c in categories if c.get("id") == arena.get("category")), None)
+        if cat is None:
+            errs.append(f"arena {arena.get('id')}: 정의되지 않은 대분류 {arena.get('category')!r}")
+        elif arena.get("domain") and cat.get("domain") != arena["domain"]:
+            errs.append(f"arena {arena.get('id')}: 도메인 {arena['domain']!r} 와 대분류 {cat['id']!r} 의 도메인 {cat.get('domain')!r} 불일치")
+        file_name = arena.get("data_file") or ""
+        data_files.append(file_name)
+        if file_name:
+            path = data_dir / file_name
+            if not path.exists():
+                errs.append(f"arena {arena.get('id')}: data_file 없음 {file_name}")
+            if path.suffix != ".json":
+                errs.append(f"arena {arena.get('id')}: data_file 확장자가 .json 아님 ({file_name})")
+    duplicates = sorted({f for f in data_files if f and data_files.count(f) > 1})
+    if duplicates:
+        errs.append(f"data_file 중복: {duplicates}")
+    for cat in categories:
+        if not any(a.get("category") == cat.get("id") for a in arenas):
+            errs.append(f"대분류 {cat.get('id')} 에 비교군이 하나도 없음")
+
+    # 파일 목록에 남은 고아 데이터(카탈로그에 없는 json)
+    declared = {(data_dir / f).resolve() for f in data_files if f}
+    for path in sorted(data_dir.rglob("*.json")):
+        if path.name in {"catalog.json", "search-index.json"}:
+            continue
+        if path.resolve() not in declared:
+            errs.append(f"카탈로그에 없는 데이터 파일: {path.relative_to(ROOT)}")
+    return errs
+
+
+def load_items_by_arena(catalog, data_dir):
+    """비교군별 분할 데이터 로드 — {arena_id: (path, items)}."""
+    out = {}
+    for arena in catalog.get("arenas") or []:
+        name = arena.get("data_file")
+        if not name:
+            continue
+        path = data_dir / name
+        if not path.exists():
+            continue
+        items = load(path)
+        out[arena["id"]] = (path, items if isinstance(items, list) else [])
+    return out
+
+
+def semantic_errors(item, ctx, arena_id=None):
+    """아이템 1건의 의미 규칙. ctx: {arenas, domains, categories}."""
     errs = []
     warns = []
-    arena_ids = arena_ids or set()
+    arenas = ctx["arenas"]
+    arena_ids = set(arenas)
 
-    # maintenance_status — 완결작/방치 구분(v0.3.1)
     mstatus = item.get("maintenance_status")
     if mstatus not in MAINTENANCE_STATUSES:
         errs.append(f"maintenance_status 값이 열거형 밖: {mstatus!r}")
@@ -176,21 +292,37 @@ def semantic_errors(item, arena_ids=None):
     if mstatus == "abandoned" and stale_flag != "yes":
         errs.append("maintenance_status=abandoned 인데 flags.stale_over_12m 이 yes 가 아님")
 
-    # 비교군: 정의된 id만, 중복 없음, arena_notes 키는 arenas 의 부분집합
-    arenas = item.get("arenas") or []
-    if not arenas:
+    # 도메인·대분류 ↔ 비교군 일치
+    item_arenas = item.get("arenas") or []
+    if not item_arenas:
         errs.append("arenas 가 비어 있음")
-    duplicates = sorted({a for a in arenas if arenas.count(a) > 1})
+    duplicates = sorted({a for a in item_arenas if item_arenas.count(a) > 1})
     if duplicates:
         errs.append(f"arenas 중복: {duplicates}")
-    unknown_arenas = sorted({a for a in arenas if a not in arena_ids})
+    unknown_arenas = sorted({a for a in item_arenas if a not in arena_ids})
     if unknown_arenas:
-        errs.append(f"x-pharos.client.arenas 에 없는 비교군 id: {unknown_arenas}")
+        errs.append(f"catalog.json 에 없는 비교군 id: {unknown_arenas}")
+    if arena_id and item_arenas and arena_id not in item_arenas:
+        errs.append(f"이 아이템은 {arena_id} 파일에 있지만 arenas 에 {arena_id} 가 없음")
+    pairs = {(arenas[a]["domain"], arenas[a]["category"]) for a in item_arenas if a in arenas}
+    if len(pairs) > 1:
+        errs.append(f"한 아이템의 비교군들이 서로 다른 도메인·대분류에 속함: {sorted(pairs)}")
+    elif pairs:
+        want_domain, want_category = pairs.pop()
+        if item.get("domain") != want_domain:
+            errs.append(f"domain={item.get('domain')!r} 이 소속 비교군의 도메인 {want_domain!r} 과 다름")
+        if item.get("category") != want_category:
+            errs.append(f"category={item.get('category')!r} 이 소속 비교군의 대분류 {want_category!r} 과 다름")
+    if item.get("domain") not in ctx["domains"]:
+        errs.append(f"domain={item.get('domain')!r} 이 catalog.json domains 에 없음")
+    if item.get("category") not in ctx["categories"]:
+        errs.append(f"category={item.get('category')!r} 이 catalog.json categories 에 없음")
+
     notes = item.get("arena_notes") or {}
-    stray_notes = sorted(k for k in notes if k not in arenas)
+    stray_notes = sorted(k for k in notes if k not in item_arenas)
     if stray_notes:
         errs.append(f"arena_notes 키가 arenas 에 없음: {stray_notes}")
-    missing_notes = sorted(a for a in arenas if a not in notes)
+    missing_notes = sorted(a for a in item_arenas if a not in notes)
     if missing_notes:
         warns.append(f"arena_notes 없는 비교군: {missing_notes}")
 
@@ -219,7 +351,6 @@ def semantic_errors(item, arena_ids=None):
     if not rec and any(t["verdict"] != "avoid" for t in item["tiers"]):
         errs.append("추천 가능한 티어가 있는데 recommended_path 가 없음")
 
-    # exempt 는 stale_over_12m 전용이고, feature_complete 에서만 허용한다
     for tier in item["tiers"]:
         for key, res in tier["hard_filters"].items():
             if res["status"] != "exempt":
@@ -231,7 +362,6 @@ def semantic_errors(item, arena_ids=None):
             elif not res["note"].strip():
                 errs.append(f"{tier['tier_id']}.stale_over_12m: 'exempt' 인데 사유(note)가 없음")
 
-    # 축 신호 일관성 (임계값). review_override 는 사유가 적혀 있으면 허용한다.
     axis_nodes = [(k, item["axes"][k], bool(item["axes"][k].get("signal_basis") == "review_override"))
                   for k in item["axes"]]
     for tier in item["tiers"]:
@@ -248,7 +378,6 @@ def semantic_errors(item, arena_ids=None):
         if axis.get("signal") != expected:
             errs.append(f"축 {name}: 점수 {score} → 기대 신호 {expected}, 실제 {axis.get('signal')}")
 
-    # flags ↔ 티어 하드필터 일치 (stale 은 완결작 면제를 허용)
     for fkey, fnode in item["flags"].items():
         if fkey == "data_export":
             continue
@@ -266,7 +395,6 @@ def semantic_errors(item, arena_ids=None):
                 errs.append(f"flags.{fkey}=no 인데 {bad} 티어의 {filter_key} 가 pass 아님")
         elif value == "yes":
             if filter_key == "stale_over_12m" and mstatus == "feature_complete":
-                # 12개월 공백은 사실이지만 완결작 면제로 거르지 않는다 → 기록도 fail 이 아니라 exempt 여야 한다
                 fails = [tid for tid, status in effective.items() if status == "fail"]
                 misrecorded = [tid for tid, st in statuses.items() if st["status"] != "exempt"]
                 silent = [tid for tid, status in effective.items()
@@ -290,7 +418,6 @@ def semantic_errors(item, arena_ids=None):
             if bad:
                 errs.append(f"flags.{fkey}={value} 인데 {bad} 티어의 {filter_key} 가 unknown 아님")
 
-    # 판정 재계산
     mismatches = []
     for tier in item["tiers"]:
         computed, why = compute_verdict(item, tier)
@@ -306,7 +433,6 @@ def semantic_errors(item, arena_ids=None):
             errs.append(
                 f"verdict.overall({item['verdict']['overall']}) 이 대표 티어 재계산({computed}, {why})과 다름")
 
-    # 필터 키 집합 일치 확인
     expected_keys = set(FILTER_TO_FLAG)
     for tier in item["tiers"]:
         if set(tier["hard_filters"]) != expected_keys:
@@ -314,6 +440,159 @@ def semantic_errors(item, arena_ids=None):
 
     return errs, warns
 
+
+# ------------------------------------------------------------------ 인덱스 생성/검증
+
+def build_search_index(catalog, items_by_arena, contract):
+    """분할 데이터 → 통합 검색·홈 리포트용 경량 인덱스(결정적, 타임스탬프 없음)."""
+    arenas = {a["id"]: a for a in catalog.get("arenas") or []}
+    domains = {d["id"]: d for d in catalog.get("domains") or []}
+    categories = {c["id"]: c for c in catalog.get("categories") or []}
+    filters = {f["key"]: f["label"] for f in contract.get("hard_filters") or []}
+    axis_labels = {a["key"]: a["label"] for a in contract.get("axes") or []}
+    signal_mark = {"green": "🟢", "yellow": "🟡", "red": "🔴", "unknown": "⚪"}
+    gap_rule = (catalog.get("home") or {}).get("gap_report") or {}
+    min_stars = gap_rule.get("min_store_stars", 4.0)
+    min_delta = gap_rule.get("min_delta", 12.0)
+    gap_verdicts = set(gap_rule.get("verdicts") or ["avoid", "conditional"])
+    records = []
+    for arena_id, (_path, items) in items_by_arena.items():
+        for item in items:
+            tier = next((t for t in item["tiers"] if t["tier_id"] == item["verdict"]["tier_of_record"]),
+                        item["tiers"][0])
+            score = weighted_score(item, tier)
+            verdict = compute_verdict(item, tier)[0]
+            stars = None
+            for row in item.get("review_snapshot", {}).get("platforms") or []:
+                metric = row.get("cumulative") or {}
+                if metric.get("scale") != "stars5":
+                    continue
+                candidate = {
+                    "value": metric.get("value"),
+                    "count": metric.get("count") or 0,
+                    "platform": row.get("platform"),
+                    "evidence_grade": metric.get("evidence_grade"),
+                }
+                if stars is None or (candidate["count"] or 0) > (stars["count"] or 0):
+                    stars = candidate
+            drivers = []
+            for key in (contract.get("default_enabled_filters") or DEFAULT_FILTERS):
+                if filter_status(item, tier, key) == "fail":
+                    drivers.append({"label": filters.get(key, key), "tone": "bad"})
+            if not drivers:
+                for key in ("user_rating", "objective", "ai_review"):
+                    axis_score, sig, _ = effective_axis(item, tier, key)
+                    if sig in ("red", "yellow"):
+                        drivers.append({
+                            "label": f"{axis_labels.get(key, key)} {signal_mark.get(sig, '')} {axis_score if axis_score is not None else '—'}".strip(),
+                            "tone": "bad" if sig == "red" else "warn",
+                        })
+            record = {
+                "id": item["id"],
+                "name": item["name"],
+                "aliases": item.get("aliases") or [],
+                "domain": item["domain"],
+                "category": item["category"],
+                "arenas": item["arenas"],
+                "developer": item.get("developer") or "",
+                "platforms": item.get("platforms") or [],
+                "one_liner": item.get("one_liner") or "",
+                "taste_tags": item.get("taste_tags") or [],
+                "keywords": item.get("keywords") or [],
+                "verdict": verdict,
+                "stored_verdict": item["verdict"]["overall"],
+                "tier_of_record": tier["tier_id"],
+                "score": score,
+                "maintenance_status": item.get("maintenance_status"),
+                "assessed_at": item.get("assessed_at"),
+                "evidence_grade": item.get("data_quality", {}).get("overall_grade"),
+                "user_rating": item.get("axes", {}).get("user_rating", {}).get("score"),
+                "store_stars": stars,
+                "drivers": drivers,
+            }
+            if stars and (stars.get("value") or 0) >= min_stars and verdict in gap_verdicts:
+                delta = round((stars["value"] or 0) * 20 - (score or 0), 1)
+                record["gap"] = ({
+                    "stars": stars["value"],
+                    "platform": stars["platform"],
+                    "count": stars["count"],
+                    "stars_score": round((stars["value"] or 0) * 20, 1),
+                    "score": score,
+                    "delta": delta,
+                    "verdict": verdict,
+                } if delta >= min_delta else None)
+            else:
+                record["gap"] = None
+            records.append(record)
+
+    records.sort(key=lambda r: r["id"])
+    arena_stats = {}
+    for arena_id, arena in arenas.items():
+        members = [r for r in records if arena_id in r["arenas"]]
+        scored = [r["score"] for r in members if r["score"] is not None]
+        top = max(members, key=lambda r: r["score"] if r["score"] is not None else -1) if members else None
+        arena_stats[arena_id] = {
+            "label": arena["label"],
+            "domain": arena["domain"],
+            "category": arena["category"],
+            "count": len(members),
+            "avg_score": round(sum(scored) / len(scored), 1) if scored else None,
+            "verdicts": {v: sum(1 for r in members if r["verdict"] == v)
+                         for v in ("recommend", "conditional", "avoid")},
+            "top_item": {"id": top["id"], "name": top["name"], "score": top["score"]} if top else None,
+            "items": [r["id"] for r in members],
+        }
+    gap_reports = sorted(
+        [r for r in records if r.get("gap")],
+        key=lambda r: -(r["gap"]["delta"] or 0),
+    )
+    canonical = json.dumps(records, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return {
+        "schema_version": contract.get("schema_version") or "0.4.0",
+        "note": "분할 데이터에서 자동 생성된 경량 인덱스. 손으로 고치지 않는다(scripts/sync_web_data.py).",
+        "weights": {key: w for key, w in AXES},
+        "counts": {
+            "items": len(records),
+            "domains": len(domains),
+            "categories": len(categories),
+            "arenas": len(arenas),
+        },
+        "content_hash": hashlib.sha256(canonical.encode("utf-8")).hexdigest(),
+        "arena_stats": arena_stats,
+        "gap_report": {
+            "title": gap_rule.get("title"),
+            "min_store_stars": min_stars,
+            "items": [r["id"] for r in gap_reports],
+        },
+        "items": records,
+    }
+
+
+def index_errors(index, expected):
+    """생성 결과와 파일이 같은지(신선도) + 필수 필드 검사."""
+    errs = []
+    if index != expected:
+        # 어느 부분이 다른지 짧게 알려준다
+        if index.get("content_hash") != expected.get("content_hash"):
+            errs.append("search-index.json 이 분할 데이터와 다름(content_hash 불일치) — sync_web_data.py 재실행 필요")
+        elif index.get("counts") != expected.get("counts"):
+            errs.append(f"search-index.json counts 불일치: {index.get('counts')} ≠ {expected.get('counts')}")
+        elif index.get("arena_stats") != expected.get("arena_stats"):
+            errs.append("search-index.json arena_stats 가 분할 데이터 집계와 다름 — sync_web_data.py 재실행 필요")
+        else:
+            errs.append("search-index.json 이 생성 결과와 다름 — sync_web_data.py 재실행 필요")
+    items = index.get("items") or []
+    if len(items) != index.get("counts", {}).get("items"):
+        errs.append("search-index.json items 수와 counts.items 불일치")
+    required = {"id", "name", "domain", "category", "arenas", "verdict", "score", "assessed_at"}
+    for record in items:
+        missing = sorted(required - set(record))
+        if missing:
+            errs.append(f"search-index.json {record.get('id', '?')}: 필수 키 누락 {missing}")
+    return errs
+
+
+# ------------------------------------------------------------------------- 음성 테스트
 
 def negative_tests(schema, good_item):
     """고의로 망가뜨린 데이터를 스키마가 실제로 잡는지 확인."""
@@ -323,6 +602,22 @@ def negative_tests(schema, good_item):
     broken = copy.deepcopy(good_item)
     broken.pop("sources")
     cases.append(("필수 필드 sources 제거", broken))
+
+    broken = copy.deepcopy(good_item)
+    broken.pop("domain")
+    cases.append(("필수 필드 domain 제거", broken))
+
+    broken = copy.deepcopy(good_item)
+    broken["category"] = "Productivity"
+    cases.append(("category 대문자(대분류 id 규칙 위반)", broken))
+
+    broken = copy.deepcopy(good_item)
+    broken["domain"] = "..."
+    cases.append(("domain 규칙 위반", broken))
+
+    broken = copy.deepcopy(good_item)
+    broken["keywords"] = "검색"
+    cases.append(("keywords 배열 대신 문자열", broken))
 
     broken = copy.deepcopy(good_item)
     broken["verdict"]["overall"] = "maybe"
@@ -361,10 +656,6 @@ def negative_tests(schema, good_item):
     cases.append(("arena_notes 빈 문자열", broken))
 
     broken = copy.deepcopy(good_item)
-    broken["arena_notes"] = {"./roguelike": "x"}
-    cases.append(("arena_notes 키 규칙 위반", broken))
-
-    broken = copy.deepcopy(good_item)
     broken.pop("maintenance_status")
     cases.append(("필수 필드 maintenance_status 제거", broken))
 
@@ -373,25 +664,57 @@ def negative_tests(schema, good_item):
     cases.append(("maintenance_status 허용되지 않은 값", broken))
 
     broken = copy.deepcopy(good_item)
-    broken["maintenance_note"] = ""
-    cases.append(("maintenance_note 빈 문자열", broken))
-
-    broken = copy.deepcopy(good_item)
     broken["tiers"][0]["hard_filters"]["stale_over_12m"]["status"] = "exempted"
     cases.append(("하드필터 status 허용되지 않은 값", broken))
 
+    return [(label, not validator.is_valid(instance)) for label, instance in cases]
+
+
+def catalog_negative_tests(catalog, ctx, items_by_arena, contract, index):
+    """카탈로그·의미 규칙·인덱스가 고의 오류를 잡는지."""
     results = []
-    for label, instance in cases:
-        caught = not validator.is_valid(instance)
-        results.append((label, caught))
+    good_item = next(iter(items_by_arena.values()))[1][0]
+
+    broken = copy.deepcopy(catalog)
+    broken["categories"][0]["domain"] = "nope"
+    results.append(("카탈로그: 없는 도메인을 가리키는 대분류", bool(catalog_errors(broken, DATA_DIR))))
+
+    broken = copy.deepcopy(catalog)
+    broken["arenas"][0]["data_file"] = "app/ghost.json"
+    results.append(("카탈로그: 존재하지 않는 data_file", bool(catalog_errors(broken, DATA_DIR))))
+
+    broken = copy.deepcopy(catalog)
+    broken["arenas"][0]["category"] = "rpg"
+    results.append(("카탈로그: 비교군 도메인과 대분류 도메인 불일치", bool(catalog_errors(broken, DATA_DIR))))
+
+    broken = copy.deepcopy(catalog)
+    broken["filter_packs"]["game"]["filters"].append("no_such_filter")
+    results.append(("카탈로그: 없는 필터를 넣은 팩", bool(catalog_errors(broken, DATA_DIR))))
+
+    bad_item = copy.deepcopy(good_item)
+    bad_item["domain"] = "game" if good_item["domain"] == "app" else "app"
+    errs, _ = semantic_errors(bad_item, ctx, good_item["arenas"][0])
+    results.append(("의미 규칙: 아이템 domain 이 비교군 도메인과 다름", bool(errs)))
+
+    bad_item = copy.deepcopy(good_item)
+    bad_item["arenas"] = ["mobile-gacha-rpg"]
+    bad_item["arena_notes"] = {"mobile-gacha-rpg": "x"}
+    errs, _ = semantic_errors(bad_item, ctx, good_item["arenas"][0])
+    results.append(("의미 규칙: 파일과 arenas 가 어긋남", bool(errs)))
+
+    bad_index = copy.deepcopy(index)
+    bad_index["items"][0]["score"] = 12.3
+    results.append(("인덱스: 데이터와 다른 점수", bool(index_errors(bad_index, index))))
+
+    bad_index = copy.deepcopy(index)
+    bad_index["items"][0].pop("domain")
+    results.append(("인덱스: 필수 키 누락", bool(index_errors(bad_index, index))))
+
     return results
 
 
-def exemption_rule_tests(good_item, arena_ids):
-    """완결작 면제 규칙(v0.3.1)의 양성/음성 테스트.
-
-    반환: [(설명, 통과여부, 상세)]
-    """
+def exemption_rule_tests(good_item, ctx):
+    """완결작 면제 규칙의 양성/음성 테스트."""
     results = []
 
     def make(**over):
@@ -406,48 +729,41 @@ def exemption_rule_tests(good_item, arena_ids):
             tier["hard_filters"]["stale_over_12m"]["note"] = over.get("note", "완결 선언.")
         return item
 
-    # 양성: 데이터에 fail 로 남아 있어도 feature_complete 면 면제되어 추천
     raw_fail = make(tier_status="fail")
     tier = raw_fail["tiers"][0]
     verdict, why = compute_verdict(raw_fail, tier)
     results.append(("완결작 + 기록된 fail → 면제되어 추천(80.15)",
                     verdict == "recommend", f"{verdict} ({why})"))
-    errs, _ = semantic_errors(make(tier_status="fail", note="사유"), arena_ids)
+    errs, _ = semantic_errors(make(tier_status="fail", note="사유"), ctx, good_item["arenas"][0])
     results.append(("완결작 데이터는 exempt 로 기록(완결작 + fail 기록은 의미 검사도 차단)",
                     bool(errs), "; ".join(errs[:1]) or "차단되지 않음"))
 
-    # 양성: 기록대로 exempt 인 데이터는 의미 검사 통과 + 추천
     stored = make(tier_status="exempt", note="완결 선언으로 면제.")
-    errs, _ = semantic_errors(stored, arena_ids)
+    errs, _ = semantic_errors(stored, ctx, good_item["arenas"][0])
     v2, why2 = compute_verdict(stored, stored["tiers"][0])
     results.append(("면제 기록 데이터 의미 검사 통과 + 추천",
                     not errs and v2 == "recommend", f"errs={errs[:1]} / {v2} ({why2})"))
 
-    # 음성: abandoned / stale_unknown 은 여전히 거름
     for status in ("abandoned", "stale_unknown"):
         item = make(status=status, tier_status="fail")
         verdict, why = compute_verdict(item, item["tiers"][0])
         results.append((f"{status} 는 stale_over_12m 으로 거름",
                         verdict == "avoid" and "stale_over_12m" in why, f"{verdict} ({why})"))
 
-    # 양성: 보안·OS 호환성 별도 신호 → 추천 대신 조건부 경고
     compat = make(tier_status="exempt", compat="yes", note="완결 선언, OS 호환성 이슈 있음.")
     verdict, why = compute_verdict(compat, compat["tiers"][0])
     results.append(("compat_risk=yes → 조건부 경고",
                     verdict == "conditional" and why.startswith("compat_risk"), f"{verdict} ({why})"))
 
-    # 음성: 다른 필터에 exempt 를 붙이면 의미 검사가 잡는다
     wrong_key = make(tier_status="exempt", note="완결 선언.")
     wrong_key["tiers"][0]["hard_filters"]["forced_ads"]["status"] = "exempt"
-    errs, _ = semantic_errors(wrong_key, arena_ids)
+    errs, _ = semantic_errors(wrong_key, ctx, good_item["arenas"][0])
     results.append(("stale 외 필터의 exempt → 의미 검사 차단", bool(errs), "; ".join(errs[:1]) or "차단되지 않음"))
 
-    # 음성: active + 12개월 공백은 모순
     active = make(status="active", tier_status="exempt", note="x")
-    errs, _ = semantic_errors(active, arena_ids)
+    errs, _ = semantic_errors(active, ctx, good_item["arenas"][0])
     results.append(("active + 12개월 공백 → 의미 검사 차단", bool(errs), "; ".join(errs[:1]) or "차단되지 않음"))
 
-    # 음성: exempt 인데 완결작이 아니면 fail 로 되돌려 거름
     not_complete = make(status="abandoned", tier_status="exempt", note="x")
     verdict, why = compute_verdict(not_complete, not_complete["tiers"][0])
     results.append(("완결작 아닌데 exempt 기록 → fail 로 계산해 거름",
@@ -460,168 +776,225 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def web_sync_errors(catalog, items_by_arena):
+    """웹 배포 사본이 원본과 같은지, 웹 JS 가 웹 폴더 밖을 참조하지 않는지."""
+    errs = []
+    pairs = [
+        ("스키마", SCHEMA_PATH, WEB_SCHEMA_PATH),
+        ("카탈로그", CATALOG_PATH, WEB_DATA_DIR / "catalog.json"),
+        ("검색 인덱스", INDEX_PATH, WEB_DATA_DIR / "search-index.json"),
+    ]
+    for arena_id, (path, _items) in items_by_arena.items():
+        pairs.append((f"비교군 {arena_id}", path, WEB_DATA_DIR / path.relative_to(DATA_DIR)))
+    for label, src, dst in pairs:
+        rel = dst.relative_to(ROOT)
+        if not dst.exists():
+            errs.append(f"{label} 사본 없음: {rel} (python3 projects/pharos/scripts/sync_web_data.py)")
+        elif sha256(src) != sha256(dst):
+            errs.append(f"{label} 사본이 원본과 다름: {rel} (python3 projects/pharos/scripts/sync_web_data.py)")
+
+    legacy = WEB_DATA_DIR / "items.json"
+    if legacy.exists():
+        errs.append("구 통합 데이터 사본(web/data/items.json)이 남아 있음 — 분할 파일로 대체됨")
+
+    scripts = sorted(WEB_JS_DIR.glob("*.js"))
+    if not scripts:
+        errs.append("web/js/ 에 스크립트가 없음")
+    joined = "\n".join(p.read_text(encoding="utf-8") for p in scripts)
+    for needle in ("./data/catalog.json", "./data/search-index.json", "./schema/item.schema.json"):
+        if needle not in joined:
+            errs.append(f"웹 JS 에 배포 기준 상대경로 {needle} 가 없음")
+    if "../data/" in joined or "../schema/" in joined:
+        errs.append("웹 JS 에 웹 폴더 밖을 가리키는 ../data/ 또는 ../schema/ 참조가 남아 있음")
+    return errs
+
+
+# ------------------------------------------------------------------------------- main
+
 def main():
     schema = load(SCHEMA_PATH)
-    data = load(DATA_PATH)
-    client = (schema.get("x-pharos") or {}).get("client") or {}
-    arenas = client.get("arenas") or []
-    arena_ids = {a["id"] for a in arenas}
+    catalog = load(CATALOG_PATH)
+    contract = (schema.get("x-pharos") or {}).get("client") or {}
     version = (schema.get("x-pharos") or {}).get("schema_version", "?")
 
     print("=" * 78)
-    print(f"Pharos v{version} 검증")
-    print(f"schema: {SCHEMA_PATH.relative_to(ROOT.parent.parent)}")
-    print(f"data  : {DATA_PATH.relative_to(ROOT.parent.parent)}")
+    print(f"Pharos v{version} 검증 — 4단 계층(도메인→대분류→비교군→항목) · 분할 데이터")
+    print(f"schema : {SCHEMA_PATH.relative_to(ROOT.parent.parent)}")
+    print(f"catalog: {CATALOG_PATH.relative_to(ROOT.parent.parent)}")
     print("=" * 78)
 
-    # 0) 비교군·maintenance_status 메타 검사
-    meta_errors = []
-    if not arenas:
-        meta_errors.append("x-pharos.client.arenas 가 비어 있음")
-    for arena in arenas:
-        missing = [k for k in ("id", "label", "category", "description") if not arena.get(k)]
-        if missing:
-            meta_errors.append(f"arena {arena.get('id', '?')}: 필수 키 누락 {missing}")
-    duplicates = sorted({a["id"] for a in arenas if [x["id"] for x in arenas].count(a["id"]) > 1})
-    if duplicates:
-        meta_errors.append(f"비교군 id 중복: {duplicates}")
-    statuses_meta = client.get("maintenance_statuses") or []
-    if {s.get("key") for s in statuses_meta} != MAINTENANCE_STATUSES:
-        meta_errors.append(f"maintenance_statuses 메타가 열거형과 다름: {[s.get('key') for s in statuses_meta]}")
-    exemption = client.get("stale_exemption") or {}
-    if exemption.get("exempt_value") != "feature_complete" or exemption.get("recorded_status") != "exempt":
-        meta_errors.append("stale_exemption 메타(feature_complete → exempt)가 없음")
-    if meta_errors:
-        print(f"[0] 비교군·상태 메타 검사: FAIL — {'; '.join(meta_errors)}")
-        return 1
-    print(f"[0] 비교군·상태 메타 검사: PASS — 비교군 {len(arenas)}개 "
-          f"({', '.join(a['id'] for a in arenas)}) · 상태 {len(statuses_meta)}종")
-
-    # 1) 스키마 자체 검사
+    # 0) 스키마 자체
     try:
         Draft202012Validator.check_schema(schema)
-        print("[1] 스키마 자체 검사: PASS (Draft 2020-12)")
+        print("[0] 스키마 자체 검사: PASS (Draft 2020-12)")
     except Exception as exc:  # noqa: BLE001
-        print(f"[1] 스키마 자체 검사: FAIL — {exc}")
+        print(f"[0] 스키마 자체 검사: FAIL — {exc}")
         return 1
 
-    if not isinstance(data, list):
-        print("[!] items.json 최상위는 배열이어야 합니다.")
+    # 1) 계산 계약 메타
+    meta_errors = []
+    if contract.get("catalog", {}).get("file") != "data/catalog.json":
+        meta_errors.append("x-pharos.client.catalog.file 이 data/catalog.json 이 아님")
+    if contract.get("catalog", {}).get("search_index") != "data/search-index.json":
+        meta_errors.append("x-pharos.client.catalog.search_index 가 data/search-index.json 이 아님")
+    if list(contract.get("navigation", {}).get("levels") or []) != ["domain", "category", "arena", "item"]:
+        meta_errors.append("x-pharos.client.navigation.levels 가 4단 계층이 아님")
+    if (contract.get("freshness") or {}).get("review_after_days") != 180:
+        meta_errors.append("x-pharos.client.freshness.review_after_days 가 180 이 아님")
+    statuses_meta = contract.get("maintenance_statuses") or []
+    if {s.get("key") for s in statuses_meta} != MAINTENANCE_STATUSES:
+        meta_errors.append(f"maintenance_statuses 메타가 열거형과 다름: {[s.get('key') for s in statuses_meta]}")
+    exemption = contract.get("stale_exemption") or {}
+    if exemption.get("exempt_value") != "feature_complete" or exemption.get("recorded_status") != "exempt":
+        meta_errors.append("stale_exemption 메타(feature_complete → exempt)가 없음")
+    if contract.get("hard_filters") and {f["key"] for f in contract["hard_filters"]} != set(FILTER_TO_FLAG):
+        meta_errors.append("x-pharos.client.hard_filters 키 집합이 9종과 다름")
+    if "arenas" in contract:
+        meta_errors.append("x-pharos.client.arenas 가 남아 있음 — catalog.json 으로 옮겨야 함")
+    if meta_errors:
+        print(f"[1] 계산 계약 메타 검사: FAIL — {'; '.join(meta_errors)}")
+        return 1
+    print("[1] 계산 계약 메타 검사: PASS — catalog 참조·4단 탐색·신선도 180일·수명 단계 4종")
+
+    # 2) 카탈로그
+    errors = catalog_errors(catalog, DATA_DIR)
+    if errors:
+        print(f"[2] 카탈로그 검사: FAIL — {len(errors)}건")
+        for err in errors:
+            print(f"  × {err}")
+        return 1
+    domains = [d["id"] for d in catalog["domains"]]
+    categories = [c["id"] for c in catalog["categories"]]
+    arenas_meta = catalog["arenas"]
+    print(f"[2] 카탈로그 검사: PASS — 도메인 {len(domains)}개({', '.join(domains)}) · "
+          f"대분류 {len(categories)}개 · 비교군 {len(arenas_meta)}개")
+
+    ctx = {
+        "arenas": {a["id"]: a for a in arenas_meta},
+        "domains": set(domains),
+        "categories": set(categories),
+    }
+    items_by_arena = load_items_by_arena(catalog, DATA_DIR)
+    if set(items_by_arena) != set(ctx["arenas"]):
+        print(f"[3] 분할 데이터 로드: FAIL — 파일이 없는 비교군 {sorted(set(ctx['arenas']) - set(items_by_arena))}")
         return 1
 
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    total = sum(len(items) for _p, items in items_by_arena.values())
+    print(f"\n[3] 분할 데이터 {len(items_by_arena)}개 파일 · 아이템 {total}건")
 
-    # 2) 아이템별 스키마 검증
-    print(f"[2] 아이템 {len(data)}건 스키마 검증")
+    seen_ids = {}
     schema_failures = 0
-    for item in data:
-        errors = sorted(validator.iter_errors(item), key=lambda e: list(e.path))
-        if errors:
-            schema_failures += 1
-            print(f"  - {item.get('id', '?')}: FAIL ({len(errors)}건)")
-            for err in errors:
-                path = "/".join(str(p) for p in err.path) or "(root)"
-                print(f"      · {path}: {err.message}")
-        else:
-            print(f"  - {item.get('id', '?')}: PASS (타입·필수 필드·열거값)")
+    semantic_failures = 0
+    all_items = []
+    for arena in arenas_meta:
+        path, items = items_by_arena[arena["id"]]
+        rel = path.relative_to(ROOT.parent.parent)
+        print(f"  ▸ {arena['id']} ({arena['domain']} / {arena['category']}) — {rel} · {len(items)}건")
+        if not items:
+            print("      × 비어 있는 비교군")
+            semantic_failures += 1
+        for item in items:
+            all_items.append(item)
+            if item["id"] in seen_ids:
+                print(f"      × 아이템 id 중복: {item['id']} ({seen_ids[item['id']]} 와 겹침)")
+                semantic_failures += 1
+            seen_ids[item["id"]] = arena["id"]
+            errors = sorted(validator.iter_errors(item), key=lambda e: list(e.path))
+            if errors:
+                schema_failures += 1
+                print(f"      × {item.get('id', '?')}: 스키마 FAIL ({len(errors)}건)")
+                for err in errors:
+                    where = "/".join(str(p) for p in err.path) or "(root)"
+                    print(f"          · {where}: {err.message}")
+                continue
+            errs, warns = semantic_errors(item, ctx, arena["id"])
+            status = "PASS" if not errs else "FAIL"
+            print(f"      - {item['id']}: {status} (domain={item['domain']}, category={item['category']}, "
+                  f"maintenance_status={item['maintenance_status']})")
+            for w in warns:
+                print(f"          ! 경고: {w}")
+            for e in errs:
+                print(f"          × {e}")
+            semantic_failures += 1 if errs else 0
+            for tier in item["tiers"]:
+                score = weighted_score(item, tier)
+                computed, why = compute_verdict(item, tier)
+                print(f"          · {tier['tier_id']:<14} score={str(score):<6} 판정={tier['verdict']:<11} "
+                      f"재계산={computed:<11} stale={filter_status(item, tier, 'stale_over_12m'):<7} ({why})")
     if schema_failures:
         print("  → 스키마 검증 실패")
         return 1
-
-    # 3) 의미 규칙 + 4) 판정 재계산
-    print("\n[3] 의미 규칙 및 판정 재계산")
-    semantic_failures = 0
-    for item in data:
-        errs, warns = semantic_errors(item, arena_ids)
-        status = "PASS" if not errs else "FAIL"
-        print(f"  - {item['id']}: {status} (maintenance_status={item['maintenance_status']})")
-        for w in warns:
-            print(f"      ! 경고: {w}")
-        for e in errs:
-            print(f"      × {e}")
-        semantic_failures += 1 if errs else 0
-        for tier in item["tiers"]:
-            score = weighted_score(item, tier)
-            computed, why = compute_verdict(item, tier)
-            stale = filter_status(item, tier, "stale_over_12m")
-            print(f"      · {tier['tier_id']:<14} score={str(score):<6} "
-                  f"판정={tier['verdict']:<11} 재계산={computed:<11} "
-                  f"stale={stale:<7} ({why})")
     if semantic_failures:
         print("  → 의미 규칙 위반 있음")
         return 1
 
-    # 3-1) 비교군 묶음 점검 — 모든 비교군에 최소 1건, 비어 있는 비교군 없음
-    print("\n[3-1] 비교군 구성")
-    coverage = {a["id"]: [item["id"] for item in data if a["id"] in item["arenas"]] for a in arenas}
-    empty = [aid for aid, members in coverage.items() if not members]
-    for arena in arenas:
-        members = coverage[arena["id"]]
-        print(f"  - {arena['id']:<24} {arena['label']:<12} {len(members)}건: {', '.join(members)}")
-    if empty:
-        print(f"  → 비어 있는 비교군: {empty}")
-        return 1
+    # 3-1) 계층 구성
+    print("\n[4] 계층 구성 (도메인 → 대분류 → 비교군 → 항목)")
+    for dom in catalog["domains"]:
+        cats = [c for c in catalog["categories"] if c["domain"] == dom["id"]]
+        print(f"  ▸ {dom['label']}({dom['id']}) — 대분류 {len(cats)} · 팩 {dom['filter_pack']}")
+        for cat in cats:
+            members = [a for a in arenas_meta if a["category"] == cat["id"]]
+            print(f"      - {cat['label']}({cat['id']})")
+            for arena in members:
+                _p, items = items_by_arena[arena["id"]]
+                print(f"          · {arena['label']}({arena['id']}) — {len(items)}건: "
+                      f"{', '.join(i['id'] for i in items)}")
 
-    # 3-2) 정적 배포 사본(web/) 단독 동작 — 경로·단일 소스 검사
-    print("\n[3-2] 정적 배포 준비(web/ 단독 폴더)")
-    app_source = WEB_APP_PATH.read_text(encoding="utf-8")
-    path_errors = []
-    for label, needle in (
-        ("DATA_URL", "const DATA_URL = './data/items.json';"),
-        ("SCHEMA_URL", "const SCHEMA_URL = './schema/item.schema.json';"),
-    ):
-        if needle in app_source:
-            print(f"  - web/js/app.js {label} = 웹 폴더 기준 상대경로")
-        else:
-            path_errors.append(f"web/js/app.js 의 {label} 이 웹 폴더 기준('./…')이 아님")
-    if "../data/" in app_source or "../schema/" in app_source:
-        path_errors.append("web/js/app.js 에 웹 폴더 밖을 가리키는 ../data/ 또는 ../schema/ 참조가 남아 있음")
-    for label, web_path, src_path in (
-        ("데이터", WEB_DATA_PATH, DATA_PATH),
-        ("스키마", WEB_SCHEMA_PATH, SCHEMA_PATH),
-    ):
-        if not web_path.exists():
-            path_errors.append(f"배포 사본 없음: {web_path.relative_to(ROOT.parent.parent)} "
-                               "(python3 projects/pharos/scripts/sync_web_data.py 실행)")
-            continue
-        same = sha256(web_path) == sha256(src_path)
-        print(f"  - {label} 사본 {web_path.relative_to(ROOT.parent.parent)} "
-              f"{'= 원본과 동일' if same else '≠ 원본과 다름'}")
-        if not same:
-            path_errors.append(f"{web_path.relative_to(ROOT.parent.parent)} 가 원본과 다름 "
-                               "(python3 projects/pharos/scripts/sync_web_data.py 실행)")
-    if path_errors:
-        for err in path_errors:
-            print(f"  × {err}")
+    # 4) 인덱스 생성·신선도
+    expected_index = build_search_index(catalog, items_by_arena, contract)
+    print(f"\n[5] 경량 인덱스 검사 — {INDEX_PATH.relative_to(ROOT.parent.parent)}")
+    if not INDEX_PATH.exists():
+        print("  × search-index.json 없음 — python3 projects/pharos/scripts/sync_web_data.py 실행")
         return 1
-    print("  → web/ 폴더만으로 데이터·스키마·계산 계약이 모두 해결됨(단일 소스 동기화 확인)")
+    index = load(INDEX_PATH)
+    idx_errs = index_errors(index, expected_index)
+    for err in idx_errs:
+        print(f"  × {err}")
+    if idx_errs:
+        return 1
+    print(f"  - 아이템 {index['counts']['items']}건 · 비교군 {index['counts']['arenas']}개 · "
+          f"gap_report {len(index['gap_report']['items'])}건 ({', '.join(index['gap_report']['items'])})")
+    print("  - 분할 데이터에서 다시 생성한 결과와 일치(content_hash 동일)")
 
-    # 4) 음성 테스트
-    print("\n[4] 음성 테스트 (일부러 깨뜨린 데이터를 스키마가 잡는지)")
-    neg = negative_tests(schema, data[0])
-    for label, caught in neg:
+    # 5) 음성 테스트
+    print("\n[6] 음성 테스트 (일부러 깨뜨린 데이터를 검증기가 잡는지)")
+    neg = negative_tests(schema, all_items[0])
+    neg_cat = catalog_negative_tests(catalog, ctx, items_by_arena, contract, index)
+    for label, caught in neg + neg_cat:
         print(f"  - {label}: {'차단됨 PASS' if caught else '통과됨 FAIL'}")
-    if not all(caught for _, caught in neg):
+    if not all(caught for _, caught in neg + neg_cat):
         return 1
 
-    # 5) 완결작 면제 규칙 양성/음성 테스트
-    print("\n[5] 완결작 면제 규칙 테스트 (maintenance_status ↔ stale_over_12m)")
-    inscryption = next((item for item in data if item.get("maintenance_status") == "feature_complete"), None)
+    # 6) 완결작 면제 규칙
+    print("\n[7] 완결작 면제 규칙 테스트 (maintenance_status ↔ stale_over_12m)")
+    inscryption = next((item for item in all_items if item.get("maintenance_status") == "feature_complete"), None)
     if inscryption is None:
         print("  → feature_complete 아이템이 없어 규칙을 확인할 수 없음")
         return 1
-    rules = exemption_rule_tests(inscryption, arena_ids)
+    rules = exemption_rule_tests(inscryption, ctx)
     for label, ok, detail in rules:
         print(f"  - {label}: {'PASS' if ok else 'FAIL'}" + ("" if ok else f" ← {detail}"))
     if not all(ok for _, ok, _ in rules):
         return 1
 
+    # 7) 웹 사본
+    print("\n[8] 정적 배포 준비(web/ 단독 폴더)")
+    web_errs = web_sync_errors(catalog, items_by_arena)
+    for err in web_errs:
+        print(f"  × {err}")
+    if web_errs:
+        return 1
+    print("  - 스키마·카탈로그·검색 인덱스·비교군 데이터 사본이 원본과 바이트 단위로 같음")
+    print("  - 웹 JS 가 ./data/catalog.json · ./data/search-index.json · ./schema/item.schema.json 을 상대경로로 참조")
+    print("  - web/ 폴더만으로 데이터·스키마·계산 계약이 모두 해결됨")
+
     print("\n" + "=" * 78)
-    print(f"결과: PASS — 아이템 {len(data)}건 스키마 100% 충족, 의미 규칙 위반 0, "
-          f"비교군 {len(arenas)}개 구성 정상, 판정 재계산 일치, "
-          f"음성 테스트 {sum(1 for _, c in neg if c)}/{len(neg)} 차단, "
-          f"완결작 면제 테스트 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과, "
-          f"web/ 단독 배포 경로·사본 일치")
+    print(f"결과: PASS — 아이템 {total}건 스키마 100% 충족 · 의미 규칙 위반 0 · "
+          f"계층 {len(domains)}/{len(categories)}/{len(arenas_meta)} 정상 · 판정 재계산 일치 · "
+          f"인덱스 최신 · 음성 테스트 {sum(1 for _, c in neg + neg_cat if c)}/{len(neg) + len(neg_cat)} 차단 · "
+          f"완결작 면제 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과 · web/ 사본 일치")
     print("=" * 78)
     return 0
 

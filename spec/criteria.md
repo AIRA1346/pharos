@@ -6,9 +6,11 @@ title: "🧭 Pharos 앱·게임 다층 평가 기준표 v0.3.1"
 
 단일 별점 평균의 한계(리뷰 조작, 취향 무시, 양산형 혼재)를 넘기 위해 4개의 독립된 축을 조합해 선별한다. **v0.2(2026-11-24)** 는 파일럿 4종(`pilot-test.md`)의 빈틈을 정식 반영한 개정판이다: ① 판정을 **티어 단위**로 분리하고 최소 비용 경로를 함께 내고, ② 광고·과금을 **4개 항목으로 세분화**하며(인앱 노출 / 유입 광고 정직성 / 확률형 아이템 / IAP 최고가·첫 결제 유도), ③ 업데이트를 **성격별로 태그**하고 공약 이행을 따로 보며, ④ **최근 리뷰 표본 수·기간과 근거 등급 A/B/C**를 모든 판정에 명시한다.
 
-**v0.3** 은 장르·용도별 **비교군(Arena)** 을 더해 같은 자리를 두고 겨루는 대체제끼리 묶어 비교한다(9절). 데이터(`data/items.json`)는 `python3 projects/pharos/schema/validate.py`로 스키마·의미 규칙·판정 재계산·비교군·완결작 면제 규칙을 한 번에 검증한다.
+**v0.3** 은 장르·용도별 **비교군(Arena)** 을 더해 같은 자리를 두고 겨루는 대체제끼리 묶어 비교한다(9절). 데이터(`data/catalog.json` + `data/{domain}/{arena}.json`)는 `python3 projects/pharos/schema/validate.py`로 스키마·카탈로그 계층·의미 규칙·판정 재계산·인덱스 신선도·완결작 면제 규칙을 한 번에 검증한다.
 
-**v0.3.1(2026-11-24)** 은 10절 6번의 빈틈을 닫는다. `Inscryption`(긍정 97%·1회 구매·DLC 없음 선언)이 마지막 게임 업데이트 2022-06 때문에 `stale_over_12m`으로 거름이 되던 문제를, 각 아이템의 **`maintenance_status`(수명 단계)** 로 '완결(feature_complete)'과 '방치(abandoned)'를 구분해 해결한다(4.1절·6.1절). 이 기준표는 `schema/item.schema.json`(v0.3.1)과 1:1 대응하고, 8절 산식은 웹 프론트엔드가 서버 없이 브라우저에서 그대로 계산한다. 웹은 `web/` 폴더 하나로 배포되며, 데이터·스키마 사본은 `scripts/sync_web_data.py`로 원본과 동기화한다(11절).
+**v0.3.1(2026-11-24)** 은 10절 6번의 빈틈을 닫는다. `Inscryption`(긍정 97%·1회 구매·DLC 없음 선언)이 마지막 게임 업데이트 2022-06 때문에 `stale_over_12m`으로 거름이 되던 문제를, 각 아이템의 **`maintenance_status`(수명 단계)** 로 '완결(feature_complete)'과 '방치(abandoned)'를 구분해 해결한다(4.1절·6.1절). 이 기준표의 8절 산식은 웹 프론트엔드가 서버 없이 브라우저에서 그대로 계산한다. 웹은 `web/` 폴더 하나로 배포되며, 데이터·스키마 사본은 `scripts/sync_web_data.py`로 원본과 동기화한다(11절).
+
+**데이터 구조 v0.4.0(2026-11-25)** 은 평가 기준을 바꾸지 않고 담는 그릇만 4단(도메인 → 대분류 → 비교군 → 항목)으로 나눈다. `schema/item.schema.json` v0.4.0 은 아이템에 `domain`·`category`(대분류 id)를 명시하고, 비교군 정의는 `x-pharos.client.arenas` 에서 `data/catalog.json` 으로 옮겼다. 아이템은 비교군별 파일(`data/app/pkm-notes.json` 등)로 나뉘고, 통합 검색·홈 리포트용 경량 인덱스 `data/search-index.json` 이 분할 데이터에서 자동 생성된다.
 
 ## 0. 표기와 판정 단위 원칙
 
@@ -206,7 +208,7 @@ rows:
 ## 9. 비교군(Arena) — "무엇과 무엇을 나란히 놓는가"
 
 - 장르·분류를 수백 개 미리 정의하지 않는다. **사용자가 실제로 대체제를 고르는 단위**로 묶고, 하나의 아이템은 여러 비교군에 속할 수 있다(`arenas: string[]`).
-- 비교군 정의는 스키마의 `x-pharos.client.arenas`(id·label·category·description)에 두고, 아이템은 id만 참조한다. 비교군별 핵심 비교 포인트는 `arena_notes`(id → 한 줄)에 남긴다. 키는 반드시 `arenas`에 포함된 id여야 한다.
+- 비교군 정의는 `data/catalog.json` 의 `arenas`(id·domain·category·label·description·data_file)에 두고, 아이템은 id만 참조한다. 비교군별 핵심 비교 포인트는 `arena_notes`(id → 한 줄)에 남긴다. 키는 반드시 `arenas`에 포함된 id여야 한다. 한 아이템의 비교군들은 같은 도메인·대분류에 속해야 하며, 아이템의 `domain`·`category` 도 그 값과 같아야 한다(validate.py 가 검사).
 - v0.3 파일럿 비교군은 3개다.
 
 ```table
@@ -232,11 +234,11 @@ rows:
 6. **완결된 작품과 방치의 구분 — v0.3.1에서 해결(닫힌 항목)**: `maintenance_status`로 완결작을 면제하고, `flags.compat_risk`로 보안·OS 이슈를 별도 신호로 둔다. 남은 것은 **완결 선언의 근거 등급**이다 — Inscryption의 완결·DLC 없음 선언은 보도(등급 B) 인용이라, 개발사 1차 공지(등급 A)를 확보하면 면제 판단이 더 단단해진다.
 7. **비교군 간 중복 노출**: 한 아이템이 여러 비교군에 속할 때 카드가 어느 비교군 기준으로 보이는지(대표 비교군) 정하는 규칙이 아직 없다. 현재는 소속 비교군을 모두 칩으로 보여준다.
 8. **수명 단계 자동 판별**: `maintenance_status`는 지금 사람이 판단한다. 패키지 게임·라이브 서비스·구독 앱을 업데이트 빈도와 티어 구성만으로 자동 분류하려면 규칙이 더 필요하다(예: 구독 티어가 있는데 12개월 공백 → `stale_unknown` 후보).
-9. **배포 후 데이터 갱신**: 정적 배포는 `web/data/items.json` 사본을 읽으므로, 원본만 고치면 화면은 그대로다. 지금은 `sync_web_data.py`와 `validate.py`의 사본 해시 검사로 막지만, 브라우저 캐시까지 고려한 버전 표기(예: `?v=스키마버전`)는 아직 없다.
+9. **배포 후 데이터 갱신**: 정적 배포는 `web/data/` 사본을 읽으므로, 원본만 고치면 화면은 그대로다. 지금은 `sync_web_data.py`(인덱스 재생성·사본 복사)와 `validate.py`의 사본 해시·인덱스 신선도 검사로 막지만, 브라우저 캐시까지 고려한 버전 표기(예: `?v=스키마버전`)는 아직 없다.
 
 ## 11. 정적 배포 — web/ 폴더 하나로 동작한다
 
-- 배포 단위는 `projects/pharos/web/` 폴더다. GitHub Pages 루트(또는 `docs/`)에 이 폴더 내용만 올리면 `index.html`이 `./js/app.js` → `./data/items.json` · `./schema/item.schema.json`을 상대경로로 읽는다.
-- **단일 소스**: 원본은 `data/items.json`·`schema/item.schema.json`이고, 웹 사본(`web/data/`·`web/schema/`)은 `python3 projects/pharos/scripts/sync_web_data.py`로만 만든다. 손으로 고치지 않는다.
-- `validate.py`는 사본이 원본과 **바이트 단위로 같은지**(SHA-256)와 `app.js`의 URL이 `./data/`·`./schema/`인지 검사한다. 어긋나면 배포 전에 실패한다.
+- 배포 단위는 `projects/pharos/web/` 폴더다. GitHub Pages 루트(또는 `docs/`)에 이 폴더 내용만 올리면 `index.html`이 `./js/app.js` → `./data/catalog.json` · `./data/search-index.json` · `./schema/item.schema.json` 을 상대경로로 읽고, 선택한 비교군의 `data_file` 만 지연 로딩한다.
+- **단일 소스**: 원본은 `data/catalog.json`·`data/{domain}/{arena}.json`·`schema/item.schema.json` 이고, `data/search-index.json` 과 웹 사본(`web/data/`·`web/schema/`)은 `python3 projects/pharos/scripts/sync_web_data.py`로만 만든다. 손으로 고치지 않는다.
+- `validate.py`는 사본이 원본과 **바이트 단위로 같은지**(SHA-256), 인덱스가 분할 데이터에서 다시 생성한 결과와 같은지, 웹 JS 가 `./data/`·`./schema/` 상대경로만 쓰는지 검사한다. 어긋나면 배포 전에 실패한다.
 - `web/tests/verify_ui.py`는 서버 루트를 `web/`으로 두고 `/`를 열어, 상위 폴더(`../data`) 없이도 로드되는지 실제 브라우저로 확인한다.

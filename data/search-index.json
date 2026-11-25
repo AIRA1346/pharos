@@ -1,0 +1,623 @@
+{
+  "schema_version": "0.4.0",
+  "note": "분할 데이터에서 자동 생성된 경량 인덱스. 손으로 고치지 않는다(scripts/sync_web_data.py).",
+  "weights": {
+    "user_rating": 0.4,
+    "objective": 0.35,
+    "ai_review": 0.25
+  },
+  "counts": {
+    "items": 10,
+    "domains": 2,
+    "categories": 3,
+    "arenas": 3
+  },
+  "content_hash": "ed61c7b40565ba39213a9a6b3795f94f452bb3945468c7f822ac78e4e47cabe1",
+  "arena_stats": {
+    "pkm-notes": {
+      "label": "노트·지식관리",
+      "domain": "app",
+      "category": "productivity",
+      "count": 5,
+      "avg_score": 69.8,
+      "verdicts": {
+        "recommend": 1,
+        "conditional": 4,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "joplin",
+        "name": "Joplin",
+        "score": 82.0
+      },
+      "items": [
+        "evernote",
+        "joplin",
+        "notion",
+        "obsidian",
+        "simplenote"
+      ]
+    },
+    "roguelike-deckbuilder": {
+      "label": "덱빌딩 게임",
+      "domain": "game",
+      "category": "strategy-card",
+      "count": 4,
+      "avg_score": 80.3,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 0,
+        "avoid": 1
+      },
+      "top_item": {
+        "id": "balatro",
+        "name": "Balatro",
+        "score": 94.65
+      },
+      "items": [
+        "balatro",
+        "inscryption",
+        "night-of-the-full-moon",
+        "slay-the-spire"
+      ]
+    },
+    "mobile-gacha-rpg": {
+      "label": "모바일 수집형 RPG",
+      "domain": "game",
+      "category": "rpg",
+      "count": 1,
+      "avg_score": 34.6,
+      "verdicts": {
+        "recommend": 0,
+        "conditional": 0,
+        "avoid": 1
+      },
+      "top_item": {
+        "id": "hero-wars-alliance",
+        "name": "Hero Wars: Alliance",
+        "score": 34.6
+      },
+      "items": [
+        "hero-wars-alliance"
+      ]
+    }
+  },
+  "gap_report": {
+    "title": "별점은 높은데 거름 판정",
+    "min_store_stars": 4.0,
+    "items": [
+      "hero-wars-alliance",
+      "notion"
+    ]
+  },
+  "items": [
+    {
+      "id": "balatro",
+      "name": "Balatro",
+      "aliases": [],
+      "domain": "game",
+      "category": "strategy-card",
+      "arenas": [
+        "roguelike-deckbuilder"
+      ],
+      "developer": "LocalThunk",
+      "platforms": [
+        "steam",
+        "android",
+        "ios"
+      ],
+      "one_liner": "포커 족보를 소재로 런마다 덱과 조커 조합이 달라지는 싱글플레이 로그라이크 덱빌딩 게임. 과금은 1회 구매가 전부다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-ads",
+        "local-first",
+        "single-player",
+        "no-account"
+      ],
+      "keywords": [
+        "발라트로"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "buy_once",
+      "score": 94.65,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "A",
+      "user_rating": 96,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "evernote",
+      "name": "Evernote",
+      "aliases": [
+        "Evernote Personal"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "pkm-notes"
+      ],
+      "developer": "Bending Spoons",
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "web"
+      ],
+      "one_liner": "노트·웹클리핑·OCR 검색·일정 연동을 묶은 노트 앱. 2026년 1월 v11에서 AI 어시스턴트·시맨틱 검색·회의 전사를 더했고, 인수 이후 요금제가 여러 차례 재편됐다.",
+      "taste_tags": [
+        "cloud-sync",
+        "ai-features",
+        "subscription"
+      ],
+      "keywords": [
+        "에버노트"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "paid_starter",
+      "score": 44.25,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "B",
+      "user_rating": 30,
+      "store_stars": {
+        "value": 3.5,
+        "count": 1850000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🔴 30",
+          "tone": "bad"
+        },
+        {
+          "label": "객관·신뢰 지표 🟡 55",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 52",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "hero-wars-alliance",
+      "name": "Hero Wars: Alliance",
+      "aliases": [
+        "Hero Wars"
+      ],
+      "domain": "game",
+      "category": "rpg",
+      "arenas": [
+        "mobile-gacha-rpg"
+      ],
+      "developer": "Nexters Global",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "히어로 수집·육성·자동전투 중심의 모바일 RPG. 캠페인 초반에 미니 퍼즐이 나오지만 이후 본체는 자동 전투·서버 경쟁·길드전이다.",
+      "taste_tags": [
+        "gacha",
+        "p2w",
+        "server-competitive",
+        "always-online"
+      ],
+      "keywords": [
+        "히어로워즈",
+        "히어로 워즈"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 34.6,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "B",
+      "user_rating": 56,
+      "store_stars": {
+        "value": 4.6,
+        "count": 1810000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": {
+        "stars": 4.6,
+        "platform": "android",
+        "count": 1810000,
+        "stars_score": 92.0,
+        "score": 34.6,
+        "delta": 57.4,
+        "verdict": "avoid"
+      }
+    },
+    {
+      "id": "inscryption",
+      "name": "Inscryption",
+      "aliases": [],
+      "domain": "game",
+      "category": "strategy-card",
+      "arenas": [
+        "roguelike-deckbuilder"
+      ],
+      "developer": "Daniel Mullins Games",
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "console"
+      ],
+      "one_liner": "덱빌딩 로그라이크·탈출 퍼즐·심리 공포를 한 줄기에 엮은 싱글플레이. 1회 구매로 완결되고 DLC·과금 계획이 없다고 개발팀이 밝혔다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-ads",
+        "single-player",
+        "no-account"
+      ],
+      "keywords": [
+        "인스크립션"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "buy_once",
+      "score": 80.15,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "B",
+      "user_rating": 96,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 55",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "joplin",
+      "name": "Joplin",
+      "aliases": [
+        "조플린"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "pkm-notes"
+      ],
+      "developer": "Laurent Cozic (Joplin)",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "one_liner": "Markdown 노트를 로컬에 두고 원하는 저장소로 동기화하는 오픈소스 노트 앱. 앱은 무료이고 동기화만 선택적으로 Joplin Cloud나 자기 클라우드를 쓴다.",
+      "taste_tags": [
+        "local-first",
+        "no-account",
+        "no-ads",
+        "markdown",
+        "file-ownership",
+        "one-time-purchase"
+      ],
+      "keywords": [
+        "조플린"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 82.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "A",
+      "user_rating": 78,
+      "store_stars": {
+        "value": 4.2,
+        "count": 7300,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "night-of-the-full-moon",
+      "name": "Night of the Full Moon",
+      "aliases": [
+        "달빛 아래의 밤",
+        "NOTFM"
+      ],
+      "domain": "game",
+      "category": "strategy-card",
+      "arenas": [
+        "roguelike-deckbuilder"
+      ],
+      "developer": "Giant Network",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "동화풍 일러스트의 모바일 로그라이크 카드 게임. 기본 플레이는 무료지만 광고와 0.29~94.99달러 인앱결제가 붙고, 최근에는 오프라인 플레이가 막히고 로그인이 사실상 필수가 됐다.",
+      "taste_tags": [
+        "always-online",
+        "subscription",
+        "gacha"
+      ],
+      "keywords": [
+        "달빛 아래의 밤",
+        "노템"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 54.25,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "C",
+      "user_rating": 68,
+      "store_stars": {
+        "value": 3.86,
+        "count": 78963,
+        "platform": "android",
+        "evidence_grade": "C"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 68",
+          "tone": "warn"
+        },
+        {
+          "label": "객관·신뢰 지표 🔴 38",
+          "tone": "bad"
+        },
+        {
+          "label": "AI 검토 🟡 55",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "aliases": [
+        "노션"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "pkm-notes"
+      ],
+      "developer": "Notion Labs, Inc.",
+      "platforms": [
+        "windows",
+        "macos",
+        "android",
+        "ios",
+        "web"
+      ],
+      "one_liner": "페이지·데이터베이스·위키를 한 화면에서 조립하는 클라우드 워크스페이스. 개인은 무료로 시작하지만 계정과 클라우드가 전제이고, AI는 유료 티어의 판매 포인트다.",
+      "taste_tags": [
+        "cloud-sync",
+        "ai-features",
+        "subscription",
+        "always-online"
+      ],
+      "keywords": [
+        "노션"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "free",
+      "score": 66.6,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "A/C",
+      "user_rating": 64,
+      "store_stars": {
+        "value": 4.6,
+        "count": 408966,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 64",
+          "tone": "warn"
+        },
+        {
+          "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 66",
+          "tone": "warn"
+        }
+      ],
+      "gap": {
+        "stars": 4.6,
+        "platform": "android",
+        "count": 408966,
+        "stars_score": 92.0,
+        "score": 66.6,
+        "delta": 25.4,
+        "verdict": "conditional"
+      }
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "aliases": [],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "pkm-notes"
+      ],
+      "developer": "Dynalist Inc. (Obsidian)",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "one_liner": "내 폴더의 Markdown 파일을 그대로 노트로 쓰는 로컬 우선 지식관리 앱. 계정 없이 무료로 쓸 수 있고 동기화·웹 게시만 유료 부가 서비스다.",
+      "taste_tags": [
+        "local-first",
+        "minimal-ui",
+        "no-account",
+        "no-ads",
+        "markdown",
+        "file-ownership"
+      ],
+      "keywords": [
+        "옵시디언"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "free",
+      "score": 82.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "A",
+      "user_rating": 82,
+      "store_stars": {
+        "value": 4.4,
+        "count": 19500,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "simplenote",
+      "name": "Simplenote",
+      "aliases": [
+        "심플노트"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "pkm-notes"
+      ],
+      "developer": "Automattic, Inc.",
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "서식 없이 텍스트만 빠르게 적고 모든 기기에 동기화하는 무료 메모 앱. 광고·인앱결제가 없는 대신 이메일/WordPress.com 계정이 사실상 필수다.",
+      "taste_tags": [
+        "minimal-ui",
+        "no-ads",
+        "cloud-sync",
+        "always-online"
+      ],
+      "keywords": [
+        "심플노트"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "free",
+      "score": 74.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "A/C",
+      "user_rating": 72,
+      "store_stars": {
+        "value": 3.72,
+        "count": 16915,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 72",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 66",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "slay-the-spire",
+      "name": "Slay the Spire",
+      "aliases": [],
+      "domain": "game",
+      "category": "strategy-card",
+      "arenas": [
+        "roguelike-deckbuilder"
+      ],
+      "developer": "Mega Crit",
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios",
+        "console"
+      ],
+      "one_liner": "카드 게임과 로그라이크를 붙여 장르를 만든 싱글플레이 덱빌딩. 1회 구매로 전부이고 광고·인앱결제·구독이 없다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-ads",
+        "single-player",
+        "no-account",
+        "local-first"
+      ],
+      "keywords": [
+        "슬레이 더 스파이어",
+        "스파이어"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "buy_once",
+      "score": 92.2,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-24",
+      "evidence_grade": "A",
+      "user_rating": 95,
+      "store_stars": {
+        "value": 4.1,
+        "count": 30300,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+[
+  {
+    "schema_version": "0.4.0",
+    "id": "hero-wars-alliance",
+    "name": "Hero Wars: Alliance",
+    "aliases": [
+      "Hero Wars"
+    ],
+    "category": "rpg",
+    "domain": "game",
+    "arenas": [
+      "mobile-gacha-rpg"
+    ],
+    "arena_notes": {
+      "mobile-gacha-rpg": "확률형 뽑기·P2W·미끼형 광고가 모두 확인된 사례 — 파로스가 가장 먼저 거르는 유형."
+    },
+    "genres": [
+      "모바일 RPG",
+      "히어로 수집",
+      "자동전투",
+      "길드전"
+    ],
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "developer": "Nexters Global",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "히어로 수집·육성·자동전투 중심의 모바일 RPG. 캠페인 초반에 미니 퍼즐이 나오지만 이후 본체는 자동 전투·서버 경쟁·길드전이다.",
+    "taste_tags": [
+      "gacha",
+      "p2w",
+      "server-competitive",
+      "always-online"
+    ],
+    "keywords": [
+      "히어로워즈",
+      "히어로 워즈"
+    ],
+    "assessed_at": "2026-11-24",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-20 업데이트 — 서비스형 라이브 게임으로 상시 운영 중이다.",
+    "sources": [
+      {
+        "id": "play-herowars",
+        "title": "Google Play — Hero Wars: Alliance",
+        "url": "https://play.google.com/store/apps/details?id=com.nexters.herowars",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-24",
+        "note": "4.6★(181만), 'Contains ads', 'In-Game Purchases (Includes Random Items)', 2026-11-20 업데이트, 한국 등급 사유 '폭력성 및 확률형 아이템'."
+      },
+      {
+        "id": "gamebrain-herowars",
+        "title": "커뮤니티 집계 — Hero Wars: Alliance",
+        "url": "https://gamebrain.co/game/hero-wars-alliance",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-24",
+        "note": "9,998건 기준 56%, 과금 관련 언급 2,869건 중 96% 부정."
+      },
+      {
+        "id": "howtogeek-fakeads",
+        "title": "미끼형 광고 실태 보도",
+        "url": "https://www.howtogeek.com/i-played-the-worst-mobile-games-from-those-fake-ads-so-you-dont-have-to/",
+        "type": "press",
+        "grade": "B",
+        "accessed_at": "2026-11-24",
+        "note": "1,000편 이상의 미끼형 광고 지적."
+      },
+      {
+        "id": "appwolf-herowars",
+        "title": "인앱결제 가격대·버전 집계",
+        "url": "https://appwolf.io/apps/hero-wars-alliance-rpg-legend",
+        "type": "aggregator",
+        "grade": "C",
+        "accessed_at": "2026-11-24",
+        "note": "IAP $0.99~$479.99, 최근 업데이트 2026-03로 표기(스토어와 충돌)."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-herowars"
+        ],
+        "verification": "direct",
+        "note": "Play 'Contains ads' 표기."
+      },
+      "gacha_random_items": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-herowars"
+        ],
+        "verification": "direct",
+        "note": "'In-Game Purchases (Includes Random Items)' 표기, 한국 등급 사유 '폭력성 및 확률형 아이템'."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "C",
+        "source_ids": [
+          "gamebrain-herowars"
+        ],
+        "verification": "reported_only",
+        "note": "인앱 광고는 대체로 선택형(보상형)이라는 서술. 노출 빈도를 직접 확인하지는 않았다."
+      },
+      "bait_ad": {
+        "value": "yes",
+        "evidence_grade": "B",
+        "source_ids": [
+          "howtogeek-fakeads",
+          "gamebrain-herowars"
+        ],
+        "verification": "reported_only",
+        "note": "언론이 1,000편 이상의 미끼형 광고를 지적했고, 리뷰 다수가 '광고와 다른 게임'을 언급."
+      },
+      "p2w": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-herowars",
+          "gamebrain-herowars"
+        ],
+        "verification": "reported_only",
+        "note": "확률형 아이템으로 히어로를 뽑아 성장시키는 구조. 과금 관련 언급 2,869건 중 96% 부정(등급 C 보강)."
+      },
+      "iap_required_to_progress": {
+        "value": "yes",
+        "evidence_grade": "C",
+        "source_ids": [
+          "gamebrain-herowars"
+        ],
+        "verification": "reported_only",
+        "note": "리뷰 다수 '캠페인 종료 후 과금 없이는 불가능' — 직접 플레이 확인 아님."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-herowars"
+        ],
+        "verification": "direct",
+        "note": "구독 상품 없음(소모성 재화 중심)."
+      },
+      "account_required": {
+        "value": "yes",
+        "evidence_grade": "B",
+        "source_ids": [
+          "play-herowars"
+        ],
+        "verification": "direct",
+        "note": "서버 경쟁·길드전 중심으로 계정·서버 접속 필요."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-herowars"
+        ],
+        "verification": "direct",
+        "note": "2026-11-20 업데이트. 3자 사이트의 2026-03 방치 표기는 1차 정보와 충돌해 폐기."
+      },
+      "data_collected": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "verification": "absent",
+        "note": "Play 데이터 보안 섹션을 확인하지 못함."
+      },
+      "data_export": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "note": "계정·서버 저장형으로 데이터 이전성 미평가."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료(인앱결제 포함)",
+        "kind": "freemium",
+        "price": {
+          "amount": 0,
+          "currency": "KRW",
+          "period": "none",
+          "display": "무료 + 인앱결제 $0.99~$479.99 (등급 C)"
+        },
+        "limits": [
+          "확률형 인앱결제",
+          "과금 없이는 캠페인 후반 진행 정체(리뷰 다수)"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "C",
+            "note": "인앱 광고는 선택형(보상형) 중심이라는 서술.",
+            "source_ids": [
+              "gamebrain-herowars"
+            ]
+          },
+          "gacha_random_items": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "확률형 아이템 포함 표기 확인.",
+            "source_ids": [
+              "play-herowars"
+            ]
+          },
+          "bait_ad": {
+            "status": "fail",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 확인(언론·리뷰).",
+            "source_ids": [
+              "howtogeek-fakeads"
+            ]
+          },
+          "p2w": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "과금이 성장·승패를 직접 좌우.",
+            "source_ids": [
+              "play-herowars"
+            ]
+          },
+          "iap_required_to_progress": {
+            "status": "fail",
+            "evidence_grade": "C",
+            "note": "과금 없이 진행 불가라는 리뷰 다수.",
+            "source_ids": [
+              "gamebrain-herowars"
+            ]
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "2026-11-20 업데이트로 방치는 아님.",
+            "source_ids": [
+              "play-herowars"
+            ]
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없음.",
+            "source_ids": [
+              "play-herowars"
+            ]
+          },
+          "account_required": {
+            "status": "fail",
+            "evidence_grade": "B",
+            "note": "계정·서버 필수.",
+            "source_ids": [
+              "play-herowars"
+            ]
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "수집 항목 미확인.",
+            "source_ids": []
+          }
+        },
+        "verdict": "avoid",
+        "one_liner": "스토어 4.6★ 뒤에 확률형 P2W와 미끼형 광고가 있다. P1 하드 필터 ⑵에 명확히 걸린다.",
+        "recommended_path": false,
+        "notes": "추천 경로 없음 — 모든 티어가 같은 과금 구조 위에 있다."
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 56,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A/C",
+        "confidence": "medium",
+        "summary": "Google Play 4.6★(181만), 한국어 4.8★인데 1★ 비중이 16%이고 커뮤니티 집계는 9,998건 기준 56%다. 스토어 별점과 실제 만족도가 크게 어긋나 56점.",
+        "source_ids": [
+          "play-herowars",
+          "gamebrain-herowars"
+        ]
+      },
+      "objective": {
+        "score": 22,
+        "signal": "red",
+        "signal_basis": "score",
+        "evidence_grade": "A/C",
+        "confidence": "high",
+        "summary": "Play에 'Contains ads'·'In-Game Purchases (Includes Random Items)' 표기, 한국 등급 사유도 '확률형 아이템'. IAP 가격대 $0.99~$479.99(등급 C). 업데이트는 2026-11-20으로 활발.",
+        "source_ids": [
+          "play-herowars",
+          "appwolf-herowars"
+        ]
+      },
+      "ai_review": {
+        "score": 18,
+        "signal": "red",
+        "signal_basis": "score",
+        "evidence_grade": "A/C",
+        "confidence": "medium",
+        "summary": "광고에서는 퍼즐·구조 게임처럼 보이지만 실제 플레이는 자동전투다. 리뷰 다수가 '광고와 다른 게임', '캠페인 종료 후 과금 없이는 불가능'을 지적하고, 3자 분석에서 과금 언급 2,869건 중 96%가 부정적이다.",
+        "source_ids": [
+          "gamebrain-herowars",
+          "howtogeek-fakeads"
+        ]
+      },
+      "personal_fit": {
+        "score": 10,
+        "signal": "red",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "profile_id": "P1",
+        "summary": "P1 하드 필터 ⑵(확률형 아이템·과금 없이 진행 불가)에 명확히 해당. 무과금 사용자의 진행 정체가 리뷰에 남아 있다.",
+        "source_ids": [
+          "play-herowars",
+          "gamebrain-herowars"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "avoid",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "yellow",
+        "objective": "red",
+        "ai_review": "red",
+        "personal_fit": "red"
+      },
+      "one_liner": "스토어 4.6★가 '재미'가 아니라 '오래 붙잡는 구조'의 결과일 수 있음을 보여주는 표본.",
+      "reasons": [
+        "확률형 아이템 표기가 스토어에서 직접 확인된다(등급 A).",
+        "유입 광고가 실제 플레이와 다르다는 보도·리뷰가 다수다.",
+        "과금 없이 진행이 막힌다는 리뷰가 반복되고, 커뮤니티 집계는 56%다."
+      ],
+      "hard_filter_blocked": true,
+      "condition_notes": [
+        "IAP 최고가 $479.99는 3자 집계(등급 C)로 스토어에서 직접 확인하지 못했다.",
+        "업데이트는 활발해 '방치' 필터에는 걸리지 않는다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 1810000,
+            "window": "전체",
+            "evidence_grade": "A"
+          },
+          "note": "한국어 기준 4.8★. 1★ 비중 16%."
+        },
+        {
+          "platform": "other",
+          "cumulative": {
+            "metric": "positive_rate",
+            "value": 56,
+            "scale": "percent",
+            "count": 9998,
+            "window": "커뮤니티 집계 전체",
+            "evidence_grade": "C"
+          },
+          "note": "gamebrain 집계 — 스토어 별점과의 괴리를 보여주는 핵심 근거(등급 C)."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "스토어 4.6★ 대 커뮤니티 56%(9,998건). 최근 구간 평점은 스토어가 공개하지 않아 별도 집계가 없다."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-20",
+      "latest_update_platform": "android",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-20",
+          "type": "unknown",
+          "platform": "android",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "play-herowars"
+          ],
+          "note": "Play 기준 최신 업데이트. 3자 사이트는 2026-03 방치로 표기해 충돌 — 1차 정보 채택."
+        }
+      ],
+      "maintenance_quality": "risky_terms",
+      "assessment": "업데이트 자체는 활발해 abandoned는 아니다. 다만 약관 변경이 아니라 과금·광고 구조 자체가 최근 평가와 신뢰를 끌어내리는 risky_terms 유형으로 본다."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "low",
+        "ad_types": [
+          "rewarded"
+        ],
+        "store_declares_ads": true,
+        "inflow_ad": {
+          "present": "yes",
+          "honesty": "misleading",
+          "evidence_grade": "B",
+          "source_ids": [
+            "howtogeek-fakeads",
+            "gamebrain-herowars"
+          ],
+          "note": "언론이 1,000편 이상의 미끼형 광고를 지적, 리뷰 다수 '광고와 다른 게임'."
+        }
+      },
+      "iap": {
+        "present": "yes",
+        "random_items": "yes",
+        "price_range": {
+          "min": {
+            "amount": 0.99,
+            "currency": "USD"
+          },
+          "max": {
+            "amount": 479.99,
+            "currency": "USD"
+          },
+          "evidence_grade": "C",
+          "note": "3자 집계 — 스토어에서 직접 확인하지 못한 값."
+        },
+        "first_purchase_prompt": "early",
+        "p2w": "yes",
+        "required_to_progress": "yes",
+        "evidence_grade": "A/C",
+        "source_ids": [
+          "play-herowars",
+          "appwolf-herowars"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음(소모성 재화·확률형 패키지 중심)"
+      },
+      "summary": "무료 진입 + 확률형 인앱결제. 인앱 광고는 보상형이지만, 스토어 밖 유입 광고는 실제 플레이와 다르다. 최고가 패키지 $479.99(등급 C)."
+    },
+    "data_quality": {
+      "overall_grade": "B",
+      "unverified": [
+        "IAP 최고가 $479.99(등급 C)",
+        "미끼형 광고 1,000편 이상(보도 인용)",
+        "인앱 광고 노출 빈도",
+        "데이터 수집 항목"
+      ],
+      "conflicts": [
+        {
+          "field": "update_profile.latest_update",
+          "values": [
+            "2026-11-20 (Play 스토어)",
+            "2026-03 (3자 집계, 방치 주장)"
+          ],
+          "resolution": "1차 스토어 정보를 채택하고 3자 값을 폐기했다.",
+          "source_ids": [
+            "play-herowars",
+            "appwolf-herowars"
+          ]
+        }
+      ],
+      "limitations": "데스크 리서치. 직접 플레이·설치 없이 공개 데이터만 사용했다. 3자 집계 사이트는 자동 생성 의심 사례가 있어 등급 C로만 썼다. 수치는 2026-11-24 확인값이다."
+    }
+  }
+]
