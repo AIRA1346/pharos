@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 16,
+    "items": 24,
     "domains": 2,
-    "categories": 4,
-    "arenas": 4
+    "categories": 6,
+    "arenas": 6
   },
-  "content_hash": "18f2e4f01e9ef3fb2f9c37854924c9868eb25ec28eeca7b9a3eb86c0a7a32abc",
+  "content_hash": "9b2832fb00715e6fada33deb66a646b69949ed220e4367d4a2a1da5e13eb9951",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -105,6 +105,52 @@
         "hades",
         "vampire-survivors"
       ]
+    },
+    "pc-mmorpg": {
+      "label": "PC MMORPG",
+      "domain": "game",
+      "category": "mmorpg",
+      "count": 4,
+      "avg_score": 63.4,
+      "verdicts": {
+        "recommend": 1,
+        "conditional": 0,
+        "avoid": 3
+      },
+      "top_item": {
+        "id": "final-fantasy-xiv",
+        "name": "FINAL FANTASY XIV",
+        "score": 80.7
+      },
+      "items": [
+        "black-desert",
+        "final-fantasy-xiv",
+        "guild-wars-2",
+        "lost-ark"
+      ]
+    },
+    "mobile-strategy-defense": {
+      "label": "모바일 전략·디펜스",
+      "domain": "game",
+      "category": "mobile-strategy",
+      "count": 4,
+      "avg_score": 66.2,
+      "verdicts": {
+        "recommend": 1,
+        "conditional": 0,
+        "avoid": 3
+      },
+      "top_item": {
+        "id": "bloons-td-6",
+        "name": "Bloons TD 6",
+        "score": 81.3
+      },
+      "items": [
+        "bloons-td-6",
+        "clash-royale",
+        "kingdom-rush-vengeance",
+        "plants-vs-zombies-2"
+      ]
     }
   },
   "gap_report": {
@@ -113,7 +159,9 @@
     "items": [
       "hero-wars-alliance",
       "archero",
-      "notion"
+      "notion",
+      "clash-royale",
+      "bloons-td-6"
     ]
   },
   "items": [
@@ -218,6 +266,194 @@
       "store_stars": null,
       "drivers": [],
       "gap": null
+    },
+    {
+      "id": "black-desert",
+      "name": "Black Desert",
+      "aliases": [
+        "검은사막",
+        "검사",
+        "BDO",
+        "Black Desert Online"
+      ],
+      "domain": "game",
+      "category": "mmorpg",
+      "arenas": [
+        "pc-mmorpg"
+      ],
+      "developer": "Pearl Abyss",
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "강화 실패가 성장 정체로 이어지는 액션 MMO — 본편을 사고도 펄 상점의 강화 지원 상자와 확률형 보화 상자를 계속 사게 된다.",
+      "taste_tags": [
+        "buy-to-play",
+        "gacha",
+        "p2w",
+        "action-combat",
+        "open-world"
+      ],
+      "keywords": [
+        "검은사막",
+        "검사",
+        "펄 상점",
+        "크론석",
+        "강화",
+        "보화의 함"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 54.15,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 69,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "bloons-td-6",
+      "name": "Bloons TD 6",
+      "aliases": [
+        "블룬스 TD 6",
+        "풍선 타워디펜스 6",
+        "BTD6"
+      ],
+      "domain": "game",
+      "category": "mobile-strategy",
+      "arenas": [
+        "mobile-strategy-defense"
+      ],
+      "developer": "Ninja Kiwi",
+      "platforms": [
+        "android",
+        "ios",
+        "steam",
+        "windows"
+      ],
+      "one_liner": "원숭이 타워를 조합해 풍선을 막는 타워디펜스 — 유료로 사고 광고 없이 오래 즐기는 대신, 선택형 인앱 구매에 확률형 팩이 섞여 있다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-ads",
+        "offline",
+        "no-account",
+        "long-term"
+      ],
+      "keywords": [
+        "블룬스",
+        "풍선",
+        "타워디펜스",
+        "BTD6",
+        "Ninja Kiwi"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "play",
+      "score": 81.3,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 94,
+      "store_stars": {
+        "value": 4.7,
+        "count": 403000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": {
+        "stars": 4.7,
+        "platform": "android",
+        "count": 403000,
+        "stars_score": 94.0,
+        "score": 81.3,
+        "delta": 12.7,
+        "verdict": "avoid"
+      }
+    },
+    {
+      "id": "clash-royale",
+      "name": "Clash Royale",
+      "aliases": [
+        "클래시 로얄",
+        "클래시로얄"
+      ],
+      "domain": "game",
+      "category": "mobile-strategy",
+      "arenas": [
+        "mobile-strategy-defense"
+      ],
+      "developer": "Supercell",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "카드로 상대 타워를 부수는 실시간 PvP — 무료로 시작하지만 카드 레벨과 진화 조각을 상자·상점으로 올려야 상위권에서 겨룰 수 있다.",
+      "taste_tags": [
+        "free-to-play",
+        "pvp",
+        "gacha",
+        "pay-to-progress",
+        "short-match"
+      ],
+      "keywords": [
+        "클래시로얄",
+        "Supercell",
+        "카드",
+        "상자",
+        "진화 조각",
+        "트로피"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "play",
+      "score": 55.2,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 80,
+      "store_stars": {
+        "value": 4.0,
+        "count": 41900000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": {
+        "stars": 4.0,
+        "platform": "android",
+        "count": 41900000,
+        "stars_score": 80.0,
+        "score": 55.2,
+        "delta": 24.8,
+        "verdict": "avoid"
+      }
     },
     {
       "id": "dead-cells",
@@ -337,6 +573,60 @@
       "gap": null
     },
     {
+      "id": "final-fantasy-xiv",
+      "name": "FINAL FANTASY XIV",
+      "aliases": [
+        "파이널 판타지 14",
+        "파판14",
+        "FF14",
+        "FFXIV"
+      ],
+      "domain": "game",
+      "category": "mmorpg",
+      "arenas": [
+        "pc-mmorpg"
+      ],
+      "developer": "Square Enix",
+      "platforms": [
+        "steam",
+        "windows",
+        "console"
+      ],
+      "one_liner": "월정액으로 운영되는 대형 멀티플레이 RPG — 80레벨까지는 기간 제한 없이 무료로 체험하고, 그 이후의 본편은 스타터 에디션과 월 이용권으로 이어진다.",
+      "taste_tags": [
+        "subscription",
+        "no-gacha",
+        "no-p2w",
+        "story-rich",
+        "long-term"
+      ],
+      "keywords": [
+        "파판14",
+        "FFXIV",
+        "에오르제아",
+        "효월의 종언",
+        "황금의 유산",
+        "크리스탈샵",
+        "파이널판타지14"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "kr-30d",
+      "score": 80.7,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 86,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 68",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
       "id": "genshin-impact",
       "name": "Genshin Impact (원신)",
       "aliases": [
@@ -384,6 +674,55 @@
         "platform": "android",
         "evidence_grade": "A"
       },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "guild-wars-2",
+      "name": "Guild Wars 2",
+      "aliases": [
+        "길드워2",
+        "GW2"
+      ],
+      "domain": "game",
+      "category": "mmorpg",
+      "arenas": [
+        "pc-mmorpg"
+      ],
+      "developer": "ArenaNet",
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "본편을 무료로 시작하고 확장팩만 사면 되는 정액제 없는 MMO — 대신 캐시샵의 확률형 상자를 사지 않겠다는 판단이 필요하다.",
+      "taste_tags": [
+        "no-subscription",
+        "free-core",
+        "one-time-expansion",
+        "no-account",
+        "open-world"
+      ],
+      "keywords": [
+        "길드워2",
+        "GW2",
+        "블랙 라이온 상자",
+        "확장팩",
+        "자유도"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "core-free",
+      "score": 77.2,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 88,
+      "store_stars": null,
       "drivers": [
         {
           "label": "확률형 아이템 제외",
@@ -595,6 +934,61 @@
       "gap": null
     },
     {
+      "id": "kingdom-rush-vengeance",
+      "name": "Kingdom Rush Vengeance",
+      "aliases": [
+        "킹덤 러쉬 벤전스",
+        "킹덤러쉬",
+        "KR Vengeance"
+      ],
+      "domain": "game",
+      "category": "mobile-strategy",
+      "arenas": [
+        "mobile-strategy-defense"
+      ],
+      "developer": "Ironhide Game Studio",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "악당 진영에서 왕국을 침략하는 타워디펜스 — 유료로 사고 오프라인으로 즐기지만, 광고 표기와 영웅 인앱 구매가 붙어 있다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "offline",
+        "no-gacha",
+        "single-player",
+        "level-based"
+      ],
+      "keywords": [
+        "킹덤러쉬",
+        "벤전스",
+        "타워디펜스",
+        "Ironhide",
+        "오프라인"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "play",
+      "score": 80.2,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 96,
+      "store_stars": {
+        "value": 4.8,
+        "count": 107000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 58",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
       "id": "limbus-company",
       "name": "Limbus Company",
       "aliases": [
@@ -645,6 +1039,60 @@
       "drivers": [
         {
           "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "lost-ark",
+      "name": "Lost Ark",
+      "aliases": [
+        "로스트아크",
+        "로아"
+      ],
+      "domain": "game",
+      "category": "mmorpg",
+      "arenas": [
+        "pc-mmorpg"
+      ],
+      "developer": "Smilegate RPG",
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "무료로 시작하는 핵앤슬래시 MMO — 성장 재화와 확률형 카드 팩을 상점에서 팔아, 과금이 곧 성장 속도가 되는 구조.",
+      "taste_tags": [
+        "free-to-play",
+        "gacha",
+        "p2w",
+        "action-combat",
+        "endgame-raid"
+      ],
+      "keywords": [
+        "로스트아크",
+        "로아",
+        "로열 크리스탈",
+        "카드 팩",
+        "강화",
+        "어비스 던전"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam-f2p",
+      "score": 41.45,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 43,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
           "tone": "bad"
         }
       ],
@@ -821,6 +1269,66 @@
         {
           "label": "AI 검토 🟡 68",
           "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "plants-vs-zombies-2",
+      "name": "Plants vs. Zombies 2",
+      "aliases": [
+        "플랜츠 vs 좀비 2",
+        "PvZ2",
+        "식물 vs 좀비 2"
+      ],
+      "domain": "game",
+      "category": "mobile-strategy",
+      "arenas": [
+        "mobile-strategy-defense"
+      ],
+      "developer": "PopCap Games",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "식물을 심어 좀비를 막는 캐주얼 타워디펜스 — 무료로 시작하지만 광고와 확률형 인앱 구매, 식물 강화 과금이 붙어 있다.",
+      "taste_tags": [
+        "free-to-play",
+        "ads",
+        "gacha",
+        "casual",
+        "level-based"
+      ],
+      "keywords": [
+        "플랜츠",
+        "좀비",
+        "PvZ2",
+        "EA",
+        "식물",
+        "피냐타"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "play",
+      "score": 48.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 70,
+      "store_stars": {
+        "value": 3.5,
+        "count": 7400000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
         }
       ],
       "gap": null

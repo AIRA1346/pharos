@@ -15,8 +15,8 @@
 | 단계 | 예 |
 | :--- | :--- |
 | 1 도메인 | 앱 · 게임 (추후 콘텐츠·AI 툴·제품) |
-| 2 대분류 | 생산성·지식관리 / 전략·카드 / RPG·수집 / 액션·인디 |
-| 3 비교군 | 노트·지식관리 · 덱빌딩 게임 · 모바일 수집형 RPG · 액션 로그라이크 |
+| 2 대분류 | 생산성·지식관리 / 전략·카드 / RPG·수집 / 액션·인디 / RPG·MMORPG / 모바일 전략·디펜스 |
+| 3 비교군 | 노트·지식관리 · 덱빌딩 게임 · 모바일 수집형 RPG · 액션 로그라이크 · PC MMORPG · 모바일 전략·디펜스 |
 | 4 항목·티어 | Obsidian(무료/Sync), Balatro(1회 구매) |
 
 - **데이터 분리**: `data/catalog.json`(도메인·대분류·비교군 정의) + 비교군별 파일 `data/{domain}/{arena}.json`
@@ -54,6 +54,8 @@ data/app/pkm-notes.json    노트·지식관리 5건
 data/game/roguelike-deckbuilder.json  덱빌딩 4건
 data/game/mobile-gacha-rpg.json       모바일 수집형 RPG 3건
 data/game/action-roguelike.json       액션 로그라이크 4건
+data/game/pc-mmorpg.json              PC MMORPG 4건
+data/game/mobile-strategy-defense.json 모바일 전략·디펜스 4건
 schema/item.schema.json    스키마 v0.4.0 + 클라이언트 계산 계약(x-pharos.client)
 .github/ISSUE_TEMPLATE/correction.yml  정정·이의제기 양식
 spec/                      설계 문서 (vision · criteria · plan · pilot-test)와 검증 도구

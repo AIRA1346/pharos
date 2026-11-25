@@ -50,6 +50,18 @@
       "domain": "game",
       "label": "액션 · 인디",
       "description": "직접 조작하는 액션과 인디 감성 — 손맛과 과금 구조가 판정을 가른다."
+    },
+    {
+      "id": "mmorpg",
+      "domain": "game",
+      "label": "RPG · MMORPG",
+      "description": "PC에서 오래 이어가는 대규모 멀티플레이 RPG — 정액제·확장팩·캐시샵 구조가 판정을 가른다."
+    },
+    {
+      "id": "mobile-strategy",
+      "domain": "game",
+      "label": "모바일 전략 · 디펜스",
+      "description": "한 손으로 한 판을 푸는 모바일 전략·타워디펜스 — 유료 1회 구매와 무료+광고·과금 구조가 갈린다."
     }
   ],
   "arenas": [
@@ -84,6 +96,22 @@
       "label": "액션 로그라이크",
       "description": "한 판씩 죽고 다시 도는 실시간 액션 로그라이크 — 1회 구매 완결형과 부분유료·광고형이 같은 자리에 있다.",
       "data_file": "game/action-roguelike.json"
+    },
+    {
+      "id": "pc-mmorpg",
+      "domain": "game",
+      "category": "mmorpg",
+      "label": "PC MMORPG",
+      "description": "PC에서 수백 시간을 쓰는 MMORPG — 정액제, 확장팩 1회 구매, 무료+캐시샵, 확률형 상자의 네 갈래를 나란히 둔다.",
+      "data_file": "game/pc-mmorpg.json"
+    },
+    {
+      "id": "mobile-strategy-defense",
+      "domain": "game",
+      "category": "mobile-strategy",
+      "label": "모바일 전략·디펜스",
+      "description": "모바일 타워디펜스·전략 — 1회 구매 무광고형부터 광고·확률형 과금형까지 같은 장르 안에서 비교한다.",
+      "data_file": "game/mobile-strategy-defense.json"
     }
   ],
   "filter_packs": {
@@ -122,7 +150,7 @@
     "note": "통합 검색과 홈 리포트는 이 경량 인덱스만 읽는다. 상세·목록은 선택한 비교군의 data_file 을 지연 로딩한다."
   },
   "home": {
-    "featured_arenas": ["pkm-notes", "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg"],
+    "featured_arenas": ["pkm-notes", "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg", "pc-mmorpg", "mobile-strategy-defense"],
     "gap_report": {
       "title": "별점은 높은데 거름 판정",
       "min_store_stars": 4.0,

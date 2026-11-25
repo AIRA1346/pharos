@@ -209,7 +209,7 @@ rows:
 
 - 장르·분류를 수백 개 미리 정의하지 않는다. **사용자가 실제로 대체제를 고르는 단위**로 묶고, 하나의 아이템은 여러 비교군에 속할 수 있다(`arenas: string[]`).
 - 비교군 정의는 `data/catalog.json` 의 `arenas`(id·domain·category·label·description·data_file)에 두고, 아이템은 id만 참조한다. 비교군별 핵심 비교 포인트는 `arena_notes`(id → 한 줄)에 남긴다. 키는 반드시 `arenas`에 포함된 id여야 한다. 한 아이템의 비교군들은 같은 도메인·대분류에 속해야 하며, 아이템의 `domain`·`category` 도 그 값과 같아야 한다(validate.py 가 검사).
-- 2026-11-25 게임 도메인 확장으로 비교군은 4개다(액션·인디 대분류와 액션 로그라이크 추가, 모바일 수집형 RPG 3종 보강).
+- 2026-11-25 게임 도메인 2차 확장으로 비교군은 6개, 대분류는 6개다(RPG·MMORPG 대분류와 PC MMORPG, 모바일 전략·디펜스 대분류와 모바일 전략·디펜스 비교군 추가). 전체 24건.
 
 ```table
 title: 현재 비교군 (2026-11-25)
@@ -219,6 +219,8 @@ rows:
   - ["roguelike-deckbuilder", "덱빌딩 게임", "Balatro·Slay the Spire·Inscryption·Night of the Full Moon", "1회 구매 완결형 vs 부분유료·광고형"]
   - ["mobile-gacha-rpg", "모바일 수집형 RPG", "Hero Wars·Limbus Company·Genshin Impact", "확률형 뽑기 · P2W · 미끼형 광고 / 광고·PvP 없이도 확률형이면 거름"]
   - ["action-roguelike", "액션 로그라이크", "Hades·Vampire Survivors·Dead Cells·Archero", "1회 구매 완결형 · DLC 분기 · 부분유료·광고형 대조"]
+  - ["pc-mmorpg", "PC MMORPG", "FINAL FANTASY XIV·Guild Wars 2·Lost Ark·Black Desert", "정액제 · 확장팩 1회 구매 · 무료+확률형 캐시샵 · 강화 과금"]
+  - ["mobile-strategy-defense", "모바일 전략·디펜스", "Bloons TD 6·Kingdom Rush Vengeance·Clash Royale·Plants vs. Zombies 2", "유료 무광고 vs 유료+광고 · 상자 뽑기 · 식물·카드 성장 과금"]
 ```
 
 - 비교군 선택은 카테고리·검색과 **AND**로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 묶음 기준으로 즉시 다시 계산한다.
@@ -226,6 +228,8 @@ rows:
 - 액션 로그라이크 비교군은 완결작(Hades), 1회 구매 + DLC 분기(Dead Cells), PC/모바일 티어가 갈리는 작품(Vampire Survivors), 부분유료·확률형 대조군(Archero)이 한 표에 놓이는 자리다. 티어별 조건은 `axis_overrides` 로 분리해 기록한다.
 - 모바일 수집형 RPG 비교군은 미끼형 광고·P2W가 확인되는 Hero Wars, 광고·PvP 없이 확률형 추출만 있는 Limbus Company, 품질은 최상급이지만 확률형 뽑기가 수익 구조인 Genshin Impact 를 나란히 둔다. 세 항목 모두 확률형 아이템 필터에서 거름이 되지만 거름의 이유와 축 점수는 다르다. 대체제 섹션은 티어가 여러 개인 항목을 만나면 추천 판정인 티어를 기준으로 평가해 같은 비교군 안에서만 연결한다.
 - 덱빌딩 비교군은 v0.3.1에서 **1회 구매 완결작(Inscryption·Balatro·Slay the Spire)과 부분유료·광고형(Night of the Full Moon)** 이 한 표에 나란히 놓이는 자리다. 완결작 면제 덕분에 Inscryption이 '업데이트 공백'이 아니라 '과금 없음·완결'로 비교된다.
+- PC MMORPG 비교군은 **정액제+확장팩**(FINAL FANTASY XIV), **본편 무료+확장팩 1회 구매**(Guild Wars 2), **무료+성장 재화·확률형 카드 팩**(Lost Ark), **본편 구매+강화 지원·확률형 보화 상자**(Black Desert)를 한 표에 둔다. 네 항목의 '구독 필수' 해석과 확장팩·캐시샵 경계가 이번 확장에서 가장 많이 걸린 지점이다(10절 10~12번).
+- 모바일 전략·디펜스 비교군은 **유료·무광고(Bloons TD 6)**, **유료인데 광고·영웅 별매(Kingdom Rush Vengeance)**, **무료+상자 뽑기 PvP(Clash Royale)**, **무료+광고+확률형·식물 과금(Plants vs. Zombies 2)** 을 둔다. 같은 장르에서 '무료'가 무엇을 뜻하는지 대조하는 자리이며, Bloons TD 6처럼 품질·과금이 깨끗한 작품도 스토어의 '확률형 아이템 포함' 표기 하나로 거름이 되는 문제를 드러냈다(10절 13번).
 
 ## 10. 남은 빈틈 (다음 개정 후보)
 
@@ -238,6 +242,10 @@ rows:
 7. **비교군 간 중복 노출**: 한 아이템이 여러 비교군에 속할 때 카드가 어느 비교군 기준으로 보이는지(대표 비교군) 정하는 규칙이 아직 없다. 현재는 소속 비교군을 모두 칩으로 보여준다.
 8. **수명 단계 자동 판별**: `maintenance_status`는 지금 사람이 판단한다. 패키지 게임·라이브 서비스·구독 앱을 업데이트 빈도와 티어 구성만으로 자동 분류하려면 규칙이 더 필요하다(예: 구독 티어가 있는데 12개월 공백 → `stale_unknown` 후보).
 9. **배포 후 데이터 갱신**: 정적 배포는 `web/data/` 사본을 읽으므로, 원본만 고치면 화면은 그대로다. 지금은 `sync_web_data.py`(인덱스 재생성·사본 복사)와 `validate.py`의 사본 해시·인덱스 신선도 검사로 막지만, 브라우저 캐시까지 고려한 버전 표기(예: `?v=스키마버전`)는 아직 없다.
+10. **아이템 단위 flags vs 티어별 조건 — 2차 확장에서 드러남**: `flags` 는 아이템 하나에 붙는데 실제 조건은 티어마다 다르다. FINAL FANTASY XIV는 '80레벨까지 기간 제한 없는 무료 체험'과 '본편 구독 필수'가 한 아이템에 공존해, 무료 체험을 티어로 넣으면 `subscription_required=yes`(아이템)와 충돌한다. 이번에는 무료 체험을 티어 대신 카드 서술·`limits`로 남겼다. 해결안: `flags` 를 티어 오버라이드 가능하게 하거나, `tier.hard_filters` 를 1차로 두고 아이템 flags 는 기본값으로만 쓰기.
+11. **'구독 필수'의 해석 — 정액제+확장팩+캐시샵**: FINAL FANTASY XIV는 구독이 실사용 필수라 `subscription_required=yes`(전 티어 fail)이고, Guild Wars 2는 본편 무료·확장팩 1회 구매라 `no` 다. 그런데 확장팩을 사지 않으면 신규 지역을 못 가는 구조를 '구독 필수'에 준하게 볼지, 'iap_required_to_progress'로 볼지 기준이 없다. 현재는 확장팩을 콘텐츠 구매로 보아 통과시켰다. 해결안: `expansion_required` 같은 별도 플래그와 '본편만으로 완결되는가' 필드를 두기.
+12. **지역 서비스 분리 — 어느 서비스의 가격·리뷰인가**: 한국 이용자는 스팀 글로벌판이 아니라 국내 서비스(FFXIV=액토즈 19,800원, Lost Ark=Stove, Black Desert=Pearl Abyss 자체)를 쓴다. 이번 데이터는 **가격은 국내 서비스, 리뷰는 글로벌 스팀**을 섞어 쓰고 `condition_notes`에 밝혔다. 스키마에 `service_region`·`tier.platform` 별 가격을 명시하는 필드가 필요하다.
+13. **확률형 아이템의 강도 구분 — 스토어 표기 하나로 같은 거름**: Bloons TD 6는 유료·광고 없음·P2W 없음인데 스토어가 '인앱 구매(확률형 아이템 포함)'로 표기해 기본 필터에서 거름이 된다. 반면 Clash Royale는 상자가 성장의 핵심이다. 둘을 같은 `gacha_random_items` 하나로 처리하면 '선택형 소모품'과 '수집·성장 축'이 구분되지 않는다. Guild Wars 2의 블랙 라이온 상자도 같은 문제다. 해결안: ⑴ 확률형 상품의 **영향 범위**(성장/수집/코스메틱/소모품) 필드, ⑵ `gacha_random_items` 를 '핵심'과 '주변'으로 나눈 2단 필터, ⑶ 거름 대신 '조건부(확률형 상품 미구매 시 추천)'로 내리는 규칙.
 
 ## 11. 정적 배포 — web/ 폴더 하나로 동작한다
 
