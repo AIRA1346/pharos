@@ -1,4 +1,4 @@
-# 파로스 Pharos — 정적 웹 v3.1 (4단 탐색 · 장르 추천 중심 · 분야 확장 · 스키마 v0.4.0)
+# 파로스 Pharos — 정적 웹 v3.4 (4단 탐색 · 장르 추천 중심 · KO/EN 다국어 · 화면·UX·모바일 마감 · 기준표 v0.5.0 · 스키마 v0.4.0)
 
 빌드 도구 없이 **순수 HTML/CSS/ES Module** 만으로 동작하는 파로스 프론트엔드입니다.
 서버는 파일만 배포하고, 점수·신호·판정은 전부 브라우저에서 `schema/item.schema.json` 의
@@ -7,6 +7,9 @@
 v2 는 `plan.md` v2.0 의 2단계(사이트 구조 개편·배포) 결과물이고, v3 는 그 위의 **정보 계층 개편**, v3.1 은 **분야 확장**(앱 할 일·비밀번호, AI 도구)입니다.
 **도메인 → 대분류 → 비교군 → 항목** 4단 탐색, 비교군별 분할 데이터 지연 로딩,
 1:1 비교 표, 미세조정 드로어, 사실/의견 분리, 대체제 연결, URL 딥링크, 북마크, 방법론 모달을 담았습니다.
+
+v3.4 는 **한국어 + 영어(`KO / EN`)** 를 더했습니다. 헤더 오른쪽 토글로 언어를 바꾸고, 해외 방문자는
+브라우저 언어만으로 영어 화면을 봅니다(우선순위: URL `?lang=` → `localStorage` → 브라우저 언어).
 
 v3 의 원칙 — **"처음엔 장르와 그 장르의 추천, 들어가면 자세한 내용"**:
 
@@ -52,23 +55,28 @@ python3 -m http.server 8000
 
 ```
 web/
-  index.html            화면 골격 (도메인 탭 · 경로 · 홈/탐색/비교 뷰 · 상세·방법론 모달 · 드로어)
+  index.html            화면 골격 (도메인 탭 · 경로 · 홈/탐색/비교 뷰 · 상세·방법론 모달 · 드로어 · KO|EN 토글)
   styles.css            등대 테마 (다크 기본 / 라이트 토글), 반응형
-  js/data.js            카탈로그·인덱스 로드, 비교군 파일 지연 로딩/캐시, 통합 검색
+  js/i18n.js            UI 문자열 사전 KO/EN · 언어 감지·저장 · 숫자·일수 표기 · 정적 마크업 번역
+  js/data.js            카탈로그·인덱스 로드, en.json 오버레이 병합, 비교군 파일 지연 로딩/캐시, 통합 검색
   js/engine.js          계산 엔진 — x-pharos.client 계약 (DOM 비의존 순수 함수, 신선도·대체제·완결작 면제)
   js/app.js             상태·라우팅(URL 딥링크)·렌더링·이벤트
   data/catalog.json     도메인·대분류·비교군 정의 + 필터 팩 + 홈 리포트 규칙
   data/search-index.json 경량 인덱스 (자동 생성 — 통합 검색·홈 리포트)
+  data/en.json          영문 번들 — 3도메인·10대분류·14비교군·67종 표시 문자열(영어 모드에서만 로드)
   data/app/pkm-notes.json              노트·지식관리 5건
   data/app/task-managers.json          할 일·일정 관리 5건
   data/app/password-managers.json      비밀번호 관리 4건
+  data/app/web-browsers.json           웹 브라우저 5건
+  data/app/cloud-storage.json          클라우드 스토리지 5건
   data/game/roguelike-deckbuilder.json 덱빌딩 게임 4건
   data/game/mobile-gacha-rpg.json      모바일 수집형 RPG 6건
   data/game/action-roguelike.json      액션 로그라이크 4건
   data/game/pc-mmorpg.json             PC MMORPG 4건
   data/game/mobile-strategy-defense.json 모바일 전략·디펜스 6건
+  data/ai/ai-assistants.json           AI 어시스턴트·검색 5건
   data/ai/ai-coding-tools.json         AI 코딩 에디터·에이전트 4건
-  assets/icons/        42종 공식 아이콘 192×192 webp + manifest.json(출처·확보 방법)
+  assets/icons/        57종 공식 아이콘 192×192 webp + manifest.json(출처·확보 방법)
   schema/item.schema.json  배포용 스키마 사본 (v0.4.0)
   tests/verify_ui.py    Playwright 검증 스크립트
   preview-v3-home.png        홈 — 장르별 추천 타일 (1440px)
@@ -107,6 +115,7 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
 | `filters` | 켠 하드 필터(쉼표) | `?filters=forced_ads,p2w` |
 | `strict` | 엄격 모드 끄기 | `?strict=0` |
 | `strictmon` | 선택 과금(impact: optional)도 거름 | `?strictmon=1` |
+| `lang` | 화면 언어 | `?lang=en` (미지정 시 저장값 → 브라우저 언어) |
 
 `arena` 만 있어도 카탈로그에서 도메인·대분류를 찾아 해석합니다.
 
@@ -129,7 +138,7 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
   거름·조건부 항목의 **같은 비교군 상위 추천 대체제**, **공유용 요약 복사**, **정정 제보**(GitHub Issue
   `correction.yml`), 보관함 담기.
 - **방법론 모달**: 4단 구조·4축·A/B/C 등급·판정 규칙·독립성(어필리에이트·유료 광고 배제) 선언·용어 도움말.
-- **공식 아이콘(v2.1)**: 42종 모두 `assets/icons/{id}.webp`(192×192) 공식 아이콘을 가집니다 — 카드 46px,
+- **공식 아이콘(v2.1)**: 57종 모두 `assets/icons/{id}.webp`(192×192) 공식 아이콘을 가집니다 — 카드 46px,
   상세 모달 54px, 1:1 비교표 32px, 홈 검색·갭 리포트·보관함 26px. 파일은 `scripts/fetch_icons.py` 가
   App Store 아트워크 → 공식 사이트 아이콘/파비콘 → 공식 브랜드 마크 순으로 내려받아 정규화하며,
   출처는 `assets/icons/manifest.json` 에 남깁니다. 파일이 없거나 로드에 실패하면 img 가 숨고
@@ -142,7 +151,7 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
 | `catalog.file` · `search_index` | `data.js` 가 `./data/catalog.json`·`./data/search-index.json` 로드, 비교군 `data_file` 만 지연 로딩 |
 | `navigation.levels` | 홈 → 도메인 → 대분류 → 비교군 → 항목 라우터(`app.js`) |
 | `freshness.review_after_days` (180) | `engine.freshness` — `재검토 필요` 배지·상세 경고 |
-| `axes[]` (라벨·기본 가중치) | 슬라이더·프리셋을 스키마에서 생성(기본 0.40/0.35/0.25) |
+| `axes[]` (라벨·기본 가중치) | 슬라이더·프리셋을 스키마에서 생성(기본 0.50/0.25/0.25 — v0.5.0) |
 | `hard_filters[]` + `default_enabled_filters` | 도메인 필터 팩 우선 노출, 켜진 필터 `fail` → 거름, `unknown` ⚪ 주의, `exempt` 면제. `impact: optional` 은 배지로만 |
 | `monetization_impact` (levels·inference·strict_toggle·badge) | `engine.tierImpact`·`evaluateTier` 의 optionalFails, 미세조정 `strict_monetization` 토글(기본 OFF), 배지 문구 |
 | `verdict_rules` 1~7 | `evaluateTier` — 순서대로 먼저 맞는 규칙, 적용 규칙을 상세에 표시 |
@@ -155,16 +164,34 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
 
 - 원자료 `flags.stale_over_12m` 은 "12개월 넘게 업데이트 없음"이라는 **사실**이고, 필터 **판정**에서만 면제합니다.
 - `maintenance_status == "feature_complete"` → `hard_filters.stale_over_12m.status` 를 `exempt` 로 계산·기록하고
-  카드에 '완결작' 배지와 '면제 · 완결작' 사유 칩을 보입니다(점수는 바꾸지 않음 — Inscryption 80.15).
+  카드에 '완결작' 배지와 '면제 · 완결작' 사유 칩을 보입니다(점수는 바꾸지 않음 — v0.5.0 기준 Inscryption 84.25).
 - `abandoned`·`stale_unknown`, 서비스형 앱·라이브 게임의 12개월 이상 중단은 그대로 `fail`(거름)입니다.
 - `flags.compat_risk.value == "yes"` 면 추천 대신 **조건부 경고**(규칙 ⑦)입니다.
+
+
+## v0.5.0 — 평가 배분·표본 규모 검증 (2026-11-25)
+
+- **기본 배분 50/25/25**: 사용자 평가 50% · 객관 25% · AI 25%. 프리셋은 `균형 기본`·`대중 평가 중심`(65/20/15)·
+  `쾌적성·노과금 중심`(20/60/20)·**`프라이버시·로컬 중시`**(25/55/20 + `account_required`·`data_collection` 자동)·
+  `AI 완성도 중심`(20/25/55) 다섯 가지입니다.
+- **표본 규모 검증**: 스키마 계약 `x-pharos.client.sample_scale`. 최근 구간이 등급 C·1,000건 미만인데 스토어 누적이
+  등급 A/B·1만 건 이상·최근의 100배 이상·4.4★ 이상이면 최근 값은 방향 신호로만 쓰고 (누적+최근)÷2 로 둡니다(Notion 64→82, Obsidian 82→85).
+  과금·약관 변경이 급락과 겹치면(risky_terms) 완화하지 않습니다(Evernote 30 유지). 규칙 대상 항목은
+  `score_notes.user_rating` 에 계산 근거를 남기고, 검증기가 메모 없는 항목을 차단합니다.
+- **객관 축 비편향**: 클라우드·비공개 소스라는 이유의 감점을 없앴습니다. 객관은 기능 완성도·생태계/연동성·안정성·보안·
+  정책/과금 투명성으로 매기고, 로컬·계정·데이터 수집은 `flags` 사실과 필터·프리셋으로만 가릅니다. 같은 사실을
+  객관·AI 두 축에서 두 번 깎지 않습니다(Drive AI 72→80, OneDrive 70→77).
+- **가중치 0 축은 판정에 세지 않음**: 프로필 전용 `personal_fit` 은 기본 가중치 0이므로 🔴·🟡 개수에 포함하지 않습니다.
+  그래서 P1(local-first) 프로필이 기본 화면의 판정을 몰래 끌어내리지 않습니다(Obsidian·Limbus Company 🟢 전환).
+- **갭 리포트는 거름(avoid)만**: 제목('별점은 높은데 거름 판정')과 내용을 맞췄습니다. v0.5.0에서 조건부로 올라온
+  Gemini·Notion·Drive 는 홈 리포트가 아니라 상세의 조건·한도에 남습니다.
 
 ### 확률형·P2W 강도 3단계 (v0.4.0)
 
 - `hard_filters.gacha_random_items`·`p2w` 에 `impact`(`none`/`optional`/`core`)를 적습니다. 값이 없으면 상태에서
   추론합니다(pass→none, fail→core — 보수적 기본값).
 - `optional` 은 필터 상태를 `fail` 로 **남긴 채**(상품이 있다는 사실 유지) 거름으로 잡지 않고, 카드·상세에
-  「선택 과금 · 무과금 가능」 배지를 답니다. 점수·신호 규칙으로 추천/조건부가 갈립니다(검은사막 80.1 · Bloons TD 6 81.3 → 🟢).
+  「선택 과금 · 무과금 가능」 배지를 답니다. 점수·신호 규칙으로 추천/조건부가 갈립니다(v0.5.0 기준 검은사막 79.5 🟡 · Bloons TD 6 84.5 🟢).
 - `optional` 의 근거로 `monetization.free_play.value == "sufficient"`(무과금 충분성)를 요구하고, 검증기가
   `optional` ↔ `sufficient`, `core` ↔ `constrained`·`blocked` 의 일관성을 검사합니다.
 - `strict_monetization`(기본 OFF)을 켜면 `optional` 도 상품 존재만으로 거름 — v0.3.1 과 같은 동작입니다.
@@ -179,6 +206,35 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
 - **완화 모드(OFF)**: `fail` 근거가 등급 C(또는 미확인)뿐이면 '근거 약함' **조건부 경고**로 내립니다.
   등급 A/B 근거의 `fail` 은 완화 모드에서도 거름입니다 → Hero Wars 는 두 모드 모두 🔴.
 
+## v3.3 — 화면·UX·모바일 마감 (2026-11-25)
+
+첫인상과 탐색 피로, 비교 화면의 가독성, 390px 모바일을 한 번에 다듬었습니다.
+
+- **홈 도메인 필터(점프 바)**: `장르별 추천` 위에 `전체 12 · 앱 5 · 게임 5 · AI 도구 2` 칩을 두고,
+  누른 도메인의 장르 블록만 남깁니다. 바는 스크롤해도 상단에 붙어 있어 목록 어디서든 도메인을 바꿀 수 있고,
+  뒤로 지나가는 카드는 배경 띠가 가립니다. 홈에서는 의미 없던 `홈` 빵가루 한 글자도 감췄습니다.
+- **플로팅 비교 바**: 비교군에서 항목을 체크하면 스크롤 위치와 무관하게 하단에 `N개 선택됨 · 나란히 비교하기 → · 선택 초기화`
+  바가 뜨고, 바가 떠 있는 동안 본문 아래 여백과 토스트 위치가 함께 밀립니다. 모바일에서는 2행 그리드(라벨/칩 · 버튼)로 접힙니다.
+- **비교 표 가독성**: 첫 열(기준)을 가로 스크롤에도 고정하고, 행마다 우세한 값을 `최고` 배지와 초록 셀로, 점수 차이는 `−2.3`처럼
+  표시합니다. 표 위에는 `최고/최저/차이` 한 줄 요약과 모바일용 `↔ 옆으로 밀어 보기` 안내가 붙습니다.
+- **🔗 링크 복사**: 비교군 헤더·비교 화면·상세 모달에서 현재 딥링크를 복사하고 `링크를 복사했어요` 토스트로 알립니다.
+  (상세 모달은 링크 복사·공유 요약 복사·정정 제보·☆ 보관·닫기 순으로 정리하고, 닫기는 머리 오른쪽 위에 고정했습니다.)
+- **모바일 390×844**: 상세·방법론 모달이 화면 폭을 넘지 않도록 backdrop 여백을 없애고, 헤더·도메인 탭·필터 바·
+  카드 비교 체크·비교 바 버튼의 터치 영역을 34~40px로 올렸으며, 장르 블록 머리(제목 + 전체 링크 / 건수)의 줄바꿈을 정리했습니다.
+- **라이트 테마 대비**: 강조색(빔·바다·초록·노랑·빨강·회색)을 라이트 배경에서 4.2:1 이상으로 다시 잡고,
+  기본 버튼은 흰 글자 + 진한 호박색으로, 패널·보더는 조금 진하게 조정했습니다.
+- **거름 0건 정리**: 지금 설정에서 거름 항목이 없으면 빨간 점이 붙은 빈 섹션을 숨깁니다(요약 칩의 `거름 0`으로 충분).
+
+## v3.4 — KO / EN 다국어 (2026-11-25)
+
+- **헤더 토글 `KO | EN`**: 테마 토글 옆 세그먼트. 390px에서도 한 줄에 들어가고(가로 넘침 0), 버튼 터치 영역은 34~38px.
+- **언어 결정 순서**: ① URL `?lang=ko|en` ② `localStorage`(`pharos-lang`) ③ `navigator.language` — `ko`로 시작하면 한국어, 그 외 모든 해외 브라우저는 영어.
+- **전환 시 함께 바뀌는 것**: `<html lang>`, `<title>`, 메타 설명·OG, URL의 `lang`, 🔗 링크 복사 딥링크. 도메인·비교군·비교·프리셋·필터 등 화면 상태는 URL로 유지된 채 다시 열린다.
+- **UI 사전 `js/i18n.js`**: 헤더·히어로·검색·도메인/대분류/비교군·필터 칩·미세조정 드로어(프리셋·가중치·하드 필터·용어 도움말)·판정 배지(`Recommended`/`Conditional`/`Filtered`)·3축(`User Rating`/`Objective Trust`/`AI Review`)·상세 모달(`Facts`/`Opinion`/`Verdict by tier`/`Signals`/`Alternatives`/`Reviews`/`Monetization`/`Updates`/`Sources`)·비교 표(`Best` 배지·`Basis` 열)·방법론 모달·토스트·오류 화면·푸터까지 100% 영문.
+- **영문 데이터 `data/en.json`**: 카탈로그(3도메인·10대분류·14비교군·필터 팩·갭 리포트) + 67종의 `one_liner`·`tagline`·`verdict.one_liner/reasons/condition_notes`·`arena_notes`·3축 서술·티어 라벨·가격 표기·`limits`·`notes`·`facts`·리뷰 서술·과금·업데이트·한계·`score_notes`·출처·flags 메모. 영어 모드에서만 내려받고, `data.js` 가 원본 항목에 오버레이로 병합한다(원본 한국어 데이터는 그대로 단일 소스).
+- **카드·타일 헤드라인은 직접 쓴 영어**: 대표 티어 한 줄과 판정 한 줄은 기계 번역이 아니라 문맥을 살려 다시 썼다(`Start free and the files stay yours`, `High stars, filtered out` 등).
+- **검증**: `validate.py` 가 67/67·14/14·10/10·3/3 커버리지와 한글 잔존 0을 검사(누락 시 FAIL), `verify_ui.py` 가 EN 전 화면을 한국어 없이 통과하는지 확인(690/690).
+
 ## 검증
 
 ```bash
@@ -189,15 +245,20 @@ python3 projects/pharos/web/tests/verify_ui.py
 
 - 스크립트가 `web/` 폴더를 임시 HTTP 서버 루트로 띄우고(포트 자동 할당) 종료 시 정리합니다.
   따라서 **web/ 폴더 단독 배포** 조건 그대로 검증됩니다(모든 요청이 배포 루트 안에서 해결되는지 확인).
-- 473개 항목 통과: 로드·콘솔/네트워크 에러 0, 홈에서 비교군 파일 미로딩(지연 로딩), 홈 리포트(Hero Wars 4.6★/34.6 · MS To Do 4.6★/60.45),
+- 690개 항목 통과: 로드·콘솔/네트워크 에러 0, 홈에서 비교군 파일 미로딩(지연 로딩), 홈 리포트(Hero Wars 4.6★/34.6 · MS To Do 4.6★/60.45),
   통합 검색(한글 별칭·비교군 라벨), 4단 탐색과 비교군별 요약 재계산, 필터 팩 우선 노출, 프리셋·슬라이더 재계산,
   비교 2~3개 표(4개째 차단), 상세 Fact/Opinion·대체제·공유 복사·정정 링크, URL 딥링크 5종, 북마크 지속,
   방법론 모달, 모바일 레이아웃·드로어, 엔진 단위 테스트(가중 평균·6단 규칙·면제·신선도·대체제·impact 3단계), 선택 과금 배지·`strict_monetization` 토글·상세 강도 블록,
   본질 경험 기준 재평가(니케 81.2 🟢 · 160벽 카드 표기 유지 · strict ON 시 거름),
-  분야 확장(할 일 5건·비밀번호 4건·AI 코딩 4건, AI 도구 탭·장르 블록·필터 표시 이름, 구독 필수 필터로 1Password·Dashlane 거름, 신규 아이콘 42종).
+  분야 확장(할 일 5건·비밀번호 4건·AI 코딩 4건, AI 도구 탭·장르 블록·필터 표시 이름, 구독 필수 필터로 1Password·Dashlane 거름, 신규 아이콘 42종),
+  2차 분야 확장(v0.4.3: 웹 브라우저 5건·클라우드 5건·AI 어시스턴트 5건 = 57건·12비교군, 새 대분류 `인터넷 · 프라이버시`·`대화 · 리서치`, AI 탭의 두 비교군 전환, 신규 아이콘 15종 192×192),
+  **v3.4 KO/EN 다국어**(EN 홈·도메인·비교군·상세·비교·방법론·드로어 한글 잔존 0건, 390px 넘침 0, `?lang=en` 링크 복사·언어 전환 딥링크·브라우저 언어 감지·URL 우선순위, KO 회귀),
+  **v3.3 화면·UX 마감**(홈 도메인 필터 4칩 = 12/5/5/2 와 필터링·상단 고정, 플로팅 비교 바 문구·fixed 위치·스크롤 후 동일 위치,
+  비교 표 첫 열 sticky·`최고` 셀·점수 차이·최고/최저/차이 요약, 링크 복사 클립보드 값과 토스트, 390px 홈/도메인/목록/비교/상세·방법론·드로어
+  가로 넘침 0과 터치 영역 34px, 라이트 테마 텍스트 대비 4.2:1 이상과 가로 넘침 0).
 - `--shots-dir` 로 스크린샷 저장 위치를 바꿀 수 있습니다(기본: `web/`).
 - 데이터 쪽은 `python3 projects/pharos/schema/validate.py` 로 별도 검증합니다
-  (스키마·카탈로그 계층·의미 규칙·판정 재계산·인덱스 신선도·음성 테스트·완결작 면제·impact 3단계·웹 사본 일치).
+  (스키마·카탈로그 계층·의미 규칙·판정 재계산·인덱스 신선도·음성 테스트·완결작 면제·impact 3단계·아이콘·**영문 번들 커버리지 67/67**·웹 사본 일치).
 
 ## 계산 외 원칙
 

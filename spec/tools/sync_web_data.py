@@ -9,7 +9,7 @@ GitHub Pages 루트에 올려도 동작해야 하므로, 같은 파일을 `web/d
 하는 일
   1) 카탈로그에 정의된 비교군 파일을 모두 읽어 `data/search-index.json` 을 다시 만든다
      (통합 검색·홈 리포트용 경량 인덱스 — 손으로 고치지 않는다).
-  2) 원본 → 웹 사본 복사 (스키마·카탈로그·검색 인덱스·비교군 데이터).
+  2) 원본 → 웹 사본 복사 (스키마·카탈로그·검색 인덱스·비교군 데이터·영문 번들 en.json).
      구 통합 파일 `web/data/items.json` 이 남아 있으면 지운다.
   3) `schema/validate.py` 전체 검증을 실행해 PASS 를 확인한다(사본 해시까지 검사).
 
@@ -49,6 +49,9 @@ def source_pairs(catalog):
         (CATALOG_PATH, WEB_DIR / "data" / "catalog.json"),
         (INDEX_PATH, WEB_DIR / "data" / "search-index.json"),
     ]
+    en_path = DATA_DIR / "en.json"
+    if en_path.exists():
+        pairs.append((en_path, WEB_DIR / "data" / "en.json"))
     for arena in catalog.get("arenas") or []:
         src = DATA_DIR / arena["data_file"]
         pairs.append((src, WEB_DIR / "data" / arena["data_file"]))

@@ -113,6 +113,35 @@ def stats(page):
     )
 
 
+KOREAN_PATTERN = r"[\uac00-\ud7a3]"
+
+
+def korean_left(page):
+    """화면 텍스트 + aria-label·title·placeholder·alt 에 남은 한글 줄."""
+    text = page.evaluate(
+        """(pattern) => {
+        const re = new RegExp(pattern);
+        const out = new Set();
+        document.body.innerText.split('\\n').forEach((line) => {
+          if (re.test(line)) out.add(line.trim());
+        });
+        document.querySelectorAll('[aria-label],[title],[placeholder],[alt]').forEach((el) => {
+          ['aria-label', 'title', 'placeholder', 'alt'].forEach((attr) => {
+            const v = el.getAttribute(attr);
+            if (v && re.test(v)) out.add(attr + ': ' + v);
+          });
+        });
+        return [...out];
+      }""",
+        KOREAN_PATTERN,
+    )
+    return text
+
+
+def no_overflow(page):
+    return page.evaluate("() => document.documentElement.scrollWidth - window.innerWidth")
+
+
 def path_id(page):
     return page.evaluate("location.pathname + location.search")
 
@@ -196,6 +225,7 @@ def main() -> int:
         context = browser.new_context(
             viewport={"width": 1440, "height": 1000},
             device_scale_factor=2,
+            locale="ko-KR",
             permissions=["clipboard-read", "clipboard-write"],
         )
         page = context.new_page()
@@ -1869,12 +1899,12 @@ def main() -> int:
         mobile.close()
 
         # 12-6 라이트 테마 — 텍스트 대비·보더 시인성
-        light_context = browser.new_context(viewport={"width": 1440, "height": 1000}, device_scale_factor=1)
+        light_context = browser.new_context(viewport={"width": 1440, "height": 1000}, device_scale_factor=1, locale="ko-KR")
         light = light_context.new_page()
         light.goto(f"{base}/", wait_until="networkidle")
-        wait(light, 400)
+        wait(light, 700)
         light.click("#themeToggle")
-        wait(light, 400)
+        wait(light, 700)
         expect(light.evaluate("document.documentElement.dataset.theme") == "light", "라이트 테마 전환")
 
         def contrast_map(pg, selectors):
@@ -2071,6 +2101,186 @@ def main() -> int:
         first_tile_top = tile_mobile.eval_on_selector(".pick-tile", "e => Math.round(e.getBoundingClientRect().top)")
         expect(first_tile_top < 844, "모바일 첫 화면에 장르 추천 타일이 들어옴", str(first_tile_top))
         tile_mobile.close()
+
+
+        # ------------------------------------------------------- 14 EN 모드(글로벌)
+        en_context = browser.new_context(
+            viewport={"width": 1440, "height": 1000},
+            device_scale_factor=2,
+            locale="en-US",
+            permissions=["clipboard-read", "clipboard-write"],
+        )
+        en = en_context.new_page()
+        en_errors: list[str] = []
+        en_served: list[str] = []
+        en.on("pageerror", lambda exc: en_errors.append(str(exc)))
+        en.on("response", lambda r: en_served.append(r.url))
+        en.goto(f"{base}/?lang=en", wait_until="networkidle")
+        wait(en, 700)
+        expect(any(url.endswith("/data/en.json") for url in en_served), "EN 모드에서 data/en.json 로드", "")
+        expect(en.evaluate("document.documentElement.lang") == "en", "EN 모드 <html lang=\"en\">", en.evaluate("document.documentElement.lang"))
+        expect(en.title().startswith("Pharos") and "Pharos" in en.title(), "EN 모드 <title> 영문화", en.title())
+        desc = en.evaluate("document.querySelector('meta[name=\"description\"]').content")
+        expect(desc.startswith("Pharos combines"), "EN 모드 메타 설명 영문화", desc[:60])
+        expect(not korean_left(en), "EN 홈: 한글 잔존 0건(텍스트·aria·title)·검색 결과 포함", str(korean_left(en)[:4]))
+        hero_en = en.inner_text(".hero")
+        expect("your own standards" in hero_en and "star ratings" in hero_en, "EN 히어로 문구", hero_en[:80])
+        tabs_en = en.eval_on_selector_all("#domainTabs button", "els => els.map(e => e.innerText.trim())")
+        expect(tabs_en == ["Home", "Apps", "Games", "AI Tools"], "EN 도메인 탭 = Home·Apps·Games·AI Tools", str(tabs_en))
+        badges_en = en.eval_on_selector_all(".pick-tile .verdict", "els => [...new Set(els.map(e => e.textContent.replace(/\\s+/g, ' ').trim()))]")
+        expect(any("Recommended" in b for b in badges_en) and any("Conditional" in b for b in badges_en)
+               and not any("Filtered" in b for b in badges_en),
+               "EN 판정 배지 = Recommended·Conditional", str(badges_en))
+        expect("67 entries" in en.inner_text("#datasetChip"), "EN 데이터 칩 영문화", en.inner_text("#datasetChip"))
+        lang_btn = en.eval_on_selector(
+            "#langToggle button",
+            "e => ({w: Math.round(e.getBoundingClientRect().width), h: Math.round(e.getBoundingClientRect().height)})",
+        )
+        expect(lang_btn["w"] >= 34 and lang_btn["h"] >= 30, "KO|EN 토글 터치 영역 34px 이상", str(lang_btn))
+        en.screenshot(path=str(shots / "preview-v3-en-home.png"), full_page=False)
+
+        # 브라우저 언어 자동 감지(locale en-US, lang 파라미터 없음)
+        auto = en_context.new_page()
+        auto.goto(f"{base}/", wait_until="networkidle")
+        wait(auto, 600)
+        expect(auto.evaluate("document.documentElement.lang") == "en", "lang 파라미터 없이 브라우저 언어로 EN 자동 선택",
+               auto.evaluate("document.documentElement.lang"))
+        expect("lang=en" in auto.url or auto.evaluate("new URLSearchParams(location.search).get('lang')") == "en",
+               "자동 선택된 언어가 URL 파라미터로 동기화", auto.url)
+        auto.evaluate("localStorage.setItem('pharos-lang', 'ko')")
+        auto.goto(f"{base}/?lang=en", wait_until="networkidle")
+        wait(auto, 500)
+        expect(auto.evaluate("document.documentElement.lang") == "en", "URL ?lang=en 이 localStorage 보다 우선", "")
+        auto.close()
+
+        # 비교군·목록
+        en.click('#domainTabs [data-domain="app"]')
+        wait(en, 500)
+        expect(not korean_left(en), "EN 앱 도메인: 한글 잔존 0건", str(korean_left(en)[:4]))
+        en.click('.genre-block[data-arena="pkm-notes"] .genre-more')
+        wait(en, 700)
+        expect(not korean_left(en), "EN 비교군: 한글 잔존 0건(카드·요약·필터 팔레트 포함)", str(korean_left(en)[:4]))
+        stats_en = en.evaluate(
+            """() => [...document.querySelectorAll('#arenaSummary .stat-label')].map(e => e.textContent.trim())"""
+        )
+        expect(stats_en == ["Recommended", "Conditional", "Filtered", "Average weighted score"],
+               "EN 비교군 요약 라벨", str(stats_en))
+        card_en = en.eval_on_selector('#grid .card[data-id="obsidian"]', "e => e.textContent")
+        expect("Recommended" in card_en and "Details →" in card_en and "weighted" in card_en,
+               "EN 카드 배지·가중 점수 캡션", card_en[:80])
+
+        # 상세 모달
+        en.click('#grid .card[data-id="obsidian"]')
+        wait(en, 700)
+        body_en = en.inner_text("#modalBody")
+        for label in ("Verdict", "Facts", "Opinion", "Verdict by tier", "Signals and evidence by axis",
+                      "Lifetime vs recent reviews", "Monetization and ads, in four parts", "Evidence and sources"):
+            expect(label in body_en, f"EN 상세 섹션 '{label}'", body_en[:60])
+        expect("Start free and the files stay yours" in body_en, "EN 상세 한 줄(대표 티어) 번역", "")
+        expect(not korean_left(en), "EN 상세: 한글 잔존 0건(사실·의견·티어·축·출처)", str(korean_left(en)[:4]))
+        en.screenshot(path=str(shots / "preview-v3-en-detail.png"), full_page=False)
+        en.keyboard.press("Escape")
+        wait(en, 300)
+
+        # 비교 표
+        en.check('#grid .card[data-id="obsidian"] input[data-compare]')
+        en.check('#grid .card[data-id="joplin"] input[data-compare]')
+        wait(en, 250)
+        en.click("#compareOpen")
+        wait(en, 700)
+        expect(en.is_visible("#compareTable"), "EN 비교 표 표시", "")
+        table_en = en.inner_text("#compareTable")
+        expect("Weighted score" in table_en and "Best" in table_en and "Basis" in table_en, "EN 비교 표 행·배지",
+               table_en[:80])
+        expect(not korean_left(en), "EN 비교 표: 한글 잔존 0건", str(korean_left(en)[:4]))
+        en.screenshot(path=str(shots / "preview-v3-en-compare.png"), full_page=True)
+        expect("lang=en" in en.url and "compare=" in en.url, "EN 비교 화면 URL 에 lang=en·compare 유지", en.url)
+
+        # 링크 복사 = lang=en 딥링크
+        en.click("[data-copy-link]")
+        wait(en, 400)
+        copied = en.evaluate("navigator.clipboard.readText()")
+        copied_q = en.evaluate("(url) => Object.fromEntries(new URLSearchParams(new URL(url).search))", copied)
+        expect(copied_q.get("lang") == "en" and copied_q.get("compare") == "obsidian,joplin",
+               "🔗 링크 복사에 ?lang=en·비교 딥링크 포함", copied)
+        expect("Link copied" in en.inner_text("#toast") or "copied" in en.inner_text("#toast"),
+               "EN 링크 복사 토스트 영문", en.inner_text("#toast"))
+
+        # 방법론 모달·드로어
+        en.click("#methodBtn")
+        wait(en, 500)
+        method_en = en.inner_text("#methodBody")
+        expect("The four levels" in method_en and "Evidence grades A/B/C" in method_en and "Glossary" in method_en,
+               "EN 방법론 모달 본문", method_en[:80])
+        expect(not korean_left(en), "EN 방법론 모달: 한글 잔존 0건", str(korean_left(en)[:4]))
+        en.keyboard.press("Escape")
+        wait(en, 200)
+        en.click("#tuneBtn")
+        wait(en, 500)
+        drawer_en = en.inner_text("#tuneDrawer")
+        expect("Weight presets" in drawer_en and "Hard filters" in drawer_en and "Balanced default" in drawer_en,
+               "EN 미세조정 드로어(프리셋·필터·가중치)", drawer_en[:80])
+        expect(not korean_left(en), "EN 드로어: 한글 잔존 0건", str(korean_left(en)[:4]))
+        en.keyboard.press("Escape")
+        wait(en, 200)
+
+        # 언어 전환: KO 로 갔다가 EN 으로 — html lang·title·URL·딥링크 동기화
+        en.click('#langToggle [data-lang="ko"]')
+        en.wait_for_load_state("networkidle")
+        wait(en, 600)
+        expect(en.evaluate("document.documentElement.lang") == "ko" and en.title().startswith("파로스"),
+               "KO 전환 시 <html lang=ko>·한국어 title", en.title()[:30])
+        ko_url = en.url
+        ko_q = en.evaluate("() => Object.fromEntries(new URLSearchParams(location.search))")
+        expect(ko_q.get("lang") == "ko" and ko_q.get("compare") == "obsidian,joplin",
+               "KO 전환 후 URL 에 lang=ko·딥링크 유지", ko_url)
+        expect("나란히 비교" in en.inner_text("#view"),
+               "KO 전환 후 화면 문구 복귀", en.inner_text("#view")[:60])
+        en.click('#langToggle [data-lang="en"]')
+        en.wait_for_load_state("networkidle")
+        wait(en, 600)
+        expect(en.evaluate("document.documentElement.lang") == "en" and en.title().startswith("Pharos"),
+               "EN 재전환 시 <html lang=en>·영어 title", en.title()[:40])
+        en_q = en.evaluate("() => Object.fromEntries(new URLSearchParams(location.search))")
+        expect(en_q.get("lang") == "en" and en_q.get("compare") == "obsidian,joplin",
+               "EN 재전환 후 URL·비교 딥링크 유지", en.url)
+        expect(not korean_left(en), "EN 재전환 화면 한글 잔존 0건", str(korean_left(en)[:4]))
+
+        # 390px 모바일 EN — 가로 넘침 0
+        en_mobile = en_context.new_page()
+        en_mobile.set_viewport_size({"width": 390, "height": 844})
+        en_mobile.goto(f"{base}/?lang=en&domain=app&arena=pkm-notes", wait_until="networkidle")
+        wait(en_mobile, 700)
+        expect(no_overflow(en_mobile) == 0 and not korean_left(en_mobile), "EN 390px 비교군: 넘침 0·한글 0",
+               f"overflow={no_overflow(en_mobile)} ko={korean_left(en_mobile)[:3]}")
+        en_mobile.screenshot(path=str(shots / "preview-v3-en-mobile.png"), full_page=False)
+        en_mobile.click('#grid .card[data-id="obsidian"]')
+        wait(en_mobile, 600)
+        expect(no_overflow(en_mobile) == 0 and not korean_left(en_mobile), "EN 390px 상세: 넘침 0·한글 0",
+               f"overflow={no_overflow(en_mobile)}")
+        en_mobile.keyboard.press("Escape")
+        wait(en_mobile, 200)
+        en_mobile.click("#tuneBtn")
+        wait(en_mobile, 450)
+        expect(no_overflow(en_mobile) == 0 and not korean_left(en_mobile), "EN 390px 드로어: 넘침 0·한글 0",
+               f"overflow={no_overflow(en_mobile)}")
+        en_mobile.keyboard.press("Escape")
+        wait(en_mobile, 200)
+        en_mobile.click("#methodBtn")
+        wait(en_mobile, 450)
+        expect(no_overflow(en_mobile) == 0 and not korean_left(en_mobile), "EN 390px 방법론: 넘침 0·한글 0",
+               f"overflow={no_overflow(en_mobile)}")
+        en_mobile.close()
+
+        # KO 모드 회귀 — lang=ko 링크는 그대로 한국어
+        ko_page = en_context.new_page()
+        ko_page.goto(f"{base}/?lang=ko", wait_until="networkidle")
+        wait(ko_page, 600)
+        expect(ko_page.evaluate("document.documentElement.lang") == "ko" and "별점 대신" in ko_page.inner_text(".hero"),
+               "?lang=ko 링크는 한국어 화면", ko_page.inner_text(".hero")[:40])
+        ko_page.close()
+        expect(not en_errors, "EN 모드 JS 예외 없음", "; ".join(en_errors))
+        en_context.close()
 
         if args.keep_open:
             page.wait_for_timeout(30000)

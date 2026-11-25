@@ -36,6 +36,8 @@ WEB_DIR = ROOT / "web"
 WEB_DATA_DIR = WEB_DIR / "data"
 WEB_SCHEMA_PATH = WEB_DIR / "schema" / "item.schema.json"
 WEB_JS_DIR = WEB_DIR / "js"
+EN_PATH = ROOT / "data" / "en.json"
+KOREAN = re.compile(r"[\uac00-\ud7a3]")
 
 AXES = [("user_rating", 0.50), ("objective", 0.25), ("ai_review", 0.25)]
 THRESHOLDS = {"green_min": 75, "yellow_min": 50}
@@ -289,7 +291,7 @@ def catalog_errors(catalog, data_dir):
     # 파일 목록에 남은 고아 데이터(카탈로그에 없는 json)
     declared = {(data_dir / f).resolve() for f in data_files if f}
     for path in sorted(data_dir.rglob("*.json")):
-        if path.name in {"catalog.json", "search-index.json"}:
+        if path.name in {"catalog.json", "search-index.json", "en.json"}:
             continue
         if path.resolve() not in declared:
             errs.append(f"카탈로그에 없는 데이터 파일: {path.relative_to(ROOT)}")
@@ -1035,6 +1037,153 @@ def icon_negative_tests(items_by_arena):
     return results
 
 
+# ---------------------------------------------------------------- 영어 번들(en.json)
+
+EN_REQUIRED_TIER = ("label", "one_liner", "notes")
+EN_SKIP_HANGUL = {"keywords", "aliases"}
+
+
+def _has_korean(text):
+    return isinstance(text, str) and bool(KOREAN.search(text))
+
+
+def _en_tier(en_item, item):
+    """오버레이는 티어를 tier_id 로 찾을 수 있게 배열로 둔다(원본 순서와 같다)."""
+    tiers = en_item.get("tiers") if isinstance(en_item, dict) else None
+    if not isinstance(tiers, list):
+        tiers = item.get("tiers")
+    return tiers
+
+
+def en_bundle_errors(catalog, items_by_arena, bundle):
+    """영문 번들이 100% 커버리지를 갖는지 — 3도메인·10대분류·14비교군·67종."""
+    errs = []
+    items = [item for _p, rows in items_by_arena.values() for item in rows]
+    item_ids = {item["id"] for item in items}
+    if not isinstance(bundle, dict):
+        return ["data/en.json 이 없거나 객체가 아님"]
+
+    for group, expected in (
+        ("domains", {d["id"]: d for d in catalog["domains"]}),
+        ("categories", {c["id"]: c for c in catalog["categories"]}),
+        ("arenas", {a["id"]: a for a in catalog["arenas"]}),
+        ("filter_packs", {k: v for k, v in (catalog.get("filter_packs") or {}).items()}),
+    ):
+        rows = bundle.get(group) or {}
+        missing = sorted(set(expected) - set(rows))
+        if missing:
+            errs.append(f"{group} 영문 누락: {', '.join(missing)}")
+        for key, row in rows.items():
+            if not row.get("label") or _has_korean(row.get("label")):
+                errs.append(f"{group}.{key}.label 영문 아님")
+            if group in ("domains", "categories", "arenas", "filter_packs") and expected.get(key, {}).get("description") and not row.get("description"):
+                errs.append(f"{group}.{key}.description 영문 누락")
+
+    bundle_items = bundle.get("items") or {}
+    missing_items = sorted(item_ids - set(bundle_items))
+    extra_items = sorted(set(bundle_items) - item_ids)
+    if missing_items:
+        errs.append(f"항목 영문 누락 {len(missing_items)}건: {', '.join(missing_items)}")
+    if extra_items:
+        errs.append(f"원본에 없는 항목 번역: {', '.join(extra_items)}")
+
+    for item in items:
+        iid = item["id"]
+        en = bundle_items.get(iid)
+        if not isinstance(en, dict):
+            continue
+        for field in ("one_liner", "tagline"):
+            if not en.get(field) or _has_korean(en.get(field)):
+                errs.append(f"{iid}.{field} 영문 누락")
+        verdict = en.get("verdict") or {}
+        if not verdict.get("one_liner") or _has_korean(verdict.get("one_liner")):
+            errs.append(f"{iid}.verdict.one_liner 영문 누락")
+        for list_key in ("reasons", "condition_notes"):
+            src_len = len((item.get("verdict") or {}).get(list_key) or [])
+            en_list = verdict.get(list_key)
+            if src_len and (not isinstance(en_list, list) or len(en_list) != src_len):
+                errs.append(f"{iid}.verdict.{list_key} 개수 불일치(원본 {src_len})")
+            for line in en_list or []:
+                if _has_korean(line):
+                    errs.append(f"{iid}.verdict.{list_key} 에 한글 잔존")
+        for arena_id in item.get("arenas") or []:
+            note = (en.get("arena_notes") or {}).get(arena_id)
+            if not note or _has_korean(note):
+                errs.append(f"{iid}.arena_notes.{arena_id} 영문 누락")
+        for axis_key in ("user_rating", "objective", "ai_review"):
+            summary = ((en.get("axes") or {}).get(axis_key) or {}).get("summary")
+            if not summary or _has_korean(summary):
+                errs.append(f"{iid}.axes.{axis_key}.summary 영문 누락")
+        en_tiers = {t.get("tier_id"): t for t in _en_tier(en, item) or [] if isinstance(t, dict)}
+        for tier in item.get("tiers") or []:
+            en_tier = en_tiers.get(tier["tier_id"])
+            if not en_tier:
+                errs.append(f"{iid}.tiers.{tier['tier_id']} 영문 누락")
+                continue
+            for field in EN_REQUIRED_TIER:
+                if field == "notes" and not tier.get("notes"):
+                    continue
+                if not en_tier.get(field) or _has_korean(en_tier.get(field)):
+                    errs.append(f"{iid}.tiers.{tier['tier_id']}.{field} 영문 누락")
+            price_display = ((en_tier.get("price") or {}).get("display"))
+            if not price_display or _has_korean(price_display):
+                errs.append(f"{iid}.tiers.{tier['tier_id']}.price.display 영문 누락")
+            src_limits = tier.get("limits") or []
+            en_limits = en_tier.get("limits")
+            if src_limits and (not isinstance(en_limits, list) or len(en_limits) != len(src_limits)):
+                errs.append(f"{iid}.tiers.{tier['tier_id']}.limits 개수 불일치")
+            for line in en_limits or []:
+                if _has_korean(line):
+                    errs.append(f"{iid}.tiers.{tier['tier_id']}.limits 에 한글 잔존")
+        review = en.get("review_snapshot") or {}
+        if (item.get("review_snapshot") or {}).get("summary") and not review.get("summary"):
+            errs.append(f"{iid}.review_snapshot.summary 영문 누락")
+        src_score_notes = item.get("score_notes") or {}
+        en_score_notes = en.get("score_notes") or {}
+        for key in src_score_notes:
+            if not en_score_notes.get(key) or _has_korean(en_score_notes.get(key)):
+                errs.append(f"{iid}.score_notes.{key} 영문 누락")
+        for path, label in (
+            (("data_quality", "limitations"), "data_quality.limitations"),
+            (("monetization", "summary"), "monetization.summary"),
+            (("update_profile", "assessment"), "update_profile.assessment"),
+        ):
+            src_value = (item.get(path[0]) or {}).get(path[1])
+            en_value = (en.get(path[0]) or {}).get(path[1])
+            if src_value and (not en_value or _has_korean(en_value)):
+                errs.append(f"{iid}.{label} 영문 누락")
+        src_sources = item.get("sources") or []
+        en_sources = en.get("sources")
+        if src_sources and (not isinstance(en_sources, list) or len(en_sources) != len(src_sources)):
+            errs.append(f"{iid}.sources 개수 불일치")
+        for row in en_sources or []:
+            if isinstance(row, dict) and _has_korean(row.get("title")):
+                errs.append(f"{iid}.sources 제목에 한글 잔존: {row.get('title')[:30]}")
+            if isinstance(row, dict) and _has_korean(row.get("note")):
+                errs.append(f"{iid}.sources 메모에 한글 잔존")
+
+    # 표시 문자열 전체에 한글이 남아 있지 않은지(검색 전용 keywords·aliases, 장르 사전 키는 제외)
+    def walk(node, path):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if path == [] and key == "genres":
+                    for en_value in value.values():
+                        if _has_korean(en_value):
+                            errs.append(f"genres 값에 한글 잔존: {en_value}")
+                    continue
+                if key in EN_SKIP_HANGUL:
+                    continue
+                walk(value, path + [key])
+        elif isinstance(node, list):
+            for i, value in enumerate(node):
+                walk(value, path + [i])
+        elif isinstance(node, str) and _has_korean(node):
+            errs.append(f"영문 번들에 한글 잔존: {'/'.join(str(p) for p in path[:3])} — {node[:40]}")
+
+    walk(bundle.get("items") or {}, ["items"])
+    return errs
+
+
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -1047,6 +1196,8 @@ def web_sync_errors(catalog, items_by_arena):
         ("카탈로그", CATALOG_PATH, WEB_DATA_DIR / "catalog.json"),
         ("검색 인덱스", INDEX_PATH, WEB_DATA_DIR / "search-index.json"),
     ]
+    if EN_PATH.exists():
+        pairs.append(("영문 번들", EN_PATH, WEB_DATA_DIR / "en.json"))
     for arena_id, (path, _items) in items_by_arena.items():
         pairs.append((f"비교군 {arena_id}", path, WEB_DATA_DIR / path.relative_to(DATA_DIR)))
     for label, src, dst in pairs:
@@ -1303,13 +1454,32 @@ def main():
     if not all(caught for _, caught, _ in icon_neg):
         return 1
 
+    # 9-2) 영문 번들 커버리지
+    print("\n[10] 영문 번들(en.json) 커버리지")
+    if not EN_PATH.exists():
+        print("  × data/en.json 없음")
+        return 1
+    bundle = load(EN_PATH)
+    en_errs = en_bundle_errors(catalog, items_by_arena, bundle)
+    for err in en_errs[:40]:
+        print(f"  × {err}")
+    if len(en_errs) > 40:
+        print(f"  × … 외 {len(en_errs) - 40}건")
+    if en_errs:
+        return 1
+    en_items = bundle.get("items") or {}
+    covered = sum(1 for item in all_items if item["id"] in en_items)
+    print(f"  - 항목 {covered}/{total}건 · 비교군 {len(bundle.get('arenas') or {})}/{len(arenas_meta)} · "
+          f"대분류 {len(bundle.get('categories') or {})}/{len(categories)} · 도메인 {len(bundle.get('domains') or {})}/{len(domains)}")
+    print("  - 표시 문자열에 한글 잔존 0건(검색 전용 별칭·키워드 제외) · 티어 라벨·가격 표기·사실 서술 포함")
+
     print("\n" + "=" * 78)
     print(f"결과: PASS — 아이템 {total}건 스키마 100% 충족 · 의미 규칙 위반 0 · "
           f"계층 {len(domains)}/{len(categories)}/{len(arenas_meta)} 정상 · 판정 재계산 일치 · "
           f"인덱스 최신 · 음성 테스트 {sum(1 for _, c in neg + neg_cat if c)}/{len(neg) + len(neg_cat)} 차단 · "
           f"완결작 면제 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과 · "
           f"강도 3단계 {sum(1 for _, ok, _ in impact_rules if ok)}/{len(impact_rules)} 통과 · "
-          f"아이콘 {with_icon}/{len(all_items)}건 · web/ 사본 일치")
+          f"아이콘 {with_icon}/{len(all_items)}건 · 영문 {covered}/{total}건 · web/ 사본 일치")
     print("=" * 78)
     return 0
 
