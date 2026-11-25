@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """라이브(https://aira1346.github.io/pharos/) v0.5.0 평가 배분·표본 규모 검증 + 스크린샷.
 
+※ 2026-11-25 당시(57건·비교군 12·아이콘 57종) 기록용 스크립트다. 이후 데이터가 늘어
+   집계 단언만 '이상'으로 완화했다. 현재 화면 전체 검사는 live_check_v8.py 를 쓴다.
+
 검사
   0) 콘솔 에러·페이지 예외·HTTP 4xx 0건
   1) 집계 57/3/10/12 · 기본 배분 50/25/25 · 프리셋 5종
@@ -64,7 +67,10 @@ def main():
         ok(not failed, "HTTP 4xx/5xx 0건", failed[:3])
 
         counts = page.evaluate("window.Pharos.state.core.index.counts")
-        ok(counts == {"items": 57, "domains": 3, "categories": 10, "arenas": 12}, "집계 57/3/10/12", counts)
+        # 2026-11-25 v0.5.0 시점 기록(57건·비교군 12). 데이터가 늘었으므로 '지금 라이브'의 집계를 그대로 확인하고,
+        # 항목별 점수 검사는 그때의 값 그대로 둔다. 현재 화면 전체 검사는 live_check_v8.py 가 맡는다.
+        ok(counts["items"] >= 57 and counts["arenas"] >= 12 and counts["domains"] == 3,
+           f"집계 {counts['items']}/{counts['domains']}/{counts['categories']}/{counts['arenas']}", counts)
         weights = page.evaluate("window.Pharos.state.core.index.weights")
         ok(weights == {"user_rating": 0.5, "objective": 0.25, "ai_review": 0.25}, "기본 배분 50/25/25", weights)
 
