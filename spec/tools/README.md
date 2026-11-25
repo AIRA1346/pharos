@@ -158,7 +158,17 @@ python3 projects/pharos/scripts/smoke_v12.py --live --shots-dir projects/pharos/
 `auto_fact` 상세의 1차 판정 안내(검증 완료 항목에는 없음), EN 모드 한글 0건·`Auto-collected` 배지,
 390px 가로 넘침 0, 콘솔 오류·HTTP 4xx 0건, 스크린샷(`live-v12-bulk100-home.png`·`live-v12-bulk100-arena.png`).
 
-## 5-1. verify_ui.py — 실제 화면 검증
+## 5-1. check_en_leaks.py — 영문 오버레이 누출 검사
+
+`data/en.json` 은 부분 번역(오버레이)이라 덮지 않은 필드가 영문 화면에 한글로 남기 쉽다.
+`web/js/data.js` 와 같은 규칙으로 병합한 뒤 **화면에 나가는 문자열**에 한글이 남은 경로를 모아 보여준다(별칭·키워드 제외).
+
+```bash
+python3 projects/pharos/scripts/check_en_leaks.py          # auto_fact 항목
+python3 projects/pharos/scripts/check_en_leaks.py --all    # 전체
+```
+
+## 5-2. verify_ui.py — 실제 화면 검증
 
 ```bash
 LD_LIBRARY_PATH=/workspace/.cache/chromedeps/root/usr/lib/x86_64-linux-gnu \

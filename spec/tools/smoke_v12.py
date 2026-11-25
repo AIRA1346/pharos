@@ -195,6 +195,17 @@ def main() -> int:
         expect(not korean_left(en), "EN 개발자 도구 비교군 한글 잔존 0건", str(korean_left(en)[:4]))
         expect("Auto-collected" in en.inner_text("#grid"), "EN 자동 수집 배지 = Auto-collected",
                en.inner_text("#grid")[:100].replace("\n", " | "))
+        en.goto(f"{base}?lang=en&arena=messaging-team", wait_until="networkidle")
+        en.wait_for_timeout(500)
+        en.click('#grid .card[data-id="discord"]')
+        en.wait_for_timeout(700)
+        en_modal = en.inner_text("#modalBody")
+        en_modal_kr = [line for line in en_modal.split("\n") if KOREAN.search(line)]
+        expect(not en_modal_kr, "EN auto_fact 상세 모달 한글 잔존 0건", str(en_modal_kr[:3]))
+        expect("still being reviewed" in en_modal, "EN 상세에 1차 판정 안내",
+               en_modal[:120].replace("\n", " | "))
+        en.keyboard.press("Escape")
+        en.wait_for_timeout(200)
         for arena_id in ("arpg-hack-slash", "messaging-team", "video-editing"):
             en.goto(f"{base}?lang=en&arena={arena_id}", wait_until="networkidle")
             en.wait_for_timeout(600)

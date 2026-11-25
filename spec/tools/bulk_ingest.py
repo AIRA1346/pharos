@@ -589,6 +589,7 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
         "rating_lines_ko": [],
         "rating_lines_en": [],
         "review_rows": [],
+        "review_rows_en": [],
         "tiers": [],
         "warnings": list(raw.get("warnings") or []),
         "store_ads": None,
@@ -661,6 +662,15 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
                                 "evidence_grade": "A"}) if recent_row else {}),
                 "note": f"Steam 상점 평가 요약(영어 리뷰 전체 {fmt(lang_row['count'])}건).",
             })
+            f["review_rows_en"].append({
+                "platform": "steam",
+                "cumulative": {"metric": "positive_rate", "value": lang_row["percent"], "scale": "percent",
+                               "count": lang_row["count"], "window": "All (English reviews)", "evidence_grade": "A"},
+                **(dict(recent={"metric": "positive_rate", "value": recent_row["percent"],
+                                "scale": "percent", "count": recent_row["count"], "window": "Last 30 days",
+                                "evidence_grade": "A"}) if recent_row else {}),
+                "note": f"Steam store review summary ({fmt(lang_row['count'])} English reviews).",
+            })
             f["rating_lines_ko"].append(
                 f"Steam 누적 {lang_row['percent']}% 긍정({fmt(lang_row['count'])}건)"
                 + (f" · 최근 30일 {recent_row['percent']}%({fmt(recent_row['count'])}건)" if recent_row else ""))
@@ -674,6 +684,13 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
                 "cumulative": {"metric": "positive_rate", "value": spy["percent"], "scale": "percent",
                                "count": spy["total"], "window": "전체(SteamSpy 집계)", "evidence_grade": "C"},
                 "note": f"SteamSpy 전체 누적 {fmt(spy['positive'])}긍정/{fmt(spy['negative'])}부정 · 보유자 {spy.get('owners')}.",
+            })
+            f["review_rows_en"].append({
+                "platform": "steam",
+                "cumulative": {"metric": "positive_rate", "value": spy["percent"], "scale": "percent",
+                               "count": spy["total"], "window": "All (SteamSpy aggregate)", "evidence_grade": "C"},
+                "note": f"SteamSpy lifetime totals: {fmt(spy['positive'])} positive / {fmt(spy['negative'])} negative, "
+                        f"owners {spy.get('owners')}.",
             })
             f["rating_lines_ko"].append(f"Steam 전체 누적 {spy['percent']}% 긍정(SteamSpy {fmt(spy['total'])}건)")
             f["rating_lines_en"].append(f"{spy['percent']}% positive overall (SteamSpy, {fmt(spy['total'])} reviews)")
@@ -716,6 +733,12 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
                 "cumulative": {"metric": "stars", "value": round(stars, 2), "scale": "stars5", "count": count,
                                "window": f"전체({country.upper()} 스토어)", "evidence_grade": "A"},
                 "note": f"{country.upper()} {stars:.2f}★ · {fmt(count)}건 표본(한국·미국 중 큰 쪽).",
+            })
+            f["review_rows_en"].append({
+                "platform": "ios",
+                "cumulative": {"metric": "stars", "value": round(stars, 2), "scale": "stars5", "count": count,
+                               "window": f"All ({country.upper()} store)", "evidence_grade": "A"},
+                "note": f"{country.upper()} {stars:.2f}★ · {fmt(count)} ratings (the larger of the KR and US stores).",
             })
             f["rating_lines_ko"].append(f"App Store {stars:.2f}★({fmt(count)}건)")
             f["rating_lines_en"].append(f"{stars:.2f}★ on the App Store ({fmt(count)} ratings)")
@@ -761,6 +784,13 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
                                "count": play_en.get("count") or 0, "window": "전체(Play 표시 평가 수)",
                                "evidence_grade": "A"},
                 "note": f"Google Play {play_en['rating']:.2f}★ · {fmt(play_en.get('count'))}건.",
+            })
+            f["review_rows_en"].append({
+                "platform": "android",
+                "cumulative": {"metric": "stars", "value": play_en["rating"], "scale": "stars5",
+                               "count": play_en.get("count") or 0, "window": "All (Play Store rating count)",
+                               "evidence_grade": "A"},
+                "note": f"Google Play {play_en['rating']:.2f}★ · {fmt(play_en.get('count'))} ratings.",
             })
             f["rating_lines_ko"].append(f"Google Play {play_en['rating']:.2f}★({fmt(play_en.get('count'))}건)")
             f["rating_lines_en"].append(f"{play_en['rating']:.2f}★ on Google Play ({fmt(play_en.get('count'))} ratings)")
@@ -1211,23 +1241,45 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
             "price": {"display": t["price_display_en"]},
             "one_liner": t["one_liner_en"],
             "limits": t["limits_en"],
+            "hard_filters": {filter_key: {"note": _flag_note_en(filter_key, flags[flag_key])}
+                             for filter_key, flag_key in vlib.FILTER_TO_FLAG.items()},
         } for t in f["tiers"]],
         "flags": {key: {"note": _flag_note_en(key, node)} for key, node in flags.items()},
         "sources": [{"id": s["id"], "title": s["title_en"], "note": s["note_en"]} for s in f["sources"]],
-        "review_snapshot": {"summary": (
+        "review_snapshot": {"platforms": f["review_rows_en"] or [{
+            "platform": "other",
+            "cumulative": {"metric": "stars", "value": 0, "scale": "stars5", "count": 0,
+                           "window": "No sample", "evidence_grade": "unknown"},
+            "note": "No rating sample from public APIs.",
+        }], "summary": (
             f"Auto-collected sample: {rating_en}. Sample rule (100 ratings) "
             f"{'met' if (f['sample_count'] or 0) >= 100 else 'not met'} — recent-window reading not reviewed yet."
             if f["review_rows"] else
             "No rating sample from public APIs, so the user axis is excluded from the verdict.")},
-        "update_profile": {"assessment": (
+        "update_profile": {"entries": ([{
+            "date": f["last_update"], "type": "other", "platform": f.get("last_update_platform") or "other",
+            "promise_status": "not_applicable", "evidence_grade": "A",
+            "source_ids": ([f"steam-news-{entry['id']}"] if steam else
+                           [src["id"] for src in f["sources"] if src["id"].endswith(entry["id"])][:1]),
+            "note": f"{f.get('update_kind_en') or 'latest update'} '{clean(f.get('update_title'), 90)}'.",
+        }] if f["last_update"] else []),
+            "assessment": (
             f"Last update {f['last_update']} ({f['days_since_update']} days ago). Auto-collection only checks the "
             f"date; links to pricing or terms changes are not reviewed." if f["last_update"] else
             "No recent update record found — feature-complete or abandoned status not reviewed yet.")},
-        "monetization": {"summary": (
+        "monetization": {"ads": {"inflow_ad": {"note": _flag_note_en("bait_ad", flags["bait_ad"])}},
+                         "subscription": {"display": (
+                             "No subscription product (one-time purchase)"
+                             if flags["subscription_required"]["value"] == "no"
+                             else "Subscription not reviewed yet")},
+                         "free_play": {"note": "How far the free tier goes is not reviewed yet."},
+                         "summary": (
             f"{('Free' if price_ko == '무료' else f['tiers'][0]['price_display_en'])}. "
             + (f"{len(steam['dlc_ids'])} DLCs sold separately. " if steam and steam["dlc_ids"] else "")
             + "Gacha, subscription and in-app purchase structure not reviewed yet.")},
-        "data_quality": {"limitations": (
+        "data_quality": {"unverified": ["Gacha and monetization traps", "Subscription or account requirements",
+                                        "Data collection and export scope", "Core quality (AI review)"],
+                         "limitations": (
             f"Auto-collected (auto_fact) — a first-pass record built from public APIs on {TODAY}. Terms, monetization "
             f"and copy are replaced in the sequential deep review. The one-liner is condensed from the store listing.")},
         "score_notes": {
@@ -1284,7 +1336,7 @@ def _flag_note_en(key: str, node: dict) -> str:
                 else "A release or announcement within the last 12 months.")
     if key == "data_export":
         return "Export and migration paths not checked."
-    return FLAG_NOTE_EN
+    return FLAG_NOTE_UNKNOWN_EN
 
 
 def finalize(item: dict, en: dict | None = None) -> dict:
