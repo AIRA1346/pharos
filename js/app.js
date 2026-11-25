@@ -599,7 +599,11 @@ function renderHome() {
     <section class="home-block genre-showcase" id="genreShowcase">
       <div class="section-head">
         <h2>장르별 추천</h2>
-        <span class="section-hint">장르를 누르면 전체 비교군 · 항목을 누르면 상세가 바로 열립니다</span>
+        <span class="section-hint">${
+          state.preset === 'balanced'
+            ? '장르를 누르면 전체 비교군 · 항목을 누르면 상세가 바로 열립니다'
+            : '타일 점수·판정은 균형 기본 기준 · 장르를 열면 내 기준으로 다시 계산합니다'
+        }</span>
       </div>
       <div class="genre-list">${arenas.map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
     </section>
