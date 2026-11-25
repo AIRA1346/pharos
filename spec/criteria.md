@@ -209,19 +209,22 @@ rows:
 
 - 장르·분류를 수백 개 미리 정의하지 않는다. **사용자가 실제로 대체제를 고르는 단위**로 묶고, 하나의 아이템은 여러 비교군에 속할 수 있다(`arenas: string[]`).
 - 비교군 정의는 `data/catalog.json` 의 `arenas`(id·domain·category·label·description·data_file)에 두고, 아이템은 id만 참조한다. 비교군별 핵심 비교 포인트는 `arena_notes`(id → 한 줄)에 남긴다. 키는 반드시 `arenas`에 포함된 id여야 한다. 한 아이템의 비교군들은 같은 도메인·대분류에 속해야 하며, 아이템의 `domain`·`category` 도 그 값과 같아야 한다(validate.py 가 검사).
-- v0.3 파일럿 비교군은 3개다.
+- 2026-11-25 게임 도메인 확장으로 비교군은 4개다(액션·인디 대분류와 액션 로그라이크 추가, 모바일 수집형 RPG 3종 보강).
 
 ```table
-title: v0.3 비교군
+title: 현재 비교군 (2026-11-25)
 headers: ["id", "라벨", "구성", "무엇으로 갈리는가"]
 rows:
   - ["pkm-notes", "노트·지식관리", "Obsidian·Evernote·Notion·Joplin·Simplenote", "파일 소유권 · 계정 · 동기화 · 내보내기"]
   - ["roguelike-deckbuilder", "덱빌딩 게임", "Balatro·Slay the Spire·Inscryption·Night of the Full Moon", "1회 구매 완결형 vs 부분유료·광고형"]
-  - ["mobile-gacha-rpg", "모바일 수집형 RPG", "Hero Wars", "확률형 뽑기 · P2W · 미끼형 광고"]
+  - ["mobile-gacha-rpg", "모바일 수집형 RPG", "Hero Wars·Limbus Company·Genshin Impact", "확률형 뽑기 · P2W · 미끼형 광고 / 광고·PvP 없이도 확률형이면 거름"]
+  - ["action-roguelike", "액션 로그라이크", "Hades·Vampire Survivors·Dead Cells·Archero", "1회 구매 완결형 · DLC 분기 · 부분유료·광고형 대조"]
 ```
 
 - 비교군 선택은 카테고리·검색과 **AND**로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 묶음 기준으로 즉시 다시 계산한다.
-- 판정 산식(8절)은 비교군 안에서도 그대로다. 비교군은 **"무엇을 같은 표에 놓는가"만 바꾸고, 점수와 필터는 바꾸지 않는다.**
+- 판정 산식(8절)은 비교군 안에서도 그대로다. 비교군은 "무엇을 같은 표에 놓는가"만 바꾸고, 점수와 필터는 바꾸지 않는다.
+- 액션 로그라이크 비교군은 완결작(Hades), 1회 구매 + DLC 분기(Dead Cells), PC/모바일 티어가 갈리는 작품(Vampire Survivors), 부분유료·확률형 대조군(Archero)이 한 표에 놓이는 자리다. 티어별 조건은 `axis_overrides` 로 분리해 기록한다.
+- 모바일 수집형 RPG 비교군은 미끼형 광고·P2W가 확인되는 Hero Wars, 광고·PvP 없이 확률형 추출만 있는 Limbus Company, 품질은 최상급이지만 확률형 뽑기가 수익 구조인 Genshin Impact 를 나란히 둔다. 세 항목 모두 확률형 아이템 필터에서 거름이 되지만 거름의 이유와 축 점수는 다르다. 대체제 섹션은 티어가 여러 개인 항목을 만나면 추천 판정인 티어를 기준으로 평가해 같은 비교군 안에서만 연결한다.
 - 덱빌딩 비교군은 v0.3.1에서 **1회 구매 완결작(Inscryption·Balatro·Slay the Spire)과 부분유료·광고형(Night of the Full Moon)** 이 한 표에 나란히 놓이는 자리다. 완결작 면제 덕분에 Inscryption이 '업데이트 공백'이 아니라 '과금 없음·완결'로 비교된다.
 
 ## 10. 남은 빈틈 (다음 개정 후보)

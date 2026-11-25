@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 10,
+    "items": 16,
     "domains": 2,
-    "categories": 3,
-    "arenas": 3
+    "categories": 4,
+    "arenas": 4
   },
-  "content_hash": "ed61c7b40565ba39213a9a6b3795f94f452bb3945468c7f822ac78e4e47cabe1",
+  "content_hash": "18f2e4f01e9ef3fb2f9c37854924c9868eb25ec28eeca7b9a3eb86c0a7a32abc",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -65,20 +65,45 @@
       "label": "모바일 수집형 RPG",
       "domain": "game",
       "category": "rpg",
-      "count": 1,
-      "avg_score": 34.6,
+      "count": 3,
+      "avg_score": 62.0,
       "verdicts": {
         "recommend": 0,
+        "conditional": 0,
+        "avoid": 3
+      },
+      "top_item": {
+        "id": "limbus-company",
+        "name": "Limbus Company",
+        "score": 78.7
+      },
+      "items": [
+        "genshin-impact",
+        "hero-wars-alliance",
+        "limbus-company"
+      ]
+    },
+    "action-roguelike": {
+      "label": "액션 로그라이크",
+      "domain": "game",
+      "category": "action-indie",
+      "count": 4,
+      "avg_score": 77.9,
+      "verdicts": {
+        "recommend": 3,
         "conditional": 0,
         "avoid": 1
       },
       "top_item": {
-        "id": "hero-wars-alliance",
-        "name": "Hero Wars: Alliance",
-        "score": 34.6
+        "id": "vampire-survivors",
+        "name": "Vampire Survivors",
+        "score": 89.8
       },
       "items": [
-        "hero-wars-alliance"
+        "archero",
+        "dead-cells",
+        "hades",
+        "vampire-survivors"
       ]
     }
   },
@@ -87,10 +112,75 @@
     "min_store_stars": 4.0,
     "items": [
       "hero-wars-alliance",
+      "archero",
       "notion"
     ]
   },
   "items": [
+    {
+      "id": "archero",
+      "name": "Archero (궁수의 전설)",
+      "aliases": [
+        "궁수의 전설",
+        "Archero"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "Habby",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "one_liner": "방마다 몰려오는 적을 자동 사격으로 뚫는 모바일 로그라이크 — 성장은 장비·영웅 수집과 확률형 상품에 기대는 부분유료 구조.",
+      "taste_tags": [
+        "gacha",
+        "ads",
+        "grind",
+        "server-progression"
+      ],
+      "keywords": [
+        "궁수의 전설",
+        "아르케로",
+        "Archero",
+        "Habby"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 53.85,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "B",
+      "user_rating": 74,
+      "store_stars": {
+        "value": 4.2,
+        "count": 1740000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        },
+        {
+          "label": "P2W 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": {
+        "stars": 4.2,
+        "platform": "android",
+        "count": 1740000,
+        "stars_score": 84.0,
+        "score": 53.85,
+        "delta": 30.1,
+        "verdict": "avoid"
+      }
+    },
     {
       "id": "balatro",
       "name": "Balatro",
@@ -127,6 +217,65 @@
       "user_rating": 96,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "dead-cells",
+      "name": "Dead Cells",
+      "aliases": [
+        "데드 셀",
+        "데드셀"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "Motion Twin",
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios",
+        "console"
+      ],
+      "one_liner": "죽으면 처음으로 돌아가지만 해금과 성장은 남는 2D 로그배니아 — 본편 + 유료 DLC 4종, 모바일은 별도 에디션.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-account",
+        "single-player",
+        "dlc-heavy",
+        "high-difficulty"
+      ],
+      "keywords": [
+        "데드셀",
+        "데드 셀",
+        "Dead Cells",
+        "Motion Twin",
+        "로그배니아"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 85.4,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 96,
+      "store_stars": {
+        "value": 4.8,
+        "count": 137000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -182,6 +331,111 @@
         },
         {
           "label": "AI 검토 🟡 52",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "genshin-impact",
+      "name": "Genshin Impact (원신)",
+      "aliases": [
+        "원신",
+        "Genshin"
+      ],
+      "domain": "game",
+      "category": "rpg",
+      "arenas": [
+        "mobile-gacha-rpg"
+      ],
+      "developer": "HoYoverse (COGNOSPHERE)",
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "console"
+      ],
+      "one_liner": "일곱 신의 대륙을 탐험하는 오픈월드 액션 RPG — 캐릭터·무기 획득이 확률형 뽑기이고, 그 뽑기가 수익의 중심이다.",
+      "taste_tags": [
+        "gacha",
+        "open-world",
+        "cross-platform",
+        "no-ads",
+        "live-service"
+      ],
+      "keywords": [
+        "원신",
+        "Genshin",
+        "겐신",
+        "호요버스",
+        "HoYoverse"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 72.7,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "B",
+      "user_rating": 78,
+      "store_stars": {
+        "value": 3.9,
+        "count": 5250000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "hades",
+      "name": "Hades",
+      "aliases": [
+        "하데스"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "Supergiant Games",
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "console"
+      ],
+      "one_liner": "지하 세계를 탈출하는 로그라이크 던전 크롤러 — 죽고 다시 도는 과정 자체가 서사인 1회 구매 완결작.",
+      "taste_tags": [
+        "one-time-purchase",
+        "feature-complete",
+        "no-account",
+        "single-player",
+        "narrative"
+      ],
+      "keywords": [
+        "하데스",
+        "Hades 1",
+        "자그레우스",
+        "Supergiant"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 82.7,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 98,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 60",
           "tone": "warn"
         }
       ],
@@ -338,6 +592,62 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "limbus-company",
+      "name": "Limbus Company",
+      "aliases": [
+        "림버스 컴퍼니",
+        "림버스"
+      ],
+      "domain": "game",
+      "category": "rpg",
+      "arenas": [
+        "mobile-gacha-rpg"
+      ],
+      "developer": "Project Moon",
+      "platforms": [
+        "android",
+        "ios",
+        "steam",
+        "windows"
+      ],
+      "one_liner": "12명의 수감자를 이끌고 폐쇄된 지부를 파고드는 턴제 수집형 RPG — 캐릭터 추출은 확률형이지만 광고·PvP는 없다.",
+      "taste_tags": [
+        "gacha",
+        "story-rich",
+        "no-ads",
+        "single-player",
+        "full-voice"
+      ],
+      "keywords": [
+        "림버스",
+        "림버스 컴퍼니",
+        "Limbus",
+        "프로젝트문",
+        "Project Moon"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 78.7,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.5,
+        "count": 80800,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
       "gap": null
     },
     {
@@ -613,6 +923,57 @@
       "store_stars": {
         "value": 4.1,
         "count": 30300,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "vampire-survivors",
+      "name": "Vampire Survivors",
+      "aliases": [
+        "뱀파이어 서바이버즈",
+        "뱀서"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "poncle",
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "android",
+        "ios"
+      ],
+      "one_liner": "정해진 시간 동안 몰려오는 몬스터를 버티며 성장 조합을 만드는 생존형 로그라이트 — PC는 1회 구매, 모바일은 무료+광고·인앱 결제.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-account",
+        "single-player",
+        "co-op",
+        "cheap"
+      ],
+      "keywords": [
+        "뱀파이어 서바이버즈",
+        "뱀서",
+        "Vampire Survivors",
+        "poncle"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 89.8,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 96,
+      "store_stars": {
+        "value": 3.7,
+        "count": 81900,
         "platform": "android",
         "evidence_grade": "A"
       },

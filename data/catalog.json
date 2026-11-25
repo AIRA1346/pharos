@@ -44,6 +44,12 @@
       "domain": "game",
       "label": "RPG · 수집",
       "description": "캐릭터를 모으고 키우는 게임 — 수집 구조가 곧 과금 구조다."
+    },
+    {
+      "id": "action-indie",
+      "domain": "game",
+      "label": "액션 · 인디",
+      "description": "직접 조작하는 액션과 인디 감성 — 손맛과 과금 구조가 판정을 가른다."
     }
   ],
   "arenas": [
@@ -70,6 +76,14 @@
       "label": "모바일 수집형 RPG",
       "description": "캐릭터 수집·확률형 뽑기·서버 경쟁이 수익 구조인 모바일 RPG — 파로스가 가장 먼저 걷어내는 비교군.",
       "data_file": "game/mobile-gacha-rpg.json"
+    },
+    {
+      "id": "action-roguelike",
+      "domain": "game",
+      "category": "action-indie",
+      "label": "액션 로그라이크",
+      "description": "한 판씩 죽고 다시 도는 실시간 액션 로그라이크 — 1회 구매 완결형과 부분유료·광고형이 같은 자리에 있다.",
+      "data_file": "game/action-roguelike.json"
     }
   ],
   "filter_packs": {
@@ -108,7 +122,7 @@
     "note": "통합 검색과 홈 리포트는 이 경량 인덱스만 읽는다. 상세·목록은 선택한 비교군의 data_file 을 지연 로딩한다."
   },
   "home": {
-    "featured_arenas": ["pkm-notes", "roguelike-deckbuilder", "mobile-gacha-rpg"],
+    "featured_arenas": ["pkm-notes", "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg"],
     "gap_report": {
       "title": "별점은 높은데 거름 판정",
       "min_store_stars": 4.0,

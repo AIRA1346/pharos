@@ -456,15 +456,27 @@ export function freshness(item, contract, now = new Date()) {
 
 /**
  * 같은 비교군 안의 대체제 — 거름·조건부 항목 상세 하단에 붙인다.
- * 다른 비교군·도메인으로는 건너뛰지 않고, 추천 판정인 항목만 점수 순으로 돌려준다.
+ * 다른 비교군·도메인으로는 건너뛰지 않고, 추천 판정인 티어가 하나라도 있는 항목만 돌려준다.
+ * 티어가 여러 개면(예: PC 1회 구매 + 모바일 무료) 추천 판정인 티어 중 점수가 가장 높은 것을 쓴다 —
+ * 최소 비용 경로(recommended_path)가 조건부인 경우에도 그 항목을 대체제로 보여주기 위해서다.
  */
 export function alternatives(item, pool, settings) {
   const arenas = new Set(item?.arenas || []);
   return (pool || [])
     .filter((other) => other.id !== item.id && (other.arenas || []).some((id) => arenas.has(id)))
     .map((other) => {
-      const tier = recommendedTier(other) || (other.tiers || [])[0];
-      return { item: other, tier, evaluation: evaluateTier(other, tier, settings) };
+      const evaluated = (other.tiers || []).map((tier) => ({ tier, evaluation: evaluateTier(other, tier, settings) }));
+      const recommended = evaluated
+        .filter((row) => row.evaluation.verdict === 'recommend')
+        .sort((a, b) => (b.evaluation.score ?? -1) - (a.evaluation.score ?? -1))[0];
+      if (recommended) return { item: other, tier: recommended.tier, evaluation: recommended.evaluation };
+      const fallbackTier = recommendedTier(other) || (other.tiers || [])[0];
+      const fallbackRow = evaluated.find((row) => row.tier === fallbackTier);
+      return {
+        item: other,
+        tier: fallbackTier,
+        evaluation: fallbackRow ? fallbackRow.evaluation : evaluateTier(other, fallbackTier, settings),
+      };
     })
     .filter((row) => row.evaluation.verdict === 'recommend')
     .sort((a, b) => (b.evaluation.score ?? -1) - (a.evaluation.score ?? -1));

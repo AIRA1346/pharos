@@ -83,5 +83,5 @@
   - 도메인 → 대분류 → 비교군 계층 전환, 데이터 분할 로딩(`data/{domain}/{arena}.json` + `search-index.json`)
   - 1:1 비교 뷰, 대체제 연결, URL 딥링크, 북마크(`localStorage`), 방법론 페이지, 평가 제보(GitHub Issue) 연결, 온보딩 경량화
   - 스키마 v0.4.0·검증(validate.py 전체 PASS, verify_ui.py 176항목) 통과 후 `AIRA1346/pharos` GitHub Pages 재배포
-- **3단계 · 앱 비교군 본격 추가**: 정비된 구조 위에 새 앱 비교군(할 일·일정 관리, 비밀번호 관리, 파일/PDF 도구 등) 데이터 투입 및 라이브 반영.
+- **3단계 · 앱 비교군 본격 추가** *(진행 중)*: 정비된 구조 위에 새 비교군을 데이터로 투입한다. 2026-11-25 게임 도메인 확장 먼저 반영 — `액션 · 인디` 대분류와 `액션 로그라이크`(Hades·Vampire Survivors·Dead Cells·Archero) 4종, `모바일 수집형 RPG`(Hero Wars·Limbus Company·Genshin Impact) 3종. 전체 16건·비교군 4개로 라이브 배포. 다음은 앱 비교군(할 일·일정 관리, 비밀번호 관리, 파일/PDF 도구 등)이다.
 - **4단계 · 데이터 신선도 자동화 & 신규 도메인 확장**: 재검증 주기 체크 스크립트·PR 자동 검증 CI 구축 후, 콘텐츠(애니·책)·AI 툴 도메인으로 확장.
