@@ -21,6 +21,7 @@
 import copy
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -182,7 +183,7 @@ def catalog_errors(catalog, data_dir):
         for key in ("id", "label", "description", "filter_pack"):
             if not dom.get(key):
                 errs.append(f"domain {dom.get('id', '?')}: 필수 키 누락 {key}")
-        if dom.get("id") and not __import__("re").match(ID_PATTERN, dom["id"]):
+        if dom.get("id") and not re.match(ID_PATTERN, dom["id"]):
             errs.append(f"domain id 규칙 위반: {dom['id']!r}")
     planned = [d.get("id") for d in catalog.get("planned_domains") or []]
     if set(planned) & set(domain_ids):
@@ -209,7 +210,7 @@ def catalog_errors(catalog, data_dir):
                 errs.append(f"category {cat.get('id', '?')}: 필수 키 누락 {key}")
         if cat.get("domain") and cat["domain"] not in domain_ids:
             errs.append(f"category {cat.get('id')}: 정의되지 않은 도메인 {cat['domain']!r}")
-        if cat.get("id") and not __import__("re").match(ID_PATTERN, cat["id"]):
+        if cat.get("id") and not re.match(ID_PATTERN, cat["id"]):
             errs.append(f"category id 규칙 위반: {cat['id']!r}")
     for dom in domains:
         if not any(c.get("domain") == dom.get("id") for c in categories):
@@ -223,7 +224,7 @@ def catalog_errors(catalog, data_dir):
         for key in ("id", "domain", "category", "label", "description", "data_file"):
             if not arena.get(key):
                 errs.append(f"arena {arena.get('id', '?')}: 필수 키 누락 {key}")
-        if arena.get("id") and not __import__("re").match(ID_PATTERN, arena["id"]):
+        if arena.get("id") and not re.match(ID_PATTERN, arena["id"]):
             errs.append(f"arena id 규칙 위반: {arena['id']!r}")
         if arena.get("domain") and arena["domain"] not in domain_ids:
             errs.append(f"arena {arena.get('id')}: 정의되지 않은 도메인 {arena['domain']!r}")

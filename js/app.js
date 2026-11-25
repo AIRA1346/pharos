@@ -1181,11 +1181,6 @@ async function renderCompare(seq) {
   </section>`;
 }
 
-function verdictPill(verdict) {
-  const meta = engine.VERDICT_META[verdict];
-  return `<span class="verdict verdict--${meta.tone}">${meta.emoji} ${meta.label}</span>`;
-}
-
 function storeStarsText(item) {
   const rows = (item.review_snapshot?.platforms || [])
     .map((row) => ({ row, metric: row.cumulative }))
@@ -1220,14 +1215,21 @@ async function openDetail(id) {
   if (!rec) return;
   const arena = state.cat.arena(rec.arenas[0]);
   if (!arena) return;
-  const patch = { view: 'browse', domain: arena.domain, category: arena.category, arena: arena.id, item: id };
+  const patch = {
+    view: state.route.view === 'compare' ? 'compare' : 'browse',
+    domain: arena.domain,
+    category: arena.category,
+    arena: arena.id,
+    item: id,
+  };
   if (state.route.domain === arena.domain && state.route.arena === arena.id) {
     state.route = { ...state.route, item: id };
     syncUrl('replace');
     await showDetail(id);
     return;
   }
-  state.route = { ...state.route, ...patch, compare: [] };
+  const keepCompare = state.route.arena === arena.id ? state.route.compare : [];
+  state.route = { ...state.route, ...patch, compare: keepCompare };
   await render();
 }
 
