@@ -572,8 +572,8 @@ function renderHome() {
     <div class="hero hero--compact">
       <div class="hero-lead">
         <p class="eyebrow">PHAROS · 파로스</p>
-        <h1>별점 대신, <span class="hl">내 기준</span>으로 거르는 앱·게임 선별</h1>
-        <p class="lede">강제 광고·확률형 뽑기·계정 필수 같은 <strong>절대 거름 조건</strong>을 먼저 적용하고, 같은 자리의 대체제끼리만 비교합니다.</p>
+        <h1>별점 대신, <span class="hl">내 기준</span>으로 거르는 앱·게임·AI 도구 선별</h1>
+        <p class="lede">강제 광고·확률형 뽑기·불투명 크레딧·계정 필수 같은 <strong>절대 거름 조건</strong>을 먼저 적용하고, 같은 자리의 대체제끼리만 비교합니다.</p>
       </div>
       <form class="home-search" id="homeSearchForm" role="search" autocomplete="off">
         <span class="search-ico" aria-hidden="true">⌕</span>
@@ -1220,7 +1220,7 @@ async function renderCompare(seq) {
         return chips.length ? chips.join('') : '<span class="muted">없음</span>';
       },
     ],
-    ['스토어 누적 별점', (v) => storeStarsText(v.item)],
+    ['누적 별점·평점', (v) => storeStarsText(v.item)],
     ['최근 리뷰', (v) => recentReviewText(v.item)],
     ['수명 단계', (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status)],
     ['평가 신선도', (v) => {
@@ -1266,6 +1266,17 @@ async function renderCompare(seq) {
       </table>
     </div>
   </section>`;
+}
+
+const STORE_PLATFORMS = ['android', 'ios', 'steam'];
+
+/** 누적 별점 행의 이름 — 실제 스토어 표본이면 '스토어 누적 별점', G2 같은 3자 집계면 '누적 평점(3자 집계)'. */
+function storeStarsLabel(item) {
+  const top = (item.review_snapshot?.platforms || [])
+    .filter((row) => row.cumulative && row.cumulative.scale === 'stars5')
+    .sort((a, b) => (b.cumulative.count || 0) - (a.cumulative.count || 0))[0];
+  if (!top) return '누적 별점·평점';
+  return STORE_PLATFORMS.includes(top.platform) ? '스토어 누적 별점' : '누적 평점(3자 집계)';
 }
 
 function storeStarsText(item) {
@@ -1427,7 +1438,7 @@ function sectionVerdict(view, verdictMeta) {
       )}</span>
     </div>
     ${view.fresh.stale
-      ? `<div class="callout callout--warn"><b>재검토 필요</b> 평가일 ${esc(view.fresh.assessedAt)} 이후 ${view.fresh.elapsed}일이 지났습니다(기준 ${view.fresh.limit}일). 앱·게임은 업데이트 한 번으로 과금·광고 정책이 바뀌므로 최신 사실로 읽지 마세요.</div>`
+      ? `<div class="callout callout--warn"><b>재검토 필요</b> 평가일 ${esc(view.fresh.assessedAt)} 이후 ${view.fresh.elapsed}일이 지났습니다(기준 ${view.fresh.limit}일). 앱·게임·AI 도구는 업데이트 한 번으로 과금·광고 정책이 바뀌므로 최신 사실로 읽지 마세요.</div>`
       : ''}
     <div class="verdict-hero verdict-hero--${verdictMeta.tone}">
       <div class="hero-score">
@@ -1560,6 +1571,7 @@ function sectionFacts(view) {
   const iap = item.monetization?.iap || {};
   const tier = view.recordTier;
   const stars = storeStarsText(item);
+  const starsLabel = storeStarsLabel(item);
   const rows = [
     ['개발사 · 플랫폼', `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
       .map((p) => esc(engine.PLATFORM_LABEL[p] || p))
@@ -1576,7 +1588,7 @@ function sectionFacts(view) {
         ? ` · ${esc(engine.PLATFORM_LABEL[item.update_profile.latest_update_platform] || item.update_profile.latest_update_platform)}`
         : ''
     }`],
-    ['스토어 누적 별점', stars],
+    [starsLabel, stars],
     ['평가일', esc(item.assessed_at)],
   ];
   return `
@@ -2004,6 +2016,15 @@ function sectionEvidence(view) {
 
 /* ------------------------------------------------------------ 미세조정 드로어 */
 
+/**
+ * 도메인별 필터 표시 이름(v0.4.2) — catalog.json 의 domains[].filter_labels 가 있으면 그 이름을 쓴다.
+ * 같은 9개 필터를 AI 도구에서는 '불투명 크레딧·한도 함정 제외'처럼 도메인 문법으로 부른다(스키마·엔진은 그대로).
+ */
+function domainFilterLabel(def) {
+  const dom = state.route.domain ? state.cat.domain(state.route.domain) : null;
+  return (dom?.filter_labels || {})[def.key] || def.label;
+}
+
 function buildTuneBody() {
   const axes = scoringAxes();
   const dom = state.route.domain ? state.cat.domain(state.route.domain) : null;
@@ -2065,7 +2086,7 @@ function buildTuneBody() {
                   <input type="checkbox" data-filter="${esc(def.key)}" ${
                     state.enabledFilters.includes(def.key) ? 'checked' : ''
                   } />
-                  <span class="filter-text"><span class="filter-name">${esc(def.label)}</span><span class="filter-meta">${
+                  <span class="filter-text"><span class="filter-name">${esc(domainFilterLabel(def))}</span><span class="filter-meta">${
                     defaults.has(def.key) ? '기본 · ' : ''
                   }${esc(def.key)}</span></span>
                 </label>`,
@@ -2245,7 +2266,7 @@ function buildMethodBody() {
   $('methodBody').innerHTML = `
     <section class="m-sec">
       <div class="m-sec-head"><span class="sec-num">A</span><h3>4단 구조 — 무엇을 같은 표에 놓는가</h3></div>
-      <p class="m-sec-note">도메인(앱·게임) → 대분류 → 비교군 → 항목·티어. <b>점수 평균·순위·요약은 오직 같은 비교군 안에서만</b> 계산합니다. 노트 앱과 카드 게임을 한 줄에 섞어 평균 내지 않습니다.</p>
+      <p class="m-sec-note">도메인(앱·게임·AI 도구) → 대분류 → 비교군 → 항목·티어. <b>점수 평균·순위·요약은 오직 같은 비교군 안에서만</b> 계산합니다. 노트 앱과 카드 게임을 한 줄에 섞어 평균 내지 않습니다.</p>
       <div class="table-wrap"><table class="data">
         <thead><tr><th>단계</th><th>역할</th><th>이 데이터</th></tr></thead>
         <tbody>

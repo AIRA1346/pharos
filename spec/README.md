@@ -1,13 +1,21 @@
-# 파로스 Pharos — 정적 웹 v2 (4단 탐색 · 스키마 v0.4.0)
+# 파로스 Pharos — 정적 웹 v3.1 (4단 탐색 · 장르 추천 중심 · 분야 확장 · 스키마 v0.4.0)
 
 빌드 도구 없이 **순수 HTML/CSS/ES Module** 만으로 동작하는 파로스 프론트엔드입니다.
 서버는 파일만 배포하고, 점수·신호·판정은 전부 브라우저에서 `schema/item.schema.json` 의
 `x-pharos.client` 계약대로 실시간 재계산합니다.
 
-v2 는 `plan.md` v2.0 의 2단계(사이트 구조 개편·배포) 결과물입니다.
+v2 는 `plan.md` v2.0 의 2단계(사이트 구조 개편·배포) 결과물이고, v3 는 그 위의 **정보 계층 개편**, v3.1 은 **분야 확장**(앱 할 일·비밀번호, AI 도구)입니다.
 **도메인 → 대분류 → 비교군 → 항목** 4단 탐색, 비교군별 분할 데이터 지연 로딩,
-홈 요약 뷰(비교군 바로가기·별점-판정 갭 리포트·통합 검색), 1:1 비교 표,
-미세조정 드로어, 사실/의견 분리, 대체제 연결, URL 딥링크, 북마크, 방법론 모달을 담았습니다.
+1:1 비교 표, 미세조정 드로어, 사실/의견 분리, 대체제 연결, URL 딥링크, 북마크, 방법론 모달을 담았습니다.
+
+v3 의 원칙 — **"처음엔 장르와 그 장르의 추천, 들어가면 자세한 내용"**:
+
+1. **홈·도메인(앱/게임/AI 도구)** — 장르(비교군) 이름과 함께 그 장르의 추천 항목 3~4개가
+   공식 아이콘(44px) · 이름 · 판정 배지(🟢 추천 / 🟡 조건부) · 가중 점수 타일로 바로 보입니다.
+   타일을 누르면 상세 모달, 장르 헤더나 `전체 N종 비교 →` 를 누르면 비교군 화면으로 갑니다.
+2. **비교군 목록 카드** — 아이콘 · 이름 · 개발사/장르 · 판정 · 가중 점수, 한 줄 요약, 핵심 태그 최대 2개
+   (`선택 과금 · 무과금 가능`, `핵심 과금 · 성장 벽`, `완결작` 등)만 남겼습니다.
+3. **상세 모달** — 3축 점수·축별 근거·티어별 가격/필터 통과 목록·사실(Fact)/의견(Opinion)은 여기에만 둡니다.
 
 ## 실행
 
@@ -26,17 +34,19 @@ python3 -m http.server 8000
 
 | 단계 | 화면 | 데이터 |
 | :--- | :--- | :--- |
-| 홈 | 서비스 요약 · 비교군 바로가기 · '별점은 높은데 거름 판정' 리포트 · 통합 검색 · 보관함 | `catalog.json` + `search-index.json` (경량) |
-| 1 도메인 | 홈 / 앱 / 게임 전환 | `catalog.domains` |
-| 2 대분류 | 생산성·지식관리, 전략·카드, RPG·수집, 액션·인디, RPG·MMORPG, 모바일 전략·디펜스 | `catalog.categories` |
-| 3 비교군 | 노트·지식관리, 덱빌딩 게임, 모바일 수집형 RPG, 액션 로그라이크, PC MMORPG, 모바일 전략·디펜스 | `catalog.arenas[].data_file` |
-| 4 항목·티어 | 카드 목록 · 1:1 비교 · 상세 모달 | `data/{domain}/{arena}.json` (그 비교군만 지연 로딩) |
+| 홈 | 컴팩트 히어로 + 검색 · **장르별 추천 타일** · '별점은 높은데 거름 판정' 리포트 · 보관함 | `catalog.json` + `search-index.json` (경량) |
+| 1 도메인 | 홈 / 앱 / 게임 / AI 도구 전환 — 도메인 화면도 **장르별 추천 타일**로 시작 | `catalog.domains` |
+| 2 대분류 | 생산성·지식관리, 보안·유틸리티, 전략·카드, RPG·수집, 액션·인디, RPG·MMORPG, 모바일 전략·디펜스, 개발·코딩 (칩으로 이동) | `catalog.categories` |
+| 3 비교군 | 노트·지식관리, 할 일·일정 관리, 비밀번호 관리, 덱빌딩 게임, 모바일 수집형 RPG, 액션 로그라이크, PC MMORPG, 모바일 전략·디펜스, AI 코딩 에디터·에이전트 — 핵심만 남긴 카드 목록 | `catalog.arenas[].data_file` |
+| 4 항목·티어 | 1:1 비교 · 상세 모달(3축·티어·필터·Fact/Opinion) | `data/{domain}/{arena}.json` (그 비교군만 지연 로딩) |
 
 - 홈은 비교군 파일을 **내려받지 않습니다.** 통합 검색·홈 리포트는 경량 인덱스만 읽고,
   비교군을 열 때 해당 `data_file` 하나만 `fetch` 해 캐시합니다.
 - 점수 평균·순위·요약은 **오직 같은 비교군 안에서만** 계산합니다. 도메인이나 분야가 다른 항목의 평균을 섞지 않습니다.
-- 홈의 수치(비교군 평균·1위 점수)는 **균형 기본 가중치 기준**으로 인덱스에 미리 계산되어 있습니다.
-  내 가중치로 바꾸면 비교군·비교·상세 화면이 그 기준으로 즉시 다시 계산됩니다.
+- 홈·도메인의 장르 추천 타일(판정·점수)은 `search-index.json` 의 **균형 기본 가중치·기본 필터** 값입니다.
+  내 가중치로 바꾸면 비교군·비교·상세 화면이 그 기준으로 즉시 다시 계산됩니다(타일은 기본 기준을 보여 주고, 상세에서 내 기준 판정을 봅니다).
+- 타일 한 줄 소개는 `search-index.json` 의 `tagline`(대표 티어의 한 줄)을 씁니다. 타일 이름은 좁은 폭에서
+  영어 원어 괄호를 떼고 보여 주며, 전체 이름은 title·상세에 남습니다.
 
 ## 파일
 
@@ -50,21 +60,25 @@ web/
   data/catalog.json     도메인·대분류·비교군 정의 + 필터 팩 + 홈 리포트 규칙
   data/search-index.json 경량 인덱스 (자동 생성 — 통합 검색·홈 리포트)
   data/app/pkm-notes.json              노트·지식관리 5건
+  data/app/task-managers.json          할 일·일정 관리 5건
+  data/app/password-managers.json      비밀번호 관리 4건
   data/game/roguelike-deckbuilder.json 덱빌딩 게임 4건
   data/game/mobile-gacha-rpg.json      모바일 수집형 RPG 6건
   data/game/action-roguelike.json      액션 로그라이크 4건
   data/game/pc-mmorpg.json             PC MMORPG 4건
   data/game/mobile-strategy-defense.json 모바일 전략·디펜스 6건
-  assets/icons/        29종 공식 아이콘 192×192 webp + manifest.json(출처·확보 방법)
+  data/ai/ai-coding-tools.json         AI 코딩 에디터·에이전트 4건
+  assets/icons/        42종 공식 아이콘 192×192 webp + manifest.json(출처·확보 방법)
   schema/item.schema.json  배포용 스키마 사본 (v0.4.0)
   tests/verify_ui.py    Playwright 검증 스크립트
-  preview-v2-home.png        홈 요약 뷰 (1440px)
-  preview-v2-arena.png       비교군 목록 (덱빌딩 게임)
-  preview-v2-compare.png     1:1 비교 표 (Balatro vs Slay the Spire)
-  preview-v2-mobile.png      모바일 비교군 화면 (390px)
-  preview-v2-method.png      방법론 모달
-  preview-v2-mobile-tune.png 모바일 미세조정 드로어
-  preview-v2-mobile-detail.png 모바일 상세 모달
+  preview-v3-home.png        홈 — 장르별 추천 타일 (1440px)
+  preview-v3-game.png        게임 도메인 — 장르별 추천 타일
+  preview-v3-arena.png       비교군 목록 — 핵심만 남긴 카드 (덱빌딩 게임)
+  preview-v3-compare.png     1:1 비교 표 (Balatro vs Slay the Spire)
+  preview-v3-mobile.png      모바일 비교군 화면 (390px)
+  preview-v3-method.png      방법론 모달
+  preview-v3-mobile-tune.png 모바일 미세조정 드로어
+  preview-v3-mobile-detail.png 모바일 상세 모달
 ```
 
 원본은 `../data`·`../schema` 이고 `web/data`·`web/schema` 는 배포용 사본입니다(아래 동기화 참고).
@@ -102,7 +116,9 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
   (예: Hero Wars 4.6★ vs 34.6점 — 스토어 별점과 걸린 필터 공개), 통합 검색(이름·별칭·키워드·비교군 라벨),
   보관함(localStorage).
 - **첫 화면 경량화**: 기본 `균형 기본` 프리셋. 가중치 슬라이더·하드 필터·엄격 모드는 `내 기준 미세조정` 드로어 안.
-  선택한 도메인의 필터 팩(게임 팩 / 앱 팩)을 먼저 펼칩니다.
+  선택한 도메인의 필터 팩(게임 팩 / 앱 팩 / AI 도구 팩)을 먼저 펼칩니다. AI 도구 팩은 같은 9개 필터를
+  도메인 문법으로 다시 부르며(`catalog.domains[].filter_labels` — 예: `iap_required_to_progress` → 「불투명 크레딧·한도 함정 제외」),
+  스키마·엔진은 그대로 둡니다.
 - **1:1 비교**: 같은 비교군 2~3개를 체크 → 점수·축·걸린 필터·스토어 별점·최근 리뷰·수명 단계·신선도를 한 표에.
 - **선택 과금 배지(v0.4.0 · v0.4.1)**: 확률형·P2W 상품이 있어도 무과금으로 본편을 즐길 수 있으면(`impact: optional`)
   카드·상세에 「선택 과금 · 무과금 가능」 배지를 붙이고 거르지 않습니다. optional 인지는 **본질 경험 기준**
@@ -113,7 +129,7 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
   거름·조건부 항목의 **같은 비교군 상위 추천 대체제**, **공유용 요약 복사**, **정정 제보**(GitHub Issue
   `correction.yml`), 보관함 담기.
 - **방법론 모달**: 4단 구조·4축·A/B/C 등급·판정 규칙·독립성(어필리에이트·유료 광고 배제) 선언·용어 도움말.
-- **공식 아이콘(v2.1)**: 29종 모두 `assets/icons/{id}.webp`(192×192) 공식 아이콘을 가집니다 — 카드 46px,
+- **공식 아이콘(v2.1)**: 42종 모두 `assets/icons/{id}.webp`(192×192) 공식 아이콘을 가집니다 — 카드 46px,
   상세 모달 54px, 1:1 비교표 32px, 홈 검색·갭 리포트·보관함 26px. 파일은 `scripts/fetch_icons.py` 가
   App Store 아트워크 → 공식 사이트 아이콘/파비콘 → 공식 브랜드 마크 순으로 내려받아 정규화하며,
   출처는 `assets/icons/manifest.json` 에 남깁니다. 파일이 없거나 로드에 실패하면 img 가 숨고
@@ -173,11 +189,12 @@ python3 projects/pharos/web/tests/verify_ui.py
 
 - 스크립트가 `web/` 폴더를 임시 HTTP 서버 루트로 띄우고(포트 자동 할당) 종료 시 정리합니다.
   따라서 **web/ 폴더 단독 배포** 조건 그대로 검증됩니다(모든 요청이 배포 루트 안에서 해결되는지 확인).
-- 331개 항목 통과: 로드·콘솔/네트워크 에러 0, 홈에서 비교군 파일 미로딩(지연 로딩), 홈 리포트(Hero Wars 4.6★/34.6),
+- 473개 항목 통과: 로드·콘솔/네트워크 에러 0, 홈에서 비교군 파일 미로딩(지연 로딩), 홈 리포트(Hero Wars 4.6★/34.6 · MS To Do 4.6★/60.45),
   통합 검색(한글 별칭·비교군 라벨), 4단 탐색과 비교군별 요약 재계산, 필터 팩 우선 노출, 프리셋·슬라이더 재계산,
   비교 2~3개 표(4개째 차단), 상세 Fact/Opinion·대체제·공유 복사·정정 링크, URL 딥링크 5종, 북마크 지속,
   방법론 모달, 모바일 레이아웃·드로어, 엔진 단위 테스트(가중 평균·6단 규칙·면제·신선도·대체제·impact 3단계), 선택 과금 배지·`strict_monetization` 토글·상세 강도 블록,
-  본질 경험 기준 재평가(니케 81.2 🟢 · 160벽 카드 표기 유지 · strict ON 시 거름).
+  본질 경험 기준 재평가(니케 81.2 🟢 · 160벽 카드 표기 유지 · strict ON 시 거름),
+  분야 확장(할 일 5건·비밀번호 4건·AI 코딩 4건, AI 도구 탭·장르 블록·필터 표시 이름, 구독 필수 필터로 1Password·Dashlane 거름, 신규 아이콘 42종).
 - `--shots-dir` 로 스크린샷 저장 위치를 바꿀 수 있습니다(기본: `web/`).
 - 데이터 쪽은 `python3 projects/pharos/schema/validate.py` 로 별도 검증합니다
   (스키마·카탈로그 계층·의미 규칙·판정 재계산·인덱스 신선도·음성 테스트·완결작 면제·impact 3단계·웹 사본 일치).

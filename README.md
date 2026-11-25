@@ -1,11 +1,13 @@
-# 파로스 Pharos — 별점 대신, 내 기준으로 거르는 앱·게임 선별
+# 파로스 Pharos — 별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별
 
-사용자 평가·객관 신뢰 지표·AI 검토를 **내 가중치로 합치고**, 강제 광고·확률형 아이템 같은
-**절대 거름 조건**을 적용해 앱과 게임을 선별하는 정적 웹 앱입니다.
+사용자 평가·객관 신뢰 지표·AI 검토를 **내 가중치로 합치고**, 강제 광고·확률형 아이템·불투명 크레딧 같은
+**절대 거름 조건**을 적용해 앱·게임·AI 도구를 선별하는 정적 웹 앱입니다.
 빌드 도구 없이 HTML/CSS/ES Module만으로 동작하며, 점수·신호·판정 계산은 전부 브라우저에서
 `schema/item.schema.json`의 `x-pharos.client` 계약대로 실시간으로 이뤄집니다. 서버는 파일만 전달합니다.
 
 **라이브:** https://aira1346.github.io/pharos/
+
+**분야 확장 v0.4.2 (2026-11-25):** 도메인 3 · 대분류 8 · 비교군 9 · **전체 42건**. 앱에 `할 일 · 일정 관리`(Todoist 83.0 🟢 · TickTick 80.8 🟢 · Things 3 87.3 🟢 · Tasks.org 88.0 🟢 · Microsoft To Do 60.45 🔴)와 새 대분류 `보안 · 유틸리티` 아래 `비밀번호 관리`(Bitwarden 91.7 🟢 · KeePassXC 84.67 🟢 · 1Password 82.4 🟢 · Dashlane 74.45 🟡)를 더했고, 새 도메인 **AI 도구**(`ai`)의 `AI 코딩 에디터 · 에이전트`(Cline 85.75 🟢 · GitHub Copilot 83.8 🟢 · Windsurf/Devin Desktop 74.7 🟡 · Cursor 71.3 🟡)를 넣었습니다. Microsoft To Do 는 4.6★·무료·광고 없음인데도 2027-06-30 앱 종료·개인 계정 이관 불가(2026-11-18 공지)로 **거름**, Cursor 는 2026-10 X 구독으로 Claude·GPT를 **첫 요청부터 API 정가**로 청구해 **조건부**가 됐습니다. AI 도구 팩은 같은 9개 필터를 도메인 문법으로 다시 부르고(`filter_labels` — 「불투명 크레딧·한도 함정 제외」 등) 스키마·엔진은 그대로 둡니다. '별점은 높은데 거름' 리포트의 별점은 실제 스토어(android·ios·steam) 표본만 씁니다.
 
 **기준표 v0.4.0 (2026-11-25):** 확률형·P2W 상품의 **강제성을 3단계**(`impact`: none·optional·core)로 나눴습니다. 상품이 있어도
 무과금으로 본편을 충분히 즐길 수 있으면(`optional`) 「선택 과금 · 무과금 가능」 배지로만 알리고 거르지 않으며, 상품 존재 자체로
@@ -20,7 +22,7 @@ Bloons TD 6 →**81.3 🟢**, Limbus Company →**78.7 🟡** 로 재적용하�
 
 **모바일 게임 3차 확장 (2026-11-25):** 전체 **29건**. `모바일 수집형 RPG` 에 승리의 여신: 니케(**81.2 🟢**)·블루 아카이브(75.5 🟡)·붕괴: 스타레일(70.1 🔴), `모바일 전략·디펜스` 에 Clash of Clans(78.5 🟡)·Arknights(80.2 🟢)를 더했습니다. 같은 확률형이라도 마일리지 교환·확정 천장 이월·90연 천장으로 강도가 갈리고, 무료+시간 게이트(CoC)와 타워디펜스+확률형 수집(Arknights)이 한 표에 놓입니다.
 
-**공식 아이콘 (2026-11-25):** 29종 모두 카드·상세·비교 표에 공식 아이콘을 붙였습니다. App Store 아트워크 → 공식 사이트
+**공식 아이콘 (2026-11-25):** 42종 모두 카드·상세·비교 표에 공식 아이콘을 붙였습니다. App Store 아트워크 → 공식 사이트
 아이콘 → 공식 브랜드 마크 순으로 내려받아 192×192 webp 로 저장하고(`assets/icons/`), 출처는 `assets/icons/manifest.json` 에
 남깁니다. 아이콘은 각 권리자의 상표·아트워크이며 **식별 목적**으로만 씁니다.
 
@@ -37,9 +39,9 @@ Bloons TD 6 →**81.3 🟢**, Limbus Company →**78.7 🟡** 로 재적용하�
 
 | 단계 | 예 |
 | :--- | :--- |
-| 1 도메인 | 앱 · 게임 (추후 콘텐츠·AI 툴·제품) |
-| 2 대분류 | 생산성·지식관리 / 전략·카드 / RPG·수집 / 액션·인디 / RPG·MMORPG / 모바일 전략·디펜스 |
-| 3 비교군 | 노트·지식관리 · 덱빌딩 게임 · 모바일 수집형 RPG · 액션 로그라이크 · PC MMORPG · 모바일 전략·디펜스 |
+| 1 도메인 | 앱 · 게임 · AI 도구 (추후 콘텐츠·제품) |
+| 2 대분류 | 생산성·지식관리 / 보안·유틸리티 / 전략·카드 / RPG·수집 / 액션·인디 / RPG·MMORPG / 모바일 전략·디펜스 / 개발·코딩 |
+| 3 비교군 | 노트·지식관리 · 할 일·일정 관리 · 비밀번호 관리 · 덱빌딩 게임 · 모바일 수집형 RPG · 액션 로그라이크 · PC MMORPG · 모바일 전략·디펜스 · AI 코딩 에디터·에이전트 |
 | 4 항목·티어 | Obsidian(무료/Sync), Balatro(1회 구매) |
 
 - **데이터 분리**: `data/catalog.json`(도메인·대분류·비교군 정의) + 비교군별 파일 `data/{domain}/{arena}.json`
@@ -47,7 +49,7 @@ Bloons TD 6 →**81.3 🟢**, Limbus Company →**78.7 🟡** 로 재적용하�
 - **홈 요약 뷰**: 비교군 바로가기, `별점은 높은데 거름 판정` 리포트(예: Hero Wars 4.6★ vs 34.6점),
   통합 검색(이름·별칭·키워드), 보관함(localStorage).
 - **첫 화면 경량화**: 기본 `균형 기본` 프리셋. 가중치·하드 필터·엄격 모드는 `내 기준 미세조정` 드로어 안으로,
-  선택한 도메인의 필터 팩(게임 팩 / 앱 팩)을 먼저 노출.
+  선택한 도메인의 필터 팩(게임 팩 / 앱 팩 / AI 도구 팩)을 먼저 노출. AI 도구 팩은 같은 9개 필터에 도메인 문법 이름을 붙입니다(`catalog.domains[].filter_labels`).
 - **1:1 비교**: 같은 비교군 2~3개를 체크해 점수·축·필터·별점·수명 단계·신선도를 한 표에.
 - **상세 강화**: `assessed_at` 180일 초과 시 `재검토 필요`, **사실(Fact)과 의견(Opinion) 분리**,
   거름·조건부 항목의 **같은 비교군 상위 대체제**, **공유 요약 복사**, **정정 제보**(GitHub Issue 양식).
@@ -74,11 +76,15 @@ js/app.js                  상태·라우팅(URL 딥링크)·렌더링·이벤�
 data/catalog.json          도메인·대분류·비교군 정의 + 도메인 필터 팩 + 홈 리포트 규칙
 data/search-index.json     경량 인덱스 (분할 데이터에서 자동 생성)
 data/app/pkm-notes.json    노트·지식관리 5건
+data/app/task-managers.json        할 일·일정 관리 5건
+data/app/password-managers.json    비밀번호 관리 4건
 data/game/roguelike-deckbuilder.json  덱빌딩 4건
 data/game/mobile-gacha-rpg.json       모바일 수집형 RPG 6건
 data/game/action-roguelike.json       액션 로그라이크 4건
 data/game/pc-mmorpg.json              PC MMORPG 4건
 data/game/mobile-strategy-defense.json 모바일 전략·디펜스 6건
+data/ai/ai-coding-tools.json       AI 코딩 에디터·에이전트 4건
+assets/icons/              42종 공식 아이콘 192×192 webp + manifest.json(출처)
 schema/item.schema.json    스키마 v0.4.0 + 클라이언트 계산 계약(x-pharos.client)
 .github/ISSUE_TEMPLATE/correction.yml  정정·이의제기 양식
 spec/                      설계 문서 (vision · criteria · plan · pilot-test)와 검증 도구

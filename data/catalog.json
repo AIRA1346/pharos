@@ -1,7 +1,7 @@
 {
   "schema_version": "0.4.0",
   "title": "Pharos 데이터 카탈로그",
-  "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. 스키마의 x-pharos.client.arenas 에 있던 비교군 정의를 이 파일로 옮겼다(plan v2.0 4절).",
+  "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다.",
   "path_base": "이 파일이 있는 폴더(data/) 기준 상대경로",
   "domains": [
     {
@@ -19,12 +19,37 @@
       "icon": "◆",
       "filter_pack": "game",
       "default_preset": "balanced"
+    },
+    {
+      "id": "ai",
+      "label": "AI 도구",
+      "description": "AI로 일하는 도구 — 크레딧·모델 선택·에디터 종속이 판정을 가른다. 요금표 밖 '첫 요청부터 과금'을 먼저 본다.",
+      "icon": "✦",
+      "filter_pack": "ai",
+      "default_preset": "balanced",
+      "filter_labels": {
+        "forced_ads": "강제 광고 제외",
+        "iap_required_to_progress": "불투명 크레딧·한도 함정 제외",
+        "subscription_required": "구독 강제 제외",
+        "account_required": "계정·클라우드 강제 제외",
+        "stale_over_12m": "12개월 이상 방치 제외",
+        "data_collection": "과도한 데이터 수집 제외"
+      }
     }
   ],
   "planned_domains": [
-    { "id": "content", "label": "콘텐츠", "filter_pack": "content", "note": "애니·책·영상 — 완결·전개, 광고 삽입, 지역 제한 필터 팩이 필요하다." },
-    { "id": "ai_tool", "label": "AI 툴", "filter_pack": "ai_tool", "note": "종량제·환각·데이터 학습 정책 필터 팩이 필요하다." },
-    { "id": "product", "label": "제품", "filter_pack": "product", "note": "실물 제품 — A/S·부품 수급·리퍼 정책 필터 팩이 필요하다." }
+    {
+      "id": "content",
+      "label": "콘텐츠",
+      "filter_pack": "content",
+      "note": "애니·책·영상 — 완결·전개, 광고 삽입, 지역 제한 필터 팩이 필요하다."
+    },
+    {
+      "id": "product",
+      "label": "제품",
+      "filter_pack": "product",
+      "note": "실물 제품 — A/S·부품 수급·리퍼 정책 필터 팩이 필요하다."
+    }
   ],
   "categories": [
     {
@@ -32,6 +57,12 @@
       "domain": "app",
       "label": "생산성 · 지식관리",
       "description": "내 노트·지식·할 일을 어디에 두고 어떻게 꺼내 쓰는가."
+    },
+    {
+      "id": "security-utilities",
+      "domain": "app",
+      "label": "보안 · 유틸리티",
+      "description": "비밀번호·인증·백업처럼 '맡기는' 도구 — 무료 한도·내보내기·사고 이력이 판정을 가른다."
     },
     {
       "id": "strategy-card",
@@ -62,6 +93,12 @@
       "domain": "game",
       "label": "모바일 전략 · 디펜스",
       "description": "한 손으로 한 판을 푸는 모바일 전략·타워디펜스 — 유료 1회 구매와 무료+광고·과금 구조가 갈린다."
+    },
+    {
+      "id": "ai-coding",
+      "domain": "ai",
+      "label": "개발 · 코딩",
+      "description": "코드를 쓰고 고치는 AI — 요금제 투명성·모델 선택 자유·에디터 종속이 판정을 가른다."
     }
   ],
   "arenas": [
@@ -72,6 +109,22 @@
       "label": "노트·지식관리",
       "description": "내 노트와 지식을 어디에 두고 어떻게 꺼내 쓰는가 — 파일 소유권·계정·동기화·내보내기에서 갈린다.",
       "data_file": "app/pkm-notes.json"
+    },
+    {
+      "id": "task-managers",
+      "domain": "app",
+      "category": "productivity",
+      "label": "할 일 · 일정 관리",
+      "description": "할 일과 일정을 어디에 두고 굴리는가 — 무료 티어 한도·구독 락인·내보내기·광고/계정 필수에서 갈린다.",
+      "data_file": "app/task-managers.json"
+    },
+    {
+      "id": "password-managers",
+      "domain": "app",
+      "category": "security-utilities",
+      "label": "비밀번호 관리",
+      "description": "비밀번호를 어디에 맡기는가 — 무료 동기화 한도·로컬/오픈소스 여부·내보내기 표준·보안 사고 이력에서 갈린다.",
+      "data_file": "app/password-managers.json"
     },
     {
       "id": "roguelike-deckbuilder",
@@ -112,6 +165,14 @@
       "label": "모바일 전략·디펜스",
       "description": "모바일 타워디펜스·전략 — 1회 구매 무광고형부터 광고·확률형 과금형까지 같은 장르 안에서 비교한다.",
       "data_file": "game/mobile-strategy-defense.json"
+    },
+    {
+      "id": "ai-coding-tools",
+      "domain": "ai",
+      "category": "ai-coding",
+      "label": "AI 코딩 에디터 · 에이전트",
+      "description": "코드를 쓰고 고치는 AI 도구 — 요금제 투명성(크레딧·한도 함정), 모델 선택 자유도/BYOK, 오픈소스 여부, 에디터 종속성에서 갈린다.",
+      "data_file": "ai/ai-coding-tools.json"
     }
   ],
   "filter_packs": {
@@ -138,26 +199,63 @@
         "stale_over_12m"
       ]
     },
+    "ai": {
+      "label": "AI 도구 팩",
+      "description": "강제 광고·불투명 크레딧 함정·구독/계정 강제·방치를 먼저 본다. 확률형·P2W는 AI 도구에 없어 팩에서 뺐다.",
+      "filters": [
+        "forced_ads",
+        "iap_required_to_progress",
+        "subscription_required",
+        "account_required",
+        "stale_over_12m",
+        "data_collection"
+      ]
+    },
     "core": {
       "label": "공통 코어",
       "description": "도메인과 무관하게 항상 보는 기본 필터.",
-      "filters": ["forced_ads", "stale_over_12m", "bait_ad"]
+      "filters": [
+        "forced_ads",
+        "stale_over_12m",
+        "bait_ad"
+      ]
     }
   },
   "search": {
     "index_file": "search-index.json",
-    "fields": ["name", "aliases", "developer", "genres", "taste_tags", "one_liner", "keywords"],
+    "fields": [
+      "name",
+      "aliases",
+      "developer",
+      "genres",
+      "taste_tags",
+      "one_liner",
+      "keywords"
+    ],
     "note": "통합 검색과 홈 리포트는 이 경량 인덱스만 읽는다. 상세·목록은 선택한 비교군의 data_file 을 지연 로딩한다."
   },
   "home": {
-    "featured_arenas": ["pkm-notes", "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg", "pc-mmorpg", "mobile-strategy-defense"],
+    "featured_arenas": [
+      "pkm-notes",
+      "task-managers",
+      "password-managers",
+      "roguelike-deckbuilder",
+      "action-roguelike",
+      "mobile-gacha-rpg",
+      "pc-mmorpg",
+      "mobile-strategy-defense",
+      "ai-coding-tools"
+    ],
     "gap_report": {
       "title": "별점은 높은데 거름 판정",
       "min_store_stars": 4.0,
       "min_delta": 12.0,
-      "verdicts": ["avoid", "conditional"],
+      "verdicts": [
+        "avoid",
+        "conditional"
+      ],
       "limit": 4,
-      "note": "스토어 누적 별점은 높지만 파로스 가중 점수·판정이 낮은 항목. 별점 하나로는 보이지 않는 과금·광고 구조를 드러낸다."
+      "note": "스토어 누적 별점(android·ios·steam 표본)은 높지만 파로스 가중 점수·판정이 낮은 항목. G2 같은 3자 집계는 '스토어 별점'으로 쓰지 않는다."
     }
   }
 }

@@ -49,7 +49,7 @@
     "domain": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9_-]*$",
-      "description": "최상위 도메인 id — data/catalog.json 의 domains[].id 를 참조한다(app·game, 추후 content·ai_tool·product). 목록·평균·순위는 도메인을 섞지 않는다."
+      "description": "최상위 도메인 id — data/catalog.json 의 domains[].id 를 참조한다(app·game·ai, 추후 content·product). 목록·평균·순위는 도메인을 섞지 않는다. v0.4.2에서 ai(AI 도구) 도메인을 정식 등록했고, domain 값 자체는 기존 패턴(^[a-z0-9][a-z0-9_-]*$)으로 이미 허용된다."
     },
     "category": {
       "type": "string",

@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 29,
-    "domains": 2,
-    "categories": 6,
-    "arenas": 6
+    "items": 42,
+    "domains": 3,
+    "categories": 8,
+    "arenas": 9
   },
-  "content_hash": "93c73e13f8e65aec3084da704858b083a9728e7ed041af84ea5453f531f38fb7",
+  "content_hash": "ef9803c621d5a07ce0ec9199c2385031f4ff2b5f765d7b746e1c04c4172093b5",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -36,6 +36,53 @@
         "notion",
         "obsidian",
         "simplenote"
+      ]
+    },
+    "task-managers": {
+      "label": "할 일 · 일정 관리",
+      "domain": "app",
+      "category": "productivity",
+      "count": 5,
+      "avg_score": 79.9,
+      "verdicts": {
+        "recommend": 4,
+        "conditional": 0,
+        "avoid": 1
+      },
+      "top_item": {
+        "id": "tasks-org",
+        "name": "Tasks.org",
+        "score": 88.0
+      },
+      "items": [
+        "microsoft-to-do",
+        "tasks-org",
+        "things-3",
+        "ticktick",
+        "todoist"
+      ]
+    },
+    "password-managers": {
+      "label": "비밀번호 관리",
+      "domain": "app",
+      "category": "security-utilities",
+      "count": 4,
+      "avg_score": 83.3,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 1,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "bitwarden",
+        "name": "Bitwarden",
+        "score": 91.7
+      },
+      "items": [
+        "1password",
+        "bitwarden",
+        "dashlane",
+        "keepassxc"
       ]
     },
     "roguelike-deckbuilder": {
@@ -156,6 +203,29 @@
         "kingdom-rush-vengeance",
         "plants-vs-zombies-2"
       ]
+    },
+    "ai-coding-tools": {
+      "label": "AI 코딩 에디터 · 에이전트",
+      "domain": "ai",
+      "category": "ai-coding",
+      "count": 4,
+      "avg_score": 78.9,
+      "verdicts": {
+        "recommend": 2,
+        "conditional": 2,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "cline",
+        "name": "Cline",
+        "score": 85.75
+      },
+      "items": [
+        "cline",
+        "cursor",
+        "github-copilot",
+        "windsurf"
+      ]
     }
   },
   "gap_report": {
@@ -163,12 +233,79 @@
     "min_store_stars": 4.0,
     "items": [
       "hero-wars-alliance",
+      "microsoft-to-do",
       "archero",
       "notion",
-      "clash-royale"
+      "clash-royale",
+      "dashlane"
     ]
   },
   "items": [
+    {
+      "id": "1password",
+      "name": "1Password",
+      "icon": "assets/icons/1password.webp",
+      "aliases": [
+        "원패스워드",
+        "AgileBits"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "password-managers"
+      ],
+      "developer": "AgileBits Inc.",
+      "genres": [
+        "비밀번호 관리",
+        "보안",
+        "가족 공유"
+      ],
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "무료 플랜 없이 구독으로만 쓰는 비밀번호 관리자. Secret Key 설계와 완성도 높은 앱이 강점이다.",
+      "tagline": "1인 기준 연 US$47.88(첫해 프로모션 US$2.99/월). 무료 경로는 14일 체험뿐이다.",
+      "taste_tags": [
+        "subscription-only",
+        "no-free-tier",
+        "closed-source",
+        "polished-ui",
+        "family-sharing"
+      ],
+      "keywords": [
+        "비밀번호",
+        "패스워드",
+        "password",
+        "1password",
+        "secret key"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "individual",
+      "score": 82.4,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 91,
+      "store_stars": {
+        "value": 4.66,
+        "count": 47457,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
     {
       "id": "archero",
       "name": "Archero (궁수의 전설)",
@@ -350,6 +487,67 @@
       "evidence_grade": "A",
       "user_rating": 96,
       "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "bitwarden",
+      "name": "Bitwarden",
+      "icon": "assets/icons/bitwarden.webp",
+      "aliases": [
+        "비트워든",
+        "Vaultwarden"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "password-managers"
+      ],
+      "developer": "Bitwarden Inc.",
+      "genres": [
+        "비밀번호 관리",
+        "오픈소스",
+        "보안"
+      ],
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "무료로도 비밀번호 무제한·기기 무제한·암호화 내보내기를 주는 오픈소스 비밀번호 관리자. 서버를 직접 세울 수도 있다.",
+      "tagline": "비밀번호 관리의 핵심은 전부 무료. 유료는 TOTP 통합·파일 첨부·응급 접근 같은 부가 기능이다.",
+      "taste_tags": [
+        "open-source",
+        "free-tier",
+        "self-host",
+        "no-ads",
+        "cross-platform",
+        "export-friendly"
+      ],
+      "keywords": [
+        "비밀번호",
+        "패스워드",
+        "password",
+        "vaultwarden",
+        "오픈소스"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 91.7,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 92,
+      "store_stars": {
+        "value": 4.7,
+        "count": 191000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
       "drivers": [],
       "gap": null
     },
@@ -691,6 +889,200 @@
       }
     },
     {
+      "id": "cline",
+      "name": "Cline",
+      "icon": "assets/icons/cline.webp",
+      "aliases": [
+        "클라인",
+        "Claude Dev"
+      ],
+      "domain": "ai",
+      "category": "ai-coding",
+      "arenas": [
+        "ai-coding-tools"
+      ],
+      "developer": "Cline Bot Inc.",
+      "genres": [
+        "AI 코딩",
+        "오픈소스",
+        "에이전트"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "오픈소스(Apache-2.0) AI 코딩 에이전트. 내 API 키를 넣거나 Cline 결제를 쓰며, 구독·모델 락인이 없다.",
+      "tagline": "확장은 공짜, 값은 내가 고른 모델의 토큰만. 무엇에 얼마 쓰는지가 그대로 보인다.",
+      "taste_tags": [
+        "open-source",
+        "byok",
+        "no-subscription",
+        "multi-editor",
+        "agent",
+        "transparent-cost"
+      ],
+      "keywords": [
+        "클라인",
+        "cline",
+        "claude dev",
+        "byok",
+        "오픈소스",
+        "ai 에이전트"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "open-source",
+      "score": 85.75,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 80,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "icon": "assets/icons/cursor.webp",
+      "aliases": [
+        "커서",
+        "Anysphere",
+        "X Subscription"
+      ],
+      "domain": "ai",
+      "category": "ai-coding",
+      "arenas": [
+        "ai-coding-tools"
+      ],
+      "developer": "Anysphere (xAI)",
+      "genres": [
+        "AI 코딩",
+        "AI 에디터",
+        "에이전트"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "VS Code를 포크한 AI 에디터. 2026-10부터 X 구독으로 팔리며, 플랜 값에는 Grok·Composer만 포함되고 Claude·GPT는 첫 요청부터 별도 과금이다.",
+      "tagline": "Claude·GPT까지 쓰려면 여기에 API 정가를 더 낸다 — 기존 $20 Pro 대비 2배 이상이 될 수 있다.",
+      "taste_tags": [
+        "closed-source",
+        "editor-fork",
+        "agent",
+        "credit-based",
+        "subscription",
+        "model-lock-in"
+      ],
+      "keywords": [
+        "커서",
+        "cursor",
+        "ai 코딩",
+        "에디터",
+        "agent",
+        "grok"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "premium",
+      "score": 71.3,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "B",
+      "user_rating": 92,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 92",
+          "tone": "warn"
+        },
+        {
+          "label": "객관·신뢰 지표 🔴 40",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "dashlane",
+      "name": "Dashlane",
+      "icon": "assets/icons/dashlane.webp",
+      "aliases": [
+        "대시레인"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "password-managers"
+      ],
+      "developer": "Dashlane",
+      "genres": [
+        "비밀번호 관리",
+        "보안",
+        "VPN 포함"
+      ],
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "web"
+      ],
+      "one_liner": "무료 플랜을 없앤 구독 전용 비밀번호 관리자. 피싱 경고·VPN·다크웹 모니터링을 묶었고, 2026-06 기기 등록 공격으로 일부 암호화 볼트가 내려받힌 사고가 있었다.",
+      "tagline": "첫해 US$4.06/월 프로모션. 갱신 가격이 더 높고, 무료 경로는 14일 체험뿐이다.",
+      "taste_tags": [
+        "subscription-only",
+        "no-free-tier",
+        "closed-source",
+        "bundled-vpn",
+        "security-incident"
+      ],
+      "keywords": [
+        "비밀번호",
+        "패스워드",
+        "password",
+        "대시레인",
+        "vpn"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "premium",
+      "score": 74.45,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 93,
+      "store_stars": {
+        "value": 4.5,
+        "count": 244000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 55",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": {
+        "stars": 4.5,
+        "platform": "android",
+        "count": 244000,
+        "stars_score": 90.0,
+        "score": 74.45,
+        "delta": 15.5,
+        "verdict": "conditional"
+      }
+    },
+    {
       "id": "dead-cells",
       "name": "Dead Cells",
       "icon": "assets/icons/dead-cells.webp",
@@ -945,6 +1337,61 @@
           "tone": "bad"
         }
       ],
+      "gap": null
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "icon": "assets/icons/github-copilot.webp",
+      "aliases": [
+        "코파일럿",
+        "Copilot"
+      ],
+      "domain": "ai",
+      "category": "ai-coding",
+      "arenas": [
+        "ai-coding-tools"
+      ],
+      "developer": "GitHub (Microsoft)",
+      "genres": [
+        "AI 코딩",
+        "코드 완성",
+        "에이전트"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "web",
+        "ios",
+        "android"
+      ],
+      "one_liner": "에디터를 가리지 않는 AI 코딩 도구. 2026-06부터 AI 크레딧 사용량 과금으로 바뀌었지만 코드 완성은 크레딧을 쓰지 않고 기본 요금도 그대로다.",
+      "tagline": "월 $10에 코드 완성 무제한 + 크레딧 1,500. 플랜 값과 크레딧 값이 같아 계산이 쉽다.",
+      "taste_tags": [
+        "multi-editor",
+        "free-tier",
+        "credit-based",
+        "closed-source",
+        "enterprise"
+      ],
+      "keywords": [
+        "코파일럿",
+        "copilot",
+        "ai 코딩",
+        "깃허브",
+        "코드 완성"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "pro",
+      "score": 83.8,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 84,
+      "store_stars": null,
+      "drivers": [],
       "gap": null
     },
     {
@@ -1374,6 +1821,61 @@
       "gap": null
     },
     {
+      "id": "keepassxc",
+      "name": "KeePassXC",
+      "icon": "assets/icons/keepassxc.webp",
+      "aliases": [
+        "키패스",
+        "KeePass",
+        "킵패스"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "password-managers"
+      ],
+      "developer": "KeePassXC Team",
+      "genres": [
+        "비밀번호 관리",
+        "오픈소스",
+        "로컬 우선"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "암호화된 파일 하나를 직접 보관하는 오픈소스 비밀번호 관리자. 서버·구독·계정이 없고, 모바일 앱도 없다.",
+      "tagline": "값도 계정도 서버도 없다. 대신 동기화·모바일은 직접 챙겨야 한다.",
+      "taste_tags": [
+        "open-source",
+        "local-first",
+        "no-account",
+        "no-cloud",
+        "desktop-only",
+        "free"
+      ],
+      "keywords": [
+        "비밀번호",
+        "패스워드",
+        "password",
+        "keepass",
+        "kdbx",
+        "로컬"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 84.67,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "kingdom-rush-vengeance",
       "name": "Kingdom Rush Vengeance",
       "icon": "assets/icons/kingdom-rush-vengeance.webp",
@@ -1559,6 +2061,82 @@
         }
       ],
       "gap": null
+    },
+    {
+      "id": "microsoft-to-do",
+      "name": "Microsoft To Do",
+      "icon": "assets/icons/microsoft-to-do.webp",
+      "aliases": [
+        "마이크로소프트 투두",
+        "MS To Do",
+        "Wunderlist 후속"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "task-managers"
+      ],
+      "developer": "Microsoft",
+      "genres": [
+        "할 일 관리",
+        "마이크로소프트 365"
+      ],
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "web"
+      ],
+      "one_liner": "마이크로소프트 계정으로 쓰는 무료 할 일 앱. 광고도 과금도 없지만, 2027-06-30에 앱이 종료된다.",
+      "tagline": "값은 없지만 수명이 정해져 있다. 2027-06-30에 앱이 닫히고, 개인 계정은 옮겨 갈 Planner가 없다.",
+      "taste_tags": [
+        "free",
+        "no-ads",
+        "microsoft-ecosystem",
+        "account-required",
+        "retiring"
+      ],
+      "keywords": [
+        "할일",
+        "todo",
+        "마이크로소프트",
+        "아웃룩",
+        "planner"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "free",
+      "score": 60.45,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 95,
+      "store_stars": {
+        "value": 4.6,
+        "count": 486000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🔴 32",
+          "tone": "bad"
+        },
+        {
+          "label": "AI 검토 🔴 45",
+          "tone": "bad"
+        }
+      ],
+      "gap": {
+        "stars": 4.6,
+        "platform": "android",
+        "count": 486000,
+        "stars_score": 92.0,
+        "score": 60.45,
+        "delta": 31.5,
+        "verdict": "avoid"
+      }
     },
     {
       "id": "night-of-the-full-moon",
@@ -1942,6 +2520,249 @@
       "gap": null
     },
     {
+      "id": "tasks-org",
+      "name": "Tasks.org",
+      "icon": "assets/icons/tasks-org.webp",
+      "aliases": [
+        "Tasks",
+        "오픈소스 할일"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "task-managers"
+      ],
+      "developer": "Tasks.org, LLC",
+      "genres": [
+        "할 일 관리",
+        "오픈소스",
+        "로컬 우선"
+      ],
+      "platforms": [
+        "android"
+      ],
+      "one_liner": "GPLv3 오픈소스 할 일 앱. 계정 없이 오프라인으로 쓰거나 Google Tasks·CalDAV·EteSync로 동기화한다. Android 전용.",
+      "tagline": "값을 내지 않고 계정도 만들지 않고 쓴다. 대신 Android 밖으로는 나가지 못한다.",
+      "taste_tags": [
+        "open-source",
+        "local-first",
+        "no-account",
+        "no-ads",
+        "android-only",
+        "self-host"
+      ],
+      "keywords": [
+        "할일",
+        "todo",
+        "오픈소스",
+        "caldav",
+        "구글태스크",
+        "etesync"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 88.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.6,
+        "count": 13700,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "things-3",
+      "name": "Things 3",
+      "icon": "assets/icons/things-3.webp",
+      "aliases": [
+        "씽스",
+        "Things",
+        "Cultured Code"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "task-managers"
+      ],
+      "developer": "Cultured Code",
+      "genres": [
+        "할 일 관리",
+        "GTD",
+        "Apple 전용"
+      ],
+      "platforms": [
+        "ios",
+        "macos"
+      ],
+      "one_liner": "Apple 기기에서만 쓰는 1회 구매 할 일 앱. 구독·광고·계정이 없고, iPhone·iPad·Mac을 각각 사야 한다.",
+      "tagline": "iPhone만 쓰면 US$6.99 한 번. 갱신도 광고도 없다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-subscription",
+        "no-ads",
+        "apple-only",
+        "minimal-ui"
+      ],
+      "keywords": [
+        "할일",
+        "todo",
+        "gtd",
+        "씽스",
+        "things"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "iphone",
+      "score": 87.3,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 95,
+      "store_stars": {
+        "value": 4.82,
+        "count": 28120,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "ticktick",
+      "name": "TickTick",
+      "icon": "assets/icons/ticktick.webp",
+      "aliases": [
+        "틱틱",
+        "TickTick:To Do List & Calendar"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "task-managers"
+      ],
+      "developer": "TickTick Limited",
+      "genres": [
+        "할 일 관리",
+        "캘린더",
+        "습관 추적"
+      ],
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "web"
+      ],
+      "one_liner": "할 일·캘린더·습관·뽀모도로를 한 화면에 묶은 올인원 생산성 앱. 무료는 9개 리스트·리스트당 99개까지.",
+      "tagline": "9개 리스트·리스트당 99개·알림 2회까지 계속 무료. 개인용 할 일 앱으로는 이 선에서 대부분 해결된다.",
+      "taste_tags": [
+        "all-in-one",
+        "cross-platform",
+        "natural-language",
+        "account-required",
+        "subscription"
+      ],
+      "keywords": [
+        "할일",
+        "todo",
+        "캘린더",
+        "습관",
+        "뽀모도로",
+        "틱틱"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 80.8,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/B",
+      "user_rating": 93,
+      "store_stars": {
+        "value": 4.6,
+        "count": 167000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 66",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "todoist",
+      "name": "Todoist",
+      "icon": "assets/icons/todoist.webp",
+      "aliases": [
+        "투두이스트",
+        "Doist"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "task-managers"
+      ],
+      "developer": "Doist",
+      "genres": [
+        "할 일 관리",
+        "프로젝트 관리",
+        "GTD"
+      ],
+      "platforms": [
+        "android",
+        "ios",
+        "windows",
+        "macos",
+        "web"
+      ],
+      "one_liner": "자연어로 적으면 날짜·프로젝트를 알아서 붙여 주는 할 일 앱. 무료는 프로젝트 5개까지, 실사용은 Pro US$60/년이다.",
+      "tagline": "값을 내지 않고 시작하는 경로. 프로젝트 5개·필터 3개·캘린더 1개까지는 계속 무료다.",
+      "taste_tags": [
+        "cross-platform",
+        "natural-language",
+        "account-required",
+        "subscription",
+        "team-sharing"
+      ],
+      "keywords": [
+        "할일",
+        "todo",
+        "gtd",
+        "doist",
+        "투두"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "beginner",
+      "score": 83.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 92,
+      "store_stars": {
+        "value": 4.6,
+        "count": 308000,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
       "id": "vampire-survivors",
       "name": "Vampire Survivors",
       "icon": "assets/icons/vampire-survivors.webp",
@@ -1998,6 +2819,71 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf (Devin Desktop)",
+      "icon": "assets/icons/windsurf.webp",
+      "aliases": [
+        "윈드서프",
+        "Devin Desktop",
+        "Codeium",
+        "Cascade"
+      ],
+      "domain": "ai",
+      "category": "ai-coding",
+      "arenas": [
+        "ai-coding-tools"
+      ],
+      "developer": "Cognition",
+      "genres": [
+        "AI 코딩",
+        "AI 에디터",
+        "에이전트"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "VS Code 계열 AI 에디터. 2026-06 'Devin Desktop'으로 이름을 바꿨고, 크레딧 대신 일·주 쿼터로 과금하지만 쿼터 크기는 공개하지 않는다.",
+      "tagline": "월 $20로 프런티어 모델을 쓰는 경로. 다만 쿼터가 얼마인지 숫자로 나오지 않는다.",
+      "taste_tags": [
+        "closed-source",
+        "editor-fork",
+        "agent",
+        "quota-based",
+        "subscription",
+        "rebranded"
+      ],
+      "keywords": [
+        "윈드서프",
+        "windsurf",
+        "devin desktop",
+        "codeium",
+        "cascade",
+        "ai 에디터"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "pro",
+      "score": 74.7,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "B",
+      "user_rating": 86,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 86",
+          "tone": "warn"
+        },
+        {
+          "label": "객관·신뢰 지표 🟡 58",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     }
   ]

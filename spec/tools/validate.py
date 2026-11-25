@@ -44,6 +44,9 @@ MONETIZATION_IMPACT_KEYS = {"gacha_random_items", "p2w"}
 IMPACT_VALUES = {"none", "optional", "core"}
 NON_FILTER_FLAGS = {"contains_ads", "data_export", "compat_risk"}
 MAINTENANCE_STATUSES = {"active", "feature_complete", "stale_unknown", "abandoned"}
+# 갭 리포트의 '스토어 별점'은 실제 스토어 표본만 쓴다. G2·Trustpilot 같은 3자 집계(platform: web·other)는
+# 별점이 아니라 평점 집계이므로 '별점은 높은데 거름' 비교에 섞지 않는다(v0.4.2).
+STORE_PLATFORMS = {"android", "ios", "steam"}
 ID_PATTERN = "^[a-z0-9][a-z0-9_-]*$"
 
 FILTER_TO_FLAG = {
@@ -221,6 +224,16 @@ def catalog_errors(catalog, data_dir):
     for dom in domains:
         if dom.get("filter_pack") and dom["filter_pack"] not in packs:
             errs.append(f"domain {dom.get('id')}: 정의되지 않은 filter_pack {dom['filter_pack']!r}")
+
+    # 도메인별 필터 표시 이름(v0.4.2) — 같은 9개 필터를 도메인 문법으로 다시 부르는 표시용 이름이다.
+    for dom in domains:
+        labels = dom.get("filter_labels") or {}
+        unknown = sorted(set(labels) - filter_keys)
+        if unknown:
+            errs.append(f"domain {dom.get('id')}: filter_labels 에 없는 필터 {unknown}")
+        empty = sorted(key for key, value in labels.items() if not str(value).strip())
+        if empty:
+            errs.append(f"domain {dom.get('id')}: filter_labels 빈 이름 {empty}")
 
     category_ids = [c.get("id") for c in categories]
     if len(category_ids) != len(set(category_ids)):
@@ -521,6 +534,8 @@ def build_search_index(catalog, items_by_arena, contract):
             verdict = compute_verdict(item, tier)[0]
             stars = None
             for row in item.get("review_snapshot", {}).get("platforms") or []:
+                if row.get("platform") not in STORE_PLATFORMS:
+                    continue
                 metric = row.get("cumulative") or {}
                 if metric.get("scale") != "stars5":
                     continue

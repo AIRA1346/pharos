@@ -1,0 +1,2448 @@
+[
+  {
+    "schema_version": "0.4.0",
+    "id": "todoist",
+    "name": "Todoist",
+    "icon": "assets/icons/todoist.webp",
+    "aliases": [
+      "투두이스트",
+      "Doist"
+    ],
+    "domain": "app",
+    "category": "productivity",
+    "arenas": [
+      "task-managers"
+    ],
+    "arena_notes": {
+      "task-managers": "무료 5프로젝트·Pro US$60/년 — 자연어 입력과 필터 구조로 '할 일을 굴리는' 기준점."
+    },
+    "genres": [
+      "할 일 관리",
+      "프로젝트 관리",
+      "GTD"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "web"
+    ],
+    "developer": "Doist",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "자연어로 적으면 날짜·프로젝트를 알아서 붙여 주는 할 일 앱. 무료는 프로젝트 5개까지, 실사용은 Pro US$60/년이다.",
+    "taste_tags": [
+      "cross-platform",
+      "natural-language",
+      "account-required",
+      "subscription",
+      "team-sharing"
+    ],
+    "keywords": [
+      "할일",
+      "todo",
+      "gtd",
+      "doist",
+      "투두"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-23(iOS)·2026-11-11(Android) 업데이트. 2025-12-10 Business 가격 인상 공지 후 가격 구조 유지.",
+    "sources": [
+      {
+        "id": "todoist-pricing",
+        "title": "Todoist 요금제",
+        "url": "https://www.todoist.com/pricing",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Beginner(무료)·Pro US$60/년·Business US$96/인/년 확인."
+      },
+      {
+        "id": "todoist-plans-faq",
+        "title": "Todoist 플랜·가격 FAQ",
+        "url": "https://www.todoist.com/help/account-and-billing/plans/todoist-plans-pricing-and-billing-faq-Vq2z0HWL6",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "무료/Pro 한도(프로젝트 5→300, 필터 3→150, 캘린더 1→3, 파일 5→25MB) 확인."
+      },
+      {
+        "id": "play-todoist",
+        "title": "Google Play — Todoist",
+        "url": "https://play.google.com/store/apps/details?id=com.todoist&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.6★·30.8만 리뷰·5,000만+ 다운로드."
+      },
+      {
+        "id": "itunes-todoist",
+        "title": "Apple App Store — Todoist (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.todoist.ios&country=us",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.80★·131,048건, 2026-11-23 업데이트."
+      },
+      {
+        "id": "todoist-backups",
+        "title": "Todoist 백업 내려받기·복원",
+        "url": "https://www.todoist.com/help/account-and-billing/security/download-or-restore-backups-in-todoist-ywaJeQbN",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "유료 플랜만 ZIP(CSV) 백업 21개 보관. 완료 작업·보관 프로젝트 제외."
+      },
+      {
+        "id": "todoist-csv",
+        "title": "Todoist 프로젝트 CSV 내보내기",
+        "url": "https://www.todoist.com/help/account-and-billing/security/import-or-export-a-project-as-a-csv-file-in-todoist-YC8YvN",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "모든 플랜에서 프로젝트 1개씩 CSV 내보내기. 완료 작업은 빠짐."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-todoist"
+        ],
+        "verification": "direct",
+        "note": "Play에 'Contains ads' 표기 없음. 앱 내 광고 없음."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "todoist-pricing"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-todoist"
+        ],
+        "verification": "direct",
+        "note": "광고 자체가 없어 강제 노출 불가."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "todoist-pricing"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "todoist-pricing"
+        ],
+        "verification": "direct",
+        "note": "과금이 작업 성능·보상을 가르지 않음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "todoist-plans-faq"
+        ],
+        "verification": "direct",
+        "note": "무료 플랜으로 계속 사용 가능. Pro는 한도 확장."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "todoist-plans-faq"
+        ],
+        "verification": "direct",
+        "note": "무료 플랜이 기간 제한 없이 유지된다."
+      },
+      "account_required": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-todoist"
+        ],
+        "verification": "direct",
+        "note": "동기화·기기 간 사용에 Todoist 계정 로그인 필요."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "itunes-todoist"
+        ],
+        "verification": "direct",
+        "note": "2026-11-23 iOS 업데이트."
+      },
+      "data_collected": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "verification": "absent",
+        "note": "Play 데이터 보안 섹션의 수집 항목을 확인하지 못함."
+      },
+      "data_export": {
+        "value": "partial",
+        "evidence_grade": "A",
+        "source_ids": [
+          "todoist-backups",
+          "todoist-csv"
+        ],
+        "note": "프로젝트별 CSV(완료 작업 제외), 유료는 전 프로젝트 ZIP 백업. 보관 프로젝트는 어느 경로에도 없다."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "beginner",
+        "label": "Beginner (무료)",
+        "kind": "freemium",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 프로젝트 5개 · 필터 3개 · 캘린더 1개"
+        },
+        "limits": [
+          "활성 개인 프로젝트 5개",
+          "사용자 필터 3개",
+          "연결 캘린더 1개",
+          "파일 업로드 5MB",
+          "활동 기록 1주",
+          "AI 입력 월 10회"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "Todoist 계정 로그인 필수.",
+            "source_ids": [
+              "play-todoist"
+            ]
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "값을 내지 않고 시작하는 경로. 프로젝트 5개·필터 3개·캘린더 1개까지는 계속 무료다.",
+        "recommended_path": true
+      },
+      {
+        "tier_id": "pro",
+        "label": "Pro",
+        "kind": "subscription",
+        "price": {
+          "amount": 60,
+          "currency": "USD",
+          "period": "year",
+          "display": "US$60/년 (월 $5) · 월 결제 US$7"
+        },
+        "limits": [
+          "프로젝트 300개",
+          "필터 150개",
+          "캘린더 3개",
+          "파일 25MB",
+          "전체 활동 기록",
+          "맞춤 알림·마감일·캘린더 레이아웃"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "Todoist 계정 로그인 필수.",
+            "source_ids": [
+              "play-todoist"
+            ]
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "프로젝트·필터 한도를 풀리는 경로. 연 결제 US$60, 월 결제 US$7.",
+        "recommended_path": false,
+        "notes": "가격은 웹 결제 기준. 앱스토어 인앱 가격은 별도일 수 있다."
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 92,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.6★(30.8만)·iOS 4.80★(13.1만) — 두 스토어가 같은 방향. 최근 리뷰에서도 '자연어 입력이 정확하다'는 칭찬이 반복되고, 불만은 가격·무료 한도에 몰린다.",
+        "source_ids": [
+          "play-todoist",
+          "itunes-todoist"
+        ]
+      },
+      "objective": {
+        "score": 72,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "가격·한도가 공식 문서에 명확하고 광고·확률형·P2W가 없다. 다만 무료 5프로젝트·백업 유료·보관 프로젝트 내보내기 불가라는 락인이 있고, 2025-12 Business 인상 전례가 있다.",
+        "source_ids": [
+          "todoist-pricing",
+          "todoist-plans-faq",
+          "todoist-backups"
+        ]
+      },
+      "ai_review": {
+        "score": 84,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A/B",
+        "confidence": "high",
+        "summary": "본질(빠른 입력→정리→알림)이 10년 넘게 다듬어진 완성형. 감점: 캘린더·맞춤 알림·백업이 Pro 뒤에 있고, 최근 AI 기능(Ramble)은 무료 10회/월로 체험 수준.",
+        "source_ids": [
+          "todoist-pricing",
+          "todoist-plans-faq"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "recommend",
+      "tier_of_record": "beginner",
+      "signals": {
+        "user_rating": "green",
+        "objective": "yellow",
+        "ai_review": "green"
+      },
+      "one_liner": "무료로도 '할 일 앱'의 기본기를 끝까지 쓸 수 있고, 한도가 필요해지는 순간에만 US$60/년을 내는 구조.",
+      "reasons": [
+        "광고·확률형·P2W가 없고 무료 플랜이 기간 제한 없이 유지된다.",
+        "Play 4.6★(30.8만)·iOS 4.80★(13.1만)로 두 스토어 평가가 일치한다.",
+        "프로젝트·필터 한도와 백업 유료화가 실사용의 실질 비용을 만든다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "무료는 프로젝트 5개·필터 3개·캘린더 1개·파일 5MB까지. Pro는 US$60/년(월 $7).",
+        "완료 작업과 보관 프로젝트는 CSV·백업에서 빠져 나간다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 308000,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.6★ · 30.8만 리뷰 · 5,000만+ 다운로드."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.8,
+            "scale": "stars5",
+            "count": 131048,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.80★ · 131,048건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.6★(30.8만)와 iOS 4.80★(13.1만) — 표본 규칙(100건)을 크게 넘고 두 스토어가 일치한다."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-23",
+      "latest_update_platform": "ios",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-23",
+          "type": "unknown",
+          "platform": "ios",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "itunes-todoist"
+          ],
+          "note": "iOS 스토어 업데이트 일자. 변경 성격은 미확인."
+        },
+        {
+          "date": "2025-12-10",
+          "type": "monetization_terms",
+          "platform": "other",
+          "promise_status": "on_time",
+          "evidence_grade": "A",
+          "source_ids": [
+            "todoist-pricing"
+          ],
+          "note": "Business를 US$8→10/인/월(연 $96)로 인상한다고 2025-12-10 이전에 공지. 개인 Pro 가격은 유지."
+        }
+      ],
+      "maintenance_quality": "healthy",
+      "assessment": "업데이트가 이어지고, 과금 변경은 사전 공지 후 진행됐다. 최근 리뷰 급락 신호 없음."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "B",
+          "source_ids": [
+            "play-todoist"
+          ],
+          "note": "유입 광고 소재를 평가하지 않았다. 미끼형 보도·불만 없음."
+        }
+      },
+      "iap": {
+        "present": "yes",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "Pro US$60/년(웹 기준). 앱스토어 인앱 가격은 국가·플랫폼별로 다르며 미확인."
+        },
+        "first_purchase_prompt": "late",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "todoist-pricing",
+          "todoist-plans-faq"
+        ]
+      },
+      "subscription": {
+        "present": "yes",
+        "display": "Pro US$60/년 · Business US$96/인/년"
+      },
+      "summary": "무료 + 구독(Pro US$60/년). 광고·확률형·소모성 재화 없음."
+    },
+    "data_quality": {
+      "overall_grade": "A",
+      "unverified": [
+        "Android 앱 최근 업데이트 일자",
+        "Play 데이터 보안(수집 항목)",
+        "앱스토어 인앱 결제 가격"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 직접 설치·사용 없이 공식 문서·스토어 표기만 사용했다. 수치는 2026-11-25 확인값이다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "ticktick",
+    "name": "TickTick",
+    "icon": "assets/icons/ticktick.webp",
+    "aliases": [
+      "틱틱",
+      "TickTick:To Do List & Calendar"
+    ],
+    "domain": "app",
+    "category": "productivity",
+    "arenas": [
+      "task-managers"
+    ],
+    "arena_notes": {
+      "task-managers": "할 일·캘린더·습관·뽀모도로를 한 앱에 — 무료 9리스트로 충분한가, Premium US$49.99/년의 값어치가 있는가."
+    },
+    "genres": [
+      "할 일 관리",
+      "캘린더",
+      "습관 추적"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "web"
+    ],
+    "developer": "TickTick Limited",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "할 일·캘린더·습관·뽀모도로를 한 화면에 묶은 올인원 생산성 앱. 무료는 9개 리스트·리스트당 99개까지.",
+    "taste_tags": [
+      "all-in-one",
+      "cross-platform",
+      "natural-language",
+      "account-required",
+      "subscription"
+    ],
+    "keywords": [
+      "할일",
+      "todo",
+      "캘린더",
+      "습관",
+      "뽀모도로",
+      "틱틱"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-23(iOS)·2026-11-19(Android) 업데이트. 2026년에 Premium 가격을 US$35.99→49.99로 올렸으나 공지 없이 페이지 숫자만 바뀌었다.",
+    "sources": [
+      {
+        "id": "ticktick-upgrade",
+        "title": "TickTick Premium 요금·기능 비교",
+        "url": "https://ticktick.com/upgrade",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Free(9 리스트·99개/리스트·알림 2회) / Premium US$49.99/년 확인."
+      },
+      {
+        "id": "play-ticktick",
+        "title": "Google Play — TickTick",
+        "url": "https://play.google.com/store/apps/details?id=com.ticktick.task&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.6★·16.7만 리뷰, 2026-11-19 업데이트."
+      },
+      {
+        "id": "itunes-ticktick",
+        "title": "Apple App Store — TickTick (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.TickTick.task&country=us",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.86★·47,160건, 2026-11-23 업데이트."
+      },
+      {
+        "id": "techpresso-ticktick",
+        "title": "TickTick Review 2026 — 가격 변동 분석",
+        "url": "https://techpresso.co/reviews/ticktick-review",
+        "type": "press",
+        "grade": "B",
+        "accessed_at": "2026-11-25",
+        "note": "Premium이 2026-02 US$35.99에서 2026-10 US$49.99로 39% 인상, 공지 없음."
+      },
+      {
+        "id": "vyneron-ticktick",
+        "title": "TickTick Pricing 2026 — 아카이브 대조",
+        "url": "https://vyneron.com/en/blog/ticktick-pricing-2026",
+        "type": "aggregator",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "인터넷 아카이브 사본으로 인상 시점(2026-08~09) 추적."
+      },
+      {
+        "id": "donebear-ticktick",
+        "title": "TickTick 데이터 내보내기 안내",
+        "url": "https://donebear.com/guides/how-to-export-your-ticktick-data",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "백업은 웹 앱 Settings > Account > Backup and Import 에서만 생성, 모바일 불가."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ticktick"
+        ],
+        "verification": "direct",
+        "note": "Play에 'Contains ads' 표기 없음."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "ticktick-upgrade"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ticktick"
+        ],
+        "verification": "direct",
+        "note": "광고 자체가 없어 강제 노출 불가."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "ticktick-upgrade"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "ticktick-upgrade"
+        ],
+        "verification": "direct",
+        "note": "과금이 작업 성능을 가르지 않음. Premium은 용량·뷰 확장."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "ticktick-upgrade"
+        ],
+        "verification": "direct",
+        "note": "무료로 계속 사용 가능. Premium은 한도 확장."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "ticktick-upgrade"
+        ],
+        "verification": "direct",
+        "note": "무료 플랜이 기간 제한 없이 유지된다."
+      },
+      "account_required": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ticktick"
+        ],
+        "verification": "direct",
+        "note": "동기화·기기 간 사용에 TickTick 계정 필요."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "itunes-ticktick"
+        ],
+        "verification": "direct",
+        "note": "2026-11-23 iOS 업데이트."
+      },
+      "data_collected": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "verification": "absent",
+        "note": "Play 데이터 보안 항목 미확인."
+      },
+      "data_export": {
+        "value": "partial",
+        "evidence_grade": "C",
+        "source_ids": [
+          "donebear-ticktick"
+        ],
+        "note": "웹 앱에서 계정 백업 파일(CSV) 1개를 생성. 모바일에서는 불가하고 노트·필터·습관 통계는 빠진다."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "Free",
+        "kind": "freemium",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 리스트 9개 · 리스트당 99개"
+        },
+        "limits": [
+          "리스트 9개",
+          "리스트당 작업 99개",
+          "첨부 1개/일",
+          "알림 2회/작업",
+          "습관 5개",
+          "기본 캘린더 뷰"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "TickTick 계정 필요.",
+            "source_ids": [
+              "play-ticktick"
+            ]
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "9개 리스트·리스트당 99개·알림 2회까지 계속 무료. 개인용 할 일 앱으로는 이 선에서 대부분 해결된다.",
+        "recommended_path": true
+      },
+      {
+        "tier_id": "premium",
+        "label": "Premium",
+        "kind": "subscription",
+        "price": {
+          "amount": 49.99,
+          "currency": "USD",
+          "period": "year",
+          "display": "US$49.99/년 (월 $4.17) — 2026년 인상"
+        },
+        "limits": [
+          "리스트 299개",
+          "리스트당 999개",
+          "첨부 199개/일",
+          "알림 5회/작업",
+          "모든 캘린더·타임라인 뷰",
+          "필터·AI 도우미"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "TickTick 계정 필요.",
+            "source_ids": [
+              "play-ticktick"
+            ]
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "리스트·첨부·알림 한도를 풀고 캘린더 뷰를 쓰는 경로. US$49.99/년.",
+        "recommended_path": false,
+        "notes": "2026-02 US$35.99 → 2026-10 US$49.99. 인상 공지 없이 가격 페이지만 바뀌었다(등급 B/C)."
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 93,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.6★(16.7만)·iOS 4.86★(4.7만). '캘린더와 할 일을 한 앱에'라는 지점이 반복 칭찬되고, 불만은 주로 첨부 1개/일·가격 인상.",
+        "source_ids": [
+          "play-ticktick",
+          "itunes-ticktick"
+        ]
+      },
+      "objective": {
+        "score": 66,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A/B",
+        "confidence": "high",
+        "summary": "무료 티어가 넉넉하고 광고·확률형·P2W가 없다. 다만 2026년 Premium을 US$35.99→49.99로 39% 올리면서 공지가 없었고, 백업이 웹 전용이며 노트·필터가 빠진다.",
+        "source_ids": [
+          "ticktick-upgrade",
+          "techpresso-ticktick",
+          "donebear-ticktick"
+        ]
+      },
+      "ai_review": {
+        "score": 82,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A/B",
+        "confidence": "medium",
+        "summary": "할 일·캘린더·습관·뽀모도로를 한 앱에 묶은 완성도가 높다. 감점: 핵심인 캘린더 뷰·필터가 Premium 전용이라 '무료로 충분'과 '앱의 본질' 사이 간격이 있고, 가격 인상이 조용히 이뤄졌다.",
+        "source_ids": [
+          "ticktick-upgrade",
+          "techpresso-ticktick"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "recommend",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "yellow",
+        "ai_review": "green"
+      },
+      "one_liner": "무료 9리스트가 실제로 쓸 만하고, 캘린더 뷰가 필요해질 때만 US$49.99/년을 내는 올인원.",
+      "reasons": [
+        "광고·확률형·P2W가 없고 무료 플랜이 기간 제한 없이 유지된다.",
+        "Play 4.6★(16.7만)·iOS 4.86★(4.7만)로 평가가 높고 최근 업데이트도 이어진다.",
+        "2026년 Premium 39% 인상이 사전 공지 없이 이뤄졌고, 백업이 웹 전용이다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "첨부 1개/일이 무료의 가장 아픈 한도다. Premium은 199개/일.",
+        "가격 인상 공지 부재는 사실이지만 평가 급락으로 이어지지는 않았다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 167000,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.6★ · 16.7만 리뷰 · 1,000만+ 다운로드."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.86,
+            "scale": "stars5",
+            "count": 47160,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.86★ · 47,160건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.6★(16.7만)와 iOS 4.86★(4.7만) — 표본 충분, 두 스토어 일치."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-23",
+      "latest_update_platform": "ios",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-23",
+          "type": "unknown",
+          "platform": "ios",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "itunes-ticktick"
+          ],
+          "note": "iOS 업데이트 일자. 성격 미확인."
+        },
+        {
+          "date": "2026-10-01",
+          "type": "monetization_terms",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "B",
+          "source_ids": [
+            "techpresso-ticktick",
+            "vyneron-ticktick"
+          ],
+          "note": "Premium 연 결제가 US$35.99→US$49.99로 39% 인상. 공지 없이 가격 페이지 숫자만 변경."
+        }
+      ],
+      "maintenance_quality": "risky_terms",
+      "assessment": "업데이트는 활발하지만 과금 변경이 공지 없이 이뤄졌다. 리뷰가 급락하지는 않아 abandoned 로 보지는 않는다."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "B",
+          "source_ids": [
+            "play-ticktick"
+          ],
+          "note": "유입 광고 미평가. 미끼형 보도 없음."
+        }
+      },
+      "iap": {
+        "present": "yes",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "Premium US$49.99/년이 공식 표기. 앱스토어 인앱 가격은 미확인."
+        },
+        "first_purchase_prompt": "mid",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "ticktick-upgrade"
+        ]
+      },
+      "subscription": {
+        "present": "yes",
+        "display": "Premium US$49.99/년 (학생·교직 US$37.99 첫해)"
+      },
+      "summary": "무료 + 연 구독(Premium US$49.99). 광고·확률형 없음."
+    },
+    "data_quality": {
+      "overall_grade": "A/B",
+      "unverified": [
+        "앱스토어 인앱 결제 가격",
+        "백업 파일의 실제 형식·포함 범위",
+        "Play 데이터 보안 항목"
+      ],
+      "conflicts": [
+        {
+          "field": "tiers[1].price.amount",
+          "values": [
+            "US$35.99 — 2026-02 이전 가격",
+            "US$49.99 — 2026-09 이후 가격"
+          ],
+          "resolution": "현재 공식 페이지 값(49.99)을 채택하고, 인상 시점·폭은 보도·아카이브 대조(등급 B/C)로 기록했다.",
+          "source_ids": [
+            "techpresso-ticktick",
+            "vyneron-ticktick"
+          ]
+        }
+      ],
+      "limitations": "데스크 리서치. 백업 파일을 직접 생성해 확인하지는 않았다(등급 C 안내 인용)."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "microsoft-to-do",
+    "name": "Microsoft To Do",
+    "icon": "assets/icons/microsoft-to-do.webp",
+    "aliases": [
+      "마이크로소프트 투두",
+      "MS To Do",
+      "Wunderlist 후속"
+    ],
+    "domain": "app",
+    "category": "productivity",
+    "arenas": [
+      "task-managers"
+    ],
+    "arena_notes": {
+      "task-managers": "무료·광고 없음·4.6★인데 2027-06-30 앱 종료 예고 — '지금 고르면 안 되는' 사례."
+    },
+    "genres": [
+      "할 일 관리",
+      "마이크로소프트 365"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "web"
+    ],
+    "developer": "Microsoft",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "마이크로소프트 계정으로 쓰는 무료 할 일 앱. 광고도 과금도 없지만, 2027-06-30에 앱이 종료된다.",
+    "taste_tags": [
+      "free",
+      "no-ads",
+      "microsoft-ecosystem",
+      "account-required",
+      "retiring"
+    ],
+    "keywords": [
+      "할일",
+      "todo",
+      "마이크로소프트",
+      "아웃룩",
+      "planner"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-20(iOS)·2026-10-22(Android) 업데이트로 종료 전까지는 운영된다. 2026-11-18 마이크로소프트가 To Do 앱 종료(2027-06-30)와 Planner 통합을 공식 발표했다.",
+    "sources": [
+      {
+        "id": "ms-unified-tasks",
+        "title": "Microsoft — 통합 작업·계획 발표(2026-11-18)",
+        "url": "https://techcommunity.microsoft.com/blog/plannerblog/introducing-unified-tasks-and-plans-for-copilot-and-microsoft-365/4573958",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "To Do 앱이 2027-06-30 종료, 개인 계정은 Planner 미제공·다른 앱을 골라야 함."
+      },
+      {
+        "id": "ms-todo-planner",
+        "title": "Microsoft 지원 — To Do에서 Planner로",
+        "url": "https://support.microsoft.com/en-us/planner/to-do-to-planner",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "기존 작업은 Planner로 이전되지 않음. 내보내기 방법은 추후 공지."
+      },
+      {
+        "id": "verge-todo",
+        "title": "The Verge — Microsoft is killing the To Do app",
+        "url": "https://www.theverge.com/tech/1037558/microsoft-to-do-shutdown-planner",
+        "type": "press",
+        "grade": "B",
+        "accessed_at": "2026-11-25",
+        "note": "2026-11-19 보도. 개인 사용자에게 대체 앱이 없다는 지적."
+      },
+      {
+        "id": "play-ms-todo",
+        "title": "Google Play — Microsoft To Do",
+        "url": "https://play.google.com/store/apps/details?id=com.microsoft.todos&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.6★·48.6만 리뷰, 2026-10-22 업데이트."
+      },
+      {
+        "id": "itunes-ms-todo",
+        "title": "Apple App Store — Microsoft To Do (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.microsoft.to-do&country=us",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.72★·270,766건, 2026-11-20 업데이트."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "Play에 'Contains ads' 표기 없음."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "ms-unified-tasks"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음(부재 근거)."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "구독 없이 사용."
+      },
+      "account_required": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "마이크로소프트 계정 로그인 필수."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "itunes-ms-todo"
+        ],
+        "verification": "direct",
+        "note": "2026-11-20 iOS 업데이트."
+      },
+      "data_collected": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "verification": "absent",
+        "note": "Play 데이터 보안 항목 미확인."
+      },
+      "data_export": {
+        "value": "unknown",
+        "evidence_grade": "A",
+        "source_ids": [
+          "ms-todo-planner"
+        ],
+        "note": "종료 전 내보내기 기능을 제공한다고만 공지. 방법·지원 범위는 아직 발표되지 않았다."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·인앱결제 없음"
+        },
+        "limits": [
+          "기능 제한 없음(무료)",
+          "마이크로소프트 계정 필요",
+          "2027-06-30 앱 종료 예고",
+          "기존 작업은 Planner로 이전되지 않음"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "fail",
+            "evidence_grade": "A",
+            "note": "마이크로소프트 계정 필수.",
+            "source_ids": [
+              "play-ms-todo"
+            ]
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "avoid",
+        "one_liner": "값은 없지만 수명이 정해져 있다. 2027-06-30에 앱이 닫히고, 개인 계정은 옮겨 갈 Planner가 없다.",
+        "recommended_path": false
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 95,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.6★(48.6만)·iOS 4.72★(27.1만) — 표본이 매우 크고 두 스토어가 일치한다. 불만은 기능보다 '동기화가 느리다' 정도.",
+        "source_ids": [
+          "play-ms-todo",
+          "itunes-ms-todo"
+        ]
+      },
+      "objective": {
+        "score": 32,
+        "signal": "red",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "앱 종료일(2027-06-30)이 공식 공지됐고, 개인 계정은 대체 앱이 없으며 기존 작업은 이전되지 않는다. 내보내기 방법도 아직 미공개다.",
+        "source_ids": [
+          "ms-unified-tasks",
+          "ms-todo-planner"
+        ]
+      },
+      "ai_review": {
+        "score": 45,
+        "signal": "red",
+        "signal_basis": "score",
+        "evidence_grade": "A/B",
+        "confidence": "high",
+        "summary": "할 일 앱으로서 완성도는 평범 이상(빠른 입력·My Day·Outlook 연동)이지만, '2년 뒤 사라지는 도구'라는 사실이 모든 장점을 덮는다. 감점: 서비스 수명.",
+        "source_ids": [
+          "ms-unified-tasks",
+          "verge-todo"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "avoid",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "red",
+        "ai_review": "red"
+      },
+      "one_liner": "평점 4.6★·무료·광고 없음이 전부 무의미해지는 날짜가 공지됐다 — 2027-06-30.",
+      "reasons": [
+        "마이크로소프트가 To Do 앱 종료(2027-06-30)를 공식 발표했다.",
+        "개인 계정 사용자는 Planner를 쓸 수 없고, 기존 작업은 이전되지 않는다.",
+        "내보내기 방법조차 아직 공개되지 않았다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "이미 쓰고 있다면 2027-06-30 전에 내보내기 안내가 나오는지 확인하고, 대체 앱을 미리 정해 두는 편이 낫다.",
+        "업무·학교 계정은 Planner로 개인 작업 관리가 이동한다(2026-12 My tasks 롤아웃)."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 486000,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.6★ · 48.6만 리뷰."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.72,
+            "scale": "stars5",
+            "count": 270766,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.72★ · 270,766건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.6★(48.6만)·iOS 4.72★(27.1만). 평점만 보면 최상위권 — 그래서 '별점은 높은데 거름' 리포트의 새 사례가 됐다."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-20",
+      "latest_update_platform": "ios",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-20",
+          "type": "unknown",
+          "platform": "ios",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "itunes-ms-todo"
+          ],
+          "note": "iOS 업데이트 일자. 성격 미확인."
+        },
+        {
+          "date": "2026-11-18",
+          "type": "policy_terms",
+          "platform": "other",
+          "promise_status": "on_time",
+          "evidence_grade": "A",
+          "source_ids": [
+            "ms-unified-tasks",
+            "ms-todo-planner"
+          ],
+          "note": "To Do 앱 2027-06-30 종료·Planner 통합 발표. 개인 계정은 대체 앱 없음, 작업 이전 없음."
+        }
+      ],
+      "maintenance_quality": "risky_terms",
+      "assessment": "업데이트는 이어지지만 제품 수명 종료가 공지된 상태다. 기능 개선보다 이관 공지가 중심이 된다."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "B",
+          "source_ids": [
+            "play-ms-todo"
+          ],
+          "note": "광고 없음. 유입 광고 미평가."
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "인앱결제 없음 — 완전 무료."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-ms-todo"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음"
+      },
+      "summary": "완전 무료·광고 없음. 수익화가 아니라 마이크로소프트 365 생태계 유지 기능이었다."
+    },
+    "data_quality": {
+      "overall_grade": "A",
+      "unverified": [
+        "내보내기 기능의 구체적 방법·지원 범위(추후 공지)",
+        "Play 데이터 보안 항목"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 종료 발표(2026-11-18) 직후라 이관 안내 문서가 계속 갱신될 수 있다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "things-3",
+    "name": "Things 3",
+    "icon": "assets/icons/things-3.webp",
+    "aliases": [
+      "씽스",
+      "Things",
+      "Cultured Code"
+    ],
+    "domain": "app",
+    "category": "productivity",
+    "arenas": [
+      "task-managers"
+    ],
+    "arena_notes": {
+      "task-managers": "구독 없는 1회 구매(플랫폼별 별매) — '값을 한 번 내면 끝'이 할 일 앱에서도 통하는가."
+    },
+    "genres": [
+      "할 일 관리",
+      "GTD",
+      "Apple 전용"
+    ],
+    "platforms": [
+      "ios",
+      "macos"
+    ],
+    "developer": "Cultured Code",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "Apple 기기에서만 쓰는 1회 구매 할 일 앱. 구독·광고·계정이 없고, iPhone·iPad·Mac을 각각 사야 한다.",
+    "taste_tags": [
+      "one-time-purchase",
+      "no-subscription",
+      "no-ads",
+      "apple-only",
+      "minimal-ui"
+    ],
+    "keywords": [
+      "할일",
+      "todo",
+      "gtd",
+      "씽스",
+      "things"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-19(iPhone·iPad)·2026-11-24(Mac) 업데이트. 유료 업그레이드 없이 3.x 를 계속 유지한다.",
+    "sources": [
+      {
+        "id": "things-site",
+        "title": "Things 공식 사이트",
+        "url": "https://culturedcode.com/things/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Mac·iPhone·iPad·Vision Pro 별매 확인. 2026-11 블랙프라이데이 주간 세일 표기."
+      },
+      {
+        "id": "things-pricing",
+        "title": "Things App Store 가격 안내",
+        "url": "https://culturedcode.com/things/pricing/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "미국 달러 기준 가격을 설정하고 각국 가격은 Apple이 정한다고 명시."
+      },
+      {
+        "id": "itunes-things",
+        "title": "Apple App Store — Things 3 iPhone (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.culturedcode.ThingsiPhone&country=us",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "US$6.99(세일)·4.82★·28,120건, 2026-11-19 업데이트."
+      },
+      {
+        "id": "itunes-things-ipad",
+        "title": "Apple App Store — Things 3 iPad (iTunes Lookup)",
+        "url": "https://itunes.apple.com/search?term=Things+3&entity=iPadSoftware&country=us",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "US$13.99."
+      },
+      {
+        "id": "itunes-things-mac",
+        "title": "Apple App Store — Things 3 Mac (iTunes Lookup)",
+        "url": "https://itunes.apple.com/search?term=Things+3&entity=macSoftware&country=us",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "US$34.99, 2026-11-24 업데이트."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "광고 없음."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음(부재 근거)."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "구매 후 전 기능 사용."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "구독 없음 — 1회 구매."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "things-site"
+        ],
+        "verification": "direct",
+        "note": "기기 로컬 사용은 계정 없이 가능. 기기 간 동기화(Things Cloud)만 계정 필요."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "itunes-things"
+        ],
+        "verification": "direct",
+        "note": "2026-11-19 iPhone 업데이트."
+      },
+      "data_collected": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "verification": "absent",
+        "note": "수집 항목 미확인."
+      },
+      "data_export": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "note": "내보내기 기능의 유무·범위를 공식 문서에서 확인하지 못함."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "iphone",
+        "label": "iPhone · Apple Watch",
+        "kind": "one_time",
+        "price": {
+          "amount": 6.99,
+          "currency": "USD",
+          "period": "one_time",
+          "display": "US$6.99 (2026-11-25 세일가) · 국내 ₩11,900"
+        },
+        "limits": [
+          "iPhone·Watch 전용 라이선스",
+          "iPad·Mac 은 별도 구매",
+          "동기화는 Things Cloud(계정) 필요"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있음."
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "iPhone만 쓰면 US$6.99 한 번. 갱신도 광고도 없다.",
+        "recommended_path": true,
+        "notes": "2026-11 블랙프라이데이 세일가. 정가 미확인(공식 페이지가 세일 중)."
+      },
+      {
+        "tier_id": "ipad",
+        "label": "iPad",
+        "kind": "one_time",
+        "price": {
+          "amount": 13.99,
+          "currency": "USD",
+          "period": "one_time",
+          "display": "US$13.99 (세일가)"
+        },
+        "limits": [
+          "iPad 전용 라이선스",
+          "iPhone·Mac 별도"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있음."
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "iPad를 메인으로 쓴다면 iPad판을 따로 산다.",
+        "recommended_path": false
+      },
+      {
+        "tier_id": "mac",
+        "label": "Mac",
+        "kind": "one_time",
+        "price": {
+          "amount": 34.99,
+          "currency": "USD",
+          "period": "one_time",
+          "display": "US$34.99 (세일가)"
+        },
+        "limits": [
+          "Mac 전용 라이선스",
+          "iPhone·iPad 별도"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있음."
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "맥에서 하루 종일 쓰는 사람의 경로. 세 플랫폼을 다 사면 US$55.97.",
+        "recommended_path": false
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 95,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "iOS 4.82★(28,120). '디자인·속도·키보드 중심 조작'이 반복 칭찬. 불만은 'Android·Windows가 없다'에 몰린다.",
+        "source_ids": [
+          "itunes-things"
+        ]
+      },
+      "objective": {
+        "score": 78,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "구독·광고·계정·확률형이 모두 없고 플랫폼별 1회 구매로 끝난다. 다만 Apple 전용이라 기기 교체·혼용에 약하고, 세 플랫폼 합계 US$55.97(세일가)로 싸지 않다.",
+        "source_ids": [
+          "things-site",
+          "things-pricing"
+        ]
+      },
+      "ai_review": {
+        "score": 88,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "할 일 앱의 '본질 경험'(빠른 입력, 오늘/예정/언젠가 구조, 마감과 반복)이 군더더기 없이 완성돼 있다. 감점: 협업·공유 기능이 사실상 없고 Apple 밖으로 나갈 수 없다.",
+        "source_ids": [
+          "things-site"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "recommend",
+      "tier_of_record": "iphone",
+      "signals": {
+        "user_rating": "green",
+        "objective": "green",
+        "ai_review": "green"
+      },
+      "one_liner": "구독 없이 값 한 번으로 끝나는 할 일 앱 — 대신 Apple 기기 안에서만 산다.",
+      "reasons": [
+        "구독·광고·계정·확률형이 없고 1회 구매로 끝난다.",
+        "iOS 4.82★(2.8만)로 표본 대비 평가가 매우 높다.",
+        "Apple 전용이고 플랫폼마다 따로 사야 해 혼용 환경에는 맞지 않는다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "Android·Windows·웹 버전이 없다.",
+        "2026-11-25 현재 블랙프라이데이 세일가(US$6.99/13.99/34.99). 정가는 공식 페이지에서 확인되지 않는다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.82,
+            "scale": "stars5",
+            "count": 28120,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.82★ · 28,120건. Mac·iPad 평가는 별도 앱으로 분리 집계."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "iOS 4.82★(2.8만). 표본 충분. Android 표본은 존재하지 않는다."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-24",
+      "latest_update_platform": "macos",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-19",
+          "type": "unknown",
+          "platform": "ios",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "itunes-things"
+          ],
+          "note": "iPhone·iPad 업데이트 일자. 성격 미확인."
+        },
+        {
+          "date": "2026-11-24",
+          "type": "unknown",
+          "platform": "macos",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "itunes-things-mac"
+          ],
+          "note": "Mac 업데이트 일자."
+        }
+      ],
+      "maintenance_quality": "healthy",
+      "assessment": "유료 업그레이드 없이 3.x 를 유지하며 플랫폼별 업데이트가 이어진다. 과금 변경 없음."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "B",
+          "source_ids": [
+            "things-site"
+          ],
+          "note": "광고 없음. 유입 광고 미평가."
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "인앱결제 없음 — 스토어 구매가 전부."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "things-site"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음"
+      },
+      "summary": "플랫폼별 1회 구매 외 과금 경로가 없다."
+    },
+    "data_quality": {
+      "overall_grade": "A",
+      "unverified": [
+        "정가(세일 기간 중이라 공식 정가 표기 미확인)",
+        "내보내기 기능 유무",
+        "수집 항목"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 세일 기간(2026-11 블랙프라이데이 주간) 가격이라 종료 후 가격이 달라질 수 있다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "tasks-org",
+    "name": "Tasks.org",
+    "icon": "assets/icons/tasks-org.webp",
+    "aliases": [
+      "Tasks",
+      "오픈소스 할일"
+    ],
+    "domain": "app",
+    "category": "productivity",
+    "arenas": [
+      "task-managers"
+    ],
+    "arena_notes": {
+      "task-managers": "GPLv3·광고 없음·계정 없이 쓸 수 있는 오픈소스 — '데이터를 내가 갖는' 할 일 앱의 기준점."
+    },
+    "genres": [
+      "할 일 관리",
+      "오픈소스",
+      "로컬 우선"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "developer": "Tasks.org, LLC",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "GPLv3 오픈소스 할 일 앱. 계정 없이 오프라인으로 쓰거나 Google Tasks·CalDAV·EteSync로 동기화한다. Android 전용.",
+    "taste_tags": [
+      "open-source",
+      "local-first",
+      "no-account",
+      "no-ads",
+      "android-only",
+      "self-host"
+    ],
+    "keywords": [
+      "할일",
+      "todo",
+      "오픈소스",
+      "caldav",
+      "구글태스크",
+      "etesync"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "Google Play 2026-11-17 업데이트. 공식 사이트에서 데스크톱 알파·Pebble 앱도 배포 중이다.",
+    "sources": [
+      {
+        "id": "tasks-site",
+        "title": "Tasks.org 공식 사이트",
+        "url": "https://tasks.org/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "GPLv3, 광고 없음, 오프라인·자체 호스팅·EteSync, Google Tasks·DAVx5·CalDAV·DecSync 동기화 확인."
+      },
+      {
+        "id": "play-tasks",
+        "title": "Google Play — Tasks.org",
+        "url": "https://play.google.com/store/apps/details?id=org.tasks&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.6★·1.37만 리뷰·50만+ 다운로드, 2026-11-17 업데이트."
+      },
+      {
+        "id": "tasks-download",
+        "title": "Tasks.org 다운로드",
+        "url": "https://tasks.org/download",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Android 정식, 데스크톱 알파, Pebble 배포 경로 확인."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "광고·추적 없음(공식 명시)."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음(부재 근거)."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "구독 없음."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ],
+        "verification": "direct",
+        "note": "계정 없이 오프라인 사용 가능. 동기화는 선택."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-tasks"
+        ],
+        "verification": "direct",
+        "note": "2026-11-17 업데이트."
+      },
+      "data_collected": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "verification": "absent",
+        "note": "Play 데이터 보안 항목 미확인."
+      },
+      "data_export": {
+        "value": "unknown",
+        "evidence_grade": "unknown",
+        "source_ids": [],
+        "note": "로컬 백업 파일 기능이 있다고 알려져 있으나 공식 문서에서 확인하지 못함."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료 (GPLv3)",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·인앱결제 없음"
+        },
+        "limits": [
+          "Android 전용(iOS·웹 없음)",
+          "동기화는 Google Tasks·DAVx5·CalDAV·EteSync 등 외부 경로",
+          "데스크톱 알파 별도"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "핵심 기능을 무료 또는 구매만으로 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있음."
+          },
+          "data_collection": {
+            "status": "unknown",
+            "evidence_grade": "unknown",
+            "note": "개인정보 수집 항목을 확인하지 못함 — 통과로 치지 않고 ⚪ 주의."
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "값을 내지 않고 계정도 만들지 않고 쓴다. 대신 Android 밖으로는 나가지 못한다.",
+        "recommended_path": true
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 90,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.6★(1.37만) — 표본 100건을 넘고, '오픈소스인데 기능이 부족하지 않다'는 평가가 반복된다. 불만은 동기화 설정이 어렵다는 쪽.",
+        "source_ids": [
+          "play-tasks"
+        ]
+      },
+      "objective": {
+        "score": 90,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "GPLv3·광고 없음·계정 없이 사용·자체 호스팅/E2EE 경로가 있고 과금이 없다. 감점: Android 전용이고 동기화를 외부 서비스에 의존한다.",
+        "source_ids": [
+          "tasks-site",
+          "play-tasks"
+        ]
+      },
+      "ai_review": {
+        "score": 82,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "무한 깊이 하위 작업·필터·태그·수동 정렬 등 실사용 기능이 오픈소스 답게 알차다. 감점: 첫 동기화 설정의 진입 장벽과 오래된 UI, iOS 부재.",
+        "source_ids": [
+          "tasks-site",
+          "play-tasks"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "recommend",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "green",
+        "ai_review": "green"
+      },
+      "one_liner": "계정도 구독도 광고도 없이 데이터를 내 손에 두는 Android 할 일 앱.",
+      "reasons": [
+        "GPLv3 오픈소스, 광고·과금·계정 강제가 없다.",
+        "오프라인은 물론 Google Tasks·CalDAV·EteSync 등 원하는 동기화를 고를 수 있다.",
+        "Play 4.6★(1.37만)로 표본 대비 평가가 높고 2026-11 업데이트가 있다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "Android 전용 — iPhone·웹 버전이 없다(데스크톱은 알파).",
+        "동기화를 쓰려면 Google Tasks·DAVx5·CalDAV·EteSync 중 하나를 직접 붙여야 한다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 13700,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.6★ · 1.37만 리뷰 · 50만+ 다운로드."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.6★(1.37만) — 표본 규칙 충족. iOS 표본은 없음(미출시)."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-17",
+      "latest_update_platform": "android",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-17",
+          "type": "unknown",
+          "platform": "android",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "source_ids": [
+            "play-tasks"
+          ],
+          "note": "Play 업데이트 일자. 성격 미확인."
+        }
+      ],
+      "maintenance_quality": "healthy",
+      "assessment": "최근 업데이트가 있고 과금·약관 변경이 없다. 오픈소스 저장소도 계속 움직이는 것으로 알려져 있다."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "B",
+          "source_ids": [
+            "tasks-site"
+          ],
+          "note": "광고 없음(공식 명시)."
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "인앱결제 없음."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "tasks-site"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음"
+      },
+      "summary": "완전 무료·광고 없음. 수익화 없이 운영되는 오픈소스 모델."
+    },
+    "data_quality": {
+      "overall_grade": "A",
+      "unverified": [
+        "내보내기 기능의 구체적 형식",
+        "Play 데이터 보안 항목",
+        "데스크톱 알파의 완성도"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 동기화 설정은 직접 해보지 않았다."
+    }
+  }
+]
