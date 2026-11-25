@@ -13,14 +13,14 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070e19'/%3E%3Cpath d='M16 5l3.2 6.4L16 27l-3.2-15.6z' fill='%23f4b75e'/%3E%3Ccircle cx='16' cy='9' r='1.6' fill='%23fff8ea'/%3E%3C/svg%3E" />
 </head>
 <body>
-<a class="skip-link" href="#view">본문으로 건너뛰기</a>
+<a class="skip-link" href="#view" data-i18n="skip.link">본문으로 건너뛰기</a>
 
 <div class="sea" aria-hidden="true">
   <div class="beam-sweep"></div>
 </div>
 
 <header class="topbar">
-  <a class="brand" href="./" data-nav="home" aria-label="파로스 홈">
+  <a class="brand" href="./" data-nav="home" aria-label="파로스 홈" data-i18n-aria-label="brand.home">
     <svg class="mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
@@ -36,30 +36,34 @@
       <path d="M15 44h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
     </svg>
     <span class="brand-text">
-      <span class="wordmark">PHAROS<span class="wordmark-sub">파로스</span></span>
-      <span class="tagline">별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별</span>
+      <span class="wordmark">PHAROS<span class="wordmark-sub" data-i18n="brand.sub">파로스</span></span>
+      <span class="tagline" data-i18n="brand.tagline">별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별</span>
     </span>
   </a>
 
-  <nav class="domain-tabs" id="domainTabs" aria-label="도메인 전환"></nav>
+  <nav class="domain-tabs" id="domainTabs" aria-label="도메인 전환" data-i18n-aria-label="nav.domains"></nav>
 
   <div class="topbar-side">
-    <span class="dataset-chip" id="datasetChip" title="데이터·스키마 버전">불러오는 중…</span>
+    <span class="dataset-chip" id="datasetChip" title="데이터·스키마 버전" data-i18n-title="dataset.title" data-i18n="dataset.loading">불러오는 중…</span>
     <button type="button" class="ghost-btn" id="bookmarkBtn" aria-controls="bookmarkSection">
-      <span class="ghost-ico" aria-hidden="true">☆</span>보관함 <span class="count-pill" id="bookmarkCount">0</span>
+      <span class="ghost-ico" aria-hidden="true">☆</span><span data-i18n="nav.bookmarks">보관함</span> <span class="count-pill" id="bookmarkCount">0</span>
     </button>
-    <button type="button" class="ghost-btn" id="methodBtn"><span class="ghost-ico" aria-hidden="true">?</span>방법론</button>
+    <button type="button" class="ghost-btn" id="methodBtn"><span class="ghost-ico" aria-hidden="true">?</span><span data-i18n="nav.method">방법론</span></button>
     <button type="button" class="ghost-btn ghost-btn--tune" id="tuneBtn" aria-expanded="false" aria-controls="tuneDrawer">
-      <span class="ghost-ico" aria-hidden="true">⚙</span>내 기준 미세조정
+      <span class="ghost-ico" aria-hidden="true">⚙</span><span data-i18n="nav.tune">내 기준 미세조정</span>
     </button>
-    <button type="button" class="ghost-btn" id="themeToggle" aria-pressed="true">
+    <button type="button" class="ghost-btn" id="themeToggle" aria-pressed="true" data-i18n-aria-label="nav.theme.toggle">
       <span class="ghost-ico" aria-hidden="true">◐</span><span id="themeLabel">다크</span>
     </button>
+    <div class="lang-toggle" id="langToggle" role="group" aria-label="언어" data-i18n-aria-label="nav.lang">
+      <button type="button" data-lang="ko" aria-pressed="false" lang="ko">KO</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
   </div>
 </header>
 
 <div class="crumb-bar">
-  <ol class="breadcrumb" id="breadcrumb" aria-label="탐색 경로"></ol>
+  <ol class="breadcrumb" id="breadcrumb" aria-label="탐색 경로" data-i18n-aria-label="crumb.label"></ol>
   <span class="crumb-note" id="crumbNote"></span>
 </div>
 
@@ -70,21 +74,21 @@
   </p>
 </main>
 
-<div class="compare-bar" id="compareBar" role="region" aria-label="비교 선택" aria-live="polite" hidden>
+<div class="compare-bar" id="compareBar" role="region" aria-label="비교 선택" data-i18n-aria-label="compareBar.region" aria-live="polite" hidden>
   <span class="compare-bar-label">0개 선택됨</span>
   <span class="compare-bar-list" id="compareList"></span>
-  <button type="button" class="primary-btn" id="compareOpen">나란히 비교하기 →</button>
-  <button type="button" class="text-btn" id="compareClear">선택 초기화</button>
+  <button type="button" class="primary-btn" id="compareOpen" data-i18n="compareBar.open">나란히 비교하기 →</button>
+  <button type="button" class="text-btn" id="compareClear" data-i18n="compareBar.clear">선택 초기화</button>
 </div>
 
 <div class="drawer-backdrop" id="tuneBackdrop" hidden></div>
-<aside class="drawer" id="tuneDrawer" role="dialog" aria-modal="false" aria-label="내 기준 미세조정" hidden>
+<aside class="drawer" id="tuneDrawer" role="dialog" aria-modal="false" aria-label="내 기준 미세조정" data-i18n-aria-label="nav.tune" hidden>
   <div class="drawer-head">
     <div>
-      <p class="mini-label">내 기준</p>
-      <h2>미세조정</h2>
+      <p class="mini-label" data-i18n="tune.mine">내 기준</p>
+      <h2 data-i18n="tune.title">미세조정</h2>
     </div>
-    <button type="button" class="icon-btn" id="tuneClose" aria-label="미세조정 닫기">✕</button>
+    <button type="button" class="icon-btn" id="tuneClose" aria-label="미세조정 닫기" data-i18n-aria-label="tune.close">✕</button>
   </div>
   <div class="drawer-body" id="tuneBody"></div>
 </aside>
@@ -99,7 +103,7 @@
         <p class="modal-dev" id="modalDev"></p>
       </div>
       <div class="modal-actions" id="modalActions">
-        <button type="button" class="icon-btn" id="modalClose" aria-label="상세 닫기">✕</button>
+        <button type="button" class="icon-btn" id="modalClose" aria-label="상세 닫기" data-i18n-aria-label="modal.detailClose">✕</button>
       </div>
     </div>
     <div class="modal-body" id="modalBody"></div>
@@ -110,12 +114,12 @@
   <div class="modal modal--method" id="methodModal" role="dialog" aria-modal="true" aria-labelledby="methodTitle" tabindex="-1">
     <div class="modal-head">
       <div class="modal-titles">
-        <p class="mini-label">기준·방법론</p>
-        <h2 id="methodTitle">파로스가 점수를 매기는 법</h2>
-        <p class="modal-dev">가중치·필터·근거 등급·판정 규칙을 그대로 공개합니다.</p>
+        <p class="mini-label" data-i18n="method.label">기준·방법론</p>
+        <h2 id="methodTitle" data-i18n="method.title">파로스가 점수를 매기는 법</h2>
+        <p class="modal-dev" data-i18n="method.sub">가중치·필터·근거 등급·판정 규칙을 그대로 공개합니다.</p>
       </div>
       <div class="modal-actions">
-        <button type="button" class="icon-btn" id="methodClose" aria-label="방법론 닫기">✕</button>
+        <button type="button" class="icon-btn" id="methodClose" aria-label="방법론 닫기" data-i18n-aria-label="method.close">✕</button>
       </div>
     </div>
     <div class="modal-body" id="methodBody"></div>
@@ -125,7 +129,7 @@
 <p class="toast" id="toast" hidden role="status" aria-live="polite"></p>
 
 <noscript>
-  <p class="noscript">파로스는 브라우저에서 계산합니다. JavaScript를 켜야 선별 결과가 보입니다.</p>
+  <p class="noscript" data-i18n="noscript">파로스는 브라우저에서 계산합니다. JavaScript를 켜야 선별 결과가 보입니다.</p>
 </noscript>
 
 <script type="module" src="./js/app.js"></script>

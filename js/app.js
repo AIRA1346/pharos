@@ -9,6 +9,7 @@
  */
 import * as engine from './engine.js';
 import { loadCore, createCatalogView, createArenaStore, searchRecords } from './data.js';
+import { t, labeled, nfmt, days, initLang, setLang, getLang, applyStaticI18n } from './i18n.js';
 
 document.getElementById('bootNote')?.remove();
 
@@ -19,101 +20,35 @@ const LS = {
 };
 
 const PRESETS = [
-  {
-    id: 'balanced',
-    label: '균형 기본',
-    weights: { user_rating: 50, objective: 25, ai_review: 25 },
-    hint: '사용자 50 · 객관 25 · AI 25',
-  },
-  {
-    id: 'popular',
-    label: '대중 평가 중심',
-    weights: { user_rating: 65, objective: 20, ai_review: 15 },
-    hint: '수십만~수백만 명이 매긴 평점을 가장 무겁게',
-  },
-  {
-    id: 'comfort',
-    label: '쾌적성·노과금 중심',
-    weights: { user_rating: 20, objective: 60, ai_review: 20 },
-    hint: '광고·과금·유지보수를 무겁게',
-  },
+  { id: 'balanced', weights: { user_rating: 50, objective: 25, ai_review: 25 } },
+  { id: 'popular', weights: { user_rating: 65, objective: 20, ai_review: 15 } },
+  { id: 'comfort', weights: { user_rating: 20, objective: 60, ai_review: 20 } },
   {
     id: 'privacy',
-    label: '프라이버시·로컬 중시',
     weights: { user_rating: 25, objective: 55, ai_review: 20 },
     filters: ['account_required', 'data_collection'],
-    hint: '계정·데이터 수집 필터를 함께 켭니다',
   },
-  {
-    id: 'ai',
-    label: 'AI 완성도 중심',
-    weights: { user_rating: 20, objective: 25, ai_review: 55 },
-    hint: '본질·완성도·정직성 위주',
-  },
+  { id: 'ai', weights: { user_rating: 20, objective: 25, ai_review: 55 } },
 ];
 
-const FLAG_LABEL = {
-  contains_ads: '앱 내 광고 포함',
-  gacha_random_items: '확률형 아이템',
-  forced_ad_before_use: '강제 전면 광고',
-  bait_ad: '미끼형 유입 광고',
-  p2w: 'P2W(과금이 승패를 좌우)',
-  iap_required_to_progress: '과금 없이 진행 불가',
-  subscription_required: '구독 필수',
-  account_required: '계정 필수',
-  stale_over_12m: '12개월 이상 방치',
-  data_collected: '과도한 데이터 수집',
-  data_export: '데이터 내보내기',
-  compat_risk: '보안·OS 호환성 위험',
-};
+const presetLabelOf = (id) => t(`preset.${id}`);
+const presetHintOf = (id) => t(`preset.${id}.hint`);
 
-const VERIFICATION_LABEL = {
-  direct: '직접 확인',
-  reported_only: '3자 서술',
-  inferred: '정황 추론',
-  absent: '부재 근거',
-};
+const SORT_KEYS = ['score', 'score-asc', 'risk', 'name'];
+const sortLabel = (key) => t(`sort.${key === 'score-asc' ? 'scoreAsc' : key}`);
 
-const EXPORT_LABEL = { full: '전체', partial: '부분', none: '불가', unknown: '미확인' };
-const FREE_PLAY_LABEL = {
-  sufficient: '무과금으로 충분',
-  constrained: '무과금은 제한적',
-  blocked: '무과금 진행 불가',
-  unknown: '미확인',
-};
-const METHOD_LABEL = { desk_research: '데스크 리서치', hands_on: '직접 사용', mixed: '혼합' };
-
-const TAG_LABEL = {
-  'local-first': '로컬 우선(내 파일·내 기기)',
-  'minimal-ui': '최소한의 UI',
-  'one-time-purchase': '1회 구매',
-  'no-account': '계정 불필요',
-  'no-ads': '광고 없음',
-  'single-player': '싱글플레이',
-  markdown: 'Markdown 파일',
-  'file-ownership': '파일 소유권',
-  'cloud-sync': '클라우드 동기화',
-  'ai-features': 'AI 기능',
-  subscription: '구독형',
-  gacha: '확률형 아이템',
-  p2w: 'P2W',
-  'server-competitive': '서버 경쟁',
-  'always-online': '상시 접속',
-};
-
+/* 도메인·플랫폼·필터·축 라벨은 i18n.js 의 사전에서 온다. 데이터 라벨(비교군·대분류)은
+   data/catalog.json 과 data/en.json 번들이 맡는다. */
 const RULE_INDEX = { 1: 0, '1w': 0, '1c': 6, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5 };
 
-const RULE_TEXT_KO = [
-  '켜진 하드 필터에 걸리면 거름. 단 확률형·P2W의 「선택 과금(impact: optional)」은 기본 설정에서 거르지 않고 배지로만 알린다. (완화 모드에서 등급 C 근거만 있으면 조건부 경고)',
-  '🔴 신호가 2개 이상이면 거름',
-  '🔴 신호가 1개면 조건부',
-  '🟡 신호가 2개 이상이면 조건부',
-  '점수 80 이상이고 🟡가 1개 이하면 추천',
-  '그 외에는 조건부',
-  '완결작 면제에 보안·OS 호환성 신호가 붙으면 추천 대신 조건부 경고',
-];
-
-const SORT_LABEL = { score: '점수 높은 순', 'score-asc': '점수 낮은 순', risk: '최근 평가 위험 순', name: '이름순' };
+const L = {
+  flag: (key) => labeled('flag', key, key),
+  verification: (key) => labeled('verification', key, key),
+  export: (key) => labeled('export', key, key),
+  freePlay: (key) => labeled('freePlay', key, key),
+  method: (key) => labeled('method', key, key),
+  tag: (key) => labeled('tag', key, key),
+};
 
 const state = {
   core: null,
@@ -131,6 +66,7 @@ const state = {
   preset: 'balanced',
   bookmarks: [],
   theme: 'dark',
+  lang: 'ko',
   lastFocus: null,
 };
 
@@ -144,7 +80,8 @@ const shortText = (value, limit = 76) => {
   const raw = String(value ?? '').split(' — ')[0].trim();
   return raw.length > limit ? `${raw.slice(0, limit).trim()}…` : raw;
 };
-const num = (value) => Number(value ?? 0).toLocaleString('ko-KR');
+const num = (value) => nfmt(value ?? 0);
+const locale = () => (getLang() === 'en' ? 'en-US' : 'ko-KR');
 const contract = () => state.core?.contract || {};
 
 /* 공식 아이콘 — data 의 icon 경로(assets/icons/{id}.webp)를 그대로 쓴다.
@@ -216,7 +153,7 @@ function applyTheme() {
   if (!toggle) return;
   toggle.setAttribute('aria-pressed', state.theme === 'dark' ? 'true' : 'false');
   const label = $('themeLabel');
-  if (label) label.textContent = state.theme === 'dark' ? '다크' : '라이트';
+  if (label) label.textContent = state.theme === 'dark' ? t('nav.theme.dark') : t('nav.theme.light');
 }
 
 function toggleTheme() {
@@ -266,13 +203,16 @@ function savePrefs() {
 }
 
 async function init() {
+  state.lang = initLang();
   initTheme();
+  applyStaticI18n();
+  applyDocumentLang();
   bindEvents();
   try {
-    const core = await loadCore();
+    const core = await loadCore(state.lang);
     state.core = core;
     state.cat = createCatalogView(core.catalog);
-    state.store = createArenaStore(core.catalog);
+    state.store = createArenaStore(core.catalog, core.en);
   } catch (err) {
     renderFatal(err);
     return;
@@ -297,6 +237,37 @@ async function init() {
       currentUrl: () => location.href,
     },
   };
+}
+
+/** <html lang>·<title>·메타 설명·OG 를 현재 언어로 맞춘다. */
+function applyDocumentLang() {
+  document.documentElement.lang = state.lang;
+  document.title = t('meta.title');
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.setAttribute('content', t('meta.description'));
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', t('meta.ogTitle'));
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) ogDescription.setAttribute('content', t('meta.ogDescription'));
+  renderLangToggle();
+}
+
+function renderLangToggle() {
+  const wrap = $('langToggle');
+  if (!wrap) return;
+  wrap.querySelectorAll('[data-lang]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', btn.dataset.lang === state.lang ? 'true' : 'false');
+  });
+}
+
+/** 언어 전환 — 저장하고 URL 에 lang 을 박은 뒤 같은 화면을 그 언어로 다시 연다. */
+function switchLang(lang) {
+  if (!lang || lang === state.lang) return;
+  setLang(lang);
+  state.lang = lang;
+  const params = new URLSearchParams(location.search);
+  params.set('lang', lang);
+  location.href = `${location.pathname}?${params.toString()}`;
 }
 
 /* --------------------------------------------------------------- 라우팅 */
@@ -395,6 +366,7 @@ async function applyUrl() {
 function urlForRoute() {
   const params = new URLSearchParams();
   const route = state.route;
+  params.set('lang', state.lang);
   if (route.domain) {
     params.set('domain', route.domain);
     if (route.category && !route.arena) params.set('category', route.category);
@@ -503,7 +475,7 @@ function renderDomainTabs() {
   const wrap = $('domainTabs');
   if (!wrap) return;
   const items = [
-    { key: 'home', label: '홈', active: !state.route.domain, action: 'home' },
+    { key: 'home', label: t('nav.home'), active: !state.route.domain, action: 'home' },
     ...(state.cat?.catalog.domains || []).map((dom) => ({
       key: dom.id,
       label: dom.label,
@@ -526,7 +498,7 @@ function renderBreadcrumb() {
   const note = $('crumbNote');
   if (!wrap) return;
   const route = state.route;
-  const crumbs = [{ label: '홈', action: 'home' }];
+  const crumbs = [{ label: t('nav.home'), action: 'home' }];
   if (route.domain) {
     const dom = state.cat.domain(route.domain);
     crumbs.push({ label: dom?.label || route.domain, action: 'domain', domain: route.domain });
@@ -538,7 +510,7 @@ function renderBreadcrumb() {
       crumbs.push({ label: cat?.label || '', action: 'category', domain: route.domain, category: cat?.id });
       crumbs.push({ label: state.cat.arenaLabel(route.arena) });
     }
-    if (route.view === 'compare') crumbs.push({ label: '나란히 비교' });
+    if (route.view === 'compare') crumbs.push({ label: t('crumb.compare') });
   }
   wrap.innerHTML = crumbs
     .map((crumb, i) => {
@@ -557,7 +529,7 @@ function renderBreadcrumb() {
       ? `${shortText(arena.description, 64)}`
       : route.domain
         ? `${state.cat.domain(route.domain)?.description || ''}`
-        : '도메인 → 대분류 → 비교군 → 항목 순으로 좁혀 봅니다. 평균은 같은 비교군 안에서만 계산합니다.';
+        : t('crumb.homeNote');
   }
 }
 
@@ -566,8 +538,17 @@ function renderDatasetChip() {
   if (!chip) return;
   const version = state.core?.schema?.title?.match(/v([\d.]+)/)?.[1] || contract().schema_version || '?';
   const idx = state.core.index;
-  chip.textContent = `스키마 v${version} · ${idx.counts.items}건 · 비교군 ${idx.counts.arenas}`;
-  chip.title = `item.schema.json v${version} · catalog.json ${idx.counts.domains}도메인/${idx.counts.categories}대분류/${idx.counts.arenas}비교군 · data/{domain}/{arena}.json 지연 로딩`;
+  chip.textContent = t('dataset.chip', {
+    v: version,
+    n: num(idx.counts.items),
+    a: idx.counts.arenas,
+  });
+  chip.title = t('dataset.chipTitle', {
+    v: version,
+    d: idx.counts.domains,
+    c: idx.counts.categories,
+    a: idx.counts.arenas,
+  });
   const count = $('bookmarkCount');
   if (count) count.textContent = String(state.bookmarks.length);
 }
@@ -587,25 +568,25 @@ function renderHome() {
   <section class="home">
     <div class="hero hero--compact">
       <div class="hero-lead">
-        <p class="eyebrow">PHAROS · 파로스</p>
-        <h1>별점 대신, <span class="hl">내 기준</span>으로 거르는 앱·게임·AI 도구 선별</h1>
-        <p class="lede">강제 광고·확률형 뽑기·불투명 크레딧·계정 필수 같은 <strong>절대 거름 조건</strong>을 먼저 적용하고, 같은 자리의 대체제끼리만 비교합니다.</p>
+        <p class="eyebrow">${esc(t('home.eyebrow'))}</p>
+        <h1>${t('home.title.before')}<span class="hl">${t('home.title.hl')}</span>${t('home.title.after')}</h1>
+        <p class="lede">${t('home.lede')}</p>
       </div>
       <form class="home-search" id="homeSearchForm" role="search" autocomplete="off">
         <span class="search-ico" aria-hidden="true">⌕</span>
-        <input type="search" id="homeSearch" placeholder="‘에버노트 대신 뭐 쓰지?’ — 이름·대체제·키워드로 검색"
-               aria-label="통합 검색" value="${esc(state.query)}" />
-        <button type="submit" class="primary-btn">검색</button>
+        <input type="search" id="homeSearch" placeholder="${esc(t('home.search.placeholder'))}"
+               aria-label="${esc(t('home.search.aria'))}" value="${esc(state.query)}" />
+        <button type="submit" class="primary-btn">${esc(t('home.search.btn'))}</button>
       </form>
       <div class="hero-meta">
-        <span><b>${counts.items}</b>건 평가</span>
-        <span><b>${counts.domains}</b>도메인</span>
-        <span><b>${counts.arenas}</b>비교군</span>
-        <span>스키마 v${esc(contract().schema_version || '0.4.0')}</span>
-        ${lastAssessed ? `<span>마지막 평가 ${esc(lastAssessed)}</span>` : ''}
+        <span>${t('home.meta.items', { n: num(counts.items) })}</span>
+        <span>${t('home.meta.domains', { n: counts.domains })}</span>
+        <span>${t('home.meta.arenas', { n: counts.arenas })}</span>
+        <span>${esc(t('home.meta.schema', { v: contract().schema_version || '0.4.0' }))}</span>
+        ${lastAssessed ? `<span>${esc(t('home.meta.lastAssessed', { date: lastAssessed }))}</span>` : ''}
         <span class="hero-meta-actions">
-          <button type="button" class="text-btn" data-action="open-method">점수 매기는 법</button>
-          <button type="button" class="text-btn" data-action="open-tune">⚙ 내 기준 · ${esc(presetLabel())}</button>
+          <button type="button" class="text-btn" data-action="open-method">${esc(t('home.meta.method'))}</button>
+          <button type="button" class="text-btn" data-action="open-tune">${esc(t('home.meta.tune', { preset: presetLabel() }))}</button>
         </span>
       </div>
     </div>
@@ -614,33 +595,33 @@ function renderHome() {
 
     <section class="home-block genre-showcase" id="genreShowcase">
       <div class="section-head">
-        <h2>장르별 추천</h2>
+        <h2>${esc(t('home.genreTitle'))}</h2>
         <span class="section-hint" id="genreHint">${esc(homeGenreHint(arenas))}</span>
       </div>
       ${homeDomainFilterHtml(arenas)}
       <div class="genre-list" id="genreList">${homeArenas(arenas).map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
-      <p class="empty" id="genreEmpty" ${homeArenas(arenas).length ? 'hidden' : ''}>이 도메인에는 아직 비교군이 없습니다.</p>
+      <p class="empty" id="genreEmpty" ${homeArenas(arenas).length ? 'hidden' : ''}>${esc(t('home.genreEmpty'))}</p>
     </section>
 
     <section class="home-block" id="gapReport">
       <div class="section-head">
         <h2><span class="verdict-dot verdict-dot--bad"></span>${esc(
-          state.cat.catalog.home?.gap_report?.title || '별점은 높은데 거름 판정',
+          state.cat.catalog.home?.gap_report?.title || t('home.gapTitle'),
         )}</h2>
-        <span class="section-hint">스토어 누적 별점 ${(state.cat.catalog.home?.gap_report?.min_store_stars ?? 4).toFixed(1)}★ 이상인데 파로스 판정은 낮은 항목</span>
+        <span class="section-hint">${esc(t('home.gapHint', { n: (state.cat.catalog.home?.gap_report?.min_store_stars ?? 4).toFixed(1) }))}</span>
       </div>
       <p class="section-sub">${esc(
-        state.cat.catalog.home?.gap_report?.note || '별점 하나로는 보이지 않는 과금·광고 구조를 드러냅니다.',
+        state.cat.catalog.home?.gap_report?.note || '',
       )}</p>
       <div class="gap-list">
-        ${gapItems.length ? gapItems.map(gapRowHtml).join('') : '<p class="empty">아직 이 조건에 걸리는 항목이 없습니다.</p>'}
+        ${gapItems.length ? gapItems.map(gapRowHtml).join('') : `<p class="empty">${esc(t('home.gapEmpty'))}</p>`}
       </div>
     </section>
 
     <section class="home-block" id="bookmarkSection">
       <div class="section-head">
-        <h2>☆ 내 보관함</h2>
-        <span class="section-hint" id="bookmarkHint">${state.bookmarks.length}건 · 이 브라우저에만 저장</span>
+        <h2>${esc(t('home.bookmarksTitle'))}</h2>
+        <span class="section-hint" id="bookmarkHint">${esc(t('home.bookmarkHint', { n: state.bookmarks.length }))}</span>
       </div>
       <div class="bookmark-list">
         ${
@@ -650,7 +631,7 @@ function renderHome() {
                 .filter(Boolean)
                 .map(bookmarkRowHtml)
                 .join('')
-            : '<p class="empty">카드나 상세의 ☆ 버튼을 누르면 여기에 모입니다. (localStorage)</p>'
+            : `<p class="empty">${esc(t('home.bookmarkEmpty'))}</p>`
         }
       </div>
     </section>
@@ -678,12 +659,12 @@ function homeArenas(arenas) {
 
 function homeDomainFilterHtml(arenas) {
   const rows = [
-    { id: 'all', label: '전체', count: arenas.length },
+    { id: 'all', label: t('home.domainAll'), count: arenas.length },
     ...(state.cat.catalog.domains || [])
       .map((dom) => ({ id: dom.id, label: dom.label, count: arenas.filter((a) => a.domain === dom.id).length }))
       .filter((row) => row.count > 0),
   ];
-  return `<div class="domain-filter" id="homeDomainFilter" role="group" aria-label="홈 장르 도메인 필터">${rows
+  return `<div class="domain-filter" id="homeDomainFilter" role="group" aria-label="${esc(t('home.domainFilterAria'))}">${rows
     .map(
       (row) =>
         `<button type="button" class="domain-chip" data-home-domain="${esc(row.id)}" aria-pressed="${
@@ -697,13 +678,9 @@ function homeGenreHint(arenas) {
   const shown = homeArenas(arenas);
   const scope =
     state.homeDomain === 'all'
-      ? `전체 ${shown.length}개 장르`
-      : `${state.cat.domainLabel(state.homeDomain)} ${shown.length}개 장르`;
-  return `${scope} · ${
-    state.preset === 'balanced'
-      ? '장르를 누르면 전체 비교군, 항목을 누르면 상세가 바로 열립니다'
-      : '타일 점수·판정은 균형 기본 기준, 장르를 열면 내 기준으로 다시 계산합니다'
-  }`;
+      ? t('home.genreHint.all', { n: shown.length })
+      : t('home.genreHint.domain', { domain: state.cat.domainLabel(state.homeDomain), n: shown.length });
+  return t(state.preset === 'balanced' ? 'home.genreHint.one' : 'home.genreHint.mine', { scope });
 }
 
 /** 도메인 필터 클릭 — 목록 DOM만 다시 그려 검색어·스크롤 상태를 건드리지 않는다. */
@@ -741,7 +718,7 @@ function arenaPickRecords(arenaId, limit = 4) {
     (a, b) =>
       (rank[a.verdict] ?? 9) - (rank[b.verdict] ?? 9) ||
       (b.score ?? -1) - (a.score ?? -1) ||
-      a.name.localeCompare(b.name, 'ko'),
+      a.name.localeCompare(b.name, locale()),
   );
   const picks = sorted.filter((rec) => rec.verdict !== 'avoid');
   return (picks.length ? picks : sorted).slice(0, limit);
@@ -758,7 +735,7 @@ function pickTileHtml(rec) {
   <button type="button" class="pick-tile pick-tile--${verdict.tone}" data-action="item" data-item="${esc(rec.id)}"
           data-verdict="${esc(rec.verdict)}" data-score="${typeof rec.score === 'number' ? rec.score.toFixed(2) : ''}"
           title="${esc(rec.name)}"
-          aria-label="${esc(`${rec.name} 상세 보기 — ${verdict.label}, 가중 점수 ${score}`)}">
+          aria-label="${esc(t('tile.aria', { name: rec.name, verdict: verdict.label, score }))}">
     ${iconHtml(rec, 'pick')}
     <span class="pick-text">
       <span class="pick-name">${esc(shortName)}</span>
@@ -766,7 +743,7 @@ function pickTileHtml(rec) {
     </span>
     <span class="pick-meta">
       <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${verdict.label}</span>
-      <span class="pick-score" title="가중 점수(균형 기본 기준)">${score}</span>
+      <span class="pick-score" title="${esc(t('tile.scoreTitle'))}">${score}</span>
     </span>
   </button>`;
 }
@@ -789,10 +766,10 @@ function genreBlockHtml(arena, options = {}) {
         <span class="genre-kicker">${esc(kicker)}</span>
         <span class="genre-name">${esc(arena.label)}</span>
       </button>
-      <span class="genre-stat">${count}종${
-        stat ? ` · <span class="ok">추천 ${stat.verdicts.recommend}</span>` : ''
+      <span class="genre-stat">${esc(t('genre.entries', { n: count }))}${
+        stat ? ` · <span class="ok">${esc(t('genre.recommended', { n: stat.verdicts.recommend }))}</span>` : ''
       }</span>
-      <button type="button" class="genre-more" ${go}>전체 ${count}종 비교 →</button>
+      <button type="button" class="genre-more" ${go}>${esc(t('genre.more', { n: count }))}</button>
     </header>
     <div class="pick-row">${picks.map(pickTileHtml).join('')}</div>
   </article>`;
@@ -813,13 +790,13 @@ function gapRowHtml(rec) {
       </span>
     </div>
     <div class="gap-scale">
-      <span class="gap-stars"><b>★ ${Number(stars || 0).toFixed(1)}</b><small>${count ? `${num(count)}개 · ${esc(rec.store_stars?.platform || '')}` : '스토어 누적'}</small></span>
-      <span class="gap-vs">별점</span>
-      <span class="gap-score"><b>${rec.score ?? '—'}</b><small>파로스 가중 점수</small></span>
+      <span class="gap-stars"><b>★ ${Number(stars || 0).toFixed(1)}</b><small>${count ? esc(t('home.gapCount', { n: num(count), platform: rec.store_stars?.platform || '' })) : esc(t('home.gapStoreTotal'))}</small></span>
+      <span class="gap-vs">${esc(t('home.gapStars'))}</span>
+      <span class="gap-score"><b>${rec.score ?? '—'}</b><small>${esc(t('home.gapScore'))}</small></span>
       <span class="verdict verdict--${verdict.tone}">${verdict.emoji} ${verdict.label}</span>
     </div>
-    <p class="gap-drivers">${(rec.drivers || []).slice(0, 3).map((d) => `<span class="reason-chip reason-chip--${esc(d.tone || 'warn')}">${esc(d.label)}</span>`).join('') || '<span class="reason-chip">신호 기준</span>'}</p>
-    <span class="gap-more">근거 보기 →</span>
+    <p class="gap-drivers">${(rec.drivers || []).slice(0, 3).map((d) => `<span class="reason-chip reason-chip--${esc(d.tone || 'warn')}">${esc(d.label)}</span>`).join('') || `<span class="reason-chip">${esc(t('home.gapSignal'))}</span>`}</p>
+    <span class="gap-more">${esc(t('home.gapMore'))}</span>
   </article>`;
 }
 
@@ -831,7 +808,7 @@ function bookmarkRowHtml(rec) {
     <span class="chip chip--arena">${esc(state.cat.arenaLabel(rec.arenas[0]))}</span>
     <span class="verdict verdict--${verdict.tone}">${verdict.emoji} ${verdict.label}</span>
     <span class="bookmark-score">${rec.score ?? '—'}</span>
-    <button type="button" class="text-btn" data-bookmark="${esc(rec.id)}" aria-label="${esc(rec.name)} 보관함에서 빼기">빼기</button>
+    <button type="button" class="text-btn" data-bookmark="${esc(rec.id)}" aria-label="${esc(t('card.bookmarkRemove', { name: rec.name }))}">${esc(t('bookmark.remove'))}</button>
   </article>`;
 }
 
@@ -848,10 +825,10 @@ function renderHomeSearch() {
   wrap.hidden = false;
   wrap.innerHTML = `
     <div class="search-result-head">
-      <span class="mini-label">통합 검색</span>
+      <span class="mini-label">${esc(t('search.head'))}</span>
       <strong>‘${esc(q)}’</strong>
-      <span class="muted">${rows.length}건 · 경량 인덱스에서 즉시 검색</span>
-      <button type="button" class="text-btn" data-action="clear-search">지우기</button>
+      <span class="muted">${esc(t('search.count', { n: rows.length }))}</span>
+      <button type="button" class="text-btn" data-action="clear-search">${esc(t('search.clear'))}</button>
     </div>
     <div class="search-rows">
       ${
@@ -869,7 +846,7 @@ function renderHomeSearch() {
                 </button>`;
               })
               .join('')
-          : '<p class="empty">맞는 항목이 없습니다. 이름·별칭·대체제 키워드로 다시 찾아보세요.</p>'
+          : `<p class="empty">${esc(t('search.empty'))}</p>`
       }
     </div>`;
 }
@@ -886,7 +863,7 @@ function renderDomain() {
   <section class="level">
     <header class="level-head level-head--compact">
       <p class="eyebrow">${esc(dom.label)}</p>
-      <h1>${esc(dom.label)} — 장르 ${arenas.length} · ${total}건</h1>
+      <h1>${esc(t('domain.heading', { label: dom.label, g: arenas.length, n: total }))}</h1>
       <p class="lede lede--line">${esc(dom.description)}</p>
       <div class="level-badges">
         ${categories
@@ -897,7 +874,7 @@ function renderDomain() {
             )} <b>${members.length}</b></button>`;
           })
           .join('')}
-        <span class="chip chip--muted">필터 팩 · ${esc(pack?.label || dom.filter_pack)}</span>
+        <span class="chip chip--muted">${esc(t('domain.filterPack', { pack: pack?.label || dom.filter_pack }))}</span>
       </div>
     </header>
     <div class="genre-list">${arenas.map((arena) => genreBlockHtml(arena)).join('')}</div>
@@ -911,7 +888,7 @@ function renderCategory() {
   $('view').innerHTML = `
   <section class="level">
     <header class="level-head level-head--compact">
-      <p class="eyebrow">${esc(dom.label)} · 대분류</p>
+      <p class="eyebrow">${esc(t('category.eyebrow', { domain: dom.label }))}</p>
       <h1>${esc(cat.label)}</h1>
       <p class="lede lede--line">${esc(cat.description)}</p>
     </header>
@@ -928,7 +905,7 @@ async function renderArena(seq) {
   try {
     items = await state.store.load(arena.id);
   } catch (err) {
-    $('view').innerHTML = `<div class="error-banner"><strong>비교군 데이터를 불러오지 못했습니다.</strong><span>${esc(
+    $('view').innerHTML = `<div class="error-banner"><strong>${esc(t('arena.error'))}</strong><span>${esc(
       err?.message || err,
     )}</span></div>`;
     return;
@@ -944,25 +921,25 @@ async function renderArena(seq) {
       <h1>${esc(arena.label)}</h1>
       <p class="lede lede--line">${esc(shortText(arena.description))}</p>
       <div class="level-badges">
-        <span class="chip">${items.length}건</span>
-        <span class="chip chip--muted">필터 팩 · ${esc(pack?.label || '공통')}</span>
-        <button type="button" class="ghost-btn ghost-btn--tune" data-action="open-tune">⚙ 내 기준 <b id="tuneSummary">${esc(presetLabel())}</b></button>
-        <button type="button" class="ghost-btn ghost-btn--copy" data-copy-link title="이 비교군 화면의 딥링크를 복사">🔗 링크 복사</button>
+        <span class="chip">${esc(t('arena.entries', { n: items.length }))}</span>
+        <span class="chip chip--muted">${esc(pack?.label ? t('arena.filterPack', { pack: pack.label }) : t('arena.filterPackCore'))}</span>
+        <button type="button" class="ghost-btn ghost-btn--tune" data-action="open-tune">⚙ ${esc(t('arena.tuneLead'))} <b id="tuneSummary">${esc(presetLabel())}</b></button>
+        <button type="button" class="ghost-btn ghost-btn--copy" data-copy-link title="${esc(t('arena.copyLinkTitle'))}">${esc(t('arena.copyLink'))}</button>
       </div>
     </header>
     <div class="toolbar">
       <label class="search toolbar-search">
         <span class="search-ico" aria-hidden="true">⌕</span>
-        <input type="search" id="arenaSearch" placeholder="이 비교군 안에서 이름·키워드 검색" autocomplete="off" value="${esc(state.query)}" aria-label="비교군 내 검색" />
+        <input type="search" id="arenaSearch" placeholder="${esc(t('arena.searchPlaceholder'))}" autocomplete="off" value="${esc(state.query)}" aria-label="${esc(t('arena.searchAria'))}" />
       </label>
       <div class="select-row">
-        <label class="select-label" for="sort">정렬</label>
-        <select id="sort">${Object.entries(SORT_LABEL)
-          .map(([key, label]) => `<option value="${key}" ${state.sort === key ? 'selected' : ''}>${label}</option>`)
+        <label class="select-label" for="sort">${esc(t('arena.sort'))}</label>
+        <select id="sort">${SORT_KEYS
+          .map((key) => `<option value="${key}" ${state.sort === key ? 'selected' : ''}>${esc(sortLabel(key))}</option>`)
           .join('')}</select>
       </div>
-      <label class="check-row"><input type="checkbox" id="showAvoided" ${state.showAvoided ? 'checked' : ''} /><span>거름 항목 표시</span></label>
-      <span class="panel-hint" id="listCount">0건</span>
+      <label class="check-row"><input type="checkbox" id="showAvoided" ${state.showAvoided ? 'checked' : ''} /><span>${esc(t('arena.showAvoided'))}</span></label>
+      <span class="panel-hint" id="listCount">${esc(t('arena.listCount'))}</span>
     </div>
     <div id="arenaResults"></div>
   </section>`;
@@ -1022,7 +999,7 @@ function sortViews(views) {
     score: (a, b) => (b.recordEval.score ?? -1) - (a.recordEval.score ?? -1),
     'score-asc': (a, b) => (a.recordEval.score ?? 999) - (b.recordEval.score ?? 999),
     risk: (a, b) => a.worstGap - b.worstGap,
-    name: (a, b) => a.item.name.localeCompare(b.item.name, 'ko'),
+    name: (a, b) => a.item.name.localeCompare(b.item.name, locale()),
   };
   return [...views].sort(sorters[state.sort] || sorters.score);
 }
@@ -1048,33 +1025,33 @@ function renderArenaResults() {
 
   wrap.innerHTML = `
     <div class="arena-summary" id="arenaSummary">
-      <div class="stat stat--ok"><span class="stat-label">추천</span><span class="stat-value">${counts.recommend}</span><span class="stat-sub">가중 점수 80+ · 신호 양호</span></div>
-      <div class="stat stat--warn"><span class="stat-label">조건부</span><span class="stat-value">${counts.conditional}</span><span class="stat-sub">감수할 조건이 있음</span></div>
-      <div class="stat stat--bad"><span class="stat-label">거름</span><span class="stat-value">${counts.avoid}</span><span class="stat-sub">필터·신호 기준 차단</span></div>
-      <div class="stat stat--avg"><span class="stat-label">평균 가중 점수</span><span class="stat-value">${avg}</span><span class="stat-sub">${esc(presetLabel())} · 이 비교군 ${views.length}건</span></div>
+      <div class="stat stat--ok"><span class="stat-label">${esc(t('stats.recommend'))}</span><span class="stat-value">${counts.recommend}</span><span class="stat-sub">${esc(t('stats.recommendSub'))}</span></div>
+      <div class="stat stat--warn"><span class="stat-label">${esc(t('stats.conditional'))}</span><span class="stat-value">${counts.conditional}</span><span class="stat-sub">${esc(t('stats.conditionalSub'))}</span></div>
+      <div class="stat stat--bad"><span class="stat-label">${esc(t('stats.avoid'))}</span><span class="stat-value">${counts.avoid}</span><span class="stat-sub">${esc(t('stats.avoidSub'))}</span></div>
+      <div class="stat stat--avg"><span class="stat-label">${esc(t('stats.avg'))}</span><span class="stat-value">${avg}</span><span class="stat-sub">${esc(t('stats.avgSub', { preset: presetLabel(), n: views.length }))}</span></div>
     </div>
     <div class="section-head">
-      <h2>선별 결과</h2>
-      <span class="section-hint">${picks.length}건 · 2~3개를 체크하면 나란히 비교</span>
+      <h2>${esc(t('arena.resultsTitle'))}</h2>
+      <span class="section-hint">${esc(t('arena.resultsHint', { n: picks.length }))}</span>
     </div>
     <div class="grid" id="grid">${picks.map(cardHtml).join('')}</div>
-    <p class="empty" id="emptyPick" ${picks.length ? 'hidden' : ''}>조건에 맞는 항목이 없습니다. 필터를 줄이거나 검색어를 비워보세요.</p>
+    <p class="empty" id="emptyPick" ${picks.length ? 'hidden' : ''}>${esc(t('arena.pickEmpty'))}</p>
     <section class="result-section" id="avoidSection" ${state.showAvoided && avoided.length ? '' : 'hidden'}>
       <div class="section-head">
-        <h2><span class="verdict-dot verdict-dot--bad"></span>거름 — 왜 걸렸는지</h2>
-        <span class="section-hint">${avoided.length}건</span>
+        <h2><span class="verdict-dot verdict-dot--bad"></span>${esc(t('arena.avoidTitle'))}</h2>
+        <span class="section-hint">${esc(t('arena.entries', { n: avoided.length }))}</span>
       </div>
-      <p class="hint section-sub">켜진 필터에 걸린 항목은 점수와 무관하게 아래로 내려갑니다.</p>
+      <p class="hint section-sub">${esc(t('arena.avoidHint'))}</p>
       <div class="grid grid--avoided" id="avoidGrid">${avoided.map(cardHtml).join('')}</div>
-      <p class="empty" id="emptyAvoid" hidden>지금 설정에서 거름으로 내려간 항목이 없습니다.</p>
+      <p class="empty" id="emptyAvoid" hidden>${esc(t('arena.avoidEmpty'))}</p>
     </section>`;
-  $('listCount').textContent = `${views.length}/${(state.arenaItems || []).length}건`;
+  $('listCount').textContent = t('arena.listCountValue', { shown: views.length, total: (state.arenaItems || []).length });
   renderCompareBar();
 }
 
 function presetLabel() {
-  if (state.preset === 'custom') return '직접 설정';
-  return PRESETS.find((p) => p.id === state.preset)?.label || '균형 기본';
+  if (state.preset === 'custom') return t('preset.custom');
+  return PRESETS.some((p) => p.id === state.preset) ? presetLabelOf(state.preset) : t('preset.balanced');
 }
 
 /* -------------------------------------------------------------------- 카드 */
@@ -1101,10 +1078,10 @@ function maintenanceChip(item) {
 function freshnessChip(item) {
   const fresh = engine.freshness(item, contract());
   const tone = fresh.stale ? 'warn' : 'ok';
-  const text = fresh.stale ? fresh.label : `${fresh.label} · ${fresh.elapsed}일`;
-  return `<span class="chip chip--fresh chip--fresh--${tone}" title="평가일 ${esc(
-    fresh.assessedAt || '미확인',
-  )} · ${fresh.limit}일 초과 시 재검토">${esc(text)}</span>`;
+  const text = fresh.stale ? fresh.label : t('verdict.fresh', { n: days(fresh.elapsed) });
+  return `<span class="chip chip--fresh chip--fresh--${tone}" title="${esc(
+    t('fresh.chipTitle', { date: fresh.assessedAt || t('modal.na'), limit: fresh.limit }),
+  )}">${esc(text)}</span>`;
 }
 
 /* ---- 카드 한 줄 태그(최대 2개) — 상세는 모달에서.
@@ -1127,15 +1104,13 @@ function cardTagsHtml(view) {
     }
   }
   for (const fail of e.weakFails) {
-    push(`<span class="chip chip--warn" title="근거가 약함 · ${esc(fail.note)}">근거 약함 · ${esc(fail.label)}</span>`);
+    push(`<span class="chip chip--warn" title="${esc(t('card.weakEvidenceTitle', { note: fail.note }))}">${esc(t('card.weakEvidence', { label: fail.label }))}</span>`);
   }
   if (e.optionalFails?.length) {
-    push(
-      `<span class="chip chip--optional" title="상점에 확률형·편의 상품이 있지만 인게임 재화·무과금으로 본편을 즐길 수 있어 거르지 않습니다.">선택 과금 · 무과금 가능</span>`,
-    );
+    push(`<span class="chip chip--optional" title="${esc(t('card.optionalTitle'))}">${esc(t('card.optional'))}</span>`);
   }
   if (e.verdict === 'avoid' && !e.blocking.length && e.reds >= 2) {
-    push(`<span class="chip chip--core">🔴 신호 ${e.reds}개</span>`);
+    push(`<span class="chip chip--core">${esc(t('card.redSignals', { n: e.reds }))}</span>`);
   }
   const maintKey = item.maintenance_status;
   const maint = engine.MAINTENANCE_STATUS_META[maintKey];
@@ -1146,7 +1121,7 @@ function cardTagsHtml(view) {
       )}">${esc(maint.label)}</span>`,
     );
   }
-  if (!tags.length) push('<span class="chip chip--pass">하드 필터 통과</span>');
+  if (!tags.length) push(`<span class="chip chip--pass">${esc(t('card.filterPass'))}</span>`);
   return tags.join('');
 }
 
@@ -1164,7 +1139,7 @@ function cardHtml(view) {
   return `
   <article class="card card--${verdictMeta.tone}" role="button" tabindex="0" data-item="${esc(item.id)}" data-id="${esc(item.id)}"
            data-verdict="${esc(recordEval.verdict)}" data-score="${typeof recordEval.score === 'number' ? recordEval.score.toFixed(2) : ''}"
-           aria-label="${esc(`${item.name} 상세 보기 — ${verdictMeta.label}, 가중 점수 ${scoreText}`)}">
+           aria-label="${esc(t('card.aria', { name: item.name, verdict: verdictMeta.label, score: scoreText }))}">
     <header class="card-head">
       ${iconHtml(item, 'card')}
       <div class="card-name-text">
@@ -1174,7 +1149,7 @@ function cardHtml(view) {
       <div class="card-score">
         <span class="verdict verdict--${verdictMeta.tone}"><span class="v-emoji" aria-hidden="true">${verdictMeta.emoji}</span>${verdictMeta.label}</span>
         <span class="score-num">${scoreText}</span>
-        <span class="score-cap">가중 점수</span>
+        <span class="score-cap">${esc(t('card.weighted'))}</span>
       </div>
     </header>
 
@@ -1182,9 +1157,9 @@ function cardHtml(view) {
     <div class="card-tags">${cardTagsHtml(view)}</div>
 
     <div class="card-tools">
-      ${selectable ? `<label class="compare-check" title="같은 비교군 2~3개를 체크해 나란히 비교"><input type="checkbox" data-compare="${esc(item.id)}" ${checked ? 'checked' : ''}/><span>비교</span></label>` : ''}
-      <button type="button" class="icon-btn icon-btn--sm ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" aria-label="${esc(item.name)} 보관함 ${bookmarked ? '빼기' : '담기'}">${bookmarked ? '★' : '☆'}</button>
-      <span class="card-more">상세 →</span>
+      ${selectable ? `<label class="compare-check" title="${esc(t('card.compareTitle'))}"><input type="checkbox" data-compare="${esc(item.id)}" ${checked ? 'checked' : ''}/><span>${esc(t('card.compare'))}</span></label>` : ''}
+      <button type="button" class="icon-btn icon-btn--sm ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" aria-label="${esc(bookmarked ? t('card.bookmarkRemove', { name: item.name }) : t('card.bookmarkAdd', { name: item.name }))}">${bookmarked ? '★' : '☆'}</button>
+      <span class="card-more">${esc(t('card.more'))}</span>
     </div>
   </article>`;
 }
@@ -1200,22 +1175,22 @@ function renderCompareBar() {
   document.body.classList.toggle('has-compare-bar', show);
   if (!show) return;
   const label = bar.querySelector('.compare-bar-label');
-  if (label) label.textContent = `${ids.length}개 선택됨`;
+  if (label) label.textContent = t('compareBar.label', { n: ids.length });
   $('compareList').innerHTML = ids
     .map((id) => `<span class="compare-chip">${esc(recordById(id)?.name || id)}<button type="button" class="chip-x" data-compare="${esc(id)}" aria-label="${esc(
-      recordById(id)?.name || id,
-    )} 비교에서 빼기">✕</button></span>`)
+      t('compareBar.remove', { name: recordById(id)?.name || id }),
+    )}">✕</button></span>`)
     .join('');
   $('compareOpen').disabled = ids.length < 2;
-  $('compareOpen').textContent = ids.length < 2 ? '1개 더 선택' : '나란히 비교하기 →';
-  $('compareClear').textContent = '선택 초기화';
+  $('compareOpen').textContent = ids.length < 2 ? t('compareBar.openOne') : t('compareBar.open');
+  $('compareClear').textContent = t('compareBar.clear');
 }
 
 function toggleCompare(id) {
   if (!state.route.arena) return;
   const rec = recordById(id);
   if (!rec || !rec.arenas.includes(state.route.arena)) {
-    toast('같은 비교군 항목만 비교할 수 있습니다.');
+    toast(t('compare.onlySameArena'));
     return;
   }
   const current = [...state.route.compare];
@@ -1223,7 +1198,7 @@ function toggleCompare(id) {
   if (at >= 0) current.splice(at, 1);
   else {
     if (current.length >= 3) {
-      toast('한 번에 최대 3개까지 비교합니다.');
+      toast(t('compare.max'));
       return;
     }
     current.push(id);
@@ -1246,7 +1221,7 @@ async function renderCompare(seq) {
   try {
     pool = await state.store.load(arenaId);
   } catch (err) {
-    $('view').innerHTML = `<div class="error-banner"><strong>비교할 데이터를 불러오지 못했습니다.</strong><span>${esc(
+    $('view').innerHTML = `<div class="error-banner"><strong>${esc(t('compare.error'))}</strong><span>${esc(
       err?.message || err,
     )}</span></div>`;
     return;
@@ -1264,22 +1239,25 @@ async function renderCompare(seq) {
     return;
   }
   const arena = state.cat.arena(arenaId);
-  const axisLabel = (key) => contract().axes?.find((def) => def.key === key)?.label || key;
+  const axisLabel = (key) => labeled('axis', key, contract().axes?.find((def) => def.key === key)?.label || key);
   const axisScore = (v, key) => v.recordEval.axisStates.find((row) => row.key === key)?.score;
   const rows = [
     {
-      label: '가중 점수',
+      id: 'score',
+      label: t('compare.row.score'),
       num: (v) => v.recordEval.score,
       showDiff: true,
       render: (v) => `<b class="cmp-score">${v.recordEval.score?.toFixed(1) ?? '—'}</b>`,
     },
     {
-      label: '대표 티어 · 가격',
+      id: 'tier',
+      label: t('compare.row.tier'),
       render: (v) => `${esc(v.recordTier?.label || '—')}<br><span class="muted">${esc(v.recordTier?.price?.display || '—')}</span>`,
     },
-    { label: '최저 비용 경로', render: (v) => (v.cheapest ? esc(v.cheapest.label) : '—') },
+    { id: 'cheapest', label: t('compare.row.cheapest'), render: (v) => (v.cheapest ? esc(v.cheapest.label) : '—') },
     ...['user_rating', 'objective', 'ai_review'].map((key) => ({
-      label: `축 · ${axisLabel(key)}`,
+      id: key,
+      label: t('compare.row.axis', { axis: axisLabel(key) }),
       num: (v) => axisScore(v, key),
       render: (v) => {
         const axis = v.recordEval.axisStates.find((row) => row.key === key);
@@ -1288,38 +1266,40 @@ async function renderCompare(seq) {
       },
     })),
     {
-      label: '확률형·P2W 강도',
+      id: 'impact',
+      label: t('compare.row.impact'),
       render: (v) => {
         const impact = engine.monetizationImpactOf(v.recordEval);
-        if (impact === 'none') return '<span class="muted">상품 없음</span>';
+        if (impact === 'none') return `<span class="muted">${esc(t('compare.noImpact'))}</span>`;
         return `<span class="pill pill--${impact === 'optional' ? 'sea' : 'bad'}">${esc(
           engine.IMPACT_META[impact]?.label || impact,
         )}</span>`;
       },
     },
     {
-      label: '걸린 하드 필터',
+      id: 'filters',
+      label: t('compare.row.filters'),
       render: (v) => {
         const fails = engine.failedFilters(v.recordEval);
         const optional = engine.optionalFilters(v.recordEval);
         const chips = [
           ...fails.map((f) => `<span class="reason-chip reason-chip--bad">${esc(f.label)}</span>`),
-          ...optional.map((f) => `<span class="reason-chip reason-chip--sea">${esc(f.label)} · 선택 과금</span>`),
+          ...optional.map((f) => `<span class="reason-chip reason-chip--sea">${esc(t('compare.optionalSuffix', { label: f.label }))}</span>`),
         ];
-        return chips.length ? chips.join('') : '<span class="muted">없음</span>';
+        return chips.length ? chips.join('') : `<span class="muted">${esc(t('compare.none'))}</span>`;
       },
     },
-    { label: '누적 별점·평점', num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
-    { label: '최근 리뷰', render: (v) => recentReviewText(v.item) },
-    { label: '수명 단계', render: (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status) },
-    { label: '평가 신선도', render: (v) => {
+    { id: 'stars', label: t('compare.row.stars'), num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
+    { id: 'recent', label: t('compare.row.recent'), render: (v) => recentReviewText(v.item) },
+    { id: 'life', label: t('compare.row.life'), render: (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status) },
+    { id: 'freshness', label: t('compare.row.freshness'), render: (v) => {
       const fresh = v.fresh;
       return `${esc(v.item.assessed_at)}<br><span class="chip chip--fresh chip--fresh--${fresh.stale ? 'warn' : 'ok'}">${esc(
-        fresh.stale ? fresh.label : `${fresh.label} · ${fresh.elapsed}일`,
+        fresh.stale ? fresh.label : t('verdict.fresh', { n: days(fresh.elapsed) }),
       )}</span>`;
     } },
-    { label: '근거 등급', render: (v) => esc(engine.gradeWeakest(v.item.data_quality?.overall_grade)) },
-    { label: '', render: (v) => `<button type="button" class="ghost-btn" data-action="item" data-item="${esc(v.item.id)}">상세 →</button>` },
+    { id: 'grade', label: t('compare.row.grade'), render: (v) => esc(engine.gradeWeakest(v.item.data_quality?.overall_grade)) },
+    { id: 'more', label: '', render: (v) => `<button type="button" class="ghost-btn" data-action="item" data-item="${esc(v.item.id)}">${esc(t('card.more'))}</button>` },
   ];
   const bestOf = (def) => {
     if (!def.num) return -1;
@@ -1349,26 +1329,26 @@ async function renderCompare(seq) {
   <section class="level">
     <header class="level-head level-head--arena">
       <p class="eyebrow">${esc(state.cat.domainLabel(arena.domain))} · ${esc(state.cat.categoryLabel(arena.category))}</p>
-      <h1>${esc(arena.label)} — 나란히 비교</h1>
-      <p class="lede">같은 비교군 ${views.length}개를 한 표에 놓았습니다. 점수·판정은 지금 내 기준(${esc(presetLabel())})으로 다시 계산됩니다.</p>
+      <h1>${esc(t('compare.title', { arena: arena.label }))}</h1>
+      <p class="lede">${esc(t('compare.lede', { n: views.length, preset: presetLabel() }))}</p>
       <div class="level-badges">
-        <button type="button" class="ghost-btn" data-action="arena" data-domain="${esc(arena.domain)}" data-arena="${esc(arena.id)}">← 목록으로</button>
-        <button type="button" class="ghost-btn" data-copy-link title="이 비교 화면의 딥링크를 복사">🔗 링크 복사</button>
-        <button type="button" class="text-btn" data-action="clear-compare">비교 비우기</button>
+        <button type="button" class="ghost-btn" data-action="arena" data-domain="${esc(arena.domain)}" data-arena="${esc(arena.id)}">${esc(t('compare.back'))}</button>
+        <button type="button" class="ghost-btn" data-copy-link title="${esc(t('compare.copyTitle'))}">${esc(t('arena.copyLink'))}</button>
+        <button type="button" class="text-btn" data-action="clear-compare">${esc(t('compare.clear'))}</button>
       </div>
     </header>
     <div class="compare-summary" id="compareSummary">
-      ${topView && topScore !== null ? `<span>최고 <b>${esc(topView.item.name)} ${topScore.toFixed(1)}</b></span>` : ''}
-      ${lowScore !== null ? `<span>최저 <b>${esc(lowView?.item.name || '')} ${lowScore.toFixed(1)}</b></span>` : ''}
-      ${topScore !== null && lowScore !== null ? `<span>차이 <b>${(topScore - lowScore).toFixed(1)}점</b></span>` : ''}
-      <span class="compare-summary-hint">내 기준 ${esc(presetLabel())} · 왼쪽 기준 열 고정</span>
+      ${topView && topScore !== null ? `<span>${t('compare.top', { name: esc(topView.item.name), score: topScore.toFixed(1) })}</span>` : ''}
+      ${lowScore !== null ? `<span>${t('compare.low', { name: esc(lowView?.item.name || ''), score: lowScore.toFixed(1) })}</span>` : ''}
+      ${topScore !== null && lowScore !== null ? `<span>${t('compare.diff', { n: (topScore - lowScore).toFixed(1) })}</span>` : ''}
+      <span class="compare-summary-hint">${esc(t('compare.summaryHint', { preset: presetLabel() }))}</span>
     </div>
-    <p class="scroll-hint">↔ 표를 옆으로 밀면 나머지 항목이 보입니다. 왼쪽 기준 열은 고정되어 있습니다.</p>
+    <p class="scroll-hint">${esc(t('compare.scrollHint'))}</p>
     <div class="table-wrap compare-wrap">
       <table class="data compare-table" id="compareTable">
         <thead>
           <tr>
-            <th class="compare-rowlabel" scope="col">기준</th>
+            <th class="compare-rowlabel" scope="col">${esc(t('compare.basis'))}</th>
             ${views.map((v) => `<th scope="col"><span class="compare-head-name">${iconHtml(v.item, 'compare')}<span class="compare-head-text">${esc(v.item.name)}</span></span><span class="verdict verdict--${
               engine.VERDICT_META[v.recordEval.verdict].tone
             }">${engine.VERDICT_META[v.recordEval.verdict].emoji} ${engine.VERDICT_META[v.recordEval.verdict].label}</span></th>`).join('')}
@@ -1378,7 +1358,7 @@ async function renderCompare(seq) {
           ${rows
             .map((def) => {
               const best = bestOf(def);
-              return `<tr class="${def.label === '가중 점수' ? 'cmp-row--score' : ''}"><th scope="row" class="compare-rowlabel">${esc(def.label)}</th>${views
+              return `<tr class="${def.id === 'score' ? 'cmp-row--score' : ''}"><th scope="row" class="compare-rowlabel">${esc(def.label)}</th>${views
                 .map((v, i) => {
                   const isBest = Boolean(def.num) && best === i;
                   const gap =
@@ -1386,7 +1366,7 @@ async function renderCompare(seq) {
                       ? def.num(views[best]) - def.num(v)
                       : null;
                   return `<td class="cmp-cell${isBest ? ' cmp-cell--best' : ''}">${def.render(v)}${
-                    isBest ? '<span class="cmp-best">최고</span>' : gap ? `<span class="cmp-diff">−${gap.toFixed(1)}</span>` : ''
+                    isBest ? `<span class="cmp-best">${esc(t('compare.best'))}</span>` : gap ? `<span class="cmp-diff">−${gap.toFixed(1)}</span>` : ''
                   }</td>`;
                 })
                 .join('')}</tr>`;
@@ -1405,8 +1385,8 @@ function storeStarsLabel(item) {
   const top = (item.review_snapshot?.platforms || [])
     .filter((row) => row.cumulative && row.cumulative.scale === 'stars5')
     .sort((a, b) => (b.cumulative.count || 0) - (a.cumulative.count || 0))[0];
-  if (!top) return '누적 별점·평점';
-  return STORE_PLATFORMS.includes(top.platform) ? '스토어 누적 별점' : '누적 평점(3자 집계)';
+  if (!top) return t('compare.row.stars');
+  return STORE_PLATFORMS.includes(top.platform) ? t('stars.store') : t('stars.aggregate');
 }
 
 function storeStarsText(item) {
@@ -1416,9 +1396,9 @@ function storeStarsText(item) {
     .sort((a, b) => (b.metric.count || 0) - (a.metric.count || 0));
   if (!rows.length) return '<span class="muted">—</span>';
   const { row, metric } = rows[0];
-  return `★ ${Number(metric.value).toFixed(1)} <span class="muted">${engine.PLATFORM_LABEL[row.platform] || row.platform} · ${num(
-    metric.count,
-  )}개</span>`;
+  return `★ ${Number(metric.value).toFixed(1)} <span class="muted">${engine.PLATFORM_LABEL[row.platform] || row.platform} · ${esc(
+    t('reviews.count', { n: num(metric.count) }),
+  )}</span>`;
 }
 
 /** 비교 표에서 '최고'를 표시할 때 쓰는 누적 별점 숫자(가장 큰 표본의 stars5 값). */
@@ -1432,7 +1412,7 @@ function storeStarsValue(item) {
 
 function recentReviewText(item) {
   const rows = (item.review_snapshot?.platforms || []).filter((row) => row.recent);
-  if (!rows.length) return '<span class="muted">최근 구간 없음</span>';
+  if (!rows.length) return `<span class="muted">${esc(t('compare.noRecent'))}</span>`;
   return rows
     .map((row) => {
       const { gap } = engine.reviewGap(row);
@@ -1489,8 +1469,8 @@ async function showDetail(id) {
   $('modalDev').textContent = [
     item.developer,
     item.genres?.join(' / '),
-    `평가 ${item.assessed_at}`,
-    METHOD_LABEL[item.method] || item.method,
+    t('modal.assessed', { date: item.assessed_at }),
+    L.method(item.method) || item.method,
   ]
     .filter(Boolean)
     .join(' · ');
@@ -1499,18 +1479,19 @@ async function showDetail(id) {
     ...(item.arenas || []).map((aid) => `<span class="chip chip--arena">${esc(state.cat.arenaLabel(aid))}</span>`),
     maintenanceChip(item),
     freshnessChip(item),
-    `<span class="chip chip--grade chip--${esc(engine.gradeWeakest(item.data_quality?.overall_grade))}">근거 ${esc(
-      engine.gradeWeakest(item.data_quality?.overall_grade),
+    `<span class="chip chip--grade chip--${esc(engine.gradeWeakest(item.data_quality?.overall_grade))}">${esc(
+      t('modal.grade', { grade: engine.gradeWeakest(item.data_quality?.overall_grade) }),
     )}</span>`,
   ].join('');
 
   const bookmarked = state.bookmarks.includes(item.id);
+  const saveLabel = bookmarked ? t('modal.unsave', { name: item.name }) : t('modal.save', { name: item.name });
   $('modalActions').innerHTML = `
-    <button type="button" class="ghost-btn" data-copy-link title="이 항목 상세의 딥링크를 복사">🔗 링크 복사</button>
-    <button type="button" class="ghost-btn" data-share="${esc(item.id)}">공유 요약 복사</button>
-    <a class="ghost-btn" href="${correctionUrl(item)}" target="_blank" rel="noopener noreferrer">정정 제보</a>
-    <button type="button" class="icon-btn ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" title="${esc(item.name)} 보관함 ${bookmarked ? '빼기' : '담기'}" aria-label="${esc(item.name)} 보관함 ${bookmarked ? '빼기' : '담기'}">${bookmarked ? '★' : '☆'}</button>
-    <button type="button" class="icon-btn" id="modalClose" aria-label="상세 닫기">✕</button>`;
+    <button type="button" class="ghost-btn" data-copy-link title="${esc(t('modal.copyLinkTitle'))}">${esc(t('modal.copyLink'))}</button>
+    <button type="button" class="ghost-btn" data-share="${esc(item.id)}">${esc(t('modal.share'))}</button>
+    <a class="ghost-btn" href="${correctionUrl(item)}" target="_blank" rel="noopener noreferrer">${esc(t('modal.correction'))}</a>
+    <button type="button" class="icon-btn ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" title="${esc(saveLabel)}" aria-label="${esc(saveLabel)}">${bookmarked ? '★' : '☆'}</button>
+    <button type="button" class="icon-btn" id="modalClose" aria-label="${esc(t('modal.detailClose'))}">✕</button>`;
 
   $('modalBody').innerHTML = [
     sectionVerdict(view, verdictMeta),
@@ -1546,9 +1527,14 @@ function closeDetail({ silent = false } = {}) {
 }
 
 function correctionUrl(item) {
-  const title = encodeURIComponent(`[정정] ${item.name} (${item.id})`);
+  const title = encodeURIComponent(t('correction.title', { name: item.name, id: item.id }));
   const body = encodeURIComponent(
-    `대상 항목: ${item.name} (${item.id})\n비교군: ${(item.arenas || []).join(', ')}\n평가일: ${item.assessed_at}\n\n정정할 내용:\n\n근거 URL:\n\n`,
+    t('correction.body', {
+      name: item.name,
+      id: item.id,
+      arenas: (item.arenas || []).join(', '),
+      date: item.assessed_at,
+    }),
   );
   return `https://github.com/AIRA1346/pharos/issues/new?template=correction.yml&title=${title}&body=${body}`;
 }
@@ -1569,31 +1555,37 @@ function sectionVerdict(view, verdictMeta) {
 
   return `
   <section class="m-sec" id="secVerdict">
-    <div class="m-sec-head"><span class="sec-num">01</span><h3>판정 요약</h3>
-      <span class="pill pill--beam">${esc(view.recordTier?.label || '대표 티어')}</span>
-      ${view.cheapest ? `<span class="pill pill--sea">최저 비용 · ${esc(view.cheapest.label)}</span>` : ''}
-      ${view.recordEval.optionalMonetization ? '<span class="pill pill--sea">선택 과금 · 무과금 가능</span>' : ''}
+    <div class="m-sec-head"><span class="sec-num">01</span><h3>${esc(t('modal.sec1'))}</h3>
+      <span class="pill pill--beam">${esc(view.recordTier?.label || t('verdict.representative'))}</span>
+      ${view.cheapest ? `<span class="pill pill--sea">${esc(t('verdict.cheapest', { tier: view.cheapest.label }))}</span>` : ''}
+      ${view.recordEval.optionalMonetization ? `<span class="pill pill--sea">${esc(t('verdict.optional'))}</span>` : ''}
       <span class="pill pill--${view.fresh.stale ? 'warn' : 'ok'}">${esc(
-        view.fresh.stale ? view.fresh.label : `최신 · ${view.fresh.elapsed}일`,
+        view.fresh.stale ? view.fresh.label : t('verdict.fresh', { n: days(view.fresh.elapsed) }),
       )}</span>
     </div>
     ${view.fresh.stale
-      ? `<div class="callout callout--warn"><b>재검토 필요</b> 평가일 ${esc(view.fresh.assessedAt)} 이후 ${view.fresh.elapsed}일이 지났습니다(기준 ${view.fresh.limit}일). 앱·게임·AI 도구는 업데이트 한 번으로 과금·광고 정책이 바뀌므로 최신 사실로 읽지 마세요.</div>`
+      ? `<div class="callout callout--warn">${t('verdict.staleCallout', {
+          date: esc(view.fresh.assessedAt),
+          days: view.fresh.elapsed,
+          limit: view.fresh.limit,
+        })}</div>`
       : ''}
     <div class="verdict-hero verdict-hero--${verdictMeta.tone}">
       <div class="hero-score">
         <div class="score">${ring(e.score ?? 0)}
-          <div class="score-inner"><span class="score-num">${e.score != null ? e.score.toFixed(1) : '—'}</span><span class="score-cap">가중 점수</span></div>
+          <div class="score-inner"><span class="score-num">${e.score != null ? e.score.toFixed(1) : '—'}</span><span class="score-cap">${esc(t('card.weighted'))}</span></div>
         </div>
         <span class="hero-verdict hero-verdict--${verdictMeta.tone}">${verdictMeta.emoji} ${verdictMeta.label}</span>
       </div>
       <div class="hero-body">
         <p class="hero-oneliner">${esc(view.recordTier?.one_liner || view.item.verdict?.one_liner || view.item.one_liner)}</p>
         <div class="hero-signals">${signals}</div>
-        <p class="rule-line">판정 규칙 <b>${esc(rule.short)}</b>${e.weakFails.length ? ' · 근거 약함 경고' : ''}${
-          e.unknowns ? ` · ⚪ 미확인 축 ${e.unknowns}개` : ''
-        }</p>
-        <div class="m-sec-note">활성 필터 점검: ${filterChips || '<span class="muted">켜진 필터 없음</span>'}</div>
+        <p class="rule-line">${t('verdict.rule', {
+          rule: esc(rule.short),
+          weak: e.weakFails.length ? esc(t('verdict.weakWarn')) : '',
+          unknown: e.unknowns ? esc(t('verdict.unknownAxes', { n: e.unknowns })) : '',
+        })}</p>
+        <div class="m-sec-note">${t('verdict.activeFilters', { chips: filterChips || `<span class="muted">${esc(t('verdict.noFilters'))}</span>` })}</div>
       </div>
     </div>
     ${arenaNotesHtml(view.item)}
@@ -1607,11 +1599,11 @@ function arenaNotesHtml(item) {
   const notes = item.arena_notes || {};
   return `
     <div class="arena-notes">
-      <p class="mini-label">비교군 메모</p>
+      <p class="mini-label">${esc(t('verdict.arenaNotes'))}</p>
       ${ids
         .map(
           (id) => `<div class="arena-note"><span class="chip chip--arena">${esc(state.cat.arenaLabel(id))}</span><p>${esc(
-            notes[id] || '기록된 비교 포인트가 없습니다.',
+            notes[id] || t('verdict.noArenaNote'),
           )}</p></div>`,
         )
         .join('')}
@@ -1631,16 +1623,16 @@ function filterPill(check) {
           ? 'muted'
           : 'ok';
   const mark = exempt
-    ? '면제'
+    ? t('filter.mark.exempt')
     : optional
-      ? '선택 과금'
+      ? t('filter.mark.optional')
       : check.status === 'fail'
-        ? '적중'
+        ? t('filter.mark.fail')
         : check.status === 'unknown'
-          ? '미확인'
-          : '통과';
-  return `<span class="pill pill--${tone}" title="${esc(check.note)}">${check.enabled ? '' : '꺼짐 · '}${esc(check.label)} ${mark}${
-    exempt ? ' · 완결작' : ''
+          ? t('filter.mark.unknown')
+          : t('filter.mark.pass');
+  return `<span class="pill pill--${tone}" title="${esc(check.note)}">${check.enabled ? '' : t('filter.off')}${esc(check.label)} ${esc(mark)}${
+    exempt ? esc(t('filter.exemptSuffix')) : ''
   }${check.status === 'fail' ? ` (${esc(engine.gradeWeakest(check.grade))})` : ''}</span>`;
 }
 
@@ -1648,16 +1640,21 @@ function ruleDescription(evaluation) {
   const rules = contract().verdict_rules || [];
   const index = RULE_INDEX[evaluation.rule] ?? 0;
   const shortMap = {
-    1: '① 활성 필터 적중 → 거름',
-    '1w': '① 완화 모드 · 등급 C 필터 적중 → 조건부 경고',
-    '1c': '⑦ 완결작 면제 · 호환성 주의 → 조건부',
-    2: `② 🔴 신호 ${evaluation.reds}개 → 거름`,
-    3: '③ 🔴 신호 1개 → 조건부',
-    4: `④ 🟡 신호 ${evaluation.yellows}개 → 조건부`,
-    5: `⑤ 점수 ${evaluation.score?.toFixed(1)} ≥ 80·🟡 ${evaluation.yellows}개 → 추천`,
-    6: '⑥ 그 외 → 조건부',
+    1: t('rule.short.1'),
+    '1w': t('rule.short.1w'),
+    '1c': t('rule.short.1c'),
+    2: t('rule.short.2', { n: evaluation.reds }),
+    3: t('rule.short.3'),
+    4: t('rule.short.4', { n: evaluation.yellows }),
+    5: t('rule.short.5', { score: evaluation.score?.toFixed(1), n: evaluation.yellows }),
+    6: t('rule.short.6'),
   };
   return { short: shortMap[evaluation.rule] || shortMap[6], raw: (rules[index] || '').replace(/^\s*\d+\.\s*/, ''), index };
+}
+
+function calcRuleText(i) {
+  const text = t(`rule.text.${i}`);
+  return text.startsWith('rule.text.') ? '' : text;
 }
 
 function renderCalc(view) {
@@ -1680,26 +1677,30 @@ function renderCalc(view) {
 
   return `
     <details class="calc-block" ${e.verdict === 'avoid' || e.weakFails.length ? 'open' : ''}>
-      <summary class="calc-summary">계산 과정 보기 — 가중치 ${pct(e.denominator)} · 필터 ${e.filterChecks.filter((f) => f.enabled).length}개 · ${
-        e.strict ? '엄격' : '완화'
-      } 모드</summary>
+      <summary class="calc-summary">${esc(t('verdict.calcOpen', {
+        w: pct(e.denominator),
+        n: e.filterChecks.filter((f) => f.enabled).length,
+        mode: e.strict ? t('verdict.modeStrict') : t('verdict.modeRelaxed'),
+      }))}</summary>
       <div class="calc">
-        <p class="mini-label" style="margin:10px 0 4px">② 가중 점수 (점수 없는 축은 분자·분모에서 제외)</p>
-        ${lines || '<p class="muted">계산 가능한 축 점수가 없습니다.</p>'}
+        <p class="mini-label" style="margin:10px 0 4px">${esc(t('verdict.calcScore'))}</p>
+        ${lines || `<p class="muted">${esc(t('verdict.noScore'))}</p>`}
         <div class="calc-total"><span>Σ(w×s) = ${e.numerator.toFixed(2)} · Σw = ${e.denominator.toFixed(2)}</span><b>${e.score != null ? e.score.toFixed(2) : '—'}</b></div>
-        <p class="mini-label" style="margin:12px 0 4px">① 하드 필터 — 티어 <code>${esc(e.tierId)}</code></p>
-        <div class="tag-cloud">${e.filterChecks.filter((f) => f.enabled).map(filterPill).join('') || '<span class="muted">켜진 필터 없음</span>'}</div>
-        ${e.blocking.length ? `<div class="callout callout--bad"><b>차단</b> ${e.blocking.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ')}</div>` : ''}
-        ${e.optionalFails.length ? `<div class="callout callout--warn"><b>선택 과금</b> ${e.optionalFails.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ')} — 확률형·P2W 상품은 있지만 무과금으로 본편을 즐길 수 있어 기본 모드에서는 거르지 않고 배지로만 알립니다. <code>strict_monetization</code> 을 켜면 거름이 됩니다.</div>` : ''}
-        ${e.weakFails.length ? `<div class="callout callout--warn"><b>근거 약함</b> ${e.weakFails.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ')} — 완화 모드에서 조건부 경고로 처리</div>` : ''}
-        ${disabled.length ? `<details><summary class="calc-summary">꺼진 필터 ${disabled.length}개 보기</summary><div class="tag-cloud" style="margin-top:6px">${disabled.map(filterPill).join('')}</div></details>` : ''}
-        <p class="mini-label" style="margin:12px 0 4px">④ 판정 규칙 (위에서부터 먼저 맞는 것)</p>
+        <p class="mini-label" style="margin:12px 0 4px">${t('verdict.calcFilters', { tier: esc(e.tierId) })}</p>
+        <div class="tag-cloud">${e.filterChecks.filter((f) => f.enabled).map(filterPill).join('') || `<span class="muted">${esc(t('verdict.noFilters'))}</span>`}</div>
+        ${e.blocking.length ? `<div class="callout callout--bad">${t('verdict.blocked', { list: e.blocking.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ') })}</div>` : ''}
+        ${e.optionalFails.length ? `<div class="callout callout--warn">${t('verdict.optionalFails', { list: e.optionalFails.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ') })}</div>` : ''}
+        ${e.weakFails.length ? `<div class="callout callout--warn">${t('verdict.weakFails', { list: e.weakFails.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ') })}</div>` : ''}
+        ${disabled.length ? `<details><summary class="calc-summary">${esc(t('verdict.disabledFilters', { n: disabled.length }))}</summary><div class="tag-cloud" style="margin-top:6px">${disabled.map(filterPill).join('')}</div></details>` : ''}
+        <p class="mini-label" style="margin:12px 0 4px">${esc(t('verdict.calcRules'))}</p>
         <ol class="rules">${rules
-          .map((rule, i) => `<li class="${i === activeIndex ? 'is-active' : ''}" title="${esc(rule)}">${esc(RULE_TEXT_KO[i] || rule)}</li>`)
+          .map((rule, i) => `<li class="${i === activeIndex ? 'is-active' : ''}" title="${esc(calcRuleText(i) || rule)}">${esc(calcRuleText(i) || rule)}</li>`)
           .join('')}</ol>
-        <p class="table-note">기본 활성 세트(${esc((contract().default_enabled_filters || []).join(', '))}) + 엄격 모드 기준 이 티어: <b>${
-          engine.defaultBlocked(view.item, view.recordTier, contract()) ? '거름' : '통과'
-        }</b> · 데이터에 기록된 판정: <b>${esc(engine.VERDICT_META[e.storedVerdict]?.label || e.storedVerdict)}</b></p>
+        <p class="table-note">${t('verdict.defaultSet', {
+          set: esc((contract().default_enabled_filters || []).join(', ')),
+          result: engine.defaultBlocked(view.item, view.recordTier, contract()) ? esc(t('verdict.avoid')) : esc(t('verdict.pass')),
+          stored: esc(engine.VERDICT_META[e.storedVerdict]?.label || e.storedVerdict),
+        })}</p>
       </div>
     </details>`;
 }
@@ -1713,36 +1714,36 @@ function sectionFacts(view) {
   const stars = storeStarsText(item);
   const starsLabel = storeStarsLabel(item);
   const rows = [
-    ['개발사 · 플랫폼', `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
+    [t('facts.developer'), `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
       .map((p) => esc(engine.PLATFORM_LABEL[p] || p))
-      .join(' · ')}${item.release_date ? ` · 출시 ${esc(item.release_date)}` : ''}</span>`],
-    ['가격 표기(대표 티어)', `${esc(tier?.price?.display || '—')}<br><span class="muted">${esc(tier?.label || '')}${
+      .join(' · ')}${item.release_date ? ` · ${esc(t('facts.released', { date: item.release_date }))}` : ''}</span>`],
+    [t('facts.price'), `${esc(tier?.price?.display || '—')}<br><span class="muted">${esc(tier?.label || '')}${
       tier?.kind && (engine.KIND_LABEL[tier.kind] || '') !== (tier?.label || '')
         ? ` · ${esc(engine.KIND_LABEL[tier.kind] || tier.kind)}`
         : ''
     }</span>`],
-    ['스토어 광고 표기', ads.store_declares_ads === true ? '있음' : ads.store_declares_ads === false ? '없음' : '미확인'],
-    ['확률형 아이템 표기', esc(engine.TRI_LABEL[iap.random_items] || '미확인')],
-    ['최근 업데이트', `${esc(item.update_profile?.latest_update || '미확인')}${
+    [t('facts.storeAds'), ads.store_declares_ads === true ? t('modal.yes') : ads.store_declares_ads === false ? t('modal.no') : t('modal.na')],
+    [t('facts.randomItems'), esc(engine.TRI_LABEL[iap.random_items] || t('modal.na'))],
+    [t('facts.latestUpdate'), `${esc(item.update_profile?.latest_update || t('modal.na'))}${
       item.update_profile?.latest_update_platform
         ? ` · ${esc(engine.PLATFORM_LABEL[item.update_profile.latest_update_platform] || item.update_profile.latest_update_platform)}`
         : ''
     }`],
     [starsLabel, stars],
-    ['평가일', esc(item.assessed_at)],
+    [t('facts.assessed'), esc(item.assessed_at)],
   ];
   return `
   <section class="m-sec" id="secFacts">
-    <div class="m-sec-head"><span class="sec-num">02</span><h3>사실 (Fact)</h3>
-      <span class="pill pill--ok">스토어·공식 표기 · 출처 고정</span>
+    <div class="m-sec-head"><span class="sec-num">02</span><h3>${esc(t('modal.sec2'))}</h3>
+      <span class="pill pill--ok">${esc(t('facts.badge'))}</span>
     </div>
-    <p class="m-sec-note">스토어 표기·가격·업데이트 날짜처럼 <b>확인 가능한 사실</b>만 모았습니다. 각 값의 출처는 08번 근거·출처에 있습니다. 사실과 판단을 섞지 않기 위해 이 표에는 점수·의견을 넣지 않습니다.</p>
+    <p class="m-sec-note">${t('facts.note')}</p>
     <div class="table-wrap">
       <table class="data fact-table">
         <tbody>${rows.map(([label, value]) => `<tr><th scope="row">${esc(label)}</th><td>${value}</td></tr>`).join('')}</tbody>
       </table>
     </div>
-    <p class="table-note">가격은 통화·기간을 분리해 기록하며 환산값을 임의로 만들지 않습니다. 확인하지 못한 값은 추정으로 채우지 않고 ⚪ 미확인으로 둡니다.</p>
+    <p class="table-note">${esc(t('facts.tableNote'))}</p>
   </section>`;
 }
 
@@ -1755,36 +1756,36 @@ function sectionOpinion(view) {
   const ai = item.axes?.ai_review;
   return `
   <section class="m-sec" id="secOpinion">
-    <div class="m-sec-head"><span class="sec-num">03</span><h3>의견 (Opinion)</h3>
-      <span class="pill pill--warn">AI·편집 검토 · 사실과 구분</span>
+    <div class="m-sec-head"><span class="sec-num">03</span><h3>${esc(t('modal.sec3'))}</h3>
+      <span class="pill pill--warn">${esc(t('opinion.badge'))}</span>
     </div>
-    <p class="m-sec-note">아래는 기준표 v${esc(schemaVersion())}에 따라 AI와 편집자가 내린 <b>판단</b>입니다. 02번 사실과 섞이지 않게 따로 두었고, 판정 규칙과 계산 과정은 01번에서 그대로 공개합니다.</p>
+    <p class="m-sec-note">${t('opinion.note', { v: esc(schemaVersion()) })}</p>
     <div class="opinion-grid">
       <article class="opinion-card">
-        <h4>판정 이유</h4>
-        ${reasons.length ? `<ul class="list">${reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>` : '<p class="muted">기록된 이유가 없습니다.</p>'}
-        ${conditions.length ? `<div class="callout callout--warn"><b>조건·주의</b><ul class="list list--muted">${conditions
+        <h4>${esc(t('opinion.reasons'))}</h4>
+        ${reasons.length ? `<ul class="list">${reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>` : `<p class="muted">${esc(t('opinion.noReasons'))}</p>`}
+        ${conditions.length ? `<div class="callout callout--warn"><b>${esc(t('opinion.conditions'))}</b><ul class="list list--muted">${conditions
           .map((n) => `<li>${esc(n)}</li>`)
           .join('')}</ul></div>` : ''}
       </article>
       <article class="opinion-card">
-        <h4>AI 검토 요약 <span class="chip chip--grade chip--${esc(engine.gradeWeakest(ai?.evidence_grade))}">근거 ${esc(
-          engine.gradeWeakest(ai?.evidence_grade || 'unknown'),
+        <h4>${esc(t('opinion.aiSummary'))} <span class="chip chip--grade chip--${esc(engine.gradeWeakest(ai?.evidence_grade))}">${esc(
+          t('axes.evidence', { grade: engine.gradeWeakest(ai?.evidence_grade || 'unknown') }),
         )}</span></h4>
-        <p class="axis-summary">${esc(ai?.summary || 'AI 검토 서술이 없습니다.')}</p>
-        <p class="source-meta">감점 사유는 05번 축별 신호와 04번 티어별 판정에 반영되어 있습니다.</p>
+        <p class="axis-summary">${esc(ai?.summary || t('opinion.noAi'))}</p>
+        <p class="source-meta">${esc(t('opinion.deductions'))}</p>
       </article>
       <article class="opinion-card">
-        <h4>적합 대상</h4>
+        <h4>${esc(t('opinion.fit'))}</h4>
         <p class="axis-summary">${esc(
           (item.taste_tags || []).length
-            ? `이런 결을 원하는 사람: ${(item.taste_tags || []).map((t) => TAG_LABEL[t] || t).join(' · ')}`
-            : '취향 태그가 기록되지 않았습니다.',
+            ? t('opinion.fitLine', { tags: (item.taste_tags || []).map((tag) => L.tag(tag)).join(' · ') })
+            : t('opinion.noTags'),
         )}</p>
-        ${e.reds ? `<p class="source-meta">🔴 신호 ${e.reds}개 — 이 감점 요인을 감수하기 어려운 사용자에게는 맞지 않습니다.</p>` : ''}
+        ${e.reds ? `<p class="source-meta">${esc(t('opinion.redNote', { n: e.reds }))}</p>` : ''}
       </article>
     </div>
-    <p class="m-sec-note">판정이 낡았거나 사실과 다르다면 <a href="${correctionUrl(item)}" target="_blank" rel="noopener noreferrer">정정 제보</a>로 근거와 함께 알려 주세요.</p>
+    <p class="m-sec-note">${t('opinion.correction', { url: correctionUrl(item) })}</p>
   </section>`;
 }
 
@@ -1798,27 +1799,27 @@ function sectionTiers(view) {
         ? allFails
             .map(
               (f) =>
-                `${f.enabled ? '' : '<span class="muted">(꺼짐)</span> '}${esc(f.label)} <b>${esc(
+                `${f.enabled ? '' : `<span class="muted">${esc(t('tiers.offNote'))}</span>`}${esc(f.label)} <b>${esc(
                   engine.gradeWeakest(f.grade),
-                )}</b>${f.optional ? ' <span class="pill pill--sea">선택 과금</span>' : ''}${f.weakGrade && !evaluation.strict ? ' <span class="muted">근거 약함</span>' : ''}`,
+                )}</b>${f.optional ? ` <span class="pill pill--sea">${esc(t('filter.mark.optional'))}</span>` : ''}${f.weakGrade && !evaluation.strict ? ` <span class="muted">${esc(t('tiers.weakEvidence'))}</span>` : ''}`,
             )
             .join('<br>')
         : '<span class="muted">—</span>';
       return `
       <tr>
         <td class="tier-name">
-          <div>${esc(tier.label)}${tier.tier_id === view.recordTier?.tier_id ? ' <span class="pill pill--beam">대표</span>' : ''}${
-            tier.recommended_path ? ' <span class="pill pill--sea">최저 비용</span>' : ''
+          <div>${esc(tier.label)}${tier.tier_id === view.recordTier?.tier_id ? ` <span class="pill pill--beam">${esc(t('tiers.main'))}</span>` : ''}${
+            tier.recommended_path ? ` <span class="pill pill--sea">${esc(t('tiers.cheapest'))}</span>` : ''
           }</div>
           <div class="source-meta">${esc(tier.tier_id)} · ${esc(engine.KIND_LABEL[tier.kind] || tier.kind)}</div>
-          ${(tier.limits || []).length ? `<div class="source-meta">한도: ${esc(tier.limits.join(', '))}</div>` : ''}
+          ${(tier.limits || []).length ? `<div class="source-meta">${esc(t('tiers.limits', { limits: tier.limits.join(', ') }))}</div>` : ''}
         </td>
         <td>${esc(tier.price?.display || '—')}</td>
-        <td><span class="pill pill--${meta.tone}">${meta.emoji} ${meta.label}</span><div class="source-meta">기록: ${esc(
-          engine.VERDICT_META[evaluation.storedVerdict]?.label || evaluation.storedVerdict,
+        <td><span class="pill pill--${meta.tone}">${meta.emoji} ${meta.label}</span><div class="source-meta">${esc(
+          t('tiers.recorded', { verdict: engine.VERDICT_META[evaluation.storedVerdict]?.label || evaluation.storedVerdict }),
         )}</div>${
           evaluation.optionalFails.length
-            ? '<div class="source-meta">선택 과금 · 무과금 가능</div>'
+            ? `<div class="source-meta">${esc(t('verdict.optional'))}</div>`
             : ''
         }</td>
         <td class="num">${evaluation.score != null ? evaluation.score.toFixed(1) : '—'}</td>
@@ -1830,13 +1831,13 @@ function sectionTiers(view) {
 
   return `
   <section class="m-sec">
-    <div class="m-sec-head"><span class="sec-num">04</span><h3>티어별 판정 비교</h3>
-      <span class="pill">${view.tierEvals.length}개 티어</span>
+    <div class="m-sec-head"><span class="sec-num">04</span><h3>${esc(t('modal.sec4'))}</h3>
+      <span class="pill">${esc(t('tiers.badge', { n: view.tierEvals.length }))}</span>
     </div>
-    <p class="m-sec-note">무료·구독·1회 구매는 사실상 다른 제품입니다. 판정은 현재 가중치·필터·엄격도로 티어마다 다시 계산됩니다.</p>
+    <p class="m-sec-note">${esc(t('tiers.note'))}</p>
     <div class="table-wrap">
       <table class="data tier-table">
-        <thead><tr><th>티어</th><th>가격</th><th>판정</th><th>점수</th><th>걸린 필터</th><th>한 줄</th></tr></thead>
+        <thead><tr><th>${esc(t('tiers.name'))}</th><th>${esc(t('tiers.price'))}</th><th>${esc(t('tiers.verdict'))}</th><th>${esc(t('tiers.score'))}</th><th>${esc(t('tiers.filters'))}</th><th>${esc(t('tiers.oneLiner'))}</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>
@@ -1848,23 +1849,22 @@ function sectionAxes(view) {
   const cards = view.recordEval.axisStates
     .map((axis) => {
       const meta = engine.SIGNAL_META[axis.signal] || engine.SIGNAL_META.unknown;
-      const base = view.item.axes?.[axis.key];
       return `
       <article class="axis-card">
         <div class="axis-card-head">
-          <h4>${esc(axis.label)}${axis.profileScoped ? '<small>P1 프로필 전용</small>' : ''}</h4>
+          <h4>${esc(axis.label)}${axis.profileScoped ? `<small>${esc(t('axes.profileOnly'))}</small>` : ''}</h4>
           <span class="axis-score axis-score--${esc(axis.signal)}">${axis.score ?? '—'}</span>
         </div>
         <div class="axis-meta">
           <span class="pill pill--${axis.signal === 'green' ? 'ok' : axis.signal === 'yellow' ? 'warn' : axis.signal === 'red' ? 'bad' : 'muted'}">${meta.emoji} ${meta.label}</span>
-          <span class="pill">근거 ${esc(engine.gradeWeakest(axis.evidenceGrade || 'unknown'))}</span>
-          <span class="pill">확신 ${esc({ high: '높음', medium: '보통', low: '낮음' }[axis.confidence] || '—')}</span>
-          ${axis.source === 'tier' ? '<span class="pill pill--beam">티어 오버라이드</span>' : ''}
-          ${axis.profileScoped && axis.weight <= 0 ? '<span class="pill">가중치 0 · 판정 미포함</span>' : ''}
+          <span class="pill">${esc(t('axes.evidence', { grade: engine.gradeWeakest(axis.evidenceGrade || 'unknown') }))}</span>
+          <span class="pill">${esc(t('axes.confidence', { level: { high: t('axes.confidenceHigh'), medium: t('axes.confidenceMedium'), low: t('axes.confidenceLow') }[axis.confidence] || '—' }))}</span>
+          ${axis.source === 'tier' ? `<span class="pill pill--beam">${esc(t('axes.tierOverride'))}</span>` : ''}
+          ${axis.profileScoped && axis.weight <= 0 ? `<span class="pill">${esc(t('axes.weightZero'))}</span>` : ''}
         </div>
-        <p class="axis-summary">${esc(axis.summary || axis.note || '서술 없음')}</p>
+        <p class="axis-summary">${esc(axis.summary || axis.note || t('axes.noSummary'))}</p>
         ${axis.overrideScore != null && axis.axisScore !== axis.overrideScore
-          ? `<p class="source-meta">앱 공통 점수 ${axis.axisScore} → 이 티어 ${axis.overrideScore} (사유: ${esc(axis.note)})</p>`
+          ? `<p class="source-meta">${esc(t('axes.overrideNote', { base: axis.axisScore, score: axis.overrideScore, note: axis.note }))}</p>`
           : ''}
         ${(axis.sourceIds || []).length ? `<div class="axis-meta">${sourceChips(axis.sourceIds, view.item)}</div>` : ''}
       </article>`;
@@ -1872,11 +1872,11 @@ function sectionAxes(view) {
     .join('');
   return `
   <section class="m-sec">
-    <div class="m-sec-head"><span class="sec-num">05</span><h3>축별 신호와 근거</h3>
+    <div class="m-sec-head"><span class="sec-num">05</span><h3>${esc(t('modal.sec5'))}</h3>
       <span class="pill">🟢 ≥ ${contract().signal_thresholds?.green_min ?? 75} · 🟡 ≥ ${contract().signal_thresholds?.yellow_min ?? 50}</span>
     </div>
     <div class="axis-grid">${cards}</div>
-    ${view.item.one_liner ? `<p class="m-sec-note">한 줄 정의: ${esc(view.item.one_liner)}</p>` : ''}
+    ${view.item.one_liner ? `<p class="m-sec-note">${esc(t('axes.note', { text: view.item.one_liner }))}</p>` : ''}
     ${scoreNoteHtml(view.item)}
   </section>`;
 }
@@ -1885,13 +1885,13 @@ function sectionAxes(view) {
 function scoreNoteHtml(item) {
   const notes = item.score_notes || {};
   const rows = [
-    ['user_rating', '사용자 평가'],
-    ['objective', '객관·신뢰 지표'],
-    ['ai_review', 'AI 검토'],
+    ['user_rating', labeled('axis', 'user_rating', 'User Rating')],
+    ['objective', labeled('axis', 'objective', 'Objective Trust')],
+    ['ai_review', labeled('axis', 'ai_review', 'AI Review')],
   ].filter(([key]) => notes[key]);
   if (!rows.length) return '';
-  return `<div class="callout callout--ok"><b>v0.5.0 산정 메모</b>${rows
-    .map(([key, label]) => `<p class="m-sec-note"><b>${label}</b> — ${esc(notes[key])}</p>`)
+  return `<div class="callout callout--ok"><b>${esc(t('axes.scoreNotes'))}</b>${rows
+    .map(([key, label]) => `<p class="m-sec-note"><b>${esc(label)}</b> — ${esc(notes[key])}</p>`)
     .join('')}</div>`;
 }
 
@@ -1919,10 +1919,10 @@ function sectionAlternatives(view) {
   const isBad = view.recordEval.verdict !== 'recommend';
   return `
   <section class="m-sec" id="secAlternatives">
-    <div class="m-sec-head"><span class="sec-num">06</span><h3>${isBad ? '같은 비교군 상위 추천 대체제' : '같은 비교군의 다른 선택'}</h3>
-      <span class="pill pill--sea">${esc(state.cat.arenaLabel(state.route.arena))} 안에서만</span>
+    <div class="m-sec-head"><span class="sec-num">06</span><h3>${esc(isBad ? t('modal.sec6a') : t('modal.sec6b'))}</h3>
+      <span class="pill pill--sea">${esc(t('alt.scope', { arena: state.cat.arenaLabel(state.route.arena) }))}</span>
     </div>
-    <p class="m-sec-note">다른 분야로 건너뛰지 않습니다. 같은 자리를 두고 겨루는 대체제 중 지금 내 기준에서 추천 판정인 항목만 점수 순으로 보여줍니다.</p>
+    <p class="m-sec-note">${esc(t('alt.note'))}</p>
     <div class="alt-list">
       ${alts
         .map(
@@ -1934,7 +1934,7 @@ function sectionAlternatives(view) {
           <span class="verdict verdict--${engine.VERDICT_META[evaluation.verdict].tone}">${engine.VERDICT_META[evaluation.verdict].emoji} ${
             engine.VERDICT_META[evaluation.verdict].label
           }</span>
-          <span class="alt-more">보기 →</span>
+          <span class="alt-more">${esc(t('alt.see'))}</span>
         </button>`,
         )
         .join('')}
@@ -1952,29 +1952,28 @@ function sectionReviews(view) {
       const { cumulative, recent, gap } = engine.reviewGap(platform);
       const gapTone = gap == null ? '' : gap <= -15 ? 'bad' : gap <= -5 ? 'warn' : gap >= 5 ? 'ok' : '';
       const metricMeta = (metric) =>
-        metric ? `${metric.window || '기간 미상'} · ${engine.reviewToHundred(metric.value, metric.scale)?.toFixed(1)}/100 · 근거 ${esc(engine.gradeWeakest(metric.evidence_grade))}` : '';
+        metric ? `${metric.window || t('reviews.periodUnknown')} · ${engine.reviewToHundred(metric.value, metric.scale)?.toFixed(1)}/100 · ${t('axes.evidence', { grade: engine.gradeWeakest(metric.evidence_grade) })}` : '';
       const metricValue = (metric) =>
         metric
-          ? `${metric.value}${metric.scale === 'percent' ? '%' : metric.scale === 'stars5' ? '★' : '/10'} <span class="muted">· ${metric.count?.toLocaleString('ko-KR') ?? '—'}건</span>`
-          : '<span class="muted">없음</span>';
+          ? `${metric.value}${metric.scale === 'percent' ? '%' : metric.scale === 'stars5' ? '★' : '/10'} <span class="muted">· ${esc(t('reviews.count', { n: num(metric.count) }))}</span>`
+          : `<span class="muted">${esc(t('reviews.none'))}</span>`;
+      const gapState = gap == null ? '' : gap <= -15 ? t('reviews.gapDamaged') : gap <= -5 ? t('reviews.gapDown') : gap >= 5 ? t('reviews.gapUp') : t('reviews.gapStable');
       return `
       <div class="review-row">
         <div class="review-top">
           <h4>${esc(engine.PLATFORM_LABEL[platform.platform] || platform.platform)}</h4>
           ${
             gap == null
-              ? '<span class="review-gap">최근 구간 없음</span>'
-              : `<span class="review-gap review-gap--${gapTone}">격차 <b>${gap > 0 ? '+' : ''}${gap.toFixed(1)}p</b> ${
-                  gap <= -15 ? '· 최근 평가 훼손' : gap <= -5 ? '· 하락' : gap >= 5 ? '· 개선' : '· 안정'
-                }</span>`
+              ? `<span class="review-gap">${esc(t('reviews.noRecent'))}</span>`
+              : `<span class="review-gap review-gap--${gapTone}">${t('reviews.gap', { gap: `${gap > 0 ? '+' : ''}${gap.toFixed(1)}`, state: esc(gapState) })}</span>`
           }
         </div>
         <div class="review-bars">
-          <div class="bar-row"><span class="bar-label">누적</span><span class="bar-track"><span class="bar-fill bar-fill--cum" style="width:${Math.max(0, Math.min(100, cumulative ?? 0))}%"></span></span><span class="bar-value">${metricValue(platform.cumulative)}</span></div>
-          <div class="bar-row"><span class="bar-label">최근</span><span class="bar-track"><span class="bar-fill bar-fill--recent" style="width:${Math.max(0, Math.min(100, recent ?? 0))}%"></span></span><span class="bar-value">${metricValue(platform.recent)}</span></div>
+          <div class="bar-row"><span class="bar-label">${esc(t('reviews.cumulative'))}</span><span class="bar-track"><span class="bar-fill bar-fill--cum" style="width:${Math.max(0, Math.min(100, cumulative ?? 0))}%"></span></span><span class="bar-value">${metricValue(platform.cumulative)}</span></div>
+          <div class="bar-row"><span class="bar-label">${esc(t('reviews.recent'))}</span><span class="bar-track"><span class="bar-fill bar-fill--recent" style="width:${Math.max(0, Math.min(100, recent ?? 0))}%"></span></span><span class="bar-value">${metricValue(platform.recent)}</span></div>
         </div>
-        <p class="review-meta">누적 · ${metricMeta(platform.cumulative)}</p>
-        ${platform.recent ? `<p class="review-meta">최근 · ${metricMeta(platform.recent)}</p>` : ''}
+        <p class="review-meta">${esc(t('reviews.metaCumulative', { meta: metricMeta(platform.cumulative) }))}</p>
+        ${platform.recent ? `<p class="review-meta">${esc(t('reviews.metaRecent', { meta: metricMeta(platform.recent) }))}</p>` : ''}
         ${platform.note ? `<p class="money-note">${esc(platform.note)}</p>` : ''}
       </div>`;
     })
@@ -1982,18 +1981,24 @@ function sectionReviews(view) {
 
   return `
   <section class="m-sec">
-    <div class="m-sec-head"><span class="sec-num">07</span><h3>누적 vs 최근 리뷰</h3>
-      <span class="pill ${sample.needsDowngrade ? 'pill--bad' : 'pill--ok'}">최소 표본 ${sample.min}건 ${sample.needsDowngrade ? `· 부족 ${sample.insufficient.length}곳` : '· 충족'}</span>
+    <div class="m-sec-head"><span class="sec-num">07</span><h3>${esc(t('modal.sec7'))}</h3>
+      <span class="pill ${sample.needsDowngrade ? 'pill--bad' : 'pill--ok'}">${esc(t('reviews.minSample', {
+        n: sample.min,
+        state: sample.needsDowngrade ? t('reviews.minSampleShort', { n: sample.insufficient.length }) : t('reviews.minSampleOk'),
+      }))}</span>
     </div>
-    <p class="m-sec-note">5점 척도는 ×20, 10점 척도는 ×10으로 0~100에 맞춰 비교합니다. 누적값만 보면 놓치는 ‘최근 망가짐’을 겨냥합니다.</p>
+    <p class="m-sec-note">${esc(t('reviews.note'))}</p>
     ${rows}
     ${snapshot.summary ? `<p class="money-note">${esc(snapshot.summary)}</p>` : ''}
     <div class="callout${sample.needsDowngrade ? ' callout--warn' : ''}">
-      <b>표본 규칙</b> 최근 표본이 ${sample.min}건 미만이면 신호를 한 단계 낮춥니다. 점검한 플랫폼 ${sample.checked}곳 · 하향 필요 ${
-        sample.needsDowngrade ? '있음' : '없음'
-      } · 데이터 ${
-        sample.needsDowngrade ? (sample.applied ? '하향 적용됨' : '하향 미적용') : sample.sampleSufficient ? '표본 충분(하향 미적용)' : '표본 상태 미기재'
-      }
+      ${t('reviews.rule', {
+        min: sample.min,
+        checked: sample.checked,
+        need: sample.needsDowngrade ? t('reviews.needYes') : t('reviews.needNo'),
+        state: sample.needsDowngrade
+          ? (sample.applied ? t('reviews.applied') : t('reviews.notApplied'))
+          : (sample.sampleSufficient ? t('reviews.sufficient') : t('reviews.unknownState')),
+      })}
     </div>
   </section>`;
 }
@@ -2010,19 +2015,19 @@ function sectionMoney(view) {
   const tags = (list) => (list || []).map((type) => `<span class="pill">${esc(engine.AD_TYPE_LABEL[type] || type)}</span>`).join('');
   return `
   <section class="m-sec">
-    <div class="m-sec-head"><span class="sec-num">08</span><h3>과금·광고 4분해</h3>
-      <span class="pill ${iap.random_items === 'yes' ? 'pill--bad' : ''}">확률형 ${esc(engine.TRI_LABEL[iap.random_items] || '미확인')}</span>
-      <span class="pill">IAP ${esc(engine.TRI_LABEL[iap.present] || '미확인')}</span>
+    <div class="m-sec-head"><span class="sec-num">08</span><h3>${esc(t('modal.sec8'))}</h3>
+      <span class="pill ${iap.random_items === 'yes' ? 'pill--bad' : ''}">${esc(t('money.randomBadge', { v: engine.TRI_LABEL[iap.random_items] || t('modal.na') }))}</span>
+      <span class="pill">${esc(t('money.iapBadge', { v: engine.TRI_LABEL[iap.present] || t('modal.na') }))}</span>
     </div>
-    <p class="m-sec-note">‘광고 있음/없음’ 한 칸으로는 미끼형 유입 광고 피해를 잡지 못합니다. 인앱 노출과 유입 정직성을 분리합니다.</p>
+    <p class="m-sec-note">${esc(t('money.note'))}</p>
     <div class="money-grid">
-      <article class="money-card"><h4>⑴ 인앱 광고 노출</h4><div class="money-value">${esc(engine.EXPOSURE_LABEL[ads.in_app_exposure] || ads.in_app_exposure || '미확인')}</div><div class="money-tags">${tags(ads.ad_types)}</div><p class="money-note">스토어 광고 표기: ${ads.store_declares_ads === true ? '있음' : ads.store_declares_ads === false ? '없음' : '미확인'}</p></article>
-      <article class="money-card"><h4>⑵ 유입 광고 정직성</h4><div class="money-value">${esc(engine.HONESTY_LABEL[ads.inflow_ad?.honesty] || '미평가')}</div><div class="money-tags"><span class="pill">존재 ${esc(engine.TRI_LABEL[ads.inflow_ad?.present] || '미평가')}</span><span class="pill">근거 ${esc(engine.gradeWeakest(ads.inflow_ad?.evidence_grade || 'unknown'))}</span></div><p class="money-note">${esc(ads.inflow_ad?.note || '평가 기록 없음')}</p></article>
-      <article class="money-card"><h4>⑶ 확률형 아이템</h4><div class="money-value">${esc(engine.TRI_LABEL[iap.random_items] || '미확인')}</div><div class="money-tags"><span class="pill">IAP 존재 ${esc(engine.TRI_LABEL[iap.present] || '미확인')}</span><span class="pill">근거 ${esc(engine.gradeWeakest(iap.evidence_grade || 'unknown'))}</span></div><p class="money-note">확률형 여부는 스토어 표기(‘Includes Random Items’)를 그대로 지표로 씁니다 — 등급 A.</p></article>
-      <article class="money-card"><h4>⑷ IAP 최고가·첫 결제 유도</h4><div class="money-value">${minText || maxText ? `${esc(minText || '?')} ~ ${esc(maxText || '?')}` : (iap.present === 'yes' ? '가격대 미확인' : '인앱결제 없음')}</div><div class="money-tags"><span class="pill">첫 유도 ${esc(engine.PROMPT_LABEL[iap.first_purchase_prompt] || '미확인')}</span><span class="pill ${iap.p2w === 'yes' ? 'pill--bad' : ''}">P2W ${esc(engine.TRI_LABEL[iap.p2w] || '미확인')}</span><span class="pill ${iap.required_to_progress === 'yes' ? 'pill--bad' : ''}">진행 필수 ${esc(engine.TRI_LABEL[iap.required_to_progress] || '미확인')}</span><span class="pill">근거 ${esc(engine.gradeWeakest(range.evidence_grade || 'unknown'))}</span></div><p class="money-note">${esc(range.note || '가격대 기록 없음')}</p></article>
+      <article class="money-card"><h4>${esc(t('money.adsExposure'))}</h4><div class="money-value">${esc(engine.EXPOSURE_LABEL[ads.in_app_exposure] || ads.in_app_exposure || t('modal.na'))}</div><div class="money-tags">${tags(ads.ad_types)}</div><p class="money-note">${esc(t('money.adsStore', { v: ads.store_declares_ads === true ? t('modal.yes') : ads.store_declares_ads === false ? t('modal.no') : t('modal.na') }))}</p></article>
+      <article class="money-card"><h4>${esc(t('money.inflow'))}</h4><div class="money-value">${esc(engine.HONESTY_LABEL[ads.inflow_ad?.honesty] || t('money.notAssessed'))}</div><div class="money-tags"><span class="pill">${esc(t('money.inflowExists', { v: engine.TRI_LABEL[ads.inflow_ad?.present] || t('money.notAssessed') }))}</span><span class="pill">${esc(t('money.inflowGrade', { grade: engine.gradeWeakest(ads.inflow_ad?.evidence_grade || 'unknown') }))}</span></div><p class="money-note">${esc(ads.inflow_ad?.note || t('money.noRecord'))}</p></article>
+      <article class="money-card"><h4>${esc(t('money.random'))}</h4><div class="money-value">${esc(engine.TRI_LABEL[iap.random_items] || t('modal.na'))}</div><div class="money-tags"><span class="pill">${esc(t('money.iapExists', { v: engine.TRI_LABEL[iap.present] || t('modal.na') }))}</span><span class="pill">${esc(t('money.inflowGrade', { grade: engine.gradeWeakest(iap.evidence_grade || 'unknown') }))}</span></div><p class="money-note">${esc(t('money.randomNote'))}</p></article>
+      <article class="money-card"><h4>${esc(t('money.price'))}</h4><div class="money-value">${minText || maxText ? esc(t('money.priceRange', { min: minText || '?', max: maxText || '?' })) : (iap.present === 'yes' ? esc(t('money.priceUnknown')) : esc(t('money.noIap')))}</div><div class="money-tags"><span class="pill">${esc(t('money.firstPrompt', { v: engine.PROMPT_LABEL[iap.first_purchase_prompt] || t('modal.na') }))}</span><span class="pill ${iap.p2w === 'yes' ? 'pill--bad' : ''}">${esc(t('money.p2w', { v: engine.TRI_LABEL[iap.p2w] || t('modal.na') }))}</span><span class="pill ${iap.required_to_progress === 'yes' ? 'pill--bad' : ''}">${esc(t('money.required', { v: engine.TRI_LABEL[iap.required_to_progress] || t('modal.na') }))}</span><span class="pill">${esc(t('money.inflowGrade', { grade: engine.gradeWeakest(range.evidence_grade || 'unknown') }))}</span></div><p class="money-note">${esc(range.note || t('money.priceNoteNone'))}</p></article>
     </div>
     ${impactBlockHtml(view)}
-    <dl class="kv"><dt>구독</dt><dd>${esc(engine.TRI_LABEL[money.subscription?.present] || '미확인')} · ${esc(money.subscription?.display || '—')}</dd><dt>과금 요약</dt><dd>${esc(money.summary || '—')}</dd></dl>
+    <dl class="kv"><dt>${esc(t('money.subscription'))}</dt><dd>${esc(engine.TRI_LABEL[money.subscription?.present] || t('modal.na'))} · ${esc(money.subscription?.display || '—')}</dd><dt>${esc(t('money.summary'))}</dt><dd>${esc(money.summary || '—')}</dd></dl>
   </section>`;
 }
 
@@ -2035,7 +2040,7 @@ function impactBlockHtml(view) {
     check.status === 'pass' ? 'ok' : check.status === 'fail' ? (check.impact === 'optional' ? 'sea' : 'bad') : 'muted';
   return `
     <div class="impact-block">
-      <p class="mini-label" style="margin:14px 0 6px">확률형·P2W 강도 (impact)</p>
+      <p class="mini-label" style="margin:14px 0 6px">${esc(t('money.impactTitle'))}</p>
       <div class="tag-cloud">
         ${checks
           .map(
@@ -2048,12 +2053,14 @@ function impactBlockHtml(view) {
       </div>
       ${
         free
-          ? `<p class="money-note">무과금 충분성: <b>${esc(FREE_PLAY_LABEL[free.value] || free.value)}</b> · 근거 ${esc(
-              engine.gradeWeakest(free.evidence_grade || 'unknown'),
-            )} — ${esc(free.note || '')}</p>`
-          : '<p class="money-note">무과금 충분성은 기록되지 않았습니다(⚪).</p>'
+          ? `<p class="money-note">${t('money.freePlay', {
+              v: esc(L.freePlay(free.value) || free.value),
+              grade: esc(engine.gradeWeakest(free.evidence_grade || 'unknown')),
+              note: esc(free.note || ''),
+            })}</p>`
+          : `<p class="money-note">${esc(t('money.freePlayNone'))}</p>`
       }
-      <p class="money-note">impact <code>optional</code> 은 상품이 있어도 무과금으로 본편을 즐길 수 있다는 뜻이며, 기본 모드에서는 거르지 않고 배지로 알립니다. <code>core</code> 는 과금 없이 진행이 막혀 거름입니다.</p>
+      <p class="money-note">${t('money.impactNote')}</p>
     </div>`;
 }
 
@@ -2069,7 +2076,7 @@ function sectionUpdates(view) {
     .map(
       (entry) => `
       <tr>
-        <td class="num">${esc(entry.date || '날짜 미상')}</td>
+        <td class="num">${esc(entry.date || t('updates.dateUnknown'))}</td>
         <td><span class="pill">${esc(engine.UPDATE_TYPE_LABEL[entry.type] || entry.type)}</span></td>
         <td>${esc(engine.PLATFORM_LABEL[entry.platform] || entry.platform || '—')}</td>
         <td>${esc(engine.PROMISE_LABEL[entry.promise_status] || '—')}</td>
@@ -2081,22 +2088,24 @@ function sectionUpdates(view) {
   const risky = profile.maintenance_quality === 'risky_terms' && view.worstGap <= -5;
   return `
   <section class="m-sec">
-    <div class="m-sec-head"><span class="sec-num">09</span><h3>업데이트 성격</h3>
-      ${life ? `<span class="pill pill--${life.tone}">수명 단계 · ${esc(life.label)}</span>` : ''}
+    <div class="m-sec-head"><span class="sec-num">09</span><h3>${esc(t('modal.sec9'))}</h3>
+      ${life ? `<span class="pill pill--${life.tone}">${esc(t('updates.lifeStage', { label: life.label }))}</span>` : ''}
       <span class="pill pill--${meta.tone}">${esc(meta.label)}</span>
-      <span class="pill">주기 ${esc(engine.CADENCE_LABEL[profile.cadence] || profile.cadence)}</span>
-      <span class="pill">최근 업데이트 ${esc(profile.latest_update || '미확인')}${profile.latest_update_platform ? ` · ${esc(engine.PLATFORM_LABEL[profile.latest_update_platform] || profile.latest_update_platform)}` : ''}</span>
+      <span class="pill">${esc(t('updates.cadence', { v: engine.CADENCE_LABEL[profile.cadence] || profile.cadence }))}</span>
+      <span class="pill">${esc(t('updates.latest', { date: profile.latest_update || t('modal.na'), platform: profile.latest_update_platform ? ` · ${engine.PLATFORM_LABEL[profile.latest_update_platform] || profile.latest_update_platform}` : '' }))}</span>
     </div>
-    <p class="m-sec-note">‘활발한가’가 아니라 ‘무엇을 실어 나르는가’를 봅니다 — ${esc(meta.desc)}.</p>
-    ${life && lifeKey !== 'active' ? `<div class="callout"><b>수명 단계 · ${esc(life.label)}</b> ${esc(
-      view.item.maintenance_note || life.desc,
-    )}${lifeKey === 'feature_complete' ? ' — 완결작은 <code>stale_over_12m</code> 필터가 켜져 있어도 면제(exempt)로 계산합니다. 단 보안·OS 호환성 문제가 별도 신호로 잡히면 추천 대신 조건부 경고로 내립니다.' : ''}</div>` : ''}
-    ${risky ? '<div class="callout callout--bad"><b>경고 고정</b> 과금·약관 변경이 최근 평가 하락과 겹칩니다. 최근 업데이트 일자만으로 유지보수 신호를 🟢로 주지 않습니다.</div>' : ''}
-    ${compat ? `<p class="money-note">보안·OS 호환성 신호: <b>${esc(engine.TRI_LABEL[compat.value] || compat.value)}</b> — ${esc(compat.note || '기록 없음')}</p>` : ''}
+    <p class="m-sec-note">${t('updates.note', { desc: esc(meta.desc) })}</p>
+    ${life && lifeKey !== 'active' ? `<div class="callout">${t('updates.lifeCallout', {
+      label: esc(life.label),
+      note: esc(view.item.maintenance_note || life.desc),
+      extra: lifeKey === 'feature_complete' ? t('updates.lifeExtra') : '',
+    })}</div>` : ''}
+    ${risky ? `<div class="callout callout--bad">${t('updates.risky')}</div>` : ''}
+    ${compat ? `<p class="money-note">${t('updates.compat', { v: esc(engine.TRI_LABEL[compat.value] || compat.value), note: esc(compat.note || t('updates.noCompatNote')) })}</p>` : ''}
     <div class="table-wrap">
       <table class="data">
-        <thead><tr><th>날짜</th><th>성격</th><th>플랫폼</th><th>공약</th><th>근거</th><th>메모</th></tr></thead>
-        <tbody>${rows || '<tr><td colspan="6" class="muted">기록된 업데이트가 없습니다.</td></tr>'}</tbody>
+        <thead><tr><th>${esc(t('updates.date'))}</th><th>${esc(t('updates.type'))}</th><th>${esc(t('updates.platform'))}</th><th>${esc(t('updates.promise'))}</th><th>${esc(t('updates.evidence'))}</th><th>${esc(t('updates.memo'))}</th></tr></thead>
+        <tbody>${rows || `<tr><td colspan="6" class="muted">${esc(t('updates.noUpdates'))}</td></tr>`}</tbody>
       </table>
     </div>
     <p class="money-note">${esc(profile.assessment || '')}</p>
@@ -2116,24 +2125,24 @@ function sectionEvidence(view) {
         <div>
           <div class="source-title">${esc(source.title)}</div>
           <div class="source-note">${esc(source.note || '')}</div>
-          <div class="source-meta">${esc(source.type)} · 접근 ${esc(source.accessed_at)} · ${esc(source.id)}</div>
+          <div class="source-meta">${esc(source.type)} · ${esc(t('evidence.access', { date: source.accessed_at }))} · ${esc(source.id)}</div>
         </div>
-        ${url ? `<a class="source-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">열기 ↗</a>` : '<span class="source-link muted">링크 없음</span>'}
+        ${url ? `<a class="source-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(t('evidence.open'))}</a>` : `<span class="source-link muted">${esc(t('evidence.noLink'))}</span>`}
       </div>`;
     })
     .join('');
   const flags = Object.entries(item.flags || {})
     .map(([key, node]) => {
       const isExport = key === 'data_export';
-      const value = isExport ? EXPORT_LABEL[node.value] || node.value : engine.TRI_LABEL[node.value] || node.value;
+      const value = isExport ? L.export(node.value) || node.value : engine.TRI_LABEL[node.value] || node.value;
       const tone = isExport ? 'unknown' : node.value === 'yes' ? 'yes' : node.value === 'no' ? 'no' : 'unknown';
       return `
       <tr>
         <td class="flag-name">${esc(key)}</td>
-        <td>${esc(FLAG_LABEL[key] || key)}</td>
+        <td>${esc(L.flag(key))}</td>
         <td><span class="flag-value flag-value--${tone}">${esc(value)}</span></td>
         <td>${esc(engine.gradeWeakest(node.evidence_grade || 'unknown'))}</td>
-        <td>${esc(VERIFICATION_LABEL[node.verification] || '—')}</td>
+        <td>${esc(L.verification(node.verification) || '—')}</td>
         <td class="flag-note">${esc(node.note || '')}</td>
       </tr>`;
     })
@@ -2142,27 +2151,27 @@ function sectionEvidence(view) {
   const conflicts = (quality.conflicts || [])
     .map(
       (conflict) =>
-        `<li><b>${esc(conflict.field)}</b> — ${esc((conflict.values || []).join(' vs '))}<br><span class="muted">해결: ${esc(conflict.resolution)}</span></li>`,
+        `<li><b>${esc(conflict.field)}</b> — ${esc((conflict.values || []).join(' vs '))}<br><span class="muted">${esc(t('evidence.resolution', { v: conflict.resolution }))}</span></li>`,
     )
     .join('');
   return `
   <section class="m-sec">
-    <div class="m-sec-head"><span class="sec-num">10</span><h3>근거·출처</h3>
-      <span class="pill pill--beam">데이터 신뢰도 ${esc(engine.gradeWeakest(quality.overall_grade || 'unknown'))}</span>
-      <span class="pill">평가 방법 ${esc(METHOD_LABEL[item.method] || item.method || '—')}</span>
+    <div class="m-sec-head"><span class="sec-num">10</span><h3>${esc(t('modal.sec10'))}</h3>
+      <span class="pill pill--beam">${esc(t('evidence.grade', { grade: engine.gradeWeakest(quality.overall_grade || 'unknown') }))}</span>
+      <span class="pill">${esc(t('evidence.method', { v: L.method(item.method) || item.method || '—' }))}</span>
     </div>
-    <p class="m-sec-note">등급 A=스토어·공식 직접 확인, B=언론·공식 발표 인용, C=3자 집계·개별 리뷰·커뮤니티. 복합 등급은 가장 약한 등급으로 표기합니다.</p>
+    <p class="m-sec-note">${esc(t('evidence.note'))}</p>
     <div class="sources">${sources}</div>
-    ${(quality.unverified || []).length ? `<div class="callout"><b>확인하지 못한 값</b><ul class="list list--muted" style="margin-top:6px">${quality.unverified
+    ${(quality.unverified || []).length ? `<div class="callout"><b>${esc(t('evidence.unverified'))}</b><ul class="list list--muted" style="margin-top:6px">${quality.unverified
       .map((u) => `<li>${esc(u)}</li>`)
       .join('')}</ul></div>` : ''}
-    ${conflicts ? `<div class="callout callout--warn"><b>출처 충돌</b><ul class="list" style="margin-top:6px">${conflicts}</ul></div>` : ''}
-    ${quality.limitations ? `<p class="money-note">한계: ${esc(quality.limitations)}</p>` : ''}
+    ${conflicts ? `<div class="callout callout--warn"><b>${esc(t('evidence.conflicts'))}</b><ul class="list" style="margin-top:6px">${conflicts}</ul></div>` : ''}
+    ${quality.limitations ? `<p class="money-note">${esc(t('evidence.limitations', { v: quality.limitations }))}</p>` : ''}
     <details class="calc-block">
-      <summary class="calc-summary">판정에 쓰인 원자료(flags) ${Object.keys(item.flags || {}).length}개</summary>
+      <summary class="calc-summary">${esc(t('evidence.flags', { n: Object.keys(item.flags || {}).length }))}</summary>
       <div class="table-wrap" style="margin-top:8px">
         <table class="data flag-table">
-          <thead><tr><th>키</th><th>항목</th><th>값</th><th>근거</th><th>검증</th><th>메모</th></tr></thead>
+          <thead><tr><th>${esc(t('evidence.key'))}</th><th>${esc(t('evidence.item'))}</th><th>${esc(t('evidence.value'))}</th><th>${esc(t('evidence.grade'))}</th><th>${esc(t('evidence.verification'))}</th><th>${esc(t('updates.memo'))}</th></tr></thead>
           <tbody>${flags}</tbody>
         </table>
       </div>
@@ -2178,7 +2187,7 @@ function sectionEvidence(view) {
  */
 function domainFilterLabel(def) {
   const dom = state.route.domain ? state.cat.domain(state.route.domain) : null;
-  return (dom?.filter_labels || {})[def.key] || def.label;
+  return (dom?.filter_labels || {})[def.key] || labeled('filter', def.key, def.label);
 }
 
 function buildTuneBody() {
@@ -2192,13 +2201,13 @@ function buildTuneBody() {
 
   $('tuneBody').innerHTML = `
     <section class="tune-sec">
-      <div class="panel-head"><h3>가중치 프리셋</h3><span class="panel-hint">합계 100%로 정규화</span></div>
+      <div class="panel-head"><h3>${esc(t('tune.presets'))}</h3><span class="panel-hint">${esc(t('tune.presetsHint'))}</span></div>
       <div class="preset-row" id="presets">
         ${PRESETS.map(
           (preset) =>
             `<button type="button" class="preset" data-preset="${esc(preset.id)}" aria-pressed="${
               state.preset === preset.id
-            }" title="${esc(preset.hint)}">${esc(preset.label)}</button>`,
+            }" title="${esc(presetHintOf(preset.id))}">${esc(presetLabelOf(preset.id))}</button>`,
         ).join('')}
       </div>
       <div class="weights" id="weights">
@@ -2207,24 +2216,24 @@ function buildTuneBody() {
             (def, index) => `
           <div class="weight">
             <div class="weight-head">
-              <span class="weight-name">${esc(def.label)}<small>축 ${index + 1}</small></span>
+              <span class="weight-name">${esc(labeled('axis', def.key, def.label))}<small>${esc(t('tune.axisN', { n: index + 1 }))}</small></span>
               <span class="weight-pct" id="pct-${esc(def.key)}">—</span>
             </div>
             <input type="range" id="range-${esc(def.key)}" min="0" max="100" step="5" value="${
               state.weights[def.key] ?? 0
-            }" data-axis="${esc(def.key)}" aria-label="${esc(def.label)} 가중치" />
-            <div class="weight-meta"><span>기본 ${pct(def.default_weight ?? 0)}</span><span id="meta-${esc(def.key)}">w = 0.00</span></div>
+            }" data-axis="${esc(def.key)}" aria-label="${esc(t('tune.axisWeightAria', { axis: labeled('axis', def.key, def.label) }))}" />
+            <div class="weight-meta"><span>${esc(t('tune.default', { v: pct(def.default_weight ?? 0) }))}</span><span id="meta-${esc(def.key)}">w = 0.00</span></div>
           </div>`,
           )
           .join('')}
       </div>
       <div class="weight-bar" id="weightBar" aria-hidden="true"></div>
-      <p class="hint">‘균형 기본’은 처음 온 사람을 위한 기본값입니다. 슬라이더를 움직이면 지금 보고 있는 비교군이 즉시 다시 계산됩니다.</p>
+      <p class="hint">${esc(t('tune.presetHint'))}</p>
     </section>
 
     <section class="tune-sec">
-      <div class="panel-head"><h3>하드 필터</h3><span class="panel-hint" id="filterCount">0/0</span></div>
-      <p class="hint">켜진 필터에 하나라도 걸리면 그 티어는 곧바로 <strong>거름</strong>입니다. 지금 도메인의 팩을 먼저 보여줍니다.</p>
+      <div class="panel-head"><h3>${esc(t('tune.hardFilters'))}</h3><span class="panel-hint" id="filterCount">0/0</span></div>
+      <p class="hint">${t('tune.hardFiltersHint')}</p>
       ${orderedPacks
         .map((key, index) => {
           const pack = packs[key];
@@ -2243,7 +2252,7 @@ function buildTuneBody() {
                     state.enabledFilters.includes(def.key) ? 'checked' : ''
                   } />
                   <span class="filter-text"><span class="filter-name">${esc(domainFilterLabel(def))}</span><span class="filter-meta">${
-                    defaults.has(def.key) ? '기본 · ' : ''
+                    defaults.has(def.key) ? esc(t('tune.isDefault')) : ''
                   }${esc(def.key)}</span></span>
                 </label>`,
                 )
@@ -2252,42 +2261,34 @@ function buildTuneBody() {
           </details>`;
         })
         .join('')}
-      <button type="button" class="text-btn" data-action="reset-filters">기본 세트로 되돌리기</button>
+      <button type="button" class="text-btn" data-action="reset-filters">${esc(t('tune.reset'))}</button>
     </section>
 
     <section class="tune-sec">
-      <div class="panel-head"><h3>과금 강도</h3><span class="panel-hint" id="strictMonetizationState">${state.strictMonetization ? 'ON' : 'OFF'}</span></div>
+      <div class="panel-head"><h3>${esc(t('tune.spendTitle'))}</h3><span class="panel-hint" id="strictMonetizationState">${state.strictMonetization ? 'ON' : 'OFF'}</span></div>
       <label class="switch">
         <input type="checkbox" id="strictMonetizationToggle" ${state.strictMonetization ? 'checked' : ''} />
         <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
-        <span class="switch-text"><code>strict_monetization</code> — 상점에 확률형·P2W 상품이 하나라도 있으면 거름</span>
+        <span class="switch-text">${t('tune.spendToggle')}</span>
       </label>
-      <p class="hint" id="strictMonetizationHint">${
-        state.strictMonetization
-          ? '지금은 상품이 있기만 해도 거름입니다(기존 v0.3.1 동작). 무과금으로 충분한 작품까지 걸러집니다.'
-          : '기본값은 OFF 입니다. 확률형·P2W 상품이 있어도 무과금으로 본편을 즐길 수 있으면 「선택 과금 · 무과금 가능」 배지로만 알리고, 점수·신호로 추천·조건부를 정합니다. 과금 없이 진행이 막히는 작품(impact: core)은 이 설정과 무관하게 거름입니다.'
-      }</p>
+      <p class="hint" id="strictMonetizationHint">${state.strictMonetization ? esc(t('tune.spendOn')) : esc(t('tune.spendOff'))}</p>
     </section>
 
     <section class="tune-sec">
-      <div class="panel-head"><h3>근거 엄격 모드</h3><span class="panel-hint" id="strictState">${state.strict ? 'ON' : 'OFF'}</span></div>
+      <div class="panel-head"><h3>${esc(t('tune.evidenceMode'))}</h3><span class="panel-hint" id="strictState">${state.strict ? 'ON' : 'OFF'}</span></div>
       <label class="switch">
         <input type="checkbox" id="strictToggle" ${state.strict ? 'checked' : ''} />
         <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
-        <span class="switch-text"><code>strict_evidence</code> — 등급 C 근거만 있는 필터 적중도 거름으로 처리</span>
+        <span class="switch-text">${t('tune.evidenceToggle')}</span>
       </label>
-      <p class="hint" id="strictHint">${
-        state.strict
-          ? '끄면 근거가 약한(등급 C) 필터 적중은 ‘근거 약함’ 경고가 붙은 <strong>조건부</strong>로 완화됩니다.'
-          : '지금은 완화 모드입니다. 등급 C 근거의 필터 적중은 거름 대신 <strong>조건부 경고</strong>로 내려갑니다.'
-      }</p>
+      <p class="hint" id="strictHint">${state.strict ? t('tune.evidenceOn') : t('tune.evidenceOff')}</p>
     </section>
 
     <footer class="tune-foot">
-      <p class="mini-label">현재 설정</p>
+      <p class="mini-label">${esc(t('tune.current'))}</p>
       <p id="tuneFootText"></p>
-      <button type="button" class="text-btn" data-action="open-method">방법론·용어 보기</button>
-      <button type="button" class="text-btn" data-action="share-state">이 기준 링크 복사</button>
+      <button type="button" class="text-btn" data-action="open-method">${esc(t('tune.method'))}</button>
+      <button type="button" class="text-btn" data-action="share-state">${esc(t('tune.copy'))}</button>
     </footer>`;
 
   const search = $('tuneBody').querySelector('#weights');
@@ -2348,22 +2349,22 @@ function updateTuneMeta() {
   if (monetization) monetization.textContent = state.strictMonetization ? 'ON' : 'OFF';
   const monetizationHint = $('strictMonetizationHint');
   if (monetizationHint) {
-    monetizationHint.textContent = state.strictMonetization
-      ? '지금은 상품이 있기만 해도 거름입니다(기존 v0.3.1 동작). 무과금으로 충분한 작품까지 걸러집니다.'
-      : '기본값은 OFF 입니다. 확률형·P2W 상품이 있어도 무과금으로 본편을 즐길 수 있으면 「선택 과금 · 무과금 가능」 배지로만 알리고, 점수·신호로 추천·조건부를 정합니다. 과금 없이 진행이 막히는 작품(impact: core)은 이 설정과 무관하게 거름입니다.';
+    monetizationHint.textContent = state.strictMonetization ? t('tune.spendOn') : t('tune.spendOff');
   }
   const hint = $('strictHint');
   if (hint) {
-    hint.innerHTML = state.strict
-      ? '끄면 근거가 약한(등급 C) 필터 적중은 ‘근거 약함’ 경고가 붙은 <strong>조건부</strong>로 완화됩니다.'
-      : '지금은 완화 모드입니다. 등급 C 근거의 필터 적중은 거름 대신 <strong>조건부 경고</strong>로 내려갑니다.';
+    hint.innerHTML = state.strict ? t('tune.evidenceOn') : t('tune.evidenceOff');
   }
   const foot = $('tuneFootText');
   if (foot) {
-    const weights = scoringAxes().map((def) => `${def.label} ${state.weights[def.key]}%`).join(' · ');
-    foot.innerHTML = `${esc(presetLabel())} · ${esc(weights)}<br>필터 ${state.enabledFilters.length}개 · ${
-      state.strict ? '엄격' : '완화'
-    } 모드 · 선택 과금 ${state.strictMonetization ? '거름' : '허용'}`;
+    const weights = scoringAxes().map((def) => `${labeled('axis', def.key, def.label)} ${state.weights[def.key]}%`).join(' · ');
+    foot.innerHTML = t('tune.foot', {
+      preset: esc(presetLabel()),
+      weights: esc(weights),
+      n: state.enabledFilters.length,
+      mode: state.strict ? esc(t('verdict.modeStrict')) : esc(t('verdict.modeRelaxed')),
+      spend: state.strictMonetization ? esc(t('tune.spendFiltered')) : esc(t('tune.spendAllowed')),
+    });
   }
   const summary = $('tuneSummary');
   if (summary) summary.textContent = presetLabel();
@@ -2434,130 +2435,129 @@ function closeTune() {
 function buildMethodBody() {
   const axes = contract().axes || [];
   const rules = contract().verdict_rules || [];
+  const axisWhy = {
+    user_rating: t('method.b.user'),
+    objective: t('method.b.objective'),
+    ai_review: t('method.b.ai'),
+    personal_fit: t('method.b.fit'),
+  };
   $('methodBody').innerHTML = `
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">A</span><h3>4단 구조 — 무엇을 같은 표에 놓는가</h3></div>
-      <p class="m-sec-note">도메인(앱·게임·AI 도구) → 대분류 → 비교군 → 항목·티어. <b>점수 평균·순위·요약은 오직 같은 비교군 안에서만</b> 계산합니다. 노트 앱과 카드 게임을 한 줄에 섞어 평균 내지 않습니다.</p>
+      <div class="m-sec-head"><span class="sec-num">A</span><h3>${esc(t('method.a.title'))}</h3></div>
+      <p class="m-sec-note">${t('method.a.note')}</p>
       <div class="table-wrap"><table class="data">
-        <thead><tr><th>단계</th><th>역할</th><th>이 데이터</th></tr></thead>
+        <thead><tr><th>${esc(t('method.level'))}</th><th>${esc(t('method.role'))}</th><th>${esc(t('method.thisData'))}</th></tr></thead>
         <tbody>
           ${(state.cat.catalog.domains || [])
             .map(
               (dom) =>
-                `<tr><td>1 도메인</td><td>${esc(dom.label)} — ${esc(dom.description)}</td><td>${state.cat
+                `<tr><td>${esc(t('method.l1'))}</td><td>${esc(dom.label)} — ${esc(dom.description)}</td><td>${state.cat
                   .arenasOf(dom.id)
                   .map((a) => esc(a.label))
                   .join(' · ')}</td></tr>`,
             )
             .join('')}
-          <tr><td>2 대분류</td><td>도메인 안의 큰 갈래</td><td>${(state.cat.catalog.categories || [])
+          <tr><td>${esc(t('method.l2'))}</td><td>${esc(t('method.l2role'))}</td><td>${(state.cat.catalog.categories || [])
             .map((c) => esc(c.label))
             .join(' · ')}</td></tr>
-          <tr><td>3 비교군</td><td>실제 대체제 묶음</td><td>${(state.cat.catalog.arenas || []).map((a) => esc(a.label)).join(' · ')}</td></tr>
-          <tr><td>4 항목·티어</td><td>선택·판정 단위(무료/구독/1회 구매)</td><td>같은 앱이라도 티어마다 따로 판정</td></tr>
+          <tr><td>${esc(t('method.l3'))}</td><td>${esc(t('method.l3role'))}</td><td>${(state.cat.catalog.arenas || []).map((a) => esc(a.label)).join(' · ')}</td></tr>
+          <tr><td>${esc(t('method.l4'))}</td><td>${esc(t('method.l4role'))}</td><td>${esc(t('method.l4data'))}</td></tr>
         </tbody>
       </table></div>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">B</span><h3>네 축과 가중 점수</h3></div>
+      <div class="m-sec-head"><span class="sec-num">B</span><h3>${esc(t('method.b.title'))}</h3></div>
       <div class="table-wrap"><table class="data">
-        <thead><tr><th>축</th><th>무엇을 보는가</th><th>기본 가중치</th></tr></thead>
+        <thead><tr><th>${esc(t('method.b.axis'))}</th><th>${esc(t('method.b.what'))}</th><th>${esc(t('method.b.default'))}</th></tr></thead>
         <tbody>
           ${axes
             .map(
               (axis) =>
-                `<tr><td>${esc(axis.label)}${axis.profile_scoped ? ' <span class="muted">(프로필 전용)</span>' : ''}</td><td>${
-                  {
-                    user_rating: '최근 구간 vs 누적 괴리 + 표본 규모 검증(수십만~수백만 누적 우대)',
-                    objective: '기능 완성도·생태계/연동성·안정성·보안·정책/과금 투명성 — 클라우드·비공개 소스라는 이유만으로 깎지 않음',
-                    ai_review: '본질 완성도·함정 구조·강점/약점',
-                    personal_fit: '취향 태그·프로필 적합도(있을 때만 — 켜지지 않은 프로필 축은 판정에 세지 않음)',
-                  }[axis.key] || ''
+                `<tr><td>${esc(labeled('axis', axis.key, axis.label))}${axis.profile_scoped ? ` <span class="muted">${esc(t('method.b.profileOnly'))}</span>` : ''}</td><td>${
+                  axisWhy[axis.key] || ''
                 }</td><td>${pct(axis.default_weight ?? 0)}</td></tr>`,
             )
             .join('')}
         </tbody>
       </table></div>
-      <p class="m-sec-note">가중 점수 = Σ(w×s) ÷ Σw. 점수가 없는 축(⚪)은 분자·분모에서 모두 빠집니다. 입력 가중치는 합계로 정규화합니다. 과금의 <b>강도</b>는 점수 대신 impact·free_play 로 따로 기록해, 같은 사실을 두 번 감점하지 않습니다.</p>
-      <p class="m-sec-note"><b>v0.5.0 기본 배분은 사용자 50 · 객관 25 · AI 25.</b> 대중이 실제로 검증한 평점의 무게를 높였습니다. 가중치가 0인 축(내 기준 적합)은 신호가 있어도 추천/거름 계산에 세지 않습니다 — 프로필을 켰을 때만 네 번째 축이 됩니다.</p>
+      <p class="m-sec-note">${t('method.b.note1')}</p>
+      <p class="m-sec-note">${t('method.b.note2')}</p>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">B2</span><h3>사용자 평가의 표본 규모 검증</h3></div>
-      <p class="m-sec-note">같은 4.4~4.6★이라도 <b>리뷰 1만 개와 수십만~수백만 개</b>는 검증의 무게가 다릅니다. 누적 표본으로 규모 등급을 매기고, 얇은 3자 최근 표본이 큰 스토어 누적을 통째로 덮지 않게 합니다.</p>
+      <div class="m-sec-head"><span class="sec-num">B2</span><h3>${esc(t('method.b2.title'))}</h3></div>
+      <p class="m-sec-note">${t('method.b2.note1')}</p>
       <div class="table-wrap"><table class="data">
-        <thead><tr><th>누적 표본</th><th>규모 등급</th><th>쓰는 법</th></tr></thead>
+        <thead><tr><th>${esc(t('method.b2.sample'))}</th><th>${esc(t('method.b2.grade'))}</th><th>${esc(t('method.b2.use'))}</th></tr></thead>
         <tbody>
-          <tr><td>100만 이상</td><td>대규모 활성 유저</td><td>4.4★(88) 이상 유지 시 🟢 검증 하한(75)</td></tr>
-          <tr><td>10만~100만</td><td>대형</td><td>같은 하한 적용</td></tr>
-          <tr><td>1만~10만</td><td>중형</td><td>점수 보정 없음 — 있는 그대로</td></tr>
-          <tr><td>1천 미만</td><td>소형·미세 표본</td><td>최근 값 우선 + 신호 한 단계 하향(과대평가 방지)</td></tr>
+          <tr><td>${esc(t('method.b2.r1a'))}</td><td>${esc(t('method.b2.r1b'))}</td><td>${esc(t('method.b2.r1c'))}</td></tr>
+          <tr><td>${esc(t('method.b2.r2a'))}</td><td>${esc(t('method.b2.r2b'))}</td><td>${esc(t('method.b2.r2c'))}</td></tr>
+          <tr><td>${esc(t('method.b2.r3a'))}</td><td>${esc(t('method.b2.r3b'))}</td><td>${esc(t('method.b2.r3c'))}</td></tr>
+          <tr><td>${esc(t('method.b2.r4a'))}</td><td>${esc(t('method.b2.r4b'))}</td><td>${esc(t('method.b2.r4c'))}</td></tr>
         </tbody>
       </table></div>
-      <p class="m-sec-note">최근 구간이 <b>3자 집계(등급 C)·1,000건 미만</b>인데 스토어 누적이 <b>등급 A/B·10만 건 이상·4.4★ 이상</b>이면, 최근 값은 ‘하락 방향 신호’로만 쓰고 그 플랫폼 점수는 (누적+최근)÷2로 둡니다. 단 과금·약관 변경이 급락과 겹친 경우(예: 에버노트 가격 인상)는 완화하지 않습니다 — 돈·조건이 바뀌어 생긴 하락은 표본이 얇아도 실제 신호입니다.</p>
+      <p class="m-sec-note">${t('method.b2.note2')}</p>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">C</span><h3>근거 등급 A/B/C</h3></div>
+      <div class="m-sec-head"><span class="sec-num">C</span><h3>${esc(t('method.c.title'))}</h3></div>
       <div class="table-wrap"><table class="data">
-        <thead><tr><th>등급</th><th>정의</th></tr></thead>
+        <thead><tr><th>${esc(t('method.c.grade'))}</th><th>${esc(t('method.c.def'))}</th></tr></thead>
         <tbody>
-          <tr><td><span class="chip chip--A">A</span></td><td>스토어·공식 가격 페이지·개발자 공지에서 직접 확인</td></tr>
-          <tr><td><span class="chip chip--B">B</span></td><td>언론 보도·공식 발표 인용(1차를 인용한 신뢰 매체)</td></tr>
-          <tr><td><span class="chip chip--C">C</span></td><td>3자 집계·개별 리뷰·커뮤니티(교차 확인 전 신뢰도 중간)</td></tr>
-          <tr><td><span class="chip chip--muted">⚪</span></td><td>확인하지 못한 값 — 추정으로 채우지 않고 계산에서 제외</td></tr>
+          <tr><td><span class="chip chip--A">A</span></td><td>${esc(t('method.c.a'))}</td></tr>
+          <tr><td><span class="chip chip--B">B</span></td><td>${esc(t('method.c.b'))}</td></tr>
+          <tr><td><span class="chip chip--C">C</span></td><td>${esc(t('method.c.c'))}</td></tr>
+          <tr><td><span class="chip chip--muted">⚪</span></td><td>${esc(t('method.c.none'))}</td></tr>
         </tbody>
       </table></div>
-      <p class="m-sec-note">최근 리뷰 표본이 100건 미만이면 신호를 한 단계 낮춥니다. 복합 등급(A/C)은 가장 약한 등급으로 표기합니다.</p>
+      <p class="m-sec-note">${esc(t('method.c.note'))}</p>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">D</span><h3>확률형·P2W 강도 3단계</h3></div>
-      <p class="m-sec-note">상점에 확률형·P2W 상품이 <b>하나라도 있으면 거름</b>이 아니라, 그 상품을 사지 않아도 게임이 성립하는지를 먼저 봅니다. 필터 상태는 <code>fail</code> 로 남겨 상품이 있다는 사실을 숨기지 않고, 판정만 강도에 따라 나뉩니다.</p>
+      <div class="m-sec-head"><span class="sec-num">D</span><h3>${esc(t('method.d.title'))}</h3></div>
+      <p class="m-sec-note">${t('method.d.note1')}</p>
       <div class="table-wrap"><table class="data">
-        <thead><tr><th>impact</th><th>뜻</th><th>기본 모드의 판정</th></tr></thead>
+        <thead><tr><th>${esc(t('method.d.impact'))}</th><th>${esc(t('method.d.means'))}</th><th>${esc(t('method.d.verdict'))}</th></tr></thead>
         <tbody>
-          <tr><td><span class="pill pill--ok">none</span></td><td>상품 자체가 없다</td><td>필터 통과</td></tr>
-          <tr><td><span class="pill pill--sea">optional</span></td><td>상품은 있으나 인게임 재화·무과금으로 본편·핵심 콘텐츠를 충분히 즐길 수 있다</td><td><b>거르지 않고</b> 「선택 과금 · 무과금 가능」 배지 · 점수·신호로 추천/조건부</td></tr>
-          <tr><td><span class="pill pill--bad">core</span></td><td>과금·확률형 뽑기 없이는 성장 벽에 막히거나 진행·경쟁이 실질적으로 불가능하다</td><td>거름(🔴)</td></tr>
+          <tr><td><span class="pill pill--ok">none</span></td><td>${esc(t('method.d.none'))}</td><td>${esc(t('method.d.noneV'))}</td></tr>
+          <tr><td><span class="pill pill--sea">optional</span></td><td>${esc(t('method.d.optional'))}</td><td>${t('method.d.optionalV')}</td></tr>
+          <tr><td><span class="pill pill--bad">core</span></td><td>${esc(t('method.d.core'))}</td><td>${esc(t('method.d.coreV'))}</td></tr>
         </tbody>
       </table></div>
-      <p class="m-sec-note">근거는 <code>monetization.free_play</code>(무과금 충분성)에 남깁니다. <code>impact: optional</code> 이면 무과금으로 충분하다는 근거가 있어야 하고 검증기가 이를 확인합니다. ‘내 기준 미세조정’의 <code>strict_monetization</code>(기본 OFF)을 켜면 optional 까지 상품 존재만으로 거릅니다 — v0.3.1 과 같은 동작입니다.</p>
+      <p class="m-sec-note">${t('method.d.note2')}</p>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">E</span><h3>판정 규칙 (위에서부터 먼저 맞는 것)</h3></div>
+      <div class="m-sec-head"><span class="sec-num">E</span><h3>${esc(t('method.e.title'))}</h3></div>
       <ol class="rules rules--static">${rules
-        .map((rule, i) => `<li class="${i === 0 ? 'is-active' : ''}" title="${esc(rule)}">${esc(RULE_TEXT_KO[i] || rule)}</li>`)
+        .map((rule, i) => `<li class="${i === 0 ? 'is-active' : ''}" title="${esc(calcRuleText(i) || rule)}">${esc(calcRuleText(i) || rule)}</li>`)
         .join('')}</ol>
-      <p class="m-sec-note">티어 단위로 판정하고, 최소 비용 추천 경로를 함께 냅니다. 완결작(<code>maintenance_status=feature_complete</code>)은 업데이트 공백 필터에서 면제하되, 보안·OS 호환성 신호가 있으면 조건부 경고로 내립니다.</p>
+      <p class="m-sec-note">${t('method.e.note')}</p>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">F</span><h3>독립성 — 무엇을 받지 않는가</h3></div>
+      <div class="m-sec-head"><span class="sec-num">F</span><h3>${esc(t('method.f.title'))}</h3></div>
       <div class="callout callout--ok">
-        <b>파로스는 어필리에이트 링크·유료 광고·협찬 배치를 쓰지 않습니다.</b>
-        순위·판정·점수는 어떤 대가와도 무관하며, 스토어 이미지도 복제하지 않고 텍스트·수치·공식 링크만 씁니다.
-        판정이 틀렸거나 낡았다면 누구나 근거와 함께 정정을 제보할 수 있습니다.
+        ${t('method.f.body')}
       </div>
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">G</span><h3>용어 도움말</h3></div>
+      <div class="m-sec-head"><span class="sec-num">G</span><h3>${esc(t('method.g.title'))}</h3></div>
       <dl class="kv kv--glossary">
-        <dt>근거 등급</dt><dd>A/B/C — 값이 어디서 왔는지. C뿐이면 판정을 낮게 잡습니다.</dd>
-        <dt>하드 필터</dt><dd>점수와 무관하게 거르는 절대 조건(강제 광고·확률형 뽑기·P2W·계정 필수 등).</dd>
-        <dt>선택 과금(impact: optional)</dt><dd>상점에 확률형·P2W 상품이 있어도 인게임 재화·무과금으로 본편을 충분히 즐길 수 있는 상태. 기본 모드에서는 거르지 않고 「선택 과금 · 무과금 가능」 배지로 알립니다.</dd>
-        <dt>핵심 과금(impact: core)</dt><dd>과금·확률형 뽑기 없이는 성장 벽에 막히거나 진행·경쟁이 실질적으로 불가능한 상태. 기본 모드에서도 거름입니다.</dd>
-        <dt>strict_monetization</dt><dd>‘내 기준 미세조정’의 토글(기본 OFF). 켜면 상품이 있기만 해도 거름 — v0.3.1 과 같은 동작입니다.</dd>
-        <dt>엄격 모드</dt><dd>등급 C 근거의 필터 적중도 거름으로 처리. 끄면 ‘근거 약함’ 조건부 경고로 완화합니다.</dd>
-        <dt>면제(exempt)</dt><dd>완결작이 12개월 넘게 업데이트가 없어도 방치가 아니라고 판단한 상태. 거름이 아닙니다.</dd>
-        <dt>표본 규모 검증</dt><dd>수십만~수백만 명이 매긴 누적 평점은 수백 건짜리 3자 최근 표본보다 무겁게 봅니다. 얇은 최근 표본은 ‘하락 방향 신호’로만 쓰고, 큰 누적과 반씩 섞습니다(v0.5.0).</dd>
-        <dt>프라이버시·로컬 중시 프리셋</dt><dd>객관 비중을 높이고 ‘계정 필수·과도한 데이터 수집’ 필터를 함께 켜는 프리셋. 기본 화면은 클라우드·비공개 소스를 깎지 않고, 로컬·프라이버시가 목적일 때 이 프리셋으로 가릅니다.</dd>
-        <dt>비교군</dt><dd>같은 자리를 두고 겨루는 대체제 묶음. 평균·순위는 이 안에서만 냅니다.</dd>
-        <dt>⚪ 미확인</dt><dd>근거를 찾지 못한 값. 통과로 치지 않고 ‘주의’로 표시합니다.</dd>
-        <dt>재검토 필요</dt><dd>평가일 이후 ${contract().freshness?.review_after_days ?? 180}일이 지난 판정. 최신 사실로 읽지 마세요.</dd>
+        <dt>${esc(t('method.g.evidence'))}</dt><dd>${esc(t('method.g.evidenceD'))}</dd>
+        <dt>${esc(t('method.g.hard'))}</dt><dd>${esc(t('method.g.hardD'))}</dd>
+        <dt>${esc(t('method.g.optional'))}</dt><dd>${esc(t('method.g.optionalD'))}</dd>
+        <dt>${esc(t('method.g.core'))}</dt><dd>${esc(t('method.g.coreD'))}</dd>
+        <dt>${esc(t('method.g.strictmon'))}</dt><dd>${esc(t('method.g.strictmonD'))}</dd>
+        <dt>${esc(t('method.g.strict'))}</dt><dd>${esc(t('method.g.strictD'))}</dd>
+        <dt>${esc(t('method.g.exempt'))}</dt><dd>${esc(t('method.g.exemptD'))}</dd>
+        <dt>${esc(t('method.g.sample'))}</dt><dd>${esc(t('method.g.sampleD'))}</dd>
+        <dt>${esc(t('method.g.privacy'))}</dt><dd>${esc(t('method.g.privacyD'))}</dd>
+        <dt>${esc(t('method.g.arena'))}</dt><dd>${esc(t('method.g.arenaD'))}</dd>
+        <dt>${esc(t('method.g.unknown'))}</dt><dd>${esc(t('method.g.unknownD'))}</dd>
+        <dt>${esc(t('method.g.stale'))}</dt><dd>${esc(t('method.g.staleD', { n: contract().freshness?.review_after_days ?? 180 }))}</dd>
       </dl>
     </section>`;
 }
@@ -2592,20 +2592,20 @@ function toggleBookmark(id) {
       const on = state.bookmarks.includes(id);
       el.classList.toggle('is-on', on);
       el.setAttribute('aria-pressed', String(on));
-      el.textContent = on ? '★ 보관됨' : '☆ 보관';
+      el.textContent = on ? t('bookmark.on') : t('bookmark.off');
     }
   });
   if (state.route.view === 'home' && $('bookmarkSection')) {
     const list = $('bookmarkSection').querySelector('.bookmark-list');
     const hint = $('bookmarkHint');
-    if (hint) hint.textContent = `${state.bookmarks.length}건 · 이 브라우저에만 저장`;
+    if (hint) hint.textContent = t('home.bookmarkHint', { n: state.bookmarks.length });
     if (list) {
       list.innerHTML = state.bookmarks.length
         ? state.bookmarks.map((bid) => recordById(bid)).filter(Boolean).map(bookmarkRowHtml).join('')
-        : '<p class="empty">카드나 상세의 ☆ 버튼을 누르면 여기에 모입니다. (localStorage)</p>';
+        : `<p class="empty">${esc(t('home.bookmarkEmpty'))}</p>`;
     }
   }
-  toast(state.bookmarks.includes(id) ? '보관함에 담았습니다.' : '보관함에서 뺐습니다.');
+  toast(state.bookmarks.includes(id) ? t('toast.bookmarkAdd') : t('toast.bookmarkRemove'));
 }
 
 async function copyShare(id) {
@@ -2621,14 +2621,14 @@ async function copyShare(id) {
     url: `${location.origin}${location.pathname}?domain=${rec.domain}&arena=${rec.arenas[0]}&item=${rec.id}`,
   });
   const ok = await writeClipboard(text);
-  toast(ok ? '공유용 요약을 복사했습니다.' : '복사 권한이 없습니다. 아래 요약을 직접 선택해 주세요.', ok ? '' : text);
+  toast(ok ? t('toast.shareCopied') : t('toast.shareFail'), ok ? '' : text);
 }
 
 async function copyDeepLink() {
   // 지금 보고 있는 화면의 딥링크를 그대로 복사한다(도메인·비교군·항목·프리셋·필터 포함).
   const url = `${location.origin}${location.pathname}${location.search}`;
   const ok = await writeClipboard(url);
-  toast(ok ? '링크를 복사했어요' : '링크를 복사하지 못했습니다.', ok ? '' : url);
+  toast(ok ? t('toast.linkCopied') : t('toast.linkFail'), ok ? '' : url);
 }
 
 async function writeClipboard(text) {
@@ -2696,7 +2696,16 @@ function bindEvents() {
   });
   $('compareClear')?.addEventListener('click', clearCompare);
   window.addEventListener('popstate', () => {
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    if ((urlLang === 'en' || urlLang === 'ko') && urlLang !== state.lang) {
+      switchLang(urlLang);
+      return;
+    }
     applyUrl();
+  });
+  $('langToggle')?.addEventListener('click', (event) => {
+    const btn = event.target.closest('[data-lang]');
+    if (btn) switchLang(btn.dataset.lang);
   });
 }
 
@@ -2777,7 +2786,7 @@ async function onClick(event) {
     if (kind === 'open-compare') return navigate({ view: 'compare' });
     if (kind === 'clear-compare') return clearCompare();
     if (kind === 'share-state') {
-      writeClipboard(location.href).then((ok) => toast(ok ? '현재 기준 링크를 복사했습니다.' : '복사하지 못했습니다.', location.href));
+      writeClipboard(location.href).then((ok) => toast(ok ? t('toast.criteriaCopied') : t('toast.copyFail'), location.href));
       return;
     }
     if (kind === 'close-tune') return closeTune();
@@ -2891,13 +2900,11 @@ function clearCompare() {
 function renderFatal(err) {
   $('view').innerHTML = `
     <div class="error-banner">
-      <strong>데이터를 불러오지 못했습니다.</strong>
+      <strong>${esc(t('error.data'))}</strong>
       <span>${esc(err?.message || err)}</span>
-      <span>이 페이지는 <code>index.html</code>을 파일로 직접 열면 <code>fetch</code>가 차단됩니다. <code>projects/pharos/web</code> 폴더에서
-      <code>python3 -m http.server 8000</code> 을 실행한 뒤 <code>http://localhost:8000/</code> 로 접속하세요.
-      (<code>data/</code>·<code>schema/</code> 사본이 없으면 <code>python3 projects/pharos/scripts/sync_web_data.py</code> 로 원본과 맞춥니다.)</span>
+      <span>${t('error.fileHint')}</span>
     </div>`;
-  $('datasetChip').textContent = '데이터 없음';
+  $('datasetChip').textContent = t('dataset.none');
 }
 
 init();

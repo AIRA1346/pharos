@@ -1,3 +1,5 @@
+import { t, labeled, nfmt } from './i18n.js';
+
 /**
  * Pharos 계산 엔진
  * schema/item.schema.json 의 x-pharos.client 계약을 그대로 JavaScript로 옮긴 순수 함수 모음.
@@ -5,33 +7,33 @@
  */
 
 export const SIGNAL_META = {
-  green: { emoji: '🟢', label: '좋음', short: 'G' },
-  yellow: { emoji: '🟡', label: '주의', short: 'Y' },
-  red: { emoji: '🔴', label: '나쁨', short: 'R' },
-  unknown: { emoji: '⚪', label: '미확인', short: '?' },
+  green: { emoji: '🟢', get label() { return t('signal.green'); }, short: 'G' },
+  yellow: { emoji: '🟡', get label() { return t('signal.yellow'); }, short: 'Y' },
+  red: { emoji: '🔴', get label() { return t('signal.red'); }, short: 'R' },
+  unknown: { emoji: '⚪', get label() { return t('signal.unknown'); }, short: '?' },
 };
 
 export const VERDICT_META = {
-  recommend: { emoji: '🟢', label: '추천', tone: 'ok' },
-  conditional: { emoji: '🟡', label: '조건부', tone: 'warn' },
-  avoid: { emoji: '🔴', label: '거름', tone: 'bad' },
+  recommend: { emoji: '🟢', get label() { return t('verdictMeta.recommend'); }, tone: 'ok' },
+  conditional: { emoji: '🟡', get label() { return t('verdictMeta.conditional'); }, tone: 'warn' },
+  avoid: { emoji: '🔴', get label() { return t('verdictMeta.avoid'); }, tone: 'bad' },
 };
 
 export const TRI_LABEL = {
-  yes: '예',
-  no: '아니오',
-  unknown: '미확인',
-  not_assessed: '미평가',
+  get yes() { return t('tri.yes'); },
+  get no() { return t('tri.no'); },
+  get unknown() { return t('tri.unknown'); },
+  get not_assessed() { return t('tri.not_assessed'); },
 };
 
 export const KIND_LABEL = {
-  free: '완전 무료',
-  freemium: '무료 시작(한도·광고·IAP)',
-  demo: '체험판',
-  one_time: '1회 구매',
-  subscription: '구독',
-  license: '라이선스',
-  consumable: '소모성 결제',
+  get free() { return t('kind.free'); },
+  get freemium() { return t('kind.freemium'); },
+  get demo() { return t('kind.demo'); },
+  get one_time() { return t('kind.one_time'); },
+  get subscription() { return t('kind.subscription'); },
+  get license() { return t('kind.license'); },
+  get consumable() { return t('kind.consumable'); },
 };
 
 export const CATEGORY_LABEL = { game: '게임', app: '앱', service: '서비스', tool: '도구' };
@@ -43,52 +45,52 @@ export const PLATFORM_LABEL = {
   windows: 'Windows',
   macos: 'macOS',
   linux: 'Linux',
-  web: '웹',
-  console: '콘솔',
-  other: '기타',
+  get web() { return t('platform.web'); },
+  get console() { return t('platform.console'); },
+  get other() { return t('platform.other'); },
 };
 
 export const EXPOSURE_LABEL = {
-  none: '없음',
-  low: '낮음',
-  medium: '보통',
-  high: '높음',
-  unknown: '미확인',
+  get none() { return t('exposure.none'); },
+  get low() { return t('exposure.low'); },
+  get medium() { return t('exposure.medium'); },
+  get high() { return t('exposure.high'); },
+  get unknown() { return t('exposure.unknown'); },
 };
 
 export const HONESTY_LABEL = {
-  honest: '정직함',
-  partly_misleading: '부분 과장',
-  misleading: '오해 유발',
-  unknown: '미확인',
-  not_assessed: '미평가',
+  get honest() { return t('honesty.honest'); },
+  get partly_misleading() { return t('honesty.partly_misleading'); },
+  get misleading() { return t('honesty.misleading'); },
+  get unknown() { return t('honesty.unknown'); },
+  get not_assessed() { return t('honesty.not_assessed'); },
 };
 
 export const AD_TYPE_LABEL = {
-  none: '광고 없음',
-  rewarded: '보상형',
-  interstitial: '전면',
-  banner: '배너',
-  native: '네이티브',
-  forced_interstitial: '강제 전면',
-  unknown: '미확인',
+  get none() { return t('adType.none'); },
+  get rewarded() { return t('adType.rewarded'); },
+  get interstitial() { return t('adType.interstitial'); },
+  get banner() { return t('adType.banner'); },
+  get native() { return t('adType.native'); },
+  get forced_interstitial() { return t('adType.forced_interstitial'); },
+  get unknown() { return t('adType.unknown'); },
 };
 
 export const PROMPT_LABEL = {
-  immediate: '즉시',
-  early: '초반',
-  mid: '중반',
-  late: '후반',
-  none: '없음',
-  unknown: '미확인',
+  get immediate() { return t('prompt.immediate'); },
+  get early() { return t('prompt.early'); },
+  get mid() { return t('prompt.mid'); },
+  get late() { return t('prompt.late'); },
+  get none() { return t('prompt.none'); },
+  get unknown() { return t('prompt.unknown'); },
 };
 
 export const MAINTENANCE_META = {
-  healthy: { label: '건강함', tone: 'ok', desc: '최근 6개월 내 업데이트 + 과금·약관 변경 없음' },
-  risky_terms: { label: '위험한 변경', tone: 'bad', desc: '활발하나 과금·약관 변경이 평가 급락과 겹침' },
-  stalled_but_trusted: { label: '지연됐지만 신뢰', tone: 'warn', desc: '과금 압박이 없는 지연, 신뢰 유지' },
-  abandoned: { label: '방치', tone: 'bad', desc: '12개월 이상 업데이트 없음 + 공약 미이행' },
-  unknown: { label: '미확인', tone: 'muted', desc: '근거 부족' },
+  healthy: { get label() { return t('maint.healthy'); }, tone: 'ok', get desc() { return t('maint.healthy.desc'); } },
+  risky_terms: { get label() { return t('maint.risky_terms'); }, tone: 'bad', get desc() { return t('maint.risky_terms.desc'); } },
+  stalled_but_trusted: { get label() { return t('maint.stalled_but_trusted'); }, tone: 'warn', get desc() { return t('maint.stalled_but_trusted.desc'); } },
+  abandoned: { get label() { return t('maint.abandoned'); }, tone: 'bad', get desc() { return t('maint.abandoned.desc'); } },
+  unknown: { get label() { return t('maint.unknown'); }, tone: 'muted', get desc() { return t('maint.unknown.desc'); } },
 };
 
 /**
@@ -96,10 +98,10 @@ export const MAINTENANCE_META = {
  * feature_complete(완결작)만 stale_over_12m 필터에서 면제된다.
  */
 export const MAINTENANCE_STATUS_META = {
-  active: { label: '개발 중', tone: 'ok', desc: '업데이트·운영이 이어지고 있다' },
-  feature_complete: { label: '완결작', tone: 'ok', desc: '개발사가 완결을 선언 — 업데이트 공백이 방치와 다르다' },
-  stale_unknown: { label: '상태 미확인', tone: 'warn', desc: '오래 멈췄고 완결인지 방치인지 확인하지 못했다' },
-  abandoned: { label: '방치', tone: 'bad', desc: '12개월 이상 중단 + 공약 미이행' },
+  active: { get label() { return t('life.active'); }, tone: 'ok', get desc() { return t('life.active.desc'); } },
+  feature_complete: { get label() { return t('life.feature_complete'); }, tone: 'ok', get desc() { return t('life.feature_complete.desc'); } },
+  stale_unknown: { get label() { return t('life.stale_unknown'); }, tone: 'warn', get desc() { return t('life.stale_unknown.desc'); } },
+  abandoned: { get label() { return t('life.abandoned'); }, tone: 'bad', get desc() { return t('life.abandoned.desc'); } },
 };
 
 export const STALE_FILTER_KEY = 'stale_over_12m';
@@ -112,9 +114,9 @@ export const STALE_FILTER_KEY = 'stale_over_12m';
 export const MONETIZATION_IMPACT_KEYS = ['gacha_random_items', 'p2w'];
 
 export const IMPACT_META = {
-  none: { label: '상품 없음', tone: 'ok', mark: '없음' },
-  optional: { label: '선택 과금 · 무과금 가능', tone: 'warn', mark: '선택 과금' },
-  core: { label: '핵심 과금 · 성장 벽', tone: 'bad', mark: '핵심 과금' },
+  none: { get label() { return t('impact.none'); }, tone: 'ok', get mark() { return t('impact.mark.none'); } },
+  optional: { get label() { return t('impact.optional'); }, tone: 'warn', get mark() { return t('impact.mark.optional'); } },
+  core: { get label() { return t('impact.core'); }, tone: 'bad', get mark() { return t('impact.mark.core'); } },
 };
 
 export function hasMonetizationImpact(key) {
@@ -157,28 +159,28 @@ export function compatRiskSignal(item) {
 }
 
 export const CADENCE_LABEL = {
-  active: '활발',
-  irregular: '불규칙',
-  dormant: '휴면',
-  unknown: '미확인',
+  get active() { return t('cadence.active'); },
+  get irregular() { return t('cadence.irregular'); },
+  get dormant() { return t('cadence.dormant'); },
+  get unknown() { return t('cadence.unknown'); },
 };
 
 export const UPDATE_TYPE_LABEL = {
-  bugfix: '버그 수정',
-  performance: '성능·호환',
-  content: '콘텐츠·기능',
-  monetization_terms: '과금·가격 변경',
-  policy_terms: '약관·정책 변경',
-  other: '기타',
-  unknown: '성격 미확인',
+  get bugfix() { return t('updateType.bugfix'); },
+  get performance() { return t('updateType.performance'); },
+  get content() { return t('updateType.content'); },
+  get monetization_terms() { return t('updateType.monetization_terms'); },
+  get policy_terms() { return t('updateType.policy_terms'); },
+  get other() { return t('updateType.other'); },
+  get unknown() { return t('updateType.unknown'); },
 };
 
 export const PROMISE_LABEL = {
-  not_applicable: '해당 없음',
-  on_time: '약속대로',
-  delayed: '지연',
-  delivered_late: '늦게라도 이행',
-  unfulfilled: '미이행',
+  get not_applicable() { return t('promise.not_applicable'); },
+  get on_time() { return t('promise.on_time'); },
+  get delayed() { return t('promise.delayed'); },
+  get delivered_late() { return t('promise.delivered_late'); },
+  get unfulfilled() { return t('promise.unfulfilled'); },
 };
 
 /** 근거 등급의 최약 성분 순위 (A=0 < B=1 < C=2 < unknown=3). */
@@ -199,10 +201,10 @@ export function gradeWeakest(grade) {
 
 export function gradeLabel(grade) {
   const weakest = gradeWeakest(grade);
-  if (weakest === 'unknown') return '근거 없음';
-  if (weakest === 'A') return 'A · 1차 확인';
-  if (weakest === 'B') return 'B · 보도·인용';
-  return 'C · 3자·커뮤니티';
+  if (weakest === 'unknown') return t('grade.none');
+  if (weakest === 'A') return t('grade.A');
+  if (weakest === 'B') return t('grade.B');
+  return t('grade.C');
 }
 
 /** ② 가중치 정규화 — 입력값 합계로 나눠 상대 비중으로 만든다. 전부 0이면 균등. */
@@ -247,7 +249,7 @@ export function buildAxisState(item, tier, def, normalizedWeights, thresholds) {
   const signal = override?.signal || base?.signal || signalFromScore(score, thresholds);
   return {
     key: def.key,
-    label: def.label,
+    label: labeled('axis', def.key, def.label),
     profileScoped: Boolean(def.profile_scoped),
     weight: normalizedWeights[def.key] ?? 0,
     score,
@@ -311,7 +313,7 @@ export function evaluateTier(item, tier, settings) {
     const impact = tierImpact(tier, def.key, status);
     return {
       key: def.key,
-      label: def.label,
+      label: labeled('filter', def.key, def.label),
       flag: def.flag,
       impactKey: hasMonetizationImpact(def.key),
       impact,
@@ -320,7 +322,7 @@ export function evaluateTier(item, tier, settings) {
       status,
       exempt: status === 'exempt',
       grade: res?.evidence_grade || 'unknown',
-      note: res?.note || '이 티어에는 판정이 없습니다.',
+      note: res?.note || t('filter.noVerdict'),
       sourceIds: res?.source_ids || [],
       weakGrade: gradeRank(res?.evidence_grade) >= 2,
     };
@@ -464,7 +466,7 @@ export function moneyText(money) {
   if (!money || typeof money.amount !== 'number') return null;
   const symbols = { KRW: '₩', USD: '$', EUR: '€', JPY: '¥', GBP: '£' };
   const symbol = symbols[money.currency] || `${money.currency} `;
-  const amount = money.currency === 'KRW' ? money.amount.toLocaleString('ko-KR') : money.amount;
+  const amount = money.currency === 'KRW' ? nfmt(money.amount) : money.amount;
   return `${symbol}${amount}`;
 }
 
@@ -490,7 +492,7 @@ export function freshness(item, contract, now = new Date()) {
   const raw = item?.assessed_at;
   const assessed = raw ? new Date(`${raw}T00:00:00`) : null;
   if (!assessed || Number.isNaN(assessed.getTime())) {
-    return { assessedAt: raw || null, elapsed: null, limit, stale: true, label: '평가일 미확인' };
+    return { assessedAt: raw || null, elapsed: null, limit, stale: true, label: t('fresh.unknown') };
   }
   const base = now instanceof Date ? now : new Date(now);
   const elapsed = Math.floor((base.getTime() - assessed.getTime()) / 86400000);
@@ -499,7 +501,7 @@ export function freshness(item, contract, now = new Date()) {
     elapsed,
     limit,
     stale: elapsed > limit,
-    label: elapsed > limit ? contract?.freshness?.stale_label || '재검토 필요' : contract?.freshness?.fresh_label || '최신',
+    label: elapsed > limit ? t('fresh.stale') : t('fresh.current'),
   };
 }
 
@@ -556,21 +558,21 @@ export function summaryText(item, tier, evaluation, options = {}) {
   const verdict = VERDICT_META[evaluation.verdict] || VERDICT_META.conditional;
   const parts = [
     `${item.name} — ${verdict.emoji} ${verdict.label}`,
-    `가중 점수 ${evaluation.score != null ? evaluation.score.toFixed(1) : '—'}`,
-    tier?.label ? `대표 티어 ${tier.label}` : '',
+    t('summary.score', { score: evaluation.score != null ? evaluation.score.toFixed(1) : '—' }),
+    tier?.label ? t('summary.tier', { tier: tier.label }) : '',
     (evaluation.axisStates || [])
       .filter((axis) => !axis.profileScoped)
       .map((axis) => `${axis.label} ${axis.score ?? '—'}`)
       .join(' · '),
     (evaluation.optionalFails || []).length
-      ? `선택 과금: ${evaluation.optionalFails.map((f) => f.label).join(', ')} (무과금 플레이 가능)`
+      ? t('summary.optional', { list: evaluation.optionalFails.map((f) => f.label).join(', ') })
       : '',
     (evaluation.blocking || []).length
-      ? `걸린 필터: ${evaluation.blocking.map((f) => f.label).join(', ')}`
+      ? t('summary.filters', { list: evaluation.blocking.map((f) => f.label).join(', ') })
       : '',
-    item.assessed_at ? `평가일 ${item.assessed_at}` : '',
-    options.url ? `기준·근거 ${options.url}` : '',
-    '— 파로스 Pharos',
+    item.assessed_at ? t('summary.assessed', { date: item.assessed_at }) : '',
+    options.url ? t('summary.url', { url: options.url }) : '',
+    t('summary.signature'),
   ];
   return parts.filter(Boolean).join('\n');
 }

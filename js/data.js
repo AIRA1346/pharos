@@ -5,13 +5,16 @@
  *
  * 읽는 순서
  *   1) core  : data/catalog.json (도메인·대분류·비교군 정의) + data/search-index.json + schema/item.schema.json
+ *              + data/en.json (영어 모드일 때만 — 카탈로그 라벨·항목 텍스트의 영문 번들)
  *   2) arena : 선택한 비교군의 data_file 만 지연 로딩(lazy load)하고 캐시한다.
+ *              영어 모드에서는 en.json 의 항목 오버레이를 합쳐 돌려준다.
  */
 
 export const DATA_PATHS = {
   catalog: './data/catalog.json',
   searchIndex: './data/search-index.json',
   schema: './schema/item.schema.json',
+  en: './data/en.json',
 };
 
 async function fetchJson(url) {
@@ -20,18 +23,142 @@ async function fetchJson(url) {
   return res.json();
 }
 
-export async function loadCore() {
-  const [catalog, index, schema] = await Promise.all([
+/* ------------------------------------------------------------ 번역 오버레이 */
+
+const isPlainObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+
+/**
+ * 오버레이 병합 — 객체는 키 단위로 내려가고, 배열·원시값은 통째로 바꾼다.
+ * 티어의 `price_display` 는 원본 `price.display` 자리에 들어간다(가격 표기 영문화).
+ */
+export function mergeOverlay(base, overlay) {
+  if (overlay === undefined || overlay === null) return base;
+  if (Array.isArray(overlay)) return overlay.slice();
+  if (!isPlainObject(overlay)) return overlay;
+  const out = isPlainObject(base) ? { ...base } : {};
+  for (const [key, value] of Object.entries(overlay)) {
+    if (key === 'price_display') {
+      out.price = { ...(isPlainObject(out.price) ? out.price : {}), display: value };
+      continue;
+    }
+    out[key] = mergeOverlay(out[key], value);
+  }
+  return out;
+}
+
+/** en.json 항목 오버레이를 한 항목에 적용한다. */
+export function localizeItem(item, bundle) {
+  const overlay = bundle?.items?.[item?.id];
+  if (!overlay) return item;
+  const merged = mergeOverlay(item, overlay);
+  return merged;
+}
+
+/** 카탈로그 라벨·설명을 영어 번들로 바꾼 사본을 만든다. */
+export function localizeCatalog(catalog, bundle) {
+  if (!bundle) return catalog;
+  const copy = JSON.parse(JSON.stringify(catalog));
+  for (const domain of copy.domains || []) {
+    const t = bundle.domains?.[domain.id];
+    if (t?.label) domain.label = t.label;
+    if (t?.description) domain.description = t.description;
+    if (t?.filter_labels) domain.filter_labels = { ...(domain.filter_labels || {}), ...t.filter_labels };
+  }
+  for (const category of copy.categories || []) {
+    const t = bundle.categories?.[category.id];
+    if (t?.label) category.label = t.label;
+    if (t?.description) category.description = t.description;
+  }
+  for (const arena of copy.arenas || []) {
+    const t = bundle.arenas?.[arena.id];
+    if (t?.label) arena.label = t.label;
+    if (t?.description) arena.description = t.description;
+  }
+  for (const [key, pack] of Object.entries(copy.filter_packs || {})) {
+    const t = bundle.filter_packs?.[key];
+    if (t?.label) pack.label = t.label;
+    if (t?.description) pack.description = t.description;
+  }
+  if (copy.home?.gap_report && bundle.home?.gap_report) {
+    if (bundle.home.gap_report.title) copy.home.gap_report.title = bundle.home.gap_report.title;
+    if (bundle.home.gap_report.note) copy.home.gap_report.note = bundle.home.gap_report.note;
+  }
+  return copy;
+}
+
+/** 경량 인덱스(검색·홈 리포트)의 표시 문자열을 영어 번들로 바꾼 사본. */
+export function localizeIndex(index, catalog, bundle, contract = null) {
+  if (!bundle || !index) return index;
+  const AXES_EN = { user_rating: 'User Rating', objective: 'Objective Trust', ai_review: 'AI Review' };
+  const filterKo = new Map(
+    (contract?.hard_filters || []).map((def) => [def.label, bundle.filter_labels?.[def.key] || def.label]),
+  );
+  for (const domain of catalog?.domains || []) {
+    for (const [key, ko] of Object.entries(domain.filter_labels || {})) {
+      filterKo.set(ko, bundle.domains?.[domain.id]?.filter_labels?.[key] || bundle.filter_labels?.[key] || ko);
+    }
+  }
+  const copy = JSON.parse(JSON.stringify(index));
+  const names = new Map();
+  for (const rec of copy.items || []) {
+    const t = bundle.items?.[rec.id];
+    if (!t) continue;
+    if (t.name) {
+      names.set(rec.id, t.name);
+      rec.name = t.name;
+    }
+    if (t.one_liner) rec.one_liner = t.one_liner;
+    const tierLine = t.tiers?.[rec.tier_of_record]?.one_liner;
+    rec.tagline = tierLine || t.tagline || rec.tagline;
+    if (Array.isArray(t.genres)) rec.genres = t.genres;
+    else rec.genres = (rec.genres || []).map((g) => bundle.genres?.[g] || g);
+    for (const driver of rec.drivers || []) {
+      if (filterKo.has(driver.label)) {
+        driver.label = filterKo.get(driver.label);
+        continue;
+      }
+      const mark = driver.label.match(/([🟢🟡🔴⚪])\s*(.*)$/);
+      if (mark) {
+        const axisKo = driver.label.slice(0, mark.index).trim();
+        const axisDef = (contract?.axes || []).find((def) => def.label === axisKo);
+        const axisName = axisDef ? AXES_EN[axisDef.key] : axisKo;
+        driver.label = `${axisName} ${mark[1]} ${mark[2]}`.trim();
+      }
+    }
+  }
+  for (const [arenaId, stat] of Object.entries(copy.arena_stats || {})) {
+    const t = bundle.arenas?.[arenaId];
+    if (t?.label) stat.label = t.label;
+    if (stat.top_item && names.has(stat.top_item.id)) stat.top_item.name = names.get(stat.top_item.id);
+  }
+  if (copy.gap_report && bundle.home?.gap_report?.title) copy.gap_report.title = bundle.home.gap_report.title;
+  return copy;
+}
+
+/* ------------------------------------------------------------------ 로더 */
+
+export async function loadCore(lang = 'ko') {
+  const wantsEn = lang === 'en';
+  const [catalog, index, schema, en] = await Promise.all([
     fetchJson(DATA_PATHS.catalog),
     fetchJson(DATA_PATHS.searchIndex),
     fetchJson(DATA_PATHS.schema),
+    wantsEn ? fetchJson(DATA_PATHS.en).catch(() => null) : Promise.resolve(null),
   ]);
   const contract = schema?.['x-pharos']?.client;
   if (!contract) throw new Error('스키마에 x-pharos.client 계산 계약이 없습니다.');
   if (!Array.isArray(catalog?.arenas) || !catalog.arenas.length) {
     throw new Error('data/catalog.json 에 비교군 정의가 없습니다.');
   }
-  return { catalog, index, schema, contract };
+  const bundle = wantsEn ? en : null;
+  return {
+    catalog: localizeCatalog(catalog, bundle),
+    index: localizeIndex(index, catalog, bundle, contract),
+    schema,
+    contract,
+    en: bundle,
+    raw: { catalog, index },
+  };
 }
 
 /** 비교군 파일 경로 — data_file 은 catalog.json 이 있는 폴더(data/) 기준 상대경로다. */
@@ -69,8 +196,9 @@ export function createCatalogView(catalog) {
 /**
  * 비교군 데이터 지연 로딩 + 캐시.
  * 홈·검색은 경량 인덱스만 쓰고, 목록·상세·비교는 이 스토어로 필요한 파일만 읽는다.
+ * 영어 번들이 있으면 항목 텍스트에 오버레이를 합쳐 돌려준다.
  */
-export function createArenaStore(catalog) {
+export function createArenaStore(catalog, bundle = null) {
   const cache = new Map();
   const pending = new Map();
   async function load(arenaId) {
@@ -80,7 +208,7 @@ export function createArenaStore(catalog) {
     if (!url) throw new Error(`알 수 없는 비교군: ${arenaId}`);
     const task = fetchJson(url)
       .then((items) => {
-        const list = Array.isArray(items) ? items : [items];
+        const list = (Array.isArray(items) ? items : [items]).map((item) => localizeItem(item, bundle));
         cache.set(arenaId, list);
         pending.delete(arenaId);
         return list;
