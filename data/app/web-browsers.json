@@ -1,0 +1,2321 @@
+[
+  {
+    "schema_version": "0.4.0",
+    "id": "firefox",
+    "name": "Firefox",
+    "icon": "assets/icons/firefox.webp",
+    "aliases": [
+      "파이어폭스",
+      "Mozilla",
+      "모질라"
+    ],
+    "domain": "app",
+    "category": "internet-privacy",
+    "arenas": [
+      "web-browsers"
+    ],
+    "arena_notes": {
+      "web-browsers": "MV2를 유지해 uBlock Origin 전체 기능이 살아 있는 유일한 주류 브라우저 — 대신 텔레메트리 기본 전송과 Google 검색 수익 의존이 남는다."
+    },
+    "genres": [
+      "웹 브라우저",
+      "오픈소스",
+      "프라이버시"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "developer": "Mozilla",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "추적 차단이 기본으로 켜지고, 광고 차단 확장의 전체 기능을 유지하는 유일한 주류 브라우저. 대신 텔레메트리는 기본 전송이다.",
+    "taste_tags": [
+      "open-source",
+      "tracker-blocking",
+      "mv2-support",
+      "telemetry-opt-out",
+      "independent-engine"
+    ],
+    "keywords": [
+      "파이어폭스",
+      "firefox",
+      "mozilla",
+      "브라우저",
+      "uBlock Origin"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-17 데스크톱 160.0.1, 2026-11-23 iOS, 2026-11-19 Android 업데이트.",
+    "sources": [
+      {
+        "id": "firefox-mv3",
+        "title": "Mozilla — Manifest V3에 대한 Firefox의 접근(2025-02-25)",
+        "url": "https://blog.mozilla.org/en/firefox/firefox-manifest-v3-adblockers/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Firefox는 blockingWebRequest와 declarativeNetRequest를 함께 지원하고 MV2도 유지 — 전체 uBlock Origin 사용 가능."
+      },
+      {
+        "id": "firefox-privacy",
+        "title": "Firefox — How Firefox Protects Your Data",
+        "url": "https://www.firefox.com/en-US/user-privacy/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "ETP·Total Cookie Protection 기본, 동기화 데이터 종단간 암호화, MV2 확장 지원."
+      },
+      {
+        "id": "firefox-faq",
+        "title": "Mozilla — Data Privacy FAQ",
+        "url": "https://www.mozilla.org/en-US/privacy/faq/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "수익 대부분은 Firefox 검색 파트너십·배포 계약. 기본으로 제한된 기술 데이터를 수집하며 설정에서 끌 수 있다."
+      },
+      {
+        "id": "firefox-review",
+        "title": "privacygear — Firefox 리뷰(2026-11-23 갱신)",
+        "url": "https://privacygear.nl/en/reviews/firefox-review/",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "텔레메트리 기본 켜짐·자체 광고 차단기 없음·기본 검색 Google. 표준 모드에서는 일반 창의 추적 콘텐츠를 막지 않는다."
+      },
+      {
+        "id": "play-firefox",
+        "title": "Google Play — Firefox",
+        "url": "https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.6★·661만 리뷰, 2026-11-19 업데이트."
+      },
+      {
+        "id": "itunes-firefox",
+        "title": "Apple App Store — Firefox (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=org.mozilla.ios.Firefox&country=kr",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.53★·1,715건, 2026-11-23 업데이트."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "브라우저 자체 광고 없음. 미국 등 일부 지역의 후원 검색 제안은 끌 수 있다."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "강제 광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "구독 없이 쓸 수 있다."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ],
+        "verification": "direct",
+        "note": "동기화는 선택. 계정 없이 브라우징 가능."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-firefox"
+        ],
+        "verification": "direct",
+        "note": "2026-11-19 Android 업데이트."
+      },
+      "data_collected": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "firefox-faq"
+        ],
+        "verification": "direct",
+        "note": "기본 수집은 기술·상호작용 데이터로 제한되고 설정에서 끌 수 있다(브라우징 기록 자체는 수집하지 않음)."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료 (MPL 2.0)",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·구독 없음"
+        },
+        "limits": [
+          "무료·오픈소스(MPL 2.0), 자체 Gecko 엔진",
+          "ETP 표준 기본(엄격 모드 선택)",
+          "Total Cookie Protection 기본",
+          "MV2 유지 → uBlock Origin 전체 기능",
+          "자체 광고 차단기 없음 — 확장으로 추가",
+          "텔레메트리 기본 전송(끌 수 있음)",
+          "기본 검색 Google(수익 대부분)"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "무료로 핵심 기능을 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있다.",
+            "source_ids": [
+              "firefox-privacy"
+            ]
+          },
+          "data_collection": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "기본 수집은 제한적이고 끌 수 있다.",
+            "source_ids": [
+              "firefox-faq"
+            ]
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "추적 차단과 전체 광고 차단기를 기본에 가깝게 쓰는 유일한 주류 브라우저. 무료.",
+        "recommended_path": true
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 92,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.6★(661만)·iOS 4.53★(1,715) — Android 표본이 크고 두 스토어가 4.5 이상으로 일치한다. 불만은 속도·사이트 호환성.",
+        "source_ids": [
+          "play-firefox",
+          "itunes-firefox"
+        ]
+      },
+      "objective": {
+        "score": 80,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "ETP·Total Cookie Protection이 기본이고 MV2를 유지해 전체 uBlock Origin이 작동한다. 오픈소스 MPL 2.0에 동기화도 종단간 암호화다. 감점: 텔레메트리가 기본 전송이고, 수익 대부분이 Google 검색 계약에 걸려 있다.",
+        "source_ids": [
+          "firefox-privacy",
+          "firefox-faq",
+          "firefox-review"
+        ]
+      },
+      "ai_review": {
+        "score": 84,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "브라우저의 본질(내가 정한 확장으로 웹을 통제하는 것)에 가장 충실하다. 표준 모드의 한계(일반 창 추적 콘텐츠 미차단)와 느린 성능은 감점.",
+        "source_ids": [
+          "firefox-mv3",
+          "firefox-review"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "recommend",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "green",
+        "ai_review": "green"
+      },
+      "one_liner": "광고 차단기 전체 기능을 지키는 유일한 주류 브라우저.",
+      "reasons": [
+        "MV2를 유지해 uBlock Origin 전체 기능이 작동한다 — Chrome·Edge는 불가능하다.",
+        "ETP와 Total Cookie Protection이 기본으로 켜져 있고, 오픈소스·동기화 E2EE다.",
+        "Play 4.6★(661만)로 평가가 안정적이고 업데이트도 이어진다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "자체 광고 차단기는 없다 — uBlock Origin 등을 직접 설치해야 한다.",
+        "텔레메트리가 기본 전송이라 끄려면 설정을 바꿔야 한다.",
+        "표준 모드에서는 일반 창의 추적 콘텐츠를 막지 않는다 — 엄격 모드로 올려야 한다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 6610680,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.6★ · 661만 리뷰."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.53,
+            "scale": "stars5",
+            "count": 1715,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.53★ · 1,715건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.6★(661만)·iOS 4.53★(1,715) — Android 표본 충분."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-23",
+      "latest_update_platform": "ios",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-23",
+          "type": "unknown",
+          "platform": "ios",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "iOS 업데이트 일자.",
+          "source_ids": [
+            "itunes-firefox"
+          ]
+        },
+        {
+          "date": "2026-11-17",
+          "type": "performance",
+          "platform": "windows",
+          "promise_status": "not_applicable",
+          "evidence_grade": "C",
+          "note": "데스크톱 160.0.1 — 안정성·호환성 수정.",
+          "source_ids": [
+            "firefox-review"
+          ]
+        },
+        {
+          "date": "2025-02-25",
+          "type": "policy_terms",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "MV3 접근 공개 — blockingWebRequest·MV2를 계속 지원한다고 밝혔다.",
+          "source_ids": [
+            "firefox-mv3"
+          ]
+        }
+      ],
+      "maintenance_quality": "healthy",
+      "assessment": "버전 업데이트가 꾸준하고 확장 생태계에 대한 약속도 유지된다. 수익 구조(Google 의존)는 제품 변경은 아니지만 구조적 위험."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "A",
+          "note": "브라우저 광고 없음.",
+          "source_ids": [
+            "firefox-privacy"
+          ]
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "결제 요소 없음."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "firefox-privacy"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음 — Mozilla VPN·Relay는 별도 제품"
+      },
+      "summary": "완전 무료. 수익은 검색 파트너십에서 나온다."
+    },
+    "data_quality": {
+      "overall_grade": "A/B",
+      "unverified": [
+        "한국 사용자 텔레메트리 기본값의 세부 항목",
+        "iOS·Android 확장 지원 범위"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 브라우저 설정 화면의 기본값을 직접 열어 확인하지는 않았다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "brave",
+    "name": "Brave",
+    "icon": "assets/icons/brave.webp",
+    "aliases": [
+      "브레이브",
+      "Brave Browser"
+    ],
+    "domain": "app",
+    "category": "internet-privacy",
+    "arenas": [
+      "web-browsers"
+    ],
+    "arena_notes": {
+      "web-browsers": "설치 직후부터 광고·트래커를 막는 Chromium 포크 — 대신 자체 광고(Brave Ads)·보상·지갑·Leo AI가 기본 탑재됐다."
+    },
+    "genres": [
+      "웹 브라우저",
+      "광고 차단",
+      "Chromium 포크"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "developer": "Brave Software",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "설치하자마자 광고·트래커를 막는 Chromium 포크. 대신 자체 광고·보상·지갑·AI가 기본으로 들어 있다.",
+    "taste_tags": [
+      "ad-blocking-default",
+      "chromium-fork",
+      "crypto-wallet",
+      "opt-out-ads",
+      "ai-assistant"
+    ],
+    "keywords": [
+      "브레이브",
+      "brave",
+      "브라우저",
+      "광고 차단",
+      "BAT"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-24(Android)·2026-11-18(iOS) 업데이트. 2026-09-23 브라우저 개인정보 정책 개정.",
+    "sources": [
+      {
+        "id": "brave-features",
+        "title": "Brave — Features (Shields·Rewards·Wallet)",
+        "url": "https://brave.com/features/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Shields 기본 차단(광고·트래커·핑거프린팅·쿠키), Rewards는 옵트인, 지갑 내장."
+      },
+      {
+        "id": "brave-faq",
+        "title": "Brave — FAQ",
+        "url": "https://brave.com/faq/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "기본으로 자사 프라이버시 광고를 노출하며 끌 수 있다. Brave Search 광고는 유료로 제거. MV2 폐기 영향 없음."
+      },
+      {
+        "id": "brave-about",
+        "title": "Brave — About",
+        "url": "https://brave.com/about/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Chromium 포크(Android·데스크톱), iOS는 WebKit. Leo AI·Rewards·Wallet 탑재. Leo는 계정 불필요."
+      },
+      {
+        "id": "brave-privacy",
+        "title": "Brave — Browser Privacy Policy(2026-09-23)",
+        "url": "https://brave.com/privacy/browser/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Rewards 활성화 시에만 Payment ID 부여, 브라우징 기록 미수집, Leo는 프롬프트를 저장·학습하지 않음."
+      },
+      {
+        "id": "open-source-browsers",
+        "title": "Open Source Web Browser 2026 비교(2026-08-01)",
+        "url": "https://getmind.io/blog/open-source-web-browser/",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "Firefox만 독립 엔진, Brave·Chrome·Edge는 Chromium 기반. Brave 코어는 공개, 일부 구성요소는 비공개."
+      },
+      {
+        "id": "play-brave",
+        "title": "Google Play — Brave",
+        "url": "https://play.google.com/store/apps/details?id=com.brave.browser&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.8★·405만 리뷰, 2026-11-24 업데이트."
+      },
+      {
+        "id": "itunes-brave",
+        "title": "Apple App Store — Brave (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.brave.ios.browser&country=kr",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.79★·44,225건, 2026-11-18 업데이트."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "yes",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-faq"
+        ],
+        "verification": "direct",
+        "note": "자사 프라이버시 광고(Brave Ads)가 기본 노출되고 설정에서 끌 수 있다. 서드파티 광고·트래커는 기본 차단."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-features"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-faq"
+        ],
+        "verification": "direct",
+        "note": "전면 강제 광고 없음 — 새 탭·알림형 자사 광고."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "brave-faq"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-features"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-faq"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료. Leo Premium·VPN은 선택."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-faq"
+        ],
+        "verification": "direct",
+        "note": "구독 없이 쓸 수 있다."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-about"
+        ],
+        "verification": "direct",
+        "note": "계정 없이 브라우징·Leo 사용 가능. 동기화는 선택."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-brave"
+        ],
+        "verification": "direct",
+        "note": "2026-11-24 Android 업데이트."
+      },
+      "data_collected": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-privacy"
+        ],
+        "verification": "direct",
+        "note": "브라우징 기록을 수집하지 않는다고 명시. Rewards는 옵트인이며 Payment ID는 광고 정산에만 쓰인다."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·구독 없음"
+        },
+        "limits": [
+          "무료, Chromium 포크(Android·데스크톱)",
+          "Shields 기본 차단(광고·트래커·핑거프린팅)",
+          "Brave Ads 기본 노출(끄기 가능)",
+          "Rewards·지갑·Leo AI 기본 탑재",
+          "자체 MV2 확장 목록(uBO 등)",
+          "Brave Search 기본"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "자사 광고는 새 탭·알림형이며 끌 수 있다.",
+            "source_ids": [
+              "brave-faq"
+            ]
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "무료로 핵심 기능을 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있다.",
+            "source_ids": [
+              "brave-about"
+            ]
+          },
+          "data_collection": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "브라우징 기록 미수집, Rewards 옵트인.",
+            "source_ids": [
+              "brave-privacy"
+            ]
+          }
+        },
+        "verdict": "recommend",
+        "one_liner": "설치만 하면 광고·트래커가 막힌다. 자사 광고는 설정에서 끄면 된다.",
+        "recommended_path": true
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 96,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.8★(405만)·iOS 4.79★(4.4만) — 두 스토어 모두 4.8 수준으로 이 비교군에서 가장 높다. 칭찬은 광고 차단·속도, 불만은 암호화폐 기능과 사이트 호환성.",
+        "source_ids": [
+          "play-brave",
+          "itunes-brave"
+        ]
+      },
+      "objective": {
+        "score": 78,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Shields가 기본으로 광고·트래커·핑거프린팅을 막고, MV2 확장 목록을 자체 호스팅해 uBlock Origin도 유지한다. 브라우징 기록 미수집 명시. 감점: 자사 광고 기본 노출·암호화폐 기능이 기본 탑재돼 '깨끗한 기본값'은 아니다.",
+        "source_ids": [
+          "brave-features",
+          "brave-faq",
+          "brave-privacy"
+        ]
+      },
+      "ai_review": {
+        "score": 82,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "본질(광고 없는 빠른 웹)을 설치 직후에 제공하는 완성도가 높고, Leo AI도 계정 없이 대화를 저장하지 않는다. 감점: Rewards·지갑·VPN 판매가 한 화면에 섞여 브라우저가 '쇼핑 창'처럼 보이는 순간이 있다.",
+        "source_ids": [
+          "brave-about",
+          "brave-faq"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "recommend",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "green",
+        "ai_review": "green"
+      },
+      "one_liner": "설치만 하면 광고가 사라진다. 대신 자사 광고와 지갑을 끄는 설정이 필요하다.",
+      "reasons": [
+        "Shields가 기본으로 광고·트래커·핑거프린팅을 차단하고 MV2 확장도 유지한다.",
+        "Play 4.8★(405만)·iOS 4.79★(4.4만)로 사용자 평가가 가장 높다.",
+        "브라우징 기록을 수집하지 않는다고 명시하고 Rewards는 옵트인이다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "자사 광고(Brave Ads)가 기본 노출된다 — '강제 전면 광고'는 아니고 설정에서 끌 수 있다.",
+        "암호화폐 지갑·보상(BAT)이 기본 탑재돼 관심 없는 사용자에게는 잡음이다.",
+        "일부 사이트가 Shields 때문에 깨질 수 있어 사이트별로 예외를 둬야 한다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.8,
+            "scale": "stars5",
+            "count": 4049338,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.8★ · 405만 리뷰."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.79,
+            "scale": "stars5",
+            "count": 44225,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.79★ · 44,225건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.8★(405만)·iOS 4.79★(4.4만) — 표본 충분, 두 스토어 일치."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-24",
+      "latest_update_platform": "android",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-24",
+          "type": "unknown",
+          "platform": "android",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "Android 업데이트 일자.",
+          "source_ids": [
+            "play-brave"
+          ]
+        },
+        {
+          "date": "2026-09-23",
+          "type": "policy_terms",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "브라우저 개인정보 정책 개정 — 광고 측정·Rewards 설명 보강.",
+          "source_ids": [
+            "brave-privacy"
+          ]
+        }
+      ],
+      "maintenance_quality": "healthy",
+      "assessment": "Chromium 보안 패치를 빠르게 따라가고 기능 추가도 활발하다. 자사 광고 기본값은 계속 지켜볼 항목."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "low",
+        "ad_types": [
+          "native"
+        ],
+        "store_declares_ads": null,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "honest",
+          "evidence_grade": "A",
+          "note": "새 탭·알림형 자사 광고. 끌 수 있고, 광고 매칭은 기기 안에서 이뤄진다.",
+          "source_ids": [
+            "brave-faq",
+            "brave-privacy"
+          ]
+        }
+      },
+      "iap": {
+        "present": "yes",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "Leo Premium·VPN·Brave Search Premium 등 선택 상품. 가격 미확인."
+        },
+        "first_purchase_prompt": "late",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "brave-faq"
+        ]
+      },
+      "subscription": {
+        "present": "yes",
+        "display": "Leo Premium·VPN·Search Premium(선택) — 브라우저는 무료"
+      },
+      "summary": "브라우저는 무료. 자사 광고와 선택 구독(Leo Premium·VPN)으로 수익을 낸다."
+    },
+    "data_quality": {
+      "overall_grade": "A/B",
+      "unverified": [
+        "Leo Premium·VPN 가격",
+        "국가별 Brave Ads 기본 노출 여부"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. Shields로 깨지는 사이트 목록은 직접 확인하지 않았다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "vivaldi",
+    "name": "Vivaldi",
+    "icon": "assets/icons/vivaldi.webp",
+    "aliases": [
+      "비발디",
+      "Vivaldi Browser"
+    ],
+    "domain": "app",
+    "category": "internet-privacy",
+    "arenas": [
+      "web-browsers"
+    ],
+    "arena_notes": {
+      "web-browsers": "기능 밀도와 커스터마이즈로 승부하는 유럽 브라우저 — 내장 차단기는 기본이 'Light', UI 5%는 폐쇄 소스, 수익은 검색·북마크 파트너십."
+    },
+    "genres": [
+      "웹 브라우저",
+      "커스터마이즈",
+      "유럽"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "developer": "Vivaldi Technologies",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "탭·패널·단축키를 원하는 대로 바꾸는 유럽 브라우저. 내장 차단기는 기본이 'Light'이고 UI 일부는 폐쇄 소스다.",
+    "taste_tags": [
+      "customizable",
+      "built-in-blocker",
+      "no-telemetry",
+      "partial-closed-source",
+      "eu-based"
+    ],
+    "keywords": [
+      "비발디",
+      "vivaldi",
+      "브라우저",
+      "커스터마이즈"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-05 데스크톱 8.3(차단기 재구축), 2026-11-17 Android, 2026-11-05 iOS 업데이트.",
+    "sources": [
+      {
+        "id": "vivaldi-blocker",
+        "title": "Vivaldi — 내장 광고·트래커 차단기",
+        "url": "https://vivaldi.com/features/ad-blocker/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "기본 'Light' — 대부분의 트래커와 일부 광고 차단. 파트너 검색엔진 광고는 기본 허용. 목록은 EasyList·EasyPrivacy 등."
+      },
+      {
+        "id": "vivaldi-83",
+        "title": "Vivaldi 8.3 for Desktop(2026-11-05)",
+        "url": "https://vivaldi.com/blog/vivaldi-on-desktop-8-3/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "차단기 재구축 — Off/Light/Strong/Aggressive 4단계, 사이트별 설정, Android·iOS 동시 적용."
+      },
+      {
+        "id": "vivaldi-privacy",
+        "title": "Vivaldi — We Respect Your Privacy",
+        "url": "https://vivaldi.com/we-respect-your-privacy/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "프로파일링·데이터 판매 없음. 설치 ID는 사용자 수 집계에만, IP는 잘라서 보관."
+      },
+      {
+        "id": "vivaldi-oss",
+        "title": "Vivaldi — 브라우저와 오픈소스(2020-07-30)",
+        "url": "https://vivaldi.com/blog/vivaldi-browser-open-source/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "약 92% Chromium·3% 자체 C++ 공개, UI 약 5%는 폐쇄·난독화."
+      },
+      {
+        "id": "vivaldi-biz",
+        "title": "Vivaldi — 비즈니스 모델",
+        "url": "https://vivaldi.com/blog/vivaldi-business-model/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "검색 파트너(Google 제외)·북마크 파트너·Direct Match·기부로 수익. Proton VPN 제휴."
+      },
+      {
+        "id": "play-vivaldi",
+        "title": "Google Play — Vivaldi",
+        "url": "https://play.google.com/store/apps/details?id=com.vivaldi.browser&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.6★·13.8만 리뷰, 2026-11-17 업데이트."
+      },
+      {
+        "id": "itunes-vivaldi",
+        "title": "Apple App Store — Vivaldi (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.vivaldi.browser&country=kr",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.74★·72건, 2026-11-05 업데이트 — 표본 적음."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-blocker"
+        ],
+        "verification": "direct",
+        "note": "브라우저 자체 광고 없음. 파트너 검색엔진 결과의 광고는 기본 허용(설정에서 차단 가능)."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-privacy"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-blocker"
+        ],
+        "verification": "direct",
+        "note": "강제 광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "vivaldi-biz"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-privacy"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-privacy"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-privacy"
+        ],
+        "verification": "direct",
+        "note": "구독 없음."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-privacy"
+        ],
+        "verification": "direct",
+        "note": "계정 없이 사용. 동기화는 선택."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-83"
+        ],
+        "verification": "direct",
+        "note": "2026-11-05 8.3 릴리스."
+      },
+      "data_collected": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-privacy"
+        ],
+        "verification": "direct",
+        "note": "프로파일링·데이터 판매 없음. 익명 사용자 수 집계용 설치 ID와 잘린 IP, 기기 기술 정보만."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·구독 없음"
+        },
+        "limits": [
+          "무료, Chromium 기반(UI 5% 폐쇄 소스)",
+          "내장 차단기 기본 'Light'(트래커 대부분·일부 광고)",
+          "파트너 검색 광고 기본 허용",
+          "프로필링 없음·익명 카운트만",
+          "이메일·캘린더·메모 등 내장 도구",
+          "Proton VPN 기본 제공(제휴)"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "무료로 핵심 기능을 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있다.",
+            "source_ids": [
+              "vivaldi-privacy"
+            ]
+          },
+          "data_collection": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "프로파일링 없음, 익명 카운트만.",
+            "source_ids": [
+              "vivaldi-privacy"
+            ]
+          }
+        },
+        "verdict": "conditional",
+        "one_liner": "기능과 커스터마이즈는 최상. 차단기는 기본 'Light'라 'Strong'으로 올려야 한다.",
+        "recommended_path": true
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 92,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "medium",
+        "summary": "Play 4.6★(13.8만)로 표본이 충분하고 iOS도 4.74★(72)로 방향이 같다. 칭찬은 탭 관리·커스터마이즈, 불만은 무거운 UI와 사이트 호환성.",
+        "source_ids": [
+          "play-vivaldi",
+          "itunes-vivaldi"
+        ]
+      },
+      "objective": {
+        "score": 70,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "프로파일링·데이터 판매가 없고 수익 구조를 공개했으며 차단기를 2026-11에 재구축했다. 감점: 기본 차단 수준이 'Light'라 트래커 일부만 막고, 파트너 검색 광고는 기본 허용이며, UI 5%가 폐쇄 소스다.",
+        "source_ids": [
+          "vivaldi-blocker",
+          "vivaldi-83",
+          "vivaldi-oss",
+          "vivaldi-biz"
+        ]
+      },
+      "ai_review": {
+        "score": 72,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "medium",
+        "summary": "탭 스택·패널·단축키 등 '브라우저를 내 도구로 만드는' 완성도는 이 비교군에서 가장 높다. 감점: 기능이 많은 만큼 느리고, 프라이버시 기본값은 Brave·Firefox보다 한 걸음 뒤다.",
+        "source_ids": [
+          "vivaldi-83",
+          "vivaldi-blocker"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "conditional",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "yellow",
+        "ai_review": "yellow"
+      },
+      "one_liner": "기능은 최고, 프라이버시 기본값은 한 단계 뒤. 차단기를 'Strong'으로 올려야 한다.",
+      "reasons": [
+        "Play 4.6★(13.8만)로 평가가 안정적이고 커스터마이즈 만족도가 높다.",
+        "기본 차단이 'Light'라 트래커 대부분·일부 광고만 막고, 파트너 검색 광고는 기본 허용이다.",
+        "UI 5%가 폐쇄 소스이고 기능이 많은 만큼 무겁다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "설정에서 차단기를 'Strong'·'Aggressive'로 올리고 사이트별로 조정해야 실질 차단이 된다.",
+        "파트너 검색엔진 광고를 막으려면 'Allow ads from our partners'를 꺼야 한다.",
+        "검색·북마크 파트너 수익 모델이라 기본 북마크에 제휴 링크가 섞여 있다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.6,
+            "scale": "stars5",
+            "count": 138044,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.6★ · 13.8만 리뷰."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.74,
+            "scale": "stars5",
+            "count": 72,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.74★ · 72건 — 표본 적음."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.6★(13.8만)·iOS 4.74★(72) — Android 표본 충분, iOS는 참고용."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-17",
+      "latest_update_platform": "android",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-17",
+          "type": "unknown",
+          "platform": "android",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "Android 업데이트 일자.",
+          "source_ids": [
+            "play-vivaldi"
+          ]
+        },
+        {
+          "date": "2026-11-05",
+          "type": "content",
+          "platform": "windows",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "8.3 — 차단기 재구축(4단계·사이트별), 세로 탭 개선, 모바일 동시 적용.",
+          "source_ids": [
+            "vivaldi-83"
+          ]
+        }
+      ],
+      "maintenance_quality": "healthy",
+      "assessment": "기능 릴리스가 꾸준하고 차단기를 직접 재구축했다. 기본 차단 수준을 올리는 것이 남은 과제."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "low",
+        "ad_types": [
+          "native"
+        ],
+        "store_declares_ads": null,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "honest",
+          "evidence_grade": "A",
+          "note": "파트너 검색엔진 결과 광고가 기본 허용 — 설정에서 차단 가능.",
+          "source_ids": [
+            "vivaldi-blocker"
+          ]
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "결제 요소 없음 — Proton VPN 제휴는 선택."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "vivaldi-biz"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음"
+      },
+      "summary": "무료. 검색·북마크 파트너십과 기부로 운영한다."
+    },
+    "data_quality": {
+      "overall_grade": "A",
+      "unverified": [
+        "한국 기본 검색 파트너 구성",
+        "차단기 목록별 실제 차단율"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 8.3 차단기를 직접 켜서 사이트별 차단률을 재지는 않았다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "chrome",
+    "name": "Google Chrome",
+    "icon": "assets/icons/chrome.webp",
+    "aliases": [
+      "크롬",
+      "Chrome",
+      "구글 크롬"
+    ],
+    "domain": "app",
+    "category": "internet-privacy",
+    "arenas": [
+      "web-browsers"
+    ],
+    "arena_notes": {
+      "web-browsers": "점유율 1위의 기준선 — 트래커 기본 차단 없음, MV2 완전 제거로 전체 uBlock Origin 불가, Privacy Sandbox는 폐기됐다."
+    },
+    "genres": [
+      "웹 브라우저",
+      "Chromium",
+      "Google 연동"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "developer": "Google",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "가장 널리 쓰는 브라우저. 트래커를 기본으로 막지 않고, MV2 제거로 전체 uBlock Origin은 쓸 수 없다.",
+    "taste_tags": [
+      "mainstream",
+      "google-ecosystem",
+      "no-default-blocking",
+      "mv3-only",
+      "ai-features"
+    ],
+    "keywords": [
+      "크롬",
+      "chrome",
+      "구글",
+      "브라우저"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-24(Android)·2026-11-23(iOS) 업데이트. 2026-08-31 MV2 확장 스토어 제거 완료.",
+    "sources": [
+      {
+        "id": "chrome-mv2",
+        "title": "The Verge — Chrome, 광고 차단기 우회로 차단(2026-06-15)",
+        "url": "https://www.theverge.com/tech/950005/google-chrome-removing-ad-blocker-loopholes",
+        "type": "press",
+        "grade": "B",
+        "accessed_at": "2026-11-25",
+        "note": "Chrome 150·151에서 MV2 잔여 코드 제거. uBlock Origin은 Chrome에서 설치·사용 불가, uBO Lite만 가능."
+      },
+      {
+        "id": "chrome-engines",
+        "title": "Browser Engines in 2026 — 브라우저별 기본 차단 비교(2026-09-11)",
+        "url": "https://digitalmatters.me/web-design/browser-engines-2026/",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "2026-08-31 Chrome 웹스토어에서 MV2 확장 전부 제거. Chrome은 MV2를 스토어·브라우저 어디에도 두지 않는다."
+      },
+      {
+        "id": "chrome-review",
+        "title": "Neat Net Tricks — Google Chrome 리뷰(2026-06-04)",
+        "url": "https://www.neatnettricks.com/google-chrome-review/",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "Privacy Sandbox 폐기(2025-10) 후 서드파티 쿠키 기본 허용 유지. 보안 격리·업데이트는 업계 최상."
+      },
+      {
+        "id": "play-chrome",
+        "title": "Google Play — Chrome",
+        "url": "https://play.google.com/store/apps/details?id=com.android.chrome&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.1★·4,963만 리뷰, 2026-11-24 업데이트."
+      },
+      {
+        "id": "itunes-chrome",
+        "title": "Apple App Store — Chrome (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.google.chrome.ios&country=kr",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.68★·127,667건, 2026-11-23 업데이트."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "브라우저 자체 광고 없음."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "강제 광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "구독 없음."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "direct",
+        "note": "로그인 없이 브라우징 가능. 동기화는 계정 필요."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-chrome"
+        ],
+        "verification": "direct",
+        "note": "2026-11-24 Android 업데이트."
+      },
+      "data_collected": {
+        "value": "yes",
+        "evidence_grade": "C",
+        "source_ids": [
+          "chrome-review"
+        ],
+        "verification": "reported_only",
+        "note": "계정 동기화·사용 통계·광고 생태계와 결합된 데이터 수집이 기본 경로에 있다(3자 리뷰 기준, 등급 C)."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·구독 없음"
+        },
+        "limits": [
+          "무료, Chromium 기반(Chrome 자체는 폐쇄)",
+          "트래커 기본 차단 없음·서드파티 쿠키 기본 허용",
+          "MV2 완전 제거 — uBlock Origin 불가, uBO Lite만",
+          "Privacy Sandbox 폐기(2025-10)",
+          "Gemini in Chrome 등 AI 기능 확장",
+          "Google 계정 동기화는 선택"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "무료로 핵심 기능을 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 쓸 수 있다.",
+            "source_ids": [
+              "chrome-review"
+            ]
+          },
+          "data_collection": {
+            "status": "fail",
+            "evidence_grade": "C",
+            "note": "사용 데이터가 Google 계정·광고 생태계와 결합된다.",
+            "source_ids": [
+              "chrome-review"
+            ]
+          }
+        },
+        "verdict": "conditional",
+        "one_liner": "빠르고 확장이 많지만, 프라이버시는 사용자가 직접 챙겨야 한다.",
+        "recommended_path": true
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 86,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.1★(4,963만)·iOS 4.68★(12.8만) — 표본은 압도적이지만 플랫폼 격차가 크다. Android 불만은 메모리·광고 차단 불가, iOS는 상대적으로 높다.",
+        "source_ids": [
+          "play-chrome",
+          "itunes-chrome"
+        ]
+      },
+      "objective": {
+        "score": 40,
+        "signal": "red",
+        "signal_basis": "score",
+        "evidence_grade": "B",
+        "confidence": "high",
+        "summary": "트래커를 기본으로 막지 않고 서드파티 쿠키도 기본 허용이며, MV2를 완전히 제거해 전체 uBlock Origin을 쓸 수 없다. Privacy Sandbox는 폐기됐고 AI 기능이 계속 추가된다. 반면 보안 격리·업데이트 속도는 업계 최상이다.",
+        "source_ids": [
+          "chrome-mv2",
+          "chrome-engines",
+          "chrome-review"
+        ]
+      },
+      "ai_review": {
+        "score": 58,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "B",
+        "confidence": "high",
+        "summary": "브라우저로서 속도·호환성·보안은 여전히 기준점이고 확장 생태계도 가장 넓다. 감점: 광고 회사의 브라우저라는 구조가 '광고를 막는 능력'을 제한했고(MV3), 사용자가 직접 설정하지 않으면 추적이 그대로 통과한다.",
+        "source_ids": [
+          "chrome-mv2",
+          "chrome-review"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "conditional",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "red",
+        "ai_review": "yellow"
+      },
+      "one_liner": "가장 빠르고 호환성 좋은 브라우저. 대신 프라이버시는 기본값이 아니다.",
+      "reasons": [
+        "Play 4.1★(4,963만)·iOS 4.68★(12.8만)로 사용자 기반이 가장 크다.",
+        "트래커 기본 차단이 없고 MV2 제거로 전체 uBlock Origin을 쓸 수 없다.",
+        "보안 격리·업데이트 속도는 업계 최상이지만 광고 생태계와 이해가 맞물려 있다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "광고 차단은 uBO Lite·AdGuard(MV3)로 제한된다 — 전체 uBlock Origin은 불가능하다.",
+        "프라이버시를 원하면 설정에서 서드파티 쿠키 차단·추적 방지를 직접 켜야 한다.",
+        "Gemini in Chrome 등 AI 기능이 계속 추가되며 기본 노출 범위가 바뀔 수 있다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.1,
+            "scale": "stars5",
+            "count": 49627351,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.1★ · 4,963만 리뷰."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.68,
+            "scale": "stars5",
+            "count": 127667,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.68★ · 127,667건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.1★(4,963만)·iOS 4.68★(12.8만) — 표본 충분, 플랫폼 격차가 크다."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-24",
+      "latest_update_platform": "android",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-24",
+          "type": "unknown",
+          "platform": "android",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "Android 업데이트 일자.",
+          "source_ids": [
+            "play-chrome"
+          ]
+        },
+        {
+          "date": "2026-08-31",
+          "type": "policy_terms",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "C",
+          "note": "Chrome 웹스토어에서 MV2 확장 전부 제거 — uBlock Origin 재설치 불가.",
+          "source_ids": [
+            "chrome-engines"
+          ]
+        },
+        {
+          "date": "2025-10-17",
+          "type": "policy_terms",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "C",
+          "note": "Privacy Sandbox(Topics·Protected Audience·Attribution Reporting 등) 폐기, 서드파티 쿠키 선택 유지.",
+          "source_ids": [
+            "chrome-review"
+          ]
+        }
+      ],
+      "maintenance_quality": "risky_terms",
+      "assessment": "업데이트는 가장 빠르지만, 광고 차단 능력을 줄이는 플랫폼 변경(MV2 제거)이 사용자 선택지를 좁혔다."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "none",
+        "ad_types": [
+          "none"
+        ],
+        "store_declares_ads": false,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "not_assessed",
+          "evidence_grade": "A",
+          "note": "브라우저 광고 없음.",
+          "source_ids": [
+            "chrome-review"
+          ]
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "결제 요소 없음."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "chrome-review"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음(Google One은 별도 제품)"
+      },
+      "summary": "무료. 수익은 Google 검색·광고 생태계에서 나온다."
+    },
+    "data_quality": {
+      "overall_grade": "B/C",
+      "unverified": [
+        "한국 계정의 동기화 기본값",
+        "MV3 확장별 실제 차단율",
+        "Gemini in Chrome 기본 노출 범위"
+      ],
+      "conflicts": [],
+      "limitations": "데스크 리서치. 공식 문서 대신 보도·3자 비교로 정책 변경을 확인한 항목이 있다."
+    }
+  },
+  {
+    "schema_version": "0.4.0",
+    "id": "edge",
+    "name": "Microsoft Edge",
+    "icon": "assets/icons/edge.webp",
+    "aliases": [
+      "엣지",
+      "Edge",
+      "MS Edge"
+    ],
+    "domain": "app",
+    "category": "internet-privacy",
+    "arenas": [
+      "web-browsers"
+    ],
+    "arena_notes": {
+      "web-browsers": "Chrome과 같은 Chromium이지만 추적 방지 'Balanced'가 기본 — 대신 Copilot·쇼핑 기능이 기본 탑재되고 2026년 말 MV2 소비자 지원이 끝난다."
+    },
+    "genres": [
+      "웹 브라우저",
+      "Chromium",
+      "Microsoft 연동"
+    ],
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "developer": "Microsoft",
+    "publisher": null,
+    "release_date": null,
+    "one_liner": "Chrome과 같은 엔진에 추적 방지 'Balanced'가 기본. 대신 Copilot·쇼핑 기능이 붙고 MV2 지원은 2026년 말 끝난다.",
+    "taste_tags": [
+      "windows-default",
+      "balanced-tracking-prevention",
+      "copilot",
+      "mv2-ending",
+      "shopping-features"
+    ],
+    "keywords": [
+      "엣지",
+      "edge",
+      "마이크로소프트",
+      "브라우저",
+      "Copilot"
+    ],
+    "assessed_at": "2026-11-25",
+    "method": "desk_research",
+    "maintenance_status": "active",
+    "maintenance_note": "2026-11-22(Android)·2026-11-23(iOS) 업데이트. 2026-08 MV2 소비자 전환 시작, 11월 재활성화 차단.",
+    "sources": [
+      {
+        "id": "edge-tracking",
+        "title": "Microsoft Learn — Tracking prevention in Edge",
+        "url": "https://learn.microsoft.com/en-us/microsoft-edge/web-platform/tracking-prevention",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "Balanced 기본: 광고·소셜·콘텐츠 트래커는 저장소 차단, 크립토마이닝·핑거프린팅은 로드 차단. 분석 트래커는 제한 없음."
+      },
+      {
+        "id": "edge-mv3",
+        "title": "Microsoft Edge Blog — MV3 전환(2026-08-07)",
+        "url": "https://blogs.windows.com/msedgedev/2026/08/07/moving-the-microsoft-edge-extensions-ecosystem-forward-with-manifest-version-3/",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "2026-08부터 소비자 MV2 전환, 2026년 말 완료 목표. 엔터프라이즈는 2027년 초."
+      },
+      {
+        "id": "edge-mv3-docs",
+        "title": "Microsoft Learn — MV3 마이그레이션 타임라인",
+        "url": "https://learn.microsoft.com/en-us/microsoft-edge/extensions/developer-guide/manifest-v3",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "2026-11: 사용자가 MV2 확장을 다시 켤 수 없고 소비자 지원이 완전히 종료된다."
+      },
+      {
+        "id": "edge-shopping",
+        "title": "Microsoft Support — Changes to Shopping in Edge",
+        "url": "https://support.microsoft.com/en-us/edge/changes-to-shopping-in-edge",
+        "type": "official",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "2026-11부터 쇼핑 기능을 Copilot으로 통합, 개인화에는 Microsoft 계정 로그인 필요."
+      },
+      {
+        "id": "edge-review",
+        "title": "Neat Net Tricks — Chrome 리뷰 내 Edge 비교(2026-06-04)",
+        "url": "https://www.neatnettricks.com/google-chrome-review/",
+        "type": "community",
+        "grade": "C",
+        "accessed_at": "2026-11-25",
+        "note": "Copilot을 브라우저에 직접 통합, 프라이버시 제어 재설계. 메모리 사용은 Chrome보다 낮다는 평가."
+      },
+      {
+        "id": "play-edge",
+        "title": "Google Play — Microsoft Edge",
+        "url": "https://play.google.com/store/apps/details?id=com.microsoft.emmx&hl=en&gl=US",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.7★·164만 리뷰, 2026-11-22 업데이트."
+      },
+      {
+        "id": "itunes-edge",
+        "title": "Apple App Store — Microsoft Edge (iTunes Lookup)",
+        "url": "https://itunes.apple.com/lookup?bundleId=com.microsoft.msedge&country=kr",
+        "type": "store",
+        "grade": "A",
+        "accessed_at": "2026-11-25",
+        "note": "4.67★·9,508건, 2026-11-23 업데이트."
+      }
+    ],
+    "flags": {
+      "contains_ads": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "direct",
+        "note": "브라우저 자체 광고 없음. 쇼핑 캐시백 알림은 기능 안내."
+      },
+      "gacha_random_items": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "direct",
+        "note": "확률형 상품 없음."
+      },
+      "forced_ad_before_use": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "direct",
+        "note": "강제 광고 없음."
+      },
+      "bait_ad": {
+        "value": "no",
+        "evidence_grade": "B",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "absent",
+        "note": "미끼형 유입 광고 보도 없음."
+      },
+      "p2w": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "direct",
+        "note": "과금 요소 없음."
+      },
+      "iap_required_to_progress": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "direct",
+        "note": "전 기능 무료."
+      },
+      "subscription_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-review"
+        ],
+        "verification": "direct",
+        "note": "구독 없음."
+      },
+      "account_required": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-tracking"
+        ],
+        "verification": "direct",
+        "note": "브라우징은 로그인 없이 가능. 쇼핑·Copilot 개인화는 계정 필요."
+      },
+      "stale_over_12m": {
+        "value": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-edge"
+        ],
+        "verification": "direct",
+        "note": "2026-11-22 Android 업데이트."
+      },
+      "data_collected": {
+        "value": "yes",
+        "evidence_grade": "C",
+        "source_ids": [
+          "edge-shopping"
+        ],
+        "verification": "reported_only",
+        "note": "Copilot·쇼핑 개인화를 위해 계정 기반 사용 데이터가 결합된다(공식 문서+3자 리뷰, 등급 C)."
+      }
+    },
+    "tiers": [
+      {
+        "tier_id": "free",
+        "label": "무료",
+        "kind": "free",
+        "price": {
+          "amount": 0,
+          "currency": "USD",
+          "period": "none",
+          "display": "US$0 — 광고·구독 없음"
+        },
+        "limits": [
+          "무료, Chromium 기반(폐쇄 소스)",
+          "Tracking Prevention 'Balanced' 기본",
+          "MV2 소비자 지원 2026년 말 종료 — 전체 uBO 불가",
+          "Copilot 내장·쇼핑 기능 결합",
+          "Microsoft 계정 로그인은 선택(개인화는 필요)",
+          "Windows 기본 브라우저"
+        ],
+        "hard_filters": {
+          "forced_ads": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "강제 전면 광고 없음."
+          },
+          "gacha_random_items": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "확률형 아이템·뽑기 상품 없음."
+          },
+          "bait_ad": {
+            "status": "pass",
+            "evidence_grade": "B",
+            "note": "미끼형 유입 광고 보도·불만을 찾지 못함(부재 근거)."
+          },
+          "p2w": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "과금이 성능·보상을 직접 가르지 않음."
+          },
+          "iap_required_to_progress": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "무료로 핵심 기능을 쓸 수 있음."
+          },
+          "stale_over_12m": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "최근 12개월 안에 업데이트가 있음."
+          },
+          "subscription_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "구독 없이 쓸 수 있는 경로가 있음."
+          },
+          "account_required": {
+            "status": "pass",
+            "evidence_grade": "A",
+            "note": "계정 없이 브라우징 가능.",
+            "source_ids": [
+              "edge-tracking"
+            ]
+          },
+          "data_collection": {
+            "status": "fail",
+            "evidence_grade": "C",
+            "note": "Copilot·쇼핑 개인화에 계정 사용 데이터가 결합된다.",
+            "source_ids": [
+              "edge-shopping"
+            ]
+          }
+        },
+        "verdict": "conditional",
+        "one_liner": "Windows에서 가장 편한 기본 브라우저. 다만 Copilot·쇼핑이 붙고 광고 차단은 제한적이다.",
+        "recommended_path": true
+      }
+    ],
+    "axes": {
+      "user_rating": {
+        "score": 93,
+        "signal": "green",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Play 4.7★(164만)·iOS 4.67★(9,508) — 두 스토어 모두 높고 표본도 충분하다. 칭찬은 메모리 효율·PDF·번역, 불만은 Copilot 강제 노출과 쇼핑 알림.",
+        "source_ids": [
+          "play-edge",
+          "itunes-edge"
+        ]
+      },
+      "objective": {
+        "score": 55,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Balanced 추적 방지가 기본이라 Chrome보다 낫다. 다만 분석 트래커는 제한하지 않고, MV2를 2026년 말까지 종료하며, Copilot·쇼핑 기능이 기본 탑재돼 브라우저 밖 목적이 섞인다.",
+        "source_ids": [
+          "edge-tracking",
+          "edge-mv3",
+          "edge-mv3-docs",
+          "edge-shopping"
+        ]
+      },
+      "ai_review": {
+        "score": 60,
+        "signal": "yellow",
+        "signal_basis": "score",
+        "evidence_grade": "A",
+        "confidence": "high",
+        "summary": "Sleeping Tabs·PDF·번역 등 실사용 편의 기능은 Chrome보다 낫고 메모리도 덜 쓴다. 감점: Copilot을 브라우저 안에 밀어 넣고 쇼핑 알림까지 결합해 '도구'보다 '판매 통로'가 되는 순간이 있다.",
+        "source_ids": [
+          "edge-review",
+          "edge-shopping"
+        ]
+      }
+    },
+    "verdict": {
+      "overall": "conditional",
+      "tier_of_record": "free",
+      "signals": {
+        "user_rating": "green",
+        "objective": "yellow",
+        "ai_review": "yellow"
+      },
+      "one_liner": "Windows 기본 브라우저로는 충분히 좋다. 다만 Copilot·쇼핑이 브라우저에 붙어 있다.",
+      "reasons": [
+        "Play 4.7★(164만)·iOS 4.67★(9,508)로 사용자 평가가 높다.",
+        "Balanced 추적 방지는 기본이지만 분석 트래커는 막지 않고, MV2 지원이 2026년 말 끝난다.",
+        "Copilot·쇼핑 기능이 기본 탑재돼 계정 기반 개인화가 브라우저 안으로 들어왔다."
+      ],
+      "hard_filter_blocked": false,
+      "condition_notes": [
+        "광고 차단은 uBO Lite·AdGuard(MV3)로 제한된다.",
+        "쇼핑 캐시백·가격 알림을 끄려면 설정에서 'Shopping in Edge'를 꺼야 한다.",
+        "InPrivate에서도 추적 방지 수준은 일반 창과 같다 — 'Strict'를 따로 지정할 수 있다."
+      ]
+    },
+    "review_snapshot": {
+      "min_sample": 100,
+      "platforms": [
+        {
+          "platform": "android",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.7,
+            "scale": "stars5",
+            "count": 1644020,
+            "window": "전체(Play 표시 리뷰 수)",
+            "evidence_grade": "A"
+          },
+          "note": "Play 4.7★ · 164만 리뷰."
+        },
+        {
+          "platform": "ios",
+          "cumulative": {
+            "metric": "stars",
+            "value": 4.67,
+            "scale": "stars5",
+            "count": 9508,
+            "window": "전체(iTunes Lookup)",
+            "evidence_grade": "A"
+          },
+          "note": "iOS 4.67★ · 9,508건."
+        }
+      ],
+      "sample_sufficient": true,
+      "downgrade_applied": false,
+      "summary": "Play 4.7★(164만)·iOS 4.67★(9,508) — 표본 충분, 두 스토어 일치."
+    },
+    "update_profile": {
+      "latest_update": "2026-11-23",
+      "latest_update_platform": "ios",
+      "cadence": "active",
+      "entries": [
+        {
+          "date": "2026-11-23",
+          "type": "unknown",
+          "platform": "ios",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "iOS 업데이트 일자.",
+          "source_ids": [
+            "itunes-edge"
+          ]
+        },
+        {
+          "date": null,
+          "type": "policy_terms",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "2026-11 MV2 소비자 지원 종료 — 사용자가 MV2 확장을 다시 켤 수 없다.",
+          "source_ids": [
+            "edge-mv3-docs"
+          ]
+        },
+        {
+          "date": null,
+          "type": "content",
+          "platform": "other",
+          "promise_status": "not_applicable",
+          "evidence_grade": "A",
+          "note": "2026-11 쇼핑 기능을 Copilot으로 통합, 개인화에 Microsoft 계정 로그인 필요.",
+          "source_ids": [
+            "edge-shopping"
+          ]
+        }
+      ],
+      "maintenance_quality": "risky_terms",
+      "assessment": "업데이트는 활발하지만 확장 플랫폼(MV2 종료)과 기본 기능(Copilot·쇼핑)을 동시에 바꿔 사용자가 설정을 다시 봐야 한다."
+    },
+    "monetization": {
+      "ads": {
+        "in_app_exposure": "low",
+        "ad_types": [
+          "native"
+        ],
+        "store_declares_ads": null,
+        "inflow_ad": {
+          "present": "no",
+          "honesty": "honest",
+          "evidence_grade": "A",
+          "note": "쇼핑 캐시백·가격 알림이 주소창·Copilot 패널에 뜬다 — 광고가 아니라 기능 안내지만 판매 유도가 섞인다.",
+          "source_ids": [
+            "edge-shopping"
+          ]
+        }
+      },
+      "iap": {
+        "present": "no",
+        "random_items": "no",
+        "price_range": {
+          "min": null,
+          "max": null,
+          "evidence_grade": "A",
+          "note": "브라우저 결제 없음(Microsoft 365는 별도)."
+        },
+        "first_purchase_prompt": "none",
+        "p2w": "no",
+        "required_to_progress": "no",
+        "evidence_grade": "A",
+        "source_ids": [
+          "edge-shopping"
+        ]
+      },
+      "subscription": {
+        "present": "no",
+        "display": "구독 없음"
+      },
+      "summary": "무료. 쇼핑 제휴·캐시백과 Microsoft 365 생태계가 수익 경로."
+    },
+    "data_quality": {
+      "overall_grade": "A/C",
+      "unverified": [
+        "국가별 Copilot 기본 노출 범위",
+        "MV2 종료의 실제 사용자 체감",
+        "쇼핑 캐시백 수수료 구조"
+      ],
+      "conflicts": [
+        {
+          "field": "flags.data_collected.value",
+          "values": [
+            "Microsoft 문서: 진단 데이터·개인화 데이터 수집",
+            "공식 페이지: 브라우징은 계정 없이 가능"
+          ],
+          "resolution": "브라우징 자체는 계정 없이 가능하지만 Copilot·쇼핑 개인화에 계정 데이터가 결합되므로 'yes'로 두고 계정 필수는 'no'로 분리했다.",
+          "source_ids": [
+            "edge-shopping",
+            "edge-tracking"
+          ]
+        }
+      ],
+      "limitations": "데스크 리서치. 쇼핑·Copilot 기본 노출은 지역·로그인 상태에 따라 달라 직접 확인하지 않았다."
+    }
+  }
+]

@@ -1,8 +1,8 @@
 ---
-title: "🧭 Pharos 앱·게임·AI 도구 다층 평가 기준표 v0.4.2"
+title: "🧭 Pharos 앱·게임·AI 도구 다층 평가 기준표 v0.4.3"
 ---
 
-# Pharos (파로스) — 앱·게임·AI 도구 다층 평가 기준표 (v0.4.2)
+# Pharos (파로스) — 앱·게임·AI 도구 다층 평가 기준표 (v0.4.3)
 
 단일 별점 평균의 한계(리뷰 조작, 취향 무시, 양산형 혼재)를 넘기 위해 4개의 독립된 축을 조합해 선별한다. **v0.2(2026-11-24)** 는 파일럿 4종(`pilot-test.md`)의 빈틈을 정식 반영한 개정판이다: ① 판정을 **티어 단위**로 분리하고 최소 비용 경로를 함께 내고, ② 광고·과금을 **4개 항목으로 세분화**하며(인앱 노출 / 유입 광고 정직성 / 확률형 아이템 / IAP 최고가·첫 결제 유도), ③ 업데이트를 **성격별로 태그**하고 공약 이행을 따로 보며, ④ **최근 리뷰 표본 수·기간과 근거 등급 A/B/C**를 모든 판정에 명시한다.
 
@@ -13,6 +13,8 @@ title: "🧭 Pharos 앱·게임·AI 도구 다층 평가 기준표 v0.4.2"
 **v0.4.0(2026-11-25)** 은 두 가지를 함께 담는다. ⑴ **담는 그릇**: 4단(도메인 → 대분류 → 비교군 → 항목) 구조 — `schema/item.schema.json` v0.4.0 은 아이템에 `domain`·`category`를 명시하고, 비교군 정의는 `x-pharos.client.arenas` 에서 `data/catalog.json` 으로 옮겼다. 아이템은 비교군별 파일(`data/app/pkm-notes.json` 등)로 나뉘고, 통합 검색·홈 리포트용 경량 인덱스 `data/search-index.json` 이 분할 데이터에서 자동 생성된다. ⑵ **판정 기준**: **확률형·P2W의 강제성을 3단계(`impact`)로 나눈다**. v0.3.1까지는 상점에 확률형·P2W 상품이 하나라도 있으면 무조건 거름이어서, 무과금으로 충분히 즐길 수 있는 게임(검은사막·Bloons TD 6·Guild Wars 2·Limbus Company)까지 거름 통에 들어갔다. 이제 `impact: optional` 은 기본 모드에서 거르지 않고 「선택 과금 · 무과금 가능」 배지로 알리며, 상품 존재 자체로 거르고 싶은 사람은 미세조정의 `strict_monetization`(기본 OFF)을 켜면 된다(3.1절·6.1절). 이 기준표의 8절 산식은 웹 프론트엔드가 서버 없이 브라우저에서 그대로 계산한다. 웹은 `web/` 폴더 하나로 배포되며, 데이터·스키마 사본은 `scripts/sync_web_data.py`로 원본과 동기화한다(11절).
 
 **v0.4.1(2026-11-25)** 은 v0.4.0의 `impact`·`free_play` 판정 기준선을 바로잡는다. v0.4.0은 '무과금으로 상품 없이도 본편을 즐길 수 있는가'를 물었지만, 실제 판정에서는 **최상위 경쟁·풀돌파·엔드 스펙**이 기준처럼 쓰여 본편이 열려 있는 게임까지 거름이 되는 경우가 남았다(승리의 여신: 니케). 이제 **본질 경험 기준(`core_experience`, 5.2절)** 을 명시한다: 그 게임의 본질적 재미(예: 니케=스토리, 검은사막=커맨드 액션·생활)를 무과금으로 온전히 누릴 수 있으면, 부가·경쟁 구간의 과금은 `optional` + `sufficient` 로 두고 `Fact`·`limits` 에는 그대로 남긴다. 이 기준으로 니케를 다시 채점해 69.65 🔴 → **81.2 🟢** 로 올렸다(스토리·연출·더빙·OST 본질 완성도 반영, 160벽·아레나 경쟁 사실은 유지).
+
+**v0.4.3(2026-11-25)** 도 산식·스키마·엔진을 바꾸지 않고 분야만 넓힌다. ⑴ 앱 도메인에 새 대분류 `인터넷 · 프라이버시`(`internet-privacy`)와 비교군 `웹 브라우저`(`web-browsers`, 5종)를 더하고, 기존 `보안 · 유틸리티` 아래에 `클라우드 스토리지`(`cloud-storage`, 5종)를 더했다. ⑵ AI 도구 도메인에 새 대분류 `대화 · 리서치`(`ai-chat-research`)와 비교군 `AI 어시스턴트 · 검색`(`ai-assistants`, 5종)을 더해 **도메인 3 · 대분류 10 · 비교군 12 · 전체 57종**이 됐다. ⑶ 세 비교군은 같은 9개 필터로는 잡히지 않는 축을 드러냈다 — 브라우저의 **확장 플랫폼 제한**(MV3로 전체 uBlock Origin 불가), 클라우드의 **해지 후 데이터 삭제 유예**(한도 초과 12개월·2년·6개월), AI의 **학습 데이터 기본값**(옵트아웃이 기본인지)이다. 이번에도 필터는 새로 만들지 않고 `data_collection`·`subscription_required`·`account_required` 같은 기존 필터와 축 점수·`condition_notes`로 판정했으며, 새 빈틈은 10절 24~26번에 남겼다.
 
 **v0.4.2(2026-11-25)** 는 판정 산식을 바꾸지 않고 **분야를 늘린다**. ⑴ **AI 도구** 도메인(`ai`)과 대분류 `개발 · 코딩`(`ai-coding`), 비교군 `AI 코딩 에디터 · 에이전트`(`ai-coding-tools`)를 정식 등록하고 상단 탭을 `홈` · `앱` · `게임` · `AI 도구`로 넓혔다. ⑵ 앱 도메인에 `할 일 · 일정 관리`(`task-managers`, 5종)와 새 대분류 `보안 · 유틸리티`(`security-utilities`) 아래 `비밀번호 관리`(`password-managers`, 4종)를 더해 **9비교군 · 42종**이 됐다. ⑶ AI 도구는 기존 9개 필터로는 '크레딧 함정'을 이름조차 붙일 수 없어, **필터를 새로 만들지 않고** `catalog.domains[].filter_labels` 로 도메인별 표시 이름만 덮었다(`iap_required_to_progress` → 「불투명 크레딧·한도 함정 제외」, `account_required` → 「계정·클라우드 강제 제외」). 스키마·엔진·판정 규칙은 그대로다. ⑷ **'별점은 높은데 거름' 리포트의 별점은 실제 스토어(android·ios·steam) 표본만 쓴다** — G2 같은 3자 집계는 '스토어 별점'이 아니므로 섞지 않고, AI 도구처럼 스토어가 없는 항목은 이 리포트에서 제외된다. ⑸ 새 사례가 새 빈틈을 드러냈다: **서비스 종료 예고**(Microsoft To Do, 2027-06-30)와 **플랜 밖 모델 과금**(Cursor, 2026-10 X 구독)은 기존 9개 하드 필터로 잡히지 않아 점수·신호로만 판정된다(10절 21·22번).
 
@@ -299,7 +301,7 @@ rows:
 
 - 장르·분류를 수백 개 미리 정의하지 않는다. **사용자가 실제로 대체제를 고르는 단위**로 묶고, 하나의 아이템은 여러 비교군에 속할 수 있다(`arenas: string[]`).
 - 비교군 정의는 `data/catalog.json` 의 `arenas`(id·domain·category·label·description·data_file)에 두고, 아이템은 id만 참조한다. 비교군별 핵심 비교 포인트는 `arena_notes`(id → 한 줄)에 남긴다. 키는 반드시 `arenas`에 포함된 id여야 한다. 한 아이템의 비교군들은 같은 도메인·대분류에 속해야 하며, 아이템의 `domain`·`category` 도 그 값과 같아야 한다(validate.py 가 검사).
-- 2026-11-25 게임 도메인 2차 확장으로 비교군은 6개, 대분류는 6개다(RPG·MMORPG 대분류와 PC MMORPG, 모바일 전략·디펜스 대분류와 모바일 전략·디펜스 비교군 추가). 이어진 **3차 확장**에서 `모바일 수집형 RPG` 에 승리의 여신: 니케·블루 아카이브·붕괴: 스타레일, `모바일 전략·디펜스` 에 Clash of Clans·Arknights 를 더해 전체 29건이 됐다. **v0.4.2 분야 확장**에서 앱 도메인의 `할 일 · 일정 관리`(5종)·`비밀번호 관리`(4종)와 AI 도구 도메인의 `AI 코딩 에디터 · 에이전트`(4종)를 더해 **도메인 3 · 대분류 8 · 비교군 9 · 전체 42건**이다.
+- 2026-11-25 게임 도메인 2차 확장으로 비교군은 6개, 대분류는 6개다(RPG·MMORPG 대분류와 PC MMORPG, 모바일 전략·디펜스 대분류와 모바일 전략·디펜스 비교군 추가). 이어진 **3차 확장**에서 `모바일 수집형 RPG` 에 승리의 여신: 니케·블루 아카이브·붕괴: 스타레일, `모바일 전략·디펜스` 에 Clash of Clans·Arknights 를 더해 전체 29건이 됐다. **v0.4.2 분야 확장**에서 앱 도메인의 `할 일 · 일정 관리`(5종)·`비밀번호 관리`(4종)와 AI 도구 도메인의 `AI 코딩 에디터 · 에이전트`(4종)를 더해 42건이 됐고, **v0.4.3** 은 `웹 브라우저`(5종)·`클라우드 스토리지`(5종)·`AI 어시스턴트 · 검색`(5종)을 더해 **도메인 3 · 대분류 10 · 비교군 12 · 전체 57건**이다.
 
 **할 일 · 일정 관리** 비교군은 같은 자리에서 서로 다른 수명과 과금이 갈린다: 무료 5프로젝트 + Pro US$60/년 **Todoist**(🟢 83.0), 무료 9리스트 + Premium US$49.99/년(2026년 39% 인상) **TickTick**(🟢 80.8), 플랫폼별 1회 구매 **Things 3**(🟢 87.3), GPLv3 오픈소스 **Tasks.org**(🟢 88.0), 그리고 **2027-06-30 앱 종료가 공지된 Microsoft To Do**(🔴 60.45)다. 마지막 항목이 이 비교군의 이유다 — 평점 4.6★·무료·광고 없음이라는 장점이 '2년 뒤 사라진다'는 사실 하나로 무의미해진다.
 
@@ -308,19 +310,28 @@ rows:
 **AI 코딩 에디터 · 에이전트** 비교군은 요금제 투명성을 첫 축으로 둔다: Apache-2.0 + BYOK 로 확장 자체가 무료인 **Cline**(🟢 85.75), 과금 개편에도 '기본 요금 그대로 + 코드 완성은 크레딧 미소모'를 지킨 **GitHub Copilot**(🟢 83.8), 쿼터 크기를 공개하지 않는 **Windsurf/Devin Desktop**(🟡 74.7), 2026-10 X 구독으로 플랜 밖 모델(Claude·GPT·Gemini)을 첫 요청부터 API 정가로 과금하는 **Cursor**(🟡 71.3)다. 같은 '구독형 AI 코딩'이라도 무엇을 플랜 값에 넣고 무엇을 밖으로 뺐는지가 판정을 가른다.
 
 ```table
-title: 현재 비교군 (2026-11-25 · 9개)
+title: 현재 비교군 (2026-11-25 · 12개)
 headers: ["id", "라벨", "구성", "무엇으로 갈리는가"]
 rows:
   - ["pkm-notes", "노트·지식관리", "Obsidian·Evernote·Notion·Joplin·Simplenote", "파일 소유권 · 계정 · 동기화 · 내보내기"]
   - ["task-managers", "할 일·일정 관리", "Todoist·TickTick·Microsoft To Do·Things 3·Tasks.org", "무료 티어 한도 · 구독 락인 · 내보내기 · 광고/계정 · 서비스 수명"]
   - ["password-managers", "비밀번호 관리", "Bitwarden·1Password·KeePassXC·Dashlane", "무료 동기화 한도 · 로컬/오픈소스 여부 · 내보내기 표준 · 보안 사고 이력"]
+  - ["cloud-storage", "클라우드 스토리지", "Proton Drive·Nextcloud·Google Drive·Dropbox·OneDrive", "종단간 암호화 · 무료 용량/기기 · 해지 후 삭제 유예 · 계정 락인"]
+  - ["web-browsers", "웹 브라우저", "Firefox·Brave·Vivaldi·Google Chrome·Microsoft Edge", "기본 트래커/광고 차단 · MV3 확장 제한 · 자체 광고/지갑/AI 블로트 · 오픈소스"]
   - ["roguelike-deckbuilder", "덱빌딩 게임", "Balatro·Slay the Spire·Inscryption·Night of the Full Moon", "1회 구매 완결형 vs 부분유료·광고형"]
   - ["mobile-gacha-rpg", "모바일 수집형 RPG", "Hero Wars·Limbus Company·Genshin Impact·승리의 여신: 니케·블루 아카이브·붕괴: 스타레일", "본질(스토리)이 무과금으로 열려 있는가 · 마일리지 교환 · 확정 천장 이월 · 160레벨 벽"]
   - ["action-roguelike", "액션 로그라이크", "Hades·Vampire Survivors·Dead Cells·Archero", "1회 구매 완결형 · DLC 분기 · 부분유료·광고형 대조"]
   - ["pc-mmorpg", "PC MMORPG", "FINAL FANTASY XIV·Guild Wars 2·Lost Ark·Black Desert", "정액제 · 확장팩 1회 구매 · 무료+확률형 캐시샵 · 강화 과금"]
   - ["mobile-strategy-defense", "모바일 전략·디펜스", "Bloons TD 6·Kingdom Rush Vengeance·Clash Royale·Plants vs. Zombies 2·Clash of Clans·Arknights", "유료 무광고 vs 무료+시간 게이트 · 상자 뽑기 · 타워디펜스+확률형 수집"]
+  - ["ai-assistants", "AI 어시스턴트·검색", "Claude·ChatGPT·Perplexity·Google Gemini·Le Chat(Mistral)", "무료 한도/모델 공개 여부 · 학습 데이터 옵트아웃 기본값 · 광고 도입 · 인용과 유료 락인"]
   - ["ai-coding-tools", "AI 코딩 에디터·에이전트", "Cursor·GitHub Copilot·Windsurf(Devin Desktop)·Cline", "플랜 밖 모델 과금 · 크레딧/쿼터 공개 여부 · BYOK · 에디터 종속 · 오픈소스"]
 ```
+
+**웹 브라우저** 비교군은 '설치 직후 무엇이 막히는가'를 첫 축으로 둔다: MV2를 유지해 전체 uBlock Origin이 살아 있는 **Firefox**(🟢 85.8)와 Shields 기본 차단 + 자체 MV2 목록의 **Brave**(🟢 86.2), 기본 'Light'·UI 5% 폐쇄의 **Vivaldi**(🟡 79.3), 트래커 기본 차단 없이 MV2를 완전히 제거한 **Chrome**(🟡 62.9), 'Balanced' 기본이지만 Copilot·쇼핑이 붙고 2026년 말 MV2가 끝나는 **Edge**(🟡 71.45)다. 같은 '광고 차단'이라도 **엔진이 허용하는 API**가 다르면 결과가 달라진다는 점이 이 비교군의 이유다.
+
+**클라우드 스토리지** 비교군은 '내 파일을 누가 읽을 수 있는가'와 '그만둘 때 무엇이 남는가'를 나란히 둔다: 파일 이름까지 E2EE가 기본인 **Proton Drive**(🟢 87.2), 서버를 직접 세우는 **Nextcloud**(🟡 80.8), 15GB를 Gmail·Photos와 공유하고 개인용은 E2EE가 아닌 **Google Drive**(🟡 72.2), 무료 2GB·3기기·초과 시 파일 삭제 위험이 있는 **Dropbox**(🟡 67.9), 5GB·연 US$19.99에 한도 초과 6개월이면 삭제될 수 있는 **OneDrive**(🟡 73.55)다.
+
+**AI 어시스턴트 · 검색** 비교군은 '무료로 어디까지, 무엇이 학습에 쓰이는가'를 정면에 둔다: 광고 없이 무료 Sonnet·Haiku를 주는 **Claude**(🟢 86.4), 무료에 광고가 붙은 대신 대화가 사실상 무제한인 **ChatGPT**(🟡 79.3), 광고를 포기하고 출처 인용에 집중한 **Perplexity**(🟢 82.2), 무료를 Flash-Lite로 줄인 **Google Gemini**(🟡 76.2), 한도를 'Limited'로만 표기하는 **Le Chat**(🟡 77.4)이다. 다섯 모두 개인 계정 대화를 기본으로 학습에 사용하고, 옵트아웃 경로와 기본값을 카드에 그대로 적었다.
 
 - 비교군 선택은 카테고리·검색과 **AND**로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 묶음 기준으로 즉시 다시 계산한다.
 - 판정 산식(8절)은 비교군 안에서도 그대로다. 비교군은 "무엇을 같은 표에 놓는가"만 바꾸고, 점수와 필터는 바꾸지 않는다.
@@ -367,6 +378,12 @@ rows:
 22. **AI 도구의 '크레딧 함정'을 어떻게 재는가 (v0.4.2 신규)**: Cursor는 2026-10-12 X 구독으로 바꾸면서 플랜 값에 Grok·Composer만 포함하고 Claude·GPT·Gemini는 첫 요청부터 API 정가로 청구한다. 'Premium은 Plus의 4배'라고 쓰면서 Plus의 사용량은 공개하지 않는다. 이는 `iap_required_to_progress`(진행 불가)도 `p2w`도 아니라 기존 필터로 잡히지 않는다. v0.4.2는 필터를 새로 만들지 않고 `filter_labels`로 이름만 붙였고, 판정은 객관 축(40, 🔴)으로 했다. 해결안: `pricing_transparency`(공개/부분/비공개)와 `included_model_scope`(자사 모델만/서드파티 포함/전체) 필드를 두어 "플랜 값에 무엇이 들어 있는가"를 기계적으로 비교한다.
 
 23. **도메인별 필터 표시 이름 — 같은 필터, 다른 문법 (v0.4.2 신규)**: 앱·게임의 9개 필터를 AI 도구에 그대로 쓰면 'P2W', '확률형' 같은 칸이 비고 '크레딧 함정'을 부를 이름이 없다. 필터를 도메인마다 새로 만들면 42건 전부의 `hard_filters`에 키를 더해야 하고 축·판정·검증기가 함께 흔들린다. 그래서 `catalog.domains[].filter_labels`(표시 이름만 덮어쓰기)로 처리했고, 검증기는 라벨 키가 실제 9개 필터인지·빈 이름이 없는지만 본다. 남은 것은 **필터 정의 자체의 도메인 분기**다 — AI 도구에만 있는 '모델 종속'·'데이터 학습 정책'을 1급 필터로 올릴지가 다음 개정 후보다.
+
+24. **확장 플랫폼 제한을 어떻게 재는가 (v0.4.3 신규)**: Chrome·Edge는 Manifest V3 전환으로 전체 uBlock Origin을 쓸 수 없고, Firefox는 MV2를 유지하며, Brave는 자체 목록으로 uBO를 호스팅한다. 이 차이는 '광고 차단 기능'이라는 한 줄로는 비교되지 않아 이번에는 `objective` 축 서술과 `condition_notes`로만 남겼다. 해결안: `extension_capability`(full-blocking-api·declarative-only·vendor-hosted)와 `default_blocking_level`(none/light/standard/strict) 필드를 두어 브라우저를 기계적으로 비교한다.
+
+25. **해지·한도 초과 후 데이터 유예를 수치로 (v0.4.3 신규)**: Proton은 12개월, Google은 2년, OneDrive는 3개월 동결·6개월 삭제, Dropbox는 통지 후 오래된 파일부터 삭제다. 지금은 `condition_notes` 산문이라 정렬·필터가 안 된다. 해결안: `overflow_policy`(read_only/frozen/delete)와 `grace_days`를 두고, '해지 후에도 파일이 남는가'를 별도 신호로 계산한다.
+
+26. **학습 데이터 기본값을 1급 필터로 (v0.4.3 신규)**: AI 어시스턴트 5종 모두 대화를 기본으로 학습에 쓰고(옵트아웃 가능), 앱마다 스위치 이름과 소급 여부가 다르다. 지금은 `flags.data_collected`(과도한 수집)에 묶어 표현했지만 '수집량'과 '학습 사용'은 다른 축이다. 해결안: `training_default`(on/off), `training_optout`(즉시·소급 불가·없음), `retention_days`를 AI 도구 도메인 필터로 두고, `filter_labels`가 아니라 실제 필터 정의를 도메인별로 분기한다(23번 후속).
 
 ## 11. 정적 배포 — web/ 폴더 하나로 동작한다
 
