@@ -1749,7 +1749,22 @@ function sectionAxes(view) {
     </div>
     <div class="axis-grid">${cards}</div>
     ${view.item.one_liner ? `<p class="m-sec-note">한 줄 정의: ${esc(view.item.one_liner)}</p>` : ''}
+    ${scoreNoteHtml(view.item)}
   </section>`;
+}
+
+/** v0.5.0 산정 메모 — 점수 원칙(표본 규모 검증·객관 비편향)이 어떻게 적용됐는지 보인다. */
+function scoreNoteHtml(item) {
+  const notes = item.score_notes || {};
+  const rows = [
+    ['user_rating', '사용자 평가'],
+    ['objective', '객관·신뢰 지표'],
+    ['ai_review', 'AI 검토'],
+  ].filter(([key]) => notes[key]);
+  if (!rows.length) return '';
+  return `<div class="callout callout--ok"><b>v0.5.0 산정 메모</b>${rows
+    .map(([key, label]) => `<p class="m-sec-note"><b>${label}</b> — ${esc(notes[key])}</p>`)
+    .join('')}</div>`;
 }
 
 function sourceChips(ids, item) {

@@ -595,6 +595,17 @@ def main() -> int:
                "프라이버시 프리셋에서도 계정 없는 Obsidian·Joplin 은 유지")
         page.goto(f"{base}/?domain=app&arena=pkm-notes", wait_until="networkidle")
         wait(page, 600)
+
+        page.goto(f"{base}/?domain=app&arena=pkm-notes&item=notion", wait_until="networkidle")
+        wait(page, 700)
+        body = page.inner_text("#modalBody")
+        expect("v0.5.0 산정 메모" in body and "표본 규모 검증" in body,
+               "Notion 상세에 v0.5.0 산정 메모(표본 규모 검증)", body[-400:])
+        expect("계정·클라우드 전제" in body or "계정·클라우드 테제" in body,
+               "Notion 객관 재평가 근거가 상세에 남음", body[-200:])
+        close_modal(page)
+        page.goto(f"{base}/?domain=app&arena=pkm-notes", wait_until="networkidle")
+        wait(page, 500)
         page.screenshot(path=str(shots / "preview-v3-arena.png"), full_page=True)
 
         # ------------------------------------------------------ 8 방법론·딥링크
