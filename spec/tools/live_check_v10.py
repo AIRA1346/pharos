@@ -99,10 +99,10 @@ def main() -> int:
         vpn_block = page.inner_text('.genre-block[data-arena="vpn"]')
         expect("Mullvad" in vpn_block and "5종" in vpn_block, "라이브 VPN 블록 = 5종·Mullvad 노출",
                vpn_block[:120].replace("\n", " | "))
-        expect(page.eval_on_selector_all("#homeDomainFilter .domain-chip",
-                                         "els => els.map(e => e.innerText.trim())")[0].startswith("전체 18"),
-               "라이브 홈 도메인 필터 = 전체 18",
-               str(page.eval_on_selector_all("#homeDomainFilter .domain-chip", "els => els.map(e => e.innerText.trim())")))
+        chips = page.eval_on_selector_all("#homeDomainFilter .domain-chip",
+                                          "els => els.map(e => e.innerText.replace(/\\s+/g, ' ').trim())")
+        expect(chips and chips[0] == "전체 18" and "앱 8" in chips and "게임 8" in chips,
+               "라이브 홈 도메인 필터 = 전체 18 · 앱 8 · 게임 8", str(chips))
         shot_home = LIVE / "live-v10-batch1-home.png"
         try:
             page.screenshot(path=str(shot_home), full_page=False)
