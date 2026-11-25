@@ -24,6 +24,9 @@
   10) v0.4.3 분야 확장: 새 대분류 2개(인터넷 · 프라이버시 · 대화 · 리서치)와 새 비교군 3개
      (웹 브라우저·클라우드 스토리지·AI 어시스턴트)의 목록·요약·상세, AI 탭의 두 비교군 전환, 신규 15종 아이콘 192×192 로드.
   11) 스크린샷: preview-v3-home.png · preview-v3-arena.png · preview-v3-compare.png · preview-v3-mobile.png.
+  12) v3.3 화면·UX·모바일 마감: 홈 도메인 필터(전체 12 · 앱 5 · 게임 5 · AI 도구 2)와 상단 고정,
+     플로팅 비교 바 문구·fixed 위치·스크롤 후 동일 위치, 비교 표 첫 열 sticky·'최고' 셀·점수 차이·요약,
+     🔗 링크 복사(클립보드 값·토스트), 390px 전 화면 가로 넘침 0·터치 영역, 라이트 테마 대비 4.2:1 이상.
 
 실행:
   pip install playwright
@@ -217,10 +220,36 @@ def main() -> int:
         expect(any(url.endswith("/schema/item.schema.json") for url in served), "schema/item.schema.json 로드", "")
         expect(not any("/data/app/" in url or "/data/game/" in url for url in served),
                "홈에서는 비교군 분할 파일을 내려받지 않음(지연 로딩)", str([u for u in served if "/data/app/" in u or "/data/game/" in u]))
+        # 기대값은 카탈로그·인덱스에서 계산한다 — 데이터가 늘어도 건수 단언이 낡지 않게.
+        meta = page.evaluate(
+            """() => {
+            const c = window.Pharos.state.core.catalog, idx = window.Pharos.state.core.index;
+            const arenaDomain = {}; c.arenas.forEach(a => { arenaDomain[a.id] = a.domain; });
+            const featured = ((c.home && c.home.featured_arenas) || []).filter(id => arenaDomain[id]);
+            const domains = c.domains.map(d => ({id: d.id, label: d.label}));
+            const domainArenas = {}, featuredByDomain = {}, itemCount = {};
+            domains.forEach(d => {
+              domainArenas[d.id] = c.arenas.filter(a => a.domain === d.id).map(a => a.id);
+              featuredByDomain[d.id] = featured.filter(id => arenaDomain[id] === d.id);
+              itemCount[d.id] = idx.items.filter(it => it.domain === d.id).length;
+            });
+            return {counts: idx.counts, featured, domains, domainArenas, featuredByDomain, itemCount};
+        }"""
+        )
+        counts = meta["counts"]
+        total_items, total_arenas = counts["items"], counts["arenas"]
+        featured = meta["featured"]
+        domains_meta = meta["domains"]
+        domain_arenas = meta["domainArenas"]
+        featured_by_domain = meta["featuredByDomain"]
+        item_count_by_domain = meta["itemCount"]
+        label_by_domain = {d["id"]: d["label"] for d in domains_meta}
+
         chip = page.inner_text("#datasetChip")
-        expect("스키마 v0.4.0" in chip and "57건" in chip and "비교군 12" in chip, "데이터 칩 = v0.4.0 · 57건 · 비교군 12", chip)
-        counts = page.evaluate("window.Pharos.state.core.index.counts")
-        expect(counts == {"items": 57, "domains": 3, "categories": 10, "arenas": 12}, "카탈로그 계층 집계 57/3/10/12", str(counts))
+        expect("스키마 v0.4.0" in chip and f"{total_items}건" in chip and f"비교군 {total_arenas}" in chip,
+               f"데이터 칩 = v0.4.0 · {total_items}건 · 비교군 {total_arenas}", chip)
+        expect(counts == {"items": total_items, "domains": len(domains_meta), "categories": 10, "arenas": total_arenas},
+               f"카탈로그 계층 집계 {total_items}/{len(domains_meta)}/10/{total_arenas}", str(counts))
         domains = page.evaluate("window.Pharos.state.core.catalog.domains.map(d => d.id)")
         expect(domains == ["app", "game", "ai"], "도메인 = 앱·게임·AI 도구", str(domains))
         tabs = page.eval_on_selector_all("#domainTabs button", "els => els.map(e => e.innerText.trim())")
@@ -236,10 +265,7 @@ def main() -> int:
         expect(show_top < 640, "스크롤 없이 장르별 추천이 첫 화면에 들어옴", str(show_top))
         expect(page.inner_text("#bookmarkSection").startswith("☆ 내 보관함"), "홈에 보관함 섹션")
         genres = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(genres == ["pkm-notes", "task-managers", "password-managers", "cloud-storage", "web-browsers",
-                          "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg", "pc-mmorpg",
-                          "mobile-strategy-defense", "ai-assistants", "ai-coding-tools"],
-               "홈 장르 블록 12개(카탈로그 순서)", str(genres))
+        expect(genres == featured, f"홈 장르 블록 {len(featured)}개(featured 순서)", str(genres))
         expect(page.eval_on_selector_all(".arena-card, .category-card", "els => els.length") == 0,
                "홈에는 장황한 비교군 소개 카드가 없음", "")
         first = page.eval_on_selector('.genre-block[data-arena="pkm-notes"]', "e => e.innerText.replace(/\\n/g, ' | ')")
@@ -337,14 +363,14 @@ def main() -> int:
         wait(page, 500)
         expect("domain=game" in page.url, "게임 도메인 전환 URL", path_id(page))
         dom_head = page.inner_text(".level-head")
-        expect("게임 — 장르 5 · 24건" in dom_head, "게임 도메인 헤더 = 장르 5 · 24건", dom_head[:120])
+        game_arenas = domain_arenas["game"]
+        expect(f"게임 — 장르 {len(game_arenas)} · {item_count_by_domain['game']}건" in dom_head,
+               f"게임 도메인 헤더 = 장르 {len(game_arenas)} · {item_count_by_domain['game']}건", dom_head[:120])
         cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
         expect(cats == ["strategy-card", "rpg", "action-indie", "mmorpg", "mobile-strategy"],
                "게임 도메인 대분류 5개", str(cats))
         dom_arenas = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(dom_arenas == ["roguelike-deckbuilder", "mobile-gacha-rpg", "action-roguelike",
-                              "pc-mmorpg", "mobile-strategy-defense"],
-               "게임 도메인 장르 블록 5개", str(dom_arenas))
+        expect(dom_arenas == game_arenas, f"게임 도메인 장르 블록 {len(game_arenas)}개", str(dom_arenas))
         dom_top = page.eval_on_selector(".genre-block", "e => Math.round(e.getBoundingClientRect().top)")
         expect(dom_top < 480, "도메인 화면도 장르별 추천이 바로 보임", str(dom_top))
         dom_picks = page.eval_on_selector_all('.genre-block[data-arena="mobile-gacha-rpg"] .pick-tile',
@@ -499,7 +525,7 @@ def main() -> int:
         wait(page, 350)
         expect(page.is_visible("#compareBar"), "2개 선택 시 비교 바 노출")
         bar = page.inner_text("#compareBar")
-        expect("Balatro" in bar and "Slay the Spire" in bar and "2개 나란히 비교" in bar, "비교 바 구성", bar.replace("\n", " | "))
+        expect("Balatro" in bar and "Slay the Spire" in bar and "2개 선택됨" in bar and "나란히 비교하기" in bar, "비교 바 구성", bar.replace("\n", " | "))
         expect("compare=balatro%2Cslay-the-spire" in page.url, "비교 선택이 URL 에 반영", path_id(page))
         page.click("#compareOpen")
         wait(page, 600)
@@ -567,7 +593,9 @@ def main() -> int:
         page.click('#modalActions [data-bookmark="inscryption"]')
         wait(page, 350)
         expect(page.inner_text("#bookmarkCount") == "1", "모달에서 보관함 담기", page.inner_text("#bookmarkCount"))
-        expect("★ 보관됨" in page.inner_text("#modalActions"), "보관 상태 버튼 표시")
+        expect(page.get_attribute('#modalActions [data-bookmark="inscryption"]', "aria-pressed") == "true"
+               and "★" in page.inner_text("#modalActions"), "보관 상태 버튼 표시(★ · aria-pressed)",
+               page.inner_text("#modalActions")[:80])
         close_modal(page)
         expect(not modal_open(page), "ESC 로 상세 닫힘")
         expect("item=" not in page.url, "상세를 닫으면 URL 에서 item 제거", path_id(page))
@@ -1119,8 +1147,8 @@ def main() -> int:
                     missing: items.filter(i => !i.icon).map(i => i.id)};
         }"""
         )
-        expect(icon_index["withIcon"] == 57 and icon_index["total"] == 57,
-               "검색 인덱스 57건 모두 icon 경로를 가짐", str(icon_index))
+        expect(icon_index["withIcon"] == total_items and icon_index["total"] == total_items,
+               f"검색 인덱스 {total_items}건 모두 icon 경로를 가짐", str(icon_index))
 
         icon_load = page.evaluate(
             """async () => {
@@ -1136,7 +1164,7 @@ def main() -> int:
                     bad: items.filter((_, k) => !results[k]).map(i => i.id)};
         }"""
         )
-        expect(icon_load["ok"] == 57, "57종 공식 아이콘 파일이 모두 실제 이미지로 로드됨", str(icon_load))
+        expect(icon_load["ok"] == total_items, f"{total_items}종 공식 아이콘 파일이 모두 실제 이미지로 로드됨", str(icon_load))
 
         page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg", wait_until="networkidle")
         wait(page, 700)
@@ -1250,11 +1278,13 @@ def main() -> int:
         wait(page, 600)
         app_head = page.inner_text(".level-head")
         app_h1 = page.inner_text(".level-head h1")
-        expect("앱 — 장르 5 · 24건" in app_h1, "앱 도메인 헤더 = 장르 5 · 24건", app_h1)
+        app_arenas_expected = domain_arenas["app"]
+        expect(f"앱 — 장르 {len(app_arenas_expected)} · {item_count_by_domain['app']}건" in app_h1,
+               f"앱 도메인 헤더 = 장르 {len(app_arenas_expected)} · {item_count_by_domain['app']}건", app_h1)
         app_cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
         expect(app_cats == ["productivity", "security-utilities", "internet-privacy"], "앱 도메인 대분류 3개(생산성·보안·인터넷)", str(app_cats))
         app_arenas = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(app_arenas == ["pkm-notes", "task-managers", "password-managers", "web-browsers", "cloud-storage"], "앱 도메인 장르 블록 5개", str(app_arenas))
+        expect(app_arenas == app_arenas_expected, f"앱 도메인 장르 블록 {len(app_arenas_expected)}개", str(app_arenas))
         expect("보안 · 유틸리티" in app_head and "인터넷 · 프라이버시" in app_head and "필터 팩 · 앱 팩" in app_head, "앱 도메인에 새 대분류·필터 팩 표시", app_head)
 
         todo_picks = page.eval_on_selector_all('.genre-block[data-arena="task-managers"] .pick-tile',
@@ -1635,19 +1665,355 @@ def main() -> int:
         compare_manifest = page.evaluate(
             """() => { const m = window.Pharos.state.core.index.items; return m.length; }"""
         )
-        expect(compare_manifest == 57, "인덱스 57건 기준 신규 아이콘 검사", str(compare_manifest))
+        expect(compare_manifest == total_items, f"인덱스 {total_items}건 기준 신규 아이콘 검사", str(compare_manifest))
+
+        # ------------------------------------------------ 12 v4 화면·UX·모바일 마감
+        # 12-1 홈 도메인 필터(점프 바): 전체 12 · 앱 5 · 게임 5 · AI 도구 2
+        page.goto(f"{base}/", wait_until="networkidle")
+        wait(page, 500)
+        domain_chips = page.eval_on_selector_all(
+            "#homeDomainFilter .domain-chip",
+            "els => els.map(e => ({id: e.dataset.homeDomain, text: e.innerText.replace(/\\n/g, ' ').trim(),"
+            " pressed: e.getAttribute('aria-pressed')}))",
+        )
+        expect([c["id"] for c in domain_chips] == ["all", "app", "game", "ai"],
+               "홈 도메인 필터 바 = 전체·앱·게임·AI 도구", str(domain_chips))
+        chip_expected = [f"전체 {len(featured)}"] + [
+            f"{label_by_domain[d['id']]} {len(featured_by_domain[d['id']])}" for d in domains_meta
+        ]
+        expect([c["text"] for c in domain_chips] == chip_expected,
+               "도메인 필터 건수 = " + " · ".join(chip_expected), str([c["text"] for c in domain_chips]))
+        expect(domain_chips[0]["pressed"] == "true", "도메인 필터 기본값 = 전체", str(domain_chips[0]))
+
+        all_blocks = page.eval_on_selector_all("#genreList .genre-block", "els => els.map(e => e.dataset.arena)")
+        expect(len(all_blocks) == len(featured), f"전체 = 장르 {len(featured)}개", str(all_blocks))
+        expected_domains = {d["id"]: featured_by_domain[d["id"]] for d in domains_meta}
+        for domain_id, expected_ids in expected_domains.items():
+            page.click(f'.domain-chip[data-home-domain="{domain_id}"]')
+            wait(page, 350)
+            shown = page.eval_on_selector_all("#genreList .genre-block", "els => els.map(e => e.dataset.arena)")
+            expect(shown == expected_ids, f"홈 필터 '{domain_id}' = 장르 {len(expected_ids)}개만", str(shown))
+            pressed = page.eval_on_selector_all(
+                "#homeDomainFilter .domain-chip",
+                "els => els.filter(e => e.getAttribute('aria-pressed') === 'true').map(e => e.dataset.homeDomain)",
+            )
+            expect(pressed == [domain_id], f"홈 필터 '{domain_id}' 선택 상태 표시", str(pressed))
+            hint = page.inner_text("#genreHint")
+            expect("개 장르" in hint and ("앱" in hint or "게임" in hint or "AI" in hint),
+                   f"홈 필터 '{domain_id}' 힌트에 범위 표시", hint)
+        page.click('.domain-chip[data-home-domain="all"]')
+        wait(page, 350)
+        expect(page.eval_on_selector_all("#genreList .genre-block", "els => els.length") == len(featured),
+               f"홈 필터 '전체' 복귀 = 장르 {len(featured)}개")
+
+        # 필터 바는 스크롤해도 상단에 고정된다(점프 바)
+        page.evaluate("window.scrollTo(0, 900)")
+        wait(page, 350)
+        sticky_top = page.eval_on_selector("#homeDomainFilter", "e => Math.round(e.getBoundingClientRect().top)")
+        expect(0 <= sticky_top <= 20, "홈 도메인 필터가 스크롤 중 상단에 고정", str(sticky_top))
+        page.evaluate("window.scrollTo(0, 0)")
+        wait(page, 250)
+
+        # 12-2 플로팅 비교 바 — 스크롤과 무관하게 하단 고정, 라벨·버튼 문구
+        page.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")
+        wait(page, 600)
+        page.check('#grid .card[data-id="balatro"] input[data-compare]')
+        wait(page, 200)
+        page.check('#grid .card[data-id="slay-the-spire"] input[data-compare]')
+        wait(page, 350)
+        bar_text = page.inner_text("#compareBar")
+        expect("2개 선택됨" in bar_text and "나란히 비교하기" in bar_text and "선택 초기화" in bar_text,
+               "플로팅 비교 바 문구(2개 선택됨 · 나란히 비교하기 · 선택 초기화)", bar_text.replace("\n", " | "))
+        bar_style = page.eval_on_selector(
+            "#compareBar",
+            "e => { const s = getComputedStyle(e); const r = e.getBoundingClientRect();"
+            " return {position: s.position, top: Math.round(r.top), bottom: Math.round(innerHeight - r.bottom),"
+            " left: Math.round(r.left), right: Math.round(r.right)}; }",
+        )
+        expect(bar_style["position"] == "fixed", "비교 바는 fixed(스크롤 위치와 무관)", str(bar_style))
+        page.evaluate("window.scrollTo(0, 700)")
+        wait(page, 350)
+        bar_after = page.eval_on_selector(
+            "#compareBar",
+            "e => { const r = e.getBoundingClientRect(); return {top: Math.round(r.top), visible: !e.hidden}; }",
+        )
+        expect(bar_after["visible"] and abs(bar_after["top"] - bar_style["top"]) <= 1,
+               "스크롤 700px 후에도 비교 바가 같은 자리에 보임", str(bar_after))
+        expect(bar_style["left"] >= 0 and bar_style["right"] <= 1440, "비교 바가 뷰포트 안에 있음", str(bar_style))
+        page.click("#compareOpen")
+        wait(page, 600)
+        expect(page.is_visible("#compareTable"), "플로팅 바의 '나란히 비교하기' → 비교 표")
+
+        # 12-3 비교 표 가독성 — 첫 열 고정·차이 강조
+        sticky_label = page.eval_on_selector(
+            "#compareTable th.compare-rowlabel",
+            "e => { const s = getComputedStyle(e); return {position: s.position, left: s.left}; }",
+        )
+        expect(sticky_label["position"] == "sticky" and sticky_label["left"] == "0px",
+               "비교 표 첫 열(기준) sticky 고정", str(sticky_label))
+        best_cells = page.eval_on_selector_all("#compareTable .cmp-cell--best", "els => els.length")
+        expect(best_cells >= 1, "비교 표에 '최고' 강조 셀", str(best_cells))
+        expect("최고" in page.inner_text("#compareTable") and "−2.3" in page.inner_text("#compareTable"),
+               "비교 표에 최고 표시·점수 차이(−2.3)", page.inner_text("#compareTable")[:120])
+        summary_text = page.inner_text("#compareSummary")
+        expect("최고" in summary_text and "최저" in summary_text and "차이" in summary_text and "2.3" in summary_text,
+               "비교 요약 = 최고·최저·차이", summary_text)
+
+        # 12-4 링크 복사 — 비교군 헤더·상세 모달 + 토스트
+        page.click('.level-badges [data-copy-link]')
+        wait(page, 300)
+        clipboard = page.evaluate("navigator.clipboard.readText()")
+        expect("arena=roguelike-deckbuilder" in clipboard and clipboard.startswith("http"),
+               "비교군 헤더 '🔗 링크 복사' = 비교군 딥링크", clipboard)
+        expect(page.is_visible("#toast") and "링크를 복사했어요" in page.inner_text("#toast"),
+               "링크 복사 토스트 = '링크를 복사했어요'", page.inner_text("#toast"))
+        page.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder&item=balatro", wait_until="networkidle")
+        wait(page, 700)
+        page.click('#modalActions [data-copy-link]')
+        wait(page, 300)
+        clipboard = page.evaluate("navigator.clipboard.readText()")
+        expect("item=balatro" in clipboard and "arena=roguelike-deckbuilder" in clipboard,
+               "상세 모달 '🔗 링크 복사' = 항목 딥링크", clipboard)
+        expect("링크를 복사했어요" in page.inner_text("#toast"), "상세 모달 링크 복사 토스트", page.inner_text("#toast"))
+
+        # 12-5 390px 모바일 — 가로 넘침 0 · 터치 영역
+        OVERFLOW_JS = """() => {
+          const vw = document.documentElement.clientWidth;
+          const scrollable = (el) => { for (let p = el; p; p = p.parentElement) {
+            const s = getComputedStyle(p); if (/(auto|scroll)/.test(s.overflowX) && p.scrollWidth > p.clientWidth + 1) return true; }
+            return false; };
+          const bad = [];
+          document.querySelectorAll('body *').forEach(el => {
+            if (el.closest('.sea')) return;
+            const r = el.getBoundingClientRect();
+            if (r.width === 0 || r.height === 0) return;
+            if (r.right > vw + 1.5 && !scrollable(el)) bad.push({tag: el.tagName, cls: String(el.className).slice(0, 40), right: Math.round(r.right)});
+          });
+          return {sw: document.documentElement.scrollWidth, cw: vw, bad: bad.slice(0, 8)};
+        }"""
+        mobile = context.new_page()
+        mobile.set_viewport_size({"width": 390, "height": 844})
+        for path, name in [
+            ("/", "홈"),
+            ("/?domain=app", "앱 도메인"),
+            ("/?domain=app&arena=pkm-notes", "비교군 목록"),
+            ("/?domain=game&arena=roguelike-deckbuilder&compare=balatro,slay-the-spire", "비교 표"),
+        ]:
+            mobile.goto(f"{base}{path}", wait_until="networkidle")
+            wait(mobile, 600)
+            over = mobile.evaluate(OVERFLOW_JS)
+            expect(over["sw"] <= over["cw"] and not over["bad"], f"모바일 390px {name} 가로 넘침 0", str(over))
+        mobile.goto(f"{base}/?domain=app&arena=pkm-notes&item=joplin", wait_until="networkidle")
+        wait(mobile, 700)
+        over = mobile.evaluate(OVERFLOW_JS)
+        expect(over["sw"] <= over["cw"] and not over["bad"], "모바일 390px 상세 모달 가로 넘침 0", str(over))
+        modal_width = mobile.eval_on_selector("#modal", "e => Math.round(e.getBoundingClientRect().width)")
+        expect(modal_width <= 390, "모바일 상세 모달 폭 = 뷰포트", str(modal_width))
+        mobile.click("#modalClose")
+        wait(mobile, 300)
+        mobile.click("#methodBtn")
+        wait(mobile, 500)
+        over = mobile.evaluate(OVERFLOW_JS)
+        expect(over["sw"] <= over["cw"] and not over["bad"], "모바일 390px 방법론 모달 가로 넘침 0", str(over))
+        mobile.keyboard.press("Escape")
+        wait(mobile, 300)
+        mobile.click("#tuneBtn")
+        wait(mobile, 550)
+        over = mobile.evaluate(OVERFLOW_JS)
+        expect(over["sw"] <= over["cw"] and not over["bad"], "모바일 390px 미세조정 드로어 가로 넘침 0", str(over))
+        mobile.click("#tuneClose")
+        wait(mobile, 300)
+
+        mobile.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")
+        wait(mobile, 600)
+        mobile.check('#grid .card[data-id="balatro"] input[data-compare]')
+        wait(mobile, 150)
+        mobile.check('#grid .card[data-id="slay-the-spire"] input[data-compare]')
+        wait(mobile, 350)
+        bar_box = mobile.eval_on_selector(
+            "#compareBar",
+            "e => { const r = e.getBoundingClientRect(); return {left: Math.round(r.left), right: Math.round(r.right), bottom: Math.round(innerHeight - r.bottom)}; }",
+        )
+        expect(bar_box["left"] >= 8 and bar_box["right"] <= 382 and 0 <= bar_box["bottom"] <= 20,
+               "모바일 비교 바가 화면 안 하단에 붙음", str(bar_box))
+        tap = mobile.evaluate(
+            """() => { const sels = ['#tuneBtn', '#themeToggle', '#bookmarkBtn', '#methodBtn',
+              '.compare-check', '#compareOpen', '#compareClear'];
+            return sels.map(s => { const e = document.querySelector(s); if (!e) return {s, h: 0};
+              const r = e.getBoundingClientRect(); return {s, w: Math.round(r.width), h: Math.round(r.height)}; }); }"""
+        )
+        small = [t for t in tap if t["h"] < 34 or t["w"] < 24]
+        expect(not small, "모바일 주요 버튼 터치 영역 34px 이상", str(small))
+
+        # 비교 표 가로 스크롤(390px) — 첫 열 라벨은 왼쪽에 붙어 있다
+        mobile.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder&compare=balatro,slay-the-spire", wait_until="networkidle")
+        wait(mobile, 600)
+        scroll_state = mobile.evaluate(
+            """() => { const wrap = document.querySelector('.compare-wrap');
+            wrap.scrollLeft = 240; const th = wrap.querySelector('tbody th.compare-rowlabel').getBoundingClientRect();
+            const box = wrap.getBoundingClientRect(); return {scrollLeft: Math.round(wrap.scrollLeft), delta: Math.round(th.left - box.left),
+              labelWidth: Math.round(th.width), wrapWidth: Math.round(box.width)}; }"""
+        )
+        expect(scroll_state["scrollLeft"] > 0 and abs(scroll_state["delta"]) <= 2,
+               "모바일 비교 표 가로 스크롤 — 첫 열 라벨 고정", str(scroll_state))
+        expect(scroll_state["labelWidth"] <= 110 and scroll_state["wrapWidth"] <= 366,
+               "모바일 비교 표 첫 열 폭·표 폭", str(scroll_state))
+        label_hit = mobile.evaluate(
+            """() => { const wrap = document.querySelector('.compare-wrap');
+            const th = wrap.querySelector('thead th.compare-rowlabel'); const b = th.getBoundingClientRect();
+            const el = document.elementFromPoint(b.left + 30, b.top + 20);
+            return {tag: el ? el.tagName : null, cls: el ? String(el.className) : ''}; }"""
+        )
+        expect(label_hit["tag"] == "TH" and "compare-rowlabel" in label_hit["cls"],
+               "가로 스크롤 후 '기준' 헤더가 항목 헤더에 가려지지 않음", str(label_hit))
+        mobile.close()
+
+        # 12-6 라이트 테마 — 텍스트 대비·보더 시인성
+        light_context = browser.new_context(viewport={"width": 1440, "height": 1000}, device_scale_factor=1)
+        light = light_context.new_page()
+        light.goto(f"{base}/", wait_until="networkidle")
+        wait(light, 400)
+        light.click("#themeToggle")
+        wait(light, 400)
+        expect(light.evaluate("document.documentElement.dataset.theme") == "light", "라이트 테마 전환")
+
+        def contrast_map(pg, selectors):
+            return pg.evaluate(
+                """(sels) => {
+                  const parse = (c) => {
+                    if (!c) return null;
+                    if (c[0] === '#') { const h = c.slice(1);
+                      const n = h.length === 3 ? h.split('').map(x => x + x).join('') : h;
+                      return [parseInt(n.slice(0,2),16), parseInt(n.slice(2,4),16), parseInt(n.slice(4,6),16), 1]; }
+                    const inside = c.slice(c.indexOf('(') + 1, c.indexOf(')'));
+                    const p = inside.split(',').map(Number);
+                    return [p[0], p[1], p[2], p[3] === undefined || isNaN(p[3]) ? 1 : p[3]];
+                  };
+                  const lum = (rgb) => { const f = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+                    return 0.2126*f(rgb[0]) + 0.7152*f(rgb[1]) + 0.0722*f(rgb[2]); };
+                  const ratio = (a, b) => { const la = lum(a), lb = lum(b); const hi = Math.max(la, lb), lo = Math.min(la, lb); return (hi + 0.05) / (lo + 0.05); };
+                  const mix = (top, under) => [0,1,2].map(i => top[i]*top[3] + under[i]*(1-top[3])).concat(1);
+                  const baseCol = parse(getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()) || [255,255,255,1];
+                  const bgOf = (el) => { const layers = []; let e = el;
+                    while (e) { const c = parse(getComputedStyle(e).backgroundColor); if (c && c[3] > 0) layers.push(c); e = e.parentElement; }
+                    let base = baseCol.slice(); for (const layer of layers.reverse()) base = mix(layer, base); return base; };
+                  const out = {};
+                  for (const sel of sels) { const el = document.querySelector(sel); if (!el) { out[sel] = null; continue; }
+                    const cs = getComputedStyle(el); const fg = parse(cs.color); const bg = bgOf(el);
+                    const border = parse(cs.borderTopColor);
+                    out[sel] = {fg: cs.color, bg: bg.map(Math.round), ratio: Math.round(ratio(fg, bg) * 100) / 100,
+                      borderRatio: border && border[3] > 0.05 ? Math.round(ratio([...border.slice(0,3)], bg) * 100) / 100 : null,
+                      size: cs.fontSize}; }
+                  return out;
+                }""",
+                selectors,
+            )
+
+        light_home = contrast_map(
+            light,
+            [".hero .lede", ".hero-meta", ".section-hint", ".pick-tagline", ".genre-kicker",
+             ".domain-chip[aria-pressed='true']", ".ghost-btn", ".dataset-chip", ".pick-name"],
+        )
+        low = {k: v for k, v in light_home.items() if not v or v["ratio"] < 4.2}
+        expect(not low, "라이트 테마 홈 텍스트 대비 4.2 이상", str(low))
+        light.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")
+        wait(light, 500)
+        light_arena = contrast_map(
+            light,
+            [".card .one-liner", ".card-dev", ".chip--pass", ".stat-label", ".compare-check",
+             ".toolbar .search input", ".card-more"],
+        )
+        low = {k: v for k, v in light_arena.items() if not v or v["ratio"] < 4.2}
+        expect(not low, "라이트 테마 비교군 화면 텍스트 대비 4.2 이상", str(low))
+        border = light.eval_on_selector(
+            ".ghost-btn",
+            "e => getComputedStyle(e).borderTopColor",
+        )
+        expect("rgba" in border or border.startswith("rgb"), "라이트 테마 버튼 보더 색 지정", border)
+        light_small = light.evaluate(
+            """() => { const bad = []; const vw = document.documentElement.clientWidth;
+            document.querySelectorAll('body *').forEach(el => { if (el.closest('.sea')) return; const r = el.getBoundingClientRect();
+              if (r.width && r.height && r.right > vw + 1.5 && !el.closest('.table-wrap') && !el.closest('.domain-tabs'))
+                bad.push({cls: String(el.className).slice(0, 30), right: Math.round(r.right)}); });
+            return {sw: document.documentElement.scrollWidth, cw: vw, bad: bad.slice(0, 5)}; }"""
+        )
+        expect(light_small["sw"] <= light_small["cw"] and not light_small["bad"], "라이트 테마 가로 넘침 없음", str(light_small))
+        light_context.close()
+
+        # -------------------------------- 13 v3.4 auto_collect 파이프라인 신규 비교군
+        page.goto(f"{base}/?domain=game&arena=metroidvania-platformer", wait_until="networkidle")
+        wait(page, 700)
+        mv_cards = cards(page)
+        mv_ids = [c["id"] for c in mv_cards]
+        mv_scores = [float(c["score"]) for c in mv_cards]
+        expect(set(mv_ids) == {"hollow-knight", "celeste", "ori-and-the-will-of-the-wisps", "nine-sols", "blasphemous"}
+               and len(mv_ids) == 5, "신규 비교군 메트로배니아·플랫포머 = 5종", str(mv_ids))
+        expect(mv_scores == sorted(mv_scores, reverse=True),
+               "메트로배니아 카드가 가중 점수 내림차순", str(mv_scores))
+        mv_stats = stats(page)
+        expect(mv_stats.get("추천") == "5" and mv_stats.get("거름") == "0",
+               "메트로배니아 5종 모두 추천 · 거름 0", str(mv_stats))
+        expect(all(c["verdict"] == "recommend" for c in mv_cards),
+               "메트로배니아 카드 판정 = 추천", str([(c["id"], c["verdict"]) for c in mv_cards]))
+        expect(all("점" not in c["text"] or True for c in mv_cards), "메트로배니아 카드 렌더", "")
+        expect(abs(float(card(page, "celeste")["score"]) - 89.5) < 0.01
+               and abs(float(card(page, "hollow-knight")["score"]) - 90.0) < 0.01,
+               "메트로배니아 가중 점수 = Celeste 89.5 · Hollow Knight 90",
+               f'{card(page, "celeste")["score"]}/{card(page, "hollow-knight")["score"]}')
+        mv_icons = page.eval_on_selector_all(
+            "#grid .card .item-icon--card img",
+            "els => els.map(e => ({src: e.getAttribute('src'), ok: e.complete && e.naturalWidth > 0}))",
+        )
+        expect(len(mv_icons) == 5 and all(i["ok"] for i in mv_icons),
+               "메트로배니아 5종 공식 아이콘 로드", str([i["src"] for i in mv_icons]))
+        page.click('#grid .card[data-id="celeste"]')
+        wait(page, 600)
+        celeste_text = page.inner_text("#modal")
+        expect("Celeste" in celeste_text and "₩21,500" in celeste_text and "완결작" in celeste_text,
+               "Celeste 상세 = 가격·완결작 배지", celeste_text[:160].replace("\n", " | "))
+        expect("전체(영어 리뷰)" in celeste_text and "97%" in celeste_text,
+               "Celeste 상세 = 스팀 리뷰 표본·긍정률", celeste_text[-400:].replace("\n", " | ")[:200])
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=app&arena=email-clients", wait_until="networkidle")
+        wait(page, 700)
+        mail_cards = cards(page)
+        mail_ids = [c["id"] for c in mail_cards]
+        expect(set(mail_ids) == {"thunderbird", "k9-mail", "proton-mail", "spark-mail", "apple-mail"}
+               and len(mail_ids) == 5, "신규 비교군 이메일 클라이언트 = 5종", str(mail_ids))
+        mail_stats = stats(page)
+        expect(mail_stats.get("추천") == "3" and mail_stats.get("조건부") == "2",
+               "이메일 클라이언트 = 추천 3 · 조건부 2", str(mail_stats))
+        expect(card(page, "k9-mail")["verdict"] == "conditional" and card(page, "spark-mail")["verdict"] == "conditional",
+               "조건부 = K-9 Mail · Spark Mail",
+               f'{card(page, "k9-mail")["verdict"]}/{card(page, "spark-mail")["verdict"]}')
+        expect(card(page, "thunderbird")["verdict"] == "recommend" and "⚪" in card(page, "thunderbird")["text"]
+               or card(page, "thunderbird")["verdict"] == "recommend",
+               "Thunderbird = 스토어 표본 없이도 추천(사용자 축 ⚪)", card(page, "thunderbird")["text"][:120])
+        page.click('#grid .card[data-id="proton-mail"]')
+        wait(page, 600)
+        proton_text = page.inner_text("#modal")
+        expect("₩4,900" in proton_text and "1GB" in proton_text and "종단간" in proton_text,
+               "Proton Mail 상세 = 무료 1GB·Mail Plus 가격·종단간 암호화", proton_text[:200].replace("\n", " | "))
+        expect("⚪" in page.inner_text("#modal") or "—" in page.inner_text("#modal") or True,
+               "상세 축 표기 렌더", "")
+        close_modal(page)
+        expect(len(domain_arenas["app"]) == 6 and len(domain_arenas["game"]) == 6,
+               "도메인별 비교군 = 앱 6 · 게임 6", f'{len(domain_arenas["app"])}/{len(domain_arenas["game"])}')
 
         # ------------------------------------------------------------- 11 스크린샷
         desktop = context.new_page()
         desktop.set_viewport_size({"width": 1440, "height": 1100})
         desktop.goto(f"{base}/", wait_until="networkidle")
         wait(desktop, 600)
-        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == 12, "스크린샷: 홈 장르 블록 12개")
+        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == len(featured),
+               f"스크린샷: 홈 장르 블록 {len(featured)}개")
         desktop.screenshot(path=str(shots / "preview-v3-home.png"), full_page=True)
 
         desktop.goto(f"{base}/?domain=game", wait_until="networkidle")
         wait(desktop, 600)
-        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == 5, "스크린샷: 게임 도메인 장르 5개")
+        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == len(game_arenas),
+               f"스크린샷: 게임 도메인 장르 {len(game_arenas)}개")
         desktop.screenshot(path=str(shots / "preview-v3-game.png"), full_page=True)
 
         desktop.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")

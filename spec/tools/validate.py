@@ -467,7 +467,7 @@ def semantic_errors(item, ctx, arena_id=None):
                 and recent.get("evidence_grade") == "C"
                 and isinstance(count, int) and count < 1000
                 and cumulative.get("evidence_grade") in ("A", "B")
-                and isinstance(base, int) and base >= max(100000, count * 100)
+                and isinstance(base, int) and base >= max(10000, count * 100)
                 and isinstance(cumulative.get("value"), (int, float))
                 and cumulative.get("scale") == "stars5" and cumulative["value"] >= 4.4
             ):

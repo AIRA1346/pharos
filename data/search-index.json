@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 57,
+    "items": 67,
     "domains": 3,
     "categories": 10,
-    "arenas": 12
+    "arenas": 14
   },
-  "content_hash": "d8a77e1005517c801ba92213b73e7581e084a07035c39d16607f5a5987eb70b0",
+  "content_hash": "edd7c8865b06c519dd22093bbd9310985ff745d0fd6f983e306990c51a4f5690",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -156,6 +156,30 @@
         "vampire-survivors"
       ]
     },
+    "metroidvania-platformer": {
+      "label": "메트로배니아 · 플랫포머",
+      "domain": "game",
+      "category": "action-indie",
+      "count": 5,
+      "avg_score": 87.9,
+      "verdicts": {
+        "recommend": 5,
+        "conditional": 0,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "hollow-knight",
+        "name": "Hollow Knight",
+        "score": 90.0
+      },
+      "items": [
+        "blasphemous",
+        "celeste",
+        "hollow-knight",
+        "nine-sols",
+        "ori-and-the-will-of-the-wisps"
+      ]
+    },
     "pc-mmorpg": {
       "label": "PC MMORPG",
       "domain": "game",
@@ -226,6 +250,30 @@
         "edge",
         "firefox",
         "vivaldi"
+      ]
+    },
+    "email-clients": {
+      "label": "이메일 클라이언트",
+      "domain": "app",
+      "category": "internet-privacy",
+      "count": 5,
+      "avg_score": 81.7,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 2,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "proton-mail",
+        "name": "Proton Mail",
+        "score": 89.0
+      },
+      "items": [
+        "apple-mail",
+        "k9-mail",
+        "proton-mail",
+        "spark-mail",
+        "thunderbird"
       ]
     },
     "cloud-storage": {
@@ -371,6 +419,69 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "apple-mail",
+      "name": "Apple Mail",
+      "icon": "assets/icons/apple-mail.webp",
+      "aliases": [
+        "메일",
+        "Mail",
+        "애플 메일"
+      ],
+      "domain": "app",
+      "category": "internet-privacy",
+      "arenas": [
+        "email-clients"
+      ],
+      "developer": "Apple",
+      "genres": [
+        "이메일 클라이언트",
+        "iOS 기본",
+        "iCloud"
+      ],
+      "platforms": [
+        "ios",
+        "macos"
+      ],
+      "one_liner": "아이폰·맥에 기본으로 들어 있는 메일 — 추가 비용 없이 IMAP 계정과 iCloud 메일을 한 곳에서 다룬다.",
+      "tagline": "0원 — 이미 깔려 있고, 계정만 추가하면 끝난다.",
+      "taste_tags": [
+        "free",
+        "preinstalled",
+        "no-account",
+        "no-ads",
+        "closed-source",
+        "system-integrated"
+      ],
+      "keywords": [
+        "메일",
+        "Mail",
+        "애플 메일",
+        "iCloud 메일",
+        "아이폰 기본 메일"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 84.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 92,
+      "store_stars": {
+        "value": 4.62,
+        "count": 4589088,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 72",
           "tone": "warn"
         }
       ],
@@ -685,6 +796,73 @@
       "gap": null
     },
     {
+      "id": "blasphemous",
+      "name": "Blasphemous",
+      "icon": "assets/icons/blasphemous.webp",
+      "aliases": [
+        "블라스퍼머스"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "The Game Kitchen",
+      "genres": [
+        "메트로배니아",
+        "액션 어드벤처",
+        "인디",
+        "2D",
+        "다크 판타지"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "ios",
+        "console"
+      ],
+      "one_liner": "가시관을 쓴 참회자가 기적의 땅을 걷는 2D 액션 — 종교 도상과 잔혹한 연출이 인상적인 1회 구매 완결작.",
+      "tagline": "본편만 사면 끝 — 추가 결제는 꾸미기용이다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "feature-complete",
+        "no-account",
+        "single-player",
+        "dark-fantasy",
+        "pixel-art"
+      ],
+      "keywords": [
+        "블라스퍼머스",
+        "The Game Kitchen",
+        "Team17",
+        "참회자",
+        "Cvstodia"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.0,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.44,
+        "count": 258,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
       "id": "bloons-td-6",
       "name": "Bloons TD 6",
       "icon": "assets/icons/bloons-td-6.webp",
@@ -875,6 +1053,66 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "celeste",
+      "name": "Celeste",
+      "icon": "assets/icons/celeste.webp",
+      "aliases": [
+        "셀레스트"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "Maddy Makes Games Inc.",
+      "genres": [
+        "정밀 플랫포머",
+        "액션",
+        "인디",
+        "2D"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "console"
+      ],
+      "one_liner": "한 번의 점프를 수백 번 다시 시도하게 만드는 정밀 플랫포머 — 무료 확장 챕터까지 본편에 담긴 1회 구매 완결작.",
+      "tagline": "한 번 사면 본편과 확장 챕터까지 — 추가 결제가 없다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "feature-complete",
+        "no-account",
+        "single-player",
+        "precision-platformer",
+        "accessibility-options"
+      ],
+      "keywords": [
+        "셀레스트",
+        "Maddy Thorson",
+        "Extremely OK Games",
+        "Farewell",
+        "어시스트 모드"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 89.5,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 97,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 72",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -2284,6 +2522,62 @@
       }
     },
     {
+      "id": "hollow-knight",
+      "name": "Hollow Knight",
+      "icon": "assets/icons/hollow-knight.webp",
+      "aliases": [
+        "할로우 나이트",
+        "Hollow Knight 1"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "Team Cherry",
+      "genres": [
+        "메트로배니아",
+        "액션 어드벤처",
+        "인디",
+        "2D 플랫포머"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "console"
+      ],
+      "one_liner": "지도와 능력을 하나씩 얻으며 지하 왕국을 내려가는 2D 메트로배니아 — 9년째 유지 패치가 이어지는 1회 구매 완결작.",
+      "tagline": "한 번 사면 본편 전부 — 9년째 이어지는 유지 패치까지 포함.",
+      "taste_tags": [
+        "one-time-purchase",
+        "feature-complete",
+        "no-account",
+        "single-player",
+        "hand-drawn",
+        "challenging"
+      ],
+      "keywords": [
+        "할로우 나이트",
+        "Team Cherry",
+        "실크송",
+        "Silksong",
+        "Hallownest"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 90.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A/C",
+      "user_rating": 97,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "honkai-star-rail",
       "name": "붕괴: 스타레일 (Honkai: Star Rail)",
       "icon": "assets/icons/honkai-star-rail.webp",
@@ -2455,6 +2749,72 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "k9-mail",
+      "name": "K-9 Mail",
+      "icon": "assets/icons/k9-mail.webp",
+      "aliases": [
+        "K9 메일",
+        "Thunderbird for Android"
+      ],
+      "domain": "app",
+      "category": "internet-privacy",
+      "arenas": [
+        "email-clients"
+      ],
+      "developer": "MZLA Technologies Corporation",
+      "genres": [
+        "이메일 클라이언트",
+        "안드로이드",
+        "오픈소스",
+        "IMAP"
+      ],
+      "platforms": [
+        "android"
+      ],
+      "one_liner": "안드로이드에서 IMAP 계정을 직접 붙여 쓰는 오픈소스 메일 앱 — 썬더버드 안드로이드판으로 이름을 바꿔 이어지는 중.",
+      "tagline": "무료로 전 기능 — 계정을 직접 붙이는 만큼 설정이 남는다.",
+      "taste_tags": [
+        "free",
+        "open-source",
+        "no-account",
+        "imap",
+        "no-ads",
+        "pgp"
+      ],
+      "keywords": [
+        "K9 메일",
+        "Thunderbird for Android",
+        "IMAP",
+        "POP3",
+        "OpenPGP"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "android",
+      "score": 69.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 60,
+      "store_stars": {
+        "value": 3.0,
+        "count": 99620,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 60",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -2982,6 +3342,63 @@
       "gap": null
     },
     {
+      "id": "nine-sols",
+      "name": "Nine Sols",
+      "icon": "assets/icons/nine-sols.webp",
+      "aliases": [
+        "나인 솔즈",
+        "九日"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "RedCandleGames",
+      "genres": [
+        "메트로배니아",
+        "액션",
+        "인디",
+        "2D",
+        "패링"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "console"
+      ],
+      "one_liner": "도교·사이버펑크가 섞인 세계에서 '도(道)'를 되찾는 2D 액션 — 패링 중심 전투와 한국어 완전 지원이 강점인 신작.",
+      "tagline": "한 번 사면 본편 전부 — 2년 차 패치까지 포함.",
+      "taste_tags": [
+        "one-time-purchase",
+        "no-account",
+        "single-player",
+        "korean-support",
+        "parry-combat",
+        "hand-drawn"
+      ],
+      "keywords": [
+        "나인 솔즈",
+        "九日",
+        "Red Candle Games",
+        "레드 캔들",
+        "환원",
+        "도교"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 89.25,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 95,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "notion",
       "name": "Notion",
       "icon": "assets/icons/notion.webp",
@@ -3156,6 +3573,65 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 64",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "ori-and-the-will-of-the-wisps",
+      "name": "Ori and the Will of the Wisps",
+      "icon": "assets/icons/ori-and-the-will-of-the-wisps.webp",
+      "aliases": [
+        "오리와 도깨비불",
+        "Ori 2"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "Moon Studios GmbH",
+      "genres": [
+        "메트로배니아",
+        "액션 플랫포머",
+        "인디",
+        "2D"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "console"
+      ],
+      "one_liner": "숲의 영혼이 실패를 거듭하며 날개를 얻는 2D 액션 — 손그림 배경과 유려한 이동이 중심인 1회 구매 완결작.",
+      "tagline": "한 번 사면 본편 전부 — 추가 결제 없이 끝난다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "feature-complete",
+        "no-account",
+        "single-player",
+        "hand-painted",
+        "cinematic"
+      ],
+      "keywords": [
+        "오리와 도깨비불",
+        "Moon Studios",
+        "Ori",
+        "오리 시리즈",
+        "Xbox 게임 스튜디오"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 87.75,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 96,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 70",
           "tone": "warn"
         }
       ],
@@ -3357,6 +3833,68 @@
       "gap": null
     },
     {
+      "id": "proton-mail",
+      "name": "Proton Mail",
+      "icon": "assets/icons/proton-mail.webp",
+      "aliases": [
+        "프로톤 메일"
+      ],
+      "domain": "app",
+      "category": "internet-privacy",
+      "arenas": [
+        "email-clients"
+      ],
+      "developer": "Proton AG",
+      "genres": [
+        "이메일 클라이언트",
+        "암호화",
+        "프라이버시",
+        "구독"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "web",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "스위스에 두고 쓰는 암호화 메일 — 무료 1GB로 시작하고, 종단간 암호화가 기본값인 클라이언트.",
+      "tagline": "무료로 시작해 1GB를 넘기면 Mail Plus로 올리는 구조.",
+      "taste_tags": [
+        "freemium",
+        "encrypted",
+        "no-ads",
+        "privacy-first",
+        "subscription",
+        "open-source-clients"
+      ],
+      "keywords": [
+        "프로톤 메일",
+        "Proton",
+        "종단간 암호화",
+        "PGP",
+        "스위스",
+        "PM.me"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 89.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 95,
+      "store_stars": {
+        "value": 4.75,
+        "count": 51451,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "simplenote",
       "name": "Simplenote",
       "icon": "assets/icons/simplenote.webp",
@@ -3475,6 +4013,75 @@
       "gap": null
     },
     {
+      "id": "spark-mail",
+      "name": "Spark Mail",
+      "icon": "assets/icons/spark-mail.webp",
+      "aliases": [
+        "Spark",
+        "스파크 메일"
+      ],
+      "domain": "app",
+      "category": "internet-privacy",
+      "arenas": [
+        "email-clients"
+      ],
+      "developer": "Readdle",
+      "genres": [
+        "이메일 클라이언트",
+        "AI 메일",
+        "스마트 인박스",
+        "팀 협업"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "macos",
+        "windows"
+      ],
+      "one_liner": "여러 메일 계정을 한 화면에서 처리하는 AI 메일 클라이언트 — 스마트 인박스가 강점이고 AI 기능은 유료다.",
+      "tagline": "무료로 기본 처리, AI는 Plus부터.",
+      "taste_tags": [
+        "freemium",
+        "ai-features",
+        "subscription",
+        "team-collaboration",
+        "closed-source",
+        "multi-account"
+      ],
+      "keywords": [
+        "스파크 메일",
+        "Spark",
+        "Readdle",
+        "스마트 인박스",
+        "AI 어시스턴트"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "ios",
+      "score": 80.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": 92,
+      "store_stars": {
+        "value": 4.62,
+        "count": 82948,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 62",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
       "id": "tasks-org",
       "name": "Tasks.org",
       "icon": "assets/icons/tasks-org.webp",
@@ -3585,6 +4192,61 @@
         "platform": "ios",
         "evidence_grade": "A"
       },
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "thunderbird",
+      "name": "Thunderbird",
+      "icon": "assets/icons/thunderbird.webp",
+      "aliases": [
+        "모질라 썬더버드",
+        "Mozilla Thunderbird"
+      ],
+      "domain": "app",
+      "category": "internet-privacy",
+      "arenas": [
+        "email-clients"
+      ],
+      "developer": "MZLA Technologies Corporation",
+      "genres": [
+        "이메일 클라이언트",
+        "데스크톱",
+        "오픈소스",
+        "로컬 저장"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "메일을 내 컴퓨터에 두고 쓰는 데스크톱 클라이언트 — 계정·광고 없이 IMAP으로 어디에나 붙는 오픈소스.",
+      "tagline": "무료로 전 기능 — 서버 용량만 쓰던 메일 서버를 따른다.",
+      "taste_tags": [
+        "free",
+        "open-source",
+        "no-account",
+        "local-first",
+        "no-ads",
+        "imap"
+      ],
+      "keywords": [
+        "모질라 썬더버드",
+        "Mozilla Thunderbird",
+        "MZLA",
+        "IMAP",
+        "mbox",
+        "PGP"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "default",
+      "score": 86.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-25",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
       "drivers": [],
       "gap": null
     },

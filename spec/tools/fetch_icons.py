@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""파로스 아이템 42종의 공식 아이콘을 내려받아 web/assets/icons/ 에 정규화 저장한다.
+"""파로스 아이템 57종의 공식 아이콘을 내려받아 web/assets/icons/ 에 정규화 저장한다.
 
 원칙
   · 외부 URL 핫링크·만료를 피하려고 파일을 직접 내려받아 저장한다(오프라인 배포).
@@ -155,6 +155,25 @@ SOURCES = [
         "provider": "Open VSX — Cline 확장 공식 아이콘",
         "note": "확장 패키지에 포함된 공식 아이콘(Open VSX 배포본)",
     },
+
+    # ── AI 도구: AI 어시스턴트 · 검색 (v0.4.3) ────────────────────────────────
+    {"id": "claude", "kind": "itunes", "bundle": "com.anthropic.claude", "term": "Claude Anthropic", "countries": ["kr", "us"]},
+    {"id": "chatgpt", "kind": "itunes", "bundle": "com.openai.chat", "term": "ChatGPT", "countries": ["kr", "us"]},
+    {"id": "perplexity", "kind": "itunes", "bundle": "ai.perplexity.app", "term": "Perplexity", "countries": ["kr", "us"]},
+    {"id": "gemini", "kind": "itunes", "bundle": "com.google.gemini", "term": "Google Gemini", "countries": ["kr", "us"]},
+    {"id": "le-chat", "kind": "itunes", "bundle": "ai.mistral.chat", "term": "Le Chat Mistral", "countries": ["kr", "us"]},
+    # ── 앱: 웹 브라우저 (v0.4.3) ─────────────────────────────────────────────
+    {"id": "firefox", "kind": "itunes", "bundle": "org.mozilla.ios.Firefox", "term": "Firefox", "countries": ["kr", "us"]},
+    {"id": "brave", "kind": "itunes", "bundle": "com.brave.ios.browser", "term": "Brave Private Browser", "countries": ["kr", "us"]},
+    {"id": "vivaldi", "kind": "itunes", "bundle": "com.vivaldi.browser", "term": "Vivaldi", "countries": ["us", "kr"]},
+    {"id": "chrome", "kind": "itunes", "bundle": "com.google.chrome.ios", "term": "Google Chrome", "countries": ["kr", "us"]},
+    {"id": "edge", "kind": "itunes", "bundle": "com.microsoft.msedge", "term": "Microsoft Edge", "countries": ["kr", "us"]},
+    # ── 앱: 클라우드 스토리지 (v0.4.3) ───────────────────────────────────────
+    {"id": "proton-drive", "kind": "itunes", "bundle": "ch.protonmail.drive", "term": "Proton Drive", "countries": ["kr", "us"]},
+    {"id": "nextcloud", "kind": "itunes", "bundle": "it.twsweb.Nextcloud", "term": "Nextcloud", "countries": ["kr", "us"]},
+    {"id": "google-drive", "kind": "itunes", "bundle": "com.google.Drive", "term": "Google Drive", "countries": ["kr", "us"]},
+    {"id": "dropbox", "kind": "itunes", "bundle": "com.getdropbox.Dropbox", "term": "Dropbox", "countries": ["kr", "us"]},
+    {"id": "onedrive", "kind": "itunes", "bundle": "com.microsoft.skydrive", "term": "Microsoft OneDrive", "countries": ["kr", "us"]},
 ]
 
 
@@ -270,8 +289,11 @@ def main():
     if args.check:
         missing = [e["id"] for e in SOURCES if not (OUT_DIR / f"{e['id']}.webp").exists()]
         manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {}
-        unlisted = [e["id"] for e in SOURCES if e["id"] not in {i["id"] for i in manifest.get("items", [])}]
-        print(f"파일 {len(SOURCES) - len(missing)}/{len(SOURCES)} 존재 · manifest {len(manifest.get('items', []))}건")
+        rows = manifest.get("items", [])
+        unlisted = [e["id"] for e in SOURCES if e["id"] not in {i["id"] for i in rows}]
+        extra = [row["id"] for row in rows if row["id"] not in {e["id"] for e in SOURCES}]
+        print(f"파일 {len(SOURCES) - len(missing)}/{len(SOURCES)} 존재 · manifest {len(rows)}건"
+              f"(auto_collect {len(extra)}건)")
         for label, rows in (("파일 없음", missing), ("manifest 누락", unlisted)):
             if rows:
                 print(f"  × {label}: {', '.join(rows)}")
@@ -302,12 +324,13 @@ def main():
         print(f"\n결과: FAIL — {len(failures)}종 확보 실패. 기존 파일은 그대로 두었다.")
         return 1
 
-    if only and MANIFEST.exists():
-        previous = json.loads(MANIFEST.read_text(encoding="utf-8")).get("items", [])
-        by_id = {row["id"]: row for row in previous}
-        by_id.update({row["id"]: row for row in records})
-        order = {entry["id"]: index for index, entry in enumerate(SOURCES)}
-        records = sorted(by_id.values(), key=lambda row: order.get(row["id"], 999))
+    # 이번에 다시 받지 않은 항목(SOURCES 밖에서 auto_collect.py 가 넣은 아이콘 포함)은 manifest 에서 지우지 않는다.
+    previous = json.loads(MANIFEST.read_text(encoding="utf-8")).get("items", []) if MANIFEST.exists() else []
+    target_ids = {row["id"] for row in records}
+    by_id = {row["id"]: row for row in previous if row["id"] not in target_ids}
+    by_id.update({row["id"]: row for row in records})
+    order = {entry["id"]: index for index, entry in enumerate(SOURCES)}
+    records = sorted(by_id.values(), key=lambda row: (order.get(row["id"], 999), row["id"]))
 
     manifest = {
         "note": (
@@ -323,7 +346,9 @@ def main():
     }
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     total = sum(r["bytes"] for r in records)
-    print(f"\n결과: PASS — {len(records)}/{len(SOURCES)}종 · {SIZE}×{SIZE} webp · 합계 {total/1024:.0f}KB")
+    auto = len([row for row in records if row["id"] not in order])
+    print(f"\n결과: PASS — SOURCES {len(targets)}종 갱신 · manifest {len(records)}건"
+          f"(auto_collect {auto}건 유지) · {SIZE}×{SIZE} webp · 합계 {total/1024:.0f}KB")
     print(f"manifest: {MANIFEST.relative_to(ROOT.parent.parent)}")
     return 0
 

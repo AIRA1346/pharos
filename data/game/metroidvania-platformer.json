@@ -1,0 +1,2385 @@
+[
+ {
+  "schema_version": "0.4.0",
+  "id": "hollow-knight",
+  "name": "Hollow Knight",
+  "icon": "assets/icons/hollow-knight.webp",
+  "aliases": [
+   "할로우 나이트",
+   "Hollow Knight 1"
+  ],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "metroidvania-platformer"
+  ],
+  "arena_notes": {
+   "metroidvania-platformer": "완결된 본편 + 유지 패치가 이어지는 기준점. 별도 판매는 사운드트랙뿐이라 총비용이 가격표 하나로 끝난다."
+  },
+  "genres": [
+   "메트로배니아",
+   "액션 어드벤처",
+   "인디",
+   "2D 플랫포머"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux",
+   "console"
+  ],
+  "developer": "Team Cherry",
+  "publisher": "Team Cherry",
+  "release_date": "2017-02-24",
+  "one_liner": "지도와 능력을 하나씩 얻으며 지하 왕국을 내려가는 2D 메트로배니아 — 9년째 유지 패치가 이어지는 1회 구매 완결작.",
+  "taste_tags": [
+   "one-time-purchase",
+   "feature-complete",
+   "no-account",
+   "single-player",
+   "hand-drawn",
+   "challenging"
+  ],
+  "keywords": [
+   "할로우 나이트",
+   "Team Cherry",
+   "실크송",
+   "Silksong",
+   "Hallownest"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "본편 콘텐츠는 2018년 이후 추가 없이 완결됐고, 2026-03-27 패치(1.5.12620)까지 버그·해상도 대응 패치가 이어진다. 후속작 《Hollow Knight: Silksong》은 별도 작품이다.",
+  "sources": [
+   {
+    "id": "steam-hollow-knight",
+    "title": "Steam — Hollow Knight",
+    "url": "https://store.steampowered.com/app/367520/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가  (KRW), 출시 2017-02-24, 개발사 Team Cherry. 평가: 최근 30일 96%(3,416건) · 전체(영어 리뷰) 97%(186,930건)."
+   },
+   {
+    "id": "steam-api-hollow-knight",
+    "title": "Steam 상점 API — Hollow Knight 앱 정보",
+    "url": "https://store.steampowered.com/api/appdetails?appids=367520&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false, DLC 2건(Hollow Knight - Official Soundtrack, Hollow Knight - Gods & Nightmares), 장르 액션, 어드벤처, 인디."
+   },
+   {
+    "id": "steamspy-hollow-knight",
+    "title": "SteamSpy — Hollow Knight 전체 평가 집계",
+    "url": "https://steamspy.com/app/367520",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 494,840 / 부정 15,403 (긍정률 97.0%). 보유자 규모 20,000,000 .. 50,000,000."
+   },
+   {
+    "id": "steam-news-hollow-knight",
+    "title": "Steam 공지 — Hollow Knight 개발사 업데이트",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1828441623103525",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "최근 업데이트 공지 2026-03-27 'Patch Version 1.5.12620 Now Live' · 최근 개발사 공지 2026-03-27 'Patch Version 1.5.12620 Now Live' (공지 8건 확인)."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "Steam 유료 단품 — 스토어에 광고 표기가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "실행 전 광고 없음(단품 게임).",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "1회 구매로 전편.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "구독 상품 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight"
+    ],
+    "note": "마지막 업데이트 2026-03-27(243일 전) — 활발.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 내 텔레메트리 범위를 공개 문서에서 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법 미확인."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 16500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩16,500"
+    },
+    "limits": [
+     "유료 확장 DLC 없음 — 별도 판매는 사운드트랙 2종(공식 사운드트랙·Gods & Nightmares)",
+     "정가 기준 판정 — 2026-11-25 현재 할인가는 상시가가 아니다",
+     "콘솔(Switch·PS4·Xbox One)판은 별도 가격"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고 없음(단품 게임).",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전편.",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-03-27(243일 전) — 활발.",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 상품 없음.",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-hollow-knight"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 내 텔레메트리 범위를 공개 문서에서 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 번 사면 본편 전부 — 9년째 이어지는 유지 패치까지 포함.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩16,500(미국 $14.99). 평가·가격은 스팀 상점 표기 기준."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 97,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 186,930건 중 97% 긍정, 최근 30일도 96%(3,424건). 9년 차에도 누적과 최근이 거의 붙어 있다.",
+    "source_ids": [
+     "steam-hollow-knight",
+     "steamspy-hollow-knight"
+    ]
+   },
+   "objective": {
+    "score": 76,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "high",
+    "summary": "1회 구매에 유료 확장이 없고, 2026-03 패치까지 유지되며 PC·콘솔을 함께 지원한다. 감점: 본편 콘텐츠는 2018년 이후 추가가 없고(완결), 세이브·설정이 플랫폼별로 따로 논다.",
+    "source_ids": [
+     "steam-api-hollow-knight",
+     "steam-news-hollow-knight",
+     "steam-hollow-knight"
+    ]
+   },
+   "ai_review": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "지도 설계·전투·서사가 서로 맞물려 '메트로배니아' 장르의 기준작으로 남았다. 감점: 초반 안내가 거의 없어 진입 장벽이 높고, 난이도·접근성 옵션이 없다.",
+    "source_ids": [
+     "steam-hollow-knight",
+     "steamspy-hollow-knight"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "9년이 지나도 '메트로배니아를 처음 산다면 이것'이 유지되는 완결작.",
+   "reasons": [
+    "스팀 영어 리뷰 186,930건 97% 긍정 · 최근 30일 96% — 시간이 지나도 평가가 유지된다.",
+    "유료 확장 없이 본편으로 끝나 총비용이 ₩16,500 하나로 정해진다.",
+    "2026-03-27 패치까지 이어져 완결작이면서도 방치되지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "PC·콘솔 전용 — 모바일 버전이 없다.",
+    "초반 안내가 거의 없어 지도·능력 체계를 스스로 익혀야 한다.",
+    "콘솔판은 플랫폼별로 가격·세이브가 따로다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 186930,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 3416,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 누적 494,840긍정/15,403부정 (긍정률 97.0%, SteamSpy 등급 C 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집: steam 97(186,930건). 표본 규칙(100건) 충족 — 최근 구간 해석은 리뷰에서 보완."
+  },
+  "update_profile": {
+   "latest_update": "2026-03-27",
+   "latest_update_platform": "steam",
+   "cadence": "irregular",
+   "entries": [
+    {
+     "date": "2026-03-27",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-hollow-knight"
+     ],
+     "note": "개발사 업데이트 공지 'Patch Version 1.5.12620 Now Live' — 최근 패치."
+    },
+    {
+     "date": "2026-02-05",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-hollow-knight"
+     ],
+     "note": "개발사 업데이트 공지 'Patch Version 1.5.12459 Now Live' — 21:9·16:10 해상도 지원 등."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "콘텐츠는 끝났지만 2026년에도 해상도·버그 패치가 나온다. 과금·약관 변경이 없어 평가가 흔들린 이력도 없다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-hollow-knight"
+     ],
+     "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hollow-knight",
+     "steam-api-hollow-knight"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무료 체험판·데모가 없다 — 구매 전에는 플레이할 수 없다."
+   },
+   "summary": "정가 ₩16,500 1회 구매. 광고·인앱 결제·유료 확장이 없고, 별도 판매는 사운드트랙 2종뿐이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "게임 내 텔레메트리 수집 범위",
+    "콘솔판과 PC판의 세이브 연동 범위"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·상점 API·개발사 공지·SteamSpy 집계만 사용했고 직접 플레이하지 않았다. 가격·평가는 2026-11-25 확인값이며 정가 기준이다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 리뷰 97%(186,930건)와 최근 30일 96%가 거의 같아 보정 없이 97. 전체 언어 누적(SteamSpy 97.0%)도 같은 방향이다.",
+   "objective": "가격 투명성(1회 구매·유료 확장 없음)과 유지(2026-03 패치)를 크게 반영하고, 2018년 이후 콘텐츠 추가가 없는 점을 감점했다.",
+   "ai_review": "장르 기준작이라는 평가가 누적·최근 표본에서 함께 확인된다. 접근성 옵션 부재를 감점 요인으로 남겼다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "celeste",
+  "name": "Celeste",
+  "icon": "assets/icons/celeste.webp",
+  "aliases": [
+   "셀레스트"
+  ],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "metroidvania-platformer"
+  ],
+  "arena_notes": {
+   "metroidvania-platformer": "난이도·접근성(어시스트 모드)의 기준점. 실패를 다시 시도하게 만드는 손맛으로 평가가 갈리지 않는다."
+  },
+  "genres": [
+   "정밀 플랫포머",
+   "액션",
+   "인디",
+   "2D"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux",
+   "console"
+  ],
+  "developer": "Maddy Makes Games Inc.",
+  "publisher": "Maddy Makes Games Inc.",
+  "release_date": "2018-01-25",
+  "one_liner": "한 번의 점프를 수백 번 다시 시도하게 만드는 정밀 플랫포머 — 무료 확장 챕터까지 본편에 담긴 1회 구매 완결작.",
+  "taste_tags": [
+   "one-time-purchase",
+   "feature-complete",
+   "no-account",
+   "single-player",
+   "precision-platformer",
+   "accessibility-options"
+  ],
+  "keywords": [
+   "셀레스트",
+   "Maddy Thorson",
+   "Extremely OK Games",
+   "Farewell",
+   "어시스트 모드"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "2018-01-25 출시 후 무료 확장 챕터로 콘텐츠가 끝났고, 마지막 패치가 2021-03-29(V1.4.0.0)다. 2024-11 개발사 공지는 굿즈 소식뿐이었다 — 방치가 아니라 완결이다.",
+  "sources": [
+   {
+    "id": "steam-celeste",
+    "title": "Steam — Celeste",
+    "url": "https://store.steampowered.com/app/504230/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가 ₩ 21,500 (KRW), 출시 2018-01-25, 개발사 Maddy Makes Games Inc., Extremely OK Games, Ltd.. 평가: 최근 30일 93%(1,157건) · 전체(영어 리뷰) 97%(63,164건)."
+   },
+   {
+    "id": "steam-api-celeste",
+    "title": "Steam 상점 API — Celeste 앱 정보",
+    "url": "https://store.steampowered.com/api/appdetails?appids=504230&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false, DLC 1건(Celeste Soundtrack), 장르 액션, 어드벤처, 인디."
+   },
+   {
+    "id": "steamspy-celeste",
+    "title": "SteamSpy — Celeste 전체 평가 집계",
+    "url": "https://steamspy.com/app/504230",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 131,289 / 부정 3,466 (긍정률 97.4%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-celeste",
+    "title": "Steam 공지 — Celeste 개발사 업데이트",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1784506358986604",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "최근 업데이트 공지 2021-03-29 'V1.4.0.0 Changelog' · 최근 개발사 공지 2024-11-27 'New Merch!' (공지 2건 확인)."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "Steam 유료 단품 — 스토어에 광고 표기가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "실행 전 광고 없음(단품 게임).",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "1회 구매로 전편.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "구독 상품 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste"
+    ],
+    "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-celeste",
+     "steam-api-celeste"
+    ],
+    "note": "마지막 업데이트 공지가 2021-03-29 'V1.4.0.0 Changelog' — 12개월을 크게 넘겼고, 이후 공지는 굿즈 소식뿐이다. 본편 완결로 면제한다.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 내 텔레메트리 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법 미확인."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 21500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,500 (2026-11-25 기준 75% 할인 ₩5,370)"
+    },
+    "limits": [
+     "유료 확장 없음 — 무료 확장 챕터(Farewell)까지 본편에 포함",
+     "별도 판매는 사운드트랙 1종",
+     "정가 기준 판정 — 2026-11-25 현재 75% 할인가는 상시가가 아니다",
+     "콘솔(Switch·PS4·Xbox One)판은 별도 가격"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고 없음(단품 게임).",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전편.",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 공지가 2021-03-29 'V1.4.0.0 Changelog' — 12개월을 크게 넘겼고, 이후 공지는 굿즈 소식뿐이다. 본편 완결로 면제한다.",
+      "source_ids": [
+       "steam-news-celeste",
+       "steam-api-celeste"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 상품 없음.",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-celeste"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 내 텔레메트리 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 번 사면 본편과 확장 챕터까지 — 추가 결제가 없다.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩21,500(미국 $19.99). 어시스트 모드로 난이도를 낮출 수 있다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 97,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 63,164건 중 97% 긍정, 최근 30일 93%(1,157건). 최근 표본이 1,000건을 넘어 최근 하락을 그대로 반영했다.",
+    "source_ids": [
+     "steam-celeste",
+     "steamspy-celeste"
+    ]
+   },
+   "objective": {
+    "score": 72,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "유료 DLC·시즌패스가 없고 무료 확장으로 콘텐츠를 끝냈다. 어시스트 모드·속도 조절 같은 접근성 옵션이 기본 제공된다. 감점: 2021년 이후 패치가 없어 최신 OS·컨트롤러 대응은 보장되지 않는다(완결로 면제).",
+    "source_ids": [
+     "steam-api-celeste",
+     "steam-news-celeste",
+     "steam-celeste"
+    ]
+   },
+   "ai_review": {
+    "score": 92,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "실패를 반복해도 화나지 않게 만드는 조작감과, 난이도를 낮출 수 있는 어시스트 모드가 함께 평가받는다. 서사가 플레이 난이도와 맞물리는 구성도 강점. 감점: 본편 이후 새 콘텐츠가 없다.",
+    "source_ids": [
+     "steam-celeste"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "green"
+   },
+   "one_liner": "어려운데도 계속하게 만드는 플랫포머 — 완결됐기 때문에 지금 사도 남는 장사다.",
+   "reasons": [
+    "스팀 영어 리뷰 63,164건 97% 긍정 — 최근 30일도 93%로 유지된다.",
+    "무료 확장 챕터까지 본편에 포함돼 유료 DLC가 없다.",
+    "2021년 이후 업데이트가 없는 것은 완결 때문이며, 방치와 구분해 면제 처리했다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "PC·콘솔 전용 — 모바일 버전이 없다.",
+    "난이도가 높아 손맛을 싫어하면 어시스트 모드를 켜야 한다.",
+    "2021년 이후 패치가 없어 최신 컨트롤러·OS 대응은 확인되지 않는다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 63164,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 93,
+      "scale": "percent",
+      "count": 1157,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 누적 131,289긍정/3,466부정 (긍정률 97.4%, SteamSpy 등급 C 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집: steam 97(63,164건). 표본 규칙(100건) 충족 — 최근 구간 해석은 리뷰에서 보완."
+  },
+  "update_profile": {
+   "latest_update": "2021-03-29",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-03-29",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-celeste"
+     ],
+     "note": "개발사 업데이트 공지 'V1.4.0.0 Changelog' — 마지막 패치."
+    },
+    {
+     "date": "2024-11-27",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-celeste"
+     ],
+     "note": "개발사 공지 'New Merch!' — 게임 업데이트가 아닌 굿즈 소식."
+    }
+   ],
+   "maintenance_quality": "stalled_but_trusted",
+   "assessment": "과금·약관 변경 없이 콘텐츠가 끝난 지연형. 마지막 패치(2021-03-29) 이후 공지는 굿즈 소식뿐이라 방치가 아니라 완결로 읽는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-celeste"
+     ],
+     "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-celeste",
+     "steam-api-celeste"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "체험판·데모가 없다 — 구매 전에는 플레이할 수 없다."
+   },
+   "summary": "정가 ₩21,500 1회 구매. 광고·인앱 결제가 없고 별도 판매는 사운드트랙뿐이다. 확장 챕터는 무료로 본편에 포함됐다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "게임 내 텔레메트리 수집 범위",
+    "콘솔판과 PC판의 세이브 연동"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·상점 API·개발사 공지·SteamSpy 집계만 사용했다. 무료 확장 챕터의 정확한 배포 시점은 개발사 공지 목록에 남아 있지 않아 날짜를 적지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 리뷰 97%(63,164건)에 최근 30일 93%(1,157건) — 최근 표본이 충분해 하향 보정 없이 누적 97을 썼다.",
+   "objective": "무료 확장으로 끝난 완결성과 접근성 옵션을 반영하고, 2021년 이후 패치 부재는 완결 면제로 처리하되 감점 요인으로 남겼다.",
+   "ai_review": "조작감·난이도 곡선·서사의 결합이 누적 평가와 일치한다. 신규 콘텐츠 부재만 감점."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ori-and-the-will-of-the-wisps",
+  "name": "Ori and the Will of the Wisps",
+  "icon": "assets/icons/ori-and-the-will-of-the-wisps.webp",
+  "aliases": [
+   "오리와 도깨비불",
+   "Ori 2"
+  ],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "metroidvania-platformer"
+  ],
+  "arena_notes": {
+   "metroidvania-platformer": "이동감·연출의 상한선. 전투 난이도보다 '흐르는 이동'을 파는 작품이라 손맛 취향이 판정을 가른다."
+  },
+  "genres": [
+   "메트로배니아",
+   "액션 플랫포머",
+   "인디",
+   "2D"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "console"
+  ],
+  "developer": "Moon Studios GmbH",
+  "publisher": "Xbox Game Studios",
+  "release_date": "2020-03-10",
+  "one_liner": "숲의 영혼이 실패를 거듭하며 날개를 얻는 2D 액션 — 손그림 배경과 유려한 이동이 중심인 1회 구매 완결작.",
+  "taste_tags": [
+   "one-time-purchase",
+   "feature-complete",
+   "no-account",
+   "single-player",
+   "hand-painted",
+   "cinematic"
+  ],
+  "keywords": [
+   "오리와 도깨비불",
+   "Moon Studios",
+   "Ori",
+   "오리 시리즈",
+   "Xbox 게임 스튜디오"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "마지막 패치가 2020-11-19(Patch 3.1)이고 이후 콘텐츠 추가가 없다. 시리즈가 본편으로 완결된 작품이라 방치가 아니라 완결로 본다.",
+  "sources": [
+   {
+    "id": "steam-ori-and-the-will-of-the-wisps",
+    "title": "Steam — Ori and the Will of the Wisps",
+    "url": "https://store.steampowered.com/app/1057090/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가 ₩ 29,900 (KRW), 출시 2020-03-10, 개발사 Moon Studios GmbH. 평가: 최근 30일 92%(1,564건) · 전체(영어 리뷰) 96%(32,416건)."
+   },
+   {
+    "id": "steam-api-ori-and-the-will-of-the-wisps",
+    "title": "Steam 상점 API — Ori and the Will of the Wisps 앱 정보",
+    "url": "https://store.steampowered.com/api/appdetails?appids=1057090&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false, DLC 1건(Ori and the Will of the Wisps Soundtrack), 장르 액션."
+   },
+   {
+    "id": "steamspy-ori-and-the-will-of-the-wisps",
+    "title": "SteamSpy — Ori and the Will of the Wisps 전체 평가 집계",
+    "url": "https://steamspy.com/app/1057090",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 138,624 / 부정 5,200 (긍정률 96.4%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-ori-and-the-will-of-the-wisps",
+    "title": "Steam 공지 — Ori and the Will of the Wisps 개발사 업데이트",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/3856732771954959202",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "최근 업데이트 공지 2020-11-19 'Ori and the Will of the Wisps Patch 3.1' · 최근 개발사 공지 2020-11-19 'Ori and the Will of the Wisps Patch 3.1' (공지 3건 확인)."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "Steam 유료 단품 — 스토어에 광고 표기가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "실행 전 광고 없음(단품 게임).",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "1회 구매로 전편.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "구독 상품 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-ori-and-the-will-of-the-wisps",
+     "steam-api-ori-and-the-will-of-the-wisps"
+    ],
+    "note": "마지막 패치 공지가 2020-11-19 'Patch 3.1' — 12개월을 크게 넘겼다. 본편 완결로 면제한다.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 내 텔레메트리 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법 미확인."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 29900,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩29,900 (2026-11-25 기준 75% 할인 ₩7,470)"
+    },
+    "limits": [
+     "유료 확장 없음 — 별도 판매는 사운드트랙 1종",
+     "정가 기준 판정 — 2026-11-25 현재 75% 할인가는 상시가가 아니다",
+     "Xbox·Switch 콘솔판은 별도 가격, Xbox 게임패스로도 제공된다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고 없음(단품 게임).",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전편.",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 패치 공지가 2020-11-19 'Patch 3.1' — 12개월을 크게 넘겼다. 본편 완결로 면제한다.",
+      "source_ids": [
+       "steam-news-ori-and-the-will-of-the-wisps",
+       "steam-api-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 상품 없음.",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-ori-and-the-will-of-the-wisps"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 내 텔레메트리 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 번 사면 본편 전부 — 추가 결제 없이 끝난다.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩29,900(미국 $29.99). 시리즈 전작(《Ori and the Blind Forest》)을 먼저 할 필요는 없다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 96,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 32,416건 중 96% 긍정. 표본이 3만 건을 넘고 최근에도 같은 방향이라 하향 보정이 필요 없다.",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps",
+     "steamspy-ori-and-the-will-of-the-wisps"
+    ]
+   },
+   "objective": {
+    "score": 70,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "1회 구매·유료 확장 없음, PC·Xbox·Switch 동시 제공. 감점: 2020년 이후 패치가 없어 최신 OS·그래픽 드라이버 대응이 확인되지 않고, 세이브 이전 수단도 플랫폼에 묶여 있다.",
+    "source_ids": [
+     "steam-api-ori-and-the-will-of-the-wisps",
+     "steam-news-ori-and-the-will-of-the-wisps"
+    ]
+   },
+   "ai_review": {
+    "score": 89,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "이동·연출·음악이 한 흐름으로 붙는 완성도가 업계 평가와 사용자 평가에서 함께 확인된다. 감점: 전투 깊이가 얕고, 보스 난이도 기복이 있다.",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "green"
+   },
+   "one_liner": "이동 자체가 보상인 작품 — 손그림 액션을 한 번쯤 사 볼 사람에게 남는 선택.",
+   "reasons": [
+    "스팀 영어 리뷰 32,416건 96% 긍정 — 표본이 충분하고 평가가 고르다.",
+    "유료 확장 없이 본편으로 끝나 총비용이 가격표 하나로 정해진다.",
+    "2020년 이후 업데이트 공백은 완결로 면제하되, 최신 OS 대응 확인 불가는 조건으로 남겼다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "PC·Xbox·Switch 전용 — 플레이스테이션 버전이 없다.",
+    "마지막 패치(2020-11-19) 이후 새 OS 대응 업데이트가 없다.",
+    "전투보다 이동·연출 중심이라 액션 난이도를 원하면 맞지 않을 수 있다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 32416,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 92,
+      "scale": "percent",
+      "count": 1564,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 누적 138,624긍정/5,200부정 (긍정률 96.4%, SteamSpy 등급 C 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집: steam 96(32,416건). 표본 규칙(100건) 충족 — 최근 구간 해석은 리뷰에서 보완."
+  },
+  "update_profile": {
+   "latest_update": "2020-11-19",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2020-11-19",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-ori-and-the-will-of-the-wisps"
+     ],
+     "note": "개발사 업데이트 공지 'Ori and the Will of the Wisps Patch 3.1' — 마지막 패치."
+    }
+   ],
+   "maintenance_quality": "stalled_but_trusted",
+   "assessment": "과금·약관 변경 없이 콘텐츠가 끝난 지연형. 패치 중단이 완결 선언과 함께 이뤄져 방치와 구분된다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-ori-and-the-will-of-the-wisps"
+     ],
+     "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ori-and-the-will-of-the-wisps",
+     "steam-api-ori-and-the-will-of-the-wisps"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "체험판이 없다 — 구매 또는 게임패스 구독으로만 플레이할 수 있다."
+   },
+   "summary": "정가 ₩29,900 1회 구매. 광고·인앱 결제·유료 확장이 없고 별도 판매는 사운드트랙뿐이다. Xbox 게임패스 구독으로도 즐길 수 있다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "게임 내 텔레메트리 수집 범위",
+    "최신 Windows·macOS 에서의 호환성",
+    "게임패스 제공 조건의 변동 여부"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·상점 API·개발사 공지·SteamSpy 집계만 사용했다. 콘솔판 가격과 게임패스 조건은 이번 확인 범위 밖이다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 리뷰 96%(32,416건). 전체 언어 누적(SteamSpy 97.0%)도 같은 방향이라 96을 그대로 썼다.",
+   "objective": "가격 투명성은 최상급이나 장기 유지(2020년 이후 패치 없음)에서 감점했다.",
+   "ai_review": "연출·이동의 완성도를 높게 보되 전투 깊이와 난이도 기복을 감점으로 남겼다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "nine-sols",
+  "name": "Nine Sols",
+  "icon": "assets/icons/nine-sols.webp",
+  "aliases": [
+   "나인 솔즈",
+   "九日"
+  ],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "metroidvania-platformer"
+  ],
+  "arena_notes": {
+   "metroidvania-platformer": "패링 중심 전투의 기준점. 출시 2년 차까지 패치가 이어져 '지금 사도 관리되는' 드문 신작이다."
+  },
+  "genres": [
+   "메트로배니아",
+   "액션",
+   "인디",
+   "2D",
+   "패링"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "console"
+  ],
+  "developer": "RedCandleGames",
+  "publisher": "RedCandleGames",
+  "release_date": "2024-05-28",
+  "one_liner": "도교·사이버펑크가 섞인 세계에서 '도(道)'를 되찾는 2D 액션 — 패링 중심 전투와 한국어 완전 지원이 강점인 신작.",
+  "taste_tags": [
+   "one-time-purchase",
+   "no-account",
+   "single-player",
+   "korean-support",
+   "parry-combat",
+   "hand-drawn"
+  ],
+  "keywords": [
+   "나인 솔즈",
+   "九日",
+   "Red Candle Games",
+   "레드 캔들",
+   "환원",
+   "도교"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "active",
+  "maintenance_note": "2024-05-28 출시 후 2025-12-16 패치 노트까지 이어졌다. 별도 판매는 사운드트랙·아트북뿐이고 본편 확장은 없다.",
+  "sources": [
+   {
+    "id": "steam-nine-sols",
+    "title": "Steam — Nine Sols",
+    "url": "https://store.steampowered.com/app/1809540/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가  (KRW), 출시 2024-05-28, 개발사 RedCandleGames. 평가: 최근 30일 93%(529건) · 전체(영어 리뷰) 95%(20,942건)."
+   },
+   {
+    "id": "steam-api-nine-sols",
+    "title": "Steam 상점 API — Nine Sols 앱 정보",
+    "url": "https://store.steampowered.com/api/appdetails?appids=1809540&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false, DLC 2건(Nine Sols Soundtrack, Nine Sols Digital Art Book), 장르 액션, 어드벤처, 인디."
+   },
+   {
+    "id": "steamspy-nine-sols",
+    "title": "SteamSpy — Nine Sols 전체 평가 집계",
+    "url": "https://steamspy.com/app/1809540",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 39,244 / 부정 2,269 (긍정률 94.5%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-nine-sols",
+    "title": "Steam 공지 — Nine Sols 개발사 업데이트",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1832065502822667",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "최근 업데이트 공지 2025-12-16 '[bbde385f] Patch Notes' · 최근 개발사 공지 2026-05-12 'Celebrating 2 Years of Nine Sols ☀️ 60% Off on Steam' (공지 8건 확인)."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "Steam 유료 단품 — 스토어에 광고 표기가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "실행 전 광고 없음(단품 게임).",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "1회 구매로 전편.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "구독 상품 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols"
+    ],
+    "note": "마지막 업데이트 2025-12-16(344일 전) — 활발.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 내 텔레메트리 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법 미확인."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 32000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩32,000"
+    },
+    "limits": [
+     "유료 확장 없음 — 별도 판매는 사운드트랙·디지털 아트북",
+     "정가 기준 판정 — 2026-11-25 현재 할인 없음",
+     "콘솔판은 별도 가격"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고 없음(단품 게임).",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전편.",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-12-16(344일 전) — 활발.",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 상품 없음.",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-nine-sols"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 내 텔레메트리 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "한 번 사면 본편 전부 — 2년 차 패치까지 포함.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩32,000(미국 $29.99). 한국어 인터페이스·자막을 공식 지원한다."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 20,942건 중 95% 긍정. 2024년 출시작인데도 표본이 2만 건을 넘어 신작 치고 검증이 빠르다.",
+    "source_ids": [
+     "steam-nine-sols",
+     "steamspy-nine-sols"
+    ]
+   },
+   "objective": {
+    "score": 79,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "유료 확장 없이 본편으로 끝나고, 2025-12-16 패치까지 유지되며 한국어를 공식 지원한다. 감점: 2024년 출시작이라 장기 유지 이력이 아직 짧고, 콘솔 이식판의 패치 주기는 PC보다 늦다.",
+    "source_ids": [
+     "steam-api-nine-sols",
+     "steam-news-nine-sols"
+    ]
+   },
+   "ai_review": {
+    "score": 88,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "high",
+    "summary": "패링 리듬과 보스 설계가 단단하고, 도교·사이버펑크를 겹친 미술이 서사와 붙는다. 감점: 패링을 익히기 전 구간의 난이도가 가파르고, 지도 탐색 안내가 소극적이다.",
+    "source_ids": [
+     "steam-nine-sols"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "패링을 배우게 만드는 신작 — 2년 차까지 관리되는 메트로배니아.",
+   "reasons": [
+    "스팀 영어 리뷰 20,942건 95% 긍정 — 신작인데 표본이 두껍다.",
+    "2025-12-16 패치 노트까지 이어져 '사고 나서도 관리되는' 상태다.",
+    "유료 확장 없이 본편으로 끝나고 한국어를 공식 지원한다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "패링 중심 전투라 회피·구르기 위주 액션을 원하면 맞지 않을 수 있다.",
+    "2024년 출시작이라 5년 이상 유지된 작품과 같은 수명 신뢰도는 아직 없다.",
+    "콘솔판은 PC판보다 패치가 늦다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 20942,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 93,
+      "scale": "percent",
+      "count": 529,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 누적 39,244긍정/2,269부정 (긍정률 94.5%, SteamSpy 등급 C 교차 확인)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집: steam 95(20,942건). 표본 규칙(100건) 충족 — 최근 구간 해석은 리뷰에서 보완."
+  },
+  "update_profile": {
+   "latest_update": "2025-12-16",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2025-12-16",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-nine-sols"
+     ],
+     "note": "개발사 업데이트 공지 '[bbde385f] Patch Notes'."
+    },
+    {
+     "date": "2025-11-04",
+     "type": "bugfix",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-nine-sols"
+     ],
+     "note": "개발사 업데이트 공지 '[953572b] Patch Notes'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "출시 후 1년 반 넘게 버그 패치가 이어졌고, 과금·약관 변경으로 평가가 흔들린 이력이 없다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-nine-sols"
+     ],
+     "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nine-sols",
+     "steam-api-nine-sols"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "체험판이 없다 — 구매 전에는 플레이할 수 없다."
+   },
+   "summary": "정가 ₩32,000 1회 구매. 광고·인앱 결제·유료 확장이 없고, 별도 판매는 사운드트랙과 디지털 아트북이다."
+  },
+  "data_quality": {
+   "overall_grade": "A",
+   "unverified": [
+    "게임 내 텔레메트리 수집 범위",
+    "콘솔판 패치 시점",
+    "한국어 자막 품질에 대한 사용자 평가"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·상점 API·개발사 공지·SteamSpy 집계만 사용했다. 콘솔판은 확인 범위 밖이라 플랫폼만 표기하고 가격은 넣지 않았다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 리뷰 95%(20,942건). 전체 언어 누적(SteamSpy 94.6%)과 거의 같아 95를 그대로 썼다.",
+   "objective": "1회 구매·확장 없음·한국어 지원·최근 패치를 반영하고, 짧은 유지 이력을 감점했다.",
+   "ai_review": "패링 전투와 미술·서사의 결합을 높게 보되, 초반 난이도와 탐색 안내를 감점으로 남겼다."
+  }
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "blasphemous",
+  "name": "Blasphemous",
+  "icon": "assets/icons/blasphemous.webp",
+  "aliases": [
+   "블라스퍼머스"
+  ],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "metroidvania-platformer"
+  ],
+  "arena_notes": {
+   "metroidvania-platformer": "완결된 본편과 별도 판매 DLC가 섞인 사례. PC판과 iOS판이 따로 팔리고 한국 스토어에는 iOS판이 없다."
+  },
+  "genres": [
+   "메트로배니아",
+   "액션 어드벤처",
+   "인디",
+   "2D",
+   "다크 판타지"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux",
+   "ios",
+   "console"
+  ],
+  "developer": "The Game Kitchen",
+  "publisher": "Team17",
+  "release_date": "2019-09-10",
+  "one_liner": "가시관을 쓴 참회자가 기적의 땅을 걷는 2D 액션 — 종교 도상과 잔혹한 연출이 인상적인 1회 구매 완결작.",
+  "taste_tags": [
+   "one-time-purchase",
+   "feature-complete",
+   "no-account",
+   "single-player",
+   "dark-fantasy",
+   "pixel-art"
+  ],
+  "keywords": [
+   "블라스퍼머스",
+   "The Game Kitchen",
+   "Team17",
+   "참회자",
+   "Cvstodia"
+  ],
+  "assessed_at": "2026-11-25",
+  "method": "desk_research",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "본편은 2019년 작품으로 무료 업데이트 'Stir of Dawn'(2020-08-24 패치) 이후 콘텐츠 추가가 없고, 후속작 《Blasphemous II》가 별도로 나왔다. 모바일판 마지막 버전 1.9(2025-10-24)는 호환 유지 수준이다.",
+  "sources": [
+   {
+    "id": "steam-blasphemous",
+    "title": "Steam — Blasphemous",
+    "url": "https://store.steampowered.com/app/774361/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "정가  (KRW), 출시 2019-09-10, 개발사 The Game Kitchen. 평가: 최근 30일 88%(544건) · 전체(영어 리뷰) 90%(20,098건)."
+   },
+   {
+    "id": "steam-api-blasphemous",
+    "title": "Steam 상점 API — Blasphemous 앱 정보",
+    "url": "https://store.steampowered.com/api/appdetails?appids=774361&cc=kr",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "is_free=false, DLC 4건(Blasphemous - 'Alloy of Sin' Character Skin, Blasphemous - Digital Artbook, Blasphemous - Digital Comic), 장르 액션, 어드벤처, 인디."
+   },
+   {
+    "id": "steamspy-blasphemous",
+    "title": "SteamSpy — Blasphemous 전체 평가 집계",
+    "url": "https://steamspy.com/app/774361",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-25",
+    "note": "전체 언어 누적 긍정 50,516 / 부정 5,438 (긍정률 90.3%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-blasphemous",
+    "title": "Steam 공지 — Blasphemous 개발사 업데이트",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165562631",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "최근 업데이트 공지 2020-08-24 'The Stir of Dawn - Bug Fix & Optimisation Patch 1 Live Now!' · 최근 개발사 공지 2026-06-30 'Blasphemous - Martyr’s Edition Physical Collector’s Edition | PS4 & Switch' (공지 8건 확인)."
+   },
+   {
+    "id": "itunes-blasphemous",
+    "title": "Apple App Store — Blasphemous",
+    "url": "https://apps.apple.com/us/app/id6499431452",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-25",
+    "note": "가격 $7.99, US 4.44★(258), 버전 1.9(2025-10-24), 앱 내 구입 정보 미확인. 한국 스토어에는 없음."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "Steam 유료 단품 — 스토어에 광고 표기가 없다.",
+    "verification": "direct"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "실행 전 광고 없음(단품 게임).",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "1회 구매로 전편.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "구독 상품 없음.",
+    "verification": "direct"
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous"
+    ],
+    "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+    "verification": "direct"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-news-blasphemous",
+     "itunes-blasphemous"
+    ],
+    "note": "PC판 마지막 업데이트 공지가 2020-08-24 'Stir of Dawn' 패치이고, 모바일판도 마지막 버전 1.9(2025-10-24)로 12개월을 넘겼다. 본편 완결로 면제한다.",
+    "verification": "direct"
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "게임 내 텔레메트리 범위를 확인하지 못했다."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법 미확인."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "label": "Steam 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 26000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩26,000"
+    },
+    "limits": [
+     "유료 DLC 4건(스킨·아트북·코믹) — 본편 진행과 무관하지만 총비용은 늘어난다",
+     "무료 업데이트 'Stir of Dawn'은 본편에 포함",
+     "정가 기준 판정 — 2026-11-25 현재 할인 없음"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고 없음(단품 게임).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전편.",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "PC판 마지막 업데이트 공지가 2020-08-24 'Stir of Dawn' 패치이고, 모바일판도 마지막 버전 1.9(2025-10-24)로 12개월을 넘겼다. 본편 완결로 면제한다.",
+      "source_ids": [
+       "steam-news-blasphemous",
+       "itunes-blasphemous"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 상품 없음.",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 내 텔레메트리 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "본편만 사면 끝 — 추가 결제는 꾸미기용이다.",
+    "recommended_path": true,
+    "notes": "2026-11-25 스팀 정가 ₩26,000(미국 $24.99)."
+   },
+   {
+    "tier_id": "ios",
+    "label": "iOS 1회 구매",
+    "kind": "one_time",
+    "price": {
+     "amount": 7.99,
+     "currency": "USD",
+     "period": "one_time",
+     "display": "$7.99"
+    },
+    "limits": [
+     "한국 스토어에는 없다 — 미국·일본 스토어에서만 $7.99",
+     "PC판과 별도 앱(iOS 전용 조작)",
+     "앱 내 구입 없음(스토어 표기)"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "실행 전 광고 없음(단품 게임).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "인앱 결제·확률형 상품 항목이 스토어에 없다(가격은 1회 구매).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "미끼형 유입 광고 보도·불만 없음(부재 근거).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "과금 재화가 없어 게임 내 재화로만 성장한다.",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "1회 구매로 전편.",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "PC판 마지막 업데이트 공지가 2020-08-24 'Stir of Dawn' 패치이고, 모바일판도 마지막 버전 1.9(2025-10-24)로 12개월을 넘겼다. 본편 완결로 면제한다.",
+      "source_ids": [
+       "steam-news-blasphemous",
+       "itunes-blasphemous"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "구독 상품 없음.",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "게임 자체 계정 없음(Steam 계정은 플랫폼 요건).",
+      "source_ids": [
+       "steam-blasphemous"
+      ]
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "게임 내 텔레메트리 범위를 확인하지 못했다.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "one_liner": "아이폰에서 하려면 해외 계정이 필요하다.",
+    "recommended_path": false,
+    "notes": "2026-11-25 미국 스토어 $7.99 · 4.44★(258건). 한국 스토어 조회 결과 없음."
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "스팀 영어 리뷰 20,098건 90% 긍정, iOS(미국) 4.44★(258건). 표본이 큰 스팀 기준으로 90. 전체 언어 누적(SteamSpy)도 같은 방향이다.",
+    "source_ids": [
+     "steam-blasphemous",
+     "itunes-blasphemous",
+     "steamspy-blasphemous"
+    ]
+   },
+   "objective": {
+    "score": 70,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "본편은 1회 구매로 완결됐고 무료 업데이트까지 포함된다. 감점: 유료 DLC가 스킨·아트북 등 4건으로 나뉘어 총비용이 가격표보다 커질 수 있고, iOS판은 한국에서 살 수 없으며, PC판 패치가 2020년에 멈췄다(완결 면제).",
+    "source_ids": [
+     "steam-api-blasphemous",
+     "steam-news-blasphemous",
+     "itunes-blasphemous"
+    ]
+   },
+   "ai_review": {
+    "score": 82,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/B",
+    "confidence": "medium",
+    "summary": "종교 도상·픽셀 아트·보스 연출이 하나의 세계관으로 묶여 몰입이 강하다. 감점: 이동·전투가 무겁고 후반 난이도 스파이크가 크며, 본편 이후 후속작으로 무게가 옮겨갔다.",
+    "source_ids": [
+     "steam-blasphemous"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "green"
+   },
+   "one_liner": "분위기로 사는 메트로배니아 — 본편만 사면 값은 ₩26,000에서 끝난다.",
+   "reasons": [
+    "스팀 영어 리뷰 20,098건 90% 긍정 · iOS(미국) 4.44★(258건) — 표본이 큰 스팀이 하한을 잡아 준다.",
+    "본편이 무료 업데이트로 완결돼 유료 확장을 사지 않아도 끝까지 갈 수 있다.",
+    "PC판 패치 중단은 후속작 분리·완결로 면제하되, iOS판 한국 미출시는 조건으로 남겼다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "아이폰에서 하려면 미국·일본 계정이 필요하다 — 한국 스토어에는 iOS판이 없다.",
+    "유료 DLC 4건은 꾸미기용이라 사지 않아도 진행에 지장이 없다.",
+    "PC판 마지막 패치가 2020-08 — 최신 OS 대응은 확인되지 않는다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 90,
+      "scale": "percent",
+      "count": 20098,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 88,
+      "scale": "percent",
+      "count": 544,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "전체 언어 누적 50,516긍정/5,438부정 (긍정률 90.3%, SteamSpy 등급 C 교차 확인)."
+    },
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.44,
+      "scale": "stars5",
+      "count": 258,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.44★ · 258건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집: steam 90(20,098건) · ios 4.44(258건). 표본 규칙(100건) 충족 — 최근 구간 해석은 리뷰에서 보완."
+  },
+  "update_profile": {
+   "latest_update": "2025-10-24",
+   "latest_update_platform": "ios",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-10-24",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-blasphemous"
+     ],
+     "note": "iOS 최근 버전 1.9 릴리스(스토어 표기) — 호환 유지 수준."
+    },
+    {
+     "date": "2020-08-24",
+     "type": "content",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-blasphemous"
+     ],
+     "note": "개발사 업데이트 공지 'The Stir of Dawn - Bug Fix & Optimisation Patch 1 Live Now' — 무료 콘텐츠 업데이트의 마지막 패치."
+    }
+   ],
+   "maintenance_quality": "stalled_but_trusted",
+   "assessment": "과금·약관 변경 없이 본편이 끝나고 후속작으로 무게가 옮겨간 지연형. 모바일판만 호환 패치가 이어졌다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "B",
+     "source_ids": [
+      "steam-blasphemous"
+     ],
+     "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-blasphemous",
+     "steam-api-blasphemous",
+     "itunes-blasphemous"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "체험판이 없다 — 구매 전에는 플레이할 수 없다."
+   },
+   "summary": "PC판은 정가 ₩26,000 1회 구매에 유료 DLC 4건(스킨·아트북·코믹)이 선택으로 붙는다. iOS판은 미국·일본 스토어에서 $7.99 별도 판매이며 앱 내 구입은 없다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "유료 DLC 4건의 정확한 가격(상점 목록에서 이름만 확인)",
+    "게임 내 텔레메트리 수집 범위",
+    "iOS판의 한국 스토어 향후 출시 계획"
+   ],
+   "conflicts": [],
+   "limitations": "데스크 리서치. 스팀 상점·상점 API·개발사 공지·App Store(미국)만 사용했다. iOS판은 한국 스토어 조회 결과가 없어 미국 가격으로만 표기했다."
+  },
+  "score_notes": {
+   "user_rating": "스팀 영어 리뷰 90%(20,098건)와 iOS 미국 4.44★(258건)을 표본 수로 가중해 90. 모바일 표본이 작아 사실상 스팀 값이다.",
+   "objective": "본편 완결성은 인정하되 유료 DLC 분할, iOS 한국 미출시, PC 패치 중단을 감점했다.",
+   "ai_review": "세계관·연출의 완성도를 높게 보되 무거운 조작과 후반 난이도를 감점으로 남겼다."
+  }
+ }
+]

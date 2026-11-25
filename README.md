@@ -7,6 +7,8 @@
 
 **라이브:** https://aira1346.github.io/pharos/
 
+**반자동 수집 파이프라인 + 신규 2개 비교군 (2026-11-25):** 수집 속도를 올리기 위해 **무료 공개 API 만으로 사실 약 70%를 채우는 파이프라인**을 먼저 만들었습니다(`spec/tools/auto_collect.py`). 이름·스토어 ID·저장소만 주면 App Store(iTunes lookup + 앱 내 구입 목록)·Steam(appdetails·상점 평가·개발사 공지·SteamSpy)·GitHub(repo·릴리스·라이선스)·Google Play(평점·아이콘)에서 사실을 모아 **스키마 v0.4.0 초안 + 192×192 공식 아이콘**을 만들고, 사람이 판단할 값만 `TODO(리뷰)` 로 남깁니다. 검토 오버레이를 병합하는 `spec/tools/apply_review.py` 가 하드 필터·축 신호·티어·대표 판정을 검증기와 같은 규칙으로 다시 계산합니다. 이 파이프라인으로 **10건을 자동 수집(65요청 · 14.5초 · 항목당 1.45초 · 평균 자동 채움 70.6%)** 해 두 비교군을 새로 올렸습니다 — 게임 `메트로배니아 · 플랫포머`(Hollow Knight **90.0 🟢** · Celeste **89.5 🟢** · Nine Sols **89.25 🟢** · Ori and the Will of the Wisps **87.75 🟢** · Blasphemous **83.0 🟢**)와 앱 `이메일 클라이언트`(Proton Mail **89.0 🟢** · Thunderbird **86.0 🟢** · Apple Mail **84.0 🟢** · Spark Mail **80.0 🟡** · K-9 Mail **69.5 🟡**). 전체는 **도메인 3 · 대분류 10 · 비교군 14 · 67건**. Thunderbird 는 스토어 평점 표본이 없어 사용자 축을 ⚪로 두고 판정에서 뺐고, K-9 Mail 은 Play 3.0★(99,620건)이라 조건부, Spark Mail 은 AI 기능이 메일을 외부 AI 제공자로 넘기는 구조(개인정보 처리방침 2026-09-10) 때문에 조건부입니다. `verify_ui.py` 는 건수 단언을 데이터에서 계산하도록 바꿔 **641항목**이 통과합니다.
+
 **화면·UX 마감 v3.3 (2026-11-25):** 홈 `장르별 추천` 위에 **도메인 필터 바(전체 12 · 앱 5 · 게임 5 · AI 도구 2)** 를 두어 12개 장르를 원하는 도메인만 모아 볼 수 있고, 바는 스크롤해도 상단에 붙습니다. 비교군에서 항목을 체크하면 **하단 플로팅 비교 바**(`2개 선택됨 · 나란히 비교하기 → · 선택 초기화`)가 스크롤 위치와 무관하게 떠오르고, 비교 표는 **첫 열 고정 · `최고` 셀 · 점수 차이(−2.3) · 최고/최저/차이 요약**으로 차이를 바로 보여 줍니다. 비교군 헤더와 상세 모달에는 **🔗 링크 복사**(현재 딥링크 + `링크를 복사했어요` 토스트)를 넣었습니다. 390px 모바일에서 홈·도메인·목록·비교 표·상세·방법론 모달·미세조정 드로어의 **가로 넘침 0**, 주요 버튼 터치 영역 34~40px, **라이트 테마 텍스트 대비 4.2:1 이상**까지 점검했고 `verify_ui.py` **625항목**이 통과했습니다.
 
 **기준표 v0.5.0 — 평가 배분·표본 규모 검증 (2026-11-25):** 기본 배분을 **사용자 50 · 객관 25 · AI 25**로 바꿨습니다. 대중이 실제로 검증한 평점의 무게를 높이고, 얇은 3자 최근 표본이 수십만 건의 스토어 누적을 덮지 않게 **표본 규모 검증**을 넣었습니다(Notion 66.6→**77.0**, Obsidian 82.0→**82.5**). 객관·AI 축에서는 클라우드·비공개 소스라는 이유의 감점을 없애고 기능 완성도·생태계/연동성·안정성·보안·정책/과금 투명성으로 다시 매겼습니다 — **Google Gemini 76.2→81.5 🟢 · ChatGPT 79.3→84.0 🟢 · Google Drive 72.2→81.5 🟢 · OneDrive 73.55→81.25 🟢**. 로컬·계정·데이터 수집은 `flags` 사실로만 남기고, 새 **'프라이버시·로컬 중시' 프리셋**(객관 55% + 계정·데이터 수집 필터 자동)으로 가릅니다. 가중치 0인 프로필 축은 판정에 세지 않으며, 홈 갭 리포트는 제목대로 **거름(avoid)만** 보여줍니다. 안전장치는 그대로 — **Hero Wars 38.0 · Microsoft To Do 66.75 · Archero 58.25 · Clash Royale 61.0 은 계속 🔴**입니다.
@@ -45,7 +47,7 @@ Bloons TD 6 →**81.3 🟢**, Limbus Company →**78.7 🟡** 로 재적용하�
 | :--- | :--- |
 | 1 도메인 | 앱 · 게임 · AI 도구 (추후 콘텐츠·제품) |
 | 2 대분류 | 생산성·지식관리 / 보안·유틸리티 / 인터넷·프라이버시 / 전략·카드 / RPG·수집 / 액션·인디 / RPG·MMORPG / 모바일 전략·디펜스 / 대화·리서치 / 개발·코딩 |
-| 3 비교군 | 노트·지식관리 · 할 일·일정 관리 · 비밀번호 관리 · 클라우드 스토리지 · 웹 브라우저 · 덱빌딩 게임 · 모바일 수집형 RPG · 액션 로그라이크 · PC MMORPG · 모바일 전략·디펜스 · AI 어시스턴트·검색 · AI 코딩 에디터·에이전트 |
+| 3 비교군 | 노트·지식관리 · 할 일·일정 관리 · 비밀번호 관리 · 클라우드 스토리지 · 웹 브라우저 · 이메일 클라이언트 · 덱빌딩 게임 · 모바일 수집형 RPG · 액션 로그라이크 · 메트로배니아·플랫포머 · PC MMORPG · 모바일 전략·디펜스 · AI 어시스턴트·검색 · AI 코딩 에디터·에이전트 |
 | 4 항목·티어 | Obsidian(무료/Sync), Balatro(1회 구매) |
 
 - **데이터 분리**: `data/catalog.json`(도메인·대분류·비교군 정의) + 비교군별 파일 `data/{domain}/{arena}.json`
@@ -82,13 +84,18 @@ data/search-index.json     경량 인덱스 (분할 데이터에서 자동 생�
 data/app/pkm-notes.json    노트·지식관리 5건
 data/app/task-managers.json        할 일·일정 관리 5건
 data/app/password-managers.json    비밀번호 관리 4건
+data/app/web-browsers.json         웹 브라우저 5건
+data/app/cloud-storage.json        클라우드 스토리지 5건
+data/app/email-clients.json        이메일 클라이언트 5건 (auto_collect)
 data/game/roguelike-deckbuilder.json  덱빌딩 4건
 data/game/mobile-gacha-rpg.json       모바일 수집형 RPG 6건
 data/game/action-roguelike.json       액션 로그라이크 4건
+data/game/metroidvania-platformer.json 메트로배니아·플랫포머 5건 (auto_collect)
 data/game/pc-mmorpg.json              PC MMORPG 4건
 data/game/mobile-strategy-defense.json 모바일 전략·디펜스 6건
+data/ai/ai-assistants.json         AI 어시스턴트·검색 5건
 data/ai/ai-coding-tools.json       AI 코딩 에디터·에이전트 4건
-assets/icons/              42종 공식 아이콘 192×192 webp + manifest.json(출처)
+assets/icons/              67종 공식 아이콘 192×192 webp + manifest.json(출처)
 schema/item.schema.json    스키마 v0.4.0 + 클라이언트 계산 계약(x-pharos.client)
 .github/ISSUE_TEMPLATE/correction.yml  정정·이의제기 양식
 spec/                      설계 문서 (vision · criteria · plan · pilot-test)와 검증 도구
@@ -117,6 +124,7 @@ spec/                      설계 문서 (vision · criteria · plan · pilot-te
 | [spec/plan.md](spec/plan.md) | 개발 계획과 단계 (v2.0) |
 | [spec/pilot-test.md](spec/pilot-test.md) | 파일럿 검증 기록 |
 | [spec/README.md](spec/README.md) | 문서 읽는 순서와 검증 도구 안내 |
+| [spec/tools/README.md](spec/tools/README.md) | 무료 API 반자동 수집 파이프라인 사용법 (`auto_collect.py` → `apply_review.py` → `sync_web_data.py` → `verify_ui.py`) |
 
 ## 계산 원칙
 
