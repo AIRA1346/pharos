@@ -123,6 +123,7 @@ const state = {
   query: '',
   sort: 'score',
   showAvoided: true,
+  homeDomain: 'all',
   weights: {},
   enabledFilters: [],
   strict: true,
@@ -441,6 +442,7 @@ async function render({ replace = false } = {}) {
   renderDomainTabs();
   renderBreadcrumb();
   renderCompareBar();
+  document.body.classList.toggle('is-home', !state.route.domain);
   if (!state.route.domain) {
     renderHome();
   } else if (state.route.view === 'compare' && state.route.compare.length >= 2) {
@@ -490,6 +492,7 @@ async function navigate(patch, options = {}) {
 
 function goHome() {
   state.query = '';
+  state.homeDomain = 'all';
   state.route = { view: 'home', domain: null, category: null, arena: null, item: null, compare: [] };
   return render();
 }
@@ -612,13 +615,11 @@ function renderHome() {
     <section class="home-block genre-showcase" id="genreShowcase">
       <div class="section-head">
         <h2>장르별 추천</h2>
-        <span class="section-hint">${
-          state.preset === 'balanced'
-            ? '장르를 누르면 전체 비교군 · 항목을 누르면 상세가 바로 열립니다'
-            : '타일 점수·판정은 균형 기본 기준 · 장르를 열면 내 기준으로 다시 계산합니다'
-        }</span>
+        <span class="section-hint" id="genreHint">${esc(homeGenreHint(arenas))}</span>
       </div>
-      <div class="genre-list">${arenas.map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
+      ${homeDomainFilterHtml(arenas)}
+      <div class="genre-list" id="genreList">${homeArenas(arenas).map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
+      <p class="empty" id="genreEmpty" ${homeArenas(arenas).length ? 'hidden' : ''}>이 도메인에는 아직 비교군이 없습니다.</p>
     </section>
 
     <section class="home-block" id="gapReport">
@@ -664,6 +665,68 @@ function renderHome() {
     if (rows.length === 1) openDetail(rows[0].record.id);
   });
   renderHomeSearch();
+}
+
+/**
+ * 홈 장르 쇼케이스의 도메인 필터 — 12개 장르가 세로로 길게 이어지므로
+ * 전체 · 앱 · 게임 · AI 도구 건수를 먼저 보여 주고, 누른 도메인의 장르만 남긴다.
+ * 필터 바는 스크롤해도 상단에 붙어 있어 목록 어디서든 도메인을 바꿀 수 있다.
+ */
+function homeArenas(arenas) {
+  return state.homeDomain === 'all' ? arenas : arenas.filter((arena) => arena.domain === state.homeDomain);
+}
+
+function homeDomainFilterHtml(arenas) {
+  const rows = [
+    { id: 'all', label: '전체', count: arenas.length },
+    ...(state.cat.catalog.domains || [])
+      .map((dom) => ({ id: dom.id, label: dom.label, count: arenas.filter((a) => a.domain === dom.id).length }))
+      .filter((row) => row.count > 0),
+  ];
+  return `<div class="domain-filter" id="homeDomainFilter" role="group" aria-label="홈 장르 도메인 필터">${rows
+    .map(
+      (row) =>
+        `<button type="button" class="domain-chip" data-home-domain="${esc(row.id)}" aria-pressed="${
+          state.homeDomain === row.id ? 'true' : 'false'
+        }"><span>${esc(row.label)}</span><b>${row.count}</b></button>`,
+    )
+    .join('')}</div>`;
+}
+
+function homeGenreHint(arenas) {
+  const shown = homeArenas(arenas);
+  const scope =
+    state.homeDomain === 'all'
+      ? `전체 ${shown.length}개 장르`
+      : `${state.cat.domainLabel(state.homeDomain)} ${shown.length}개 장르`;
+  return `${scope} · ${
+    state.preset === 'balanced'
+      ? '장르를 누르면 전체 비교군, 항목을 누르면 상세가 바로 열립니다'
+      : '타일 점수·판정은 균형 기본 기준, 장르를 열면 내 기준으로 다시 계산합니다'
+  }`;
+}
+
+/** 도메인 필터 클릭 — 목록 DOM만 다시 그려 검색어·스크롤 상태를 건드리지 않는다. */
+function setHomeDomain(id) {
+  const valid = ['all', ...(state.cat.catalog.domains || []).map((dom) => dom.id)];
+  if (!valid.includes(id) || state.homeDomain === id) return;
+  state.homeDomain = id;
+  const featured = (state.cat.catalog.home?.featured_arenas || []).map((aid) => state.cat.arena(aid)).filter(Boolean);
+  const arenas = featured.length ? featured : state.cat.arenasOf();
+  const shown = homeArenas(arenas);
+  document.querySelectorAll('#homeDomainFilter [data-home-domain]').forEach((chip) => {
+    chip.setAttribute('aria-pressed', chip.dataset.homeDomain === id ? 'true' : 'false');
+  });
+  const list = $('genreList');
+  if (list) list.innerHTML = shown.map((arena) => genreBlockHtml(arena, { kicker: true })).join('');
+  const empty = $('genreEmpty');
+  if (empty) empty.hidden = shown.length > 0;
+  const hint = $('genreHint');
+  if (hint) hint.textContent = homeGenreHint(arenas);
+  const showcase = $('genreShowcase');
+  if (showcase && window.scrollY > showcase.offsetTop) {
+    showcase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 /**
@@ -884,6 +947,7 @@ async function renderArena(seq) {
         <span class="chip">${items.length}건</span>
         <span class="chip chip--muted">필터 팩 · ${esc(pack?.label || '공통')}</span>
         <button type="button" class="ghost-btn ghost-btn--tune" data-action="open-tune">⚙ 내 기준 <b id="tuneSummary">${esc(presetLabel())}</b></button>
+        <button type="button" class="ghost-btn ghost-btn--copy" data-copy-link title="이 비교군 화면의 딥링크를 복사">🔗 링크 복사</button>
       </div>
     </header>
     <div class="toolbar">
@@ -995,14 +1059,14 @@ function renderArenaResults() {
     </div>
     <div class="grid" id="grid">${picks.map(cardHtml).join('')}</div>
     <p class="empty" id="emptyPick" ${picks.length ? 'hidden' : ''}>조건에 맞는 항목이 없습니다. 필터를 줄이거나 검색어를 비워보세요.</p>
-    <section class="result-section" id="avoidSection" ${state.showAvoided ? '' : 'hidden'}>
+    <section class="result-section" id="avoidSection" ${state.showAvoided && avoided.length ? '' : 'hidden'}>
       <div class="section-head">
         <h2><span class="verdict-dot verdict-dot--bad"></span>거름 — 왜 걸렸는지</h2>
         <span class="section-hint">${avoided.length}건</span>
       </div>
       <p class="hint section-sub">켜진 필터에 걸린 항목은 점수와 무관하게 아래로 내려갑니다.</p>
       <div class="grid grid--avoided" id="avoidGrid">${avoided.map(cardHtml).join('')}</div>
-      <p class="empty" id="emptyAvoid" ${avoided.length ? 'hidden' : ''}>지금 설정에서 거름으로 내려간 항목이 없습니다.</p>
+      <p class="empty" id="emptyAvoid" hidden>지금 설정에서 거름으로 내려간 항목이 없습니다.</p>
     </section>`;
   $('listCount').textContent = `${views.length}/${(state.arenaItems || []).length}건`;
   renderCompareBar();
@@ -1133,14 +1197,18 @@ function renderCompareBar() {
   const ids = state.route.compare;
   const show = Boolean(state.route.arena) && ids.length > 0 && state.route.view !== 'compare';
   bar.hidden = !show;
+  document.body.classList.toggle('has-compare-bar', show);
   if (!show) return;
+  const label = bar.querySelector('.compare-bar-label');
+  if (label) label.textContent = `${ids.length}개 선택됨`;
   $('compareList').innerHTML = ids
     .map((id) => `<span class="compare-chip">${esc(recordById(id)?.name || id)}<button type="button" class="chip-x" data-compare="${esc(id)}" aria-label="${esc(
       recordById(id)?.name || id,
     )} 비교에서 빼기">✕</button></span>`)
     .join('');
   $('compareOpen').disabled = ids.length < 2;
-  $('compareOpen').textContent = ids.length < 2 ? '1개 더 선택' : `${ids.length}개 나란히 비교`;
+  $('compareOpen').textContent = ids.length < 2 ? '1개 더 선택' : '나란히 비교하기 →';
+  $('compareClear').textContent = '선택 초기화';
 }
 
 function toggleCompare(id) {
@@ -1196,34 +1264,42 @@ async function renderCompare(seq) {
     return;
   }
   const arena = state.cat.arena(arenaId);
+  const axisLabel = (key) => contract().axes?.find((def) => def.key === key)?.label || key;
+  const axisScore = (v, key) => v.recordEval.axisStates.find((row) => row.key === key)?.score;
   const rows = [
-    ['가중 점수', (v) => `<b class="cmp-score">${v.recordEval.score?.toFixed(1) ?? '—'}</b>`],
-    ['대표 티어 · 가격', (v) => `${esc(v.recordTier?.label || '—')}<br><span class="muted">${esc(v.recordTier?.price?.display || '—')}</span>`],
-    ['최저 비용 경로', (v) => (v.cheapest ? esc(v.cheapest.label) : '—')],
-    ...['user_rating', 'objective', 'ai_review'].map((key) => {
-      const label = contract().axes?.find((def) => def.key === key)?.label || key;
-      return [
-        `축 · ${label}`,
-        (v) => {
-          const axis = v.recordEval.axisStates.find((row) => row.key === key);
-          const meta = engine.SIGNAL_META[axis?.signal] || engine.SIGNAL_META.unknown;
-          return axis ? `${meta.emoji} <b>${axis.score ?? '—'}</b>` : '—';
-        },
-      ];
-    }),
-    [
-      '확률형·P2W 강도',
-      (v) => {
+    {
+      label: '가중 점수',
+      num: (v) => v.recordEval.score,
+      showDiff: true,
+      render: (v) => `<b class="cmp-score">${v.recordEval.score?.toFixed(1) ?? '—'}</b>`,
+    },
+    {
+      label: '대표 티어 · 가격',
+      render: (v) => `${esc(v.recordTier?.label || '—')}<br><span class="muted">${esc(v.recordTier?.price?.display || '—')}</span>`,
+    },
+    { label: '최저 비용 경로', render: (v) => (v.cheapest ? esc(v.cheapest.label) : '—') },
+    ...['user_rating', 'objective', 'ai_review'].map((key) => ({
+      label: `축 · ${axisLabel(key)}`,
+      num: (v) => axisScore(v, key),
+      render: (v) => {
+        const axis = v.recordEval.axisStates.find((row) => row.key === key);
+        const meta = engine.SIGNAL_META[axis?.signal] || engine.SIGNAL_META.unknown;
+        return axis ? `${meta.emoji} <b>${axis.score ?? '—'}</b>` : '—';
+      },
+    })),
+    {
+      label: '확률형·P2W 강도',
+      render: (v) => {
         const impact = engine.monetizationImpactOf(v.recordEval);
         if (impact === 'none') return '<span class="muted">상품 없음</span>';
         return `<span class="pill pill--${impact === 'optional' ? 'sea' : 'bad'}">${esc(
           engine.IMPACT_META[impact]?.label || impact,
         )}</span>`;
       },
-    ],
-    [
-      '걸린 하드 필터',
-      (v) => {
+    },
+    {
+      label: '걸린 하드 필터',
+      render: (v) => {
         const fails = engine.failedFilters(v.recordEval);
         const optional = engine.optionalFilters(v.recordEval);
         const chips = [
@@ -1232,19 +1308,43 @@ async function renderCompare(seq) {
         ];
         return chips.length ? chips.join('') : '<span class="muted">없음</span>';
       },
-    ],
-    ['누적 별점·평점', (v) => storeStarsText(v.item)],
-    ['최근 리뷰', (v) => recentReviewText(v.item)],
-    ['수명 단계', (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status)],
-    ['평가 신선도', (v) => {
+    },
+    { label: '누적 별점·평점', num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
+    { label: '최근 리뷰', render: (v) => recentReviewText(v.item) },
+    { label: '수명 단계', render: (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status) },
+    { label: '평가 신선도', render: (v) => {
       const fresh = v.fresh;
       return `${esc(v.item.assessed_at)}<br><span class="chip chip--fresh chip--fresh--${fresh.stale ? 'warn' : 'ok'}">${esc(
         fresh.stale ? fresh.label : `${fresh.label} · ${fresh.elapsed}일`,
       )}</span>`;
-    }],
-    ['근거 등급', (v) => esc(engine.gradeWeakest(v.item.data_quality?.overall_grade))],
-    ['', (v) => `<button type="button" class="ghost-btn" data-action="item" data-item="${esc(v.item.id)}">상세 →</button>`],
+    } },
+    { label: '근거 등급', render: (v) => esc(engine.gradeWeakest(v.item.data_quality?.overall_grade)) },
+    { label: '', render: (v) => `<button type="button" class="ghost-btn" data-action="item" data-item="${esc(v.item.id)}">상세 →</button>` },
   ];
+  const bestOf = (def) => {
+    if (!def.num) return -1;
+    let at = -1;
+    let value = null;
+    let count = 0;
+    views.forEach((v, i) => {
+      const n = def.num(v);
+      if (typeof n === 'number' && Number.isFinite(n)) {
+        count += 1;
+        if (value === null || n > value) {
+          value = n;
+          at = i;
+        }
+      }
+    });
+    // 값이 하나뿐이면 '최고'로 강조하지 않는다(비교가 아니라 단독 표시).
+    return count >= 2 ? at : -1;
+  };
+  const scoreAt = bestOf(rows[0]);
+  const scoreValues = views.map((v) => v.recordEval.score).filter((n) => typeof n === 'number');
+  const topScore = scoreValues.length ? Math.max(...scoreValues) : null;
+  const lowScore = scoreValues.length ? Math.min(...scoreValues) : null;
+  const topView = scoreAt >= 0 ? views[scoreAt] : null;
+  const lowView = scoreValues.length ? views[views.findIndex((v) => v.recordEval.score === lowScore)] : null;
   $('view').innerHTML = `
   <section class="level">
     <header class="level-head level-head--arena">
@@ -1253,9 +1353,17 @@ async function renderCompare(seq) {
       <p class="lede">같은 비교군 ${views.length}개를 한 표에 놓았습니다. 점수·판정은 지금 내 기준(${esc(presetLabel())})으로 다시 계산됩니다.</p>
       <div class="level-badges">
         <button type="button" class="ghost-btn" data-action="arena" data-domain="${esc(arena.domain)}" data-arena="${esc(arena.id)}">← 목록으로</button>
+        <button type="button" class="ghost-btn" data-copy-link title="이 비교 화면의 딥링크를 복사">🔗 링크 복사</button>
         <button type="button" class="text-btn" data-action="clear-compare">비교 비우기</button>
       </div>
     </header>
+    <div class="compare-summary" id="compareSummary">
+      ${topView && topScore !== null ? `<span>최고 <b>${esc(topView.item.name)} ${topScore.toFixed(1)}</b></span>` : ''}
+      ${lowScore !== null ? `<span>최저 <b>${esc(lowView?.item.name || '')} ${lowScore.toFixed(1)}</b></span>` : ''}
+      ${topScore !== null && lowScore !== null ? `<span>차이 <b>${(topScore - lowScore).toFixed(1)}점</b></span>` : ''}
+      <span class="compare-summary-hint">내 기준 ${esc(presetLabel())} · 왼쪽 기준 열 고정</span>
+    </div>
+    <p class="scroll-hint">↔ 표를 옆으로 밀면 나머지 항목이 보입니다. 왼쪽 기준 열은 고정되어 있습니다.</p>
     <div class="table-wrap compare-wrap">
       <table class="data compare-table" id="compareTable">
         <thead>
@@ -1268,12 +1376,21 @@ async function renderCompare(seq) {
         </thead>
         <tbody>
           ${rows
-            .map(
-              ([label, render]) =>
-                `<tr><th scope="row" class="compare-rowlabel">${esc(label)}</th>${views
-                  .map((v) => `<td>${render(v)}</td>`)
-                  .join('')}</tr>`,
-            )
+            .map((def) => {
+              const best = bestOf(def);
+              return `<tr class="${def.label === '가중 점수' ? 'cmp-row--score' : ''}"><th scope="row" class="compare-rowlabel">${esc(def.label)}</th>${views
+                .map((v, i) => {
+                  const isBest = Boolean(def.num) && best === i;
+                  const gap =
+                    def.showDiff && def.num && best >= 0 && !isBest && typeof def.num(v) === 'number' && typeof def.num(views[best]) === 'number'
+                      ? def.num(views[best]) - def.num(v)
+                      : null;
+                  return `<td class="cmp-cell${isBest ? ' cmp-cell--best' : ''}">${def.render(v)}${
+                    isBest ? '<span class="cmp-best">최고</span>' : gap ? `<span class="cmp-diff">−${gap.toFixed(1)}</span>` : ''
+                  }</td>`;
+                })
+                .join('')}</tr>`;
+            })
             .join('')}
         </tbody>
       </table>
@@ -1302,6 +1419,15 @@ function storeStarsText(item) {
   return `★ ${Number(metric.value).toFixed(1)} <span class="muted">${engine.PLATFORM_LABEL[row.platform] || row.platform} · ${num(
     metric.count,
   )}개</span>`;
+}
+
+/** 비교 표에서 '최고'를 표시할 때 쓰는 누적 별점 숫자(가장 큰 표본의 stars5 값). */
+function storeStarsValue(item) {
+  const values = (item.review_snapshot?.platforms || [])
+    .map((row) => row.cumulative)
+    .filter((metric) => metric && metric.scale === 'stars5')
+    .sort((a, b) => (b.count || 0) - (a.count || 0));
+  return values.length ? Number(values[0].value) : undefined;
 }
 
 function recentReviewText(item) {
@@ -1380,9 +1506,10 @@ async function showDetail(id) {
 
   const bookmarked = state.bookmarks.includes(item.id);
   $('modalActions').innerHTML = `
+    <button type="button" class="ghost-btn" data-copy-link title="이 항목 상세의 딥링크를 복사">🔗 링크 복사</button>
     <button type="button" class="ghost-btn" data-share="${esc(item.id)}">공유 요약 복사</button>
     <a class="ghost-btn" href="${correctionUrl(item)}" target="_blank" rel="noopener noreferrer">정정 제보</a>
-    <button type="button" class="ghost-btn ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}">${bookmarked ? '★ 보관됨' : '☆ 보관'}</button>
+    <button type="button" class="icon-btn ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" title="${esc(item.name)} 보관함 ${bookmarked ? '빼기' : '담기'}" aria-label="${esc(item.name)} 보관함 ${bookmarked ? '빼기' : '담기'}">${bookmarked ? '★' : '☆'}</button>
     <button type="button" class="icon-btn" id="modalClose" aria-label="상세 닫기">✕</button>`;
 
   $('modalBody').innerHTML = [
@@ -2497,6 +2624,13 @@ async function copyShare(id) {
   toast(ok ? '공유용 요약을 복사했습니다.' : '복사 권한이 없습니다. 아래 요약을 직접 선택해 주세요.', ok ? '' : text);
 }
 
+async function copyDeepLink() {
+  // 지금 보고 있는 화면의 딥링크를 그대로 복사한다(도메인·비교군·항목·프리셋·필터 포함).
+  const url = `${location.origin}${location.pathname}${location.search}`;
+  const ok = await writeClipboard(url);
+  toast(ok ? '링크를 복사했어요' : '링크를 복사하지 못했습니다.', ok ? '' : url);
+}
+
 async function writeClipboard(text) {
   try {
     if (navigator.clipboard?.writeText) {
@@ -2592,6 +2726,18 @@ async function onClick(event) {
   if (share) {
     event.preventDefault();
     copyShare(share.dataset.share);
+    return;
+  }
+  const copyLinkBtn = target.closest('[data-copy-link]');
+  if (copyLinkBtn) {
+    event.preventDefault();
+    copyDeepLink();
+    return;
+  }
+  const domainChip = target.closest('[data-home-domain]');
+  if (domainChip) {
+    event.preventDefault();
+    setHomeDomain(domainChip.dataset.homeDomain);
     return;
   }
   if (target.closest('label.compare-check')) return;
