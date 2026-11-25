@@ -131,6 +131,11 @@ const esc = (value) =>
   String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const safeUrl = (url) => (/^https?:\/\//i.test(String(url || '')) ? url : null);
 const pct = (num) => `${Math.round(num * 100)}%`;
+/** 헤더·경로 표시용 한 줄 설명 — 줄표(—) 뒤 부연을 잘라 한 줄로 만든다. */
+const shortText = (value, limit = 76) => {
+  const raw = String(value ?? '').split(' — ')[0].trim();
+  return raw.length > limit ? `${raw.slice(0, limit).trim()}…` : raw;
+};
 const num = (value) => Number(value ?? 0).toLocaleString('ko-KR');
 const contract = () => state.core?.contract || {};
 
@@ -533,7 +538,7 @@ function renderBreadcrumb() {
   if (note) {
     const arena = route.arena ? state.cat.arena(route.arena) : null;
     note.textContent = arena
-      ? `${arena.description}`
+      ? `${shortText(arena.description, 64)}`
       : route.domain
         ? `${state.cat.domain(route.domain)?.description || ''}`
         : '도메인 → 대분류 → 비교군 → 항목 순으로 좁혀 봅니다. 평균은 같은 비교군 안에서만 계산합니다.';
@@ -556,6 +561,7 @@ function renderDatasetChip() {
 function renderHome() {
   const idx = state.core.index;
   const featured = (state.cat.catalog.home?.featured_arenas || []).map((id) => state.cat.arena(id)).filter(Boolean);
+  const arenas = featured.length ? featured : state.cat.arenasOf();
   const gapLimit = state.cat.catalog.home?.gap_report?.limit ?? 4;
   const gapItems = idx.gap_report.items.slice(0, gapLimit).map(recordById).filter(Boolean);
   const lastAssessed = indexRecords().map((rec) => rec.assessed_at).filter(Boolean).sort().pop();
@@ -563,13 +569,12 @@ function renderHome() {
 
   $('view').innerHTML = `
   <section class="home">
-    <div class="hero">
-      <p class="eyebrow">PHAROS · 파로스</p>
-      <h1>별점 대신, <span class="hl">내 기준</span>으로 거르는 앱·게임 선별</h1>
-      <p class="lede">
-        사용자 평가·객관 신뢰 지표·AI 검토를 내 가중치로 합치고, 강제 광고·확률형 뽑기·계정 필수 같은
-        <strong>절대 거름 조건</strong>을 먼저 적용합니다. 같은 자리를 두고 겨루는 대체제끼리만 비교합니다.
-      </p>
+    <div class="hero hero--compact">
+      <div class="hero-lead">
+        <p class="eyebrow">PHAROS · 파로스</p>
+        <h1>별점 대신, <span class="hl">내 기준</span>으로 거르는 앱·게임 선별</h1>
+        <p class="lede">강제 광고·확률형 뽑기·계정 필수 같은 <strong>절대 거름 조건</strong>을 먼저 적용하고, 같은 자리의 대체제끼리만 비교합니다.</p>
+      </div>
       <form class="home-search" id="homeSearchForm" role="search" autocomplete="off">
         <span class="search-ico" aria-hidden="true">⌕</span>
         <input type="search" id="homeSearch" placeholder="‘에버노트 대신 뭐 쓰지?’ — 이름·대체제·키워드로 검색"
@@ -582,23 +587,21 @@ function renderHome() {
         <span><b>${counts.arenas}</b>비교군</span>
         <span>스키마 v${esc(contract().schema_version || '0.4.0')}</span>
         ${lastAssessed ? `<span>마지막 평가 ${esc(lastAssessed)}</span>` : ''}
-      </div>
-      <div class="hero-actions">
-        <button type="button" class="ghost-btn" data-action="open-method">파로스가 점수를 매기는 법</button>
-        <button type="button" class="ghost-btn ghost-btn--tune" data-action="open-tune">내 기준 미세조정</button>
+        <span class="hero-meta-actions">
+          <button type="button" class="text-btn" data-action="open-method">점수 매기는 법</button>
+          <button type="button" class="text-btn" data-action="open-tune">⚙ 내 기준 · ${esc(presetLabel())}</button>
+        </span>
       </div>
     </div>
 
     <div id="homeSearchResults" class="home-search-results" ${state.query ? '' : 'hidden'}></div>
 
-    <section class="home-block" id="arenaShortcuts">
+    <section class="home-block genre-showcase" id="genreShowcase">
       <div class="section-head">
-        <h2>비교군 바로가기</h2>
-        <span class="section-hint">같은 대체제 묶음끼리만 평균·순위를 냅니다</span>
+        <h2>장르별 추천</h2>
+        <span class="section-hint">장르를 누르면 전체 비교군 · 항목을 누르면 상세가 바로 열립니다</span>
       </div>
-      <div class="arena-cards">
-        ${featured.map(arenaShortcutHtml).join('')}
-      </div>
+      <div class="genre-list">${arenas.map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
     </section>
 
     <section class="home-block" id="gapReport">
@@ -646,24 +649,73 @@ function renderHome() {
   renderHomeSearch();
 }
 
-function arenaShortcutHtml(arena) {
-  const stat = state.core.index.arena_stats[arena.id];
-  if (!stat) return '';
-  const cat = state.cat.category(arena.category);
+/**
+ * 장르(비교군) 추천 목록 — 경량 인덱스만으로 그린다(비교군 파일은 내려받지 않는다).
+ * 추천 🟢 을 먼저, 그다음 조건부 🟡 를 점수 순으로. 거름 🔴 은 쇼케이스에서 빼고 비교군 화면에서만 보인다.
+ * 점수·판정은 '균형 기본' 가중치·기본 필터로 계산된 값이다(내 기준은 비교군 화면에서 다시 계산).
+ */
+function arenaPickRecords(arenaId, limit = 4) {
+  const rank = { recommend: 0, conditional: 1, avoid: 2 };
+  const recs = indexRecords().filter((rec) => (rec.arenas || []).includes(arenaId));
+  const sorted = [...recs].sort(
+    (a, b) =>
+      (rank[a.verdict] ?? 9) - (rank[b.verdict] ?? 9) ||
+      (b.score ?? -1) - (a.score ?? -1) ||
+      a.name.localeCompare(b.name, 'ko'),
+  );
+  const picks = sorted.filter((rec) => rec.verdict !== 'avoid');
+  return (picks.length ? picks : sorted).slice(0, limit);
+}
+
+/** 장르 쇼케이스 타일 — 공식 아이콘 + 이름 + 판정 배지 + 가중 점수. 누르면 상세 모달이 열린다. */
+function pickTileHtml(rec) {
+  const verdict = engine.VERDICT_META[rec.verdict] || engine.VERDICT_META.conditional;
+  const score = typeof rec.score === 'number' ? rec.score.toFixed(1) : '—';
+  const tagline = rec.tagline || rec.one_liner || '';
+  // 타일에는 한글 이름만 — 영어 원어가 괄호로 붙은 이름은 좁은 폭에서 먼저 잘린다(전체 이름은 상세·title).
+  const shortName = String(rec.name || '').replace(/\s*[(\(][^)\)]*[)\)]\s*$/, '').trim() || rec.name;
   return `
-  <button type="button" class="arena-card" data-action="arena" data-domain="${esc(arena.domain)}" data-arena="${esc(arena.id)}">
-    <span class="arena-card-kicker">${esc(state.cat.domainLabel(arena.domain))} · ${esc(cat?.label || arena.category)}</span>
-    <strong class="arena-card-title">${esc(arena.label)}</strong>
-    <span class="arena-card-desc">${esc(arena.description)}</span>
-    <span class="arena-card-meta">
-      <span>${stat.count}건</span>
-      <span>평균 ${stat.avg_score ?? '—'}</span>
-      <span class="ok">추천 ${stat.verdicts.recommend}</span>
-      <span class="bad">거름 ${stat.verdicts.avoid}</span>
+  <button type="button" class="pick-tile pick-tile--${verdict.tone}" data-action="item" data-item="${esc(rec.id)}"
+          data-verdict="${esc(rec.verdict)}" data-score="${typeof rec.score === 'number' ? rec.score.toFixed(2) : ''}"
+          title="${esc(rec.name)}"
+          aria-label="${esc(`${rec.name} 상세 보기 — ${verdict.label}, 가중 점수 ${score}`)}">
+    ${iconHtml(rec, 'pick')}
+    <span class="pick-text">
+      <span class="pick-name">${esc(shortName)}</span>
+      <span class="pick-tagline">${esc(tagline)}</span>
     </span>
-    ${stat.top_item ? `<span class="arena-card-top">1위 ${esc(stat.top_item.name)} <b>${stat.top_item.score ?? '—'}</b></span>` : ''}
-    <span class="arena-card-go">열기 →</span>
+    <span class="pick-meta">
+      <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${verdict.label}</span>
+      <span class="pick-score" title="가중 점수(균형 기본 기준)">${score}</span>
+    </span>
   </button>`;
+}
+
+/** 장르 한 블록 — 장르 이름(헤더 클릭 = 비교군 이동)과 추천 타일 줄. */
+function genreBlockHtml(arena, options = {}) {
+  const stat = state.core.index.arena_stats[arena.id];
+  const picks = arenaPickRecords(arena.id, options.limit ?? 4);
+  if (!picks.length) return '';
+  const cat = state.cat.category(arena.category);
+  const kicker = options.kicker
+    ? `${state.cat.domainLabel(arena.domain)} · ${cat?.label || arena.category}`
+    : cat?.label || arena.category;
+  const count = stat?.count ?? picks.length;
+  const go = `data-action="arena" data-domain="${esc(arena.domain)}" data-arena="${esc(arena.id)}"`;
+  return `
+  <article class="genre-block" data-arena="${esc(arena.id)}">
+    <header class="genre-head">
+      <button type="button" class="genre-title" ${go}>
+        <span class="genre-kicker">${esc(kicker)}</span>
+        <span class="genre-name">${esc(arena.label)}</span>
+      </button>
+      <span class="genre-stat">${count}종${
+        stat ? ` · <span class="ok">추천 ${stat.verdicts.recommend}</span>` : ''
+      }</span>
+      <button type="button" class="genre-more" ${go}>전체 ${count}종 비교 →</button>
+    </header>
+    <div class="pick-row">${picks.map(pickTileHtml).join('')}</div>
+  </article>`;
 }
 
 function gapRowHtml(rec) {
@@ -749,34 +801,26 @@ function renderDomain() {
   const categories = state.cat.categoriesOf(dom.id);
   const arenas = state.cat.arenasOf(dom.id);
   const pack = state.cat.filterPack(dom.filter_pack);
+  const total = arenas.reduce((sum, arena) => sum + (state.core.index.arena_stats[arena.id]?.count || 0), 0);
   $('view').innerHTML = `
   <section class="level">
-    <header class="level-head">
+    <header class="level-head level-head--compact">
       <p class="eyebrow">${esc(dom.label)}</p>
-      <h1>${esc(dom.label)} — 대분류 ${categories.length} · 비교군 ${arenas.length}</h1>
-      <p class="lede">${esc(dom.description)}</p>
-      <p class="level-note">이 도메인의 기본 필터 팩: <b>${esc(pack?.label || dom.filter_pack)}</b> — ${esc(pack?.description || '')}</p>
+      <h1>${esc(dom.label)} — 장르 ${arenas.length} · ${total}건</h1>
+      <p class="lede lede--line">${esc(dom.description)}</p>
+      <div class="level-badges">
+        ${categories
+          .map((cat) => {
+            const members = state.cat.arenasOf(dom.id, cat.id);
+            return `<button type="button" class="chip chip--link" data-action="category" data-domain="${esc(dom.id)}" data-category="${esc(cat.id)}">${esc(
+              cat.label,
+            )} <b>${members.length}</b></button>`;
+          })
+          .join('')}
+        <span class="chip chip--muted">필터 팩 · ${esc(pack?.label || dom.filter_pack)}</span>
+      </div>
     </header>
-    <div class="category-cards">
-      ${categories
-        .map((cat) => {
-          const members = state.cat.arenasOf(dom.id, cat.id);
-          const stats = members.map((a) => state.core.index.arena_stats[a.id]).filter(Boolean);
-          const items = stats.reduce((sum, s) => sum + s.count, 0);
-          return `<button type="button" class="category-card" data-action="category" data-domain="${esc(dom.id)}" data-category="${esc(cat.id)}">
-            <span class="category-kicker">대분류</span>
-            <strong>${esc(cat.label)}</strong>
-            <span class="category-desc">${esc(cat.description)}</span>
-            <span class="category-meta">${members.length}개 비교군 · ${items}건</span>
-            <span class="category-arenas">${members.map((a) => `<span class="chip chip--arena">${esc(a.label)}</span>`).join('')}</span>
-          </button>`;
-        })
-        .join('')}
-    </div>
-    <section class="home-block">
-      <div class="section-head"><h2>이 도메인의 비교군</h2><span class="section-hint">바로 항목까지 내려가도 됩니다</span></div>
-      <div class="arena-cards">${arenas.map(arenaShortcutHtml).join('')}</div>
-    </section>
+    <div class="genre-list">${arenas.map((arena) => genreBlockHtml(arena)).join('')}</div>
   </section>`;
 }
 
@@ -786,13 +830,12 @@ function renderCategory() {
   const arenas = state.cat.arenasOf(dom.id, cat.id);
   $('view').innerHTML = `
   <section class="level">
-    <header class="level-head">
+    <header class="level-head level-head--compact">
       <p class="eyebrow">${esc(dom.label)} · 대분류</p>
       <h1>${esc(cat.label)}</h1>
-      <p class="lede">${esc(cat.description)}</p>
-      <p class="level-note">비교군 ${arenas.length}개 — 하나를 고르면 그 안에서만 점수·순위를 냅니다.</p>
+      <p class="lede lede--line">${esc(cat.description)}</p>
     </header>
-    <div class="arena-cards arena-cards--wide">${arenas.map(arenaShortcutHtml).join('')}</div>
+    <div class="genre-list">${arenas.map((arena) => genreBlockHtml(arena)).join('')}</div>
   </section>`;
 }
 
@@ -819,11 +862,10 @@ async function renderArena(seq) {
     <header class="level-head level-head--arena">
       <p class="eyebrow">${esc(state.cat.domainLabel(arena.domain))} · ${esc(cat?.label || arena.category)}</p>
       <h1>${esc(arena.label)}</h1>
-      <p class="lede">${esc(arena.description)}</p>
+      <p class="lede lede--line">${esc(shortText(arena.description))}</p>
       <div class="level-badges">
         <span class="chip">${items.length}건</span>
-        <span class="chip">필터 팩 · ${esc(pack?.label || '공통')}</span>
-        <span class="chip">평균·순위는 이 비교군 안에서만</span>
+        <span class="chip chip--muted">필터 팩 · ${esc(pack?.label || '공통')}</span>
         <button type="button" class="ghost-btn ghost-btn--tune" data-action="open-tune">⚙ 내 기준 <b id="tuneSummary">${esc(presetLabel())}</b></button>
       </div>
     </header>
@@ -984,82 +1026,56 @@ function freshnessChip(item) {
   )} · ${fresh.limit}일 초과 시 재검토">${esc(text)}</span>`;
 }
 
-function reasonHtml(view) {
-  const e = view.recordEval;
-  const chips = [];
-  for (const ex of e.exempts) {
-    chips.push(`<span class="reason-chip reason-chip--ok" title="${esc(ex.note)}">${esc(ex.label)} 면제 · 완결작</span>`);
-  }
-  if (e.compatWarning) chips.push('<span class="reason-chip reason-chip--warn">완결작 · OS 호환성 주의</span>');
+/* ---- 카드 한 줄 태그(최대 2개) — 상세는 모달에서.
+
+   목록 카드에는 판정을 가른 핵심만 남긴다. 3축 점수·필터 통과 목록·가격 티어는
+   카드에서 빼고 상세 모달(01 계산 과정·04 티어별·05 축별 신호)에만 둔다. */
+function cardTagsHtml(view) {
+  const { item, recordEval: e } = view;
+  const tags = [];
+  const push = (html) => {
+    if (tags.length < 2 && !tags.includes(html)) tags.push(html);
+  };
   for (const fail of e.blocking) {
-    chips.push(`<span class="reason-chip reason-chip--bad">${esc(fail.label)} <b>${esc(engine.gradeWeakest(fail.grade))}</b></span>`);
+    if (fail.impact === 'core') {
+      push(
+        `<span class="chip chip--core" title="${esc(fail.note)}">${esc(engine.IMPACT_META.core.label)}</span>`,
+      );
+    } else {
+      push(`<span class="chip chip--core" title="${esc(fail.note)}">${esc(fail.label)}</span>`);
+    }
   }
   for (const fail of e.weakFails) {
-    chips.push(`<span class="reason-chip reason-chip--warn">근거 약함 · ${esc(fail.label)} <b>${esc(engine.gradeWeakest(fail.grade))}</b></span>`);
+    push(`<span class="chip chip--warn" title="근거가 약함 · ${esc(fail.note)}">근거 약함 · ${esc(fail.label)}</span>`);
   }
-  for (const fail of e.optionalFails || []) {
-    chips.push(
-      `<span class="reason-chip reason-chip--sea" title="${esc(
-        `${fail.label} 상품이 있지만 인게임 재화·무과금으로 본편을 즐길 수 있어 기본 모드에서는 거르지 않습니다. ${fail.note}`,
-      )}">선택 과금 · ${esc(fail.label)} <b>${esc(engine.gradeWeakest(fail.grade))}</b></span>`,
+  if (e.optionalFails?.length) {
+    push(
+      `<span class="chip chip--optional" title="상점에 확률형·편의 상품이 있지만 인게임 재화·무과금으로 본편을 즐길 수 있어 거르지 않습니다.">선택 과금 · 무과금 가능</span>`,
     );
   }
-  if (!e.blocking.length && !e.weakFails.length) {
-    if (e.optionalFails?.length) {
-      chips.push(`<span class="reason-chip reason-chip--ok">상품 없이도 본편 즐길 수 있음</span>`);
-    } else if (e.verdict === 'recommend') {
-      chips.push('<span class="reason-chip reason-chip--ok">하드 필터 통과</span>');
-    }
-    if (e.verdict === 'recommend') {
-      /* 추천 사유는 위 칩으로 갈음 */
-    } else if (e.reds >= 2) chips.push(`<span class="reason-chip reason-chip--bad">🔴 신호 ${e.reds}개</span>`);
-    else if (e.reds === 1) chips.push('<span class="reason-chip reason-chip--warn">🔴 신호 1개</span>');
-    else if (e.yellows >= 2) chips.push(`<span class="reason-chip reason-chip--warn">🟡 신호 ${e.yellows}개</span>`);
-    else chips.push(`<span class="reason-chip">점수 ${e.score?.toFixed(1) ?? '—'}</span>`);
+  if (e.verdict === 'avoid' && !e.blocking.length && e.reds >= 2) {
+    push(`<span class="chip chip--core">🔴 신호 ${e.reds}개</span>`);
   }
-  const unknownFilters = e.filterChecks.filter((f) => f.enabled && f.status === 'unknown');
-  if (unknownFilters.length) chips.push(`<span class="reason-chip">⚪ 미확인 ${unknownFilters.length}</span>`);
-  const unenabledFails = e.filterChecks.filter((f) => !f.enabled && f.status === 'fail');
-  if (e.verdict === 'avoid' && unenabledFails.length && !e.blocking.length) {
-    chips.push(
-      `<span class="reason-chip" title="꺼진 필터에 걸린 항목: ${esc(
-        unenabledFails.map((f) => f.label).join(', '),
-      )}">꺼진 필터 적중 ${unenabledFails.length}</span>`,
+  const maintKey = item.maintenance_status;
+  const maint = engine.MAINTENANCE_STATUS_META[maintKey];
+  if (maint && maintKey !== 'active') {
+    push(
+      `<span class="chip chip--maintenance chip--maintenance--${esc(maint.tone)}" title="${esc(
+        item.maintenance_note || maint.desc,
+      )}">${esc(maint.label)}</span>`,
     );
   }
-  return chips.join('');
-}
-
-function monetizationChip(evaluation) {
-  if (evaluation?.optionalFails?.length) {
-    return `<span class="chip chip--optional" title="상점에 확률형·편의 상품이 있지만 인게임 재화·무과금으로 본편을 충분히 즐길 수 있어 거름이 아니라 안내로 표시합니다. ‘내 기준 미세조정’에서 선택 과금도 거를 수 있습니다.">선택 과금 · 무과금 가능</span>`;
-  }
-  const core = (evaluation?.blocking || []).filter((check) => check.impact === 'core');
-  if (core.length) {
-    return `<span class="chip chip--core" title="${esc(
-      `${core.map((check) => check.label).join(', ')} — 과금·확률형 뽑기 없이는 성장 벽에 막히거나 진행이 실질적으로 불가능해 거름입니다.`,
-    )}">${esc(engine.IMPACT_META.core.label)}</span>`;
-  }
-  return '';
+  if (!tags.length) push('<span class="chip chip--pass">하드 필터 통과</span>');
+  return tags.join('');
 }
 
 function cardHtml(view) {
-  const { item, recordTier, recordEval, cheapest } = view;
+  const { item, recordTier, recordEval } = view;
   const verdictMeta = engine.VERDICT_META[recordEval.verdict];
-  const tierBadges = [];
-  if (recordTier) tierBadges.push(`<span class="chip chip--tier">대표 · ${esc(recordTier.label)}</span>`);
-  if (cheapest && cheapest.tier_id !== recordTier?.tier_id) {
-    tierBadges.push(`<span class="chip chip--path">최저 비용 · ${esc(cheapest.label)}</span>`);
-  } else if (cheapest) {
-    tierBadges.push('<span class="chip chip--path">최저 비용 경로</span>');
-  }
-  const platforms = (item.platforms || []).map((p) => engine.PLATFORM_LABEL[p] || p);
-  const platformLabel = platforms.length > 4 ? `${platforms.slice(0, 4).join(' · ')} 외 ${platforms.length - 4}` : platforms.join(' · ');
-  const arenaChips = (item.arenas || [])
-    .map((id) => `<span class="chip chip--arena">${esc(state.cat.arenaLabel(id))}</span>`)
-    .join('');
   const scoreText = typeof recordEval.score === 'number' ? recordEval.score.toFixed(1) : '—';
-  const scorePct = typeof recordEval.score === 'number' ? recordEval.score : 0;
+  const genres = (item.genres || []).slice(0, 2).join(' / ');
+  const devLine = [item.developer, genres].filter(Boolean).join(' · ');
+  const summary = recordTier?.one_liner || item.verdict?.one_liner || item.one_liner || '';
   const selectable = state.route.arena && state.route.view !== 'compare';
   const checked = state.route.compare.includes(item.id);
   const bookmarked = state.bookmarks.includes(item.id);
@@ -1069,46 +1085,21 @@ function cardHtml(view) {
            data-verdict="${esc(recordEval.verdict)}" data-score="${typeof recordEval.score === 'number' ? recordEval.score.toFixed(2) : ''}"
            aria-label="${esc(`${item.name} 상세 보기 — ${verdictMeta.label}, 가중 점수 ${scoreText}`)}">
     <header class="card-head">
-      <div class="card-titles">
-        <div class="chips">
-          <span class="chip chip--cat">${esc(state.cat.arenaLabel(item.arenas[0]))}</span>
-          <span class="chip" title="${esc(platforms.join(' · '))}">${esc(platformLabel)}</span>
-          ${maintenanceChip(item)}
-          ${monetizationChip(recordEval)}
-          ${freshnessChip(item)}
-        </div>
-        <div class="card-name-row">
-          ${iconHtml(item, 'card')}
-          <div class="card-name-text">
-            <h3>${esc(item.name)}</h3>
-            <p class="card-dev">${esc(item.developer)}${item.genres?.length ? ` · ${esc(item.genres.slice(0, 2).join(' / '))}` : ''}</p>
-          </div>
-        </div>
+      ${iconHtml(item, 'card')}
+      <div class="card-name-text">
+        <h3>${esc(item.name)}</h3>
+        <p class="card-dev">${esc(devLine)}</p>
       </div>
-      <span class="verdict verdict--${verdictMeta.tone}"><span class="v-emoji" aria-hidden="true">${verdictMeta.emoji}</span>${verdictMeta.label}</span>
+      <div class="card-score">
+        <span class="verdict verdict--${verdictMeta.tone}"><span class="v-emoji" aria-hidden="true">${verdictMeta.emoji}</span>${verdictMeta.label}</span>
+        <span class="score-num">${scoreText}</span>
+        <span class="score-cap">가중 점수</span>
+      </div>
     </header>
 
-    <div class="card-mid">
-      <div class="score" style="--p:${scorePct}">
-        ${ring(scorePct)}
-        <div class="score-inner"><span class="score-num">${scoreText}</span><span class="score-cap">가중 점수</span></div>
-      </div>
-      <ul class="lights" aria-label="축별 신호">${recordEval.axisStates
-        .map((axis) => {
-          const meta = engine.SIGNAL_META[axis.signal] || engine.SIGNAL_META.unknown;
-          return `<li class="light light--${esc(axis.signal)}" title="${esc(
-            `${axis.label} · ${meta.label} · ${axis.score ?? '점수 없음'}점`,
-          )}"><span class="light-dot" aria-hidden="true"></span><span class="light-label">${esc(axis.label)}</span><span class="light-score">${axis.score ?? '—'}</span></li>`;
-        })
-        .join('')}</ul>
-    </div>
+    <p class="one-liner">${esc(summary)}</p>
+    <div class="card-tags">${cardTagsHtml(view)}</div>
 
-    <p class="one-liner">${esc(recordTier?.one_liner || item.verdict?.one_liner || item.one_liner)}</p>
-    <div class="tier-badges">${tierBadges.join('')}</div>
-
-    <footer class="card-foot">
-      <span class="reason">${reasonHtml(view)}</span>
-    </footer>
     <div class="card-tools">
       ${selectable ? `<label class="compare-check" title="같은 비교군 2~3개를 체크해 나란히 비교"><input type="checkbox" data-compare="${esc(item.id)}" ${checked ? 'checked' : ''}/><span>비교</span></label>` : ''}
       <button type="button" class="icon-btn icon-btn--sm ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" aria-label="${esc(item.name)} 보관함 ${bookmarked ? '빼기' : '담기'}">${bookmarked ? '★' : '☆'}</button>
@@ -1353,9 +1344,7 @@ async function showDetail(id) {
     `<span class="chip chip--cat">${esc(state.cat.domainLabel(item.domain))} · ${esc(state.cat.categoryLabel(item.category))}</span>`,
     ...(item.arenas || []).map((aid) => `<span class="chip chip--arena">${esc(state.cat.arenaLabel(aid))}</span>`),
     maintenanceChip(item),
-    `<span class="chip chip--fresh chip--fresh--${fresh.stale ? 'warn' : 'ok'}" title="평가일 ${esc(
-      fresh.assessedAt,
-    )} · ${fresh.limit}일 초과 시 재검토">${esc(fresh.stale ? fresh.label : `${fresh.label} · ${fresh.elapsed}일 경과`)}</span>`,
+    freshnessChip(item),
     `<span class="chip chip--grade chip--${esc(engine.gradeWeakest(item.data_quality?.overall_grade))}">근거 ${esc(
       engine.gradeWeakest(item.data_quality?.overall_grade),
     )}</span>`,

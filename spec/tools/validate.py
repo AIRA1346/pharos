@@ -553,8 +553,11 @@ def build_search_index(catalog, items_by_arena, contract):
                 "category": item["category"],
                 "arenas": item["arenas"],
                 "developer": item.get("developer") or "",
+                "genres": item.get("genres") or [],
                 "platforms": item.get("platforms") or [],
                 "one_liner": item.get("one_liner") or "",
+                # 홈·도메인의 장르별 추천 타일 한 줄 — 대표 티어의 한 줄이 있으면 그쪽을 쓴다.
+                "tagline": tier.get("one_liner") or item.get("one_liner") or "",
                 "taste_tags": item.get("taste_tags") or [],
                 "keywords": item.get("keywords") or [],
                 "verdict": verdict,

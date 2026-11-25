@@ -2171,3 +2171,242 @@ html[data-theme="light"] .item-icon { box-shadow: 0 1px 2px rgba(20, 32, 44, 0.0
   .modal-titles { order: 2; flex: 1 1 220px; }
   .modal-actions { order: 3; flex: 1 1 100%; justify-content: flex-end; flex-wrap: wrap; }
 }
+
+/* ==========================================================================
+   v3 — 장르별 추천이 주인공인 정보 계층
+   1) 홈/도메인: 장르 이름 + 그 장르의 추천 항목 타일(아이콘 44px · 판정 · 점수)
+   2) 비교군 목록 카드: 아이콘 · 이름 · 판정 · 점수 · 한 줄 요약 · 핵심 태그 2개
+   3) 3축 점수·필터 통과 목록·가격 티어는 상세 모달에만 남긴다
+   ========================================================================== */
+
+/* ---------------------------------------------------- 1. 홈 히어로 압축 */
+
+.hero--compact {
+  display: grid;
+  gap: 12px;
+  padding: 18px 20px 14px;
+}
+.hero--compact .hero-lead { display: grid; gap: 4px; }
+.hero--compact .eyebrow { margin: 0; }
+.hero--compact h1 {
+  margin: 0;
+  font-size: clamp(19px, 2.1vw, 25px);
+  line-height: 1.25;
+}
+.hero--compact .lede {
+  margin: 0;
+  max-width: 88ch;
+  font-size: 12.8px;
+  line-height: 1.55;
+}
+.hero--compact .home-search { margin: 2px 0 0; max-width: 660px; padding: 4px 4px 4px 13px; }
+.hero--compact .home-search input { padding: 6px 2px; font-size: 13.5px; }
+.hero--compact .home-search .primary-btn { padding: 7px 16px; font-size: 12.5px; }
+.hero--compact .hero-meta { align-items: center; gap: 4px 14px; font-size: 11.5px; }
+.hero--compact .hero-meta b { font-size: 12.5px; }
+.hero-meta-actions { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; }
+.hero-meta-actions .text-btn {
+  width: auto;
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11.5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.hero-meta-actions .text-btn:hover { border-color: var(--beam); }
+
+/* ---------------------------------------------- 2. 장르별 추천 쇼케이스 */
+
+.genre-showcase .section-head { margin-bottom: 2px; }
+.genre-list { display: grid; gap: 10px; }
+.genre-block {
+  display: grid;
+  gap: 9px;
+  padding: 11px 13px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, var(--card-2) 0%, var(--card) 70%);
+}
+.genre-head { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.genre-title {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+}
+.genre-title:hover .genre-name { color: var(--beam); }
+.genre-title:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 4px; }
+.genre-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.genre-name { font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em; }
+.genre-stat { font-family: var(--mono); font-size: 10.5px; color: var(--muted); white-space: nowrap; }
+.genre-stat .ok { color: var(--green); }
+.genre-more {
+  margin-left: auto;
+  flex: none;
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--sea);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.genre-more:hover { border-color: var(--sea); color: var(--beam); }
+.genre-more:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+
+.pick-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 7px; }
+.pick-tile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.pick-tile:hover { border-color: var(--beam); transform: translateY(-1px); }
+.pick-tile:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+.pick-text { display: grid; gap: 1px; min-width: 0; flex: 1 1 auto; }
+.pick-name {
+  font-size: 12.8px;
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: keep-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.pick-tagline {
+  font-size: 10.5px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pick-meta { display: grid; justify-items: end; gap: 1px; flex: none; }
+.pick-score { font-family: var(--mono); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pick-tile--ok .pick-score { color: var(--green); }
+.pick-tile--warn .pick-score { color: var(--yellow); }
+.pick-tile--bad .pick-score { color: var(--red); }
+.pick-tile .verdict { font-size: 10px; padding: 1px 6px; }
+
+/* ---------------------------------------------- 3. 도메인·대분류 압축 */
+
+.level-head--compact { display: grid; gap: 5px; padding: 4px 0 0; }
+.level-head--compact h1 { margin: 0; font-size: clamp(20px, 2.4vw, 26px); }
+.level-head--compact .lede { margin: 0; max-width: 96ch; font-size: 13px; line-height: 1.5; }
+.level-head--compact .level-badges { margin-top: 6px; }
+.chip--link {
+  font: inherit;
+  font-size: 10.5px;
+  cursor: pointer;
+  color: var(--sea);
+  border-color: var(--sea);
+  background: var(--sea-soft);
+}
+.chip--link b { font-family: var(--mono); font-weight: 700; color: var(--beam); }
+.chip--link:hover { border-color: var(--beam); color: var(--beam); }
+.lede--line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+.level-head--arena { gap: 4px; }
+
+/* ---------------------------------------------- 4. 비교군 요약 한 줄 */
+
+.arena-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+.arena-summary .stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--card);
+}
+.arena-summary .stat::after { display: none; }
+.arena-summary .stat-label { font-size: 10.5px; letter-spacing: 0.03em; }
+.arena-summary .stat-value { font-size: 15px; line-height: 1.25; }
+.arena-summary .stat-sub { display: none; }
+
+/* ---------------------------------------------- 5. 목록 카드 — 핵심만 */
+
+.card { gap: 7px; padding: 13px 14px 9px; }
+.card-head { align-items: center; gap: 9px; }
+.card-name-text h3 { font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-dev { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-score { display: grid; justify-items: end; gap: 0; flex: none; text-align: right; }
+.card-score .score-num {
+  font-family: var(--mono);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+.card--ok .card-score .score-num { color: var(--green); }
+.card--warn .card-score .score-num { color: var(--yellow); }
+.card--bad .card-score .score-num { color: var(--red); }
+.card-score .score-cap {
+  font-size: 8.5px;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.card .one-liner { -webkit-line-clamp: 2; font-size: 12.2px; }
+.chip--pass { color: var(--green); border-color: var(--green); background: var(--green-soft); }
+.chip--warn { color: var(--yellow); border-color: var(--yellow); background: var(--yellow-soft); }
+.card-tools { margin-top: 1px; padding-top: 7px; }
+
+.item-icon--pick { width: 44px; height: 44px; border-radius: 10px; }
+.item-icon--pick::before { font-size: 17px; }
+
+.card-score .verdict { font-size: 10px; padding: 1px 6px; }
+
+@media (max-width: 900px) {
+  .hero--compact { padding: 16px 15px 12px; }
+  .hero-meta-actions { margin-left: 0; }
+  .genre-head { flex-wrap: wrap; row-gap: 4px; }
+  .genre-more { margin-left: 0; }
+}
+@media (max-width: 720px) {
+  .hero--compact h1 { font-size: 19px; }
+  .hero--compact .lede { font-size: 12.2px; }
+  .pick-row { grid-template-columns: 1fr; }
+  .pick-tagline { white-space: normal; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+  .genre-block { padding: 10px 11px; }
+  .item-icon--pick { width: 40px; height: 40px; border-radius: 9px; }
+  .item-icon--pick::before { font-size: 15px; }
+  .arena-summary .stat { padding: 3px 9px; }
+  .arena-summary .stat-value { font-size: 13.5px; }
+}

@@ -1,23 +1,27 @@
 #!/usr/bin/env python3
 """파로스 정적 웹 v2 동작 검증 (Playwright + headless Chromium).
 
-무엇을 검증하는가 — 4단 계층 개편(스키마 v0.4.0 · 카탈로그 · 분할 로딩)
+무엇을 검증하는가 — 4단 계층 개편(스키마 v0.4.0 · 카탈로그 · 분할 로딩) + v3 정보 계층
+  0) 3단 정보 계층: (1) 홈·도메인 = 장르 이름 + 그 장르의 추천 항목 타일,
+     (2) 비교군 화면 = 핵심만 남긴 목록 카드, (3) 상세 모달 = 3축 점수·필터·가격 티어까지 전부.
   1) 로드·계약: catalog.json·search-index.json·schema 를 읽고, 홈에서는 비교군 파일을 내려받지 않는다(지연 로딩).
      콘솔 에러·페이지 예외·HTTP 4xx/5xx 0건, 모든 요청이 web/ 배포 루트 안에서 해결됨.
-  2) 홈 요약 뷰: 비교군 바로가기 카드(건수·평균·1위 — 6개), '별점은 높은데 거름 판정' 리포트(Hero Wars 4.6★ vs 34.6,
-     Archero 4.2★ vs 53.9, Notion 4.6★ vs 66.6, Clash Royale 4.0★ vs 55.2), 통합 검색(이름·별칭·키워드 — '에버노트', '노트'), 보관함 섹션.
-  3) 4단 탐색: 홈 → 도메인(앱·게임) → 대분류 → 비교군 → 항목. 비교군을 바꾸면 그 파일만 지연 로딩되고
-     요약(추천/조건부/거름·평균)은 같은 비교군 안에서만 재계산된다(도메인·분야 평균 혼합 없음).
-  4) 첫 화면 경량화: 기본 '균형 기본' 프리셋, 가중치·하드 필터·엄격 모드는 '내 기준 미세조정' 드로어 안.
-     선택한 도메인의 필터 팩(게임 팩/앱 팩)이 먼저 노출된다.
+  2) 홈 쇼케이스: 장르 블록 6개(카탈로그 순서)에 그 장르의 추천/조건부 3~4개가 공식 아이콘(40px+)·이름·
+     판정 배지·가중 점수 타일로 바로 보이고, 타일 클릭 = 상세 모달, 장르 헤더·'전체 N종 비교 →' = 비교군 이동.
+     '별점은 높은데 거름 판정' 리포트(Hero Wars 4.6★ vs 34.6, Archero 4.2★ vs 53.9, Notion 4.6★ vs 66.6,
+     Clash Royale 4.0★ vs 55.2), 통합 검색(이름·별칭·키워드), 보관함 섹션.
+  3) 4단 탐색: 홈 → 도메인(앱·게임) → 대분류 → 비교군 → 항목. 도메인·대분류 화면도 장르별 추천 타일로 시작하고,
+     비교군을 바꾸면 그 파일만 지연 로딩되며 요약(추천/조건부/거름·평균)은 같은 비교군 안에서만 재계산된다.
+  4) 첫 화면 경량화: 히어로는 250px 이내, 기본 '균형 기본' 프리셋, 가중치·하드 필터·엄격 모드는 '내 기준 미세조정' 드로어 안.
   5) 1:1 비교: 같은 비교군 2~3개 체크 → 비교 표(점수·축·필터·별점·수명 단계·신선도), 4개째는 차단.
-  6) 상세: 신선도(180일), 사실(Fact)과 의견(Opinion) 분리, 같은 비교군 대체제 링크, 공유 요약 복사,
-     정정 제보 링크, 보관함 담기.
+  6) 상세: 신선도(180일), 사실(Fact)과 의견(Opinion) 분리, 3축 점수·티어·필터 목록은 모달에만, 같은 비교군 대체제 링크,
+     공유 요약 복사, 정정 제보 링크, 보관함 담기.
   7) URL 딥링크(domain·category·arena·item·compare·preset), 북마크(localStorage) 지속, 방법론 모달.
   8) 엔진 단위 테스트(가중 평균·6단 규칙·엄격/완화·완결작 면제·compat_risk·신선도·대체제·요약 텍스트).
   9) 공식 아이콘(v2.1): 29종 아이콘 파일이 모두 실제 이미지로 로드되고, 카드 44~48px·상세 52~56px·
-     비교표 32px·갭 리포트·검색 결과에 object-fit: cover 둥근 사각형으로 들어가며, 로드 실패 시 이니셜 배지로 대체된다.
-  10) 스크린샷: preview-v2-home.png · preview-v2-arena.png · preview-v2-compare.png · preview-v2-mobile.png.
+     비교표 32px·추천 타일 40px+·갭 리포트·검색 결과에 object-fit: cover 둥근 사각형으로 들어가며,
+     로드 실패 시 이니셜 배지로 대체된다.
+  10) 스크린샷: preview-v3-home.png · preview-v3-arena.png · preview-v3-compare.png · preview-v3-mobile.png.
 
 실행:
   pip install playwright
@@ -223,21 +227,66 @@ def main() -> int:
         # ---------------------------------------------------------------- 2 홈 뷰
         hero = page.inner_text(".hero")
         expect("별점 대신" in hero and "내 기준" in hero, "홈 히어로 문구", hero[:80])
+        hero_box = page.eval_on_selector(".hero", "e => Math.round(e.getBoundingClientRect().height)")
+        expect(hero_box <= 250, "홈 히어로를 컴팩트하게 축약(<=250px)", str(hero_box))
+        expect(page.is_visible("#homeSearch") and page.inner_text("#homeSearchForm").strip() != "", "홈 검색창 유지", "")
+        show_top = page.eval_on_selector("#genreShowcase .genre-block", "e => Math.round(e.getBoundingClientRect().top)")
+        expect(show_top < 640, "스크롤 없이 장르별 추천이 첫 화면에 들어옴", str(show_top))
         expect(page.inner_text("#bookmarkSection").startswith("☆ 내 보관함"), "홈에 보관함 섹션")
-        shortcuts = page.eval_on_selector_all(".arena-card", "els => els.map(e => e.innerText.replace(/\\n/g, ' | '))")
-        expect(len(shortcuts) == 6, "비교군 바로가기 카드 6개", str(len(shortcuts)))
-        expect("노트·지식관리" in shortcuts[0] and "5건" in shortcuts[0] and "평균 69.8" in shortcuts[0],
-               "노트 비교군 카드(5건·평균 69.8)", shortcuts[0])
-        expect("덱빌딩 게임" in shortcuts[1] and "4건" in shortcuts[1] and "80.3" in shortcuts[1],
-               "덱빌딩 비교군 카드(4건·평균 80.3)", shortcuts[1])
-        expect("액션 로그라이크" in shortcuts[2] and "4건" in shortcuts[2] and "평균 77.9" in shortcuts[2],
-               "액션 로그라이크 비교군 카드(4건·평균 77.9)", shortcuts[2])
-        expect("모바일 수집형 RPG" in shortcuts[3] and "6건" in shortcuts[3] and "평균 68.8" in shortcuts[3],
-               "가챠 비교군 카드(6건·평균 68.8)", shortcuts[3])
-        expect("PC MMORPG" in shortcuts[4] and "4건" in shortcuts[4] and "평균 69.9" in shortcuts[4],
-               "PC MMORPG 비교군 카드(4건·평균 69.9)", shortcuts[4])
-        expect("모바일 전략·디펜스" in shortcuts[5] and "6건" in shortcuts[5] and "평균 70.6" in shortcuts[5],
-               "모바일 전략·디펜스 비교군 카드(6건·평균 70.6)", shortcuts[5])
+        genres = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
+        expect(genres == ["pkm-notes", "roguelike-deckbuilder", "action-roguelike", "mobile-gacha-rpg",
+                          "pc-mmorpg", "mobile-strategy-defense"],
+               "홈 장르 블록 6개(카탈로그 순서)", str(genres))
+        expect(page.eval_on_selector_all(".arena-card, .category-card", "els => els.length") == 0,
+               "홈에는 장황한 비교군 소개 카드가 없음", "")
+        first = page.eval_on_selector('.genre-block[data-arena="pkm-notes"]', "e => e.innerText.replace(/\\n/g, ' | ')")
+        expect("노트·지식관리" in first and "5종" in first and "추천 1" in first,
+               "첫 장르 블록 = 노트·지식관리(5종·추천 1)", first[:140])
+        expect("전체 5종 비교" in first, "장르 블록에 '전체 N종 비교' 링크", first[:180])
+
+        picks = page.eval_on_selector_all(
+            '.genre-block[data-arena="pkm-notes"] .pick-tile',
+            "els => els.map(e => ({id: e.dataset.item, verdict: e.dataset.verdict, score: e.dataset.score,"
+            " text: e.innerText.replace(/\\n/g, ' | ')}))",
+        )
+        expect([p["id"] for p in picks] == ["joplin", "obsidian", "simplenote", "notion"],
+               "장르 타일 = 추천 우선 → 조건부 점수순(최대 4)", str([p["id"] for p in picks]))
+        expect(picks[0]["verdict"] == "recommend" and abs(float(picks[0]["score"]) - 82.0) < 0.05
+               and "추천" in picks[0]["text"] and "82.0" in picks[0]["text"],
+               "타일에 판정 배지·가중 점수", picks[0]["text"])
+        expect(picks[1]["verdict"] == "conditional" and "조건부" in picks[1]["text"],
+               "조건부 항목은 🟡 조건부로 표시", picks[1]["text"])
+        gacha_picks = page.eval_on_selector_all('.genre-block[data-arena="mobile-gacha-rpg"] .pick-tile',
+                                                "els => els.map(e => e.dataset.item)")
+        expect(gacha_picks == ["goddess-of-victory-nikke", "limbus-company", "blue-archive"],
+               "가챠 장르 = 추천 니케 먼저 + 조건부 2건(거름 제외)", str(gacha_picks))
+        pick_icon = page.eval_on_selector(
+            ".pick-tile .item-icon",
+            "e => { const img = e.querySelector('img'); return {size: Math.round(e.getBoundingClientRect().width),"
+            " loaded: !!img && img.complete && img.naturalWidth > 0}; }",
+        )
+        expect(pick_icon["size"] >= 40 and pick_icon["loaded"], "추천 타일 아이콘 40px+ 실제 이미지", str(pick_icon))
+
+        # 타일 클릭 = 상세 모달, 헤더/전체 링크 = 비교군 화면
+        page.click('.genre-block[data-arena="pkm-notes"] .pick-tile[data-item="joplin"]')
+        wait(page, 700)
+        expect(modal_open(page) and page.inner_text("#modalTitle") == "Joplin", "홈 추천 타일 클릭 → 상세 모달",
+               page.inner_text("#modalTitle"))
+        expect("arena=pkm-notes" in page.url and "item=joplin" in page.url, "타일 상세가 URL 딥링크로 동기화", path_id(page))
+        close_modal(page)
+        wait(page, 300)
+        page.click('#domainTabs [data-action="home"]')
+        wait(page, 500)
+        page.click('.genre-block[data-arena="action-roguelike"] .genre-more')
+        wait(page, 700)
+        expect("arena=action-roguelike" in page.url, "'전체 N종 비교 →' 클릭 = 비교군 화면", path_id(page))
+        page.go_back()
+        wait(page, 600)
+        page.click('.genre-block[data-arena="action-roguelike"] .genre-title')
+        wait(page, 700)
+        expect("arena=action-roguelike" in page.url, "장르 헤더 클릭 = 비교군 화면", path_id(page))
+        page.click('#domainTabs [data-action="home"]')
+        wait(page, 500)
 
         gap_rows = page.eval_on_selector_all(".gap-row", "els => els.map(e => e.innerText.replace(/\\n/g, ' | '))")
         expect(len(gap_rows) == 4, "'별점은 높은데 거름 판정' 리포트 4건", str(len(gap_rows)))
@@ -282,24 +331,33 @@ def main() -> int:
         page.click('#domainTabs [data-domain="game"]')
         wait(page, 500)
         expect("domain=game" in page.url, "게임 도메인 전환 URL", path_id(page))
-        cats = page.eval_on_selector_all(".category-card", "els => els.map(e => e.innerText.replace(/\\n/g, ' | '))")
-        expect(len(cats) == 5 and "전략 · 카드" in cats[0] and "RPG · 수집" in cats[1] and "액션 · 인디" in cats[2]
-               and "RPG · MMORPG" in cats[3] and "모바일 전략 · 디펜스" in cats[4],
+        dom_head = page.inner_text(".level-head")
+        expect("게임 — 장르 5 · 24건" in dom_head, "게임 도메인 헤더 = 장르 5 · 24건", dom_head[:120])
+        cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
+        expect(cats == ["strategy-card", "rpg", "action-indie", "mmorpg", "mobile-strategy"],
                "게임 도메인 대분류 5개", str(cats))
-        domain_arenas = page.eval_on_selector_all(".arena-card", "els => els.map(e => e.dataset.arena)")
-        expect(domain_arenas == ["roguelike-deckbuilder", "mobile-gacha-rpg", "action-roguelike",
-                                 "pc-mmorpg", "mobile-strategy-defense"],
-               "게임 도메인 비교군 5개", str(domain_arenas))
-        page.click('.category-card[data-category="strategy-card"]')
+        dom_arenas = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
+        expect(dom_arenas == ["roguelike-deckbuilder", "mobile-gacha-rpg", "action-roguelike",
+                              "pc-mmorpg", "mobile-strategy-defense"],
+               "게임 도메인 장르 블록 5개", str(dom_arenas))
+        dom_top = page.eval_on_selector(".genre-block", "e => Math.round(e.getBoundingClientRect().top)")
+        expect(dom_top < 480, "도메인 화면도 장르별 추천이 바로 보임", str(dom_top))
+        dom_picks = page.eval_on_selector_all('.genre-block[data-arena="mobile-gacha-rpg"] .pick-tile',
+                                              "els => els.map(e => e.dataset.item)")
+        expect(dom_picks == ["goddess-of-victory-nikke", "limbus-company", "blue-archive"],
+               "도메인 화면의 가챠 장르 추천 타일", str(dom_picks))
+        expect(page.eval_on_selector_all(".arena-card, .category-card", "els => els.length") == 0,
+               "도메인 화면에 장황한 비교군 카드 없음", "")
+        page.click('.chip--link[data-category="strategy-card"]')
         wait(page, 450)
         expect("category=strategy-card" in page.url, "대분류 URL", path_id(page))
-        arena_cards = page.eval_on_selector_all(".arena-card", "els => els.map(e => e.dataset.arena)")
+        arena_cards = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
         expect(arena_cards == ["roguelike-deckbuilder"], "전략·카드 대분류 아래 비교군 1개", str(arena_cards))
         crumb = page.inner_text("#breadcrumb")
         expect("게임" in crumb and "전략 · 카드" in crumb, "경로 표시(홈/게임/전략·카드)", crumb)
 
         served.clear()
-        page.click('.arena-card[data-arena="roguelike-deckbuilder"]')
+        page.click('.genre-block[data-arena="roguelike-deckbuilder"] .genre-title')
         wait(page, 700)
         expect("arena=roguelike-deckbuilder" in page.url, "비교군 URL", path_id(page))
         expect(any(url.endswith("/data/game/roguelike-deckbuilder.json") for url in served),
@@ -326,9 +384,33 @@ def main() -> int:
             expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
         expect(by_id["night-of-the-full-moon"]["avoid"] is True, "거름 항목은 하단 분리 영역")
         expect("🔴 신호 2개" in by_id["night-of-the-full-moon"]["text"], "Night of the Full Moon 신호 기준 거름", by_id["night-of-the-full-moon"]["text"][-90:])
-        expect("완결작" in by_id["inscryption"]["text"], "Inscryption 카드에 '완결작' 배지")
-        expect("면제 · 완결작" in by_id["inscryption"]["text"], "Inscryption 카드에 '면제 · 완결작' 사유", by_id["inscryption"]["text"][-120:])
-        expect("최신 · 1일" in by_id["balatro"]["text"], "카드에 평가 신선도(최신·1일)", by_id["balatro"]["text"][:160])
+
+        # 목록 카드는 핵심만: 아이콘 + 이름 + 개발사/장르 + 판정 + 점수 / 한 줄 요약 / 핵심 태그 2개
+        head = page.eval_on_selector(
+            '#grid .card[data-id="balatro"]',
+            "e => ({icon: !!e.querySelector('.card-head .item-icon--card img'),"
+            " name: e.querySelector('.card-name-text h3')?.textContent.trim(),"
+            " dev: e.querySelector('.card-dev')?.textContent.trim(),"
+            " score: e.querySelector('.card-score .score-num')?.textContent.trim(),"
+            " verdict: e.querySelector('.card-score .verdict')?.textContent.trim(),"
+            " summary: e.querySelector('.one-liner')?.textContent.trim()})",
+        )
+        expect(head["icon"] and head["name"] == "Balatro" and "LocalThunk" in head["dev"],
+               "카드 상단 = 공식 아이콘·이름·개발사/장르", str(head))
+        expect(head["score"] == "94.7" and "추천" in head["verdict"], "카드 상단 = 판정 배지 + 가중 점수", str(head))
+        expect(head["summary"] and len(head["summary"]) > 10, "카드 중간 = 핵심 한 줄 요약", str(head["summary"]))
+        for item_id in ("balatro", "slay-the-spire", "inscryption", "night-of-the-full-moon"):
+            scope = f'#grid .card[data-id="{item_id}"], #avoidGrid .card[data-id="{item_id}"]'
+            tags_count = page.eval_on_selector(scope, "e => e.querySelectorAll('.card-tags .chip').length")
+            expect(tags_count <= 2, f"{item_id} 카드 핵심 태그 최대 2개", str(tags_count))
+            stripped = page.eval_on_selector(
+                scope,
+                "e => e.querySelectorAll('.lights, .chip--tier, .chip--fresh, .chip--path').length",
+            )
+            expect(stripped == 0, f"{item_id} 카드에는 3축 막대·가격 티어·신선도 칩 없음", str(stripped))
+        expect("하드 필터 통과" in by_id["balatro"]["text"], "추천 카드 핵심 태그 = 하드 필터 통과", by_id["balatro"]["text"][:160])
+        expect("완결작" in by_id["inscryption"]["text"], "Inscryption 카드에 '완결작' 태그", by_id["inscryption"]["text"][-120:])
+        expect("최신" not in by_id["balatro"]["text"], "평가 신선도는 목록 카드가 아니라 상세에", by_id["balatro"]["text"][:160])
 
         # 비교군 안 검색은 그 비교군으로 AND
         page.fill("#arenaSearch", "inscryption")
@@ -441,6 +523,12 @@ def main() -> int:
         expect("수명 단계 · 완결작" in body, "완결작 수명 단계 표기")
         expect("완결작은 stale_over_12m 필터가 켜져 있어도 면제(exempt)로 계산합니다" in body, "완결작 면제 설명")
         expect("최신 · 1일" in body, "상세에 신선도 표시")
+        expect("면제 · 완결작" in body, "완결작 면제는 카드가 아니라 상세 모달에", "")
+        axis_scores = page.eval_on_selector_all("#modalBody .axis-card .axis-score", "els => els.map(e => e.textContent.trim())")
+        expect(len(axis_scores) == 4 and all(axis_scores), "상세 05 축별 신호에 3축 + 프로필 축 점수", str(axis_scores))
+        expect("프로필 전용" in body, "상세 축별 신호에 프로필 축 구분", "")
+        tier_rows = page.eval_on_selector_all("#modalBody .tier-name", "els => els.map(e => e.textContent.trim())")
+        expect(bool(tier_rows) and "1회 구매" in " ".join(tier_rows), "상세 04 티어별 판정에 가격 티어", str(tier_rows)[:160])
         alts = page.eval_on_selector_all("#secAlternatives .alt-row", "els => els.map(e => e.innerText.replace(/\\n/g, ' '))")
         expect(len(alts) == 2 and "Balatro" in alts[0] and "Slay the Spire" in alts[1], "같은 비교군 대체제 링크", str(alts))
         expect(page.eval_on_selector_all("#modalBody .source", "els => els.length") >= 3, "출처 목록 렌더")
@@ -475,7 +563,7 @@ def main() -> int:
         close_modal(page)
         wait(page, 300)
         expect(len(cards(page)) == 5, "노트 비교군 카드 5건", str(len(cards(page))))
-        page.screenshot(path=str(shots / "preview-v2-arena.png"), full_page=True)
+        page.screenshot(path=str(shots / "preview-v3-arena.png"), full_page=True)
 
         # ------------------------------------------------------ 8 방법론·딥링크
         page.click("#methodBtn")
@@ -486,7 +574,7 @@ def main() -> int:
             expect(label in method, f"방법론 '{label}' 섹션")
         expect("어필리에이트 링크·유료 광고·협찬 배치를 쓰지 않습니다" in method, "독립성·어필리에이트 배제 선언")
         expect("재검토 필요" in method and "180" in method, "용어 도움말에 신선도 기준")
-        page.screenshot(path=str(shots / "preview-v2-method.png"))
+        page.screenshot(path=str(shots / "preview-v3-method.png"))
         page.keyboard.press("Escape")
         wait(page, 250)
         expect(page.is_hidden("#methodModal"), "ESC 로 방법론 닫힘")
@@ -499,7 +587,7 @@ def main() -> int:
 
         page.goto(f"{base}/?domain=game&category=strategy-card", wait_until="networkidle")
         wait(page, 500)
-        expect(page.eval_on_selector_all(".arena-card", "els => els.length") == 1, "딥링크 ?domain&category", "")
+        expect(page.eval_on_selector_all(".genre-block", "els => els.length") == 1, "딥링크 ?domain&category", "")
         page.goto(f"{base}/?arena=roguelike-deckbuilder", wait_until="networkidle")
         wait(page, 600)
         expect(len(cards(page)) == 4 and "domain=game" in page.url, "도메인 없는 ?arena 딥링크도 해석", path_id(page))
@@ -647,9 +735,9 @@ def main() -> int:
             expect(c["verdict"] == verdict, f"{item_id} 판정 = {verdict}", c["verdict"])
             expect(c["score"] and abs(float(c["score"]) - score) < 0.05, f"{item_id} 점수 {score}", c["score"])
         expect(ar["archero"]["avoid"] is True, "Archero 는 하단 거름 영역")
-        expect("완결작" in ar["hades"]["text"] and "면제 · 완결작" in ar["hades"]["text"],
-               "Hades 완결작 면제 배지", ar["hades"]["text"][-140:])
-        expect("최신 · 0일" in ar["dead-cells"]["text"], "Dead Cells 평가 신선도(최신·0일)", ar["dead-cells"]["text"][:160])
+        expect("완결작" in ar["hades"]["text"], "Hades 카드에 '완결작' 태그", ar["hades"]["text"][-140:])
+        expect("면제 · 완결작" not in ar["hades"]["text"], "필터 면제 서술은 목록 카드가 아니라 상세에", ar["hades"]["text"][-140:])
+        expect("최신" not in ar["dead-cells"]["text"], "Dead Cells 신선도도 목록 카드에는 없음", ar["dead-cells"]["text"][:160])
 
         # 새 비교군에서도 비교 표가 동작한다
         page.check('#grid .card[data-id="hades"] input[data-compare]')
@@ -1105,12 +1193,18 @@ def main() -> int:
         desktop.set_viewport_size({"width": 1440, "height": 1100})
         desktop.goto(f"{base}/", wait_until="networkidle")
         wait(desktop, 600)
-        desktop.screenshot(path=str(shots / "preview-v2-home.png"), full_page=True)
+        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == 6, "스크린샷: 홈 장르 블록 6개")
+        desktop.screenshot(path=str(shots / "preview-v3-home.png"), full_page=True)
+
+        desktop.goto(f"{base}/?domain=game", wait_until="networkidle")
+        wait(desktop, 600)
+        expect(desktop.eval_on_selector_all(".genre-block", "els => els.length") == 5, "스크린샷: 게임 도메인 장르 5개")
+        desktop.screenshot(path=str(shots / "preview-v3-game.png"), full_page=True)
 
         desktop.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")
         wait(desktop, 600)
         expect(len(cards(desktop)) == 4, "스크린샷: 덱빌딩 비교군 4건")
-        desktop.screenshot(path=str(shots / "preview-v2-arena.png"), full_page=True)
+        desktop.screenshot(path=str(shots / "preview-v3-arena.png"), full_page=True)
 
         desktop.check('#grid .card[data-id="balatro"] input[data-compare]')
         wait(desktop, 200)
@@ -1119,7 +1213,7 @@ def main() -> int:
         desktop.click("#compareOpen")
         wait(desktop, 600)
         expect(desktop.is_visible("#compareTable"), "스크린샷: 비교 표")
-        desktop.screenshot(path=str(shots / "preview-v2-compare.png"), full_page=True)
+        desktop.screenshot(path=str(shots / "preview-v3-compare.png"), full_page=True)
         desktop.close()
 
         mobile = context.new_page()
@@ -1131,19 +1225,37 @@ def main() -> int:
         expect(mobile.is_visible("#tuneBtn"), "모바일 '내 기준 미세조정' 버튼")
         box = mobile.eval_on_selector("#grid .card", "e => e.getBoundingClientRect().width")
         expect(box and box < 380, "모바일 카드 폭이 한 열", str(box))
-        mobile.screenshot(path=str(shots / "preview-v2-mobile.png"), full_page=False)
+        mobile.screenshot(path=str(shots / "preview-v3-mobile.png"), full_page=False)
         mobile.click("#tuneBtn")
         wait(mobile, 450)
         drawer_width = mobile.eval_on_selector("#tuneDrawer", "e => e.getBoundingClientRect().width")
         expect(drawer_width and drawer_width >= 389, "모바일 드로어 전체 폭", str(drawer_width))
-        mobile.screenshot(path=str(shots / "preview-v2-mobile-tune.png"))
+        mobile.screenshot(path=str(shots / "preview-v3-mobile-tune.png"))
         mobile.click("#tuneClose")
         wait(mobile, 300)
         mobile.click('#grid .card[data-id="joplin"]')
         wait(mobile, 700)
         expect(mobile.is_visible("#modal"), "모바일 상세 모달")
-        mobile.screenshot(path=str(shots / "preview-v2-mobile-detail.png"))
+        mobile.screenshot(path=str(shots / "preview-v3-mobile-detail.png"))
         mobile.close()
+
+        # 홈·도메인 쇼케이스의 타일 아이콘(40px+)이 모바일에서도 로드되는지
+        tile_mobile = context.new_page()
+        tile_mobile.set_viewport_size({"width": 390, "height": 844})
+        tile_mobile.goto(f"{base}/", wait_until="networkidle")
+        wait(tile_mobile, 700)
+        tile_icons = tile_mobile.evaluate(
+            """() => [...document.querySelectorAll('.pick-tile .item-icon')].map(wrap => {
+              const img = wrap.querySelector('img');
+              return {size: Math.round(wrap.getBoundingClientRect().width),
+                      loaded: !!img && img.complete && img.naturalWidth > 0};
+            })"""
+        )
+        expect(bool(tile_icons) and all(40 <= t["size"] <= 48 and t["loaded"] for t in tile_icons),
+               "모바일 홈 장르 타일 아이콘 40px+ 전부 로드", str(tile_icons[:3]))
+        first_tile_top = tile_mobile.eval_on_selector(".pick-tile", "e => Math.round(e.getBoundingClientRect().top)")
+        expect(first_tile_top < 844, "모바일 첫 화면에 장르 추천 타일이 들어옴", str(first_tile_top))
+        tile_mobile.close()
 
         if args.keep_open:
             page.wait_for_timeout(30000)
