@@ -1733,6 +1733,7 @@ function sectionAxes(view) {
           <span class="pill">근거 ${esc(engine.gradeWeakest(axis.evidenceGrade || 'unknown'))}</span>
           <span class="pill">확신 ${esc({ high: '높음', medium: '보통', low: '낮음' }[axis.confidence] || '—')}</span>
           ${axis.source === 'tier' ? '<span class="pill pill--beam">티어 오버라이드</span>' : ''}
+          ${axis.profileScoped && axis.weight <= 0 ? '<span class="pill">가중치 0 · 판정 미포함</span>' : ''}
         </div>
         <p class="axis-summary">${esc(axis.summary || axis.note || '서술 없음')}</p>
         ${axis.overrideScore != null && axis.axisScore !== axis.overrideScore

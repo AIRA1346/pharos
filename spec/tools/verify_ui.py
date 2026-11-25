@@ -548,7 +548,7 @@ def main() -> int:
         expect("면제 · 완결작" in body, "완결작 면제는 카드가 아니라 상세 모달에", "")
         axis_scores = page.eval_on_selector_all("#modalBody .axis-card .axis-score", "els => els.map(e => e.textContent.trim())")
         expect(len(axis_scores) == 4 and all(axis_scores), "상세 05 축별 신호에 3축 + 프로필 축 점수", str(axis_scores))
-        expect("프로필 전용" in body, "상세 축별 신호에 프로필 축 구분", "")
+        expect("프로필 전용" in body and "가중치 0 · 판정 미포함" in body, "상세 축별 신호에 프로필 축·가중치 0 구분", "")
         tier_rows = page.eval_on_selector_all("#modalBody .tier-name", "els => els.map(e => e.textContent.trim())")
         expect(bool(tier_rows) and "1회 구매" in " ".join(tier_rows), "상세 04 티어별 판정에 가격 티어", str(tier_rows)[:160])
         alts = page.eval_on_selector_all("#secAlternatives .alt-row", "els => els.map(e => e.innerText.replace(/\\n/g, ' '))")
