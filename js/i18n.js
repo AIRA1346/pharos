@@ -147,6 +147,15 @@ const M = {
   ],
   'card.optional': ['선택 과금 · 무과금 가능', 'Optional spend · playable free'],
   'card.redSignals': ['🔴 신호 {n}개', '🔴 {n} red signals'],
+  'reviewTier.badge': ['자동 수집', 'Auto-collected'],
+  'reviewTier.badgeTitle': [
+    '공개 스토어·저장소 API 데이터로 자동 생성한 1차 판정입니다. 세부 약관·과금 함정은 순차 검수 중입니다.',
+    'A first-pass verdict generated from public store and repository APIs. Detailed terms and monetization traps are still being reviewed.',
+  ],
+  'reviewTier.notice': [
+    '<b>자동 수집</b> — 공개 스토어·저장소 API 데이터 기반 1차 판정이며, 세부 약관·과금 함정은 순차 검수 중입니다.  점수·판정은 수집된 사실로 계산했고, 확인하지 못한 항목은 ⚪로 두었습니다.',
+    '<b>Auto-collected</b> — a first-pass verdict built from public store and repository APIs. Detailed terms and monetization traps are still being reviewed. Scores and verdicts are computed from collected facts; anything unconfirmed stays ⚪.',
+  ],
 
   /* 도메인·대분류·비교군 화면 */
   'domain.heading': ['{label} — 장르 {g} · {n}건', '{label} — {g} genres · {n} entries'],
@@ -259,6 +268,7 @@ const M = {
   'modal.correction': ['정정 제보', 'Report a correction'],
   'modal.save': ['{name} 보관함 담기', 'Save {name}'],
   'modal.unsave': ['{name} 보관함 빼기', 'Remove {name} from saved'],
+  'modal.reviewTier': ['발행 단계', 'Publication stage'],
   'modal.sec1': ['판정 요약', 'Verdict'],
   'modal.sec2': ['사실 (Fact)', 'Facts'],
   'modal.sec3': ['의견 (Opinion)', 'Opinion'],

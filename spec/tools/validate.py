@@ -46,6 +46,8 @@ MONETIZATION_IMPACT_KEYS = {"gacha_random_items", "p2w"}
 IMPACT_VALUES = {"none", "optional", "core"}
 NON_FILTER_FLAGS = {"contains_ads", "data_export", "compat_risk"}
 MAINTENANCE_STATUSES = {"active", "feature_complete", "stale_unknown", "abandoned"}
+REVIEW_TIERS = {"verified", "auto_fact"}
+REVIEW_TIER_DEFAULT = "verified"
 # 갭 리포트의 '스토어 별점'은 실제 스토어 표본만 쓴다. G2·Trustpilot 같은 3자 집계(platform: web·other)는
 # 별점이 아니라 평점 집계이므로 '별점은 높은데 거름' 비교에 섞지 않는다(v0.4.2).
 STORE_PLATFORMS = {"android", "ios", "steam"}
@@ -319,6 +321,26 @@ def semantic_errors(item, ctx, arena_id=None):
     warns = []
     arenas = ctx["arenas"]
     arena_ids = set(arenas)
+
+    tier_of_review = item.get("review_tier", REVIEW_TIER_DEFAULT)
+    if tier_of_review not in REVIEW_TIERS:
+        errs.append(f"review_tier 값이 열거형 밖: {tier_of_review!r}")
+    if tier_of_review == "auto_fact":
+        leftovers = []
+
+        def walk_todo(node, path=""):
+            if isinstance(node, dict):
+                for key, value in node.items():
+                    walk_todo(value, f"{path}.{key}" if path else key)
+            elif isinstance(node, list):
+                for index, value in enumerate(node):
+                    walk_todo(value, f"{path}[{index}]")
+            elif isinstance(node, str) and node.startswith("TODO(리뷰)"):
+                leftovers.append(path)
+
+        walk_todo(item)
+        if leftovers:
+            errs.append(f"auto_fact 항목에 미완성 TODO 문자열이 남아 있음: {leftovers[:3]}")
 
     mstatus = item.get("maintenance_status")
     if mstatus not in MAINTENANCE_STATUSES:
@@ -609,6 +631,7 @@ def build_search_index(catalog, items_by_arena, contract):
                 "tier_of_record": tier["tier_id"],
                 "score": score,
                 "maintenance_status": item.get("maintenance_status"),
+                "review_tier": item.get("review_tier", REVIEW_TIER_DEFAULT),
                 "assessed_at": item.get("assessed_at"),
                 "evidence_grade": item.get("data_quality", {}).get("overall_grade"),
                 "user_rating": item.get("axes", {}).get("user_rating", {}).get("score"),
@@ -1258,6 +1281,11 @@ def main():
     statuses_meta = contract.get("maintenance_statuses") or []
     if {s.get("key") for s in statuses_meta} != MAINTENANCE_STATUSES:
         meta_errors.append(f"maintenance_statuses 메타가 열거형과 다름: {[s.get('key') for s in statuses_meta]}")
+    review_meta = contract.get("review_tiers") or []
+    if {row.get("key") for row in review_meta} != REVIEW_TIERS:
+        meta_errors.append("review_tiers 메타가 verified·auto_fact 와 다름")
+    if contract.get("default_review_tier") != REVIEW_TIER_DEFAULT:
+        meta_errors.append(f"default_review_tier 가 {REVIEW_TIER_DEFAULT!r} 가 아님")
     exemption = contract.get("stale_exemption") or {}
     if exemption.get("exempt_value") != "feature_complete" or exemption.get("recorded_status") != "exempt":
         meta_errors.append("stale_exemption 메타(feature_complete → exempt)가 없음")

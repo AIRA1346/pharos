@@ -1,16 +1,58 @@
 # 파로스 수집·검증 스크립트
 
-파로스 데이터는 **무료 공개 API 로 사실을 모으고, 사람이 판단만 얹는** 반자동 파이프라인으로 만든다.
-아래 순서대로 실행하면 새 비교군 1개를 30분 안에 라이브까지 올릴 수 있다.
+파로스 데이터는 **두 갈래**로 만든다.
+
+- **2단계 발행(빠른 길)**: `bulk_ingest.py` — 공개 API 사실만으로 스키마 100% 를 채운 `auto_fact` 항목을 **100종 단위**로 만든다.
+  사람이 쓰지 않으므로 빠르고, 카드·상세에 `자동 수집` 배지와 1차 판정 안내가 붙는다.
+- **심층 리뷰(정확한 길)**: `auto_collect.py` → 검토 오버레이 → `apply_review.py` — 사람이 약관·과금·문장을 채워 `verified` 로 발행한다.
 
 ```
-① 수집    scripts/auto_collect.py   → drafts/{id}.draft.json (사실 70% + 아이콘) + drafts/{id}.review.json
-② 검토    drafts/reviewed/{id}.json (사람이 나머지 30% 작성)
-③ 반영    scripts/apply_review.py   → data/{domain}/{arena}.json
-④ 빌드    scripts/sync_web_data.py  → search-index.json 재생성 + web/ 사본 동기화 + validate.py 전체 검증
-⑤ 검증    web/tests/verify_ui.py    → 실제 화면 동작(Playwright) + 아이콘 로드
-⑥ 배포    web/ 폴더를 GitHub Pages(AIRA1346/pharos) 루트로 커밋·푸시
+[A] 대량 팩트 적재 (배치 100종, 사람 손 0)
+  ① 수집·변환  scripts/bulk_ingest.py   → data/{domain}/{arena}.json · en.json · catalog.json + 아이콘
+  ② 빌드      scripts/sync_web_data.py  → search-index.json 재생성 + web/ 사본 동기화 + validate.py 전체 검증
+  ③ 스모크    scripts/smoke_v12.py      → 핵심 30여 항목(홈 건수·신규 비교군·배지·상세 안내·KO/EN·390px)
+  ④ 배포      web/ 폴더를 GitHub Pages(AIRA1346/pharos) 루트로 커밋·푸시
+
+[B] 심층 리뷰 (항목·비교군 단위)
+  ① 수집    scripts/auto_collect.py   → drafts/{id}.draft.json (사실 70% + 아이콘) + drafts/{id}.review.json
+  ② 검토    drafts/reviewed/{id}.json (사람이 나머지 30% 작성)
+  ③ 반영    scripts/apply_review.py   → data/{domain}/{arena}.json (review_tier: verified)
+  ④ 빌드·검증·배포는 [A]의 ②~④ 와 같다(사람이 문장까지 쓴 배치는 verify_ui.py 전체를 돌린다).
 ```
+
+## 0. bulk_ingest.py — 대량 팩트 적재(auto_fact)
+
+스펙 JSON 하나로 100종을 한 번에 적재한다. 입력은 비교군·대분류 정의와 항목 목록이다.
+
+```bash
+python3 projects/pharos/scripts/bulk_ingest.py \
+    --spec projects/pharos/drafts/bulk-2026-11-26/spec.json          # 수집·변환·기록(아이콘 포함)
+python3 projects/pharos/scripts/bulk_ingest.py --spec ... --resolve-only   # ID 확정만
+python3 projects/pharos/scripts/bulk_ingest.py --spec ... --ids elden-ring,factorio
+python3 projects/pharos/scripts/bulk_ingest.py --spec ... --limit 3 --no-write --no-icon
+```
+
+**수집**(모두 무료 공개 API, `auto_collect.py` 의 수집·아이콘 모듈 재사용) — Steam(이름→AppID 검색, 한국어/영어
+appdetails, 상점 평가 요약, ISteamNews, SteamSpy) · App Store(iTunes 한국·미국) · Google Play(JSON-LD 평점·
+업데이트 날짜·광고 표기·og:image) · GitHub(repo 1회 요청으로 라이선스·스타·최근 푸시). 항목은 **워커 8개**로
+병렬 수집하고, 응답은 `drafts/<배치>/cache/` 에 URL 해시로 저장해 재실행에서 다시 받지 않는다(GitHub 시간당 60회 보호).
+
+**자동 산정 규칙**(요약에 근거를 그대로 적는다)
+
+| 축 | 계산 |
+| :--- | :--- |
+| 사용자 | 스토어 평점·평가 수를 **표본 가중 평균**(Steam 누적·최근 30일, App Store 한국/미국 중 큰 표본, Play) |
+| 객관 | 62 에서 라이선스(+8/+2)·가격 표기(+4)·업데이트 주기(+8~-14)·플랫폼 수(+2/+4)·출시 연수(+2/+4) |
+| AI 검토 | 본질 검토 전 **중립값 60** 에서 스토어 평점·업데이트 주기·표본 규모·라이선스만으로 보정한 **잠정값(45~82)** |
+| 판정 | `validate.compute_verdict` 로 **검증기와 같은 규칙**으로 계산(손으로 쓴 판정 없음) |
+
+확인하지 못한 것(확률형 상품·구독·계정·데이터 수집·본질 완성도)은 지어내지 않고 `unknown` 으로 두고,
+`data_quality.unverified`·안내 문구로 남긴다. 12개월 넘게 공지·릴리스가 없으면 `stale_over_12m=yes`(상태 미확인)로
+검증기 규칙대로 거름이 되고, 완결작 여부는 심층 리뷰에서 확정한다.
+
+**출력** — `data/{domain}/{arena}.json`(새 비교군은 새 파일, 기존 비교군은 뒤에 추가) · `data/en.json`
+(항목 오버레이 100% 영문) · `data/catalog.json`(대분류·비교군·featured) · `web/assets/icons/{id}.webp`(192×192)
+· `drafts/<배치>/bulk-<날짜>-run.json`(소요 시간·실패 목록·판정 요약).
 
 ## 1. auto_collect.py — 반자동 수집
 
@@ -102,7 +144,21 @@ python3 projects/pharos/scripts/sync_web_data.py          # search-index 재생�
 python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신 여부만 확인
 ```
 
-## 5. verify_ui.py — 실제 화면 검증
+## 5. smoke_v12.py — 배치용 빠른 스모크 (auto_fact 배치마다)
+
+`verify_ui.py` 전체(730여 항목)는 사람이 문장까지 쓴 배치에서만 돌리고, `auto_fact` 대량 배치는
+**핵심 30여 항목**만 빠르게 확인한다(1분 이내).
+
+```bash
+python3 projects/pharos/scripts/smoke_v12.py                      # web/ 로컬 서버
+python3 projects/pharos/scripts/smoke_v12.py --live --shots-dir projects/pharos/live
+```
+
+확인 항목 — 데이터 칩(건수·비교군), 홈 장르 블록 = featured, 신규 비교군 건수·`자동 수집` 배지·192px 아이콘,
+`auto_fact` 상세의 1차 판정 안내(검증 완료 항목에는 없음), EN 모드 한글 0건·`Auto-collected` 배지,
+390px 가로 넘침 0, 콘솔 오류·HTTP 4xx 0건, 스크린샷(`live-v12-bulk100-home.png`·`live-v12-bulk100-arena.png`).
+
+## 5-1. verify_ui.py — 실제 화면 검증
 
 ```bash
 LD_LIBRARY_PATH=/workspace/.cache/chromedeps/root/usr/lib/x86_64-linux-gnu \

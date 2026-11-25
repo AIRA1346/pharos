@@ -1066,6 +1066,12 @@ function ring(score) {
     </svg>`;
 }
 
+/* 발행 단계 배지 — `auto_fact`(공개 API 대량 적재) 항목에만 붙는다. `verified` 는 배지 없음. */
+function reviewTierChip(item) {
+  if (!item || item.review_tier !== 'auto_fact') return '';
+  return `<span class="chip chip--auto" title="${esc(t('reviewTier.badgeTitle'))}">${esc(t('reviewTier.badge'))}</span>`;
+}
+
 function maintenanceChip(item) {
   const key = item?.maintenance_status;
   const meta = engine.MAINTENANCE_STATUS_META[key];
@@ -1145,6 +1151,7 @@ function cardHtml(view) {
       <div class="card-name-text">
         <h3>${esc(item.name)}</h3>
         <p class="card-dev">${esc(devLine)}</p>
+        ${reviewTierChip(item)}
       </div>
       <div class="card-score">
         <span class="verdict verdict--${verdictMeta.tone}"><span class="v-emoji" aria-hidden="true">${verdictMeta.emoji}</span>${verdictMeta.label}</span>
@@ -1477,6 +1484,7 @@ async function showDetail(id) {
   $('modalChips').innerHTML = [
     `<span class="chip chip--cat">${esc(state.cat.domainLabel(item.domain))} · ${esc(state.cat.categoryLabel(item.category))}</span>`,
     ...(item.arenas || []).map((aid) => `<span class="chip chip--arena">${esc(state.cat.arenaLabel(aid))}</span>`),
+    reviewTierChip(item),
     maintenanceChip(item),
     freshnessChip(item),
     `<span class="chip chip--grade chip--${esc(engine.gradeWeakest(item.data_quality?.overall_grade))}">${esc(
@@ -1493,7 +1501,11 @@ async function showDetail(id) {
     <button type="button" class="icon-btn ${bookmarked ? 'is-on' : ''}" data-bookmark="${esc(item.id)}" aria-pressed="${bookmarked}" title="${esc(saveLabel)}" aria-label="${esc(saveLabel)}">${bookmarked ? '★' : '☆'}</button>
     <button type="button" class="icon-btn" id="modalClose" aria-label="${esc(t('modal.detailClose'))}">✕</button>`;
 
+  const tierNotice = item.review_tier === 'auto_fact'
+    ? `<div class="callout callout--auto" role="note">${t('reviewTier.notice')}</div>`
+    : '';
   $('modalBody').innerHTML = [
+    tierNotice,
     sectionVerdict(view, verdictMeta),
     sectionFacts(view),
     sectionOpinion(view),
@@ -1504,7 +1516,7 @@ async function showDetail(id) {
     sectionMoney(view),
     sectionUpdates(view),
     sectionEvidence(view),
-  ].join('');
+  ].filter(Boolean).join('');
 
   const backdrop = $('modalBackdrop');
   backdrop.hidden = false;

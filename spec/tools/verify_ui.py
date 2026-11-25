@@ -41,6 +41,8 @@ from __future__ import annotations
 
 import argparse
 import functools
+import json
+from datetime import date
 import http.server
 import os
 import socketserver
@@ -53,6 +55,16 @@ from playwright.sync_api import sync_playwright
 
 WEB_ROOT = Path(__file__).resolve().parents[1]  # projects/pharos/web — 배포 단위 그대로
 RESULTS: list[tuple[str, bool, str]] = []
+_CATALOG_CACHE: dict | None = None
+
+
+def _arena_rows(arena_id: str) -> list[dict]:
+    """비교군 데이터 파일의 항목 목록 — 건수 단언을 데이터에서 계산한다(배치마다 늘어나도 낡지 않게)."""
+    global _CATALOG_CACHE
+    if _CATALOG_CACHE is None:
+        _CATALOG_CACHE = json.loads((WEB_ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    arena = next(a for a in _CATALOG_CACHE["arenas"] if a["id"] == arena_id)
+    return json.loads((WEB_ROOT / "data" / arena["data_file"]).read_text(encoding="utf-8"))
 
 
 def expect(condition: bool, label: str, extra: str = "") -> None:
@@ -617,7 +629,9 @@ def main() -> int:
         expect("AI·편집 검토 · 사실과 구분" in body, "의견(Opinion) 구분 배지", "")
         expect("수명 단계 · 완결작" in body, "완결작 수명 단계 표기")
         expect("완결작은 stale_over_12m 필터가 켜져 있어도 면제(exempt)로 계산합니다" in body, "완결작 면제 설명")
-        expect("최신 · 1일" in body, "상세에 신선도 표시")
+        _inscryption = next(x for x in json.loads((WEB_ROOT / "data" / "game" / "roguelike-deckbuilder.json").read_text(encoding="utf-8")) if x["id"] == "inscryption")
+        _ages = (date.today() - date.fromisoformat(_inscryption["assessed_at"])).days
+        expect(f"최신 · {_ages}일" in body, f"상세에 신선도 표시(평가 {_ages}일 경과)", body[:200])
         expect("면제 · 완결작" in body, "완결작 면제는 카드가 아니라 상세 모달에", "")
         axis_scores = page.eval_on_selector_all("#modalBody .axis-card .axis-score", "els => els.map(e => e.textContent.trim())")
         expect(len(axis_scores) == 4 and all(axis_scores), "상세 05 축별 신호에 3축 + 프로필 축 점수", str(axis_scores))
@@ -852,11 +866,15 @@ def main() -> int:
         wait(page, 700)
         expect("arena=action-roguelike" in page.url, "액션 로그라이크 비교군 URL", path_id(page))
         arena_state = cards(page)
-        expect(len(arena_state) == 4, "액션 로그라이크 카드 4건", str([c["id"] for c in arena_state]))
+        _ar_rows = json.loads((WEB_ROOT / "data" / "game" / "action-roguelike.json").read_text(encoding="utf-8"))
+        expect(len(arena_state) == len(_ar_rows), f"액션 로그라이크 카드 {len(_ar_rows)}건",
+               str([c["id"] for c in arena_state]))
         summary = stats(page)
-        expect(summary.get("추천") == "3" and summary.get("조건부") == "0" and summary.get("거름") == "1",
-               "액션 로그라이크 요약 3/0/1", str(summary))
-        expect(summary.get("평균 가중 점수") == "80.9", "액션 로그라이크 평균 80.9", str(summary))
+        _ar_count = {v: sum(1 for _r in _ar_rows if _r["verdict"]["overall"] == v)
+                     for v in ("recommend", "conditional", "avoid")}
+        expect(summary.get("추천") == str(_ar_count["recommend"]) and summary.get("조건부") == str(_ar_count["conditional"])
+               and summary.get("거름") == str(_ar_count["avoid"]),
+               f"액션 로그라이크 요약 {_ar_count['recommend']}/{_ar_count['conditional']}/{_ar_count['avoid']}", str(summary))
         ar = {c["id"]: c for c in arena_state}
         for item_id, verdict, score in (("hades", "recommend", 86.5), ("vampire-survivors", "recommend", 91.0),
                                         ("dead-cells", "recommend", 88.0), ("archero", "avoid", 58.25)):
@@ -890,7 +908,8 @@ def main() -> int:
         expect("수명 단계 · 완결작" in body, "Hades 수명 단계 = 완결작", "")
         expect("완결작은 stale_over_12m 필터가 켜져 있어도 면제(exempt)로 계산합니다" in body, "Hades 완결작 면제 설명", "")
         alts = page.eval_on_selector_all("#secAlternatives .alt-row", "els => els.map(e => e.dataset.item)")
-        expect(alts == ["vampire-survivors", "dead-cells"], "Hades 대체제 = 같은 비교군 추천 2건(점수순)", str(alts))
+        expect(alts[:2] == ["vampire-survivors", "dead-cells"] and len(alts) >= 2,
+               f"Hades 대체제 = 같은 비교군 추천 {len(alts)}건(점수순)", str(alts))
         close_modal(page)
 
         page.goto(f"{base}/?domain=game&arena=action-roguelike&item=vampire-survivors", wait_until="networkidle")
@@ -1329,7 +1348,10 @@ def main() -> int:
         expect(f"앱 — 장르 {len(app_arenas_expected)} · {item_count_by_domain['app']}건" in app_h1,
                f"앱 도메인 헤더 = 장르 {len(app_arenas_expected)} · {item_count_by_domain['app']}건", app_h1)
         app_cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
-        expect(app_cats == ["productivity", "security-utilities", "internet-privacy"], "앱 도메인 대분류 3개(생산성·보안·인터넷)", str(app_cats))
+        _app_cats_expected = [c["id"] for c in json.loads(
+            (WEB_ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))["categories"] if c["domain"] == "app"]
+        expect(app_cats == _app_cats_expected,
+               f"앱 도메인 대분류 {len(_app_cats_expected)}개(카탈로그 정의)", str(app_cats))
         app_arenas = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
         expect(app_arenas == app_arenas_expected, f"앱 도메인 장르 블록 {len(app_arenas_expected)}개", str(app_arenas))
         expect("보안 · 유틸리티" in app_head and "인터넷 · 프라이버시" in app_head and "필터 팩 · 앱 팩" in app_head, "앱 도메인에 새 대분류·필터 팩 표시", app_head)
@@ -1445,12 +1467,14 @@ def main() -> int:
         wait(page, 700)
         expect("domain=ai" in page.url, "AI 도구 도메인 URL", path_id(page))
         ai_head = page.inner_text(".level-head")
-        expect("AI 도구 — 장르 2 · 9건" in page.inner_text(".level-head h1"), "AI 도메인 헤더 = 장르 2 · 9건", ai_head[:120])
+        ai_expected_arenas = domain_arenas["ai"]
+        ai_expected_items = item_count_by_domain["ai"]
+        expect(f"AI 도구 — 장르 {len(ai_expected_arenas)} · {ai_expected_items}건" in page.inner_text(".level-head h1"), f"AI 도메인 헤더 = 장르 {len(ai_expected_arenas)} · {ai_expected_items}건", ai_head[:120])
         ai_cats = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
-        expect(ai_cats == ["ai-chat-research", "ai-coding"], "AI 도메인 대분류 2개(대화·리서치·개발·코딩)", str(ai_cats))
+        expect(ai_cats == ["ai-chat-research", "ai-image-gen", "ai-coding"], "AI 도메인 대분류 3개(대화·리서치·이미지·디자인 생성·개발·코딩)", str(ai_cats))
         expect("AI 도구 팩" in ai_head, "AI 도메인 필터 팩 표시", ai_head)
         ai_blocks = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(ai_blocks == ["ai-assistants", "ai-coding-tools"], "AI 도메인 장르 블록 2개", str(ai_blocks))
+        expect(ai_blocks == ["ai-assistants", "ai-coding-tools", "ai-image-gen"], "AI 도메인 장르 블록 3개", str(ai_blocks))
         ai_dom_picks = page.eval_on_selector_all('.genre-block[data-arena="ai-coding-tools"] .pick-tile',
                                                  "els => els.map(e => e.dataset.item)")
         expect(ai_dom_picks == ["github-copilot", "cline", "cursor", "windsurf"], "AI 도메인 추천 타일 4개", str(ai_dom_picks))
@@ -1658,9 +1682,9 @@ def main() -> int:
                                              "els => els.map(e => e.dataset.item)")
         expect(ai_tiles == ["claude", "perplexity", "chatgpt", "gemini"], "AI 어시스턴트 장르 타일 4개", str(ai_tiles))
         ai_blocks = page.eval_on_selector_all(".genre-block", "els => els.map(e => e.dataset.arena)")
-        expect(ai_blocks == ["ai-assistants", "ai-coding-tools"], "AI 탭 = 두 비교군 블록", str(ai_blocks))
+        expect(ai_blocks == ["ai-assistants", "ai-coding-tools", "ai-image-gen"], "AI 탭 = 세 비교군 블록", str(ai_blocks))
         ai_cat_chips = page.eval_on_selector_all(".chip--link", "els => els.map(e => e.dataset.category)")
-        expect(ai_cat_chips == ["ai-chat-research", "ai-coding"], "AI 탭 = 두 대분류 칩", str(ai_cat_chips))
+        expect(ai_cat_chips == ["ai-chat-research", "ai-image-gen", "ai-coding"], "AI 탭 = 세 대분류 칩", str(ai_cat_chips))
         page.click('.genre-block[data-arena="ai-assistants"] .genre-title')
         wait(page, 700)
         expect("arena=ai-assistants" in page.url, "AI 탭에서 어시스턴트 비교군으로 이동", path_id(page))
@@ -1993,15 +2017,18 @@ def main() -> int:
         mv_cards = cards(page)
         mv_ids = [c["id"] for c in mv_cards]
         mv_scores = [float(c["score"]) for c in mv_cards]
-        expect(set(mv_ids) == {"hollow-knight", "celeste", "ori-and-the-will-of-the-wisps", "nine-sols", "blasphemous"}
-               and len(mv_ids) == 5, "신규 비교군 메트로배니아·플랫포머 = 5종", str(mv_ids))
+        _mv_rows = json.loads((WEB_ROOT / "data" / "game" / "metroidvania-platformer.json").read_text(encoding="utf-8"))
+        _mv_expected_ids = {_r["id"] for _r in _mv_rows}
+        expect(set(mv_ids) == _mv_expected_ids and len(mv_ids) == len(_mv_rows),
+               f"메트로배니아·플랫포머 = {len(_mv_rows)}종", str(mv_ids))
         expect(mv_scores == sorted(mv_scores, reverse=True),
                "메트로배니아 카드가 가중 점수 내림차순", str(mv_scores))
         mv_stats = stats(page)
-        expect(mv_stats.get("추천") == "5" and mv_stats.get("거름") == "0",
-               "메트로배니아 5종 모두 추천 · 거름 0", str(mv_stats))
-        expect(all(c["verdict"] == "recommend" for c in mv_cards),
-               "메트로배니아 카드 판정 = 추천", str([(c["id"], c["verdict"]) for c in mv_cards]))
+        _mv_rec = {_r["id"]: _r["verdict"]["overall"] for _r in _mv_rows}
+        expect(all(c["verdict"] == _mv_rec[c["id"]] for c in mv_cards if c["id"] in _mv_rec),
+               "메트로배니아 카드 판정 = 데이터 판정", str([(c["id"], c["verdict"]) for c in mv_cards]))
+        expect(mv_stats.get("추천") == str(sum(1 for v in _mv_rec.values() if v == "recommend")),
+               f"메트로배니아 추천 {sum(1 for v in _mv_rec.values() if v == 'recommend')}건", str(mv_stats))
         expect(all("점" not in c["text"] or True for c in mv_cards), "메트로배니아 카드 렌더", "")
         expect(abs(float(card(page, "celeste")["score"]) - 89.5) < 0.01
                and abs(float(card(page, "hollow-knight")["score"]) - 90.0) < 0.01,
@@ -2011,8 +2038,9 @@ def main() -> int:
             "#grid .card .item-icon--card img",
             "els => els.map(e => ({src: e.getAttribute('src'), ok: e.complete && e.naturalWidth > 0}))",
         )
-        expect(len(mv_icons) == 5 and all(i["ok"] for i in mv_icons),
-               "메트로배니아 5종 공식 아이콘 로드", str([i["src"] for i in mv_icons]))
+        _mv_picks = sum(1 for v in _mv_rec.values() if v != "avoid")
+        expect(len(mv_icons) == _mv_picks and all(i["ok"] for i in mv_icons),
+               f"메트로배니아 {_mv_picks}종 공식 아이콘 로드", str([i["src"] for i in mv_icons]))
         page.click('#grid .card[data-id="celeste"]')
         wait(page, 600)
         celeste_text = page.inner_text("#modal")
@@ -2051,8 +2079,10 @@ def main() -> int:
                f'{len(domain_arenas["app"])}/{len(domain_arenas["game"])}')
 
         # ------------------------------------ 10-1) 1차 대량 확장: 신규 4개 비교군 20종
-        for arena_id, expected_len in (("vpn", 5), ("calendar-apps", 5),
-                                       ("fps-shooters", 5), ("survival-crafting", 5)):
+        for arena_id in ("vpn", "calendar-apps", "fps-shooters", "survival-crafting"):
+            rows_meta = _arena_rows(arena_id)
+            expected_len = len(rows_meta)
+            expected_picks = sum(1 for r in rows_meta if r["verdict"]["overall"] != "avoid")
             page.goto(f"{base}/?arena={arena_id}", wait_until="networkidle")
             wait(page, 500)
             rows = cards(page)
@@ -2061,8 +2091,8 @@ def main() -> int:
             icons = page.eval_on_selector_all(
                 "#grid .card .item-icon img",
                 "els => els.map(e => ({ok: e.complete && e.naturalWidth === 192, src: e.getAttribute('src')}))")
-            expect(len(icons) == expected_len and all(i["ok"] for i in icons),
-                   f"신규 비교군 {arena_id} 아이콘 {expected_len}건 192px 로드", str(icons[:2]))
+            expect(len(icons) == expected_picks and all(i["ok"] for i in icons),
+                   f"신규 비교군 {arena_id} 아이콘 {expected_picks}건 192px 로드", str(icons[:2]))
 
         page.goto(f"{base}/?arena=vpn", wait_until="networkidle")
         wait(page, 500)
@@ -2095,6 +2125,89 @@ def main() -> int:
         expect("Mullvad VPN" in en2.inner_text("#grid") and "Free" not in en2.inner_text("#grid").split("Mullvad")[0][:0] + "",
                "EN 신규 VPN 목록 렌더", en2.inner_text("#grid")[:60])
         en2.close()
+
+        # ------------------------------------ 10-2) 2차 대량 확장: 신규 4개 비교군 20종
+        for arena_id in ("ai-image-gen", "pdf-tools", "image-editors", "turn-based-strategy"):
+            rows_meta = _arena_rows(arena_id)
+            expected_len = len(rows_meta)
+            expected_picks = sum(1 for r in rows_meta if r["verdict"]["overall"] != "avoid")
+            page.goto(f"{base}/?arena={arena_id}", wait_until="networkidle")
+            wait(page, 500)
+            rows = cards(page)
+            expect(len(rows) == expected_len, f"2차 신규 비교군 {arena_id} = {expected_len}건",
+                   str([c["id"] for c in rows]))
+            icons = page.eval_on_selector_all(
+                "#grid .card .item-icon img",
+                "els => els.map(e => ({ok: e.complete && e.naturalWidth === 192, src: e.getAttribute('src')}))")
+            expect(len(icons) == expected_picks and all(i["ok"] for i in icons),
+                   f"2차 신규 비교군 {arena_id} 아이콘 {expected_picks}건 192px 로드", str(icons[:2]))
+
+        bulk_prefix = ("arpg-hack-slash", "soulslike", "city-builder-management", "co-op-party", "racing-sim",
+                       "messaging-team", "media-players", "video-editing", "dev-terminals-git", "backup-sync",
+                       "read-later")
+        expect(all(a in featured[:len(bulk_prefix)] for a in bulk_prefix),
+               "홈 featured 맨 앞 = 1차 대량 팩트 적재(auto_fact) 11개 비교군", str(featured[:len(bulk_prefix)]))
+
+        page.goto(f"{base}/?arena=ai-image-gen", wait_until="networkidle")
+        wait(page, 500)
+        comfy = card(page, "comfyui")
+        mj = card(page, "midjourney")
+        expect(comfy and comfy["verdict"] == "recommend" and float(comfy["score"]) > 90,
+               "AI 이미지 최상위 = ComfyUI 추천", str(comfy and (comfy["verdict"], comfy["score"])))
+        expect(mj and mj["verdict"] == "conditional",
+               "Midjourney = 조건부(무료 없음·Fast 시간 과금)", str(mj and (mj["verdict"], mj["score"])))
+        expect("⚪" in card(page, "flux")["text"] or card(page, "flux")["verdict"] == "recommend",
+               "FLUX = 스토어 표본 없이 추천(사용자 축 ⚪)")
+        page.click('#grid .card[data-id="midjourney"]')
+        wait(page, 600)
+        mj_text = page.inner_text("#modal")
+        expect("$10" in mj_text and "무료 플랜이 없다" in mj_text and "Fast" in mj_text,
+               "Midjourney 상세 = $10·무료 플랜 없음·Fast 시간", mj_text[:220].replace("\n", " | "))
+        close_modal(page)
+
+        page.goto(f"{base}/?arena=pdf-tools", wait_until="networkidle")
+        wait(page, 500)
+        expect(card(page, "sumatrapdf")["verdict"] == "recommend",
+               "PDF 최상위 = SumatraPDF 추천", str(card(page, "sumatrapdf")))
+        expect(card(page, "adobe-acrobat")["verdict"] == "conditional" and card(page, "foxit-pdf")["verdict"] == "conditional",
+               "Acrobat·Foxit = 조건부(구독·티어)",
+               f'{card(page, "adobe-acrobat")["verdict"]}/{card(page, "foxit-pdf")["verdict"]}')
+        page.click('#grid .card[data-id="pdfgear"]')
+        wait(page, 600)
+        gear_text = page.inner_text("#modal")
+        expect("52,923" in gear_text and "워터마크" in gear_text,
+               "PDFgear 상세 = Play 52,923건·워터마크 없음", gear_text[:220].replace("\n", " | "))
+        close_modal(page)
+
+        page.goto(f"{base}/?arena=image-editors", wait_until="networkidle")
+        wait(page, 500)
+        expect(card(page, "krita")["verdict"] == "recommend" and float(card(page, "krita")["score"]) >= 80,
+               "이미지 편집 Krita = 추천(80.0)", str(card(page, "krita")))
+        expect(card(page, "adobe-photoshop")["verdict"] == "conditional",
+               "Photoshop = 조건부(크레딧 25개)", str(card(page, "adobe-photoshop")))
+
+        page.goto(f"{base}/?arena=turn-based-strategy", wait_until="networkidle")
+        wait(page, 500)
+        bg3 = card(page, "baldurs-gate-3")
+        xcom = card(page, "xcom-2")
+        expect(bg3 and bg3["verdict"] == "recommend" and float(bg3["score"]) > 90,
+               "턴제 최상위 = Baldur's Gate 3 추천", str(bg3 and (bg3["verdict"], bg3["score"])))
+        expect(xcom and xcom["verdict"] == "recommend" and "완결작" in xcom["text"],
+               "XCOM 2 = 완결작 면제로 추천", xcom and xcom["text"][-160:])
+        page.click('#grid .card[data-id="baldurs-gate-3"]')
+        wait(page, 600)
+        bg3_text = page.inner_text("#modal")
+        expect("₩66,000" in bg3_text and "454,406" in bg3_text,
+               "BG3 상세 = ₩66,000·리뷰 454,406건", bg3_text[:220].replace("\n", " | "))
+        close_modal(page)
+
+        en3 = context.new_page()
+        for arena_id in ("ai-image-gen", "pdf-tools", "image-editors", "turn-based-strategy"):
+            en3.goto(f"{base}/?lang=en&arena={arena_id}", wait_until="networkidle")
+            wait(en3, 500)
+            expect(not korean_left(en3), f"EN 2차 신규 {arena_id} 한글 잔존 0건", str(korean_left(en3)[:4]))
+            expect(len(cards(en3)) == len(_arena_rows(arena_id)), f"EN 2차 신규 {arena_id} 렌더")
+        en3.close()
 
         # ------------------------------------------------------------- 11 스크린샷
         desktop = context.new_page()

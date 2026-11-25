@@ -1,419 +1,560 @@
 {
-  "schema_version": "0.4.0",
-  "title": "Pharos 데이터 카탈로그",
-  "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종). 2026-11-26 2차 대량 확장(v11)으로 AI '이미지 · 디자인 생성'의 AI 이미지 생성, 앱 '문서 · 디자인'의 PDF 뷰어·편집과 이미지·그래픽 편집, 게임 '전략 · 전술 RPG'의 턴제 전략·전술 비교군이 들어왔다(신규 4비교군 20종 · 총 107종).",
-  "path_base": "이 파일이 있는 폴더(data/) 기준 상대경로",
-  "domains": [
-    {
-      "id": "app",
-      "label": "앱",
-      "description": "설치해서 쓰는 소프트웨어 — 구독·계정·데이터 락인이 판정을 가른다.",
-      "icon": "▤",
-      "filter_pack": "app",
-      "default_preset": "balanced"
-    },
-    {
-      "id": "game",
-      "label": "게임",
-      "description": "한 판을 위해 사는 게임 — 확률형 뽑기·P2W·미끼형 광고가 판정을 가른다.",
-      "icon": "◆",
-      "filter_pack": "game",
-      "default_preset": "balanced"
-    },
-    {
-      "id": "ai",
-      "label": "AI 도구",
-      "description": "AI로 일하고 묻는 도구 — 크레딧·모델 선택·학습 데이터 기본값·에디터 종속이 판정을 가른다. 요금표 밖 '첫 요청부터 과금'과 '대화가 학습에 쓰이는가'를 먼저 본다.",
-      "icon": "✦",
-      "filter_pack": "ai",
-      "default_preset": "balanced",
-      "filter_labels": {
-        "forced_ads": "강제 광고 제외",
-        "iap_required_to_progress": "불투명 크레딧·한도 함정 제외",
-        "subscription_required": "구독 강제 제외",
-        "account_required": "계정·클라우드 강제 제외",
-        "stale_over_12m": "12개월 이상 방치 제외",
-        "data_collection": "과도한 데이터 수집 제외"
-      }
-    }
-  ],
-  "planned_domains": [
-    {
-      "id": "content",
-      "label": "콘텐츠",
-      "filter_pack": "content",
-      "note": "애니·책·영상 — 완결·전개, 광고 삽입, 지역 제한 필터 팩이 필요하다."
-    },
-    {
-      "id": "product",
-      "label": "제품",
-      "filter_pack": "product",
-      "note": "실물 제품 — A/S·부품 수급·리퍼 정책 필터 팩이 필요하다."
-    }
-  ],
-  "categories": [
-    {
-      "id": "productivity",
-      "domain": "app",
-      "label": "생산성 · 지식관리",
-      "description": "내 노트·지식·할 일을 어디에 두고 어떻게 꺼내 쓰는가."
-    },
-    {
-      "id": "security-utilities",
-      "domain": "app",
-      "label": "보안 · 유틸리티",
-      "description": "비밀번호·인증·클라우드 저장처럼 '맡기는' 도구 — 무료 한도·내보내기·사고 이력·종단간 암호화가 판정을 가른다."
-    },
-    {
-      "id": "internet-privacy",
-      "domain": "app",
-      "label": "인터넷 · 프라이버시",
-      "description": "웹을 여는 창과 그 창이 흘리는 것 — 기본 트래커 차단·확장 제한(MV3)·자체 광고/블로트가 판정을 가른다."
-    },
-    {
-      "id": "document-design",
-      "domain": "app",
-      "label": "문서 · 디자인",
-      "description": "PDF와 이미지를 읽고 고치는 도구 — 무료 뷰어 vs 구독 편집기, 편집이 멈추는 지점, 클라우드로 나가는 데이터가 판정을 가른다."
-    },
-    {
-      "id": "strategy-card",
-      "domain": "game",
-      "label": "전략 · 카드",
-      "description": "덱·카드·턴을 조합해 한 판을 푸는 게임."
-    },
-    {
-      "id": "rpg",
-      "domain": "game",
-      "label": "RPG · 수집",
-      "description": "캐릭터를 모으고 키우는 게임 — 수집 구조가 곧 과금 구조다."
-    },
-    {
-      "id": "action-indie",
-      "domain": "game",
-      "label": "액션 · 인디",
-      "description": "직접 조작하는 액션과 인디 감성 — 손맛과 과금 구조가 판정을 가른다."
-    },
-    {
-      "id": "mmorpg",
-      "domain": "game",
-      "label": "RPG · MMORPG",
-      "description": "PC에서 오래 이어가는 대규모 멀티플레이 RPG — 정액제·확장팩·캐시샵 구조가 판정을 가른다."
-    },
-    {
-      "id": "mobile-strategy",
-      "domain": "game",
-      "label": "모바일 전략 · 디펜스",
-      "description": "한 손으로 한 판을 푸는 모바일 전략·타워디펜스 — 유료 1회 구매와 무료+광고·과금 구조가 갈린다."
-    },
-    {
-      "id": "action-shooter",
-      "domain": "game",
-      "label": "액션 · 슈팅",
-      "description": "조준과 교전이 중심인 슈팅 — 무료 플레이의 확률형 상자·배틀패스, 커널 안티치트, 경쟁전 운영이 판정을 가른다."
-    },
-    {
-      "id": "survival-sim",
-      "domain": "game",
-      "label": "생존 · 시뮬레이션",
-      "description": "자원을 모아 짓고 버티는 생존·건설 — 1회 구매 완결형과 마켓플레이스·구독이 붙는 샌드박스가 갈린다."
-    },
-    {
-      "id": "strategy-tactics",
-      "domain": "game",
-      "label": "전략 · 전술 RPG",
-      "description": "한 턴의 판단으로 한 판이 갈리는 턴제 전략·전술 — 1회 구매 완결형, 확장팩·DLC 구조, 난이도가 판정을 가른다."
-    },
-    {
-      "id": "ai-chat-research",
-      "domain": "ai",
-      "label": "대화 · 리서치",
-      "description": "묻고 답하고 찾는 AI — 무료 한도 공개 여부·학습 데이터 기본값·광고 도입·출처 인용이 판정을 가른다."
-    },
-    {
-      "id": "ai-image-gen",
-      "domain": "ai",
-      "label": "이미지 · 디자인 생성",
-      "description": "이미지를 만들고 고치는 AI — 로컬 엔진·이미지당 API·크레딧 구독, 그리고 결과물을 내가 소유하고 팔 수 있는가가 판정을 가른다."
-    },
-    {
-      "id": "ai-coding",
-      "domain": "ai",
-      "label": "개발 · 코딩",
-      "description": "코드를 쓰고 고치는 AI — 요금제 투명성·모델 선택 자유·에디터 종속이 판정을 가른다."
-    }
-  ],
-  "arenas": [
-    {
-      "id": "pkm-notes",
-      "domain": "app",
-      "category": "productivity",
-      "label": "노트·지식관리",
-      "description": "내 노트와 지식을 어디에 두고 어떻게 꺼내 쓰는가 — 파일 소유권·계정·동기화·내보내기에서 갈린다.",
-      "data_file": "app/pkm-notes.json"
-    },
-    {
-      "id": "task-managers",
-      "domain": "app",
-      "category": "productivity",
-      "label": "할 일 · 일정 관리",
-      "description": "할 일과 일정을 어디에 두고 굴리는가 — 무료 티어 한도·구독 락인·내보내기·광고/계정 필수에서 갈린다.",
-      "data_file": "app/task-managers.json"
-    },
-    {
-      "id": "password-managers",
-      "domain": "app",
-      "category": "security-utilities",
-      "label": "비밀번호 관리",
-      "description": "비밀번호를 어디에 맡기는가 — 무료 동기화 한도·로컬/오픈소스 여부·내보내기 표준·보안 사고 이력에서 갈린다.",
-      "data_file": "app/password-managers.json"
-    },
-    {
-      "id": "roguelike-deckbuilder",
-      "domain": "game",
-      "category": "strategy-card",
-      "label": "덱빌딩 게임",
-      "description": "한 판씩 덱을 만들어 다시 도는 싱글플레이 덱빌딩 — 1회 구매 완결형과 부분유료형이 같은 자리에 있다.",
-      "data_file": "game/roguelike-deckbuilder.json"
-    },
-    {
-      "id": "mobile-gacha-rpg",
-      "domain": "game",
-      "category": "rpg",
-      "label": "모바일 수집형 RPG",
-      "description": "캐릭터 수집·확률형 뽑기·서버 경쟁이 수익 구조인 모바일 RPG — 파로스가 가장 먼저 걷어내는 비교군.",
-      "data_file": "game/mobile-gacha-rpg.json"
-    },
-    {
-      "id": "action-roguelike",
-      "domain": "game",
-      "category": "action-indie",
-      "label": "액션 로그라이크",
-      "description": "한 판씩 죽고 다시 도는 실시간 액션 로그라이크 — 1회 구매 완결형과 부분유료·광고형이 같은 자리에 있다.",
-      "data_file": "game/action-roguelike.json"
-    },
-    {
-      "id": "metroidvania-platformer",
-      "domain": "game",
-      "category": "action-indie",
-      "label": "메트로배니아 · 플랫포머",
-      "description": "지도를 넓혀 가며 능력을 얻는 2D 액션 — 1회 구매 완결형이 기본이고, 손맛·난이도 곡선·DLC 유무가 판정을 가른다.",
-      "data_file": "game/metroidvania-platformer.json"
-    },
-    {
-      "id": "pc-mmorpg",
-      "domain": "game",
-      "category": "mmorpg",
-      "label": "PC MMORPG",
-      "description": "PC에서 수백 시간을 쓰는 MMORPG — 정액제, 확장팩 1회 구매, 무료+캐시샵, 확률형 상자의 네 갈래를 나란히 둔다.",
-      "data_file": "game/pc-mmorpg.json"
-    },
-    {
-      "id": "mobile-strategy-defense",
-      "domain": "game",
-      "category": "mobile-strategy",
-      "label": "모바일 전략·디펜스",
-      "description": "모바일 타워디펜스·전략 — 1회 구매 무광고형부터 광고·확률형 과금형까지 같은 장르 안에서 비교한다.",
-      "data_file": "game/mobile-strategy-defense.json"
-    },
-    {
-      "id": "web-browsers",
-      "domain": "app",
-      "category": "internet-privacy",
-      "label": "웹 브라우저",
-      "description": "웹을 여는 창 — 기본 트래커/광고 차단, Manifest V3 확장 제한, 자체 암호화폐·쇼핑·AI 기본 탑재, 오픈소스 여부에서 갈린다.",
-      "data_file": "app/web-browsers.json"
-    },
-    {
-      "id": "email-clients",
-      "domain": "app",
-      "category": "internet-privacy",
-      "label": "이메일 클라이언트",
-      "description": "메일을 어디서 읽고 보관하는가 — 계정·서버 구조(IMAP/PGP), 무료 한도, AI 기능의 데이터 처리, 오픈소스 여부에서 갈린다.",
-      "data_file": "app/email-clients.json"
-    },
-    {
-      "id": "cloud-storage",
-      "domain": "app",
-      "category": "security-utilities",
-      "label": "클라우드 스토리지",
-      "description": "파일을 어디에 맡기는가 — 종단간 암호화 여부, 무료 용량·기기 제한, 해지 후 접근/삭제 위험, 계정 락인에서 갈린다.",
-      "data_file": "app/cloud-storage.json"
-    },
-    {
-      "id": "vpn",
-      "domain": "app",
-      "category": "security-utilities",
-      "label": "VPN",
-      "description": "접속 경로를 바꾸는 VPN — 무로그 감사, 정액 vs 할인·갱신 폭등, 기기 수 제한, 커널 수준 안티치트·계정 요구에서 갈린다.",
-      "data_file": "app/vpn.json"
-    },
-    {
-      "id": "calendar-apps",
-      "domain": "app",
-      "category": "productivity",
-      "label": "캘린더 · 시간 관리",
-      "description": "일정을 어디에 두고 어떻게 굴리는가 — 종단간 암호화 여부, 무료 캘린더 수·공유 범위, 구독 가격, 계정 종속에서 갈린다.",
-      "data_file": "app/calendar-apps.json"
-    },
-    {
-      "id": "fps-shooters",
-      "domain": "game",
-      "category": "action-shooter",
-      "label": "FPS · 슈팅",
-      "description": "경쟁·협동 슈팅 — 1회 구매와 무료 플레이, 확률형 상자·배틀패스, 커널 안티치트, 지역 제공 여부가 판정을 가른다.",
-      "data_file": "game/fps-shooters.json"
-    },
-    {
-      "id": "survival-crafting",
-      "domain": "game",
-      "category": "survival-sim",
-      "label": "서바이벌 · 크래프팅",
-      "description": "채집·제작·건설로 버티는 생존 — 1회 구매 완결형, 무료 업데이트 지속성, 마켓플레이스·구독 과금이 갈린다.",
-      "data_file": "game/survival-crafting.json"
-    },
-    {
-      "id": "ai-assistants",
-      "domain": "ai",
-      "category": "ai-chat-research",
-      "label": "AI 어시스턴트 · 검색",
-      "description": "묻고 답하고 찾는 AI — 무료 사용량/모델 제한의 투명성, 학습 데이터 옵트아웃 기본값, 광고 도입, 웹 검색 인용과 유료 락인에서 갈린다.",
-      "data_file": "ai/ai-assistants.json"
-    },
-    {
-      "id": "ai-coding-tools",
-      "domain": "ai",
-      "category": "ai-coding",
-      "label": "AI 코딩 에디터 · 에이전트",
-      "description": "코드를 쓰고 고치는 AI 도구 — 요금제 투명성(크레딧·한도 함정), 모델 선택 자유도/BYOK, 오픈소스 여부, 에디터 종속성에서 갈린다.",
-      "data_file": "ai/ai-coding-tools.json"
-    },
-    {
-      "id": "ai-image-gen",
-      "domain": "ai",
-      "category": "ai-image-gen",
-      "label": "AI 이미지 생성",
-      "description": "이미지가 어디서 오는가 — 로컬 오픈소스 엔진, 이미지당 API, 크레딧 구독을 나란히 두고 결과물의 소유·상업적 사용까지 비교한다.",
-      "data_file": "ai/ai-image-gen.json"
-    },
-    {
-      "id": "pdf-tools",
-      "domain": "app",
-      "category": "document-design",
-      "label": "PDF 뷰어 · 편집",
-      "description": "PDF를 읽고 고치는 일 — 무료 뷰어와 구독 편집기의 경계, 편집이 멈추는 지점, 문서가 기기 밖으로 나가는지를 본다.",
-      "data_file": "app/pdf-tools.json"
-    },
-    {
-      "id": "image-editors",
-      "domain": "app",
-      "category": "document-design",
-      "label": "이미지 · 그래픽 편집",
-      "description": "그림·사진 보정·템플릿 디자인 — 무료 오픈소스 도구, 구독 표준, 브라우저 편집기를 같은 자리에 둔다.",
-      "data_file": "app/image-editors.json"
-    },
-    {
-      "id": "turn-based-strategy",
-      "domain": "game",
-      "category": "strategy-tactics",
-      "label": "턴제 전략 · 전술",
-      "description": "한 턴이 한 판을 바꾸는 게임 — 1회 구매 완결형, 확장팩·DLC 구조, 그리고 게임이 요구하는 몰입의 양을 비교한다.",
-      "data_file": "game/turn-based-strategy.json"
-    }
-  ],
-  "filter_packs": {
-    "app": {
-      "label": "앱 팩",
-      "description": "구독·계정·데이터 락인·과도한 수집을 먼저 본다.",
-      "filters": [
-        "subscription_required",
-        "account_required",
-        "data_collection",
-        "forced_ads",
-        "stale_over_12m"
-      ]
-    },
-    "game": {
-      "label": "게임 팩",
-      "description": "확률형 뽑기·P2W·과금 없이 진행 불가·미끼형 광고를 먼저 본다.",
-      "filters": [
-        "gacha_random_items",
-        "p2w",
-        "iap_required_to_progress",
-        "forced_ads",
-        "bait_ad",
-        "stale_over_12m"
-      ]
-    },
-    "ai": {
-      "label": "AI 도구 팩",
-      "description": "강제 광고·불투명 크레딧 함정·구독/계정 강제·방치를 먼저 본다. 확률형·P2W는 AI 도구에 없어 팩에서 뺐다.",
-      "filters": [
-        "forced_ads",
-        "iap_required_to_progress",
-        "subscription_required",
-        "account_required",
-        "stale_over_12m",
-        "data_collection"
-      ]
-    },
-    "core": {
-      "label": "공통 코어",
-      "description": "도메인과 무관하게 항상 보는 기본 필터.",
-      "filters": [
-        "forced_ads",
-        "stale_over_12m",
-        "bait_ad"
-      ]
-    }
+ "schema_version": "0.4.0",
+ "title": "Pharos 데이터 카탈로그",
+ "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종). 2026-11-26 2차 대량 확장(v11)으로 AI '이미지 · 디자인 생성'의 AI 이미지 생성, 앱 '문서 · 디자인'의 PDF 뷰어·편집과 이미지·그래픽 편집, 게임 '전략 · 전술 RPG'의 턴제 전략·전술 비교군이 들어왔다(신규 4비교군 20종 · 총 107종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종).",
+ "path_base": "이 파일이 있는 폴더(data/) 기준 상대경로",
+ "domains": [
+  {
+   "id": "app",
+   "label": "앱",
+   "description": "설치해서 쓰는 소프트웨어 — 구독·계정·데이터 락인이 판정을 가른다.",
+   "icon": "▤",
+   "filter_pack": "app",
+   "default_preset": "balanced"
   },
-  "search": {
-    "index_file": "search-index.json",
-    "fields": [
-      "name",
-      "aliases",
-      "developer",
-      "genres",
-      "taste_tags",
-      "one_liner",
-      "keywords"
-    ],
-    "note": "통합 검색과 홈 리포트는 이 경량 인덱스만 읽는다. 상세·목록은 선택한 비교군의 data_file 을 지연 로딩한다."
+  {
+   "id": "game",
+   "label": "게임",
+   "description": "한 판을 위해 사는 게임 — 확률형 뽑기·P2W·미끼형 광고가 판정을 가른다.",
+   "icon": "◆",
+   "filter_pack": "game",
+   "default_preset": "balanced"
   },
-  "home": {
-    "featured_arenas": [
-      "ai-image-gen",
-      "pdf-tools",
-      "image-editors",
-      "turn-based-strategy",
-      "vpn",
-      "calendar-apps",
-      "pkm-notes",
-      "task-managers",
-      "password-managers",
-      "cloud-storage",
-      "web-browsers",
-      "email-clients",
-      "roguelike-deckbuilder",
-      "action-roguelike",
-      "metroidvania-platformer",
-      "fps-shooters",
-      "survival-crafting",
-      "mobile-gacha-rpg",
-      "pc-mmorpg",
-      "mobile-strategy-defense",
-      "ai-assistants",
-      "ai-coding-tools"
-    ],
-    "gap_report": {
-      "title": "별점은 높은데 거름 판정",
-      "min_store_stars": 4.0,
-      "min_delta": 12.0,
-      "verdicts": [
-        "avoid"
-      ],
-      "limit": 4,
-      "note": "스토어 누적 별점(android·ios·steam 표본)은 높지만 파로스 판정이 '거름'인 항목. v0.5.0은 제목과 판정을 일치시켜 거름(avoid)만 보여준다 — 조건부는 상세의 조건·한도로 남긴다. G2 같은 3자 집계는 '스토어 별점'으로 쓰지 않는다."
-    }
+  {
+   "id": "ai",
+   "label": "AI 도구",
+   "description": "AI로 일하고 묻는 도구 — 크레딧·모델 선택·학습 데이터 기본값·에디터 종속이 판정을 가른다. 요금표 밖 '첫 요청부터 과금'과 '대화가 학습에 쓰이는가'를 먼저 본다.",
+   "icon": "✦",
+   "filter_pack": "ai",
+   "default_preset": "balanced",
+   "filter_labels": {
+    "forced_ads": "강제 광고 제외",
+    "iap_required_to_progress": "불투명 크레딧·한도 함정 제외",
+    "subscription_required": "구독 강제 제외",
+    "account_required": "계정·클라우드 강제 제외",
+    "stale_over_12m": "12개월 이상 방치 제외",
+    "data_collection": "과도한 데이터 수집 제외"
+   }
   }
+ ],
+ "planned_domains": [
+  {
+   "id": "content",
+   "label": "콘텐츠",
+   "filter_pack": "content",
+   "note": "애니·책·영상 — 완결·전개, 광고 삽입, 지역 제한 필터 팩이 필요하다."
+  },
+  {
+   "id": "product",
+   "label": "제품",
+   "filter_pack": "product",
+   "note": "실물 제품 — A/S·부품 수급·리퍼 정책 필터 팩이 필요하다."
+  }
+ ],
+ "categories": [
+  {
+   "id": "productivity",
+   "domain": "app",
+   "label": "생산성 · 지식관리",
+   "description": "내 노트·지식·할 일을 어디에 두고 어떻게 꺼내 쓰는가."
+  },
+  {
+   "id": "security-utilities",
+   "domain": "app",
+   "label": "보안 · 유틸리티",
+   "description": "비밀번호·인증·클라우드 저장처럼 '맡기는' 도구 — 무료 한도·내보내기·사고 이력·종단간 암호화가 판정을 가른다."
+  },
+  {
+   "id": "internet-privacy",
+   "domain": "app",
+   "label": "인터넷 · 프라이버시",
+   "description": "웹을 여는 창과 그 창이 흘리는 것 — 기본 트래커 차단·확장 제한(MV3)·자체 광고/블로트가 판정을 가른다."
+  },
+  {
+   "id": "document-design",
+   "domain": "app",
+   "label": "문서 · 디자인",
+   "description": "PDF와 이미지를 읽고 고치는 도구 — 무료 뷰어 vs 구독 편집기, 편집이 멈추는 지점, 클라우드로 나가는 데이터가 판정을 가른다."
+  },
+  {
+   "id": "strategy-card",
+   "domain": "game",
+   "label": "전략 · 카드",
+   "description": "덱·카드·턴을 조합해 한 판을 푸는 게임."
+  },
+  {
+   "id": "rpg",
+   "domain": "game",
+   "label": "RPG · 수집",
+   "description": "캐릭터를 모으고 키우는 게임 — 수집 구조가 곧 과금 구조다."
+  },
+  {
+   "id": "action-indie",
+   "domain": "game",
+   "label": "액션 · 인디",
+   "description": "직접 조작하는 액션과 인디 감성 — 손맛과 과금 구조가 판정을 가른다."
+  },
+  {
+   "id": "mmorpg",
+   "domain": "game",
+   "label": "RPG · MMORPG",
+   "description": "PC에서 오래 이어가는 대규모 멀티플레이 RPG — 정액제·확장팩·캐시샵 구조가 판정을 가른다."
+  },
+  {
+   "id": "mobile-strategy",
+   "domain": "game",
+   "label": "모바일 전략 · 디펜스",
+   "description": "한 손으로 한 판을 푸는 모바일 전략·타워디펜스 — 유료 1회 구매와 무료+광고·과금 구조가 갈린다."
+  },
+  {
+   "id": "action-shooter",
+   "domain": "game",
+   "label": "액션 · 슈팅",
+   "description": "조준과 교전이 중심인 슈팅 — 무료 플레이의 확률형 상자·배틀패스, 커널 안티치트, 경쟁전 운영이 판정을 가른다."
+  },
+  {
+   "id": "survival-sim",
+   "domain": "game",
+   "label": "생존 · 시뮬레이션",
+   "description": "자원을 모아 짓고 버티는 생존·건설 — 1회 구매 완결형과 마켓플레이스·구독이 붙는 샌드박스가 갈린다."
+  },
+  {
+   "id": "strategy-tactics",
+   "domain": "game",
+   "label": "전략 · 전술 RPG",
+   "description": "한 턴의 판단으로 한 판이 갈리는 턴제 전략·전술 — 1회 구매 완결형, 확장팩·DLC 구조, 난이도가 판정을 가른다."
+  },
+  {
+   "id": "ai-chat-research",
+   "domain": "ai",
+   "label": "대화 · 리서치",
+   "description": "묻고 답하고 찾는 AI — 무료 한도 공개 여부·학습 데이터 기본값·광고 도입·출처 인용이 판정을 가른다."
+  },
+  {
+   "id": "ai-image-gen",
+   "domain": "ai",
+   "label": "이미지 · 디자인 생성",
+   "description": "이미지를 만들고 고치는 AI — 로컬 엔진·이미지당 API·크레딧 구독, 그리고 결과물을 내가 소유하고 팔 수 있는가가 판정을 가른다."
+  },
+  {
+   "id": "ai-coding",
+   "domain": "ai",
+   "label": "개발 · 코딩",
+   "description": "코드를 쓰고 고치는 AI — 요금제 투명성·모델 선택 자유·에디터 종속이 판정을 가른다."
+  },
+  {
+   "id": "action-rpg",
+   "domain": "game",
+   "label": "액션 RPG · 소울라이크",
+   "description": "스킬 트리와 파밍으로 캐릭터를 키우는 액션 RPG — 시즌·확장팩·캐시 상점 구조와 난이도 설계가 판정을 가른다."
+  },
+  {
+   "id": "sim-management",
+   "domain": "game",
+   "label": "건설 · 경영 시뮬레이션",
+   "description": "도시를 짓고 자원과 사람을 굴리는 경영 시뮬 — 1회 구매 완결형과 DLC·시즌 구조, 모드 생태계가 갈린다."
+  },
+  {
+   "id": "multiplayer-coop",
+   "domain": "game",
+   "label": "협동 · 파티 멀티플레이",
+   "description": "친구와 같이 해야 재미있는 협동·파티 게임 — 인원 요건, 서버·계정, 배틀패스·코스메틱 과금이 판정을 가른다."
+  },
+  {
+   "id": "racing-sports",
+   "domain": "game",
+   "label": "레이싱 · 스포츠",
+   "description": "차를 몰고 경기하는 레이싱·스포츠 — 매년 새 판을 사는 연간 시리즈인지, 1회 구매에 트랙·차량 DLC가 붙는지가 갈린다."
+  },
+  {
+   "id": "communication",
+   "domain": "app",
+   "label": "메신저 · 팀 협업",
+   "description": "대화가 쌓이는 곳 — 종단간 암호화, 워크스페이스·계정 구조, 무료 보관 기간과 검색 한도가 판정을 가른다."
+  },
+  {
+   "id": "media-entertainment",
+   "domain": "app",
+   "label": "미디어 · 영상",
+   "description": "영상을 보고 듣고 만드는 도구 — 자체 서버·로컬 재생인지, 구독 전용 카탈로그인지, 내보내기 제한이 있는지가 갈린다."
+  },
+  {
+   "id": "developer-tools",
+   "domain": "app",
+   "label": "개발자 도구 · 터미널 · API",
+   "description": "코드를 쓰고 API를 두드리는 도구 — 편집기·터미널 자유도, 계정·클라우드 종속, 오픈소스 여부가 판정을 가른다."
+  }
+ ],
+ "arenas": [
+  {
+   "id": "pkm-notes",
+   "domain": "app",
+   "category": "productivity",
+   "label": "노트·지식관리",
+   "description": "내 노트와 지식을 어디에 두고 어떻게 꺼내 쓰는가 — 파일 소유권·계정·동기화·내보내기에서 갈린다.",
+   "data_file": "app/pkm-notes.json"
+  },
+  {
+   "id": "task-managers",
+   "domain": "app",
+   "category": "productivity",
+   "label": "할 일 · 일정 관리",
+   "description": "할 일과 일정을 어디에 두고 굴리는가 — 무료 티어 한도·구독 락인·내보내기·광고/계정 필수에서 갈린다.",
+   "data_file": "app/task-managers.json"
+  },
+  {
+   "id": "password-managers",
+   "domain": "app",
+   "category": "security-utilities",
+   "label": "비밀번호 관리",
+   "description": "비밀번호를 어디에 맡기는가 — 무료 동기화 한도·로컬/오픈소스 여부·내보내기 표준·보안 사고 이력에서 갈린다.",
+   "data_file": "app/password-managers.json"
+  },
+  {
+   "id": "roguelike-deckbuilder",
+   "domain": "game",
+   "category": "strategy-card",
+   "label": "덱빌딩 게임",
+   "description": "한 판씩 덱을 만들어 다시 도는 싱글플레이 덱빌딩 — 1회 구매 완결형과 부분유료형이 같은 자리에 있다.",
+   "data_file": "game/roguelike-deckbuilder.json"
+  },
+  {
+   "id": "mobile-gacha-rpg",
+   "domain": "game",
+   "category": "rpg",
+   "label": "모바일 수집형 RPG",
+   "description": "캐릭터 수집·확률형 뽑기·서버 경쟁이 수익 구조인 모바일 RPG — 파로스가 가장 먼저 걷어내는 비교군.",
+   "data_file": "game/mobile-gacha-rpg.json"
+  },
+  {
+   "id": "action-roguelike",
+   "domain": "game",
+   "category": "action-indie",
+   "label": "액션 로그라이크",
+   "description": "한 판씩 죽고 다시 도는 실시간 액션 로그라이크 — 1회 구매 완결형과 부분유료·광고형이 같은 자리에 있다.",
+   "data_file": "game/action-roguelike.json"
+  },
+  {
+   "id": "metroidvania-platformer",
+   "domain": "game",
+   "category": "action-indie",
+   "label": "메트로배니아 · 플랫포머",
+   "description": "지도를 넓혀 가며 능력을 얻는 2D 액션 — 1회 구매 완결형이 기본이고, 손맛·난이도 곡선·DLC 유무가 판정을 가른다.",
+   "data_file": "game/metroidvania-platformer.json"
+  },
+  {
+   "id": "pc-mmorpg",
+   "domain": "game",
+   "category": "mmorpg",
+   "label": "PC MMORPG",
+   "description": "PC에서 수백 시간을 쓰는 MMORPG — 정액제, 확장팩 1회 구매, 무료+캐시샵, 확률형 상자의 네 갈래를 나란히 둔다.",
+   "data_file": "game/pc-mmorpg.json"
+  },
+  {
+   "id": "mobile-strategy-defense",
+   "domain": "game",
+   "category": "mobile-strategy",
+   "label": "모바일 전략·디펜스",
+   "description": "모바일 타워디펜스·전략 — 1회 구매 무광고형부터 광고·확률형 과금형까지 같은 장르 안에서 비교한다.",
+   "data_file": "game/mobile-strategy-defense.json"
+  },
+  {
+   "id": "web-browsers",
+   "domain": "app",
+   "category": "internet-privacy",
+   "label": "웹 브라우저",
+   "description": "웹을 여는 창 — 기본 트래커/광고 차단, Manifest V3 확장 제한, 자체 암호화폐·쇼핑·AI 기본 탑재, 오픈소스 여부에서 갈린다.",
+   "data_file": "app/web-browsers.json"
+  },
+  {
+   "id": "email-clients",
+   "domain": "app",
+   "category": "internet-privacy",
+   "label": "이메일 클라이언트",
+   "description": "메일을 어디서 읽고 보관하는가 — 계정·서버 구조(IMAP/PGP), 무료 한도, AI 기능의 데이터 처리, 오픈소스 여부에서 갈린다.",
+   "data_file": "app/email-clients.json"
+  },
+  {
+   "id": "cloud-storage",
+   "domain": "app",
+   "category": "security-utilities",
+   "label": "클라우드 스토리지",
+   "description": "파일을 어디에 맡기는가 — 종단간 암호화 여부, 무료 용량·기기 제한, 해지 후 접근/삭제 위험, 계정 락인에서 갈린다.",
+   "data_file": "app/cloud-storage.json"
+  },
+  {
+   "id": "vpn",
+   "domain": "app",
+   "category": "security-utilities",
+   "label": "VPN",
+   "description": "접속 경로를 바꾸는 VPN — 무로그 감사, 정액 vs 할인·갱신 폭등, 기기 수 제한, 커널 수준 안티치트·계정 요구에서 갈린다.",
+   "data_file": "app/vpn.json"
+  },
+  {
+   "id": "calendar-apps",
+   "domain": "app",
+   "category": "productivity",
+   "label": "캘린더 · 시간 관리",
+   "description": "일정을 어디에 두고 어떻게 굴리는가 — 종단간 암호화 여부, 무료 캘린더 수·공유 범위, 구독 가격, 계정 종속에서 갈린다.",
+   "data_file": "app/calendar-apps.json"
+  },
+  {
+   "id": "fps-shooters",
+   "domain": "game",
+   "category": "action-shooter",
+   "label": "FPS · 슈팅",
+   "description": "경쟁·협동 슈팅 — 1회 구매와 무료 플레이, 확률형 상자·배틀패스, 커널 안티치트, 지역 제공 여부가 판정을 가른다.",
+   "data_file": "game/fps-shooters.json"
+  },
+  {
+   "id": "survival-crafting",
+   "domain": "game",
+   "category": "survival-sim",
+   "label": "서바이벌 · 크래프팅",
+   "description": "채집·제작·건설로 버티는 생존 — 1회 구매 완결형, 무료 업데이트 지속성, 마켓플레이스·구독 과금이 갈린다.",
+   "data_file": "game/survival-crafting.json"
+  },
+  {
+   "id": "ai-assistants",
+   "domain": "ai",
+   "category": "ai-chat-research",
+   "label": "AI 어시스턴트 · 검색",
+   "description": "묻고 답하고 찾는 AI — 무료 사용량/모델 제한의 투명성, 학습 데이터 옵트아웃 기본값, 광고 도입, 웹 검색 인용과 유료 락인에서 갈린다.",
+   "data_file": "ai/ai-assistants.json"
+  },
+  {
+   "id": "ai-coding-tools",
+   "domain": "ai",
+   "category": "ai-coding",
+   "label": "AI 코딩 에디터 · 에이전트",
+   "description": "코드를 쓰고 고치는 AI 도구 — 요금제 투명성(크레딧·한도 함정), 모델 선택 자유도/BYOK, 오픈소스 여부, 에디터 종속성에서 갈린다.",
+   "data_file": "ai/ai-coding-tools.json"
+  },
+  {
+   "id": "ai-image-gen",
+   "domain": "ai",
+   "category": "ai-image-gen",
+   "label": "AI 이미지 생성",
+   "description": "이미지가 어디서 오는가 — 로컬 오픈소스 엔진, 이미지당 API, 크레딧 구독을 나란히 두고 결과물의 소유·상업적 사용까지 비교한다.",
+   "data_file": "ai/ai-image-gen.json"
+  },
+  {
+   "id": "pdf-tools",
+   "domain": "app",
+   "category": "document-design",
+   "label": "PDF 뷰어 · 편집",
+   "description": "PDF를 읽고 고치는 일 — 무료 뷰어와 구독 편집기의 경계, 편집이 멈추는 지점, 문서가 기기 밖으로 나가는지를 본다.",
+   "data_file": "app/pdf-tools.json"
+  },
+  {
+   "id": "image-editors",
+   "domain": "app",
+   "category": "document-design",
+   "label": "이미지 · 그래픽 편집",
+   "description": "그림·사진 보정·템플릿 디자인 — 무료 오픈소스 도구, 구독 표준, 브라우저 편집기를 같은 자리에 둔다.",
+   "data_file": "app/image-editors.json"
+  },
+  {
+   "id": "turn-based-strategy",
+   "domain": "game",
+   "category": "strategy-tactics",
+   "label": "턴제 전략 · 전술",
+   "description": "한 턴이 한 판을 바꾸는 게임 — 1회 구매 완결형, 확장팩·DLC 구조, 그리고 게임이 요구하는 몰입의 양을 비교한다.",
+   "data_file": "game/turn-based-strategy.json"
+  },
+  {
+   "id": "arpg-hack-slash",
+   "domain": "game",
+   "category": "action-rpg",
+   "label": "핵 앤 슬래시 · 액션 RPG",
+   "description": "무리를 베며 아이템을 파밍하는 핵 앤 슬래시 — 시즌 리그, 확장팩, 캐시 상점·스태시 과금이 판정을 가른다.",
+   "data_file": "game/arpg-hack-slash.json"
+  },
+  {
+   "id": "soulslike",
+   "domain": "game",
+   "category": "action-rpg",
+   "label": "소울라이크 · 하드코어 액션",
+   "description": "죽고 다시 도전하는 고난도 액션 — 1회 구매 완결형이 기본이고, 난이도 옵션·DLC·멀티 접속 구조가 갈린다.",
+   "data_file": "game/soulslike.json"
+  },
+  {
+   "id": "city-builder-management",
+   "domain": "game",
+   "category": "sim-management",
+   "label": "도시 건설 · 경영 시뮬",
+   "description": "도시와 기지를 짓고 굴리는 경영 시뮬 — 1회 구매 완결형, DLC 다수, 모드 생태계가 같은 자리에 있다.",
+   "data_file": "game/city-builder-management.json"
+  },
+  {
+   "id": "co-op-party",
+   "domain": "game",
+   "category": "multiplayer-coop",
+   "label": "협동 · 파티 멀티플레이",
+   "description": "여럿이 모여야 재미있는 협동 게임 — 인원 요건, 서버·계정, 시즌 패스와 코스메틱 상점을 나란히 둔다.",
+   "data_file": "game/co-op-party.json"
+  },
+  {
+   "id": "racing-sim",
+   "domain": "game",
+   "category": "racing-sports",
+   "label": "레이싱 · 스포츠",
+   "description": "트랙과 경기를 달리는 레이싱·스포츠 — 연간 시리즈 구매인지, 차량·트랙 DLC를 따로 사는지가 판정을 가른다.",
+   "data_file": "game/racing-sim.json"
+  },
+  {
+   "id": "messaging-team",
+   "domain": "app",
+   "category": "communication",
+   "label": "메신저 · 팀 협업",
+   "description": "대화와 협업이 쌓이는 곳 — 종단간 암호화, 무료 보관·검색 한도, 워크스페이스 계정 구조가 판정을 가른다.",
+   "data_file": "app/messaging-team.json"
+  },
+  {
+   "id": "media-players",
+   "domain": "app",
+   "category": "media-entertainment",
+   "label": "미디어 플레이어",
+   "description": "영상·음악을 재생하는 플레이어 — 로컬 파일 재생, 자체 서버 스트리밍, 구독 카탈로그가 같은 자리에 있다.",
+   "data_file": "app/media-players.json"
+  },
+  {
+   "id": "video-editing",
+   "domain": "app",
+   "category": "media-entertainment",
+   "label": "영상 편집 · 녹화",
+   "description": "영상을 자르고 합성하는 도구 — 무료 오픈소스 편집기부터 구독형 스튜디오, 워터마크 없는 내보내기까지 비교한다.",
+   "data_file": "app/video-editing.json"
+  },
+  {
+   "id": "dev-terminals-git",
+   "domain": "app",
+   "category": "developer-tools",
+   "label": "개발자 도구 · 터미널 · API",
+   "description": "코드를 쓰고 API를 시험하는 도구 — 편집기 확장 생태계, 계정·클라우드 종속, 라이선스가 판정을 가른다.",
+   "data_file": "app/dev-terminals-git.json"
+  },
+  {
+   "id": "backup-sync",
+   "domain": "app",
+   "category": "security-utilities",
+   "label": "백업 · 파일 동기화",
+   "description": "파일을 안전한 곳에 복제하는 도구 — 자체 서버 여부, 스냅샷·중복 제거, 복원 난이도가 판정을 가른다.",
+   "data_file": "app/backup-sync.json"
+  },
+  {
+   "id": "read-later",
+   "domain": "app",
+   "category": "productivity",
+   "label": "읽기 · 북마크 보관",
+   "description": "나중에 읽을 글을 모아 두는 곳 — 무료 저장 한도, 내보내기 형식, 자체 호스팅 가능 여부가 판정을 가른다.",
+   "data_file": "app/read-later.json"
+  }
+ ],
+ "filter_packs": {
+  "app": {
+   "label": "앱 팩",
+   "description": "구독·계정·데이터 락인·과도한 수집을 먼저 본다.",
+   "filters": [
+    "subscription_required",
+    "account_required",
+    "data_collection",
+    "forced_ads",
+    "stale_over_12m"
+   ]
+  },
+  "game": {
+   "label": "게임 팩",
+   "description": "확률형 뽑기·P2W·과금 없이 진행 불가·미끼형 광고를 먼저 본다.",
+   "filters": [
+    "gacha_random_items",
+    "p2w",
+    "iap_required_to_progress",
+    "forced_ads",
+    "bait_ad",
+    "stale_over_12m"
+   ]
+  },
+  "ai": {
+   "label": "AI 도구 팩",
+   "description": "강제 광고·불투명 크레딧 함정·구독/계정 강제·방치를 먼저 본다. 확률형·P2W는 AI 도구에 없어 팩에서 뺐다.",
+   "filters": [
+    "forced_ads",
+    "iap_required_to_progress",
+    "subscription_required",
+    "account_required",
+    "stale_over_12m",
+    "data_collection"
+   ]
+  },
+  "core": {
+   "label": "공통 코어",
+   "description": "도메인과 무관하게 항상 보는 기본 필터.",
+   "filters": [
+    "forced_ads",
+    "stale_over_12m",
+    "bait_ad"
+   ]
+  }
+ },
+ "search": {
+  "index_file": "search-index.json",
+  "fields": [
+   "name",
+   "aliases",
+   "developer",
+   "genres",
+   "taste_tags",
+   "one_liner",
+   "keywords"
+  ],
+  "note": "통합 검색과 홈 리포트는 이 경량 인덱스만 읽는다. 상세·목록은 선택한 비교군의 data_file 을 지연 로딩한다."
+ },
+ "home": {
+  "featured_arenas": [
+   "arpg-hack-slash",
+   "soulslike",
+   "city-builder-management",
+   "co-op-party",
+   "racing-sim",
+   "messaging-team",
+   "media-players",
+   "video-editing",
+   "dev-terminals-git",
+   "backup-sync",
+   "read-later",
+   "ai-image-gen",
+   "pdf-tools",
+   "image-editors",
+   "turn-based-strategy",
+   "vpn",
+   "calendar-apps",
+   "pkm-notes",
+   "task-managers",
+   "password-managers",
+   "cloud-storage",
+   "web-browsers",
+   "email-clients",
+   "roguelike-deckbuilder",
+   "action-roguelike",
+   "metroidvania-platformer",
+   "fps-shooters",
+   "survival-crafting",
+   "mobile-gacha-rpg",
+   "pc-mmorpg",
+   "mobile-strategy-defense",
+   "ai-assistants",
+   "ai-coding-tools"
+  ],
+  "gap_report": {
+   "title": "별점은 높은데 거름 판정",
+   "min_store_stars": 4.0,
+   "min_delta": 12.0,
+   "verdicts": [
+    "avoid"
+   ],
+   "limit": 4,
+   "note": "스토어 누적 별점(android·ios·steam 표본)은 높지만 파로스 판정이 '거름'인 항목. v0.5.0은 제목과 판정을 일치시켜 거름(avoid)만 보여준다 — 조건부는 상세의 조건·한도로 남긴다. G2 같은 3자 집계는 '스토어 별점'으로 쓰지 않는다."
+  }
+ }
 }

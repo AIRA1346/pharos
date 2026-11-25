@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 107,
+    "items": 210,
     "domains": 3,
-    "categories": 15,
-    "arenas": 22
+    "categories": 22,
+    "arenas": 33
   },
-  "content_hash": "e39d62aa5300bf8677a7d9bdd658e97096a496f0200a0fcc1cdaf3e5168932ef",
+  "content_hash": "b1ae1980bb56e864a51d9c9a49206cf3a073d65fac1172fd01d0e7f95483f50f",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -137,11 +137,11 @@
       "label": "액션 로그라이크",
       "domain": "game",
       "category": "action-indie",
-      "count": 4,
-      "avg_score": 80.9,
+      "count": 7,
+      "avg_score": 82.2,
       "verdicts": {
-        "recommend": 3,
-        "conditional": 0,
+        "recommend": 5,
+        "conditional": 1,
         "avoid": 1
       },
       "top_item": {
@@ -152,7 +152,10 @@
       "items": [
         "archero",
         "dead-cells",
+        "enter-the-gungeon",
         "hades",
+        "hades-ii",
+        "risk-of-rain-2",
         "vampire-survivors"
       ]
     },
@@ -160,12 +163,12 @@
       "label": "메트로배니아 · 플랫포머",
       "domain": "game",
       "category": "action-indie",
-      "count": 5,
-      "avg_score": 87.9,
+      "count": 8,
+      "avg_score": 84.0,
       "verdicts": {
-        "recommend": 5,
-        "conditional": 0,
-        "avoid": 0
+        "recommend": 6,
+        "conditional": 1,
+        "avoid": 1
       },
       "top_item": {
         "id": "hollow-knight",
@@ -173,11 +176,14 @@
         "score": 90.0
       },
       "items": [
+        "animal-well",
         "blasphemous",
+        "blasphemous-2",
         "celeste",
         "hollow-knight",
         "nine-sols",
-        "ori-and-the-will-of-the-wisps"
+        "ori-and-the-will-of-the-wisps",
+        "prince-of-persia-the-lost-crown"
       ]
     },
     "pc-mmorpg": {
@@ -376,11 +382,11 @@
       "label": "서바이벌 · 크래프팅",
       "domain": "game",
       "category": "survival-sim",
-      "count": 5,
-      "avg_score": 90.8,
+      "count": 8,
+      "avg_score": 87.3,
       "verdicts": {
-        "recommend": 5,
-        "conditional": 0,
+        "recommend": 6,
+        "conditional": 2,
         "avoid": 0
       },
       "top_item": {
@@ -389,8 +395,11 @@
         "score": 96.25
       },
       "items": [
+        "7-days-to-die",
         "dont-starve-together",
         "minecraft",
+        "project-zomboid",
+        "raft",
         "subnautica",
         "terraria",
         "valheim"
@@ -519,12 +528,12 @@
       "label": "턴제 전략 · 전술",
       "domain": "game",
       "category": "strategy-tactics",
-      "count": 5,
-      "avg_score": 87.7,
+      "count": 8,
+      "avg_score": 82.9,
       "verdicts": {
         "recommend": 5,
-        "conditional": 0,
-        "avoid": 0
+        "conditional": 1,
+        "avoid": 2
       },
       "top_item": {
         "id": "baldurs-gate-3",
@@ -535,8 +544,311 @@
         "baldurs-gate-3",
         "civilization-vi",
         "darkest-dungeon",
+        "divinity-original-sin-2",
         "into-the-breach",
+        "marvels-midnight-suns",
+        "wasteland-3",
         "xcom-2"
+      ]
+    },
+    "arpg-hack-slash": {
+      "label": "핵 앤 슬래시 · 액션 RPG",
+      "domain": "game",
+      "category": "action-rpg",
+      "count": 8,
+      "avg_score": 73.4,
+      "verdicts": {
+        "recommend": 2,
+        "conditional": 4,
+        "avoid": 2
+      },
+      "top_item": {
+        "id": "grim-dawn",
+        "name": "Grim Dawn",
+        "score": 84.12
+      },
+      "items": [
+        "diablo-iv",
+        "grim-dawn",
+        "last-epoch",
+        "path-of-exile",
+        "path-of-exile-2",
+        "titan-quest",
+        "torchlight-ii",
+        "undecember"
+      ]
+    },
+    "soulslike": {
+      "label": "소울라이크 · 하드코어 액션",
+      "domain": "game",
+      "category": "action-rpg",
+      "count": 8,
+      "avg_score": 76.6,
+      "verdicts": {
+        "recommend": 2,
+        "conditional": 2,
+        "avoid": 4
+      },
+      "top_item": {
+        "id": "lies-of-p",
+        "name": "Lies of P",
+        "score": 83.05
+      },
+      "items": [
+        "black-myth-wukong",
+        "dark-souls-iii",
+        "elden-ring",
+        "lies-of-p",
+        "lords-of-the-fallen",
+        "nioh-2",
+        "remnant-ii",
+        "sekiro"
+      ]
+    },
+    "city-builder-management": {
+      "label": "도시 건설 · 경영 시뮬",
+      "domain": "game",
+      "category": "sim-management",
+      "count": 10,
+      "avg_score": 80.1,
+      "verdicts": {
+        "recommend": 5,
+        "conditional": 3,
+        "avoid": 2
+      },
+      "top_item": {
+        "id": "rimworld",
+        "name": "RimWorld",
+        "score": 86.8
+      },
+      "items": [
+        "anno-1800",
+        "banished",
+        "cities-skylines",
+        "factorio",
+        "frostpunk",
+        "frostpunk-2",
+        "manor-lords",
+        "oxygen-not-included",
+        "rimworld",
+        "stardew-valley"
+      ]
+    },
+    "co-op-party": {
+      "label": "협동 · 파티 멀티플레이",
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "count": 10,
+      "avg_score": 81.5,
+      "verdicts": {
+        "recommend": 7,
+        "conditional": 2,
+        "avoid": 1
+      },
+      "top_item": {
+        "id": "left-4-dead-2",
+        "name": "Left 4 Dead 2",
+        "score": 86.3
+      },
+      "items": [
+        "among-us",
+        "helldivers-2",
+        "it-takes-two",
+        "left-4-dead-2",
+        "lethal-company",
+        "monster-hunter-world",
+        "overcooked-2",
+        "payday-2",
+        "phasmophobia",
+        "sea-of-thieves"
+      ]
+    },
+    "racing-sim": {
+      "label": "레이싱 · 스포츠",
+      "domain": "game",
+      "category": "racing-sports",
+      "count": 8,
+      "avg_score": 73.8,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 2,
+        "avoid": 3
+      },
+      "top_item": {
+        "id": "euro-truck-simulator-2",
+        "name": "Euro Truck Simulator 2",
+        "score": 86.8
+      },
+      "items": [
+        "assetto-corsa",
+        "assetto-corsa-competizione",
+        "beamng-drive",
+        "dirt-rally-2",
+        "ea-sports-fc-26",
+        "euro-truck-simulator-2",
+        "forza-horizon-5",
+        "forza-motorsport"
+      ]
+    },
+    "messaging-team": {
+      "label": "메신저 · 팀 협업",
+      "domain": "app",
+      "category": "communication",
+      "count": 8,
+      "avg_score": 80.7,
+      "verdicts": {
+        "recommend": 6,
+        "conditional": 2,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "microsoft-teams",
+        "name": "Microsoft Teams",
+        "score": 85.0
+      },
+      "items": [
+        "discord",
+        "mattermost",
+        "microsoft-teams",
+        "rocket-chat",
+        "signal",
+        "slack",
+        "telegram",
+        "zulip"
+      ]
+    },
+    "media-players": {
+      "label": "미디어 플레이어",
+      "domain": "app",
+      "category": "media-entertainment",
+      "count": 10,
+      "avg_score": 79.0,
+      "verdicts": {
+        "recommend": 5,
+        "conditional": 5,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "apple-music",
+        "name": "Apple Music",
+        "score": 86.12
+      },
+      "items": [
+        "aimp",
+        "apple-music",
+        "iina",
+        "jellyfin",
+        "kmplayer",
+        "kodi",
+        "mpv",
+        "plex",
+        "spotify",
+        "vlc"
+      ]
+    },
+    "video-editing": {
+      "label": "영상 편집 · 녹화",
+      "domain": "app",
+      "category": "media-entertainment",
+      "count": 7,
+      "avg_score": 74.2,
+      "verdicts": {
+        "recommend": 0,
+        "conditional": 7,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "kdenlive",
+        "name": "Kdenlive",
+        "score": 76.0
+      },
+      "items": [
+        "capcut",
+        "handbrake",
+        "kdenlive",
+        "losslesscut",
+        "obs-studio",
+        "openshot",
+        "shotcut"
+      ]
+    },
+    "dev-terminals-git": {
+      "label": "개발자 도구 · 터미널 · API",
+      "domain": "app",
+      "category": "developer-tools",
+      "count": 10,
+      "avg_score": 73.9,
+      "verdicts": {
+        "recommend": 0,
+        "conditional": 10,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "score": 77.0
+      },
+      "items": [
+        "alacritty",
+        "bruno",
+        "ghostty",
+        "helix-editor",
+        "insomnia",
+        "intellij-idea",
+        "neovim",
+        "visual-studio-code",
+        "wezterm",
+        "zed"
+      ]
+    },
+    "backup-sync": {
+      "label": "백업 · 파일 동기화",
+      "domain": "app",
+      "category": "security-utilities",
+      "count": 8,
+      "avg_score": 74.9,
+      "verdicts": {
+        "recommend": 0,
+        "conditional": 8,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "syncthing",
+        "name": "Syncthing",
+        "score": 77.0
+      },
+      "items": [
+        "borgbackup",
+        "borgmatic",
+        "duplicati",
+        "kopia",
+        "rclone",
+        "restic",
+        "syncthing",
+        "vorta"
+      ]
+    },
+    "read-later": {
+      "label": "읽기 · 북마크 보관",
+      "domain": "app",
+      "category": "productivity",
+      "count": 4,
+      "avg_score": 80.2,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 1,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "readwise-reader",
+        "name": "Readwise Reader",
+        "score": 82.38
+      },
+      "items": [
+        "instapaper",
+        "raindrop-io",
+        "readwise-reader",
+        "wallabag"
       ]
     }
   },
@@ -599,6 +911,7 @@
       "tier_of_record": "individual",
       "score": 86.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 91,
@@ -611,6 +924,52 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "7-days-to-die",
+      "name": "7 Days to Die",
+      "icon": "assets/icons/7-days-to-die.webp",
+      "aliases": [
+        "세븐 데이즈 투 다이"
+      ],
+      "domain": "game",
+      "category": "survival-sim",
+      "arenas": [
+        "survival-crafting"
+      ],
+      "developer": "The Fun Pimps",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "『7 Days to Dir』は、FPS、サバイバルホラー、タワーディフェンス、ロールプレイングゲームをユニークに組み合わせたオープンワールド型のゲームです。元祖ゾンビサバイバルなサンドボックスRPGゲームをプレイしましょう。ネーブズジェーンがあなたを待っています！",
+      "tagline": "1회 구매 ₩47,000 — DLC 17건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 79.05,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 85.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.2",
           "tone": "warn"
         }
       ],
@@ -666,6 +1025,7 @@
       "tier_of_record": "standard",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 90,
@@ -735,6 +1095,7 @@
       "tier_of_record": "free",
       "score": 79.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": null,
@@ -791,6 +1152,7 @@
       "tier_of_record": "photography",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 90,
@@ -807,6 +1169,227 @@
         },
         {
           "label": "AI 검토 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "aimp",
+      "name": "AIMP",
+      "icon": "assets/icons/aimp.webp",
+      "aliases": [
+        "에이아이엠피"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "Artem Izmaylov",
+      "genres": [
+        "소프트웨어"
+      ],
+      "platforms": [
+        "android",
+        "windows"
+      ],
+      "one_liner": "Artem Izmaylov의 미디어 플레이어 항목",
+      "tagline": "무료",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "android",
+      "score": 81.5,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.2,
+      "store_stars": {
+        "value": 4.51,
+        "count": 460777,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.6",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "alacritty",
+      "name": "Alacritty",
+      "icon": "assets/icons/alacritty.webp",
+      "aliases": [
+        "알라크리티"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "alacritty",
+      "genres": [
+        "bsd",
+        "gpu",
+        "opengl"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "A cross-platform, OpenGL terminal emulator.",
+      "tagline": "오픈소스 · 무료(라이선스 Apache-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "among-us",
+      "name": "Among Us",
+      "icon": "assets/icons/among-us.webp",
+      "aliases": [
+        "어몽 어스"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Innersloth",
+      "genres": [
+        "캐주얼"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "4~15명의 플레이어가 즐기는 온라인 및 로컬 파티 게임입니다. 우주에서 서로 협력하거나... 배신하세요!",
+      "tagline": "1회 구매 ₩5,500 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.5,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 70.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "animal-well",
+      "name": "Animal Well",
+      "icon": "assets/icons/animal-well.webp",
+      "aliases": [
+        "애니멀 웰"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "Billy Basso",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "어두컴컴하고, 복잡하게 얽혀있는 미로를 탐험하며 미로 안의 숨겨진 비밀들을 밝혀내세요. 아이템을 수집해 주변 환경을 놀랍고 의미있는 방식으로 활용하세요. 어둠속에 숨어있는 위험으로부터 살아남기 위해 애쓰다보면, 귀엽지만, 마음의 동요를 불러일으키는…",
+      "tagline": "1회 구매 ₩25,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.7,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.8",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "anno-1800",
+      "name": "Anno 1800",
+      "icon": "assets/icons/anno-1800.webp",
+      "aliases": [
+        "안노 1800"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Ubisoft Mainz",
+      "genres": [
+        "시뮬레이션",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Anno 1800™ – 산업 혁명을 주도하라! 바야흐로 산업화가 태동하는 시대입니다. 당신이 어떤 길을 선택하는가에 따라 세계는 달라집니다. 혁신에 매진할 것인가, 아니면 노동자를 착취할 것인가? 정복을 추구할 것인가, 아니면 자유를 중시할 것인가?…",
+      "tagline": "1회 구매 ₩65,000 — DLC 35건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 75.12,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 78.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.5",
           "tone": "warn"
         }
       ],
@@ -859,6 +1442,7 @@
       "tier_of_record": "steam",
       "score": 72.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 76,
@@ -917,6 +1501,7 @@
       "tier_of_record": "ios",
       "score": 84.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 92,
@@ -929,6 +1514,55 @@
       "drivers": [
         {
           "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "apple-music",
+      "name": "Apple Music",
+      "icon": "assets/icons/apple-music.webp",
+      "aliases": [
+        "애플 뮤직"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "Apple Inc.",
+      "genres": [
+        "음악"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "macos",
+        "windows"
+      ],
+      "one_liner": "Apple Music is all about the music, with the highest audio quality; exclusive, in-depth content and unparalleled access to the artists you…",
+      "tagline": "무료 · 평점 4.9★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 86.12,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.8,
+      "store_stars": {
+        "value": 4.85,
+        "count": 3299389,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 70.9",
           "tone": "warn"
         }
       ],
@@ -977,6 +1611,7 @@
       "tier_of_record": "free",
       "score": 58.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
       "user_rating": 74,
@@ -1056,6 +1691,7 @@
       "tier_of_record": "free",
       "score": 82.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 86,
@@ -1068,6 +1704,94 @@
       "drivers": [
         {
           "label": "확률형 아이템 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "assetto-corsa",
+      "name": "Assetto Corsa",
+      "icon": "assets/icons/assetto-corsa.webp",
+      "aliases": [
+        "아세토 코르사"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "Kunos Simulazioni",
+      "genres": [
+        "인디",
+        "레이싱",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "아세토 코르사(Assetto Corsa) v1.16은 새로운 레이저 스캔 트랙 \"라구나 세카(Laguna Seca)\" 및 기다리던 Alfa Romeo Giulia Quadrifoglio를 포함한 7개의 신차를 소개합니다! 체인지로그에서 더 자세한…",
+      "tagline": "1회 구매 ₩20,500 — DLC 11건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 75.05,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "assetto-corsa-competizione",
+      "name": "Assetto Corsa Competizione",
+      "icon": "assets/icons/assetto-corsa-competizione.webp",
+      "aliases": [
+        "아세토 코르사 컴페티치오네"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "Kunos Simulazioni",
+      "genres": [
+        "레이싱",
+        "시뮬레이션",
+        "스포츠"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "아세토 코르사 컴페티치오네는 새로운 공식 GT 월드 챌린지 비디오 게임입니다. 탁월한 시뮬레이션 품질을 자랑하는 본 게임에서는 정교하게 재현된 공식 드라이버, 팀, 차, 서킷을 상대로 경쟁하는 FIA GT3 챔피언십의 실제 분위기를 만끽할 수…",
+      "tagline": "1회 구매 ₩48,000 — DLC 9건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 74.5,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
           "tone": "bad"
         }
       ],
@@ -1111,6 +1835,7 @@
       "tier_of_record": "buy_once",
       "score": 94.75,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
       "user_rating": 96,
@@ -1166,11 +1891,100 @@
       "tier_of_record": "steam",
       "score": 94.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 96,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "banished",
+      "name": "Banished",
+      "icon": "assets/icons/banished.webp",
+      "aliases": [
+        "배니시드"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Shining Rock Software LLC",
+      "genres": [
+        "인디",
+        "시뮬레이션",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "In this city-building strategy game, you control a group of exiled travelers who decide to restart their lives in a new land. They have…",
+      "tagline": "1회 구매 ₩21,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 73.38,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "beamng-drive",
+      "name": "BeamNG.drive",
+      "icon": "assets/icons/beamng-drive.webp",
+      "aliases": [
+        "빔엔지 드라이브"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "BeamNG",
+      "genres": [
+        "레이싱",
+        "시뮬레이션",
+        "앞서 해보기"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "뭐든지 할 수 있는 동적 소프트 보디 물리 시뮬레이터입니다.",
+      "tagline": "1회 구매 ₩27,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 86.3,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 97.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 71.2",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -1222,6 +2036,7 @@
       "tier_of_record": "free",
       "score": 91.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 92,
@@ -1281,6 +2096,7 @@
       "tier_of_record": "steam",
       "score": 79.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 72,
@@ -1293,6 +2109,54 @@
         {
           "label": "P2W 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "black-myth-wukong",
+      "name": "Black Myth: Wukong",
+      "icon": "assets/icons/black-myth-wukong.webp",
+      "aliases": [
+        "검은 신화: 오공"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "Game Science",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "《검은 신화: 오공》은 중국 신화를 배경으로 하는 액션 RPG 게임입니다. 당신은 '천명을 지닌 자'가 되어 과거의 전설 속 진실을 밝히기 위해, 위험과 놀라움이 가득한 서역으로의 여정에 나서게 됩니다.",
+      "tagline": "1회 구매 ₩64,800 — DLC 2건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 80.05,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 70.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 64.2",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -1347,6 +2211,7 @@
       "tier_of_record": "steam",
       "score": 83.0,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 90,
@@ -1359,6 +2224,50 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "blasphemous-2",
+      "name": "Blasphemous 2",
+      "icon": "assets/icons/blasphemous-2.webp",
+      "aliases": [
+        "블라스퍼머스 2"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "The Game Kitchen",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Blasphemous 2에서 Penitent One이 깊은 잠에서 깨어나게 되고, 다시 한번 기적에 맞서 끝나지 않는 투쟁을 시작합니다. 새롭고 아주 위험한 세계로 뛰어들어, 세계에 가득한 미스터리와 비밀을 파헤치고, 여러분의 앞길을 막는 괴물 같은…",
+      "tagline": "1회 구매 ₩34,800 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 79.88,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.5",
           "tone": "warn"
         }
       ],
@@ -1411,6 +2320,7 @@
       "tier_of_record": "play",
       "score": 84.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 94,
@@ -1477,6 +2387,7 @@
       "tier_of_record": "free",
       "score": 77.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 82,
@@ -1494,6 +2405,95 @@
         {
           "label": "P2W 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "borgbackup",
+      "name": "BorgBackup",
+      "icon": "assets/icons/borgbackup.webp",
+      "aliases": [
+        "보그백업",
+        "Borg"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "borgbackup",
+      "genres": [
+        "backup",
+        "compression",
+        "deduplication"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "one_liner": "Deduplicating archiver with compression and authenticated encryption.",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "borgmatic",
+      "name": "Borgmatic",
+      "icon": "assets/icons/borgmatic.webp",
+      "aliases": [
+        "보그매틱"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "borgmatic-collective",
+      "genres": [
+        "apprise",
+        "backup",
+        "borg"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "one_liner": "Mirror of borgmatic: Simple, configuration-driven backup software for servers and workstations",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-3.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -1545,6 +2545,7 @@
       "tier_of_record": "free",
       "score": 88.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 96,
@@ -1555,6 +2556,51 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "bruno",
+      "name": "Bruno",
+      "icon": "assets/icons/bruno.webp",
+      "aliases": [
+        "브루노"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "usebruno",
+      "genres": [
+        "api client",
+        "api testing",
+        "automation"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Opensource IDE For Exploring and Testing API's (lightweight alternative to Postman/Insomnia)",
+      "tagline": "오픈소스 · 무료(라이선스 MIT)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 75.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -1605,6 +2651,7 @@
       "tier_of_record": "free",
       "score": 87.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A/B",
       "user_rating": 96,
@@ -1615,6 +2662,59 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "capcut",
+      "name": "CapCut",
+      "icon": "assets/icons/capcut.webp",
+      "aliases": [
+        "캡컷"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "BYTEDANCE PTE. LTD.",
+      "genres": [
+        "사진 및 비디오"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "CapCut is an all-in-one video editing solution that offers essential editing features, creative effects, AI tools, filters, stickers, and…",
+      "tagline": "무료 · 평점 4.6★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "ios",
+      "score": 73.15,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 72.7,
+      "store_stars": {
+        "value": 3.55,
+        "count": 13198428,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 72.7",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 65.2",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -1665,6 +2765,7 @@
       "tier_of_record": "steam",
       "score": 89.5,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 97,
@@ -1725,6 +2826,7 @@
       "tier_of_record": "free",
       "score": 84.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 95,
@@ -1789,6 +2891,7 @@
       "tier_of_record": "free",
       "score": 70.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B/C",
       "user_rating": 86,
@@ -1805,6 +2908,51 @@
         },
         {
           "label": "AI 검토 🟡 58",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "cities-skylines",
+      "name": "Cities: Skylines",
+      "icon": "assets/icons/cities-skylines.webp",
+      "aliases": [
+        "시티즈: 스카이라인"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Colossal Order",
+      "genres": [
+        "시뮬레이션",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Cities: Skylines is a modern take on the classic city simulation. The game introduces new game play elements to realize the thrill and…",
+      "tagline": "1회 구매 ₩33,000 — DLC 79건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 81.5,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 66.0",
           "tone": "warn"
         }
       ],
@@ -1862,6 +3010,7 @@
       "tier_of_record": "steam",
       "score": 83.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 85,
@@ -1918,6 +3067,7 @@
       "tier_of_record": "free",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 90,
@@ -1980,6 +3130,7 @@
       "tier_of_record": "play",
       "score": 61.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 80,
@@ -2057,6 +3208,7 @@
       "tier_of_record": "free",
       "score": 87.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 91,
@@ -2117,6 +3269,7 @@
       "tier_of_record": "open-source",
       "score": 84.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 80,
@@ -2173,6 +3326,7 @@
       "tier_of_record": "desktop",
       "score": 91.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": null,
@@ -2228,6 +3382,7 @@
       "tier_of_record": "steam",
       "score": 78.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 85,
@@ -2288,6 +3443,7 @@
       "tier_of_record": "premium",
       "score": 78.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
       "user_rating": 92,
@@ -2299,6 +3455,48 @@
         },
         {
           "label": "객관·신뢰 지표 🔴 46",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "dark-souls-iii",
+      "name": "Dark Souls III",
+      "icon": "assets/icons/dark-souls-iii.webp",
+      "aliases": [
+        "다크 소울 3"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "FromSoftware, Inc.",
+      "genres": [
+        "액션"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "장르를 새로 개척했다는 평가를 들으며 많은 좋은 평가들을 얻고 있는 다크 소울 시리즈는 계속해서 한계를 넘어서, 더욱 야심찬 단계에 도전하고자 하고 있습니다. 준비를 하고 어둠을 밝히십시오!",
+      "tagline": "1회 구매 ₩49,800 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 76.12,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 94.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
           "tone": "bad"
         }
       ],
@@ -2353,6 +3551,7 @@
       "tier_of_record": "steam",
       "score": 86.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 90,
@@ -2406,6 +3605,7 @@
       "tier_of_record": "premium",
       "score": 78.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 93,
@@ -2477,6 +3677,7 @@
       "tier_of_record": "steam",
       "score": 88.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 96,
@@ -2541,11 +3742,204 @@
       "tier_of_record": "steam",
       "score": 95.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 97,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "diablo-iv",
+      "name": "Diablo IV",
+      "icon": "assets/icons/diablo-iv.webp",
+      "aliases": [
+        "디아블로 4",
+        "디아블로 IV"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Blizzard Entertainment, Inc.",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "캐주얼"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "궁극의 액션 RPG 모험, 디아블로® IV에서 성역을 위한 전투에 참여하십시오. 높은 평가를 받은 캠페인과 신규 시즌 콘텐츠를 경험하십시오.",
+      "tagline": "1회 구매 ₩77,900 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [
+        "Diablo 4"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 70.55,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 73.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 73.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 61.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "dirt-rally-2",
+      "name": "DiRT Rally 2.0",
+      "icon": "assets/icons/dirt-rally-2.webp",
+      "aliases": [
+        "더트 랠리 2.0"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "Codemasters",
+      "genres": [
+        "레이싱",
+        "시뮬레이션",
+        "스포츠"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "DiRT Rally 2.0에서 가장 강력한 오프로드 차량을 몰고 전 세계의 상징적인 랠리 장소를 탐험하며 자신만의 길을 개척하세요. 아주 작은 실수가 랠리에 치명적인 결과를 가져올 수 있습니다.",
+      "tagline": "1회 구매 ₩20,500 — DLC 28건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 72.8,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 89.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "icon": "assets/icons/discord.webp",
+      "aliases": [
+        "디스코드"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Discord Inc.",
+      "genres": [
+        "소셜 네트워킹",
+        "Games"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Discord is designed for gaming and great for just chilling with friends or building a community.",
+      "tagline": "무료 · 평점 4.7★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 81.97,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 88.4,
+      "store_stars": {
+        "value": 4.28,
+        "count": 7148208,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.1",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "divinity-original-sin-2",
+      "name": "Divinity: Original Sin 2",
+      "icon": "assets/icons/divinity-original-sin-2.webp",
+      "aliases": [
+        "디비니티: 오리지널 신 2"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Larian Studios",
+      "genres": [
+        "어드벤처",
+        "RPG",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "The critically acclaimed RPG that raised the bar, from the creators of Baldur's Gate 3. Gather your party. Master deep, tactical combat.…",
+      "tagline": "1회 구매 ₩54,000 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 76.2,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
       "gap": null
     },
     {
@@ -2598,6 +3992,7 @@
       "tier_of_record": "steam",
       "score": 89.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 95,
@@ -2651,6 +4046,7 @@
       "tier_of_record": "basic",
       "score": 75.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 89,
@@ -2667,6 +4063,100 @@
         },
         {
           "label": "AI 검토 🟡 68",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "duplicati",
+      "name": "Duplicati",
+      "icon": "assets/icons/duplicati.webp",
+      "aliases": [
+        "듀플리카티"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "duplicati",
+      "genres": [
+        "backup",
+        "c sharp",
+        "client only backup"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Store securely encrypted backups in the cloud!",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "ea-sports-fc-26",
+      "name": "EA SPORTS FC 26",
+      "icon": "assets/icons/ea-sports-fc-26.webp",
+      "aliases": [
+        "EA 스포츠 FC 26"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "EA Canada",
+      "genres": [
+        "시뮬레이션",
+        "스포츠"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "EA SPORTS FC™ 26에서 이전과는 다른 방식으로 The World's Game을 경험하세요. 48개 팀 국제 토너먼트 모드에서 영광을 향해 도전하고, 테마별 감독 라이브 챌린지에 도전하고, 새로운 국가대표 아이콘 및 영웅과 함께 선수…",
+      "tagline": "1회 구매 ₩22,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [
+        "FIFA 26"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 58.95,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 51.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 51.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 57.8",
           "tone": "warn"
         }
       ],
@@ -2720,6 +4210,7 @@
       "tier_of_record": "free",
       "score": 76.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 93,
@@ -2736,6 +4227,139 @@
         },
         {
           "label": "AI 검토 🟡 60",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "elden-ring",
+      "name": "Elden Ring",
+      "icon": "assets/icons/elden-ring.webp",
+      "aliases": [
+        "엘든 링"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "FromSoftware, Inc.",
+      "genres": [
+        "액션",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "본 게임은 본격적인 다크 판타지 세계를 무대로 한 액션 RPG입니다. 드넓은 필드와 던전 탐험을 통해 미지의 것들을 발견해 보세요. 앞길을 막아서는 난관과 그것을 극복했을 때의 달성감, 그리고 등장인물들의 의도가 교착하는 군상극도 즐기실 수 있습니다.",
+      "tagline": "1회 구매 ₩64,800 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 82.88,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 94.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.5",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "enter-the-gungeon",
+      "name": "Enter the Gungeon",
+      "icon": "assets/icons/enter-the-gungeon.webp",
+      "aliases": [
+        "엔터 더 건전"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "Dodge Roll",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "linux"
+      ],
+      "one_liner": "Enter the Gungeon은 부랑자 무리가 본인의 죄를 면죄 받고자 과거를 지울 수 있다는 전설의 총을 찾아 발사하고, 수집하고, 구르고, 책상을 뒤엎는 총알 지옥 던전 크롤러 게임입니다.",
+      "tagline": "1회 구매 ₩16,500 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.45,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 66.8",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "euro-truck-simulator-2",
+      "name": "Euro Truck Simulator 2",
+      "icon": "assets/icons/euro-truck-simulator-2.webp",
+      "aliases": [
+        "유로 트럭 시뮬레이터 2"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "SCS Software",
+      "genres": [
+        "인디",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "도로의 왕이 되어 인상적인 거리를 가로질러 중요한 화물을 배달하는 트럭 운전사가 되어 유럽을 여행하세요! 탐험할 도시가 수십 개나 되므로, 당신의 인내심, 기술, 속도가 모두 한계에 도달할 것입니다.",
+      "tagline": "1회 구매 ₩27,000 — DLC 108건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 86.8,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 97.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 71.2",
           "tone": "warn"
         }
       ],
@@ -2781,6 +4405,7 @@
       "tier_of_record": "paid_starter",
       "score": 41.75,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "B",
       "user_rating": 30,
@@ -2855,6 +4480,7 @@
       "tier_of_record": "ios",
       "score": 80.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 94,
@@ -2871,6 +4497,52 @@
         },
         {
           "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "factorio",
+      "name": "Factorio",
+      "icon": "assets/icons/factorio.webp",
+      "aliases": [
+        "팩토리오"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Wube Software LTD.",
+      "genres": [
+        "캐주얼",
+        "인디",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Factorio는 무한한 2D 세상에서 복잡성이 증가하는 아이템을 생산하기 위해 자동화 공장을 만드는 게임입니다. - 당신의 상상력으로 공장을 설계, 독창적인 방법으로 간단한 요소를 결합하고 마지막엔 당신을 좋아하지 않는 생물들로 부터 공장을…",
+      "tagline": "1회 구매 ₩40,000 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 86.12,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 98.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.5",
           "tone": "warn"
         }
       ],
@@ -2922,6 +4594,7 @@
       "tier_of_record": "ios",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 85,
@@ -2988,6 +4661,7 @@
       "tier_of_record": "kr-30d",
       "score": 82.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 86,
@@ -3048,6 +4722,7 @@
       "tier_of_record": "free",
       "score": 87.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 92,
@@ -3109,11 +4784,102 @@
       "tier_of_record": "api",
       "score": 88.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": null,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "forza-horizon-5",
+      "name": "Forza Horizon 5",
+      "icon": "assets/icons/forza-horizon-5.webp",
+      "aliases": [
+        "포르자 호라이즌 5"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "Playground Games",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "레이싱"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "세계 최고의 자동차를 타고 생동감 넘치는 멕시코의 대자연을 탐험하며 재미있는 드라이빙 액션을 마음껏 즐겨보세요.",
+      "tagline": "1회 구매 ₩59,900 — DLC 52건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 80.25,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 88.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 67.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "forza-motorsport",
+      "name": "Forza Motorsport",
+      "icon": "assets/icons/forza-motorsport.webp",
+      "aliases": [
+        "포르자 모터스포츠"
+      ],
+      "domain": "game",
+      "category": "racing-sports",
+      "arenas": [
+        "racing-sim"
+      ],
+      "developer": "Turn 10",
+      "genres": [
+        "레이싱"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "커리어에서 경쟁에서 앞서가세요. 멀티플레이어를 통해 세계에서 경주를 펼치세요. 세계적으로 유명한 27개의 트랙에서 500대 이상의 차량으로 경쟁하세요. 이제 짜릿한 뉘르부르크링 노르트슐라이페 코스도 포함되었습니다!",
+      "tagline": "1회 구매 ₩79,990 — DLC 37건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 55.7,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 47.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🔴 47.0",
+          "tone": "bad"
+        },
+        {
+          "label": "AI 검토 🟡 53.8",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -3165,6 +4931,7 @@
       "tier_of_record": "subscription",
       "score": 77.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A/B",
       "user_rating": 78,
@@ -3175,6 +4942,97 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "frostpunk",
+      "name": "Frostpunk",
+      "icon": "assets/icons/frostpunk.webp",
+      "aliases": [
+        "프로스트펑크"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "11 bit studios",
+      "genres": [
+        "시뮬레이션",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "프로스트펑크는 최초의 사회 생존 게임입니다. 당신은 지구상 마지막 도시의 지도자로서, 시민과 기반 시설을 관리해야 합니다. 사회의 생존을 위해, 어떤 결정을 내리시겠습니까? 한계까지 내몰렸을 때, 어떻게 하시겠습니까? 그 동안, 당신은 어떻게…",
+      "tagline": "1회 구매 ₩32,000 — DLC 7건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "frostpunk-2",
+      "name": "Frostpunk 2",
+      "icon": "assets/icons/frostpunk-2.webp",
+      "aliases": [
+        "프로스트펑크 2"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "11 bit studios",
+      "genres": [
+        "시뮬레이션",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "눈보라의 재앙이 지구를 덮친 후 30년 뒤를 배경으로 하는 사회 생존 게임에서 도시를 개발하고, 확장하고, 발전시키세요. 프로스트펑크2에서는 끝나지 않는 혹독한 겨울을 견디는 동시에 모든 결정을 주시하는 위원회 파벌들과 조화를 이루어야 합니다.",
+      "tagline": "1회 구매 ₩47,000 — DLC 4건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 72.05,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 77.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 73.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 61.2",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -3224,6 +5082,7 @@
       "tier_of_record": "free",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 94,
@@ -3288,6 +5147,7 @@
       "tier_of_record": "free",
       "score": 74.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
       "user_rating": 78,
@@ -3301,6 +5161,48 @@
         {
           "label": "확률형 아이템 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "ghostty",
+      "name": "Ghostty",
+      "icon": "assets/icons/ghostty.webp",
+      "aliases": [
+        "고스트티"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "ghostty-org",
+      "genres": [
+        "오픈소스 도구"
+      ],
+      "platforms": [
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.",
+      "tagline": "오픈소스 · 무료(라이선스 MIT)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 75.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -3351,6 +5253,7 @@
       "tier_of_record": "free",
       "score": 85.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": null,
@@ -3406,6 +5309,7 @@
       "tier_of_record": "pro",
       "score": 84.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 84,
@@ -3462,6 +5366,7 @@
       "tier_of_record": "free",
       "score": 83.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 86,
@@ -3532,6 +5437,7 @@
       "tier_of_record": "ios",
       "score": 83.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 91,
@@ -3595,6 +5501,7 @@
       "tier_of_record": "free",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 90,
@@ -3607,6 +5514,50 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 66",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "grim-dawn",
+      "name": "Grim Dawn",
+      "icon": "assets/icons/grim-dawn.webp",
+      "aliases": [
+        "그림 던"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Crate Entertainment",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Enter an apocalyptic fantasy world where humanity is on the brink of extinction, iron is valued above gold and trust is hard earned. This…",
+      "tagline": "1회 구매 ₩26,500 — DLC 9건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 84.12,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 94.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.5",
           "tone": "warn"
         }
       ],
@@ -3656,6 +5607,7 @@
       "tier_of_record": "core-free",
       "score": 80.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 88,
@@ -3713,6 +5665,7 @@
       "tier_of_record": "steam",
       "score": 86.5,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 98,
@@ -3720,6 +5673,187 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 60",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "hades-ii",
+      "name": "Hades II",
+      "icon": "assets/icons/hades-ii.webp",
+      "aliases": [
+        "하데스 2"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "Supergiant Games",
+      "genres": [
+        "액션",
+        "인디",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "수상 경력에 빛나는 로그라이크 던전 크롤러의 매혹적인 속편에서 어둠의 마법을 펼치며 시간의 티탄에게 맞서 지하세계 너머에서 전투를 벌이세요.",
+      "tagline": "1회 구매 ₩32,000 — DLC 1건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 83.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 96.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 73.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 67.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "handbrake",
+      "name": "HandBrake",
+      "icon": "assets/icons/handbrake.webp",
+      "aliases": [
+        "핸드브레이크"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "HandBrake",
+      "genres": [
+        "gplv2",
+        "multi platform",
+        "video transcoding"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "HandBrake's development repository",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "helix-editor",
+      "name": "Helix",
+      "icon": "assets/icons/helix-editor.webp",
+      "aliases": [
+        "헬릭스 에디터"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "helix-editor",
+      "genres": [
+        "kakoune",
+        "text editor",
+        "vim"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "A post-modern modal text editor.",
+      "tagline": "오픈소스 · 무료(라이선스 MPL-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "helldivers-2",
+      "name": "Helldivers 2",
+      "icon": "assets/icons/helldivers-2.webp",
+      "aliases": [
+        "헬다이버즈 2"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Arrowhead Game Studios",
+      "genres": [
+        "액션"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "은하계 최고의 공격 부대. 빠르고, 정신없고, 격렬한 3인칭 슈팅 게임에서 헬다이버가 되어 적대적인 은하계 전역을 누비며 자유를 위해 싸우세요.",
+      "tagline": "1회 구매 ₩44,800 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 74.62,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 78.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 66.5",
           "tone": "warn"
         }
       ],
@@ -3765,6 +5899,7 @@
       "tier_of_record": "free",
       "score": 38.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "B",
       "user_rating": 56,
@@ -3843,6 +5978,7 @@
       "tier_of_record": "steam",
       "score": 90.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 97,
@@ -3901,6 +6037,7 @@
       "tier_of_record": "free",
       "score": 71.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 72,
@@ -3914,6 +6051,47 @@
         {
           "label": "확률형 아이템 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "iina",
+      "name": "IINA",
+      "icon": "assets/icons/iina.webp",
+      "aliases": [],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "iina",
+      "genres": [
+        "mpv",
+        "swift",
+        "video"
+      ],
+      "platforms": [
+        "macos"
+      ],
+      "one_liner": "The modern video player for macOS.",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-3.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 75.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -3957,6 +6135,7 @@
       "tier_of_record": "buy_once",
       "score": 84.25,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "B",
       "user_rating": 96,
@@ -3964,6 +6143,146 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 55",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "insomnia",
+      "name": "Insomnia",
+      "icon": "assets/icons/insomnia.webp",
+      "aliases": [
+        "인섬니아"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "Kong",
+      "genres": [
+        "api client",
+        "api design",
+        "curl"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "The open-source, cross-platform API client for GraphQL, REST, WebSockets, SSE and gRPC. With Cloud, Local and Git storage.",
+      "tagline": "오픈소스 · 무료(라이선스 Apache-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 77.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "instapaper",
+      "name": "Instapaper",
+      "icon": "assets/icons/instapaper.webp",
+      "aliases": [
+        "인스타페이퍼"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "read-later"
+      ],
+      "developer": "Instant Paper, Inc.",
+      "genres": [
+        "뉴스",
+        "생산성"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "web"
+      ],
+      "one_liner": "Instapaper is the simplest way to save and store articles for reading: offline, on-the-go, anytime, anywhere, perfectly formatted.",
+      "tagline": "무료 · 평점 4.6★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 82.15,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.5,
+      "store_stars": {
+        "value": 4.51,
+        "count": 13027,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 67.6",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "intellij-idea",
+      "name": "IntelliJ IDEA",
+      "icon": "assets/icons/intellij-idea.webp",
+      "aliases": [
+        "인텔리제이"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "JetBrains",
+      "genres": [
+        "code editor",
+        "ide",
+        "intellij"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "IntelliJ IDEA & IntelliJ Platform",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
           "tone": "warn"
         }
       ],
@@ -4017,6 +6336,7 @@
       "tier_of_record": "steam",
       "score": 90.5,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 93,
@@ -4072,11 +6392,106 @@
       "tier_of_record": "free",
       "score": 84.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "B",
       "user_rating": null,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "it-takes-two",
+      "name": "It Takes Two",
+      "icon": "assets/icons/it-takes-two.webp",
+      "aliases": [
+        "잇 테이크 투"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Hazelight Studios",
+      "genres": [
+        "액션",
+        "어드벤처"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "It Takes Two에서 생애 가장 정신없는 여정을 시작하세요. 친구가 무료로 참가할 수 있게 친구 패스*로 초대하고, 함께 힘을 합쳐서 수많은 유쾌하고 획기적인 게임 플레이 챌린지를 헤쳐나가세요.",
+      "tagline": "1회 구매 ₩44,000 — DLC 1건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 75.7,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "icon": "assets/icons/jellyfin.webp",
+      "aliases": [
+        "젤리핀"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "Anthony Lavado",
+      "genres": [
+        "엔터테인먼트",
+        "사진 및 비디오"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "The Jellyfin project is an open source, free software media server.",
+      "tagline": "무료 · 평점 4.0★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 82.25,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 84.9,
+      "store_stars": {
+        "value": 4.26,
+        "count": 7387,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.2",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -4122,6 +6537,7 @@
       "tier_of_record": "free",
       "score": 81.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
       "user_rating": 78,
@@ -4179,6 +6595,7 @@
       "tier_of_record": "android",
       "score": 69.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 60,
@@ -4195,6 +6612,49 @@
         },
         {
           "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "kdenlive",
+      "name": "Kdenlive",
+      "icon": "assets/icons/kdenlive.webp",
+      "aliases": [
+        "케이든라이브"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "KDE",
+      "genres": [
+        "오픈소스 도구"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Free and open source video editor, based on MLT Framework and KDE Frameworks",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-3.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
           "tone": "warn"
         }
       ],
@@ -4248,6 +6708,7 @@
       "tier_of_record": "free",
       "score": 84.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": null,
@@ -4300,6 +6761,7 @@
       "tier_of_record": "play",
       "score": 84.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 96,
@@ -4312,6 +6774,152 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 58",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "kmplayer",
+      "name": "KMPlayer",
+      "icon": "assets/icons/kmplayer.webp",
+      "aliases": [
+        "케이엠플레이어"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "PANDORATV Co.,Ltd",
+      "genres": [
+        "엔터테인먼트",
+        "사진 및 비디오"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows"
+      ],
+      "one_liner": "▶ KMPlayer, Customer Lounge is here!",
+      "tagline": "무료 · 평점 4.3★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "ios",
+      "score": 77.55,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 81.4,
+      "store_stars": {
+        "value": 4.07,
+        "count": 384347,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 67.4",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "kodi",
+      "name": "Kodi",
+      "icon": "assets/icons/kodi.webp",
+      "aliases": [
+        "코디",
+        "XBMC"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "Kodi Foundation",
+      "genres": [
+        "c plus plus",
+        "entertainment hub",
+        "home theater"
+      ],
+      "platforms": [
+        "android",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Kodi is an award-winning free and open source home theater/media center software and entertainment hub for digital media. With its…",
+      "tagline": "무료",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "android",
+      "score": 78.25,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 81.8,
+      "store_stars": {
+        "value": 4.09,
+        "count": 21002,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 65.4",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "kopia",
+      "name": "Kopia",
+      "icon": "assets/icons/kopia.webp",
+      "aliases": [
+        "코피아"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "kopia",
+      "genres": [
+        "backup",
+        "cloud",
+        "deduplication"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Cross-platform backup tool for Windows, macOS & Linux with fast, incremental backups, client-side end-to-end encryption, compression and…",
+      "tagline": "오픈소스 · 무료(라이선스 Apache-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
           "tone": "warn"
         }
       ],
@@ -4365,6 +6973,7 @@
       "tier_of_record": "free",
       "score": 80.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 72,
@@ -4377,6 +6986,50 @@
       "drivers": [
         {
           "label": "사용자 평가 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "last-epoch",
+      "name": "Last Epoch",
+      "icon": "assets/icons/last-epoch.webp",
+      "aliases": [
+        "라스트 에포크"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Eleventh Hour Games",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "과거를 파헤치고 미래를 재건할 여행이 펼쳐집니다. 15개의 직업 중 하나를 택해 전직하고, 위험천만한 던전을 탐험하세요. 엄청난 전리품을 사냥하고, 전설 무기를 제작하세요. 100가지 이상의 변화무쌍한 스킬 트리가 지닌 힘을 마음껏 활용하세요. 열정…",
+      "tagline": "1회 구매 ₩37,500 — DLC 8건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 75.25,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 80.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 65.0",
           "tone": "warn"
         }
       ],
@@ -4430,6 +7083,7 @@
       "tier_of_record": "free",
       "score": 79.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B/C",
       "user_rating": 86,
@@ -4450,6 +7104,142 @@
         },
         {
           "label": "AI 검토 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "left-4-dead-2",
+      "name": "Left 4 Dead 2",
+      "icon": "assets/icons/left-4-dead-2.webp",
+      "aliases": [
+        "레프트 4 데드 2"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Valve",
+      "genres": [
+        "액션"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "linux"
+      ],
+      "one_liner": "Set in the zombie apocalypse, Left 4 Dead 2 is a co-operative action horror FPS takes you and your friends through the cities, swamps and…",
+      "tagline": "1회 구매 ₩11,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 86.3,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 97.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 71.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "lethal-company",
+      "name": "Lethal Company",
+      "icon": "assets/icons/lethal-company.webp",
+      "aliases": [
+        "리썰 컴퍼니"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Zeekerss",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "A co-op horror about scavenging at abandoned moons to sell scrap to the Company.",
+      "tagline": "1회 구매 ₩11,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 83.3,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 97.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 72.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 67.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "lies-of-p",
+      "name": "Lies of P",
+      "icon": "assets/icons/lies-of-p.webp",
+      "aliases": [
+        "라이즈 오브 P"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "NEOWIZ",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "P의 거짓은 우아하고 매혹적인 벨에포크 시대를 배경으로 고전 피노키오의 모험을 재해석한 이야기를 담아낸 잔혹 동화 액션 소울라이크입니다. 제페토의 인형으로 시작된 여정의 끝에 무엇이 당신을 기다리고 있는지 확인해보세요.",
+      "tagline": "1회 구매 ₩64,800 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.05,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.2",
           "tone": "warn"
         }
       ],
@@ -4502,6 +7292,7 @@
       "tier_of_record": "free",
       "score": 81.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 90,
@@ -4515,6 +7306,99 @@
         {
           "label": "확률형 아이템 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "lords-of-the-fallen",
+      "name": "Lords of the Fallen",
+      "icon": "assets/icons/lords-of-the-fallen.webp",
+      "aliases": [
+        "로드 오브 더 폴른"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "CI Games",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "중세 시대 배경의 다크 판타지 액션 RPG인 Lords of the Fallen의 광대한 세계가 여러분을 기다리고 있습니다. 전설의 다크 크루세이더가 되어 마신 아디르를 타도하는 장대한 여정을 시작하세요. 지금 출시된 최종 버전 2.5에는 진행 상황…",
+      "tagline": "1회 구매 ₩40,000 — DLC 2건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 72.38,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 74.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 74.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 63.5",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "losslesscut",
+      "name": "LosslessCut",
+      "icon": "assets/icons/losslesscut.webp",
+      "aliases": [
+        "로스레스컷"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "mifi",
+      "genres": [
+        "codec",
+        "cut",
+        "editor"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "The swiss army knife of lossless video/audio editing",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -4564,6 +7448,7 @@
       "tier_of_record": "steam-f2p",
       "score": 42.75,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/C",
       "user_rating": 43,
@@ -4576,6 +7461,196 @@
         {
           "label": "P2W 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "manor-lords",
+      "name": "Manor Lords",
+      "icon": "assets/icons/manor-lords.webp",
+      "aliases": [
+        "매너 로즈"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Slavic Magic",
+      "genres": [
+        "시뮬레이션",
+        "전략",
+        "앞서 해보기"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Manor Lords는 정밀한 도시 건설, 전술이 필요한 대규모 전투, 정교한 경제 및 사회 시뮬레이션을 특징으로 하는 중세 전략 게임입니다. 시간에 따라 계절이 지나고 날씨가 다채롭게 변화하며 도시가 흥망성쇠를 겪는 가운데 중세 영주가 되어 자신의…",
+      "tagline": "1회 구매 ₩39,900 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 78.62,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 86.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 66.5",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "marvels-midnight-suns",
+      "name": "Marvel's Midnight Suns",
+      "icon": "assets/icons/marvels-midnight-suns.webp",
+      "aliases": [
+        "마블 미드나이트 선즈"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Firaxis Games",
+      "genres": [
+        "RPG",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "마블 유니버스의 어두운 뒷편에서 슈퍼 히어로처럼 싸우고 전략을 세워보세요. 종말의 위협에 맞서는 슈퍼 히어로, 그리고 초능력을 가진 전사로 구성된 팀을 이끌어야 하는 전설적인 악마 처단자 사냥꾼으로 플레이하세요.",
+      "tagline": "1회 구매 ₩89,800 — DLC 6건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 77.45,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 83.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 65.8",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "mattermost",
+      "name": "Mattermost",
+      "icon": "assets/icons/mattermost.webp",
+      "aliases": [
+        "매터모스트"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Mattermost, Inc.",
+      "genres": [
+        "비즈니스"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Requires Mattermost Server v11.7.0+.",
+      "tagline": "무료 · 평점 4.8★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 82.77,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.7,
+      "store_stars": {
+        "value": 4.47,
+        "count": 20302,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 67.7",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "microsoft-teams",
+      "name": "Microsoft Teams",
+      "icon": "assets/icons/microsoft-teams.webp",
+      "aliases": [
+        "마이크로소프트 팀즈"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Microsoft Corporation",
+      "genres": [
+        "비즈니스",
+        "생산성"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Whether you’re connecting with your community for an upcoming activity or working with teammates on a project, Microsoft Teams helps bring…",
+      "tagline": "무료 · 평점 4.8★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 85.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.8,
+      "store_stars": {
+        "value": 4.65,
+        "count": 8875635,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 70.4",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -4627,6 +7702,7 @@
       "tier_of_record": "free",
       "score": 66.75,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 95,
@@ -4700,6 +7776,7 @@
       "tier_of_record": "basic",
       "score": 77.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": null,
@@ -4759,6 +7836,7 @@
       "tier_of_record": "pc",
       "score": 84.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 86,
@@ -4771,6 +7849,48 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "monster-hunter-world",
+      "name": "Monster Hunter: World",
+      "icon": "assets/icons/monster-hunter-world.webp",
+      "aliases": [
+        "몬스터 헌터: 월드"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "CAPCOM Co., Ltd.",
+      "genres": [
+        "액션"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "새로운 생명의 땅. 사냥하라, 본능에 따라! 'Monster Hunter: World'에서는 새롭게 제작된 다양한 지형과 생태계가 살아 숨쉬는 세계에서 궁극의 사냥 생활을 체험할 수 있습니다.",
+      "tagline": "1회 구매 ₩36,800 — DLC 200건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 82.25,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
           "tone": "warn"
         }
       ],
@@ -4825,6 +7945,7 @@
       "tier_of_record": "ios",
       "score": 79.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 88,
@@ -4837,6 +7958,51 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 60",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "mpv",
+      "name": "mpv",
+      "icon": "assets/icons/mpv.webp",
+      "aliases": [
+        "MPV"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "mpv-player",
+      "genres": [
+        "audio",
+        "mplayer",
+        "multimedia"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Command line media player",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
           "tone": "warn"
         }
       ],
@@ -4893,6 +8059,7 @@
       "tier_of_record": "ios",
       "score": 88.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 83,
@@ -4903,6 +8070,51 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "neovim",
+      "name": "Neovim",
+      "icon": "assets/icons/neovim.webp",
+      "aliases": [
+        "네오빔"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "neovim",
+      "genres": [
+        "nvim",
+        "text editor",
+        "vim"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Vim-fork focused on extensibility and usability",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -4953,6 +8165,7 @@
       "tier_of_record": "community",
       "score": 83.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 94,
@@ -5013,6 +8226,7 @@
       "tier_of_record": "free",
       "score": 57.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "C",
       "user_rating": 68,
@@ -5088,11 +8302,55 @@
       "tier_of_record": "steam",
       "score": 89.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 95,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "nioh-2",
+      "name": "Nioh 2",
+      "icon": "assets/icons/nioh-2.webp",
+      "aliases": [
+        "니오 2"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "KOEI TECMO GAMES CO., LTD.",
+      "genres": [
+        "액션",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "도적이 들끓고 요괴들이 횡행하는 황폐한 전국시대를 무대로 사투를 벌이는 다크 전국 액션 RPG입니다. 새로운 배틀이 가능해지는 \"요괴화\", 흉측한 모습으로 공격하는 사악한 요괴들과 그들이 만들어낸 \"영암\"의 세계 등, 새로운 요소를 더하여 손맛과…",
+      "tagline": "1회 구매 ₩54,800 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 72.88,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
       "gap": null
     },
     {
@@ -5145,6 +8403,7 @@
       "tier_of_record": "ios",
       "score": 84.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 93,
@@ -5203,6 +8462,7 @@
       "tier_of_record": "free",
       "score": 77.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A/C",
       "user_rating": 82,
@@ -5268,6 +8528,7 @@
       "tier_of_record": "ios",
       "score": 85.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 95,
@@ -5280,6 +8541,51 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 66",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "obs-studio",
+      "name": "OBS Studio",
+      "icon": "assets/icons/obs-studio.webp",
+      "aliases": [
+        "OBS"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "obsproject",
+      "genres": [
+        "c plus plus",
+        "directshow",
+        "facebook live"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "OBS Studio - Free and open source software for live streaming and screen recording",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
           "tone": "warn"
         }
       ],
@@ -5326,6 +8632,7 @@
       "tier_of_record": "free",
       "score": 82.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
       "user_rating": 85,
@@ -5390,6 +8697,7 @@
       "tier_of_record": "free",
       "score": 83.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A/B",
       "user_rating": null,
@@ -5444,6 +8752,7 @@
       "tier_of_record": "free",
       "score": 81.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 92,
@@ -5456,6 +8765,51 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 64",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "openshot",
+      "name": "OpenShot",
+      "icon": "assets/icons/openshot.webp",
+      "aliases": [
+        "오픈샷"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "OpenShot",
+      "genres": [
+        "c plus plus",
+        "gplv3",
+        "qt5"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "OpenShot Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering…",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
           "tone": "warn"
         }
       ],
@@ -5508,6 +8862,7 @@
       "tier_of_record": "steam",
       "score": 87.75,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 96,
@@ -5515,6 +8870,52 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "overcooked-2",
+      "name": "Overcooked! 2",
+      "icon": "assets/icons/overcooked-2.webp",
+      "aliases": [
+        "오버쿡드 2"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Ghost Town Games Ltd.",
+      "genres": [
+        "액션",
+        "캐주얼",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "혼란스러운 요리 액션으로 가득한 Overcooked가 돌아왔습니다! 양파 왕국으로 돌아가는 여행을 떠나세요. 클래식 협동 또는 온라인 플레이에서 셰프 팀을 만들어서 최대 4명까지 플레이하세요. 앞치마를 준비하세요... 다시 세상을 구할 때가…",
+      "tagline": "1회 구매 ₩26,000 — DLC 6건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 82.8,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 66.2",
           "tone": "warn"
         }
       ],
@@ -5567,6 +8968,7 @@
       "tier_of_record": "steam",
       "score": 65.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 62,
@@ -5575,6 +8977,191 @@
         {
           "label": "확률형 아이템 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "oxygen-not-included",
+      "name": "Oxygen Not Included",
+      "icon": "assets/icons/oxygen-not-included.webp",
+      "aliases": [
+        "옥시즌 낫 인클루디드"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Klei Entertainment",
+      "genres": [
+        "인디",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Oxygen Not Included는 우주 콜로니 시뮬레이션 게임입니다. 외계의 우주 암석 깊은 곳에서 근면한 일꾼들은 생존하고 나아가 번영하기 위해 과학을 마스터하고, 낯선 새로운 생명체에 맞서며, 경이로운 우주 테크놀로지를 활용해야 합니다.",
+      "tagline": "1회 구매 ₩26,000 — DLC 8건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 85.2,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.8",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "path-of-exile",
+      "name": "Path of Exile",
+      "icon": "assets/icons/path-of-exile.webp",
+      "aliases": [
+        "패스 오브 엑자일"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Grinding Gear Games",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Indie"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "You are an Exile, struggling to survive on the dark continent of Wraeclast, as you fight to earn power that will allow you to exact your…",
+      "tagline": "무료 플레이 — 선택 과금 구조는 검수 전",
+      "taste_tags": [],
+      "keywords": [
+        "POE"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 80.8,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 89.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "path-of-exile-2",
+      "name": "Path of Exile 2",
+      "icon": "assets/icons/path-of-exile-2.webp",
+      "aliases": [
+        "패스 오브 엑자일 2"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Grinding Gear Games",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Massively Multiplayer"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Path of Exile 2 is a next generation Action RPG from Grinding Gear Games, featuring co-op for up to six players. Set years after the…",
+      "tagline": "가격 미표기 — 스토어에 구매 가격이 표시되지 않는다",
+      "taste_tags": [],
+      "keywords": [
+        "POE2"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 70.17,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 70.1,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 70.1",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 64.5",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "payday-2",
+      "name": "PAYDAY 2",
+      "icon": "assets/icons/payday-2.webp",
+      "aliases": [
+        "페이데이 2"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "OVERKILL - a Starbreeze Studio.",
+      "genres": [
+        "액션",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "PAYDAY 2 는 액션으로 가득찬 4인 코옵 FPS 게임으로서 게이머들은 다시 한번 오리지널 페이데이 크루인 달라스, 혹스턴, 울프, 체인스의 가면을 쓰고 워싱턴 DC로 내려와 엄청난 범죄행위를 저지릅니다.",
+      "tagline": "1회 구매 ₩10,700 — DLC 78건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 80.7,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 87.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.8",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -5627,6 +9214,7 @@
       "tier_of_record": "free",
       "score": 86.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A/B",
       "user_rating": 90,
@@ -5686,6 +9274,7 @@
       "tier_of_record": "free",
       "score": 84.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B/C",
       "user_rating": 93,
@@ -5698,6 +9287,50 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "phasmophobia",
+      "name": "Phasmophobia",
+      "icon": "assets/icons/phasmophobia.webp",
+      "aliases": [
+        "파스모포비아"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Kinetic Games",
+      "genres": [
+        "액션",
+        "인디",
+        "앞서 해보기"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’s up to you and your team to use…",
+      "tagline": "1회 구매 ₩21,500 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 84.62,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 94.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 70.5",
           "tone": "warn"
         }
       ],
@@ -5748,6 +9381,7 @@
       "tier_of_record": "free",
       "score": 85.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "B",
       "user_rating": null,
@@ -5801,6 +9435,7 @@
       "tier_of_record": "play",
       "score": 52.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 70,
@@ -5818,6 +9453,150 @@
         {
           "label": "P2W 제외",
           "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "plex",
+      "name": "Plex",
+      "icon": "assets/icons/plex.webp",
+      "aliases": [
+        "플렉스"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "Plex Inc.",
+      "genres": [
+        "엔터테인먼트",
+        "사진 및 비디오"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Plex is the free social and discovery app for movie and TV lovers.",
+      "tagline": "무료 · 평점 4.6★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "ios",
+      "score": 74.1,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 74.4,
+      "store_stars": {
+        "value": 3.47,
+        "count": 489751,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 74.4",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 65.6",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "prince-of-persia-the-lost-crown",
+      "name": "Prince of Persia: The Lost Crown",
+      "icon": "assets/icons/prince-of-persia-the-lost-crown.webp",
+      "aliases": [
+        "페르시아의 왕자: 잃어버린 왕관"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "metroidvania-platformer"
+      ],
+      "developer": "Ubisoft Montpellier",
+      "genres": [
+        "액션",
+        "어드벤처"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "시공간을 원하는 대로 바꿀 수 있는 페르시아 신화를 배경으로 한 액션 어드벤처 플랫포머 게임 속에서 스타일리시하고 스릴 넘치는 모험을 즐겨 보세요. 칼싸움의 대가인 사르곤을 전설적인 존재로 만들어 낼 수 있는 건 여러분밖에 없습니다! 묘기와도 같은…",
+      "tagline": "1회 구매 ₩34,000 — DLC 4건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 69.3,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 85.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "project-zomboid",
+      "name": "Project Zomboid",
+      "icon": "assets/icons/project-zomboid.webp",
+      "aliases": [
+        "프로젝트 좀보이드"
+      ],
+      "domain": "game",
+      "category": "survival-sim",
+      "arenas": [
+        "survival-crafting"
+      ],
+      "developer": "The Indie Stone",
+      "genres": [
+        "인디",
+        "RPG",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive.…",
+      "tagline": "1회 구매 ₩26,500 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 84.55,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 70.2",
+          "tone": "warn"
         }
       ],
       "gap": null
@@ -5871,6 +9650,7 @@
       "tier_of_record": "ios",
       "score": 83.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 82,
@@ -5930,6 +9710,7 @@
       "tier_of_record": "free",
       "score": 87.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 86,
@@ -5997,6 +9778,7 @@
       "tier_of_record": "ios",
       "score": 89.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 95,
@@ -6060,6 +9842,7 @@
       "tier_of_record": "ios",
       "score": 91.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 93,
@@ -6070,6 +9853,609 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "raft",
+      "name": "Raft",
+      "icon": "assets/icons/raft.webp",
+      "aliases": [
+        "래프트"
+      ],
+      "domain": "game",
+      "category": "survival-sim",
+      "arenas": [
+        "survival-crafting"
+      ],
+      "developer": "Redbeet Interactive",
+      "genres": [
+        "어드벤처",
+        "인디",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Raft™ throws you and your friends into an epic oceanic adventure! Alone or together, players battle to survive a perilous voyage across a…",
+      "tagline": "1회 구매 ₩21,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 81.05,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 72.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 66.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "raindrop-io",
+      "name": "Raindrop.io",
+      "icon": "assets/icons/raindrop-io.webp",
+      "aliases": [
+        "레인드롭"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "read-later"
+      ],
+      "developer": "Rustem Mussabekov",
+      "genres": [
+        "생산성",
+        "유틸리티"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "web"
+      ],
+      "one_liner": "Manage bookmarks, highlights, annotations and tabs.",
+      "tagline": "무료 · 평점 4.5★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 80.18,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 87.4,
+      "store_stars": {
+        "value": 4.36,
+        "count": 5085,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 65.9",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "rclone",
+      "name": "rclone",
+      "icon": "assets/icons/rclone.webp",
+      "aliases": [
+        "알클론"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "rclone",
+      "genres": [
+        "azure blob",
+        "azure blob storage",
+        "azure files"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "\"rsync for cloud storage\" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob…",
+      "tagline": "오픈소스 · 무료(라이선스 MIT)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "readwise-reader",
+      "name": "Readwise Reader",
+      "icon": "assets/icons/readwise-reader.webp",
+      "aliases": [
+        "리드와이즈 리더"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "read-later"
+      ],
+      "developer": "Readwise, Inc",
+      "genres": [
+        "생산성",
+        "교육"
+      ],
+      "platforms": [
+        "ios",
+        "web",
+        "android"
+      ],
+      "one_liner": "Readwise Reader is the first read-it-later app built specifically for power readers.",
+      "tagline": "무료 · 평점 4.6★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 82.38,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.2,
+      "store_stars": {
+        "value": 4.61,
+        "count": 598,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 67.1",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "remnant-ii",
+      "name": "Remnant II",
+      "icon": "assets/icons/remnant-ii.webp",
+      "aliases": [
+        "레므넌트 2"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "Gunfire Games",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Remnant II®는 인류의 생존자들이 무시무시한 세계를 활보하며 전에 없던 치명적인 생명체들과 신에 가까운 보스들에 대항하는 내용을 담은 베스트셀러 게임 Remnant: From the Ashes의 속편입니다.",
+      "tagline": "1회 구매 ₩53,000 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 70.05,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 85.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "restic",
+      "name": "restic",
+      "icon": "assets/icons/restic.webp",
+      "aliases": [
+        "레스틱"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "restic",
+      "genres": [
+        "backup",
+        "dedupe",
+        "deduplication"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Fast, secure, efficient backup program",
+      "tagline": "오픈소스 · 무료(라이선스 BSD-2-Clause)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "rimworld",
+      "name": "RimWorld",
+      "icon": "assets/icons/rimworld.webp",
+      "aliases": [
+        "림월드"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "Ludeon Studios",
+      "genres": [
+        "인디",
+        "시뮬레이션",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "지능형 AI 이야기꾼이 주도하는 공상과학 정착지 시뮬레이터입니다. 심리, 생태, 총격전과 근접전, 날씨, 기후, 외교, 사람 사이의 관계, 예술, 의학, 무역, 그 외 많은 것들을 시뮬레이션하여 이야기를 생성합니다.",
+      "tagline": "1회 구매 ₩37,500 — DLC 10건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 86.8,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 97.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 71.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "risk-of-rain-2",
+      "name": "Risk of Rain 2",
+      "icon": "assets/icons/risk-of-rain-2.webp",
+      "aliases": [
+        "리스크 오브 레인 2"
+      ],
+      "domain": "game",
+      "category": "action-indie",
+      "arenas": [
+        "action-roguelike"
+      ],
+      "developer": "Hopoo Games",
+      "genres": [
+        "액션",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "기괴한 괴물들과 싸우며 혼돈스러운 외계 행성을 탈출하세요. 친구들과 함께 해도 되고, 혼자 해도 좋습니다. 전리품들을 놀라운 방식으로 조합하고 각 캐릭터를 마스터하여 처음 불시착할 때 공포스러워했던 바로 그 존재가 되세요.",
+      "tagline": "1회 구매 ₩26,000 — DLC 7건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 85.2,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 95.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 70.8",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "rocket-chat",
+      "name": "Rocket.Chat",
+      "icon": "assets/icons/rocket-chat.webp",
+      "aliases": [
+        "로켓닷챗"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Rocket.Chat Technologies Corp.",
+      "genres": [
+        "비즈니스",
+        "소셜 네트워킹"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Rocket.Chat Secure CommsOS™ is a communication platform that unifies messaging, voice, video, AI, and mission-critical…",
+      "tagline": "무료 · 평점 4.4★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 82.42,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 89.2,
+      "store_stars": {
+        "value": 4.47,
+        "count": 16221,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 67.3",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "sea-of-thieves",
+      "name": "Sea of Thieves",
+      "icon": "assets/icons/sea-of-thieves.webp",
+      "aliases": [
+        "씨 오브 시브즈"
+      ],
+      "domain": "game",
+      "category": "multiplayer-coop",
+      "arenas": [
+        "co-op-party"
+      ],
+      "developer": "Rare Ltd",
+      "genres": [
+        "액션",
+        "어드벤처"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Sea of Thieves는 초특급 히트작 해적 어드벤처 게임으로, 잊혀진 보물의 도굴, 격렬한 전투, 바다 괴물의 퇴치 등을 비롯한 전형적인 해적의 삶을 경험할 수 있습니다. 디지털 보너스 미디어가 포함된 게임의 개정판에 뛰어드세요.",
+      "tagline": "1회 구매 ₩39,900 — DLC 6건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 81.25,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 88.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "sekiro",
+      "name": "Sekiro: Shadows Die Twice",
+      "icon": "assets/icons/sekiro.webp",
+      "aliases": [
+        "세키로"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "soulslike"
+      ],
+      "developer": "FromSoftware, Inc.",
+      "genres": [
+        "액션",
+        "어드벤처"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "Dark Souls 시리즈를 개발한 FromSoftware의 새로운 어드벤처에서 복수를 향한 자신만의 길을 개척해보십시오. 복수하십시오. 명예를 회복하십시오. 무사답게 싸우십시오.",
+      "tagline": "1회 구매 ₩75,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 75.05,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 93.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "shotcut",
+      "name": "Shotcut",
+      "icon": "assets/icons/shotcut.webp",
+      "aliases": [
+        "샷컷"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "video-editing"
+      ],
+      "developer": "mltframework",
+      "genres": [
+        "gplv3",
+        "mlt",
+        "video editor"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "cross-platform (Qt), open-source (GPLv3) video editor",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-3.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "icon": "assets/icons/signal.webp",
+      "aliases": [
+        "시그널"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Signal Messenger, LLC",
+      "genres": [
+        "소셜 네트워킹",
+        "유틸리티"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Signal is a messaging app with privacy at its core.",
+      "tagline": "무료 · 평점 4.7★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 83.6,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 91.3,
+      "store_stars": {
+        "value": 4.5,
+        "count": 2949498,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.8",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -6114,6 +10500,7 @@
       "tier_of_record": "free",
       "score": 73.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A/C",
       "user_rating": 72,
@@ -6130,6 +10517,58 @@
         },
         {
           "label": "AI 검토 🟡 66",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "icon": "assets/icons/slack.webp",
+      "aliases": [
+        "슬랙"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "SLACK TECHNOLOGIES L.L.C.",
+      "genres": [
+        "비즈니스",
+        "생산성"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Companies in every industry around the world grow their business in Slack because it gets busywork off their plates and wasteful meetings…",
+      "tagline": "무료 · 평점 4.1★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 83.38,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 90.9,
+      "store_stars": {
+        "value": 4.64,
+        "count": 229328,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.7",
           "tone": "warn"
         }
       ],
@@ -6178,6 +10617,7 @@
       "tier_of_record": "buy_once",
       "score": 92.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-24",
       "evidence_grade": "A",
       "user_rating": 95,
@@ -6238,6 +10678,7 @@
       "tier_of_record": "ios",
       "score": 80.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 92,
@@ -6255,6 +10696,103 @@
         {
           "label": "AI 검토 🟡 74",
           "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "icon": "assets/icons/spotify.webp",
+      "aliases": [
+        "스포티파이"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "Spotify",
+      "genres": [
+        "음악",
+        "엔터테인먼트"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "web"
+      ],
+      "one_liner": "With the Spotify app, you can explore an extensive library of music and podcasts for free.",
+      "tagline": "무료 · 평점 4.8★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 83.72,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 91.5,
+      "store_stars": {
+        "value": 4.77,
+        "count": 43319144,
+        "platform": "ios",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 69.9",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "stardew-valley",
+      "name": "Stardew Valley",
+      "icon": "assets/icons/stardew-valley.webp",
+      "aliases": [
+        "스타듀 밸리"
+      ],
+      "domain": "game",
+      "category": "sim-management",
+      "arenas": [
+        "city-builder-management"
+      ],
+      "developer": "ConcernedApe",
+      "genres": [
+        "인디",
+        "RPG",
+        "시뮬레이션"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin…",
+      "tagline": "1회 구매 ₩16,000 — DLC 1건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 78.88,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 98.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
         }
       ],
       "gap": null
@@ -6306,6 +10844,7 @@
       "tier_of_record": "steam",
       "score": 93.0,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 96,
@@ -6358,6 +10897,7 @@
       "tier_of_record": "windows",
       "score": 85.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": null,
@@ -6414,6 +10954,7 @@
       "tier_of_record": "ios",
       "score": 83.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 94,
@@ -6426,6 +10967,52 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 68",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "icon": "assets/icons/syncthing.webp",
+      "aliases": [
+        "싱크씽"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "syncthing",
+      "genres": [
+        "p2p",
+        "peer to peer",
+        "synchronization"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "one_liner": "Open Source Continuous File Synchronization",
+      "tagline": "오픈소스 · 무료(라이선스 MPL-2.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 77.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
           "tone": "warn"
         }
       ],
@@ -6476,6 +11063,7 @@
       "tier_of_record": "free",
       "score": 88.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 90,
@@ -6486,6 +11074,58 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "icon": "assets/icons/telegram.webp",
+      "aliases": [
+        "텔레그램"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Telegram FZ-LLC",
+      "genres": [
+        "소셜 네트워킹",
+        "생산성"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Pure instant messaging — simple, fast, secure, and synced across all your devices.",
+      "tagline": "무료 · 평점 4.0★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "ios",
+      "score": 75.28,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 76.5,
+      "store_stars": {
+        "value": 3.82,
+        "count": 17434553,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 66.1",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -6538,6 +11178,7 @@
       "tier_of_record": "steam",
       "score": 96.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 97,
@@ -6590,6 +11231,7 @@
       "tier_of_record": "iphone",
       "score": 89.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 95,
@@ -6650,6 +11292,7 @@
       "tier_of_record": "default",
       "score": 86.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": null,
@@ -6705,6 +11348,7 @@
       "tier_of_record": "free",
       "score": 83.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": 93,
@@ -6718,6 +11362,51 @@
         {
           "label": "객관·신뢰 지표 🟡 66",
           "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "titan-quest",
+      "name": "Titan Quest Anniversary Edition",
+      "icon": "assets/icons/titan-quest.webp",
+      "aliases": [
+        "타이탄 퀘스트"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Iron Lore Entertainment",
+      "genres": [
+        "액션",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "10주년을 맞이해 Titan Quest가 새롭게 장관을 이루며 빛을 낼 것입니다. 이번 10주년 에디션에는 Titan Quest와 Titan Quest Immortal Throne이 하나의 게임에 포함되었으며 대규모 점검을 통해 진정한 ARPG를…",
+      "tagline": "1회 구매 ₩20,000 — DLC 3건 별도",
+      "taste_tags": [],
+      "keywords": [
+        "Titan Quest"
+      ],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 72.55,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 89.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
         }
       ],
       "gap": null
@@ -6769,6 +11458,7 @@
       "tier_of_record": "beginner",
       "score": 85.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 92,
@@ -6781,6 +11471,100 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "torchlight-ii",
+      "name": "Torchlight II",
+      "icon": "assets/icons/torchlight-ii.webp",
+      "aliases": [
+        "토치라이트 2"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Runic Games",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Torchlight II에서 모험이 계속됩니다! 장대한 전투와 보물이 가득하고 완전히 랜덤화된 세계를 선보이는 액션 RPG. 온라인 LAN 멀티플레이어 기능으로 함께 여정을 떠날 친구를 초대하세요.",
+      "tagline": "1회 구매 ₩21,000 — DLC 0건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 75.0,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 92.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "undecember",
+      "name": "Undecember",
+      "icon": "assets/icons/undecember.webp",
+      "aliases": [
+        "언디셈버"
+      ],
+      "domain": "game",
+      "category": "action-rpg",
+      "arenas": [
+        "arpg-hack-slash"
+      ],
+      "developer": "Needs Games",
+      "genres": [
+        "액션",
+        "어드벤처",
+        "RPG"
+      ],
+      "platforms": [
+        "steam",
+        "windows"
+      ],
+      "one_liner": "「UNDECEMBER」는 핵앤슬래시 액션 RPG로서, 각양각색의 스킬 룬과 링크 룬의 조합을 통해 한계를 넘어선 스킬 구축이 가능합니다. 「룬 헌터」가 되어, 파밍과 육성의 재미를 경험해보세요!",
+      "tagline": "무료 플레이 — 선택 과금 구조는 검수 전",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "steam",
+      "score": 59.05,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 53.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 53.0",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 55.2",
           "tone": "warn"
         }
       ],
@@ -6835,6 +11619,7 @@
       "tier_of_record": "steam",
       "score": 90.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 94,
@@ -6884,6 +11669,7 @@
       "tier_of_record": "pc",
       "score": 77.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A/B",
       "user_rating": null,
@@ -6943,6 +11729,7 @@
       "tier_of_record": "steam",
       "score": 91.0,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 96,
@@ -6953,6 +11740,52 @@
         "evidence_grade": "A"
       },
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "visual-studio-code",
+      "name": "Visual Studio Code",
+      "icon": "assets/icons/visual-studio-code.webp",
+      "aliases": [
+        "VS Code",
+        "브이에스 코드"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "microsoft",
+      "genres": [
+        "editor",
+        "microsoft"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Visual Studio Code",
+      "tagline": "오픈소스 · 무료(라이선스 MIT)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 77.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     },
     {
@@ -7001,6 +11834,7 @@
       "tier_of_record": "free",
       "score": 82.25,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 92,
@@ -7017,6 +11851,237 @@
         },
         {
           "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "vlc",
+      "name": "VLC media player",
+      "icon": "assets/icons/vlc.webp",
+      "aliases": [
+        "VLC"
+      ],
+      "domain": "app",
+      "category": "media-entertainment",
+      "arenas": [
+        "media-players"
+      ],
+      "developer": "VideoLAN",
+      "genres": [
+        "사진 및 비디오",
+        "엔터테인먼트"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "VLC is a free and open source cross-platform multimedia player.",
+      "tagline": "무료 · 평점 3.7★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "ios",
+      "score": 80.8,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 81.0,
+      "store_stars": {
+        "value": 4.05,
+        "count": 2014497,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 71.2",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "vorta",
+      "name": "Vorta",
+      "icon": "assets/icons/vorta.webp",
+      "aliases": [
+        "보르타"
+      ],
+      "domain": "app",
+      "category": "security-utilities",
+      "arenas": [
+        "backup-sync"
+      ],
+      "developer": "borgbase",
+      "genres": [
+        "backup client",
+        "borg",
+        "borgbackup"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Desktop Backup Client for Borg Backup",
+      "tagline": "오픈소스 · 무료(라이선스 GPL-3.0)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "wallabag",
+      "name": "Wallabag",
+      "icon": "assets/icons/wallabag.webp",
+      "aliases": [
+        "왈라백"
+      ],
+      "domain": "app",
+      "category": "productivity",
+      "arenas": [
+        "read-later"
+      ],
+      "developer": "wallabag",
+      "genres": [
+        "php",
+        "read it later",
+        "symfony"
+      ],
+      "platforms": [
+        "web",
+        "android",
+        "ios"
+      ],
+      "one_liner": "wallabag is a self hostable application for saving web pages: Save and classify articles. Read them later. Freely.",
+      "tagline": "오픈소스 · 무료(라이선스 MIT)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 76.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 68.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "wasteland-3",
+      "name": "Wasteland 3",
+      "icon": "assets/icons/wasteland-3.webp",
+      "aliases": [
+        "웨이스트랜드 3"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "inXile Entertainment",
+      "genres": [
+        "RPG",
+        "전략"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Following the critically acclaimed 2014 Game of the Year winner Wasteland 2, the RPG series that pioneered the post-apocalyptic genre in…",
+      "tagline": "1회 구매 ₩41,000 — DLC 4건 별도",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "avoid",
+      "stored_verdict": "avoid",
+      "tier_of_record": "steam",
+      "score": 71.05,
+      "maintenance_status": "stale_unknown",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 85.0,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "12개월 이상 방치 제외",
+          "tone": "bad"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "wezterm",
+      "name": "WezTerm",
+      "icon": "assets/icons/wezterm.webp",
+      "aliases": [
+        "위즈텀"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "wezterm",
+      "genres": [
+        "serial",
+        "serial port",
+        "terminal emulator"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 71.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
           "tone": "warn"
         }
       ],
@@ -7071,6 +12136,7 @@
       "tier_of_record": "pro",
       "score": 77.5,
       "maintenance_status": "active",
+      "review_tier": "verified",
       "assessed_at": "2026-11-25",
       "evidence_grade": "B",
       "user_rating": 86,
@@ -7134,11 +12200,113 @@
       "tier_of_record": "steam",
       "score": 84.5,
       "maintenance_status": "feature_complete",
+      "review_tier": "verified",
       "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 85,
       "store_stars": null,
       "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "icon": "assets/icons/zed.webp",
+      "aliases": [
+        "제드 에디터"
+      ],
+      "domain": "app",
+      "category": "developer-tools",
+      "arenas": [
+        "dev-terminals-git"
+      ],
+      "developer": "zed-industries",
+      "genres": [
+        "gpui",
+        "rust lang",
+        "text editor"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
+      "tagline": "오픈소스 · 무료(라이선스 미확인)",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "oss",
+      "score": 70.0,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "AI 검토 🟡 64.0",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "zulip",
+      "name": "Zulip",
+      "icon": "assets/icons/zulip.webp",
+      "aliases": [
+        "줄립"
+      ],
+      "domain": "app",
+      "category": "communication",
+      "arenas": [
+        "messaging-team"
+      ],
+      "developer": "Kandra Labs, Inc.",
+      "genres": [
+        "생산성",
+        "소셜 네트워킹"
+      ],
+      "platforms": [
+        "ios",
+        "android",
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "Zulip (https://zulip.com/) helps teams of all sizes be more productive together, from a few friends hacking on a new idea, to globally…",
+      "tagline": "무료 · 평점 3.4★",
+      "taste_tags": [],
+      "keywords": [],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "ios",
+      "score": 71.5,
+      "maintenance_status": "active",
+      "review_tier": "auto_fact",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/C",
+      "user_rating": 71.1,
+      "store_stars": {
+        "value": 3.56,
+        "count": 711,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 71.1",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 61.8",
+          "tone": "warn"
+        }
+      ],
       "gap": null
     }
   ]

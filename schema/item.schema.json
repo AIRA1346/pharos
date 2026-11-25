@@ -103,6 +103,12 @@
       "enum": ["desk_research", "hands_on", "mixed"],
       "description": "평가 방법. 데스크 리서치면 직접 플레이·설치 없이 공개 정보만 썼다는 뜻."
     },
+    "review_tier": {
+      "type": "string",
+      "enum": ["verified", "auto_fact"],
+      "default": "verified",
+      "description": "이 기록의 발행 단계(2단계 발행 구조). verified=사람이 약관·과금·문장까지 검토한 항목(review_tier 가 없으면 기본값). auto_fact=공개 스토어·저장소 API 값만으로 만든 1차 판정 — 세부 약관·과금 함정·본질 검토는 순차 심층 검수에서 확정한다. UI 는 auto_fact 항목의 카드·상세에 '자동 수집' 배지를 붙이고 상세 상단에 1차 판정 안내를 띄운다(x-pharos.client.review_tiers)."
+    },
     "maintenance_status": {
       "type": "string",
       "enum": ["active", "feature_complete", "stale_unknown", "abandoned"],
@@ -720,6 +726,11 @@
         { "key": "stale_unknown", "label": "상태 미확인", "tone": "warn", "description": "오래 멈췄고 완결인지 방치인지 확인하지 못했다" },
         { "key": "abandoned", "label": "방치", "tone": "bad", "description": "12개월 이상 중단 + 공약 미이행" }
       ],
+      "review_tiers": [
+        { "key": "verified", "label": "검증 완료", "label_en": "Verified", "description": "사람이 약관·과금 구조·KO/EN 문장까지 검토한 항목. review_tier 필드가 없으면 기본값이다." },
+        { "key": "auto_fact", "label": "자동 수집", "label_en": "Auto-collected", "description": "공개 스토어·저장소 API 값만으로 만든 1차 판정. 카드·상세에 배지와 안내 문구를 띄우고, 세부 약관·과금 함정·본질 검토는 순차 심층 검수에서 확정한다. 확인하지 못한 항목은 지어내지 않고 unknown 으로 둔다." }
+      ],
+      "default_review_tier": "verified",
       "stale_exemption": {
         "field": "maintenance_status",
         "exempt_value": "feature_complete",
