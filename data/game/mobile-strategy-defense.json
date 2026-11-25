@@ -14,7 +14,7 @@
       "mobile-strategy-defense"
     ],
     "arena_notes": {
-      "mobile-strategy-defense": "유료 1회 구매·광고 없음의 기준점 — 다만 스토어가 '인앱 구매(확률형 아이템 포함)'로 표기해, 기준표의 확률형 필터에는 걸린다."
+      "mobile-strategy-defense": "유료 1회 구매·광고 없음의 기준점 — 스토어가 '인앱 구매(확률형 아이템 포함)'로 표기하지만 상품은 선택형이라 v0.4에서 '선택 과금'으로 분류하고 추천으로 되돌렸다."
     },
     "genres": [
       "타워디펜스",
@@ -227,11 +227,12 @@
           "gacha_random_items": {
             "status": "fail",
             "evidence_grade": "A",
-            "note": "스토어가 '인앱 구매(확률형 아이템 포함)'로 표기.",
+            "note": "스토어가 '인앱 구매(확률형 아이템 포함)'로 표기한다(사실 유지). 실제 상품은 선택형 즉석 원숭이·다이아몬드 상자이고 사지 않아도 모든 맵·모드를 즐길 수 있어 impact 는 optional — 거름이 아니라 안내 배지다.",
             "source_ids": [
               "play-btd6",
               "epic-btd6"
-            ]
+            ],
+            "impact": "optional"
           },
           "bait_ad": {
             "status": "pass",
@@ -290,8 +291,8 @@
             ]
           }
         },
-        "verdict": "avoid",
-        "one_liner": "광고 없이 오래 즐기는 유료 타워디펜스 — 다만 스토어 표기상 확률형 상품이 있어 필터에 걸린다.",
+        "verdict": "recommend",
+        "one_liner": "광고 없이 오래 즐기는 유료 타워디펜스 — 선택형 상자는 사지 않아도 모든 맵·모드를 즐길 수 있다.",
         "recommended_path": true,
         "notes": "지출은 앱 값 ₩6,500으로 닫을 수 있다. 인앱 구매를 사지 않으면 추가 지출 0원."
       }
@@ -314,7 +315,7 @@
         "signal_basis": "score",
         "evidence_grade": "A",
         "confidence": "high",
-        "summary": "유료 1회 구매·광고 없음·8년 넘는 업데이트는 최상급 조건. 다만 인앱 상품이 ₩1,300~₩80,000까지 있고 스토어가 확률형 아이템을 명시해 과금 구조 점수를 깎았다.",
+        "summary": "유료 1회 구매·광고 없음·8년 넘는 업데이트는 최상급 조건. 인앱 상품이 ₩1,300~₩80,000까지 있지만 모두 선택형이라 사지 않아도 진행에 제약이 없어 과금 강도는 선택(optional)이다.",
         "source_ids": [
           "play-btd6",
           "epic-btd6"
@@ -333,24 +334,25 @@
       }
     },
     "verdict": {
-      "overall": "avoid",
+      "overall": "recommend",
       "tier_of_record": "play",
       "signals": {
         "user_rating": "green",
         "objective": "yellow",
         "ai_review": "green"
       },
-      "one_liner": "품질은 최상급이지만, 스토어의 '확률형 아이템 포함' 표기 하나로 기본 필터에서 거름이 되는 사례.",
+      "one_liner": "유료로 사고 광고 없이 오래 즐기는 디펜스 — 선택형 상자는 사지 않아도 된다.",
       "reasons": [
-        "광고·구독·P2W가 없고 1회 구매로 전편을 즐길 수 있어 축 점수는 81.3으로 높다.",
-        "그러나 스토어가 '인앱 구매(확률형 아이템 포함)'로 표기해 기본 켜짐 필터인 '확률형 아이템 제외'에 걸린다.",
-        "실제 확률형 상품은 캐릭터 획득이 아니라 선택형 즉석 원숭이·다이아몬드 상자다 — 기준표가 이 차이를 구분하지 못한다."
+        "광고·구독·P2W가 없고 1회 구매로 전편을 즐길 수 있어 축 점수가 81.3으로 높다.",
+        "스토어의 '확률형 아이템 포함' 표기 때문에 필터 상태는 fail 이지만, 실제 상품은 선택형 즉석 원숭이·다이아몬드 상자이고 사지 않아도 진행에 제약이 없어 impact optional 로 분류했다.",
+        "이번 개정 전에는 품질 최상급 작품이 스토어 문구 하나로 거름이 되던 사례 — 이제 추천으로 돌아온다."
       ],
-      "hard_filter_blocked": true,
+      "hard_filter_blocked": false,
       "condition_notes": [
         "확률형 상품은 선택형이며, 사지 않아도 모든 맵·모드를 진행할 수 있다.",
         "스팀·모바일 세이브는 연동되지 않는다.",
-        "후반 웨이브에서 모바일 프레임 저하 불만이 있다."
+        "후반 웨이브에서 모바일 프레임 저하 불만이 있다.",
+        "상품이 있으면 거르고 싶다면 미세조정의 strict_monetization 을 켜면 된다(기본 OFF)."
       ]
     },
     "review_snapshot": {
@@ -438,7 +440,16 @@
         "present": "no",
         "display": "구독 없음"
       },
-      "summary": "유료 앱 + 선택형 인앱 구매. 광고가 없고, 확률형 상품은 수집·편의에 한정되지만 스토어에는 '확률형 아이템 포함'으로 표기된다."
+      "summary": "유료 앱 + 선택형 인앱 구매. 광고가 없고, 확률형 상품은 수집·편의에 한정되지만 스토어에는 '확률형 아이템 포함'으로 표기된다.",
+      "free_play": {
+        "value": "sufficient",
+        "evidence_grade": "A",
+        "source_ids": [
+          "play-btd6",
+          "play-btd6-en"
+        ],
+        "note": "1회 구매에 모든 맵·원숭이·모드가 포함되고 광고가 없다. 인앱 상품은 선택형(즉석 원숭이·더블 캐시)이라 사지 않아도 게임 진행에 제약이 없다."
+      }
     },
     "data_quality": {
       "overall_grade": "A",
@@ -1077,10 +1088,11 @@
           "gacha_random_items": {
             "status": "fail",
             "evidence_grade": "A",
-            "note": "무작위 아이템(상자) 판매 명시.",
+            "note": "무작위 아이템(상자) 판매 명시 — 상자가 성장의 핵심 경로라 impact core.",
             "source_ids": [
               "play-clash"
-            ]
+            ],
+            "impact": "core"
           },
           "bait_ad": {
             "status": "pass",
@@ -1093,10 +1105,11 @@
           "p2w": {
             "status": "fail",
             "evidence_grade": "B",
-            "note": "카드 레벨·진화가 승패에 직결.",
+            "note": "카드 레벨·진화가 승패에 직결 — impact core.",
             "source_ids": [
               "play-clash"
-            ]
+            ],
+            "impact": "core"
           },
           "iap_required_to_progress": {
             "status": "pass",
@@ -1283,7 +1296,15 @@
         "present": "no",
         "display": "구독 없음(시즌 패스 별도)"
       },
-      "summary": "무료 + 상자·보석·시즌 패스. 무작위 아이템이 성장의 중심이라 지출이 곧 성장 속도다."
+      "summary": "무료 + 상자·보석·시즌 패스. 무작위 아이템이 성장의 중심이라 지출이 곧 성장 속도다.",
+      "free_play": {
+        "value": "constrained",
+        "evidence_grade": "B",
+        "source_ids": [
+          "play-clash"
+        ],
+        "note": "전 카드·아레나는 도달할 수 있지만 레벨·진화 속도가 상자에 종속돼 상위권 경쟁은 과금 없이 오래 걸린다."
+      }
     },
     "data_quality": {
       "overall_grade": "A/B",
@@ -1491,10 +1512,11 @@
           "gacha_random_items": {
             "status": "fail",
             "evidence_grade": "A",
-            "note": "확률형 아이템 포함 명시.",
+            "note": "확률형 아이템 포함 명시 — 식물 조각·피냐타가 성장 경로라 impact core.",
             "source_ids": [
               "play-pvz2"
-            ]
+            ],
+            "impact": "core"
           },
           "bait_ad": {
             "status": "pass",
@@ -1507,10 +1529,11 @@
           "p2w": {
             "status": "fail",
             "evidence_grade": "B",
-            "note": "유료 식물·강화가 난이도를 좌우.",
+            "note": "유료 식물·강화가 후반 난이도를 좌우 — impact core.",
             "source_ids": [
               "play-pvz2"
-            ]
+            ],
+            "impact": "core"
           },
           "iap_required_to_progress": {
             "status": "pass",
@@ -1696,7 +1719,15 @@
         "present": "no",
         "display": "구독 없음"
       },
-      "summary": "무료 + 광고 + 확률형 인앱 구매(피냐타·식물 조각) + 식물 강화. 세 가지 수익 경로가 겹친다."
+      "summary": "무료 + 광고 + 확률형 인앱 구매(피냐타·식물 조각) + 식물 강화. 세 가지 수익 경로가 겹친다.",
+      "free_play": {
+        "value": "constrained",
+        "evidence_grade": "B",
+        "source_ids": [
+          "play-pvz2"
+        ],
+        "note": "본편은 무료지만 유료 식물·강화 없이는 후반 난이도가 급격히 올라 광고·결제 유인이 크다."
+      }
     },
     "data_quality": {
       "overall_grade": "A/B",

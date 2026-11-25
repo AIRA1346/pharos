@@ -68,6 +68,12 @@ const VERIFICATION_LABEL = {
 };
 
 const EXPORT_LABEL = { full: '전체', partial: '부분', none: '불가', unknown: '미확인' };
+const FREE_PLAY_LABEL = {
+  sufficient: '무과금으로 충분',
+  constrained: '무과금은 제한적',
+  blocked: '무과금 진행 불가',
+  unknown: '미확인',
+};
 const METHOD_LABEL = { desk_research: '데스크 리서치', hands_on: '직접 사용', mixed: '혼합' };
 
 const TAG_LABEL = {
@@ -91,7 +97,7 @@ const TAG_LABEL = {
 const RULE_INDEX = { 1: 0, '1w': 0, '1c': 6, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5 };
 
 const RULE_TEXT_KO = [
-  '켜진 하드 필터에 하나라도 걸리면 거름. (완화 모드에서 등급 C 근거만 있으면 조건부 경고)',
+  '켜진 하드 필터에 걸리면 거름. 단 확률형·P2W의 「선택 과금(impact: optional)」은 기본 설정에서 거르지 않고 배지로만 알린다. (완화 모드에서 등급 C 근거만 있으면 조건부 경고)',
   '🔴 신호가 2개 이상이면 거름',
   '🔴 신호가 1개면 조건부',
   '🟡 신호가 2개 이상이면 조건부',
@@ -113,6 +119,7 @@ const state = {
   weights: {},
   enabledFilters: [],
   strict: true,
+  strictMonetization: false,
   preset: 'balanced',
   bookmarks: [],
   theme: 'dark',
@@ -129,7 +136,13 @@ const contract = () => state.core?.contract || {};
 const schemaVersion = () => state.core?.schema?.['x-pharos']?.schema_version || contract().schema_version || '0.4.0';
 const indexRecords = () => state.core?.index?.items || [];
 const recordById = (id) => indexRecords().find((rec) => rec.id === id) || null;
-const settings = () => ({ contract: contract(), weights: state.weights, enabledFilters: state.enabledFilters, strict: state.strict });
+const settings = () => ({
+  contract: contract(),
+  weights: state.weights,
+  enabledFilters: state.enabledFilters,
+  strict: state.strict,
+  strictMonetization: state.strictMonetization,
+});
 
 /* ------------------------------------------------------------------ 초기화 */
 
@@ -186,6 +199,7 @@ function loadPrefs() {
   state.weights = { ...defaults };
   state.enabledFilters = [...(contract().default_enabled_filters || [])];
   state.strict = contract().evidence_rules?.strict_evidence_default !== false;
+  state.strictMonetization = contract().monetization_impact?.strict_toggle?.default === true;
   state.preset = 'balanced';
   if (prefs && typeof prefs === 'object') {
     if (prefs.weights && typeof prefs.weights === 'object') {
@@ -199,6 +213,7 @@ function loadPrefs() {
       state.enabledFilters = prefs.filters.filter((key) => known.has(key));
     }
     if (typeof prefs.strict === 'boolean') state.strict = prefs.strict;
+    if (typeof prefs.strictMonetization === 'boolean') state.strictMonetization = prefs.strictMonetization;
     if (typeof prefs.preset === 'string' && PRESETS.some((p) => p.id === prefs.preset)) state.preset = prefs.preset;
   }
   state.bookmarks = (readStore(LS.bookmarks, []) || []).filter((id) => typeof id === 'string');
@@ -209,6 +224,7 @@ function savePrefs() {
     weights: state.weights,
     filters: state.enabledFilters,
     strict: state.strict,
+    strictMonetization: state.strictMonetization,
     preset: state.preset,
   });
 }
@@ -322,6 +338,10 @@ function parseUrl() {
   const strict = params.get('strict');
   if (strict === '0') state.strict = false;
   if (strict === '1') state.strict = true;
+  const strictMonetizationParam = contract().monetization_impact?.strict_toggle?.param || 'strictmon';
+  const strictMonetization = params.get(strictMonetizationParam);
+  if (strictMonetization === '1') state.strictMonetization = true;
+  if (strictMonetization === '0') state.strictMonetization = false;
   return route;
 }
 
@@ -355,6 +375,7 @@ function urlForRoute() {
     params.set('filters', state.enabledFilters.join(','));
   }
   if (!state.strict) params.set('strict', '0');
+  if (state.strictMonetization) params.set(contract().monetization_impact?.strict_toggle?.param || 'strictmon', '1');
   const qs = params.toString();
   return `${location.pathname}${qs ? `?${qs}` : ''}`;
 }
@@ -952,9 +973,22 @@ function reasonHtml(view) {
   for (const fail of e.weakFails) {
     chips.push(`<span class="reason-chip reason-chip--warn">근거 약함 · ${esc(fail.label)} <b>${esc(engine.gradeWeakest(fail.grade))}</b></span>`);
   }
+  for (const fail of e.optionalFails || []) {
+    chips.push(
+      `<span class="reason-chip reason-chip--sea" title="${esc(
+        `${fail.label} 상품이 있지만 인게임 재화·무과금으로 본편을 즐길 수 있어 기본 모드에서는 거르지 않습니다. ${fail.note}`,
+      )}">선택 과금 · ${esc(fail.label)} <b>${esc(engine.gradeWeakest(fail.grade))}</b></span>`,
+    );
+  }
   if (!e.blocking.length && !e.weakFails.length) {
-    if (e.verdict === 'recommend') chips.push('<span class="reason-chip reason-chip--ok">하드 필터 통과</span>');
-    else if (e.reds >= 2) chips.push(`<span class="reason-chip reason-chip--bad">🔴 신호 ${e.reds}개</span>`);
+    if (e.optionalFails?.length) {
+      chips.push(`<span class="reason-chip reason-chip--ok">상품 없이도 본편 즐김</span>`);
+    } else if (e.verdict === 'recommend') {
+      chips.push('<span class="reason-chip reason-chip--ok">하드 필터 통과</span>');
+    }
+    if (e.verdict === 'recommend') {
+      /* 추천 사유는 위 칩으로 갈음 */
+    } else if (e.reds >= 2) chips.push(`<span class="reason-chip reason-chip--bad">🔴 신호 ${e.reds}개</span>`);
     else if (e.reds === 1) chips.push('<span class="reason-chip reason-chip--warn">🔴 신호 1개</span>');
     else if (e.yellows >= 2) chips.push(`<span class="reason-chip reason-chip--warn">🟡 신호 ${e.yellows}개</span>`);
     else chips.push(`<span class="reason-chip">점수 ${e.score?.toFixed(1) ?? '—'}</span>`);
@@ -970,6 +1004,19 @@ function reasonHtml(view) {
     );
   }
   return chips.join('');
+}
+
+function monetizationChip(evaluation) {
+  if (evaluation?.optionalFails?.length) {
+    return `<span class="chip chip--optional" title="상점에 확률형·편의 상품이 있지만 인게임 재화·무과금으로 본편을 충분히 즐길 수 있어 거름이 아니라 안내로 표시합니다. ‘내 기준 미세조정’에서 선택 과금도 거를 수 있습니다.">선택 과금 · 무과금 가능</span>`;
+  }
+  const core = (evaluation?.blocking || []).filter((check) => check.impact === 'core');
+  if (core.length) {
+    return `<span class="chip chip--core" title="${esc(
+      `${core.map((check) => check.label).join(', ')} — 과금·확률형 뽑기 없이는 성장 벽에 막히거나 진행이 실질적으로 불가능해 거름입니다.`,
+    )}">${esc(engine.IMPACT_META.core.label)}</span>`;
+  }
+  return '';
 }
 
 function cardHtml(view) {
@@ -1003,6 +1050,7 @@ function cardHtml(view) {
           <span class="chip chip--cat">${esc(state.cat.arenaLabel(item.arenas[0]))}</span>
           <span class="chip" title="${esc(platforms.join(' · '))}">${esc(platformLabel)}</span>
           ${maintenanceChip(item)}
+          ${monetizationChip(recordEval)}
           ${freshnessChip(item)}
         </div>
         <h3>${esc(item.name)}</h3>
@@ -1127,10 +1175,25 @@ async function renderCompare(seq) {
       ];
     }),
     [
+      '확률형·P2W 강도',
+      (v) => {
+        const impact = engine.monetizationImpactOf(v.recordEval);
+        if (impact === 'none') return '<span class="muted">상품 없음</span>';
+        return `<span class="pill pill--${impact === 'optional' ? 'sea' : 'bad'}">${esc(
+          engine.IMPACT_META[impact]?.label || impact,
+        )}</span>`;
+      },
+    ],
+    [
       '걸린 하드 필터',
       (v) => {
         const fails = engine.failedFilters(v.recordEval);
-        return fails.length ? fails.map((f) => `<span class="reason-chip reason-chip--bad">${esc(f.label)}</span>`).join('') : '<span class="muted">없음</span>';
+        const optional = engine.optionalFilters(v.recordEval);
+        const chips = [
+          ...fails.map((f) => `<span class="reason-chip reason-chip--bad">${esc(f.label)}</span>`),
+          ...optional.map((f) => `<span class="reason-chip reason-chip--sea">${esc(f.label)} · 선택 과금</span>`),
+        ];
+        return chips.length ? chips.join('') : '<span class="muted">없음</span>';
       },
     ],
     ['스토어 누적 별점', (v) => storeStarsText(v.item)],
@@ -1334,6 +1397,7 @@ function sectionVerdict(view, verdictMeta) {
     <div class="m-sec-head"><span class="sec-num">01</span><h3>판정 요약</h3>
       <span class="pill pill--beam">${esc(view.recordTier?.label || '대표 티어')}</span>
       ${view.cheapest ? `<span class="pill pill--sea">최저 비용 · ${esc(view.cheapest.label)}</span>` : ''}
+      ${view.recordEval.optionalMonetization ? '<span class="pill pill--sea">선택 과금 · 무과금 가능</span>' : ''}
       <span class="pill pill--${view.fresh.stale ? 'warn' : 'ok'}">${esc(
         view.fresh.stale ? view.fresh.label : `최신 · ${view.fresh.elapsed}일`,
       )}</span>
@@ -1381,8 +1445,25 @@ function arenaNotesHtml(item) {
 
 function filterPill(check) {
   const exempt = check.status === 'exempt';
-  const tone = exempt ? 'ok' : check.status === 'fail' ? (check.enabled ? 'bad' : 'warn') : check.status === 'unknown' ? 'muted' : 'ok';
-  const mark = exempt ? '면제' : check.status === 'fail' ? '적중' : check.status === 'unknown' ? '미확인' : '통과';
+  const optional = check.status === 'fail' && check.optional;
+  const tone = exempt
+    ? 'ok'
+    : optional
+      ? 'sea'
+      : check.status === 'fail'
+        ? (check.enabled ? 'bad' : 'warn')
+        : check.status === 'unknown'
+          ? 'muted'
+          : 'ok';
+  const mark = exempt
+    ? '면제'
+    : optional
+      ? '선택 과금'
+      : check.status === 'fail'
+        ? '적중'
+        : check.status === 'unknown'
+          ? '미확인'
+          : '통과';
   return `<span class="pill pill--${tone}" title="${esc(check.note)}">${check.enabled ? '' : '꺼짐 · '}${esc(check.label)} ${mark}${
     exempt ? ' · 완결작' : ''
   }${check.status === 'fail' ? ` (${esc(engine.gradeWeakest(check.grade))})` : ''}</span>`;
@@ -1434,6 +1515,7 @@ function renderCalc(view) {
         <p class="mini-label" style="margin:12px 0 4px">① 하드 필터 — 티어 <code>${esc(e.tierId)}</code></p>
         <div class="tag-cloud">${e.filterChecks.filter((f) => f.enabled).map(filterPill).join('') || '<span class="muted">켜진 필터 없음</span>'}</div>
         ${e.blocking.length ? `<div class="callout callout--bad"><b>차단</b> ${e.blocking.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ')}</div>` : ''}
+        ${e.optionalFails.length ? `<div class="callout callout--warn"><b>선택 과금</b> ${e.optionalFails.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ')} — 확률형·P2W 상품은 있지만 무과금으로 본편을 즐길 수 있어 기본 모드에서는 거르지 않고 배지로만 알립니다. <code>strict_monetization</code> 을 켜면 거름이 됩니다.</div>` : ''}
         ${e.weakFails.length ? `<div class="callout callout--warn"><b>근거 약함</b> ${e.weakFails.map((f) => `${esc(f.label)}(${esc(engine.gradeWeakest(f.grade))})`).join(' · ')} — 완화 모드에서 조건부 경고로 처리</div>` : ''}
         ${disabled.length ? `<details><summary class="calc-summary">꺼진 필터 ${disabled.length}개 보기</summary><div class="tag-cloud" style="margin-top:6px">${disabled.map(filterPill).join('')}</div></details>` : ''}
         <p class="mini-label" style="margin:12px 0 4px">④ 판정 규칙 (위에서부터 먼저 맞는 것)</p>
@@ -1542,7 +1624,7 @@ function sectionTiers(view) {
               (f) =>
                 `${f.enabled ? '' : '<span class="muted">(꺼짐)</span> '}${esc(f.label)} <b>${esc(
                   engine.gradeWeakest(f.grade),
-                )}</b>${f.weakGrade && !evaluation.strict ? ' <span class="muted">근거 약함</span>' : ''}`,
+                )}</b>${f.optional ? ' <span class="pill pill--sea">선택 과금</span>' : ''}${f.weakGrade && !evaluation.strict ? ' <span class="muted">근거 약함</span>' : ''}`,
             )
             .join('<br>')
         : '<span class="muted">—</span>';
@@ -1558,7 +1640,11 @@ function sectionTiers(view) {
         <td>${esc(tier.price?.display || '—')}</td>
         <td><span class="pill pill--${meta.tone}">${meta.emoji} ${meta.label}</span><div class="source-meta">기록: ${esc(
           engine.VERDICT_META[evaluation.storedVerdict]?.label || evaluation.storedVerdict,
-        )}</div></td>
+        )}</div>${
+          evaluation.optionalFails.length
+            ? '<div class="source-meta">선택 과금 · 무과금 가능</div>'
+            : ''
+        }</td>
         <td class="num">${evaluation.score != null ? evaluation.score.toFixed(1) : '—'}</td>
         <td>${fails}</td>
         <td>${esc(tier.one_liner || '')}</td>
@@ -1743,8 +1829,40 @@ function sectionMoney(view) {
       <article class="money-card"><h4>⑶ 확률형 아이템</h4><div class="money-value">${esc(engine.TRI_LABEL[iap.random_items] || '미확인')}</div><div class="money-tags"><span class="pill">IAP 존재 ${esc(engine.TRI_LABEL[iap.present] || '미확인')}</span><span class="pill">근거 ${esc(engine.gradeWeakest(iap.evidence_grade || 'unknown'))}</span></div><p class="money-note">확률형 여부는 스토어 표기(‘Includes Random Items’)를 그대로 지표로 씁니다 — 등급 A.</p></article>
       <article class="money-card"><h4>⑷ IAP 최고가·첫 결제 유도</h4><div class="money-value">${minText || maxText ? `${esc(minText || '?')} ~ ${esc(maxText || '?')}` : (iap.present === 'yes' ? '가격대 미확인' : '인앱결제 없음')}</div><div class="money-tags"><span class="pill">첫 유도 ${esc(engine.PROMPT_LABEL[iap.first_purchase_prompt] || '미확인')}</span><span class="pill ${iap.p2w === 'yes' ? 'pill--bad' : ''}">P2W ${esc(engine.TRI_LABEL[iap.p2w] || '미확인')}</span><span class="pill ${iap.required_to_progress === 'yes' ? 'pill--bad' : ''}">진행 필수 ${esc(engine.TRI_LABEL[iap.required_to_progress] || '미확인')}</span><span class="pill">근거 ${esc(engine.gradeWeakest(range.evidence_grade || 'unknown'))}</span></div><p class="money-note">${esc(range.note || '가격대 기록 없음')}</p></article>
     </div>
+    ${impactBlockHtml(view)}
     <dl class="kv"><dt>구독</dt><dd>${esc(engine.TRI_LABEL[money.subscription?.present] || '미확인')} · ${esc(money.subscription?.display || '—')}</dd><dt>과금 요약</dt><dd>${esc(money.summary || '—')}</dd></dl>
   </section>`;
+}
+
+/* --- 08-1 확률형·P2W 강도 --- */
+function impactBlockHtml(view) {
+  const checks = view.recordEval.filterChecks.filter((check) => check.impactKey);
+  const free = view.item.monetization?.free_play;
+  if (!checks.length) return '';
+  const tone = (check) =>
+    check.status === 'pass' ? 'ok' : check.status === 'fail' ? (check.impact === 'optional' ? 'sea' : 'bad') : 'muted';
+  return `
+    <div class="impact-block">
+      <p class="mini-label" style="margin:14px 0 6px">확률형·P2W 강도 (impact)</p>
+      <div class="tag-cloud">
+        ${checks
+          .map(
+            (check) =>
+              `<span class="pill pill--${tone(check)}" title="${esc(check.note)}">${esc(check.label)} · ${esc(
+                engine.IMPACT_META[check.impact]?.label || check.impact || '—',
+              )}</span>`,
+          )
+          .join('')}
+      </div>
+      ${
+        free
+          ? `<p class="money-note">무과금 충분성: <b>${esc(FREE_PLAY_LABEL[free.value] || free.value)}</b> · 근거 ${esc(
+              engine.gradeWeakest(free.evidence_grade || 'unknown'),
+            )} — ${esc(free.note || '')}</p>`
+          : '<p class="money-note">무과금 충분성은 기록되지 않았습니다(⚪).</p>'
+      }
+      <p class="money-note">impact <code>optional</code> 은 상품이 있어도 무과금으로 본편을 즐길 수 있다는 뜻이며, 기본 모드에서는 거르지 않고 배지로 알립니다. <code>core</code> 는 과금 없이 진행이 막혀 거름입니다.</p>
+    </div>`;
 }
 
 /* --- 09 업데이트 --- */
@@ -1937,6 +2055,20 @@ function buildTuneBody() {
     </section>
 
     <section class="tune-sec">
+      <div class="panel-head"><h3>과금 강도</h3><span class="panel-hint" id="strictMonetizationState">${state.strictMonetization ? 'ON' : 'OFF'}</span></div>
+      <label class="switch">
+        <input type="checkbox" id="strictMonetizationToggle" ${state.strictMonetization ? 'checked' : ''} />
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        <span class="switch-text"><code>strict_monetization</code> — 상점에 확률형·P2W 상품이 하나라도 있으면 거름</span>
+      </label>
+      <p class="hint" id="strictMonetizationHint">${
+        state.strictMonetization
+          ? '지금은 상품이 있기만 해도 거름입니다(기존 v0.3.1 동작). 무과금으로 충분한 작품까지 걸러집니다.'
+          : '기본값은 OFF 입니다. 확률형·P2W 상품이 있어도 무과금으로 본편을 즐길 수 있으면 「선택 과금 · 무과금 가능」 배지로만 알리고, 점수·신호로 추천·조건부를 정합니다. 과금 없이 진행이 막히는 작품(impact: core)은 이 설정과 무관하게 거름입니다.'
+      }</p>
+    </section>
+
+    <section class="tune-sec">
       <div class="panel-head"><h3>근거 엄격 모드</h3><span class="panel-hint" id="strictState">${state.strict ? 'ON' : 'OFF'}</span></div>
       <label class="switch">
         <input type="checkbox" id="strictToggle" ${state.strict ? 'checked' : ''} />
@@ -2011,6 +2143,14 @@ function updateTuneMeta() {
   if (count) count.textContent = `${state.enabledFilters.length}/${(contract().hard_filters || []).length}`;
   const strict = $('strictState');
   if (strict) strict.textContent = state.strict ? 'ON' : 'OFF';
+  const monetization = $('strictMonetizationState');
+  if (monetization) monetization.textContent = state.strictMonetization ? 'ON' : 'OFF';
+  const monetizationHint = $('strictMonetizationHint');
+  if (monetizationHint) {
+    monetizationHint.textContent = state.strictMonetization
+      ? '지금은 상품이 있기만 해도 거름입니다(기존 v0.3.1 동작). 무과금으로 충분한 작품까지 걸러집니다.'
+      : '기본값은 OFF 입니다. 확률형·P2W 상품이 있어도 무과금으로 본편을 즐길 수 있으면 「선택 과금 · 무과금 가능」 배지로만 알리고, 점수·신호로 추천·조건부를 정합니다. 과금 없이 진행이 막히는 작품(impact: core)은 이 설정과 무관하게 거름입니다.';
+  }
   const hint = $('strictHint');
   if (hint) {
     hint.innerHTML = state.strict
@@ -2022,7 +2162,7 @@ function updateTuneMeta() {
     const weights = scoringAxes().map((def) => `${def.label} ${state.weights[def.key]}%`).join(' · ');
     foot.innerHTML = `${esc(presetLabel())} · ${esc(weights)}<br>필터 ${state.enabledFilters.length}개 · ${
       state.strict ? '엄격' : '완화'
-    } 모드`;
+    } 모드 · 선택 과금 ${state.strictMonetization ? '거름' : '허용'}`;
   }
   const summary = $('tuneSummary');
   if (summary) summary.textContent = presetLabel();
@@ -2123,7 +2263,7 @@ function buildMethodBody() {
             .join('')}
         </tbody>
       </table></div>
-      <p class="m-sec-note">가중 점수 = Σ(w×s) ÷ Σw. 점수가 없는 축(⚪)은 분자·분모에서 모두 빠집니다. 입력 가중치는 합계로 정규화합니다.</p>
+      <p class="m-sec-note">가중 점수 = Σ(w×s) ÷ Σw. 점수가 없는 축(⚪)은 분자·분모에서 모두 빠집니다. 입력 가중치는 합계로 정규화합니다. 과금의 <b>강도</b>는 점수 대신 impact·free_play 로 따로 기록해, 같은 사실을 두 번 감점하지 않습니다.</p>
     </section>
 
     <section class="m-sec">
@@ -2141,7 +2281,21 @@ function buildMethodBody() {
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">D</span><h3>판정 규칙 (위에서부터 먼저 맞는 것)</h3></div>
+      <div class="m-sec-head"><span class="sec-num">D</span><h3>확률형·P2W 강도 3단계</h3></div>
+      <p class="m-sec-note">상점에 확률형·P2W 상품이 <b>하나라도 있으면 거름</b>이 아니라, 그 상품을 사지 않아도 게임이 성립하는지를 먼저 봅니다. 필터 상태는 <code>fail</code> 로 남겨 상품이 있다는 사실을 숨기지 않고, 판정만 강도에 따라 나뉩니다.</p>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>impact</th><th>뜻</th><th>기본 모드의 판정</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill pill--ok">none</span></td><td>상품 자체가 없다</td><td>필터 통과</td></tr>
+          <tr><td><span class="pill pill--sea">optional</span></td><td>상품은 있으나 인게임 재화·무과금으로 본편·핵심 콘텐츠를 충분히 즐길 수 있다</td><td><b>거르지 않고</b> 「선택 과금 · 무과금 가능」 배지 · 점수·신호로 추천/조건부</td></tr>
+          <tr><td><span class="pill pill--bad">core</span></td><td>과금·확률형 뽑기 없이는 성장 벽에 막히거나 진행·경쟁이 실질적으로 불가능하다</td><td>거름(🔴)</td></tr>
+        </tbody>
+      </table></div>
+      <p class="m-sec-note">근거는 <code>monetization.free_play</code>(무과금 충분성)에 남깁니다. <code>impact: optional</code> 이면 무과금으로 충분하다는 근거가 있어야 하고 검증기가 이를 확인합니다. ‘내 기준 미세조정’의 <code>strict_monetization</code>(기본 OFF)을 켜면 optional 까지 상품 존재만으로 거릅니다 — v0.3.1 과 같은 동작입니다.</p>
+    </section>
+
+    <section class="m-sec">
+      <div class="m-sec-head"><span class="sec-num">E</span><h3>판정 규칙 (위에서부터 먼저 맞는 것)</h3></div>
       <ol class="rules rules--static">${rules
         .map((rule, i) => `<li class="${i === 0 ? 'is-active' : ''}" title="${esc(rule)}">${esc(RULE_TEXT_KO[i] || rule)}</li>`)
         .join('')}</ol>
@@ -2149,7 +2303,7 @@ function buildMethodBody() {
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">E</span><h3>독립성 — 무엇을 받지 않는가</h3></div>
+      <div class="m-sec-head"><span class="sec-num">F</span><h3>독립성 — 무엇을 받지 않는가</h3></div>
       <div class="callout callout--ok">
         <b>파로스는 어필리에이트 링크·유료 광고·협찬 배치를 쓰지 않습니다.</b>
         순위·판정·점수는 어떤 대가와도 무관하며, 스토어 이미지도 복제하지 않고 텍스트·수치·공식 링크만 씁니다.
@@ -2158,10 +2312,13 @@ function buildMethodBody() {
     </section>
 
     <section class="m-sec">
-      <div class="m-sec-head"><span class="sec-num">F</span><h3>용어 도움말</h3></div>
+      <div class="m-sec-head"><span class="sec-num">G</span><h3>용어 도움말</h3></div>
       <dl class="kv kv--glossary">
         <dt>근거 등급</dt><dd>A/B/C — 값이 어디서 왔는지. C뿐이면 판정을 낮게 잡습니다.</dd>
         <dt>하드 필터</dt><dd>점수와 무관하게 거르는 절대 조건(강제 광고·확률형 뽑기·P2W·계정 필수 등).</dd>
+        <dt>선택 과금(impact: optional)</dt><dd>상점에 확률형·P2W 상품이 있어도 인게임 재화·무과금으로 본편을 충분히 즐길 수 있는 상태. 기본 모드에서는 거르지 않고 「선택 과금 · 무과금 가능」 배지로 알립니다.</dd>
+        <dt>핵심 과금(impact: core)</dt><dd>과금·확률형 뽑기 없이는 성장 벽에 막히거나 진행·경쟁이 실질적으로 불가능한 상태. 기본 모드에서도 거름입니다.</dd>
+        <dt>strict_monetization</dt><dd>‘내 기준 미세조정’의 토글(기본 OFF). 켜면 상품이 있기만 해도 거름 — v0.3.1 과 같은 동작입니다.</dd>
         <dt>엄격 모드</dt><dd>등급 C 근거의 필터 적중도 거름으로 처리. 끄면 ‘근거 약함’ 조건부 경고로 완화합니다.</dd>
         <dt>면제(exempt)</dt><dd>완결작이 12개월 넘게 업데이트가 없어도 방치가 아니라고 판단한 상태. 거름이 아닙니다.</dd>
         <dt>비교군</dt><dd>같은 자리를 두고 겨루는 대체제 묶음. 평균·순위는 이 안에서만 냅니다.</dd>
@@ -2350,6 +2507,8 @@ async function onClick(event) {
       state.enabledFilters = [...(contract().default_enabled_filters || [])];
       state.preset = 'balanced';
       state.weights = { ...engine.defaultWeights(contract()) };
+      state.strictMonetization = contract().monetization_impact?.strict_toggle?.default === true;
+      state.strict = contract().evidence_rules?.strict_evidence_default !== false;
       savePrefs();
       buildTuneBody();
       refreshAfterSettingChange({ filters: true });
@@ -2444,6 +2603,13 @@ function onChange(event) {
   }
   if (target.id === 'strictToggle') {
     state.strict = target.checked;
+    savePrefs();
+    updateTuneMeta();
+    refreshAfterSettingChange();
+    return;
+  }
+  if (target.id === 'strictMonetizationToggle') {
+    state.strictMonetization = target.checked;
     savePrefs();
     updateTuneMeta();
     refreshAfterSettingChange();

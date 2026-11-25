@@ -1,8 +1,8 @@
 ---
-title: "🧭 Pharos 앱·게임 다층 평가 기준표 v0.3.1"
+title: "🧭 Pharos 앱·게임 다층 평가 기준표 v0.4.0"
 ---
 
-# Pharos (파로스) — 앱·게임 다층 평가 기준표 (v0.3.1)
+# Pharos (파로스) — 앱·게임 다층 평가 기준표 (v0.4.0)
 
 단일 별점 평균의 한계(리뷰 조작, 취향 무시, 양산형 혼재)를 넘기 위해 4개의 독립된 축을 조합해 선별한다. **v0.2(2026-11-24)** 는 파일럿 4종(`pilot-test.md`)의 빈틈을 정식 반영한 개정판이다: ① 판정을 **티어 단위**로 분리하고 최소 비용 경로를 함께 내고, ② 광고·과금을 **4개 항목으로 세분화**하며(인앱 노출 / 유입 광고 정직성 / 확률형 아이템 / IAP 최고가·첫 결제 유도), ③ 업데이트를 **성격별로 태그**하고 공약 이행을 따로 보며, ④ **최근 리뷰 표본 수·기간과 근거 등급 A/B/C**를 모든 판정에 명시한다.
 
@@ -10,7 +10,7 @@ title: "🧭 Pharos 앱·게임 다층 평가 기준표 v0.3.1"
 
 **v0.3.1(2026-11-24)** 은 10절 6번의 빈틈을 닫는다. `Inscryption`(긍정 97%·1회 구매·DLC 없음 선언)이 마지막 게임 업데이트 2022-06 때문에 `stale_over_12m`으로 거름이 되던 문제를, 각 아이템의 **`maintenance_status`(수명 단계)** 로 '완결(feature_complete)'과 '방치(abandoned)'를 구분해 해결한다(4.1절·6.1절). 이 기준표의 8절 산식은 웹 프론트엔드가 서버 없이 브라우저에서 그대로 계산한다. 웹은 `web/` 폴더 하나로 배포되며, 데이터·스키마 사본은 `scripts/sync_web_data.py`로 원본과 동기화한다(11절).
 
-**데이터 구조 v0.4.0(2026-11-25)** 은 평가 기준을 바꾸지 않고 담는 그릇만 4단(도메인 → 대분류 → 비교군 → 항목)으로 나눈다. `schema/item.schema.json` v0.4.0 은 아이템에 `domain`·`category`(대분류 id)를 명시하고, 비교군 정의는 `x-pharos.client.arenas` 에서 `data/catalog.json` 으로 옮겼다. 아이템은 비교군별 파일(`data/app/pkm-notes.json` 등)로 나뉘고, 통합 검색·홈 리포트용 경량 인덱스 `data/search-index.json` 이 분할 데이터에서 자동 생성된다.
+**v0.4.0(2026-11-25)** 은 두 가지를 함께 담는다. ⑴ **담는 그릇**: 4단(도메인 → 대분류 → 비교군 → 항목) 구조 — `schema/item.schema.json` v0.4.0 은 아이템에 `domain`·`category`를 명시하고, 비교군 정의는 `x-pharos.client.arenas` 에서 `data/catalog.json` 으로 옮겼다. 아이템은 비교군별 파일(`data/app/pkm-notes.json` 등)로 나뉘고, 통합 검색·홈 리포트용 경량 인덱스 `data/search-index.json` 이 분할 데이터에서 자동 생성된다. ⑵ **판정 기준**: **확률형·P2W의 강제성을 3단계(`impact`)로 나눈다**. v0.3.1까지는 상점에 확률형·P2W 상품이 하나라도 있으면 무조건 거름이어서, 무과금으로 충분히 즐길 수 있는 게임(검은사막·Bloons TD 6·Guild Wars 2·Limbus Company)까지 거름 통에 들어갔다. 이제 `impact: optional` 은 기본 모드에서 거르지 않고 「선택 과금 · 무과금 가능」 배지로 알리며, 상품 존재 자체로 거르고 싶은 사람은 미세조정의 `strict_monetization`(기본 OFF)을 켜면 된다(3.1절·6.1절). 이 기준표의 8절 산식은 웹 프론트엔드가 서버 없이 브라우저에서 그대로 계산한다. 웹은 `web/` 폴더 하나로 배포되며, 데이터·스키마 사본은 `scripts/sync_web_data.py`로 원본과 동기화한다(11절).
 
 ## 0. 표기와 판정 단위 원칙
 
@@ -62,6 +62,21 @@ rows:
 
 - '광고 있음/없음' 한 칸으로는 Hero Wars형 피해를 잡지 못한다. ⑵는 **인앱 광고와 별개 항목**으로, 인앱 광고가 선택형(보상형)이라 노출 지표가 낮아도 유입 광고가 실제 플레이와 다르면 치명 감점이다.
 - ⑶은 스토어 문구를 그대로 지표로 쓴다(등급 A). ⑷의 최고가는 3자 집계만 있으면 등급 C로 표기하고 "스토어 미확인"을 데이터 신뢰도에 남긴다.
+
+**⑶·P2W의 강도(impact) — v0.4.0 신규.** 상품이 있는지만 보면 같은 거름 안에 성격이 다른 작품이 섞인다. Bloons TD 6(유료·무광고·선택형 상자)와 Clash Royale(상자가 성장의 핵심)는 둘 다 '확률형 아이템 포함'이지만 선택지가 다르다.
+
+```table
+title: 확률형·P2W 강도 — 필터 판정과 분리해 기록한다
+headers: ["impact", "뜻", "필터 상태", "기본 모드 판정"]
+rows:
+  - ["none", "확률형·P2W 상품 자체가 없다", "pass", "통과"]
+  - ["optional", "상품은 있지만 인게임 재화(거래소·정가·시즌 지원 등)·무과금으로 본편과 핵심 콘텐츠를 충분히 즐길 수 있다", "fail(사실 유지)", "거르지 않음 — 「선택 과금 · 무과금 가능」 배지 + 점수·신호로 추천/조건부"]
+  - ["core", "과금·확률형 뽑기 없이는 성장 벽에 막히거나 경쟁·진행이 실질적으로 불가능하다", "fail", "거름(🔴)"]
+```
+
+- impact 는 `hard_filters.gacha_random_items`·`hard_filters.p2w` 에만 적는다. 값이 없으면 상태에서 추론한다(**pass → none, fail → core** — 보수적 기본값).
+- `optional` 은 **명시적으로 기록**해야 하고, 그 근거로 `monetization.free_play.value == "sufficient"`(무과금 충분성)를 요구한다. 검증기가 둘의 모순을 막는다.
+- 필터 상태는 `fail` 로 **남긴다**. 상품이 있다는 사실을 숨기지 않고, 판정만 강도에 따라 나뉜다.
 
 ### 3.2 그 밖의 하드 팩트
 
@@ -126,6 +141,24 @@ rows:
 - **적합 대상 판별**: "이런 사람에겐 맞고, 이런 사람에겐 비추"를 명확히 나눈다.
 - **점수 근거**: 완성도·정직성·유지보수 맥락을 종합한 0~100이며, 감점 사유를 최소 1개 이상 적는다.
 
+### 5.1 본질 완성도와 무과금 완주 가능성 — 별도 판단으로 둔다 (v0.4.0 신규)
+
+- **본질 완성도**(대체 불가한 액션·재미·장르 완성도)는 AI 검토 축의 중심이다. 과금 구조의 무거움은 `impact`(3.1·6.1)로 따로 기록하고, **같은 사실을 두 번 감점하지 않는다**.
+- **무과금 완주·플레이 가능성**은 `monetization.free_play` 로 기록한다.
+
+```table
+title: free_play — 무과금으로 어디까지 즐길 수 있는가
+headers: ["값", "뜻"]
+rows:
+  - ["sufficient", "무과금으로 본편·핵심 콘텐츠를 충분히 즐길 수 있다 (인게임 재화·정가 교환·시즌 지원 등 경로 있음)"]
+  - ["constrained", "즐길 수는 있지만 성장·수집·경쟁이 과금 쪽으로 기울어 제한적"]
+  - ["blocked", "과금·확률형 뽑기 없이는 진행이 막힌다"]
+  - ["unknown", "확인하지 못했다(⚪) — 추정으로 채우지 않는다"]
+```
+
+- `sufficient` 이고 상품이 선택형이면 `impact: optional`, `constrained`·`blocked` 이면 `core` 가 기본이다. 근거가 없으면 ⚪로 두고 `optional` 을 주장하지 않는다(검증기가 `optional` + `sufficient` 를 강제).
+- 예: **검은사막** — 시즌 패스의 동(V) 투발라 풀세트 지급(2026-07 공지)·대장장이 은화 구매·거래소 은화 경로로 `sufficient`(등급 A). **Bloons TD 6** — 1회 구매에 전 콘텐츠 포함, 인앱 상품은 선택형이라 `sufficient`(등급 A). **Limbus Company** — 상시 인격·E.G.O를 자아 파편 자판기 정가로 교환할 수 있어 `sufficient`(등급 C).
+
 ## 6. 나만의 평가 기준 (개인화) — "내 기준에 맞는가?"
 
 ### 6.1 하드 필터 (절대 거름 조건)
@@ -135,9 +168,9 @@ title: 하드 필터 9종 (모두 flags에서 기계적으로 계산)
 headers: ["필터 키", "뜻", "근거 플래그"]
 rows:
   - ["forced_ads", "내 데이터를 열기 전·사용 중 강제 전면 광고", "flags.forced_ad_before_use"]
-  - ["gacha_random_items", "확률형 아이템 포함", "flags.gacha_random_items"]
+  - ["gacha_random_items", "확률형 아이템 포함(impact로 강도 구분)", "flags.gacha_random_items"]
   - ["bait_ad", "미끼형(실제 플레이와 다른) 유입 광고", "flags.bait_ad"]
-  - ["p2w", "과금이 성능·승패를 직접 좌우", "flags.p2w"]
+  - ["p2w", "과금이 성능·승패를 직접 좌우(impact로 강도 구분)", "flags.p2w"]
   - ["iap_required_to_progress", "과금 없이는 진행 불가", "flags.iap_required_to_progress"]
   - ["stale_over_12m", "12개월 이상 업데이트 없음(완결작은 면제)", "flags.stale_over_12m"]
   - ["subscription_required", "실사용에 구독 필수", "flags.subscription_required"]
@@ -149,6 +182,13 @@ rows:
 - 필터 판정은 `pass` / `fail` / `unknown` / `exempt` 4값이며, **`unknown`은 통과로 치지 않고 '주의'로 표시**한다(모르는 것을 추천하지 않는다). `exempt`는 "필터 대상이지만 면제 규칙으로 거르지 않음"이라는 뜻이다.
 - **`fail`의 근거가 등급 C뿐이면** 기본(`strict_evidence: true`)에서는 거름, 엄격도를 낮추면 '조건부 경고'로 완화한다. 파일럿의 Evernote 무료 판정은 strict 기준이다.
 
+**확률형·P2W 3단계 판정 규칙(개정, v0.4.0)**
+
+1. `impact: core`(또는 impact 미기록 fail) → 활성 필터에서 **거름**. `strict_monetization` 설정과 무관하다.
+2. `impact: optional` + `strict_monetization` OFF(기본) → **거르지 않고** 「선택 과금 · 무과금 가능」 배지만 붙인다. 판정은 8절 ②~⑥(점수·신호)으로 정한다.
+3. `impact: optional` + `strict_monetization` ON → 상품이 있다는 이유만으로 **거름**(v0.3.1 동작).
+4. 배지·상세에는 `monetization.free_play`(무과금 충분성)와 근거 등급을 함께 보인다 — “무과금으로 충분”이라는 주장에 근거가 있는지 확인할 수 있게 한다.
+
 **stale_over_12m 판정 규칙(개정, v0.3.1)**
 
 1. `maintenance_status == "feature_complete"` → 필터가 켜져 있어도 **거름 아님**. 티어 상태는 `exempt`로 기록하고 카드·상세에는 '완결작' 배지와 '면제' 사유를 보인다.
@@ -159,6 +199,7 @@ rows:
 ### 6.2 축별 가중치와 취향 매칭
 
 - 슬라이더 3개: **사용자 평가 / 객관·신뢰 지표 / AI 검토** (상대값, 합계 1로 정규화). 기본값 **0.40 / 0.35 / 0.25**.
+- 토글 2개: **`strict_evidence`**(등급 C 근거의 필터 적중도 거름, 기본 ON)와 **`strict_monetization`**(상점에 확률형·P2W 상품이 하나라도 있으면 거름, 기본 OFF). 둘은 가중치와 별개로 ①단계에만 작동한다.
 - **취향 적합(`personal_fit`)** 은 프로필이 있을 때만 4번째 축으로 켜진다(기본 가중치 0). 파일럿은 P1 프로필로 고정해 평가했다.
 - 선호 스타일 태그(`local-first`, `minimal-ui`, `one-time-purchase`, `no-account` 등)를 아이템 태그와 대조해 적합도를 낸다.
 - 계산은 전부 브라우저에서 한다(8절). 서버는 데이터만 배포한다.
@@ -186,7 +227,7 @@ rows:
 - **① 축 점수** `s_k ∈ [0,100] ∪ {null}` — `user_rating`, `objective`, `ai_review`, (`personal_fit`).
 - **② 가중 점수** `score = Σ(w_k × s_k) / Σ(w_k)` — `s_k`가 null인 축은 분자·분모에서 모두 제외한다.
 - **③ 유효 신호** — 티어 오버라이드가 있으면 그 값을, 없으면 아이템 축 신호를 쓴다.
-- **④ 판정 규칙(위에서부터 먼저 맞는 것)** — ⓐ 사용자가 켠 필터 중 하나라도 `fail`이면 **🔴 거름**(등급 C + lenient 모드면 1단계 완화 · `exempt`는 fail이 아니다), ⓑ 🔴 축 2개 이상이면 **🔴 거름**, ⓒ 🔴 1개면 **🟡 조건부**, ⓓ 🟡 2개 이상이면 **🟡 조건부**, ⓔ `score ≥ 80`이고 🟡 ≤ 1이면 **🟢 추천**, ⓕ 그 외 **🟡 조건부**, ⓖ 완결작 면제(`exempt`)에 `compat_risk: yes`가 붙으면 **🟡 조건부 경고**로 내림.
+- **④ 판정 규칙(위에서부터 먼저 맞는 것)** — ⓐ 사용자가 켠 필터 중 `fail` 이고 (`impact ≠ optional` 또는 `strict_monetization` ON)인 것이 하나라도 있으면 **🔴 거름**(등급 C + lenient 모드면 1단계 완화 · `exempt`는 fail이 아니다). `impact: optional` 은 거름이 아니라 배지로만 쓰고 ⓑ~ⓕ로 판정한다. ⓑ 🔴 축 2개 이상이면 **🔴 거름**, ⓒ 🔴 1개면 **🟡 조건부**, ⓓ 🟡 2개 이상이면 **🟡 조건부**, ⓔ `score ≥ 80`이고 🟡 ≤ 1이면 **🟢 추천**, ⓕ 그 외 **🟡 조건부**, ⓖ 완결작 면제(`exempt`)에 `compat_risk: yes`가 붙으면 **🟡 조건부 경고**로 내림.
 - **⑤ 최소 비용 경로** — `recommended_path: true`인 티어를 카드 하단에 고정 노출한다.
 
 ```table
@@ -204,6 +245,20 @@ rows:
 ```
 
 > Inscryption은 v0.3에서 80.15점·`stale_over_12m` 거름이었다. v0.3.1은 같은 점수로 판정만 **🟢 추천**으로 바꾸고, 왜 바꿨는지(`maintenance_status=feature_complete`, 필터 상태 `exempt`)를 데이터에 남긴다. Joplin·Slay the Spire는 v0.3 파일럿 판정을 유지한다.
+
+```table
+title: v0.4.0 impact 재적용으로 판정이 바뀐 항목 (기본 가중치 0.40/0.35/0.25, strict_monetization OFF)
+headers: ["항목", "impact", "축 점수(사용자/객관/AI)", "가중 점수", "v0.3.1 → v0.4.0"]
+rows:
+  - ["Black Desert", "gacha optional · p2w optional", "72 / 78 / 96", "80.1", "🔴 54.15 → 🟢 추천"]
+  - ["Guild Wars 2", "gacha optional", "88 / 60 / 84", "77.2", "🔴 거름 → 🟡 조건부"]
+  - ["Bloons TD 6", "gacha optional", "94 / 62 / 88", "81.3", "🔴 거름 → 🟢 추천"]
+  - ["Limbus Company", "gacha optional", "90 / 62 / 84", "78.7", "🔴 거름 → 🟡 조건부"]
+  - ["Lost Ark", "gacha core · p2w core", "43 / 30 / 55", "41.45", "🔴 거름 유지"]
+  - ["Clash Royale", "gacha core · p2w core", "80 / 22 / 62", "55.2", "🔴 거름 유지"]
+```
+
+> `strict_monetization` 을 켜면 위 `optional` 4건은 같은 데이터에서 다시 🔴 거름이 된다. 엔진·검증기 테스트가 두 설정의 판정 차이를 확인한다(`schema/validate.py` [7-1], `web/tests/verify_ui.py` 10-4).
 
 ## 9. 비교군(Arena) — "무엇과 무엇을 나란히 놓는가"
 
@@ -226,10 +281,10 @@ rows:
 - 비교군 선택은 카테고리·검색과 **AND**로 적용한다. 비교군이 정해지면 요약(추천/조건부/거름 수, 평균 가중 점수)도 그 묶음 기준으로 즉시 다시 계산한다.
 - 판정 산식(8절)은 비교군 안에서도 그대로다. 비교군은 "무엇을 같은 표에 놓는가"만 바꾸고, 점수와 필터는 바꾸지 않는다.
 - 액션 로그라이크 비교군은 완결작(Hades), 1회 구매 + DLC 분기(Dead Cells), PC/모바일 티어가 갈리는 작품(Vampire Survivors), 부분유료·확률형 대조군(Archero)이 한 표에 놓이는 자리다. 티어별 조건은 `axis_overrides` 로 분리해 기록한다.
-- 모바일 수집형 RPG 비교군은 미끼형 광고·P2W가 확인되는 Hero Wars, 광고·PvP 없이 확률형 추출만 있는 Limbus Company, 품질은 최상급이지만 확률형 뽑기가 수익 구조인 Genshin Impact 를 나란히 둔다. 세 항목 모두 확률형 아이템 필터에서 거름이 되지만 거름의 이유와 축 점수는 다르다. 대체제 섹션은 티어가 여러 개인 항목을 만나면 추천 판정인 티어를 기준으로 평가해 같은 비교군 안에서만 연결한다.
+- 모바일 수집형 RPG 비교군은 미끼형 광고·P2W가 확인되는 Hero Wars, 광고·PvP 없이 확률형 추출이 있는 Limbus Company, 품질은 최상급이지만 확률형 뽑기가 수익 구조인 Genshin Impact 를 나란히 둔다. v0.4.0에서 **Limbus Company는 자판기 정가 구조를 근거로 `impact: optional` → 🟡 조건부(78.7)** 로 내려왔고, Hero Wars·Genshin Impact는 `core` 로 남아 🔴 거름이다. 같은 필터 적중이라도 강도와 판정이 갈린다. 대체제 섹션은 티어가 여러 개인 항목을 만나면 추천 판정인 티어를 기준으로 평가해 같은 비교군 안에서만 연결한다.
 - 덱빌딩 비교군은 v0.3.1에서 **1회 구매 완결작(Inscryption·Balatro·Slay the Spire)과 부분유료·광고형(Night of the Full Moon)** 이 한 표에 나란히 놓이는 자리다. 완결작 면제 덕분에 Inscryption이 '업데이트 공백'이 아니라 '과금 없음·완결'로 비교된다.
-- PC MMORPG 비교군은 **정액제+확장팩**(FINAL FANTASY XIV), **본편 무료+확장팩 1회 구매**(Guild Wars 2), **무료+성장 재화·확률형 카드 팩**(Lost Ark), **본편 구매+강화 지원·확률형 보화 상자**(Black Desert)를 한 표에 둔다. 네 항목의 '구독 필수' 해석과 확장팩·캐시샵 경계가 이번 확장에서 가장 많이 걸린 지점이다(10절 10~12번).
-- 모바일 전략·디펜스 비교군은 **유료·무광고(Bloons TD 6)**, **유료인데 광고·영웅 별매(Kingdom Rush Vengeance)**, **무료+상자 뽑기 PvP(Clash Royale)**, **무료+광고+확률형·식물 과금(Plants vs. Zombies 2)** 을 둔다. 같은 장르에서 '무료'가 무엇을 뜻하는지 대조하는 자리이며, Bloons TD 6처럼 품질·과금이 깨끗한 작품도 스토어의 '확률형 아이템 포함' 표기 하나로 거름이 되는 문제를 드러냈다(10절 13번).
+- PC MMORPG 비교군은 **정액제+확장팩**(FINAL FANTASY XIV 🟢 80.7), **본편 무료+확장팩 1회 구매**(Guild Wars 2 🟡 77.2), **무료+성장 재화·확률형 카드 팩**(Lost Ark 🔴 41.45), **본편 구매+강화 지원·확률형 보화 상자**(Black Desert 🟢 80.1)를 한 표에 둔다. 네 항목의 '구독 필수' 해석과 확장팩·캐시샵 경계가 2차 확장에서 가장 많이 걸린 지점이다(10절 10~12번). v0.4.0에서 Guild Wars 2는 코스메틱 상자 → `optional`(조건부), Black Desert는 시즌 장비·거래소 경로 → `optional`(추천)로 자리를 찾았고, Lost Ark는 성장 재화 판매가 핵심이라 `core`(거름)로 남겼다.
+- 모바일 전략·디펜스 비교군은 **유료·무광고(Bloons TD 6 🟢 81.3)**, **유료인데 광고·영웅 별매(Kingdom Rush Vengeance 🟢 80.2)**, **무료+상자 뽑기 PvP(Clash Royale 🔴 55.2)**, **무료+광고+확률형·식물 과금(Plants vs. Zombies 2 🔴 48.0)** 을 둔다. 같은 장르에서 '무료'가 무엇을 뜻하는지 대조하는 자리다. Bloons TD 6는 스토어의 '확률형 아이템 포함' 표기 때문에 v0.3.1에서 거름이 된 사례다 — v0.4.0은 상품이 선택형임을 근거로 `impact: optional` 로 분류해 **추천으로 되돌렸다**(10절 13번 닫힌 항목).
 
 ## 10. 남은 빈틈 (다음 개정 후보)
 
@@ -245,11 +300,15 @@ rows:
 10. **아이템 단위 flags vs 티어별 조건 — 2차 확장에서 드러남**: `flags` 는 아이템 하나에 붙는데 실제 조건은 티어마다 다르다. FINAL FANTASY XIV는 '80레벨까지 기간 제한 없는 무료 체험'과 '본편 구독 필수'가 한 아이템에 공존해, 무료 체험을 티어로 넣으면 `subscription_required=yes`(아이템)와 충돌한다. 이번에는 무료 체험을 티어 대신 카드 서술·`limits`로 남겼다. 해결안: `flags` 를 티어 오버라이드 가능하게 하거나, `tier.hard_filters` 를 1차로 두고 아이템 flags 는 기본값으로만 쓰기.
 11. **'구독 필수'의 해석 — 정액제+확장팩+캐시샵**: FINAL FANTASY XIV는 구독이 실사용 필수라 `subscription_required=yes`(전 티어 fail)이고, Guild Wars 2는 본편 무료·확장팩 1회 구매라 `no` 다. 그런데 확장팩을 사지 않으면 신규 지역을 못 가는 구조를 '구독 필수'에 준하게 볼지, 'iap_required_to_progress'로 볼지 기준이 없다. 현재는 확장팩을 콘텐츠 구매로 보아 통과시켰다. 해결안: `expansion_required` 같은 별도 플래그와 '본편만으로 완결되는가' 필드를 두기.
 12. **지역 서비스 분리 — 어느 서비스의 가격·리뷰인가**: 한국 이용자는 스팀 글로벌판이 아니라 국내 서비스(FFXIV=액토즈 19,800원, Lost Ark=Stove, Black Desert=Pearl Abyss 자체)를 쓴다. 이번 데이터는 **가격은 국내 서비스, 리뷰는 글로벌 스팀**을 섞어 쓰고 `condition_notes`에 밝혔다. 스키마에 `service_region`·`tier.platform` 별 가격을 명시하는 필드가 필요하다.
-13. **확률형 아이템의 강도 구분 — 스토어 표기 하나로 같은 거름**: Bloons TD 6는 유료·광고 없음·P2W 없음인데 스토어가 '인앱 구매(확률형 아이템 포함)'로 표기해 기본 필터에서 거름이 된다. 반면 Clash Royale는 상자가 성장의 핵심이다. 둘을 같은 `gacha_random_items` 하나로 처리하면 '선택형 소모품'과 '수집·성장 축'이 구분되지 않는다. Guild Wars 2의 블랙 라이온 상자도 같은 문제다. 해결안: ⑴ 확률형 상품의 **영향 범위**(성장/수집/코스메틱/소모품) 필드, ⑵ `gacha_random_items` 를 '핵심'과 '주변'으로 나눈 2단 필터, ⑶ 거름 대신 '조건부(확률형 상품 미구매 시 추천)'로 내리는 규칙.
+13. **확률형 아이템의 강도 구분 — v0.4.0에서 해결(닫힌 항목)**: `hard_filters.gacha_random_items`·`p2w` 의 `impact`(none·optional·core), `monetization.free_play`(무과금 충분성), `strict_monetization` 토글로 닫았다. Bloons TD 6는 선택형 상품(등급 A)을 근거로 🟢 81.3, Guild Wars 2는 코스메틱 상자로 🟡 77.2, Black Desert는 시즌 장비·거래소 경로로 🟢 80.1, Limbus Company는 자판기 정가로 🟡 78.7 이 됐다. 남은 것은 **`optional` 판정의 근거 등급**이다 — Limbus Company의 자판기 정가 구조는 아직 커뮤니티 위키(등급 C)에 기댄다.
+
+14. **impact 재분류에 따른 objective 축 재정렬**: Black Desert의 objective 를 33→78로 올리면서, 비슷한 조건의 Guild Wars 2(60)·Limbus Company(62)보다 높아졌다. 이번에는 '무과금 경로의 확인 여부'와 '가격·확률 공개'를 더 무겁게 봤지만, v0.4 기준으로 objective 축의 절대 눈금을 다시 맞추는 작업이 남는다(2차 개정 후보 1순위).
+
+15. **무과금 충분성의 시간 비용**: `free_play: sufficient` 는 "즐길 수 있다"는 판단이지 "같은 시간에 도달한다"는 뜻이 아니다. 무과금으로 최상위 구간까지 가는 데 걸리는 시간을 신호로 쓰려면 별도 필드(`time_to_cap` 등)와 측정 기준이 필요하다.
 
 ## 11. 정적 배포 — web/ 폴더 하나로 동작한다
 
 - 배포 단위는 `projects/pharos/web/` 폴더다. GitHub Pages 루트(또는 `docs/`)에 이 폴더 내용만 올리면 `index.html`이 `./js/app.js` → `./data/catalog.json` · `./data/search-index.json` · `./schema/item.schema.json` 을 상대경로로 읽고, 선택한 비교군의 `data_file` 만 지연 로딩한다.
 - **단일 소스**: 원본은 `data/catalog.json`·`data/{domain}/{arena}.json`·`schema/item.schema.json` 이고, `data/search-index.json` 과 웹 사본(`web/data/`·`web/schema/`)은 `python3 projects/pharos/scripts/sync_web_data.py`로만 만든다. 손으로 고치지 않는다.
-- `validate.py`는 사본이 원본과 **바이트 단위로 같은지**(SHA-256), 인덱스가 분할 데이터에서 다시 생성한 결과와 같은지, 웹 JS 가 `./data/`·`./schema/` 상대경로만 쓰는지 검사한다. 어긋나면 배포 전에 실패한다.
+- `validate.py`는 사본이 원본과 **바이트 단위로 같은지**(SHA-256), 인덱스가 분할 데이터에서 다시 생성한 결과와 같은지, 웹 JS 가 `./data/`·`./schema/` 상대경로만 쓰는지 검사한다. v0.4.0은 여기에 **`impact` ↔ `free_play` 일관성**(optional이면 sufficient, core면 constrained·blocked)과 **3단계 판정·`strict_monetization` 토글 테스트**를 더했다. 어긋나면 배포 전에 실패한다.
 - `web/tests/verify_ui.py`는 서버 루트를 `web/`으로 두고 `/`를 열어, 상위 폴더(`../data`) 없이도 로드되는지 실제 브라우저로 확인한다.

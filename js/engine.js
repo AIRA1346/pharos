@@ -104,6 +104,36 @@ export const MAINTENANCE_STATUS_META = {
 
 export const STALE_FILTER_KEY = 'stale_over_12m';
 
+/**
+ * 확률형·P2W 상품의 강제성 3단계(v0.4)
+ * none=상품 없음 · optional=상품은 있지만 무과금으로 본편을 충분히 즐길 수 있음 · core=벽·진행 불가.
+ * gacha_random_items·p2w 에만 적용하며, 값이 없으면 상태에서 추론한다(pass→none, fail→core).
+ */
+export const MONETIZATION_IMPACT_KEYS = ['gacha_random_items', 'p2w'];
+
+export const IMPACT_META = {
+  none: { label: '상품 없음', tone: 'ok', mark: '없음' },
+  optional: { label: '선택 과금 · 무과금 가능', tone: 'warn', mark: '선택 과금' },
+  core: { label: '핵심 과금 · 성장 벽', tone: 'bad', mark: '핵심 과금' },
+};
+
+export function hasMonetizationImpact(key) {
+  return MONETIZATION_IMPACT_KEYS.includes(key);
+}
+
+/** 티어의 impact — 기록이 없으면 필터 상태에서 추론한다(보수적 기본값: fail→core). */
+export function tierImpact(tier, key, status) {
+  if (!hasMonetizationImpact(key)) return null;
+  const recorded = tier?.hard_filters?.[key]?.impact;
+  if (recorded === 'none' || recorded === 'optional' || recorded === 'core') return recorded;
+  return status === 'fail' ? 'core' : 'none';
+}
+
+/** strict_monetization 토글(기본 OFF) — 켜면 impact optional 도 상품 존재만으로 거른다. */
+export function strictMonetizationOf(settings) {
+  return settings?.strictMonetization === true;
+}
+
 /** 이 아이템이 '완결작 면제' 대상인가 — maintenance_status === 'feature_complete'. */
 export function isFeatureComplete(item) {
   return item?.maintenance_status === 'feature_complete';
@@ -269,17 +299,22 @@ export function evaluateTier(item, tier, settings) {
   const score = denominator > 0 ? numerator / denominator : null;
 
   // ① 하드 필터 — 켜진 필터 중 fail 이 하나라도 있으면 거름. 완결작은 stale_over_12m 면제.
+  //    단 확률형·P2W 의 impact 'optional' 은 strict_monetization 을 켜지 않는 한 거름이 아니라 배지다.
   const enabledFilters = settings.enabledFilters || [];
   const strict = settings.strict !== false;
+  const strictMonetization = strictMonetizationOf(settings);
   const maintenanceStatus = item.maintenance_status || 'stale_unknown';
   const filterChecks = (contract.hard_filters || []).map((def) => {
     const res = tier.hard_filters?.[def.key];
     const rawStatus = res?.status || 'unknown';
     const status = effectiveFilterStatus(item, def.key, rawStatus);
+    const impact = tierImpact(tier, def.key, status);
     return {
       key: def.key,
       label: def.label,
       flag: def.flag,
+      impactKey: hasMonetizationImpact(def.key),
+      impact,
       enabled: enabledFilters.includes(def.key),
       rawStatus,
       status,
@@ -290,11 +325,18 @@ export function evaluateTier(item, tier, settings) {
       weakGrade: gradeRank(res?.evidence_grade) >= 2,
     };
   });
+  // impact optional 은 기본 모드에서 차단하지 않는다 — 안내 배지로만 쓴다.
+  const isOptionalImpact = (check) => check.impact === 'optional' && !strictMonetization;
   const activeFails = filterChecks.filter((f) => f.enabled && f.status === 'fail');
-  const blocking = activeFails.filter((f) => strict || !f.weakGrade);
-  const weakFails = activeFails.filter((f) => !blocking.includes(f));
+  const blocking = activeFails.filter((f) => !isOptionalImpact(f) && (strict || !f.weakGrade));
+  const weakFails = activeFails.filter((f) => !isOptionalImpact(f) && !blocking.includes(f));
+  const optionalFails = activeFails.filter((f) => isOptionalImpact(f));
   const exempts = filterChecks.filter((f) => f.enabled && f.status === 'exempt');
   const compatWarning = exempts.length > 0 && compatRiskSignal(item);
+  for (const check of filterChecks) {
+    check.blocking = blocking.includes(check);
+    check.optional = optionalFails.includes(check);
+  }
 
   const reds = axisStates.filter((axis) => axis.signal === 'red');
   const yellows = axisStates.filter((axis) => axis.signal === 'yellow');
@@ -347,6 +389,9 @@ export function evaluateTier(item, tier, settings) {
     activeFails,
     blocking,
     weakFails,
+    optionalFails,
+    optionalMonetization: optionalFails.length > 0,
+    strictMonetization,
     exempts,
     compatWarning,
     maintenanceStatus,
@@ -371,6 +416,7 @@ export function defaultBlocked(item, tier, contract) {
     weights: Object.fromEntries((contract.axes || []).map((def) => [def.key, def.default_weight ?? 0])),
     enabledFilters: contract.default_enabled_filters || [],
     strict: contract.evidence_rules?.strict_evidence_default !== false,
+    strictMonetization: false,
   });
   return result.blocking.length > 0;
 }
@@ -482,9 +528,24 @@ export function alternatives(item, pool, settings) {
     .sort((a, b) => (b.evaluation.score ?? -1) - (a.evaluation.score ?? -1));
 }
 
-/** 비교 표에 쓸 하드 필터 적중 목록(유효 상태 기준). */
+/** 비교 표에 쓸 하드 필터 적중 목록(유효 상태 기준, 거름으로 잡힌 것). */
 export function failedFilters(evaluation) {
-  return (evaluation?.filterChecks || []).filter((check) => check.status === 'fail');
+  return (evaluation?.blocking || []).slice();
+}
+
+/** impact 'optional' 로 차단되지 않은 확률형·P2W 적중(안내 배지용). */
+export function optionalFilters(evaluation) {
+  return (evaluation?.optionalFails || []).slice();
+}
+
+/** 티어의 확률형·P2W 강도 한 줄 — 대표 배지에 쓴다. */
+export function monetizationImpactOf(evaluation) {
+  const fails = (evaluation?.filterChecks || []).filter(
+    (check) => check.impactKey && check.enabled && check.status === 'fail',
+  );
+  if (fails.some((check) => check.impact === 'core')) return 'core';
+  if (fails.some((check) => check.impact === 'optional')) return 'optional';
+  return 'none';
 }
 
 /** 공유·복사용 한 줄 요약 텍스트. */
@@ -498,6 +559,9 @@ export function summaryText(item, tier, evaluation, options = {}) {
       .filter((axis) => !axis.profileScoped)
       .map((axis) => `${axis.label} ${axis.score ?? '—'}`)
       .join(' · '),
+    (evaluation.optionalFails || []).length
+      ? `선택 과금: ${evaluation.optionalFails.map((f) => f.label).join(', ')} (무과금 플레이 가능)`
+      : '',
     (evaluation.blocking || []).length
       ? `걸린 필터: ${evaluation.blocking.map((f) => f.label).join(', ')}`
       : '',

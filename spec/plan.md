@@ -30,7 +30,7 @@
   4. **근거 등급 (`A/B/C`) & 미확인(`⚪`) 원칙**: 근거 없는 추정 금지
   5. **티어/옵션 단위 판정**: 무료/구독/1회 구매 등 실제 선택지별 분리 판정
 - **도메인 팩 (필터·메타데이터 분리)**:
-  - **게임 팩**: 확률형 아이템, P2W, 강제 광고, 완결작(`feature_complete`) 방치 면제
+  - **게임 팩**: 확률형 아이템, P2W, 강제 광고, 완결작(`feature_complete`) 방치 면제. 확률형·P2W 는 v0.4.0부터 **강도 3단계**(`impact`: none·optional·core)로 나눠, 무과금으로 충분한 상품(optional)은 배지로만 알리고 `strict_monetization` 토글로 거를 수 있다.
   - **앱 팩**: 구독 필수, 과도한 데이터 수집, 내보내기/락인, 계정 필수
   - **확장 팩(추후)**: 콘텐츠(완결·전개), AI 툴(종량제·환각·데이터 학습 정책) 등
   - 웹 UI의 필터·프리셋 패널도 선택한 도메인에 맞는 항목만 우선 노출한다.
@@ -84,4 +84,5 @@
   - 1:1 비교 뷰, 대체제 연결, URL 딥링크, 북마크(`localStorage`), 방법론 페이지, 평가 제보(GitHub Issue) 연결, 온보딩 경량화
   - 스키마 v0.4.0·검증(validate.py 전체 PASS, verify_ui.py 176항목) 통과 후 `AIRA1346/pharos` GitHub Pages 재배포
 - **3단계 · 앱 비교군 본격 추가** *(진행 중)*: 정비된 구조 위에 새 비교군을 데이터로 투입한다. 2026-11-25 게임 도메인 확장 먼저 반영 — `액션 · 인디` 대분류와 `액션 로그라이크`(Hades·Vampire Survivors·Dead Cells·Archero) 4종, `모바일 수집형 RPG`(Hero Wars·Limbus Company·Genshin Impact) 3종. 이어 2차 확장으로 `RPG · MMORPG` 대분류와 `PC MMORPG`(FINAL FANTASY XIV·Guild Wars 2·Lost Ark·Black Desert) 4종, `모바일 전략 · 디펜스` 대분류와 `모바일 전략·디펜스`(Bloons TD 6·Kingdom Rush Vengeance·Clash Royale·Plants vs. Zombies 2) 4종을 넣어 전체 24건·비교군 6개로 라이브 배포. 기준표와 어긋나는 지점(티어별 조건 vs 아이템 flags, 확률형 강도, 지역 서비스 분리)은 `criteria.md` 10절 10~13번에 논의 항목으로 남겼다. 다음은 앱 비교군(할 일·일정 관리, 비밀번호 관리, 파일/PDF 도구 등)이다.
+- **3-1단계 · 기준표 v0.4.0 impact 재적용** *(완료 · 2026-11-25)*: 확률형·P2W 를 3단계 강제성으로 나누고(`impact`), 무과금 충분성(`monetization.free_play`)·`strict_monetization` 토글·안내 배지를 엔진·UI·검증기·테스트에 반영. Black Desert 54.15 → 80.1(🟢), Guild Wars 2 77.2(🟡), Bloons TD 6 81.3(🟢), Limbus Company 78.7(🟡)로 재적용하고 Lost Ark·Clash Royale·PvZ2·Archero·Hero Wars·Genshin 은 `core`(🔴) 유지.
 - **4단계 · 데이터 신선도 자동화 & 신규 도메인 확장**: 재검증 주기 체크 스크립트·PR 자동 검증 CI 구축 후, 콘텐츠(애니·책)·AI 툴 도메인으로 확장.

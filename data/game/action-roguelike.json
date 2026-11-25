@@ -3,21 +3,46 @@
     "schema_version": "0.4.0",
     "id": "hades",
     "name": "Hades",
-    "aliases": ["하데스"],
+    "aliases": [
+      "하데스"
+    ],
     "domain": "game",
     "category": "action-indie",
-    "arenas": ["action-roguelike"],
+    "arenas": [
+      "action-roguelike"
+    ],
     "arena_notes": {
       "action-roguelike": "1회 구매 완결형의 기준점 — 유료 DLC 없이 본편으로 끝나고, 98% 긍정이 5년 넘게 유지된다."
     },
-    "genres": ["액션 로그라이크", "로그라이트", "핵 앤 슬래시", "던전 크롤러"],
-    "platforms": ["steam", "windows", "macos", "console"],
+    "genres": [
+      "액션 로그라이크",
+      "로그라이트",
+      "핵 앤 슬래시",
+      "던전 크롤러"
+    ],
+    "platforms": [
+      "steam",
+      "windows",
+      "macos",
+      "console"
+    ],
     "developer": "Supergiant Games",
     "publisher": "Supergiant Games",
     "release_date": "2020-09-17",
     "one_liner": "지하 세계를 탈출하는 로그라이크 던전 크롤러 — 죽고 다시 도는 과정 자체가 서사인 1회 구매 완결작.",
-    "taste_tags": ["one-time-purchase", "feature-complete", "no-account", "single-player", "narrative"],
-    "keywords": ["하데스", "Hades 1", "자그레우스", "Supergiant"],
+    "taste_tags": [
+      "one-time-purchase",
+      "feature-complete",
+      "no-account",
+      "single-player",
+      "narrative"
+    ],
+    "keywords": [
+      "하데스",
+      "Hades 1",
+      "자그레우스",
+      "Supergiant"
+    ],
     "assessed_at": "2026-11-25",
     "method": "desk_research",
     "maintenance_status": "feature_complete",
@@ -73,63 +98,83 @@
       "contains_ads": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "direct",
         "note": "유료 단품 게임으로 광고·인앱 결제 표기가 없다."
       },
       "gacha_random_items": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades", "steam-api-hades"],
+        "source_ids": [
+          "steam-hades",
+          "steam-api-hades"
+        ],
         "verification": "direct",
         "note": "확률형 아이템·인앱 결제 항목이 스토어에 없다."
       },
       "forced_ad_before_use": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "direct",
         "note": "인게임 광고 자체가 없다."
       },
       "bait_ad": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "absent",
         "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
       },
       "p2w": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "direct",
         "note": "과금 재화가 없다. 성장은 인게임 재화로만 이뤄진다."
       },
       "iap_required_to_progress": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "direct",
         "note": "1회 구매로 전편."
       },
       "subscription_required": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "direct",
         "note": "구독 상품 없음."
       },
       "account_required": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades"],
+        "source_ids": [
+          "steam-hades"
+        ],
         "verification": "direct",
         "note": "게임 자체 계정 없음. Steam 계정은 플랫폼 요건이다."
       },
       "stale_over_12m": {
         "value": "yes",
         "evidence_grade": "C",
-        "source_ids": ["steampeaks-hades", "teemo-hades"],
+        "source_ids": [
+          "steampeaks-hades",
+          "teemo-hades"
+        ],
         "verification": "reported_only",
         "note": "게임 업데이트는 2021-03(3자 정리)~2023-04-12(3자 빌드 정보) 사이에 멈춘 것으로 보인다. 어느 쪽이든 12개월 기준을 크게 넘긴다. 완결작이라 필터 판정에서는 면제한다."
       },
@@ -167,49 +212,67 @@
             "status": "pass",
             "evidence_grade": "A",
             "note": "인게임 광고 없음.",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "gacha_random_items": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "확률형 아이템 없음.",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "bait_ad": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "미끼형 광고 보도·불만 없음(부재 근거).",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "p2w": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "과금 재화 없음.",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "iap_required_to_progress": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "1회 구매로 전편.",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "stale_over_12m": {
             "status": "exempt",
             "evidence_grade": "A/C",
             "note": "완결작 면제 — v1.0 이후 게임 DLC가 없고 개발사가 후속작 개발로 옮겨갔다고 밝혔다(2025-09-17 공지). 업데이트 공백 사실은 flags 에 그대로 남긴다.",
-            "source_ids": ["supergiant-hades-5y", "steam-api-hades", "steampeaks-hades"]
+            "source_ids": [
+              "supergiant-hades-5y",
+              "steam-api-hades",
+              "steampeaks-hades"
+            ]
           },
           "subscription_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "구독 없음.",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "account_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "게임 계정 없음.",
-            "source_ids": ["steam-hades"]
+            "source_ids": [
+              "steam-hades"
+            ]
           },
           "data_collection": {
             "status": "unknown",
@@ -232,7 +295,9 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "Steam 영어 평가 143,471건 중 98% 긍정, 최근 30일 883건도 95% 긍정. 한국어 평가 6,525건 96%. 5년이 지나도 누적과 최근이 거의 붙어 있다.",
-        "source_ids": ["steam-hades"]
+        "source_ids": [
+          "steam-hades"
+        ]
       },
       "objective": {
         "score": 60,
@@ -241,7 +306,11 @@
         "evidence_grade": "A/C",
         "confidence": "medium",
         "summary": "1회 구매·광고 없음·DLC 없음은 최상급 조건이지만, 게임 업데이트가 2021~2023년 이후 멈춰 있다. 완결 선언으로 방치와는 구분하되 '지금도 관리되는 제품'이라는 축의 감점은 남긴다.",
-        "source_ids": ["steam-api-hades", "steampeaks-hades", "teemo-hades"]
+        "source_ids": [
+          "steam-api-hades",
+          "steampeaks-hades",
+          "teemo-hades"
+        ]
       },
       "ai_review": {
         "score": 90,
@@ -250,7 +319,10 @@
         "evidence_grade": "A/B",
         "confidence": "high",
         "summary": "반복 플레이와 서사를 결합한 완성도가 업계 평가(Metacritic 93)와 사용자 평가에서 함께 확인된다. 감점: 6년 차 작품이라 신규 콘텐츠가 없고, 후속작 Hades II와 비교되는 구작이라는 점.",
-        "source_ids": ["steam-hades", "supergiant-hades-5y"]
+        "source_ids": [
+          "steam-hades",
+          "supergiant-hades-5y"
+        ]
       },
       "personal_fit": {
         "score": 88,
@@ -260,7 +332,10 @@
         "confidence": "medium",
         "profile_id": "P1",
         "summary": "1회 구매·광고 없음·계정 없음·완결작은 P1 선호와 정면으로 맞는다. 다만 PC·콘솔 전용이다.",
-        "source_ids": ["steam-hades", "steam-api-hades"]
+        "source_ids": [
+          "steam-hades",
+          "steam-api-hades"
+        ]
       }
     },
     "verdict": {
@@ -323,7 +398,9 @@
           "platform": "windows",
           "promise_status": "not_applicable",
           "evidence_grade": "C",
-          "source_ids": ["teemo-hades"],
+          "source_ids": [
+            "teemo-hades"
+          ],
           "note": "출시 후 밸런스·버그 패치 5회가 2021년 3월까지 이어졌다는 3자 정리(등급 C)."
         },
         {
@@ -332,7 +409,9 @@
           "platform": "windows",
           "promise_status": "not_applicable",
           "evidence_grade": "C",
-          "source_ids": ["steampeaks-hades"],
+          "source_ids": [
+            "steampeaks-hades"
+          ],
           "note": "빌드 기준 마지막 업데이트로 표기된 날짜(등급 C). 내용은 확인하지 못했다."
         },
         {
@@ -341,7 +420,9 @@
           "platform": "other",
           "promise_status": "delivered_late",
           "evidence_grade": "A",
-          "source_ids": ["supergiant-hades-5y"],
+          "source_ids": [
+            "supergiant-hades-5y"
+          ],
           "note": "5주년 공지 — 후속작 Hades II v1.0이 2025-09-25 출시. 본편 업데이트가 아니라 후속작 개발로 역량이 이동했다는 근거."
         }
       ],
@@ -351,13 +432,17 @@
     "monetization": {
       "ads": {
         "in_app_exposure": "none",
-        "ad_types": ["none"],
+        "ad_types": [
+          "none"
+        ],
         "store_declares_ads": false,
         "inflow_ad": {
           "present": "no",
           "honesty": "not_assessed",
           "evidence_grade": "B",
-          "source_ids": ["steam-hades"],
+          "source_ids": [
+            "steam-hades"
+          ],
           "note": "미끼형 광고 보도·불만 없음(부재 근거)."
         }
       },
@@ -368,7 +453,10 @@
         "p2w": "no",
         "required_to_progress": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-hades", "steam-api-hades"]
+        "source_ids": [
+          "steam-hades",
+          "steam-api-hades"
+        ]
       },
       "subscription": {
         "present": "no",
@@ -385,9 +473,15 @@
       "conflicts": [
         {
           "field": "update_profile.latest_update",
-          "values": ["2021-03 (3자 정리)", "2023-04-12 (3자 빌드 정보)"],
+          "values": [
+            "2021-03 (3자 정리)",
+            "2023-04-12 (3자 빌드 정보)"
+          ],
           "resolution": "둘 다 3자 정보라 1차 자료로 확정하지 못했다. 12개월 초과라는 결론은 같으므로 더 늦은 2023-04-12를 보수적으로 채택하고 충돌을 남긴다.",
-          "source_ids": ["teemo-hades", "steampeaks-hades"]
+          "source_ids": [
+            "teemo-hades",
+            "steampeaks-hades"
+          ]
         }
       ],
       "limitations": "데스크 리서치. 직접 플레이 없이 Steam 상점·개발사 공지·3자 집계만 사용했다. 가격과 평가 수치는 2026-11-25 확인값이며 할인가가 아닌 정가로 판정했다."
@@ -397,21 +491,48 @@
     "schema_version": "0.4.0",
     "id": "vampire-survivors",
     "name": "Vampire Survivors",
-    "aliases": ["뱀파이어 서바이버즈", "뱀서"],
+    "aliases": [
+      "뱀파이어 서바이버즈",
+      "뱀서"
+    ],
     "domain": "game",
     "category": "action-indie",
-    "arenas": ["action-roguelike"],
+    "arenas": [
+      "action-roguelike"
+    ],
     "arena_notes": {
       "action-roguelike": "PC는 ₩5,000 1회 구매로 완결, 모바일은 무료지만 광고·인앱 결제가 붙는다 — 같은 게임의 두 티어가 정반대 조건을 보여준다."
     },
-    "genres": ["액션 로그라이크", "로그라이트", "생존", "탄막"],
-    "platforms": ["steam", "windows", "macos", "android", "ios"],
+    "genres": [
+      "액션 로그라이크",
+      "로그라이트",
+      "생존",
+      "탄막"
+    ],
+    "platforms": [
+      "steam",
+      "windows",
+      "macos",
+      "android",
+      "ios"
+    ],
     "developer": "poncle",
     "publisher": "poncle",
     "release_date": "2022-10-20",
     "one_liner": "정해진 시간 동안 몰려오는 몬스터를 버티며 성장 조합을 만드는 생존형 로그라이트 — PC는 1회 구매, 모바일은 무료+광고·인앱 결제.",
-    "taste_tags": ["one-time-purchase", "no-account", "single-player", "co-op", "cheap"],
-    "keywords": ["뱀파이어 서바이버즈", "뱀서", "Vampire Survivors", "poncle"],
+    "taste_tags": [
+      "one-time-purchase",
+      "no-account",
+      "single-player",
+      "co-op",
+      "cheap"
+    ],
+    "keywords": [
+      "뱀파이어 서바이버즈",
+      "뱀서",
+      "Vampire Survivors",
+      "poncle"
+    ],
     "assessed_at": "2026-11-25",
     "method": "desk_research",
     "maintenance_status": "active",
@@ -449,70 +570,94 @@
       "contains_ads": {
         "value": "yes",
         "evidence_grade": "A",
-        "source_ids": ["play-vs", "steam-vs"],
+        "source_ids": [
+          "play-vs",
+          "steam-vs"
+        ],
         "verification": "direct",
         "note": "모바일 스토어에 '광고 포함' 표기. Steam판은 광고가 없다."
       },
       "gacha_random_items": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["play-vs", "steam-vs"],
+        "source_ids": [
+          "play-vs",
+          "steam-vs"
+        ],
         "verification": "direct",
         "note": "모바일 등급 사유에 '확률형 아이템'이 없고, 인앱 결제는 확장 DLC 중심이다."
       },
       "forced_ad_before_use": {
         "value": "no",
         "evidence_grade": "C",
-        "source_ids": ["play-vs"],
+        "source_ids": [
+          "play-vs"
+        ],
         "verification": "reported_only",
         "note": "모바일 사용자 리뷰에 '강제 광고 없음'이라는 서술이 있고, 광고는 보상형(부활·재화) 중심으로 보인다. 직접 확인은 아니다."
       },
       "bait_ad": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["steam-vs"],
+        "source_ids": [
+          "steam-vs"
+        ],
         "verification": "absent",
         "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
       },
       "p2w": {
         "value": "no",
         "evidence_grade": "C",
-        "source_ids": ["play-vs"],
+        "source_ids": [
+          "play-vs"
+        ],
         "verification": "reported_only",
         "note": "경쟁 요소가 없는 싱글·코옵 게임. 결제는 DLC와 편의 재화에 그친다는 리뷰 다수(등급 C)."
       },
       "iap_required_to_progress": {
         "value": "no",
         "evidence_grade": "C",
-        "source_ids": ["play-vs"],
+        "source_ids": [
+          "play-vs"
+        ],
         "verification": "reported_only",
         "note": "무료로 전편을 즐길 수 있고 DLC 없이도 수십 시간 플레이가 가능하다는 리뷰(등급 C)."
       },
       "subscription_required": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-vs", "play-vs"],
+        "source_ids": [
+          "steam-vs",
+          "play-vs"
+        ],
         "verification": "direct",
         "note": "구독 상품 없음."
       },
       "account_required": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["play-vs"],
+        "source_ids": [
+          "play-vs"
+        ],
         "verification": "direct",
         "note": "모바일 스토어가 '오프라인' 태그를 붙인다 — 서버 로그인 없이 플레이 가능."
       },
       "stale_over_12m": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steamnews-vs", "play-vs"],
+        "source_ids": [
+          "steamnews-vs",
+          "play-vs"
+        ],
         "verification": "direct",
         "note": "2026-10-16 핫픽스와 2026-10-21 모바일 업데이트로 방치 아님."
       },
       "data_collected": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["play-vs"],
+        "source_ids": [
+          "play-vs"
+        ],
         "verification": "direct",
         "note": "Play 데이터 보안: 제3자 공유 없음, 수집은 개인 정보·앱 정보·기기 ID 수준. 과도한 수집으로 보지 않았다."
       },
@@ -543,55 +688,73 @@
             "status": "pass",
             "evidence_grade": "A",
             "note": "PC판은 광고가 없다.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "gacha_random_items": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "확률형 아이템 없음.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "bait_ad": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "미끼형 광고 보도 없음.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "p2w": {
             "status": "pass",
             "evidence_grade": "C",
             "note": "경쟁 요소 없음, 결제는 DLC 중심.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "iap_required_to_progress": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "1회 구매로 전편 플레이 가능.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "stale_over_12m": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "2026-10 핫픽스로 최신.",
-            "source_ids": ["steamnews-vs"]
+            "source_ids": [
+              "steamnews-vs"
+            ]
           },
           "subscription_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "구독 없음.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "account_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "게임 계정 없음.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "data_collection": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "과도한 수집 신호 없음.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           }
         },
         "verdict": "recommend",
@@ -618,55 +781,73 @@
             "status": "pass",
             "evidence_grade": "C",
             "note": "강제 전면 광고 없이 보상형 중심이라는 리뷰(등급 C).",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "gacha_random_items": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "확률형 아이템 표기 없음.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "bait_ad": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "미끼형 광고 보도 없음.",
-            "source_ids": ["steam-vs"]
+            "source_ids": [
+              "steam-vs"
+            ]
           },
           "p2w": {
             "status": "pass",
             "evidence_grade": "C",
             "note": "경쟁 요소 없음.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "iap_required_to_progress": {
             "status": "pass",
             "evidence_grade": "C",
             "note": "무료로 전편 진행 가능하다는 리뷰 다수.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "stale_over_12m": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "2026-10-21 모바일 업데이트.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "subscription_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "구독 없음.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "account_required": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "오프라인 플레이 가능.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           },
           "data_collection": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "과도한 수집 신호 없음.",
-            "source_ids": ["play-vs"]
+            "source_ids": [
+              "play-vs"
+            ]
           }
         },
         "axis_overrides": {
@@ -700,7 +881,10 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "Steam 영어 평가 128,969건 98% 긍정, 최근 30일 1,303건 97%. 다만 모바일은 3.7★(8.19만건)로 갈린다 — 티어 오버라이드로 반영했다.",
-        "source_ids": ["steam-vs", "play-vs"]
+        "source_ids": [
+          "steam-vs",
+          "play-vs"
+        ]
       },
       "objective": {
         "score": 84,
@@ -709,7 +893,10 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "₩5,000 1회 구매, 광고·확률형 아이템 없음, 2026-10까지 업데이트 지속. 유료 DLC가 많다는 점만 감점.",
-        "source_ids": ["steam-vs", "steamnews-vs"]
+        "source_ids": [
+          "steam-vs",
+          "steamnews-vs"
+        ]
       },
       "ai_review": {
         "score": 88,
@@ -718,7 +905,10 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "미니멀한 조작과 성장 조합으로 장르를 다시 연 작품. 감점: 후반 반복감과 DLC 의존도, 모바일 이식 완성도.",
-        "source_ids": ["steam-vs", "play-vs"]
+        "source_ids": [
+          "steam-vs",
+          "play-vs"
+        ]
       },
       "personal_fit": {
         "score": 92,
@@ -728,7 +918,9 @@
         "confidence": "medium",
         "profile_id": "P1",
         "summary": "1회 구매·광고 없음·계정 없음(PC판)이 P1 선호와 맞고 가격도 가장 낮다.",
-        "source_ids": ["steam-vs"]
+        "source_ids": [
+          "steam-vs"
+        ]
       }
     },
     "verdict": {
@@ -803,7 +995,9 @@
           "platform": "windows",
           "promise_status": "not_applicable",
           "evidence_grade": "A",
-          "source_ids": ["steamnews-vs"],
+          "source_ids": [
+            "steamnews-vs"
+          ],
           "note": "유료 확장 'Legacy of the Bloodmoon' 출시."
         },
         {
@@ -812,7 +1006,9 @@
           "platform": "windows",
           "promise_status": "not_applicable",
           "evidence_grade": "A",
-          "source_ids": ["steamnews-vs"],
+          "source_ids": [
+            "steamnews-vs"
+          ],
           "note": "1.16.111 핫픽스 — 최신 업데이트."
         },
         {
@@ -821,7 +1017,9 @@
           "platform": "android",
           "promise_status": "not_applicable",
           "evidence_grade": "A",
-          "source_ids": ["play-vs"],
+          "source_ids": [
+            "play-vs"
+          ],
           "note": "모바일 '일반 버그 수정 및 개선'."
         }
       ],
@@ -831,13 +1029,17 @@
     "monetization": {
       "ads": {
         "in_app_exposure": "low",
-        "ad_types": ["rewarded"],
+        "ad_types": [
+          "rewarded"
+        ],
         "store_declares_ads": true,
         "inflow_ad": {
           "present": "no",
           "honesty": "not_assessed",
           "evidence_grade": "B",
-          "source_ids": ["steam-vs"],
+          "source_ids": [
+            "steam-vs"
+          ],
           "note": "미끼형 유입 광고 보도·불만 없음(부재 근거). 모바일 광고는 보상형 중심."
         }
       },
@@ -848,7 +1050,10 @@
         "p2w": "no",
         "required_to_progress": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-vs", "play-vs"]
+        "source_ids": [
+          "steam-vs",
+          "play-vs"
+        ]
       },
       "subscription": {
         "present": "no",
@@ -871,21 +1076,51 @@
     "schema_version": "0.4.0",
     "id": "dead-cells",
     "name": "Dead Cells",
-    "aliases": ["데드 셀", "데드셀"],
+    "aliases": [
+      "데드 셀",
+      "데드셀"
+    ],
     "domain": "game",
     "category": "action-indie",
-    "arenas": ["action-roguelike"],
+    "arenas": [
+      "action-roguelike"
+    ],
     "arena_notes": {
       "action-roguelike": "본편은 강력하지만 유료 DLC 4종이 붙고, 모바일 에디션은 별도 결제·조작 문제로 조건이 갈린다."
     },
-    "genres": ["액션 로그라이크", "로그배니아", "메트로배니아", "플랫포머"],
-    "platforms": ["steam", "windows", "macos", "linux", "android", "ios", "console"],
+    "genres": [
+      "액션 로그라이크",
+      "로그배니아",
+      "메트로배니아",
+      "플랫포머"
+    ],
+    "platforms": [
+      "steam",
+      "windows",
+      "macos",
+      "linux",
+      "android",
+      "ios",
+      "console"
+    ],
     "developer": "Motion Twin",
     "publisher": "Motion Twin",
     "release_date": "2018-08-06",
     "one_liner": "죽으면 처음으로 돌아가지만 해금과 성장은 남는 2D 로그배니아 — 본편 + 유료 DLC 4종, 모바일은 별도 에디션.",
-    "taste_tags": ["one-time-purchase", "no-account", "single-player", "dlc-heavy", "high-difficulty"],
-    "keywords": ["데드셀", "데드 셀", "Dead Cells", "Motion Twin", "로그배니아"],
+    "taste_tags": [
+      "one-time-purchase",
+      "no-account",
+      "single-player",
+      "dlc-heavy",
+      "high-difficulty"
+    ],
+    "keywords": [
+      "데드셀",
+      "데드 셀",
+      "Dead Cells",
+      "Motion Twin",
+      "로그배니아"
+    ],
     "assessed_at": "2026-11-25",
     "method": "desk_research",
     "maintenance_status": "active",
@@ -932,70 +1167,93 @@
       "contains_ads": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["play-deadcells", "steam-deadcells"],
+        "source_ids": [
+          "play-deadcells",
+          "steam-deadcells"
+        ],
         "verification": "direct",
         "note": "모바일 스토어에 '광고 포함' 표기가 없고, 설명에서 광고 없음을 명시한다."
       },
       "gacha_random_items": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["play-deadcells", "steam-deadcells"],
+        "source_ids": [
+          "play-deadcells",
+          "steam-deadcells"
+        ],
         "verification": "direct",
         "note": "확률형 아이템 표기 없음. 인앱 결제는 확장 DLC 단품이다."
       },
       "forced_ad_before_use": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["play-deadcells"],
+        "source_ids": [
+          "play-deadcells"
+        ],
         "verification": "direct",
         "note": "광고 자체가 없다."
       },
       "bait_ad": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["steam-deadcells"],
+        "source_ids": [
+          "steam-deadcells"
+        ],
         "verification": "absent",
         "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
       },
       "p2w": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["play-deadcells", "steam-deadcells"],
+        "source_ids": [
+          "play-deadcells",
+          "steam-deadcells"
+        ],
         "verification": "direct",
         "note": "결제는 콘텐츠 DLC 단위이고 성장 재화를 사는 구조가 아니다."
       },
       "iap_required_to_progress": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["play-deadcells"],
+        "source_ids": [
+          "play-deadcells"
+        ],
         "verification": "direct",
         "note": "본편만으로 클리어 가능. DLC는 추가 지역·보스다."
       },
       "subscription_required": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-deadcells"],
+        "source_ids": [
+          "steam-deadcells"
+        ],
         "verification": "direct",
         "note": "구독 없음."
       },
       "account_required": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["play-deadcells"],
+        "source_ids": [
+          "play-deadcells"
+        ],
         "verification": "direct",
         "note": "오프라인 싱글 플레이. 게임 계정 없음."
       },
       "stale_over_12m": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["steamnews-deadcells"],
+        "source_ids": [
+          "steamnews-deadcells"
+        ],
         "verification": "direct",
         "note": "2026-06-15 안정성 패치 — 12개월 안에 업데이트가 있었다."
       },
       "data_collected": {
         "value": "no",
         "evidence_grade": "B",
-        "source_ids": ["play-deadcells"],
+        "source_ids": [
+          "play-deadcells"
+        ],
         "verification": "direct",
         "note": "Play 데이터 보안: 수집 항목이 '앱 정보 및 성능'뿐, 제3자 공유 없음."
       },
@@ -1026,55 +1284,73 @@
             "status": "pass",
             "evidence_grade": "A",
             "note": "광고 없음.",
-            "source_ids": ["steam-deadcells"]
+            "source_ids": [
+              "steam-deadcells"
+            ]
           },
           "gacha_random_items": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "확률형 아이템 없음.",
-            "source_ids": ["steam-api-deadcells"]
+            "source_ids": [
+              "steam-api-deadcells"
+            ]
           },
           "bait_ad": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "미끼형 광고 보도 없음.",
-            "source_ids": ["steam-deadcells"]
+            "source_ids": [
+              "steam-deadcells"
+            ]
           },
           "p2w": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "DLC는 콘텐츠 단위.",
-            "source_ids": ["steam-deadcells"]
+            "source_ids": [
+              "steam-deadcells"
+            ]
           },
           "iap_required_to_progress": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "본편으로 클리어 가능.",
-            "source_ids": ["steam-deadcells"]
+            "source_ids": [
+              "steam-deadcells"
+            ]
           },
           "stale_over_12m": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "2026-06-15 안정성 패치.",
-            "source_ids": ["steamnews-deadcells"]
+            "source_ids": [
+              "steamnews-deadcells"
+            ]
           },
           "subscription_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "구독 없음.",
-            "source_ids": ["steam-deadcells"]
+            "source_ids": [
+              "steam-deadcells"
+            ]
           },
           "account_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "게임 계정 없음.",
-            "source_ids": ["steam-deadcells"]
+            "source_ids": [
+              "steam-deadcells"
+            ]
           },
           "data_collection": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "과도한 수집 신호 없음.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           }
         },
         "verdict": "recommend",
@@ -1102,55 +1378,73 @@
             "status": "pass",
             "evidence_grade": "A",
             "note": "광고 없음(개발사 명시).",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "gacha_random_items": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "확률형 아이템 없음.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "bait_ad": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "미끼형 광고 없음.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "p2w": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "DLC 단품 결제.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "iap_required_to_progress": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "본편으로 클리어 가능.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "stale_over_12m": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "2026-10-12 모바일 업데이트.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "subscription_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "구독 없음(Play Pass는 선택).",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "account_required": {
             "status": "pass",
             "evidence_grade": "A",
             "note": "게임 계정 없음.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           },
           "data_collection": {
             "status": "pass",
             "evidence_grade": "B",
             "note": "과도한 수집 신호 없음.",
-            "source_ids": ["play-deadcells"]
+            "source_ids": [
+              "play-deadcells"
+            ]
           }
         },
         "axis_overrides": {
@@ -1179,7 +1473,10 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "Steam 영어 평가 44,929건 96% 긍정, 최근 30일 760건 95%. 모바일도 4.8★(13.7만건)로 이식 품질이 높다.",
-        "source_ids": ["steam-deadcells", "play-deadcells"]
+        "source_ids": [
+          "steam-deadcells",
+          "play-deadcells"
+        ]
       },
       "objective": {
         "score": 70,
@@ -1188,7 +1485,11 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "1회 구매·광고 없음·확률형 없음은 좋지만, 유료 DLC 4종이 본편과 별도로 붙어 총비용이 커진다. 업데이트는 안정화 패치 위주.",
-        "source_ids": ["steam-deadcells", "steam-api-deadcells", "steamnews-deadcells"]
+        "source_ids": [
+          "steam-deadcells",
+          "steam-api-deadcells",
+          "steamnews-deadcells"
+        ]
       },
       "ai_review": {
         "score": 90,
@@ -1197,7 +1498,10 @@
         "evidence_grade": "A/B",
         "confidence": "high",
         "summary": "로그라이트와 메트로배니아를 결합한 전투 손맛이 8년째 평가를 유지한다(Metacritic 89). 감점: DLC 분할 판매 구조와 높은 난이도.",
-        "source_ids": ["steam-deadcells", "play-deadcells"]
+        "source_ids": [
+          "steam-deadcells",
+          "play-deadcells"
+        ]
       },
       "personal_fit": {
         "score": 86,
@@ -1207,7 +1511,9 @@
         "confidence": "medium",
         "profile_id": "P1",
         "summary": "1회 구매·광고 없음·계정 없음은 P1 선호와 맞는다. 다만 DLC가 계속 붙는 구조는 감점.",
-        "source_ids": ["steam-deadcells"]
+        "source_ids": [
+          "steam-deadcells"
+        ]
       }
     },
     "verdict": {
@@ -1282,7 +1588,9 @@
           "platform": "windows",
           "promise_status": "not_applicable",
           "evidence_grade": "A",
-          "source_ids": ["steamnews-deadcells"],
+          "source_ids": [
+            "steamnews-deadcells"
+          ],
           "note": "'Dead Cells Stability Patch' — 널 참조 오류 등 안정성 수정."
         },
         {
@@ -1291,7 +1599,9 @@
           "platform": "android",
           "promise_status": "not_applicable",
           "evidence_grade": "A",
-          "source_ids": ["play-deadcells"],
+          "source_ids": [
+            "play-deadcells"
+          ],
           "note": "모바일 '사소한 기술적 개선'."
         }
       ],
@@ -1301,13 +1611,17 @@
     "monetization": {
       "ads": {
         "in_app_exposure": "none",
-        "ad_types": ["none"],
+        "ad_types": [
+          "none"
+        ],
         "store_declares_ads": false,
         "inflow_ad": {
           "present": "no",
           "honesty": "not_assessed",
           "evidence_grade": "B",
-          "source_ids": ["steam-deadcells"],
+          "source_ids": [
+            "steam-deadcells"
+          ],
           "note": "미끼형 유입 광고 보도·불만 없음(부재 근거)."
         }
       },
@@ -1330,7 +1644,10 @@
         "p2w": "no",
         "required_to_progress": "no",
         "evidence_grade": "A",
-        "source_ids": ["steam-deadcells", "play-deadcells"]
+        "source_ids": [
+          "steam-deadcells",
+          "play-deadcells"
+        ]
       },
       "subscription": {
         "present": "no",
@@ -1353,21 +1670,44 @@
     "schema_version": "0.4.0",
     "id": "archero",
     "name": "Archero (궁수의 전설)",
-    "aliases": ["궁수의 전설", "Archero"],
+    "aliases": [
+      "궁수의 전설",
+      "Archero"
+    ],
     "domain": "game",
     "category": "action-indie",
-    "arenas": ["action-roguelike"],
+    "arenas": [
+      "action-roguelike"
+    ],
     "arena_notes": {
       "action-roguelike": "부분유료·광고·확률형 아이템이 한 몸에 붙은 대조군 — 별점 4.2와 5,000만 다운로드 뒤의 과금 구조를 드러낸다."
     },
-    "genres": ["액션 로그라이크", "로그라이트", "슈팅", "방치형 성장"],
-    "platforms": ["android", "ios"],
+    "genres": [
+      "액션 로그라이크",
+      "로그라이트",
+      "슈팅",
+      "방치형 성장"
+    ],
+    "platforms": [
+      "android",
+      "ios"
+    ],
     "developer": "Habby",
     "publisher": "Habby",
     "release_date": null,
     "one_liner": "방마다 몰려오는 적을 자동 사격으로 뚫는 모바일 로그라이크 — 성장은 장비·영웅 수집과 확률형 상품에 기대는 부분유료 구조.",
-    "taste_tags": ["gacha", "ads", "grind", "server-progression"],
-    "keywords": ["궁수의 전설", "아르케로", "Archero", "Habby"],
+    "taste_tags": [
+      "gacha",
+      "ads",
+      "grind",
+      "server-progression"
+    ],
+    "keywords": [
+      "궁수의 전설",
+      "아르케로",
+      "Archero",
+      "Habby"
+    ],
     "assessed_at": "2026-11-25",
     "method": "desk_research",
     "maintenance_status": "active",
@@ -1387,14 +1727,18 @@
       "contains_ads": {
         "value": "yes",
         "evidence_grade": "A",
-        "source_ids": ["play-archero"],
+        "source_ids": [
+          "play-archero"
+        ],
         "verification": "direct",
         "note": "Play '광고 포함' 표기."
       },
       "gacha_random_items": {
         "value": "yes",
         "evidence_grade": "A",
-        "source_ids": ["play-archero"],
+        "source_ids": [
+          "play-archero"
+        ],
         "verification": "direct",
         "note": "Play 콘텐츠 등급 사유에 '인게임구매(확률형 아이템 포함)' 표기."
       },
@@ -1415,7 +1759,9 @@
       "p2w": {
         "value": "yes",
         "evidence_grade": "C",
-        "source_ids": ["play-archero"],
+        "source_ids": [
+          "play-archero"
+        ],
         "verification": "reported_only",
         "note": "장비·영웅 등급이 곧 전투력이고 확률형 상품으로 얻는다. 최근 리뷰에도 특정 스테이지 난이도 벽과 성장 재화 요구가 반복된다(등급 C)."
       },
@@ -1443,7 +1789,9 @@
       "stale_over_12m": {
         "value": "no",
         "evidence_grade": "A",
-        "source_ids": ["play-archero"],
+        "source_ids": [
+          "play-archero"
+        ],
         "verification": "direct",
         "note": "2026-11-19 업데이트."
       },
@@ -1487,8 +1835,11 @@
           "gacha_random_items": {
             "status": "fail",
             "evidence_grade": "A",
-            "note": "스토어 등급 사유에 '확률형 아이템 포함' 명시.",
-            "source_ids": ["play-archero"]
+            "note": "스토어 등급 사유에 '확률형 아이템 포함' 명시 — 장비·영웅 획득이 뽑기 중심이라 impact core.",
+            "source_ids": [
+              "play-archero"
+            ],
+            "impact": "core"
           },
           "bait_ad": {
             "status": "unknown",
@@ -1499,8 +1850,11 @@
           "p2w": {
             "status": "fail",
             "evidence_grade": "C",
-            "note": "장비·영웅 수집이 곧 성능. 과금이 진행 난이도를 직접 낮춘다(등급 C).",
-            "source_ids": ["play-archero"]
+            "note": "장비·영웅 등급이 곧 전투력이고 과금이 진행 난이도를 직접 낮춘다 — impact core(등급 C).",
+            "source_ids": [
+              "play-archero"
+            ],
+            "impact": "core"
           },
           "iap_required_to_progress": {
             "status": "unknown",
@@ -1512,7 +1866,9 @@
             "status": "pass",
             "evidence_grade": "A",
             "note": "2026-11-19 업데이트.",
-            "source_ids": ["play-archero"]
+            "source_ids": [
+              "play-archero"
+            ]
           },
           "subscription_required": {
             "status": "unknown",
@@ -1547,7 +1903,9 @@
         "evidence_grade": "A",
         "confidence": "medium",
         "summary": "Play 4.2★(174만건)는 별점 환산으로 84점이지만, 1★가 193,419건(약 11%)이고 최근 리뷰에 난이도 벽·버그·과금 불만이 섞여 74점으로 보정했다.",
-        "source_ids": ["play-archero"]
+        "source_ids": [
+          "play-archero"
+        ]
       },
       "objective": {
         "score": 30,
@@ -1556,7 +1914,9 @@
         "evidence_grade": "A",
         "confidence": "high",
         "summary": "스토어에 '광고 포함'·'확률형 아이템 포함'이 모두 표기된다. 성장이 확률형 상품에 기대고, 광고·과금 유형은 일부만 확인됐다.",
-        "source_ids": ["play-archero"]
+        "source_ids": [
+          "play-archero"
+        ]
       },
       "ai_review": {
         "score": 55,
@@ -1565,7 +1925,9 @@
         "evidence_grade": "A/C",
         "confidence": "medium",
         "summary": "한 방씩 스킬을 고르는 액션 로그라이크 루프 자체는 잘 만들었다. 그러나 후반은 장비 등급·영웅 수집이 진행을 좌우해 손맛보다 성장 벽이 앞선다.",
-        "source_ids": ["play-archero"]
+        "source_ids": [
+          "play-archero"
+        ]
       },
       "personal_fit": {
         "score": 30,
@@ -1575,7 +1937,9 @@
         "confidence": "high",
         "profile_id": "P1",
         "summary": "확률형 아이템·광고가 P1 하드 필터 ⑵에 정면으로 걸린다.",
-        "source_ids": ["play-archero"]
+        "source_ids": [
+          "play-archero"
+        ]
       }
     },
     "verdict": {
@@ -1630,7 +1994,9 @@
           "platform": "android",
           "promise_status": "not_applicable",
           "evidence_grade": "A",
-          "source_ids": ["play-archero"],
+          "source_ids": [
+            "play-archero"
+          ],
           "note": "S급 히어로 각성, 길드전 개선, 메인 챕터 230 확장 등."
         }
       ],
@@ -1640,7 +2006,9 @@
     "monetization": {
       "ads": {
         "in_app_exposure": "unknown",
-        "ad_types": ["unknown"],
+        "ad_types": [
+          "unknown"
+        ],
         "store_declares_ads": true,
         "inflow_ad": {
           "present": "unknown",
@@ -1657,13 +2025,23 @@
         "p2w": "yes",
         "required_to_progress": "unknown",
         "evidence_grade": "A/C",
-        "source_ids": ["play-archero"]
+        "source_ids": [
+          "play-archero"
+        ]
       },
       "subscription": {
         "present": "unknown",
         "display": "구독성 상품(월정액 패스) 여부 미확인"
       },
-      "summary": "무료 진입 + 광고 + 확률형 인앱 결제. 성장 재화와 장비 등급이 결제에 연결된다."
+      "summary": "무료 진입 + 광고 + 확률형 인앱 결제. 성장 재화와 장비 등급이 결제에 연결된다.",
+      "free_play": {
+        "value": "constrained",
+        "evidence_grade": "C",
+        "source_ids": [
+          "play-archero"
+        ],
+        "note": "무과금으로도 진행은 되지만 장비·영웅 등급 성장이 확률형 상품에 기대어 후반 난이도에서 벽이 생긴다(등급 C)."
+      }
     },
     "data_quality": {
       "overall_grade": "B",

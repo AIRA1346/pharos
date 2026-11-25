@@ -7,6 +7,11 @@
 
 **라이브:** https://aira1346.github.io/pharos/
 
+**기준표 v0.4.0 (2026-11-25):** 확률형·P2W 상품의 **강제성을 3단계**(`impact`: none·optional·core)로 나눴습니다. 상품이 있어도
+무과금으로 본편을 충분히 즐길 수 있으면(`optional`) 「선택 과금 · 무과금 가능」 배지로만 알리고 거르지 않으며, 상품 존재 자체로
+거르고 싶으면 미세조정의 `strict_monetization`(기본 OFF)을 켭니다. Black Desert 54.15→**80.1 🟢**, Guild Wars 2 →**77.2 🟡**,
+Bloons TD 6 →**81.3 🟢**, Limbus Company →**78.7 🟡** 로 재적용하고, Lost Ark·Clash Royale·Plants vs. Zombies 2·Archero·Hero Wars·Genshin Impact 는 `core`(🔴)로 남겼습니다.
+
 ## v2 — 4단 탐색으로 개편
 
 `spec/plan.md` v2.0 의 2단계 결과물입니다. 비교군 → 앱/게임 역전 구조와 `전체` 평균 혼합을 폐기하고,
@@ -69,7 +74,8 @@ spec/                      설계 문서 (vision · criteria · plan · pilot-te
 ## 무엇을 보여주나
 
 - **세 축 가중치** — 사용자 평가 / 객관 신뢰 지표 / AI 검토. 슬라이더로 비중을 바꾸면 카드 점수와 판정이 즉시 재계산됩니다(합계 100% 정규화).
-- **하드 필터 9종** — 강제 광고·확률형 아이템·P2W·과금 없이 진행 불가·미끼형 광고·12개월 방치·구독 필수·계정 필수·과도한 데이터 수집. 켜진 필터에 하나라도 걸리면 점수와 무관하게 **거름**이고, 왜 걸렸는지 사유를 함께 보여줍니다.
+- **하드 필터 9종** — 강제 광고·확률형 아이템·P2W·과금 없이 진행 불가·미끼형 광고·12개월 방치·구독 필수·계정 필수·과도한 데이터 수집. 켜진 필터에 걸리면 점수와 무관하게 **거름**이고, 왜 걸렸는지 사유를 함께 보여줍니다.
+- **선택 과금 3단계** — 확률형·P2W는 `impact`(none·optional·core)로 강도를 나눕니다. `optional`(무과금으로 충분)은 「선택 과금 · 무과금 가능」 배지와 무과금 충분성(`monetization.free_play`, 근거 등급)으로 표시하고, `core`(성장 벽)만 기본 모드에서 거릅니다.
 - **근거 엄격 모드** — 끄면 근거 등급 C뿐인 필터 적중은 '근거 약함' 조건부 경고로 완화됩니다.
 - **수명 단계** — 완결작(`feature_complete`)과 방치(`abandoned`)를 구분해, 완결작은 '업데이트 없음' 필터에서 면제합니다(점수는 그대로). 보안·OS 호환성 신호가 있으면 조건부 경고로 내립니다.
 - **비교군 안에서만 비교** — 점수 평균·순위·요약은 오직 같은 비교군에서만 계산합니다. 노트 앱과 카드 게임을 한 줄에 섞어 평균 내지 않습니다.
@@ -79,7 +85,7 @@ spec/                      설계 문서 (vision · criteria · plan · pilot-te
 | 문서 | 내용 |
 | --- | --- |
 | [spec/vision.md](spec/vision.md) | 제품 비전과 문제 정의 |
-| [spec/criteria.md](spec/criteria.md) | 선별 기준표 — 축·가중치·산식·하드 필터·판정 규칙 (데이터 구조 v0.4.0) |
+| [spec/criteria.md](spec/criteria.md) | 선별 기준표 — 축·가중치·산식·하드 필터·확률형·P2W 강도·판정 규칙 (v0.4.0) |
 | [spec/plan.md](spec/plan.md) | 개발 계획과 단계 (v2.0) |
 | [spec/pilot-test.md](spec/pilot-test.md) | 파일럿 검증 기록 |
 | [spec/README.md](spec/README.md) | 문서 읽는 순서와 검증 도구 안내 |

@@ -40,6 +40,8 @@ WEB_JS_DIR = WEB_DIR / "js"
 AXES = [("user_rating", 0.40), ("objective", 0.35), ("ai_review", 0.25)]
 THRESHOLDS = {"green_min": 75, "yellow_min": 50}
 DEFAULT_FILTERS = ["forced_ads", "gacha_random_items", "p2w", "stale_over_12m"]
+MONETIZATION_IMPACT_KEYS = {"gacha_random_items", "p2w"}
+IMPACT_VALUES = {"none", "optional", "core"}
 NON_FILTER_FLAGS = {"contains_ads", "data_export", "compat_risk"}
 MAINTENANCE_STATUSES = {"active", "feature_complete", "stale_unknown", "abandoned"}
 ID_PATTERN = "^[a-z0-9][a-z0-9_-]*$"
@@ -119,17 +121,36 @@ def filter_status(item, tier, key):
     return tier["hard_filters"][key]["status"]
 
 
-def compute_verdict(item, tier, enabled=None, strict=True):
-    """기준표 8절 판정 규칙. 반환: (판정, 규칙 사유)."""
-    enabled = DEFAULT_FILTERS if enabled is None else enabled
-    fails = []
+def tier_impact(tier, key, status):
+    """확률형·P2W 의 강도(v0.4) — 기록이 없으면 상태에서 추론한다(fail→core, 그 외 none)."""
+    if key not in MONETIZATION_IMPACT_KEYS:
+        return None
+    recorded = (tier["hard_filters"].get(key) or {}).get("impact")
+    if recorded in IMPACT_VALUES:
+        return recorded
+    return "core" if status == "fail" else "none"
+
+
+def blocking_fails(item, tier, enabled, strict=True, strict_monetization=False):
+    """거름으로 잡히는 필터 목록. impact optional 은 strict_monetization 을 켰을 때만 거른다."""
+    out = []
     for key in enabled:
         status = filter_status(item, tier, key)
         if status != "fail":
             continue
+        impact = tier_impact(tier, key, status)
+        if impact == "optional" and not strict_monetization:
+            continue
         if not strict and grade_rank(tier["hard_filters"][key]["evidence_grade"]) >= 2:
             continue
-        fails.append(key)
+        out.append(key)
+    return out
+
+
+def compute_verdict(item, tier, enabled=None, strict=True, strict_monetization=False):
+    """기준표 8절 판정 규칙. 반환: (판정, 규칙 사유)."""
+    enabled = DEFAULT_FILTERS if enabled is None else enabled
+    fails = blocking_fails(item, tier, enabled, strict, strict_monetization)
     if fails:
         return "avoid", f"hard_filter:{','.join(fails)}"
 
@@ -362,6 +383,41 @@ def semantic_errors(item, ctx, arena_id=None):
                 errs.append(f"{tier['tier_id']}.stale_over_12m: 'exempt' 인데 maintenance_status 가 {mstatus!r}")
             elif not res["note"].strip():
                 errs.append(f"{tier['tier_id']}.stale_over_12m: 'exempt' 인데 사유(note)가 없음")
+
+    # 확률형·P2W 강도 3단계(v0.4) — impact ↔ status ↔ free_play 일관성
+    free_play = (item.get("monetization") or {}).get("free_play") or {}
+    for tier in item["tiers"]:
+        for key, res in tier["hard_filters"].items():
+            impact = res.get("impact")
+            if impact is None:
+                continue
+            if key not in MONETIZATION_IMPACT_KEYS:
+                errs.append(f"{tier['tier_id']}.{key}: impact 는 gacha_random_items·p2w 에만 쓸 수 있음")
+                continue
+            if impact not in IMPACT_VALUES:
+                errs.append(f"{tier['tier_id']}.{key}: impact 값이 열거형 밖: {impact!r}")
+                continue
+            status = filter_status(item, tier, key)
+            if impact == "none" and status != "pass":
+                errs.append(f"{tier['tier_id']}.{key}: impact 'none' 인데 status 가 {status!r}")
+            if impact in {"optional", "core"} and status != "fail":
+                errs.append(f"{tier['tier_id']}.{key}: impact {impact!r} 인데 status 가 fail 이 아님({status!r})")
+            if impact == "optional" and free_play.get("value") != "sufficient":
+                errs.append(
+                    f"{tier['tier_id']}.{key}: impact 'optional' 인데 monetization.free_play.value 가 "
+                    f"'sufficient' 가 아님({free_play.get('value')!r}) — 무과금 충분성 근거 필요")
+            if impact == "core" and free_play.get("value") == "sufficient":
+                errs.append(f"{tier['tier_id']}.{key}: impact 'core' 인데 free_play 가 'sufficient' 로 모순")
+    if free_play:
+        value = free_play.get("value")
+        if value not in {"sufficient", "constrained", "blocked", "unknown"}:
+            errs.append(f"monetization.free_play.value 가 열거형 밖: {value!r}")
+        if not (free_play.get("note") or "").strip():
+            errs.append("monetization.free_play.note 가 비어 있음")
+        cores = [t["tier_id"] for t in item["tiers"]
+                 if any(tier_impact(t, k, filter_status(item, t, k)) == "core" for k in MONETIZATION_IMPACT_KEYS)]
+        if value in {"constrained", "blocked"} and not cores:
+            warns.append("free_play 가 제한/불가인데 impact 'core' 로 기록된 확률형·P2W 가 없음")
 
     axis_nodes = [(k, item["axes"][k], bool(item["axes"][k].get("signal_basis") == "review_override"))
                   for k in item["axes"]]
@@ -668,6 +724,14 @@ def negative_tests(schema, good_item):
     broken["tiers"][0]["hard_filters"]["stale_over_12m"]["status"] = "exempted"
     cases.append(("하드필터 status 허용되지 않은 값", broken))
 
+    broken = copy.deepcopy(good_item)
+    broken["tiers"][0]["hard_filters"]["gacha_random_items"]["impact"] = "sometimes"
+    cases.append(("impact 허용되지 않은 값", broken))
+
+    broken = copy.deepcopy(good_item)
+    broken["monetization"]["free_play"] = {"value": "free", "evidence_grade": "A", "note": "x"}
+    cases.append(("free_play.value 허용되지 않은 값", broken))
+
     return [(label, not validator.is_valid(instance)) for label, instance in cases]
 
 
@@ -773,6 +837,80 @@ def exemption_rule_tests(good_item, ctx):
     return results
 
 
+def impact_rule_tests(base_item, ctx, arena_id):
+    """확률형·P2W 3단계 강도(impact)와 strict_monetization 토글의 양성/음성 테스트."""
+    results = []
+
+    def make(impact, free_value="sufficient", free=True, key="gacha_random_items"):
+        it = copy.deepcopy(base_item)  # Balatro — 다른 플래그가 모두 no 인 깨끗한 틀
+        it["flags"]["gacha_random_items"]["value"] = "yes"
+        it["flags"]["gacha_random_items"]["note"] = "테스트용 확률형 상품."
+        it["tiers"][0]["hard_filters"][key] = {
+            "status": "fail", "evidence_grade": "A", "note": "테스트용 확률형 상품.", "impact": impact,
+        }
+        if free:
+            it["monetization"]["free_play"] = {
+                "value": free_value, "evidence_grade": "A", "source_ids": [], "note": "테스트용 무과금 근거.",
+            }
+        else:
+            it["monetization"].pop("free_play", None)
+        return it
+
+    def freeze(item):
+        verdict, _why = compute_verdict(item, item["tiers"][0])
+        item["tiers"][0]["verdict"] = verdict
+        item["verdict"]["overall"] = verdict
+        return verdict
+
+    optional = make("optional")
+    verdict_optional = freeze(optional)
+    results.append(("impact optional → 기본 모드에서 거름 아님(추천)",
+                    verdict_optional == "recommend", verdict_optional))
+    errs, _ = semantic_errors(optional, ctx, arena_id)
+    results.append(("impact optional + free_play sufficient → 의미 검사 통과",
+                    not errs, "; ".join(errs[:2]) or "통과"))
+
+    strict_verdict, strict_why = compute_verdict(optional, optional["tiers"][0], strict_monetization=True)
+    results.append(("같은 데이터 + strict_monetization=true → 거름",
+                    strict_verdict == "avoid", f"{strict_verdict} ({strict_why})"))
+
+    core = make("core", "constrained")
+    verdict_core = freeze(core)
+    results.append(("impact core → 기본 모드에서 거름",
+                    verdict_core == "avoid", verdict_core))
+    core_strict, _ = compute_verdict(core, core["tiers"][0], strict_monetization=True)
+    results.append(("impact core + strict_monetization=true → 거름 유지",
+                    core_strict == "avoid", core_strict))
+
+    no_free = make("optional", free=False)
+    errs, _ = semantic_errors(no_free, ctx, arena_id)
+    results.append(("impact optional 인데 free_play 없음 → 의미 검사 차단",
+                    any("free_play" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    bad_free = make("optional", "constrained")
+    errs, _ = semantic_errors(bad_free, ctx, arena_id)
+    results.append(("impact optional + free_play constrained → 차단",
+                    any("free_play" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    none_fail = make("none")
+    errs, _ = semantic_errors(none_fail, ctx, arena_id)
+    results.append(("impact none + status fail → 차단",
+                    any("impact 'none'" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    wrong_key = make("optional")
+    wrong_key["tiers"][0]["hard_filters"]["forced_ads"]["impact"] = "optional"
+    errs, _ = semantic_errors(wrong_key, ctx, arena_id)
+    results.append(("gacha·p2w 가 아닌 필터의 impact → 차단",
+                    any("impact 는" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    core_conflict = make("core", "sufficient")
+    errs, _ = semantic_errors(core_conflict, ctx, arena_id)
+    results.append(("impact core + free_play sufficient → 모순 차단",
+                    any("모순" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    return results
+
+
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -852,6 +990,14 @@ def main():
         meta_errors.append("x-pharos.client.hard_filters 키 집합이 9종과 다름")
     if "arenas" in contract:
         meta_errors.append("x-pharos.client.arenas 가 남아 있음 — catalog.json 으로 옮겨야 함")
+    impact_meta = contract.get("monetization_impact") or {}
+    if set(impact_meta.get("keys") or []) != MONETIZATION_IMPACT_KEYS:
+        meta_errors.append("monetization_impact.keys 가 gacha_random_items·p2w 와 다름")
+    if {level.get("key") for level in impact_meta.get("levels") or []} != IMPACT_VALUES:
+        meta_errors.append("monetization_impact.levels 가 none·optional·core 와 다름")
+    toggle = impact_meta.get("strict_toggle") or {}
+    if toggle.get("key") != "strict_monetization" or toggle.get("default") is not False:
+        meta_errors.append("monetization_impact.strict_toggle(strict_monetization, 기본 OFF)가 없음")
     if meta_errors:
         print(f"[1] 계산 계약 메타 검사: FAIL — {'; '.join(meta_errors)}")
         return 1
@@ -980,6 +1126,15 @@ def main():
     if not all(ok for _, ok, _ in rules):
         return 1
 
+    # 6-1) 확률형·P2W 3단계 강도
+    print("\n[7-1] 확률형·P2W 3단계 강도(impact)·strict_monetization 테스트")
+    base_item = next((item for item in all_items if item["id"] == "balatro"), all_items[0])
+    impact_rules = impact_rule_tests(base_item, ctx, base_item["arenas"][0])
+    for label, ok, detail in impact_rules:
+        print(f"  - {label}: {'PASS' if ok else 'FAIL'}" + ("" if ok else f" ← {detail}"))
+    if not all(ok for _, ok, _ in impact_rules):
+        return 1
+
     # 7) 웹 사본
     print("\n[8] 정적 배포 준비(web/ 단독 폴더)")
     web_errs = web_sync_errors(catalog, items_by_arena)
@@ -995,7 +1150,8 @@ def main():
     print(f"결과: PASS — 아이템 {total}건 스키마 100% 충족 · 의미 규칙 위반 0 · "
           f"계층 {len(domains)}/{len(categories)}/{len(arenas_meta)} 정상 · 판정 재계산 일치 · "
           f"인덱스 최신 · 음성 테스트 {sum(1 for _, c in neg + neg_cat if c)}/{len(neg) + len(neg_cat)} 차단 · "
-          f"완결작 면제 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과 · web/ 사본 일치")
+          f"완결작 면제 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과 · "
+          f"강도 3단계 {sum(1 for _, ok, _ in impact_rules if ok)}/{len(impact_rules)} 통과 · web/ 사본 일치")
     print("=" * 78)
     return 0
 
