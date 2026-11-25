@@ -982,7 +982,7 @@ function reasonHtml(view) {
   }
   if (!e.blocking.length && !e.weakFails.length) {
     if (e.optionalFails?.length) {
-      chips.push(`<span class="reason-chip reason-chip--ok">상품 없이도 본편 즐김</span>`);
+      chips.push(`<span class="reason-chip reason-chip--ok">상품 없이도 본편 즐길 수 있음</span>`);
     } else if (e.verdict === 'recommend') {
       chips.push('<span class="reason-chip reason-chip--ok">하드 필터 통과</span>');
     }
