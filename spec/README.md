@@ -51,10 +51,11 @@ web/
   data/search-index.json 경량 인덱스 (자동 생성 — 통합 검색·홈 리포트)
   data/app/pkm-notes.json              노트·지식관리 5건
   data/game/roguelike-deckbuilder.json 덱빌딩 게임 4건
-  data/game/mobile-gacha-rpg.json      모바일 수집형 RPG 3건
+  data/game/mobile-gacha-rpg.json      모바일 수집형 RPG 6건
   data/game/action-roguelike.json      액션 로그라이크 4건
   data/game/pc-mmorpg.json             PC MMORPG 4건
-  data/game/mobile-strategy-defense.json 모바일 전략·디펜스 4건
+  data/game/mobile-strategy-defense.json 모바일 전략·디펜스 6건
+  assets/icons/        29종 공식 아이콘 192×192 webp + manifest.json(출처·확보 방법)
   schema/item.schema.json  배포용 스키마 사본 (v0.4.0)
   tests/verify_ui.py    Playwright 검증 스크립트
   preview-v2-home.png        홈 요약 뷰 (1440px)
@@ -112,6 +113,11 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
   거름·조건부 항목의 **같은 비교군 상위 추천 대체제**, **공유용 요약 복사**, **정정 제보**(GitHub Issue
   `correction.yml`), 보관함 담기.
 - **방법론 모달**: 4단 구조·4축·A/B/C 등급·판정 규칙·독립성(어필리에이트·유료 광고 배제) 선언·용어 도움말.
+- **공식 아이콘(v2.1)**: 29종 모두 `assets/icons/{id}.webp`(192×192) 공식 아이콘을 가집니다 — 카드 46px,
+  상세 모달 54px, 1:1 비교표 32px, 홈 검색·갭 리포트·보관함 26px. 파일은 `scripts/fetch_icons.py` 가
+  App Store 아트워크 → 공식 사이트 아이콘/파비콘 → 공식 브랜드 마크 순으로 내려받아 정규화하며,
+  출처는 `assets/icons/manifest.json` 에 남깁니다. 파일이 없거나 로드에 실패하면 img 가 숨고
+  같은 자리에 이름 첫 글자 이니셜 배지가 남습니다(깨진 이미지 없음).
 
 ## 계약 ↔ 구현 대응
 

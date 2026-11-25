@@ -2095,3 +2095,79 @@ table.data.compare-table th.compare-rowlabel { width: 176px; min-width: 132px; }
   .arena-summary .stat { padding: 10px 12px; }
   .arena-summary .stat-value { font-size: 21px; }
 }
+
+/* --------------------------------------------- 공식 아이콘 (item.icon / v2.1) */
+/* 카드 46px · 상세 54px · 비교표 32px · 검색·갭·보관함 26px.
+   이미지가 없거나 로드에 실패하면 img 가 숨겨지고 같은 자리에 이름 첫 글자 배지가 남는다. */
+.item-icon {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(150deg, var(--card-2), var(--card));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+.item-icon::before {
+  content: attr(data-initial);
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.item-icon img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.item-icon img[hidden] { display: none; }
+.item-icon--card { width: 46px; height: 46px; }
+.item-icon--detail { width: 54px; height: 54px; border-radius: 12px; }
+.item-icon--detail::before { font-size: 22px; }
+.item-icon--compare { width: 32px; height: 32px; border-radius: 8px; }
+.item-icon--compare::before { font-size: 13px; }
+.item-icon--small { width: 26px; height: 26px; border-radius: 7px; }
+.item-icon--small::before { font-size: 11px; }
+html[data-theme="light"] .item-icon { box-shadow: 0 1px 2px rgba(20, 32, 44, 0.08); }
+
+.card-name-row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.card-name-text { min-width: 0; display: grid; gap: 2px; }
+.card-name-text h3 { margin: 0; }
+
+.search-row-name,
+.bookmark-name,
+.alt-name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.search-row-text { min-width: 0; }
+
+.compare-head-name { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.compare-head-text { min-width: 0; }
+
+.modal-icon-slot { flex: none; display: flex; align-items: flex-start; padding-top: 2px; }
+.modal-titles { flex: 1 1 auto; }
+
+.gap-title { align-items: center; }
+
+@media (max-width: 720px) {
+  .item-icon--card { width: 42px; height: 42px; border-radius: 9px; }
+  .item-icon--card::before { font-size: 16px; }
+  .item-icon--detail { width: 46px; height: 46px; border-radius: 11px; }
+  .item-icon--detail::before { font-size: 18px; }
+  .modal-titles h2 { font-size: 22px; }
+}
+
+/* 모바일 상세 모달 머리 — 아이콘 + 제목은 한 줄, 액션 버튼은 아래 줄로 내려 글자가 세로로 쪼개지지 않게 한다. */
+@media (max-width: 720px) {
+  .modal-head { flex-wrap: wrap; gap: 8px 10px; padding: 16px 16px 12px; }
+  .modal-icon-slot { order: 1; align-items: center; }
+  .modal-titles { order: 2; flex: 1 1 220px; }
+  .modal-actions { order: 3; flex: 1 1 100%; justify-content: flex-end; flex-wrap: wrap; }
+}

@@ -547,6 +547,7 @@ def build_search_index(catalog, items_by_arena, contract):
             record = {
                 "id": item["id"],
                 "name": item["name"],
+                "icon": item.get("icon"),
                 "aliases": item.get("aliases") or [],
                 "domain": item["domain"],
                 "category": item["category"],
@@ -911,6 +912,84 @@ def impact_rule_tests(base_item, ctx, arena_id):
     return results
 
 
+ICON_PATTERN = re.compile(r"^assets/icons/[a-z0-9][a-z0-9-]*\.(png|jpg|jpeg|webp)$")
+
+
+def image_kind(data):
+    """파일 앞부분만 보고 실제 이미지인지(그리고 형식이 무엇인지) 판별한다."""
+    if data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "png"
+    if data.startswith(b"\xff\xd8\xff"):
+        return "jpeg"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "webp"
+    return None
+
+
+def icon_errors(items_by_arena, web_dir=None):
+    """아이콘 경로 규칙 · 파일 존재 · 실제 이미지 여부 · 중복 · 미사용 파일 검사."""
+    web_dir = web_dir or WEB_DIR
+    errs, warns = [], []
+    used = {}
+    for _arena_id, (_path, items) in items_by_arena.items():
+        for item in items:
+            icon = item.get("icon")
+            if not icon:
+                warns.append(f"{item['id']}: icon 없음 — 카드·상세에서 이니셜 배지로 대체된다")
+                continue
+            if not isinstance(icon, str) or not ICON_PATTERN.match(icon):
+                errs.append(f"{item['id']}: icon 경로 규칙 위반 {icon!r} (assets/icons/{item['id']}.webp 형식)")
+                continue
+            if icon in used:
+                errs.append(f"{item['id']}: icon 경로가 {used[icon]} 와 중복 ({icon})")
+            used[icon] = item["id"]
+            path = web_dir / icon
+            if not path.exists():
+                errs.append(f"{item['id']}: 아이콘 파일 없음 web/{icon} — python3 projects/pharos/scripts/fetch_icons.py")
+                continue
+            data = path.read_bytes()
+            kind = image_kind(data)
+            if kind is None:
+                errs.append(f"{item['id']}: 아이콘이 실제 이미지 파일이 아님 web/{icon}")
+            elif path.suffix.lower() == ".webp" and kind != "webp":
+                errs.append(f"{item['id']}: 확장자는 .webp 인데 실제 형식은 {kind} web/{icon}")
+            elif len(data) < 512:
+                errs.append(f"{item['id']}: 아이콘 파일이 너무 작음({len(data)}B) web/{icon}")
+    icon_dir = web_dir / "assets" / "icons"
+    if icon_dir.exists():
+        for path in sorted(icon_dir.iterdir()):
+            rel = f"assets/icons/{path.name}"
+            if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"} and rel not in used:
+                warns.append(f"참조되지 않는 아이콘 파일: web/{rel}")
+    return errs, warns
+
+
+def icon_negative_tests(items_by_arena):
+    """아이콘 검사기가 고의 오류(없는 파일·규칙 위반·이미지 아닌 파일)를 잡는지 확인한다."""
+    results = []
+
+    def mutate(**changes):
+        bad = copy.deepcopy(items_by_arena)
+        first_key = next(iter(bad))
+        item = bad[first_key][1][0]
+        item["icon"] = changes.get("icon", item.get("icon"))
+        return bad
+
+    errs, _ = icon_errors(mutate(icon="assets/icons/no-such-item.webp"))
+    results.append(("아이콘: 없는 파일 경로 → 차단", any("파일 없음" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    errs, _ = icon_errors(mutate(icon="icons/balatro.webp"))
+    results.append(("아이콘: 경로 규칙 위반(assets/icons/ 아님) → 차단", any("경로 규칙" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    errs, _ = icon_errors(mutate(icon="assets/icons/../schema/item.schema.json"))
+    results.append(("아이콘: 이미지가 아닌 파일 → 차단", any("경로 규칙" in e or "이미지" in e for e in errs), "; ".join(errs[:1]) or "차단되지 않음"))
+
+    errs, _ = icon_errors(mutate(icon=None))
+    results.append(("아이콘: 경로 없음 → 오류가 아니라 경고로 남김", not errs, "; ".join(errs[:1]) or "경고 처리"))
+
+    return results
+
+
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -1146,12 +1225,35 @@ def main():
     print("  - 웹 JS 가 ./data/catalog.json · ./data/search-index.json · ./schema/item.schema.json 을 상대경로로 참조")
     print("  - web/ 폴더만으로 데이터·스키마·계산 계약이 모두 해결됨")
 
+    # 8-1) 아이콘 파일
+    print("\n[9] 아이콘 검사(web/assets/icons/)")
+    icon_errs, icon_warns = icon_errors(items_by_arena)
+    for warn in icon_warns:
+        print(f"  ! 경고: {warn}")
+    for err in icon_errs:
+        print(f"  × {err}")
+    if icon_errs:
+        return 1
+    with_icon = sum(1 for item in all_items if item.get("icon"))
+    print(f"  - 아이템 {with_icon}/{len(all_items)}건이 icon 경로를 가짐 · 모든 파일 존재 · 실제 이미지 확인")
+    if not all(index_item.get("icon") for index_item in index.get("items") or []):
+        print("  × search-index.json 에 icon 이 비어 있는 항목이 있음")
+        return 1
+    print("  - search-index.json 에도 icon 이 실려 홈 검색·갭 리포트에서 바로 쓸 수 있음")
+    print("\n[9-1] 아이콘 검사 음성 테스트")
+    icon_neg = icon_negative_tests(items_by_arena)
+    for label, caught, detail in icon_neg:
+        print(f"  - {label}: {'차단됨 PASS' if caught else '통과됨 FAIL'}" + ("" if caught else f" ← {detail}"))
+    if not all(caught for _, caught, _ in icon_neg):
+        return 1
+
     print("\n" + "=" * 78)
     print(f"결과: PASS — 아이템 {total}건 스키마 100% 충족 · 의미 규칙 위반 0 · "
           f"계층 {len(domains)}/{len(categories)}/{len(arenas_meta)} 정상 · 판정 재계산 일치 · "
           f"인덱스 최신 · 음성 테스트 {sum(1 for _, c in neg + neg_cat if c)}/{len(neg) + len(neg_cat)} 차단 · "
           f"완결작 면제 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과 · "
-          f"강도 3단계 {sum(1 for _, ok, _ in impact_rules if ok)}/{len(impact_rules)} 통과 · web/ 사본 일치")
+          f"강도 3단계 {sum(1 for _, ok, _ in impact_rules if ok)}/{len(impact_rules)} 통과 · "
+          f"아이콘 {with_icon}/{len(all_items)}건 · web/ 사본 일치")
     print("=" * 78)
     return 0
 

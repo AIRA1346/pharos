@@ -133,6 +133,29 @@ const safeUrl = (url) => (/^https?:\/\//i.test(String(url || '')) ? url : null);
 const pct = (num) => `${Math.round(num * 100)}%`;
 const num = (value) => Number(value ?? 0).toLocaleString('ko-KR');
 const contract = () => state.core?.contract || {};
+
+/* 공식 아이콘 — data 의 icon 경로(assets/icons/{id}.webp)를 그대로 쓴다.
+   파일이 없거나 깨져 있으면 img 가 숨겨지고 CSS 가 이름 첫 글자 이니셜 배지를 보여준다. */
+const iconSrc = (icon) => {
+  const raw = String(icon || '').trim().replace(/^\.?\//, '');
+  return raw ? `./${raw}` : null;
+};
+const initialOf = (name) => String(name || '?').trim().slice(0, 1).toUpperCase();
+function iconHtml(item, size = 'card') {
+  const src = iconSrc(item?.icon);
+  const initial = initialOf(item?.name);
+  return `<span class="item-icon item-icon--${size}" data-initial="${esc(initial)}" aria-hidden="true">${
+    src ? `<img src="${esc(src)}" alt="" decoding="async" />` : ''
+  }</span>`;
+}
+document.addEventListener(
+  'error',
+  (event) => {
+    const img = event.target;
+    if (img instanceof HTMLImageElement && img.closest('.item-icon')) img.hidden = true;
+  },
+  true,
+);
 const schemaVersion = () => state.core?.schema?.['x-pharos']?.schema_version || contract().schema_version || '0.4.0';
 const indexRecords = () => state.core?.index?.items || [];
 const recordById = (id) => indexRecords().find((rec) => rec.id === id) || null;
@@ -650,6 +673,7 @@ function gapRowHtml(rec) {
   return `
   <article class="gap-row" data-item="${esc(rec.id)}" role="button" tabindex="0">
     <div class="gap-title">
+      ${iconHtml(rec, 'small')}
       <strong>${esc(rec.name)}</strong>
       <span class="chips">
         <span class="chip chip--cat">${esc(state.cat.domainLabel(rec.domain))}</span>
@@ -671,7 +695,7 @@ function bookmarkRowHtml(rec) {
   const verdict = engine.VERDICT_META[rec.verdict];
   return `
   <article class="bookmark-row" data-item="${esc(rec.id)}" role="button" tabindex="0">
-    <span class="bookmark-name">${esc(rec.name)}</span>
+    <span class="bookmark-name">${iconHtml(rec, 'small')}<span class="search-row-text">${esc(rec.name)}</span></span>
     <span class="chip chip--arena">${esc(state.cat.arenaLabel(rec.arenas[0]))}</span>
     <span class="verdict verdict--${verdict.tone}">${verdict.emoji} ${verdict.label}</span>
     <span class="bookmark-score">${rec.score ?? '—'}</span>
@@ -705,7 +729,7 @@ function renderHomeSearch() {
               .map(({ record }) => {
                 const verdict = engine.VERDICT_META[record.verdict];
                 return `<button type="button" class="search-row" data-action="item" data-item="${esc(record.id)}">
-                  <span class="search-row-name">${esc(record.name)}</span>
+                  <span class="search-row-name">${iconHtml(record, 'small')}<span class="search-row-text">${esc(record.name)}</span></span>
                   <span class="chip chip--arena">${esc(state.cat.arenaLabel(record.arenas[0]))}</span>
                   <span class="search-row-desc">${esc(record.one_liner)}</span>
                   <span class="verdict verdict--${verdict.tone}">${verdict.emoji} ${verdict.label}</span>
@@ -1053,8 +1077,13 @@ function cardHtml(view) {
           ${monetizationChip(recordEval)}
           ${freshnessChip(item)}
         </div>
-        <h3>${esc(item.name)}</h3>
-        <p class="card-dev">${esc(item.developer)}${item.genres?.length ? ` · ${esc(item.genres.slice(0, 2).join(' / '))}` : ''}</p>
+        <div class="card-name-row">
+          ${iconHtml(item, 'card')}
+          <div class="card-name-text">
+            <h3>${esc(item.name)}</h3>
+            <p class="card-dev">${esc(item.developer)}${item.genres?.length ? ` · ${esc(item.genres.slice(0, 2).join(' / '))}` : ''}</p>
+          </div>
+        </div>
       </div>
       <span class="verdict verdict--${verdictMeta.tone}"><span class="v-emoji" aria-hidden="true">${verdictMeta.emoji}</span>${verdictMeta.label}</span>
     </header>
@@ -1224,7 +1253,7 @@ async function renderCompare(seq) {
         <thead>
           <tr>
             <th class="compare-rowlabel" scope="col">기준</th>
-            ${views.map((v) => `<th scope="col"><span class="compare-head-name">${esc(v.item.name)}</span><span class="verdict verdict--${
+            ${views.map((v) => `<th scope="col"><span class="compare-head-name">${iconHtml(v.item, 'compare')}<span class="compare-head-text">${esc(v.item.name)}</span></span><span class="verdict verdict--${
               engine.VERDICT_META[v.recordEval.verdict].tone
             }">${engine.VERDICT_META[v.recordEval.verdict].emoji} ${engine.VERDICT_META[v.recordEval.verdict].label}</span></th>`).join('')}
           </tr>
@@ -1309,6 +1338,8 @@ async function showDetail(id) {
   const fresh = view.fresh;
 
   state.lastFocus = document.activeElement;
+  $('modalIcon').hidden = false;
+  $('modalIcon').innerHTML = iconHtml(item, 'detail');
   $('modalTitle').textContent = item.name;
   $('modalDev').textContent = [
     item.developer,
@@ -1736,7 +1767,7 @@ function sectionAlternatives(view) {
         .map(
           ({ item: alt, tier, evaluation }) => `
         <button type="button" class="alt-row" data-action="item" data-item="${esc(alt.id)}">
-          <span class="alt-name">${esc(alt.name)}</span>
+          <span class="alt-name">${iconHtml(alt, 'small')}<span class="search-row-text">${esc(alt.name)}</span></span>
           <span class="alt-tier">${esc(tier?.label || '')}</span>
           <span class="alt-score">${evaluation.score?.toFixed(1) ?? '—'}</span>
           <span class="verdict verdict--${engine.VERDICT_META[evaluation.verdict].tone}">${engine.VERDICT_META[evaluation.verdict].emoji} ${

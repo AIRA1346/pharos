@@ -15,7 +15,9 @@
      정정 제보 링크, 보관함 담기.
   7) URL 딥링크(domain·category·arena·item·compare·preset), 북마크(localStorage) 지속, 방법론 모달.
   8) 엔진 단위 테스트(가중 평균·6단 규칙·엄격/완화·완결작 면제·compat_risk·신선도·대체제·요약 텍스트).
-  9) 스크린샷: preview-v2-home.png · preview-v2-arena.png · preview-v2-compare.png · preview-v2-mobile.png.
+  9) 공식 아이콘(v2.1): 29종 아이콘 파일이 모두 실제 이미지로 로드되고, 카드 44~48px·상세 52~56px·
+     비교표 32px·갭 리포트·검색 결과에 object-fit: cover 둥근 사각형으로 들어가며, 로드 실패 시 이니셜 배지로 대체된다.
+  10) 스크린샷: preview-v2-home.png · preview-v2-arena.png · preview-v2-compare.png · preview-v2-mobile.png.
 
 실행:
   pip install playwright
@@ -963,6 +965,140 @@ def main() -> int:
                "엔진: impact 미기록 fail → core 추론", str(impact_unit["inferredImpact"]))
         expect(impact_unit["keys"] == "gacha_random_items,p2w", "엔진: impact 키 = 확률형·P2W", impact_unit["keys"])
         expect(impact_unit["label"] == "선택 과금 · 무과금 가능", "엔진: 선택 과금 라벨", impact_unit["label"])
+
+        # ------------------------------------------------ 10-5 공식 아이콘 (v2.1)
+        icon_index = page.evaluate(
+            """() => {
+            const items = window.Pharos.state.core.index.items;
+            return {total: items.length, withIcon: items.filter(i => i.icon).length,
+                    missing: items.filter(i => !i.icon).map(i => i.id)};
+        }"""
+        )
+        expect(icon_index["withIcon"] == 29 and icon_index["total"] == 29,
+               "검색 인덱스 29건 모두 icon 경로를 가짐", str(icon_index))
+
+        icon_load = page.evaluate(
+            """async () => {
+            const items = window.Pharos.state.core.index.items;
+            const load = (src) => new Promise((res) => {
+              const im = new Image();
+              im.onload = () => res(im.naturalWidth > 0 && im.naturalHeight > 0);
+              im.onerror = () => res(false);
+              im.src = src;
+            });
+            const results = await Promise.all(items.map(i => load('./' + i.icon)));
+            return {ok: results.filter(Boolean).length, total: results.length,
+                    bad: items.filter((_, k) => !results[k]).map(i => i.id)};
+        }"""
+        )
+        expect(icon_load["ok"] == 29, "29종 공식 아이콘 파일이 모두 실제 이미지로 로드됨", str(icon_load))
+
+        page.goto(f"{base}/?domain=game&arena=mobile-gacha-rpg", wait_until="networkidle")
+        wait(page, 700)
+        card_icons = page.evaluate(
+            """() => [...document.querySelectorAll('#grid .card, #avoidGrid .card')].map(card => {
+              const wrap = card.querySelector('.item-icon--card');
+              const img = wrap && wrap.querySelector('img');
+              return { id: card.dataset.id, hasIcon: !!img,
+                       loaded: !!img && img.complete && img.naturalWidth > 0,
+                       size: wrap ? Math.round(wrap.getBoundingClientRect().width) : 0,
+                       objectFit: img ? getComputedStyle(img).objectFit : '',
+                       radius: wrap ? getComputedStyle(wrap).borderRadius : '' };
+            })"""
+        )
+        expect(len(card_icons) == 6 and all(c["hasIcon"] and c["loaded"] for c in card_icons),
+               "모바일 수집형 RPG 카드 6건 모두 아이콘 로드(complete && naturalWidth>0)",
+               str([c for c in card_icons if not c["loaded"]] or len(card_icons)))
+        expect(all(44 <= c["size"] <= 48 for c in card_icons), "카드 아이콘 44~48px", str([c["size"] for c in card_icons]))
+        expect(all(c["objectFit"] == "cover" for c in card_icons), "카드 아이콘 object-fit: cover", str(card_icons[:1]))
+        expect(all(c["radius"] == "10px" for c in card_icons), "카드 아이콘 둥근 사각형 10px", str(card_icons[:1]))
+
+        page.goto(f"{base}/?domain=app&arena=pkm-notes", wait_until="networkidle")
+        wait(page, 700)
+        all_imgs = page.evaluate(
+            """() => [...document.querySelectorAll('#grid .card img, #avoidGrid .card img')]
+                 .map(i => ({src: i.getAttribute('src'), ok: i.complete && i.naturalWidth > 0}))"""
+        )
+        expect(len(all_imgs) == 5 and all(i["ok"] for i in all_imgs),
+               "노트 비교군 카드의 모든 <img> 가 정상 로드", str(all_imgs))
+        expect(all("assets/icons/" in i["src"] for i in all_imgs), "카드 아이콘이 web/assets/icons/ 로컬 파일", str(all_imgs[:1]))
+
+        page.click('#grid .card[data-id="obsidian"]')
+        wait(page, 700)
+        modal_icon = page.evaluate(
+            """() => {
+              const wrap = document.querySelector('#modalIcon .item-icon');
+              const img = wrap && wrap.querySelector('img');
+              return {has: !!wrap, loaded: !!img && img.complete && img.naturalWidth > 0,
+                      size: wrap ? Math.round(wrap.getBoundingClientRect().width) : 0,
+                      src: img ? img.getAttribute('src') : ''};
+            }"""
+        )
+        expect(modal_icon["has"] and modal_icon["loaded"], "상세 모달 머리에 아이콘 로드", str(modal_icon))
+        expect(52 <= modal_icon["size"] <= 56, "상세 아이콘 52~56px", str(modal_icon["size"]))
+        expect(modal_icon["src"].endswith("assets/icons/obsidian.webp"), "상세 아이콘이 그 항목의 파일", modal_icon["src"])
+        close_modal(page)
+
+        page.goto(f"{base}/?domain=game&arena=roguelike-deckbuilder", wait_until="networkidle")
+        wait(page, 600)
+        page.check('#grid .card[data-id="balatro"] input[data-compare]')
+        wait(page, 200)
+        page.check('#grid .card[data-id="slay-the-spire"] input[data-compare]')
+        wait(page, 300)
+        page.click("#compareOpen")
+        wait(page, 600)
+        compare_icons = page.evaluate(
+            """() => [...document.querySelectorAll('#compareTable thead th .item-icon')].map(wrap => {
+              const img = wrap.querySelector('img');
+              return {size: Math.round(wrap.getBoundingClientRect().width), loaded: !!img && img.complete && img.naturalWidth > 0};
+            })"""
+        )
+        expect(len(compare_icons) == 2 and all(c["loaded"] for c in compare_icons), "비교 표 머리글 아이콘 2건 로드", str(compare_icons))
+        expect(all(30 <= c["size"] <= 34 for c in compare_icons), "비교 표 아이콘 32px", str([c["size"] for c in compare_icons]))
+        table_headers = page.eval_on_selector_all("#compareTable thead th", "els => els.map(e => e.innerText.split('\\n')[0])")
+        expect(table_headers == ["기준", "Balatro", "Slay the Spire"], "아이콘을 넣어도 비교 표 머리글 텍스트 유지", str(table_headers))
+
+        page.goto(f"{base}/", wait_until="networkidle")
+        wait(page, 600)
+        gap_icons = page.evaluate(
+            """() => [...document.querySelectorAll('.gap-row .item-icon')].map(wrap => {
+              const img = wrap.querySelector('img');
+              return !!img && img.complete && img.naturalWidth > 0;
+            })"""
+        )
+        expect(len(gap_icons) == 4 and all(gap_icons), "갭 리포트 4건 아이콘 로드", str(gap_icons))
+        page.fill("#homeSearch", "니케")
+        wait(page, 400)
+        search_icons = page.evaluate(
+            """() => [...document.querySelectorAll('.search-row .item-icon')].map(wrap => {
+              const img = wrap.querySelector('img');
+              return !!img && img.complete && img.naturalWidth > 0;
+            })"""
+        )
+        expect(bool(search_icons) and all(search_icons), "홈 통합 검색 결과 아이콘 로드", str(search_icons))
+        page.fill("#homeSearch", "")
+        wait(page, 250)
+
+        # 이미지가 깨져도 깨진 아이콘 대신 이니셜 배지가 남는지(대체 표시)
+        fallback = page.evaluate(
+            """() => {
+              const wrap = document.createElement('span');
+              wrap.className = 'item-icon item-icon--card';
+              wrap.dataset.initial = 'X';
+              const img = document.createElement('img');
+              img.src = 'data:image/png;base64,AAAA';
+              wrap.appendChild(img);
+              document.body.appendChild(wrap);
+              return new Promise((res) => setTimeout(() => {
+                const badge = getComputedStyle(wrap, '::before').content;
+                const hidden = img.hidden;
+                wrap.remove();
+                res({badge, hidden});
+              }, 500));
+            }"""
+        )
+        expect(fallback["hidden"] is True and "X" in str(fallback["badge"]),
+               "아이콘 로드 실패 시 이니셜 배지로 대체", str(fallback))
 
         # ------------------------------------------------------------- 11 스크린샷
         desktop = context.new_page()

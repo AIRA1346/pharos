@@ -37,6 +37,11 @@
       "description": "정적 사이트의 안정 식별자(슬러그). URL·파일명으로 그대로 쓴다."
     },
     "name": { "type": "string", "minLength": 1 },
+    "icon": {
+      "type": "string",
+      "pattern": "^assets/icons/[a-z0-9][a-z0-9-]*\\.(png|jpg|jpeg|webp)$",
+      "description": "카드·상세·비교 표에 쓰는 공식 아이콘 경로(웹 배포 루트 기준 상대경로, 선택). 각 스토어·개발사의 공식 아트워크를 scripts/fetch_icons.py 가 192×192 webp 로 정규화해 web/assets/icons/ 에 두고, 출처는 같은 폴더의 manifest.json 에 남긴다. 파일이 없으면 UI 는 이름 첫 글자 이니셜 배지로 대체한다."
+    },
     "aliases": {
       "type": "array",
       "items": { "type": "string" }
