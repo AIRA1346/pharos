@@ -7,12 +7,12 @@
     "ai_review": 0.25
   },
   "counts": {
-    "items": 87,
+    "items": 107,
     "domains": 3,
-    "categories": 12,
-    "arenas": 18
+    "categories": 15,
+    "arenas": 22
   },
-  "content_hash": "46e0be7e1d405263675311114becf325d43ed5a78b634549f45f2d2d5041a768",
+  "content_hash": "e39d62aa5300bf8677a7d9bdd658e97096a496f0200a0fcc1cdaf3e5168932ef",
   "arena_stats": {
     "pkm-notes": {
       "label": "노트·지식관리",
@@ -442,6 +442,102 @@
         "github-copilot",
         "windsurf"
       ]
+    },
+    "ai-image-gen": {
+      "label": "AI 이미지 생성",
+      "domain": "ai",
+      "category": "ai-image-gen",
+      "count": 5,
+      "avg_score": 84.0,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 2,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "comfyui",
+        "name": "ComfyUI",
+        "score": 91.5
+      },
+      "items": [
+        "adobe-firefly",
+        "comfyui",
+        "flux",
+        "invokeai",
+        "midjourney"
+      ]
+    },
+    "pdf-tools": {
+      "label": "PDF 뷰어 · 편집",
+      "domain": "app",
+      "category": "document-design",
+      "count": 5,
+      "avg_score": 82.6,
+      "verdicts": {
+        "recommend": 3,
+        "conditional": 2,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "pdfgear",
+        "name": "PDFgear",
+        "score": 86.0
+      },
+      "items": [
+        "adobe-acrobat",
+        "foxit-pdf",
+        "okular",
+        "pdfgear",
+        "sumatrapdf"
+      ]
+    },
+    "image-editors": {
+      "label": "이미지 · 그래픽 편집",
+      "domain": "app",
+      "category": "document-design",
+      "count": 5,
+      "avg_score": 83.9,
+      "verdicts": {
+        "recommend": 4,
+        "conditional": 1,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "canva",
+        "name": "Canva",
+        "score": 87.5
+      },
+      "items": [
+        "adobe-photoshop",
+        "canva",
+        "gimp",
+        "krita",
+        "photopea"
+      ]
+    },
+    "turn-based-strategy": {
+      "label": "턴제 전략 · 전술",
+      "domain": "game",
+      "category": "strategy-tactics",
+      "count": 5,
+      "avg_score": 87.7,
+      "verdicts": {
+        "recommend": 5,
+        "conditional": 0,
+        "avoid": 0
+      },
+      "top_item": {
+        "id": "baldurs-gate-3",
+        "name": "Baldur's Gate 3",
+        "score": 94.0
+      },
+      "items": [
+        "baldurs-gate-3",
+        "civilization-vi",
+        "darkest-dungeon",
+        "into-the-breach",
+        "xcom-2"
+      ]
     }
   },
   "gap_report": {
@@ -515,6 +611,202 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 74",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "adobe-acrobat",
+      "name": "Adobe Acrobat",
+      "icon": "assets/icons/adobe-acrobat.webp",
+      "aliases": [
+        "애크로뱃",
+        "Acrobat",
+        "Adobe Acrobat Reader"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "pdf-tools"
+      ],
+      "developer": "Adobe",
+      "genres": [
+        "PDF 편집",
+        "OCR",
+        "전자서명",
+        "구독",
+        "AI 어시스턴트"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "android",
+        "ios",
+        "web"
+      ],
+      "one_liner": "PDF의 사실상 표준 편집기 — 읽기는 무료 리더로, 편집·OCR·전자서명은 월 구독으로 나뉘고 AI는 별도 애드온이나 Studio 티어다.",
+      "tagline": "PDF 편집만 필요하면 여기부터.",
+      "taste_tags": [
+        "subscription",
+        "industry-standard",
+        "pdf-editing",
+        "ai-addon",
+        "business"
+      ],
+      "keywords": [
+        "Acrobat",
+        "애크로뱃",
+        "Adobe",
+        "PDF",
+        "AI Assistant"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "standard",
+      "score": 81.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.51,
+        "count": 8093228,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 74",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 72",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "adobe-firefly",
+      "name": "Adobe Firefly",
+      "icon": "assets/icons/adobe-firefly.webp",
+      "aliases": [
+        "파이어플라이",
+        "Firefly"
+      ],
+      "domain": "ai",
+      "category": "ai-image-gen",
+      "arenas": [
+        "ai-image-gen"
+      ],
+      "developer": "Adobe",
+      "genres": [
+        "이미지 생성",
+        "영상 생성",
+        "상업적 사용",
+        "크레딧"
+      ],
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "macos"
+      ],
+      "one_liner": "상업적 사용을 전제로 학습 데이터를 공개한 Adobe의 생성형 스튜디오 — 매일 무료 생성과 월 크레딧으로 이미지·영상·오디오를 만든다.",
+      "tagline": "매일 조금씩 써 보는 경로.",
+      "taste_tags": [
+        "commercial-safe",
+        "subscription",
+        "credits",
+        "creative-cloud",
+        "content-credentials"
+      ],
+      "keywords": [
+        "Firefly",
+        "Adobe",
+        "파이어플라이",
+        "생성형 크레딧",
+        "Content Credentials"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "free",
+      "score": 79.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "adobe-photoshop",
+      "name": "Adobe Photoshop",
+      "icon": "assets/icons/adobe-photoshop.webp",
+      "aliases": [
+        "포토샵",
+        "Photoshop"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "image-editors"
+      ],
+      "developer": "Adobe",
+      "genres": [
+        "이미지 편집",
+        "사진 보정",
+        "합성",
+        "구독",
+        "생성형 AI"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "android",
+        "ios",
+        "web"
+      ],
+      "one_liner": "이미지 편집의 표준 — 레이어·마스크·색관리·생성형 채우기가 모두 들어 있지만 구독만 있고, 새 단일 앱 구독의 AI 크레딧은 월 25개다.",
+      "tagline": "단일 앱보다 싸고 크레딧은 40배.",
+      "taste_tags": [
+        "subscription",
+        "industry-standard",
+        "layers",
+        "generative-ai",
+        "desktop"
+      ],
+      "keywords": [
+        "Photoshop",
+        "포토샵",
+        "Adobe",
+        "생성형 채우기",
+        "레이어"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "photography",
+      "score": 81.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.55,
+        "count": 2599498,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 72",
+          "tone": "warn"
+        },
+        {
+          "label": "AI 검토 🟡 74",
           "tone": "warn"
         }
       ],
@@ -820,6 +1112,61 @@
       "score": 94.75,
       "maintenance_status": "active",
       "assessed_at": "2026-11-24",
+      "evidence_grade": "A",
+      "user_rating": 96,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "baldurs-gate-3",
+      "name": "Baldur's Gate 3",
+      "icon": "assets/icons/baldurs-gate-3.webp",
+      "aliases": [
+        "발더스 게이트 3",
+        "BG3",
+        "발더스게이트3"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Larian Studios",
+      "genres": [
+        "CRPG",
+        "턴제 전술",
+        "D&D",
+        "협동"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "console"
+      ],
+      "one_liner": "D&D 5판 규칙으로 100시간 넘는 이야기를 턴제 전투로 풀어내는 1회 구매 CRPG — 선택과 협동이 끝까지 이어진다.",
+      "tagline": "한 번 사면 이야기 끝까지.",
+      "taste_tags": [
+        "one-time-purchase",
+        "story-rich",
+        "co-op",
+        "no-microtransactions",
+        "mod-support"
+      ],
+      "keywords": [
+        "Baldur's Gate 3",
+        "발더스 게이트 3",
+        "BG3",
+        "라리안",
+        "D&D"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 94.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
       "evidence_grade": "A",
       "user_rating": 96,
       "store_stars": null,
@@ -1211,6 +1558,66 @@
       "gap": null
     },
     {
+      "id": "canva",
+      "name": "Canva",
+      "icon": "assets/icons/canva.webp",
+      "aliases": [
+        "캔바",
+        "Canva 디자인"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "image-editors"
+      ],
+      "developer": "Canva",
+      "genres": [
+        "템플릿 디자인",
+        "프레젠테이션",
+        "SNS 이미지",
+        "협업"
+      ],
+      "platforms": [
+        "web",
+        "windows",
+        "macos",
+        "android",
+        "ios"
+      ],
+      "one_liner": "템플릿으로 5분 만에 카드·발표자료·SNS 이미지를 만드는 디자인 도구 — 무료로도 충분하고 Pro는 배경 제거·브랜드 키트·AI 사용량을 늘린다.",
+      "tagline": "개인용 카드·SNS 이미지는 공짜로 충분.",
+      "taste_tags": [
+        "freemium",
+        "templates",
+        "browser",
+        "collaboration",
+        "account"
+      ],
+      "keywords": [
+        "Canva",
+        "캔바",
+        "템플릿",
+        "프레젠테이션",
+        "디자인"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 87.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/B",
+      "user_rating": 96,
+      "store_stars": {
+        "value": 4.79,
+        "count": 27912950,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "celeste",
       "name": "Celeste",
       "icon": "assets/icons/celeste.webp",
@@ -1401,6 +1808,65 @@
           "tone": "warn"
         }
       ],
+      "gap": null
+    },
+    {
+      "id": "civilization-vi",
+      "name": "Sid Meier's Civilization VI",
+      "icon": "assets/icons/civilization-vi.webp",
+      "aliases": [
+        "문명 6",
+        "문명6",
+        "Civilization 6",
+        "Civ 6"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Firaxis Games",
+      "genres": [
+        "4X 전략",
+        "턴제 전략",
+        "역사",
+        "싱글플레이"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "console",
+        "android",
+        "ios"
+      ],
+      "one_liner": "한 판이 밤을 새우는 4X 턴제 전략의 대표작 — 본편만으로도 충분히 완결되고, 확장팩과 지도자 패스는 선택이다.",
+      "tagline": "본편만 사도 한 판이 완결된다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "long-session",
+        "dlc-heavy",
+        "single-player",
+        "mod-support"
+      ],
+      "keywords": [
+        "문명 6",
+        "Civilization VI",
+        "Civ 6",
+        "4X",
+        "Firaxis"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 83.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 85,
+      "store_stars": null,
+      "drivers": [],
       "gap": null
     },
     {
@@ -1659,6 +2125,62 @@
       "gap": null
     },
     {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "icon": "assets/icons/comfyui.webp",
+      "aliases": [
+        "컴피UI",
+        "Comfy UI"
+      ],
+      "domain": "ai",
+      "category": "ai-image-gen",
+      "arenas": [
+        "ai-image-gen"
+      ],
+      "developer": "Comfy Org (comfyanonymous)",
+      "genres": [
+        "이미지 생성",
+        "오픈소스",
+        "노드 워크플로",
+        "로컬 실행"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "노드로 이미지 생성 과정을 직접 조립하는 로컬 오픈소스 엔진 — 모델과 워크플로를 내 컴퓨터에 두고 돌린다.",
+      "tagline": "내 컴퓨터가 감당하는 만큼 공짜.",
+      "taste_tags": [
+        "local-first",
+        "open-source",
+        "node-based",
+        "free",
+        "power-user",
+        "no-account"
+      ],
+      "keywords": [
+        "ComfyUI",
+        "컴피",
+        "노드",
+        "Stable Diffusion",
+        "FLUX",
+        "로컬 생성"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "desktop",
+      "score": 91.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "counter-strike-2",
       "name": "Counter-Strike 2",
       "icon": "assets/icons/counter-strike-2.webp",
@@ -1780,6 +2302,62 @@
           "tone": "bad"
         }
       ],
+      "gap": null
+    },
+    {
+      "id": "darkest-dungeon",
+      "name": "Darkest Dungeon",
+      "icon": "assets/icons/darkest-dungeon.webp",
+      "aliases": [
+        "다키스트 던전",
+        "다던"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Red Hook Studios",
+      "genres": [
+        "턴제 RPG",
+        "로그라이크",
+        "던전 탐험",
+        "다크 판타지"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "console",
+        "ios"
+      ],
+      "one_liner": "던전에 들어간 대원의 공포와 스트레스를 관리하는 턴제 로그라이크 — 실패가 곧 서사가 되는 난이도로 10년째 회자된다.",
+      "tagline": "본편만으로 수십 시간.",
+      "taste_tags": [
+        "one-time-purchase",
+        "hardcore",
+        "permadeath",
+        "dlc-heavy",
+        "atmospheric"
+      ],
+      "keywords": [
+        "Darkest Dungeon",
+        "다키스트 던전",
+        "다던",
+        "스트레스",
+        "Red Hook"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 86.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 90,
+      "store_stars": null,
+      "drivers": [],
       "gap": null
     },
     {
@@ -2483,6 +3061,123 @@
       "gap": null
     },
     {
+      "id": "flux",
+      "name": "FLUX",
+      "icon": "assets/icons/flux.webp",
+      "aliases": [
+        "플럭스",
+        "FLUX.1",
+        "FLUX.2"
+      ],
+      "domain": "ai",
+      "category": "ai-image-gen",
+      "arenas": [
+        "ai-image-gen"
+      ],
+      "developer": "Black Forest Labs",
+      "genres": [
+        "이미지 생성",
+        "API",
+        "오픈 웨이트",
+        "모델"
+      ],
+      "platforms": [
+        "web",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "이미지 한 장당 값을 매기는 Black Forest Labs의 생성 모델 — API로 쓰거나 일부 모델은 가중치를 받아 직접 돌린다.",
+      "tagline": "쓴 만큼만 — 구독 없음.",
+      "taste_tags": [
+        "api",
+        "pay-per-image",
+        "open-weights",
+        "developer",
+        "no-subscription"
+      ],
+      "keywords": [
+        "FLUX",
+        "Black Forest Labs",
+        "BFL",
+        "FLUX.2",
+        "FLUX 3",
+        "이미지 생성"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "api",
+      "score": 88.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "foxit-pdf",
+      "name": "Foxit PDF Editor",
+      "icon": "assets/icons/foxit-pdf.webp",
+      "aliases": [
+        "폭싯",
+        "Foxit",
+        "Foxit PDF"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "pdf-tools"
+      ],
+      "developer": "Foxit Software",
+      "genres": [
+        "PDF 편집",
+        "OCR",
+        "전자서명",
+        "구독"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "android",
+        "ios",
+        "web"
+      ],
+      "one_liner": "Acrobat보다 싼 값에 PDF 편집·OCR·전자서명을 묶은 구독형 편집기 — 무료 리더는 따로 있고, AI 크레딧은 월 300개다.",
+      "tagline": "편집이 필요하면 여기부터.",
+      "taste_tags": [
+        "subscription",
+        "pdf-editing",
+        "perpetual-option",
+        "business",
+        "windows"
+      ],
+      "keywords": [
+        "Foxit",
+        "폭싯",
+        "PDF 편집",
+        "PDF Editor",
+        "전자서명"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "subscription",
+      "score": 77.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/B",
+      "user_rating": 78,
+      "store_stars": {
+        "value": 3.89,
+        "count": 211802,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "gemini",
       "name": "Google Gemini",
       "icon": "assets/icons/gemini.webp",
@@ -2608,6 +3303,59 @@
           "tone": "bad"
         }
       ],
+      "gap": null
+    },
+    {
+      "id": "gimp",
+      "name": "GIMP",
+      "icon": "assets/icons/gimp.webp",
+      "aliases": [
+        "김프",
+        "GNU Image Manipulation Program"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "image-editors"
+      ],
+      "developer": "GIMP Development Team",
+      "genres": [
+        "이미지 편집",
+        "사진 보정",
+        "오픈소스",
+        "GNU"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "20년 넘게 무료로 쓰이는 오픈소스 이미지 편집기 — 3.2에서 비파괴 레이어와 벡터 레이어가 들어와 사진·합성 작업이 한결 편해졌다.",
+      "tagline": "사진 편집을 무료로 끝내는 기본값.",
+      "taste_tags": [
+        "free",
+        "open-source",
+        "no-account",
+        "desktop",
+        "plugin-ecosystem"
+      ],
+      "keywords": [
+        "GIMP",
+        "김프",
+        "오픈소스",
+        "이미지 편집",
+        "GEGL"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 85.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
       "gap": null
     },
     {
@@ -3222,6 +3970,116 @@
       "gap": null
     },
     {
+      "id": "into-the-breach",
+      "name": "Into the Breach",
+      "icon": "assets/icons/into-the-breach.webp",
+      "aliases": [
+        "인투 더 브리치",
+        "ITB"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Subset Games",
+      "genres": [
+        "턴제 전술",
+        "퍼즐",
+        "로그라이크",
+        "인디"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux",
+        "console"
+      ],
+      "one_liner": "8×8 격자에서 적의 다음 수를 보고 완벽한 한 수를 찾는 퍼즐형 턴제 전술 — 판이 짧고, 실패해도 다시 도는 구조다.",
+      "tagline": "한 판이 짧아 부담 없이 다시 돈다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "short-runs",
+        "deterministic",
+        "hardcore",
+        "single-player"
+      ],
+      "keywords": [
+        "Into the Breach",
+        "인투 더 브리치",
+        "Subset Games",
+        "퍼즐 전술",
+        "FTL"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 90.5,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 93,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "invokeai",
+      "name": "InvokeAI",
+      "icon": "assets/icons/invokeai.webp",
+      "aliases": [
+        "인보크AI",
+        "Invoke AI"
+      ],
+      "domain": "ai",
+      "category": "ai-image-gen",
+      "arenas": [
+        "ai-image-gen"
+      ],
+      "developer": "Invoke AI, Inc.",
+      "genres": [
+        "이미지 생성",
+        "오픈소스",
+        "캔버스 편집",
+        "로컬 실행"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "web"
+      ],
+      "one_liner": "레이어 캔버스와 워크플로를 함께 쓰는 로컬 오픈소스 생성 엔진 — 팀이 한 서버로 나눠 쓰는 구성까지 지원한다.",
+      "tagline": "내 서버를 세우면 전 기능 무료.",
+      "taste_tags": [
+        "local-first",
+        "open-source",
+        "canvas",
+        "multi-user",
+        "free",
+        "no-account"
+      ],
+      "keywords": [
+        "InvokeAI",
+        "인보크",
+        "캔버스",
+        "워크플로",
+        "Apache-2.0"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 84.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "B",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "joplin",
       "name": "Joplin",
       "icon": "assets/icons/joplin.webp",
@@ -3454,6 +4312,71 @@
       "drivers": [
         {
           "label": "객관·신뢰 지표 🟡 58",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
+    },
+    {
+      "id": "krita",
+      "name": "Krita",
+      "icon": "assets/icons/krita.webp",
+      "aliases": [
+        "크리타",
+        "Krita 페인팅"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "image-editors"
+      ],
+      "developer": "KDE",
+      "genres": [
+        "디지털 페인팅",
+        "일러스트",
+        "오픈소스",
+        "애니메이션"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "one_liner": "디지털 페인팅에 맞춰 만든 무료 오픈소스 그림 도구 — 브러시 엔진과 애니메이션 프레임이 강하고 데스크톱은 완전 무료다.",
+      "tagline": "데스크톱 그림 도구로는 무료 그 이상.",
+      "taste_tags": [
+        "free",
+        "open-source",
+        "painting",
+        "no-account",
+        "windows",
+        "linux"
+      ],
+      "keywords": [
+        "Krita",
+        "크리타",
+        "디지털 페인팅",
+        "브러시",
+        "오픈소스"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 80.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 72,
+      "store_stars": {
+        "value": 3.3,
+        "count": 6937,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [
+        {
+          "label": "사용자 평가 🟡 72",
           "tone": "warn"
         }
       ],
@@ -3732,6 +4655,62 @@
         "delta": 25.2,
         "verdict": "avoid"
       }
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "icon": "assets/icons/midjourney.webp",
+      "aliases": [
+        "미드저니",
+        "MJ"
+      ],
+      "domain": "ai",
+      "category": "ai-image-gen",
+      "arenas": [
+        "ai-image-gen"
+      ],
+      "developer": "Midjourney, Inc.",
+      "genres": [
+        "이미지 생성",
+        "구독",
+        "웹 에디터",
+        "비디오"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "one_liner": "구독한 Fast GPU 시간만큼 이미지를 만드는 폐쇄형 생성 서비스 — 웹 에디터와 디스코드에서 쓰고, 무료 플랜은 없다.",
+      "tagline": "가볍게 써 보는 최저 티어.",
+      "taste_tags": [
+        "subscription",
+        "closed",
+        "aesthetic",
+        "community",
+        "no-free-tier"
+      ],
+      "keywords": [
+        "Midjourney",
+        "미드저니",
+        "MJ",
+        "Fast hours",
+        "디스코드"
+      ],
+      "verdict": "conditional",
+      "stored_verdict": "conditional",
+      "tier_of_record": "basic",
+      "score": 77.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [
+        {
+          "label": "객관·신뢰 지표 🟡 70",
+          "tone": "warn"
+        }
+      ],
+      "gap": null
     },
     {
       "id": "minecraft",
@@ -4365,6 +5344,60 @@
       "gap": null
     },
     {
+      "id": "okular",
+      "name": "Okular",
+      "icon": "assets/icons/okular.webp",
+      "aliases": [
+        "오큘라",
+        "Okular PDF"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "pdf-tools"
+      ],
+      "developer": "KDE",
+      "genres": [
+        "PDF 뷰어",
+        "문서 뷰어",
+        "오픈소스",
+        "KDE"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "one_liner": "KDE가 만드는 무료 문서 뷰어 — PDF·EPUB·DjVu·코믹을 열고 주석·양식을 지원하며 Windows·macOS·리눅스·안드로이드에서 같은 방식으로 쓴다.",
+      "tagline": "KDE 생태계의 무료 뷰어.",
+      "taste_tags": [
+        "free",
+        "open-source",
+        "no-account",
+        "cross-platform",
+        "annotations"
+      ],
+      "keywords": [
+        "Okular",
+        "오큘라",
+        "KDE",
+        "PDF 뷰어",
+        "주석"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 83.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/B",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "onedrive",
       "name": "Microsoft OneDrive",
       "icon": "assets/icons/onedrive.webp",
@@ -4547,6 +5580,66 @@
       "gap": null
     },
     {
+      "id": "pdfgear",
+      "name": "PDFgear",
+      "icon": "assets/icons/pdfgear.webp",
+      "aliases": [
+        "PDF기어",
+        "PDF Gear"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "pdf-tools"
+      ],
+      "developer": "PDFgear",
+      "genres": [
+        "PDF 편집",
+        "PDF 뷰어",
+        "AI 요약",
+        "무료"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "android",
+        "ios",
+        "web"
+      ],
+      "one_liner": "Windows·Mac·iOS·Android에서 편집·병합·서명·AI 요약까지 무료로 여는 PDF 도구 — 계정도 워터마크도 없다.",
+      "tagline": "편집·병합·서명까지 공짜.",
+      "taste_tags": [
+        "free",
+        "cross-platform",
+        "no-account",
+        "no-watermark",
+        "ai-features"
+      ],
+      "keywords": [
+        "PDFgear",
+        "PDF기어",
+        "PDF 편집",
+        "무료 PDF",
+        "AI PDF"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 86.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A/B",
+      "user_rating": 90,
+      "store_stars": {
+        "value": 4.5,
+        "count": 52923,
+        "platform": "android",
+        "evidence_grade": "A"
+      },
+      "drivers": [],
+      "gap": null
+    },
+    {
       "id": "perplexity",
       "name": "Perplexity",
       "icon": "assets/icons/perplexity.webp",
@@ -4608,6 +5701,58 @@
           "tone": "warn"
         }
       ],
+      "gap": null
+    },
+    {
+      "id": "photopea",
+      "name": "Photopea",
+      "icon": "assets/icons/photopea.webp",
+      "aliases": [
+        "포토피아",
+        "PhotoPea"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "image-editors"
+      ],
+      "developer": "Ivan Kutskir",
+      "genres": [
+        "이미지 편집",
+        "웹 앱",
+        "PSD",
+        "무료"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "one_liner": "설치 없이 브라우저에서 PSD를 열고 고치는 편집기 — 편집 기능은 전부 무료이고 광고를 없애려면 기간권을 산다.",
+      "tagline": "설치 없이 전 기능.",
+      "taste_tags": [
+        "free",
+        "browser",
+        "no-install",
+        "no-account",
+        "ads",
+        "psd"
+      ],
+      "keywords": [
+        "Photopea",
+        "포토피아",
+        "웹 포토샵",
+        "PSD",
+        "브라우저 편집"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "free",
+      "score": 85.5,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "B",
+      "user_rating": null,
+      "store_stars": null,
+      "drivers": [],
       "gap": null
     },
     {
@@ -5164,6 +6309,58 @@
       "assessed_at": "2026-11-25",
       "evidence_grade": "A",
       "user_rating": 96,
+      "store_stars": null,
+      "drivers": [],
+      "gap": null
+    },
+    {
+      "id": "sumatrapdf",
+      "name": "SumatraPDF",
+      "icon": "assets/icons/sumatrapdf.webp",
+      "aliases": [
+        "수마트라PDF",
+        "Sumatra PDF"
+      ],
+      "domain": "app",
+      "category": "document-design",
+      "arenas": [
+        "pdf-tools"
+      ],
+      "developer": "Krzysztof Kowalczyk",
+      "genres": [
+        "PDF 뷰어",
+        "전자책",
+        "오픈소스",
+        "Windows"
+      ],
+      "platforms": [
+        "windows"
+      ],
+      "one_liner": "3MB 남짓의 설치 파일로 PDF·EPUB·코믹·CHM까지 여는 Windows 전용 뷰어 — 광고도 계정도 없고, 주석과 서명은 된다.",
+      "tagline": "설치 파일 3MB대, 광고 없음.",
+      "taste_tags": [
+        "free",
+        "open-source",
+        "lightweight",
+        "no-account",
+        "windows-only",
+        "viewer"
+      ],
+      "keywords": [
+        "SumatraPDF",
+        "수마트라",
+        "PDF 뷰어",
+        "EPUB",
+        "오픈소스"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "windows",
+      "score": 85.0,
+      "maintenance_status": "active",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": null,
       "store_stars": null,
       "drivers": [],
       "gap": null
@@ -5888,6 +7085,60 @@
           "tone": "warn"
         }
       ],
+      "gap": null
+    },
+    {
+      "id": "xcom-2",
+      "name": "XCOM 2",
+      "icon": "assets/icons/xcom-2.webp",
+      "aliases": [
+        "엑스컴 2",
+        "XCOM2"
+      ],
+      "domain": "game",
+      "category": "strategy-tactics",
+      "arenas": [
+        "turn-based-strategy"
+      ],
+      "developer": "Firaxis Games",
+      "genres": [
+        "턴제 전술",
+        "전략",
+        "SF",
+        "로그라이크 요소"
+      ],
+      "platforms": [
+        "steam",
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "one_liner": "한 번의 실수가 대원을 잃는 아이소메트릭 턴제 전술 — 본편과 확장팩 War of the Chosen으로 10년 넘게 회자되는 난이도의 기준점이다.",
+      "tagline": "본편만으로도 캠페인은 끝난다.",
+      "taste_tags": [
+        "one-time-purchase",
+        "hardcore",
+        "permadeath",
+        "mod-support",
+        "single-player"
+      ],
+      "keywords": [
+        "XCOM 2",
+        "엑스컴",
+        "War of the Chosen",
+        "택티컬",
+        "Firaxis"
+      ],
+      "verdict": "recommend",
+      "stored_verdict": "recommend",
+      "tier_of_record": "steam",
+      "score": 84.5,
+      "maintenance_status": "feature_complete",
+      "assessed_at": "2026-11-26",
+      "evidence_grade": "A",
+      "user_rating": 85,
+      "store_stars": null,
+      "drivers": [],
       "gap": null
     }
   ]
