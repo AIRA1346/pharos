@@ -21,6 +21,7 @@
 import copy
 import hashlib
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -134,6 +135,67 @@ def grade_rank(g):
     if not g or g == "unknown":
         return 3
     return max("ABC".index(part) for part in g.split("/"))
+
+
+def measured_sample_count(item):
+    """항목에 저장된 누적 표본 수와 출처(v0.6.0) — 리뷰 수 우선, 없으면 GitHub stars."""
+    counts = [
+        row["cumulative"]["count"]
+        for row in (item.get("review_snapshot", {}).get("platforms") or [])
+        if isinstance((row.get("cumulative") or {}).get("count"), int)
+        and row["cumulative"]["count"] > 0
+    ]
+    if counts:
+        return max(counts), "reviews"
+    stars = [
+        row["cumulative"]["value"]
+        for row in (item.get("review_snapshot", {}).get("platforms") or [])
+        if (row.get("cumulative") or {}).get("metric") == "score"
+        and "stars" in str((row["cumulative"] or {}).get("window") or "").lower()
+        and isinstance((row["cumulative"] or {}).get("value"), (int, float))
+        and row["cumulative"]["value"] > 0
+    ]
+    if stars:
+        return int(max(stars)), "github_stars"
+    return None, None
+
+
+def scale_expected(scale, base_score, count):
+    """계약(x-pharos.client.scale_adjustment)만 보고 보정치를 다시 계산한다(v0.6.0)."""
+    tiny = scale.get("tiny") or {}
+    anchors = scale.get("anchors") or []
+    gate_rule = scale.get("gate") or {}
+    clamp = scale.get("clamp") or {}
+    raw = 0.0
+    if base_score is not None and count:
+        if count < tiny.get("below_count", 100):
+            raw = tiny.get("delta", -6.0)
+        else:
+            points = [(math.log10(a["count"]), a["delta"]) for a in anchors]
+            x = math.log10(count)
+            if x >= points[-1][0]:
+                raw = points[-1][1]
+            else:
+                for (x0, y0), (x1, y1) in zip(points, points[1:]):
+                    if x0 <= x <= x1:
+                        raw = y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+                        break
+    full = gate_rule.get("full_at", 70.0)
+    zero = gate_rule.get("zero_below", 60.0)
+    if base_score is None:
+        gate = 0.0
+    elif base_score >= full:
+        gate = 1.0
+    elif base_score >= zero:
+        gate = (base_score - zero) / (full - zero)
+    else:
+        gate = 0.0
+    applied = round(raw * gate, 2)
+    final = (None if base_score is None else
+             max(clamp.get("min", 0.0), min(clamp.get("max", 100.0), round(base_score + applied, 1))))
+    if final is not None:
+        applied = round(final - base_score, 2)
+    return raw, gate, applied, final
 
 
 def collect_source_ids(node, out):
@@ -533,6 +595,35 @@ def semantic_errors(item, ctx, arena_id=None):
             "yellow" if score < THRESHOLDS["green_min"] else "green")
         if axis.get("signal") != expected:
             errs.append(f"축 {name}: 점수 {score} → 기대 신호 {expected}, 실제 {axis.get('signal')}")
+
+    # 표본 규모 보정(v0.6.0) — 사용자 축 점수에 규모 보정 기록이 붙고, 계산이 계약과 맞는지.
+    scale = ctx.get("scale") or {}
+    user_axis = item["axes"]["user_rating"]
+    record = user_axis.get("scale_adjustment")
+    if user_axis.get("score") is not None and not record:
+        errs.append("사용자 축 점수가 있는데 scale_adjustment 기록이 없음(v0.6.0 규모 보정 미적용)")
+    if record:
+        base = record.get("base_score")
+        count = record.get("sample_count")
+        raw, gate, applied, final = scale_expected(scale, base, count)
+        if base is None and user_axis.get("score") is not None:
+            errs.append("scale_adjustment.base_score 가 비었는데 사용자 축 점수가 있음")
+        if abs(float(record.get("log_delta") or 0) - raw) > 0.01:
+            errs.append(f"scale_adjustment.log_delta {record.get('log_delta')} ≠ 계약 재계산 {round(raw, 4)}")
+        if abs(float(record.get("gate") or 0) - gate) > 0.001:
+            errs.append(f"scale_adjustment.gate {record.get('gate')} ≠ 계약 재계산 {round(gate, 4)}")
+        if abs(float(record.get("applied") or 0) - applied) > 0.05:
+            errs.append(f"scale_adjustment.applied {record.get('applied')} ≠ 계약 재계산 {applied}")
+        if final is not None and abs(float(record.get("final_score")) - final) > 0.05:
+            errs.append(f"scale_adjustment.final_score {record.get('final_score')} ≠ 계약 재계산 {final}")
+        score = user_axis.get("score")
+        if score is not None and base is not None and abs(float(score) - float(base) - applied) > 0.05:
+            errs.append(f"사용자 점수 {score} ≠ base_score {base} + applied {applied}")
+        measured, source = measured_sample_count(item)
+        if measured != count:
+            errs.append(f"scale_adjustment.sample_count {count} ≠ 저장된 누적 표본 {measured}")
+        if measured and record.get("sample_source") and record["sample_source"] != source:
+            errs.append(f"scale_adjustment.sample_source {record.get('sample_source')!r} ≠ 저장된 출처 {source!r}")
 
     # 표본 규모 검증(v0.5.0) — 얇은 3자 최근 표본이 큰 스토어 누적을 덮은 경우 산정 메모를 요구한다.
     notes = item.get("score_notes") or {}
@@ -1365,6 +1456,19 @@ def main():
     sample_scale = contract.get("sample_scale") or {}
     if sample_scale.get("axis") != "user_rating" or not sample_scale.get("thin_recent_rule") or not sample_scale.get("risky_terms_exception"):
         meta_errors.append("sample_scale(사용자 축 표본 규모 검증) 계약이 없음")
+    scale_meta = contract.get("scale_adjustment") or {}
+    expected_anchors = {100: -5.0, 1000: -2.0, 10000: 0.0, 100000: 3.0, 1000000: 5.5, 10000000: 7.5}
+    got_anchors = {a.get("count"): a.get("delta") for a in scale_meta.get("anchors") or []}
+    if scale_meta.get("rule_version") != "v0.6.0" or scale_meta.get("axis") != "user_rating":
+        meta_errors.append("scale_adjustment(사용자 축 표본 규모 보정) 계약이 없음")
+    elif got_anchors != expected_anchors:
+        meta_errors.append(f"scale_adjustment.anchors 가 v0.6.0 기준점과 다름: {got_anchors}")
+    elif (scale_meta.get("tiny") or {}).get("delta") != -6.0 or (scale_meta.get("tiny") or {}).get("below_count") != 100:
+        meta_errors.append("scale_adjustment.tiny(100건 미만 -6.0)가 다름")
+    elif (scale_meta.get("gate") or {}).get("full_at") != 70.0 or (scale_meta.get("gate") or {}).get("zero_below") != 60.0:
+        meta_errors.append("scale_adjustment.gate(70/60)가 다름")
+    elif (scale_meta.get("clamp") or {}).get("min") != 0.0 or (scale_meta.get("clamp") or {}).get("max") != 100.0:
+        meta_errors.append("scale_adjustment.clamp(0~100)가 다름")
     if {level.get("key") for level in impact_meta.get("levels") or []} != IMPACT_VALUES:
         meta_errors.append("monetization_impact.levels 가 none·optional·core 와 다름")
     toggle = impact_meta.get("strict_toggle") or {}
@@ -1392,6 +1496,7 @@ def main():
         "arenas": {a["id"]: a for a in arenas_meta},
         "domains": set(domains),
         "categories": set(categories),
+        "scale": contract.get("scale_adjustment") or {},
     }
     items_by_arena = load_items_by_arena(catalog, DATA_DIR)
     if set(items_by_arena) != set(ctx["arenas"]):

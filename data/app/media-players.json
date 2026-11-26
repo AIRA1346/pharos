@@ -228,16 +228,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 81.0,
+    "score": 87.1,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 3.72★(6,108건) · Google Play 4.05★(2,014,497건) — 표본 가중 평균 81.0.",
+    "summary": "자동 수집: App Store 3.72★(6,108건) · Google Play 4.05★(2,014,497건) — 표본 가중 평균 81.0. v0.6.0 표본 규모 보정 +6.10 → 87.1.",
     "source_ids": [
      "itunes-vlc",
      "play-vlc"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 2014497,
+     "sample_source": "reviews",
+     "base_score": 81.0,
+     "log_delta": 6.1083,
+     "gate": 1.0,
+     "applied": 6.1,
+     "final_score": 87.1,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 90.0,
@@ -387,7 +398,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 3.72★(6,108건) · Google Play 4.05★(2,014,497건) → 표본 가중 평균 81.0. 표본 2,014,497건.",
+   "user_rating": "App Store 3.72★(6,108건) · Google Play 4.05★(2,014,497건) → 표본 가중 평균 81.0. 표본 2,014,497건. v0.6.0 표본 규모 보정: 누적 표본 2,014,497건 → 로그 보정 +6.11 × 평점 게이트 1.00 = +6.10 (81.0 → 87.1).",
    "objective": "자동 산정 90.0: 오픈소스 라이선스 GPL-2.0(+8) · 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 5종(+4) · 출시 13년(+4).",
    "ai_review": "자동 추정 71.2: 본질 검토 전 중립값 60 · 스토어 평점 81.0(+0.2) · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4) · 표본 2,014,497건(+3)."
   },
@@ -596,7 +607,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 78.0,
@@ -934,7 +956,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 82.0,
@@ -1294,15 +1327,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 81.8,
+    "score": 82.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.09★(21,002건) — 표본 가중 평균 81.8.",
+    "summary": "자동 수집: Google Play 4.09★(21,002건) — 표본 가중 평균 81.8. v0.6.0 표본 규모 보정 +1.00 → 82.8.",
     "source_ids": [
      "play-kodi"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 21002,
+     "sample_source": "reviews",
+     "base_score": 81.8,
+     "log_delta": 0.9668,
+     "gate": 1.0,
+     "applied": 1.0,
+     "final_score": 82.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 84.0,
@@ -1439,7 +1483,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.09★(21,002건) → 표본 가중 평균 81.8. 표본 21,002건.",
+   "user_rating": "Google Play 4.09★(21,002건) → 표본 가중 평균 81.8. 표본 21,002건. v0.6.0 표본 규모 보정: 누적 표본 21,002건 → 로그 보정 +0.97 × 평점 게이트 1.00 = +1.00 (81.8 → 82.8).",
    "objective": "자동 산정 84.0: 라이선스 NOASSERTION(+2) · 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 4종(+4) · 출시 15년(+4).",
    "ai_review": "자동 추정 65.4: 본질 검토 전 중립값 60 · 스토어 평점 81.8(+0.4) · 90일 내 업데이트(+4) · 표본 21,002건(+1)."
   },
@@ -1655,16 +1699,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 74.4,
-    "signal": "yellow",
+    "score": 79.1,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.60★(137,979건) · Google Play 3.47★(489,751건) — 표본 가중 평균 74.4.",
+    "summary": "자동 수집: App Store 4.60★(137,979건) · Google Play 3.47★(489,751건) — 표본 가중 평균 74.4. v0.6.0 표본 규모 보정 +4.70 → 79.1.",
     "source_ids": [
      "itunes-plex",
      "play-plex"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 489751,
+     "sample_source": "reviews",
+     "base_score": 74.4,
+     "log_delta": 4.7249,
+     "gate": 1.0,
+     "applied": 4.7,
+     "final_score": 79.1,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 82.0,
@@ -1693,7 +1748,7 @@
    "overall": "conditional",
    "tier_of_record": "ios",
    "signals": {
-    "user_rating": "yellow",
+    "user_rating": "green",
     "objective": "green",
     "ai_review": "yellow"
    },
@@ -1812,7 +1867,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.60★(137,979건) · Google Play 3.47★(489,751건) → 표본 가중 평균 74.4. 표본 489,751건.",
+   "user_rating": "App Store 4.60★(137,979건) · Google Play 3.47★(489,751건) → 표본 가중 평균 74.4. 표본 489,751건. v0.6.0 표본 규모 보정: 누적 표본 489,751건 → 로그 보정 +4.72 × 평점 게이트 1.00 = +4.70 (74.4 → 79.1).",
    "objective": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 5종(+4) · 출시 16년(+4).",
    "ai_review": "자동 추정 65.6: 본질 검토 전 중립값 60 · 스토어 평점 74.4(-1.4) · 90일 내 업데이트(+4) · 표본 489,751건(+3)."
   },
@@ -2047,16 +2102,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 84.9,
+    "score": 84.6,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: App Store 4.04★(513건) · Google Play 4.26★(7,387건) — 표본 가중 평균 84.9.",
+    "summary": "자동 수집: App Store 4.04★(513건) · Google Play 4.26★(7,387건) — 표본 가중 평균 84.9. v0.6.0 표본 규모 보정 -0.30 → 84.6.",
     "source_ids": [
      "itunes-jellyfin",
      "play-jellyfin"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 7387,
+     "sample_source": "reviews",
+     "base_score": 84.9,
+     "log_delta": -0.2631,
+     "gate": 1.0,
+     "applied": -0.3,
+     "final_score": 84.6,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 90.0,
@@ -2206,7 +2272,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.04★(513건) · Google Play 4.26★(7,387건) → 표본 가중 평균 84.9. 표본 7,387건.",
+   "user_rating": "App Store 4.04★(513건) · Google Play 4.26★(7,387건) → 표본 가중 평균 84.9. 표본 7,387건. v0.6.0 표본 규모 보정: 누적 표본 7,387건 → 로그 보정 -0.26 × 평점 게이트 1.00 = -0.30 (84.9 → 84.6).",
    "objective": "자동 산정 90.0: 오픈소스 라이선스 GPL-2.0(+8) · 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 5종(+4) · 출시 6년(+4).",
    "ai_review": "자동 추정 69.2: 본질 검토 전 중립값 60 · 스토어 평점 84.9(+1.2) · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
   },
@@ -2422,16 +2488,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 91.5,
+    "score": 99.0,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.77★(43,319,144건) · Google Play 4.35★(36,678,154건) — 표본 가중 평균 91.5.",
+    "summary": "자동 수집: App Store 4.77★(43,319,144건) · Google Play 4.35★(36,678,154건) — 표본 가중 평균 91.5. v0.6.0 표본 규모 보정 +7.50 → 99.",
     "source_ids": [
      "itunes-spotify",
      "play-spotify"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 43319144,
+     "sample_source": "reviews",
+     "base_score": 91.5,
+     "log_delta": 7.5,
+     "gate": 1.0,
+     "applied": 7.5,
+     "final_score": 99.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 82.0,
@@ -2579,7 +2656,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.77★(43,319,144건) · Google Play 4.35★(36,678,154건) → 표본 가중 평균 91.5. 표본 43,319,144건.",
+   "user_rating": "App Store 4.77★(43,319,144건) · Google Play 4.35★(36,678,154건) → 표본 가중 평균 91.5. 표본 43,319,144건. v0.6.0 표본 규모 보정: 누적 표본 43,319,144건 → 로그 보정 +7.50 × 평점 게이트 1.00 = +7.50 (91.5 → 99.0).",
    "objective": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8) · 플랫폼 5종(+4) · 출시 15년(+4).",
    "ai_review": "자동 추정 69.9: 본질 검토 전 중립값 60 · 스토어 평점 91.5(+2.9) · 90일 내 업데이트(+4) · 표본 43,319,144건(+3)."
   },
@@ -2803,16 +2880,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.8,
+    "score": 100.0,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.85★(3,299,389건) · Google Play 4.53★(766,574건) — 표본 가중 평균 95.8.",
+    "summary": "자동 수집: App Store 4.85★(3,299,389건) · Google Play 4.53★(766,574건) — 표본 가중 평균 95.8. v0.6.0 표본 규모 보정 +4.20 → 100.",
     "source_ids": [
      "itunes-apple-music",
      "play-apple-music"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 3299389,
+     "sample_source": "reviews",
+     "base_score": 95.8,
+     "log_delta": 6.5369,
+     "gate": 1.0,
+     "applied": 4.2,
+     "final_score": 100.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 82.0,
@@ -2962,7 +3050,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.85★(3,299,389건) · Google Play 4.53★(766,574건) → 표본 가중 평균 95.8. 표본 3,299,389건.",
+   "user_rating": "App Store 4.85★(3,299,389건) · Google Play 4.53★(766,574건) → 표본 가중 평균 95.8. 표본 3,299,389건. v0.6.0 표본 규모 보정: 누적 표본 3,299,389건 → 로그 보정 +6.54 × 평점 게이트 1.00 = +4.20 (95.8 → 100.0).",
    "objective": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-20(+8) · 플랫폼 4종(+4) · 출시 10년(+4).",
    "ai_review": "자동 추정 70.9: 본질 검토 전 중립값 60 · 스토어 평점 95.8(+3.9) · 90일 내 업데이트(+4) · 표본 3,299,389건(+3)."
   },
@@ -3175,15 +3263,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 90.2,
+    "score": 94.9,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.51★(460,777건) — 표본 가중 평균 90.2.",
+    "summary": "자동 수집: Google Play 4.51★(460,777건) — 표본 가중 평균 90.2. v0.6.0 표본 규모 보정 +4.70 → 94.9.",
     "source_ids": [
      "play-aimp"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 460777,
+     "sample_source": "reviews",
+     "base_score": 90.2,
+     "log_delta": 4.6587,
+     "gate": 1.0,
+     "applied": 4.7,
+     "final_score": 94.9,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 76.0,
@@ -3321,7 +3420,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.51★(460,777건) → 표본 가중 평균 90.2. 표본 460,777건.",
+   "user_rating": "Google Play 4.51★(460,777건) → 표본 가중 평균 90.2. 표본 460,777건. v0.6.0 표본 규모 보정: 누적 표본 460,777건 → 로그 보정 +4.66 × 평점 게이트 1.00 = +4.70 (90.2 → 94.9).",
    "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-13(+8) · 플랫폼 2종(+2).",
    "ai_review": "자동 추정 69.6: 본질 검토 전 중립값 60 · 스토어 평점 90.2(+2.6) · 90일 내 업데이트(+4) · 표본 460,777건(+3)."
   },
@@ -3545,16 +3644,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 81.4,
+    "score": 85.9,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.30★(3,262건) · Google Play 4.07★(384,347건) — 표본 가중 평균 81.4.",
+    "summary": "자동 수집: App Store 4.30★(3,262건) · Google Play 4.07★(384,347건) — 표본 가중 평균 81.4. v0.6.0 표본 규모 보정 +4.50 → 85.9.",
     "source_ids": [
      "itunes-kmplayer",
      "play-kmplayer"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 384347,
+     "sample_source": "reviews",
+     "base_score": 81.4,
+     "log_delta": 4.4618,
+     "gate": 1.0,
+     "applied": 4.5,
+     "final_score": 85.9,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 80.0,
@@ -3704,7 +3814,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.30★(3,262건) · Google Play 4.07★(384,347건) → 표본 가중 평균 81.4. 표본 384,347건.",
+   "user_rating": "App Store 4.30★(3,262건) · Google Play 4.07★(384,347건) → 표본 가중 평균 81.4. 표본 384,347건. v0.6.0 표본 규모 보정: 누적 표본 384,347건 → 로그 보정 +4.46 × 평점 게이트 1.00 = +4.50 (81.4 → 85.9).",
    "objective": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-14(+8) · 플랫폼 3종(+2) · 출시 12년(+4).",
    "ai_review": "자동 추정 67.4: 본질 검토 전 중립값 60 · 스토어 평점 81.4(+0.4) · 90일 내 업데이트(+4) · 표본 384,347건(+3)."
   },
@@ -3904,15 +4014,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.4,
+    "score": 94.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.67★(28,731건) — 표본 가중 평균 93.4.",
+    "summary": "자동 수집: App Store 4.67★(28,731건) — 표본 가중 평균 93.4. v0.6.0 표본 규모 보정 +1.40 → 94.8.",
     "source_ids": [
      "itunes-infuse"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 28731,
+     "sample_source": "reviews",
+     "base_score": 93.4,
+     "log_delta": 1.3751,
+     "gate": 1.0,
+     "applied": 1.4,
+     "final_score": 94.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 78.0,
@@ -4047,7 +4168,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.67★(28,731건) → 표본 가중 평균 93.4. 표본 28,731건.",
+   "user_rating": "App Store 4.67★(28,731건) → 표본 가중 평균 93.4. 표본 28,731건. v0.6.0 표본 규모 보정: 누적 표본 28,731건 → 로그 보정 +1.38 × 평점 게이트 1.00 = +1.40 (93.4 → 94.8).",
    "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8) · 출시 10년(+4).",
    "ai_review": "자동 추정 68.4: 본질 검토 전 중립값 60 · 스토어 평점 93.4(+3.4) · 90일 내 업데이트(+4) · 표본 28,731건(+1)."
   },
@@ -4259,15 +4380,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 81.6,
+    "score": 87.4,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.08★(1,372,961건) — 표본 가중 평균 81.6.",
+    "summary": "자동 수집: Google Play 4.08★(1,372,961건) — 표본 가중 평균 81.6. v0.6.0 표본 규모 보정 +5.80 → 87.4.",
     "source_ids": [
      "play-poweramp"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1372961,
+     "sample_source": "reviews",
+     "base_score": 81.6,
+     "log_delta": 5.7753,
+     "gate": 1.0,
+     "applied": 5.8,
+     "final_score": 87.4,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -4404,7 +4536,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.08★(1,372,961건) → 표본 가중 평균 81.6. 표본 1,372,961건.",
+   "user_rating": "Google Play 4.08★(1,372,961건) → 표본 가중 평균 81.6. 표본 1,372,961건. v0.6.0 표본 규모 보정: 누적 표본 1,372,961건 → 로그 보정 +5.78 × 평점 게이트 1.00 = +5.80 (81.6 → 87.4).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-05(+8).",
    "ai_review": "자동 추정 67.4: 본질 검토 전 중립값 60 · 스토어 평점 81.6(+0.4) · 90일 내 업데이트(+4) · 표본 1,372,961건(+3)."
   },
@@ -4616,15 +4748,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 77.6,
+    "score": 80.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 3.88★(80,668건) — 표본 가중 평균 77.6.",
+    "summary": "자동 수집: Google Play 3.88★(80,668건) — 표본 가중 평균 77.6. v0.6.0 표본 규모 보정 +2.70 → 80.3.",
     "source_ids": [
      "play-stremio"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 80668,
+     "sample_source": "reviews",
+     "base_score": 77.6,
+     "log_delta": 2.7201,
+     "gate": 1.0,
+     "applied": 2.7,
+     "final_score": 80.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -4761,7 +4904,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 3.88★(80,668건) → 표본 가중 평균 77.6. 표본 80,668건.",
+   "user_rating": "Google Play 3.88★(80,668건) → 표본 가중 평균 77.6. 표본 80,668건. v0.6.0 표본 규모 보정: 누적 표본 80,668건 → 로그 보정 +2.72 × 평점 게이트 1.00 = +2.70 (77.6 → 80.3).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-18(+8).",
    "ai_review": "자동 추정 64.4: 본질 검토 전 중립값 60 · 스토어 평점 77.6(-0.6) · 90일 내 업데이트(+4) · 표본 80,668건(+1)."
   },
@@ -4973,15 +5116,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 92.8,
+    "score": 96.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.64★(245,259건) — 표본 가중 평균 92.8.",
+    "summary": "자동 수집: Google Play 4.64★(245,259건) — 표본 가중 평균 92.8. v0.6.0 표본 규모 보정 +4.00 → 96.8.",
     "source_ids": [
      "play-musicolet"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 245259,
+     "sample_source": "reviews",
+     "base_score": 92.8,
+     "log_delta": 3.9741,
+     "gate": 1.0,
+     "applied": 4.0,
+     "final_score": 96.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 71.0,
@@ -5118,7 +5272,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.64★(245,259건) → 표본 가중 평균 92.8. 표본 245,259건.",
+   "user_rating": "Google Play 4.64★(245,259건) → 표본 가중 평균 92.8. 표본 245,259건. v0.6.0 표본 규모 보정: 누적 표본 245,259건 → 로그 보정 +3.97 × 평점 게이트 1.00 = +4.00 (92.8 → 96.8).",
    "objective": "자동 산정 71.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-08-20(+5).",
    "ai_review": "자동 추정 68.2: 본질 검토 전 중립값 60 · 스토어 평점 92.8(+3.2) · 180일 내 업데이트(+2) · 표본 245,259건(+3)."
   },
@@ -5325,7 +5479,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 82.0,
@@ -5670,15 +5835,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 80.0,
+    "score": 80.7,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.00★(17,204건) — 표본 가중 평균 80.0.",
+    "summary": "자동 수집: Google Play 4.00★(17,204건) — 표본 가중 평균 80.0. v0.6.0 표본 규모 보정 +0.70 → 80.7.",
     "source_ids": [
      "play-foobar2000"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 17204,
+     "sample_source": "reviews",
+     "base_score": 80.0,
+     "log_delta": 0.7069,
+     "gate": 1.0,
+     "applied": 0.7,
+     "final_score": 80.7,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -5815,7 +5991,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.00★(17,204건) → 표본 가중 평균 80.0. 표본 17,204건.",
+   "user_rating": "Google Play 4.00★(17,204건) → 표본 가중 평균 80.0. 표본 17,204건. v0.6.0 표본 규모 보정: 누적 표본 17,204건 → 로그 보정 +0.71 × 평점 게이트 1.00 = +0.70 (80.0 → 80.7).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-16(+8).",
    "ai_review": "자동 추정 65.0: 본질 검토 전 중립값 60 · 스토어 평점 80.0(+0.0) · 90일 내 업데이트(+4) · 표본 17,204건(+1)."
   },
@@ -6025,7 +6201,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 86.0,
@@ -6370,15 +6557,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 89.6,
+    "score": 90.7,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.48★(23,246건) — 표본 가중 평균 89.6.",
+    "summary": "자동 수집: Google Play 4.48★(23,246건) — 표본 가중 평균 89.6. v0.6.0 표본 규모 보정 +1.10 → 90.7.",
     "source_ids": [
      "play-plexamp"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 23246,
+     "sample_source": "reviews",
+     "base_score": 89.6,
+     "log_delta": 1.099,
+     "gate": 1.0,
+     "applied": 1.1,
+     "final_score": 90.7,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 52.0,
@@ -6516,7 +6714,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.48★(23,246건) → 표본 가중 평균 89.6. 표본 23,246건.",
+   "user_rating": "Google Play 4.48★(23,246건) → 표본 가중 평균 89.6. 표본 23,246건. v0.6.0 표본 규모 보정: 누적 표본 23,246건 → 로그 보정 +1.10 × 평점 게이트 1.00 = +1.10 (89.6 → 90.7).",
    "objective": "자동 산정 52.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-07-12(-14).",
    "ai_review": "자동 추정 55.4: 본질 검토 전 중립값 60 · 스토어 평점 89.6(+2.4) · 12개월 방치(-8) · 표본 23,246건(+1)."
   },
@@ -6718,15 +6916,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 84.4,
+    "score": 91.9,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.22★(14,384,126건) — 표본 가중 평균 84.4.",
+    "summary": "자동 수집: Google Play 4.22★(14,384,126건) — 표본 가중 평균 84.4. v0.6.0 표본 규모 보정 +7.50 → 91.9.",
     "source_ids": [
      "play-mx-player"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 14384126,
+     "sample_source": "reviews",
+     "base_score": 84.4,
+     "log_delta": 7.5,
+     "gate": 1.0,
+     "applied": 7.5,
+     "final_score": 91.9,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -6861,7 +7070,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.22★(14,384,126건) → 표본 가중 평균 84.4. 표본 14,384,126건.",
+   "user_rating": "Google Play 4.22★(14,384,126건) → 표본 가중 평균 84.4. 표본 14,384,126건. v0.6.0 표본 규모 보정: 누적 표본 14,384,126건 → 로그 보정 +7.50 × 평점 게이트 1.00 = +7.50 (84.4 → 91.9).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
    "ai_review": "자동 추정 68.1: 본질 검토 전 중립값 60 · 스토어 평점 84.4(+1.1) · 90일 내 업데이트(+4) · 표본 14,384,126건(+3)."
   },
@@ -7068,7 +7277,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 82.0,

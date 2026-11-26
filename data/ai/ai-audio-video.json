@@ -193,15 +193,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 97.6,
+    "score": 100.0,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.88★(405,644건) — 표본 가중 평균 97.6.",
+    "summary": "자동 수집: App Store 4.88★(405,644건) — 표본 가중 평균 97.6. v0.6.0 표본 규모 보정 +2.40 → 100.",
     "source_ids": [
      "itunes-suno"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 405644,
+     "sample_source": "reviews",
+     "base_score": 97.6,
+     "log_delta": 4.5204,
+     "gate": 1.0,
+     "applied": 2.4,
+     "final_score": 100.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -336,7 +347,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.88★(405,644건) → 표본 가중 평균 97.6. 표본 405,644건.",
+   "user_rating": "App Store 4.88★(405,644건) → 표본 가중 평균 97.6. 표본 405,644건. v0.6.0 표본 규모 보정: 누적 표본 405,644건 → 로그 보정 +4.52 × 평점 게이트 1.00 = +2.40 (97.6 → 100.0).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-18(+8).",
    "ai_review": "자동 추정 71.4: 본질 검토 전 중립값 60 · 스토어 평점 97.6(+4.4) · 90일 내 업데이트(+4) · 표본 405,644건(+3)."
   },
@@ -536,15 +547,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 96.8,
+    "score": 98.0,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.84★(26,110건) — 표본 가중 평균 96.8.",
+    "summary": "자동 수집: App Store 4.84★(26,110건) — 표본 가중 평균 96.8. v0.6.0 표본 규모 보정 +1.20 → 98.",
     "source_ids": [
      "itunes-elevenlabs"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 26110,
+     "sample_source": "reviews",
+     "base_score": 96.8,
+     "log_delta": 1.2504,
+     "gate": 1.0,
+     "applied": 1.2,
+     "final_score": 98.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -679,7 +701,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.84★(26,110건) → 표본 가중 평균 96.8. 표본 26,110건.",
+   "user_rating": "App Store 4.84★(26,110건) → 표본 가중 평균 96.8. 표본 26,110건. v0.6.0 표본 규모 보정: 누적 표본 26,110건 → 로그 보정 +1.25 × 평점 게이트 1.00 = +1.20 (96.8 → 98.0).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-18(+8).",
    "ai_review": "자동 추정 69.2: 본질 검토 전 중립값 60 · 스토어 평점 96.8(+4.2) · 90일 내 업데이트(+4) · 표본 26,110건(+1)."
   },
@@ -879,15 +901,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.4,
+    "score": 95.1,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.67★(35,656건) — 표본 가중 평균 93.4.",
+    "summary": "자동 수집: App Store 4.67★(35,656건) — 표본 가중 평균 93.4. v0.6.0 표본 규모 보정 +1.70 → 95.1.",
     "source_ids": [
      "itunes-kling-ai"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 35656,
+     "sample_source": "reviews",
+     "base_score": 93.4,
+     "log_delta": 1.6564,
+     "gate": 1.0,
+     "applied": 1.7,
+     "final_score": 95.1,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -1022,7 +1055,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.67★(35,656건) → 표본 가중 평균 93.4. 표본 35,656건.",
+   "user_rating": "App Store 4.67★(35,656건) → 표본 가중 평균 93.4. 표본 35,656건. v0.6.0 표본 규모 보정: 누적 표본 35,656건 → 로그 보정 +1.66 × 평점 게이트 1.00 = +1.70 (93.4 → 95.1).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8).",
    "ai_review": "자동 추정 68.4: 본질 검토 전 중립값 60 · 스토어 평점 93.4(+3.4) · 90일 내 업데이트(+4) · 표본 35,656건(+1)."
   },
@@ -1229,7 +1262,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 60.0,
@@ -1562,15 +1606,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 90.0,
+    "score": 91.0,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: App Store 4.50★(21,135건) — 표본 가중 평균 90.0.",
+    "summary": "자동 수집: App Store 4.50★(21,135건) — 표본 가중 평균 90.0. v0.6.0 표본 규모 보정 +1.00 → 91.",
     "source_ids": [
      "itunes-runway"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 21135,
+     "sample_source": "reviews",
+     "base_score": 90.0,
+     "log_delta": 0.975,
+     "gate": 1.0,
+     "applied": 1.0,
+     "final_score": 91.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 76.0,
@@ -1705,7 +1760,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "App Store 4.50★(21,135건) → 표본 가중 평균 90.0. 표본 21,135건.",
+   "user_rating": "App Store 4.50★(21,135건) → 표본 가중 평균 90.0. 표본 21,135건. v0.6.0 표본 규모 보정: 누적 표본 21,135건 → 로그 보정 +0.97 × 평점 게이트 1.00 = +1.00 (90.0 → 91.0).",
    "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-24(+8) · 출시 3년(+2).",
    "ai_review": "자동 추정 67.5: 본질 검토 전 중립값 60 · 스토어 평점 90.0(+2.5) · 90일 내 업데이트(+4) · 표본 21,135건(+1)."
   },
@@ -1912,7 +1967,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 82.0,
@@ -2252,7 +2318,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 60.0,
@@ -2593,7 +2670,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 76.0,
@@ -2935,7 +3023,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 62.0,
@@ -3278,7 +3377,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 58.0,
@@ -3620,7 +3730,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 79.0,
@@ -3960,7 +4081,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 80.0,
@@ -4302,7 +4434,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 76.0,
@@ -4643,7 +4786,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 54.0,
@@ -4983,7 +5137,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 54.0,

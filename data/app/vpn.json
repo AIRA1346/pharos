@@ -273,15 +273,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 83,
+    "score": 81.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.14★(1,500건), 한국 4.16★(31건). 표본이 큰 미국 값을 썼다. 리뷰가 적은 편이라 만족도보다 '불만이 적다'로 읽어야 한다.",
+    "summary": "미국 App Store 4.14★(1,500건), 한국 4.16★(31건). 표본이 큰 미국 값을 썼다. 리뷰가 적은 편이라 만족도보다 '불만이 적다'로 읽어야 한다. v0.6.0 표본 규모 보정 -1.70 → 81.3.",
     "source_ids": [
      "itunes-mullvad-vpn"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1500,
+     "sample_source": "reviews",
+     "base_score": 83,
+     "log_delta": -1.6478,
+     "gate": 1.0,
+     "applied": -1.7,
+     "final_score": 81.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 95,
@@ -458,7 +469,7 @@
    "limitations": "데스크 리서치. 공식 가격·기능 페이지와 App Store 표기만 확인했고 직접 결제·연결해 속도를 재지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.14★(1,500건)을 83으로 환산했다. 한국 4.16★(31건)은 표본이 적어 가중하지 않았다.",
+   "user_rating": "미국 App Store 4.14★(1,500건)을 83으로 환산했다. 한국 4.16★(31건)은 표본이 적어 가중하지 않았다. v0.6.0 표본 규모 보정: 누적 표본 1,500건 → 로그 보정 -1.65 × 평점 게이트 1.00 = -1.70 (83 → 81.3).",
    "objective": "정액 가격·익명 계정·독립 감사·오픈소스·스웨덴을 반영하고, 5대 제한과 포트 포워딩 중단을 감점했다.",
    "ai_review": "함정 없는 가격 구조와 프라이버시 설계를 높게 보되, 기기 수·기능 제한을 감점으로 남겼다."
   },
@@ -835,15 +846,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93,
+    "score": 96.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.65★(136,681건), 한국 4.51★(2,964건). 표본이 두꺼운 미국 값을 썼다.",
+    "summary": "미국 App Store 4.65★(136,681건), 한국 4.51★(2,964건). 표본이 두꺼운 미국 값을 썼다. v0.6.0 표본 규모 보정 +3.30 → 96.3.",
     "source_ids": [
      "itunes-proton-vpn"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 136681,
+     "sample_source": "reviews",
+     "base_score": 93,
+     "log_delta": 3.3393,
+     "gate": 1.0,
+     "applied": 3.3,
+     "final_score": 96.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 88,
@@ -1020,7 +1042,7 @@
    "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 무료·유료 회선을 직접 연결해 속도를 재지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.65★(136,681건)을 93으로 환산하고, 한국 4.51★(2,964건)으로 방향을 교차 확인했다.",
+   "user_rating": "미국 App Store 4.65★(136,681건)을 93으로 환산하고, 한국 4.51★(2,964건)으로 방향을 교차 확인했다. v0.6.0 표본 규모 보정: 누적 표본 136,681건 → 로그 보정 +3.34 × 평점 게이트 1.00 = +3.30 (93 → 96.3).",
    "objective": "무료 무제한·무광고·무로그 감사·오픈소스·스위스를 반영하고, 무료 1대·10개국 제한과 계정 필수를 감점했다.",
    "ai_review": "무료 VPN의 신뢰 기준을 세운 점을 높게 보되, 스트리밍·국가 선택에는 유료가 필요하다는 점을 감점했다."
   },
@@ -1291,15 +1313,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93,
+    "score": 98.1,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.66★(717,275건), 한국 4.54★(13,209건). 표본이 매우 두꺼워 방향이 분명하다.",
+    "summary": "미국 App Store 4.66★(717,275건), 한국 4.54★(13,209건). 표본이 매우 두꺼워 방향이 분명하다. v0.6.0 표본 규모 보정 +5.10 → 98.1.",
     "source_ids": [
      "itunes-nordvpn"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 717275,
+     "sample_source": "reviews",
+     "base_score": 93,
+     "log_delta": 5.1392,
+     "gate": 1.0,
+     "applied": 5.1,
+     "final_score": 98.1,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 70,
@@ -1475,7 +1508,7 @@
    "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 세금 포함 최종 결제액과 실제 속도는 재지 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.66★(717,275건)을 93으로 환산했다. 표본이 커 최근 구간 보정 없이 반영했다.",
+   "user_rating": "미국 App Store 4.66★(717,275건)을 93으로 환산했다. 표본이 커 최근 구간 보정 없이 반영했다. v0.6.0 표본 규모 보정: 누적 표본 717,275건 → 로그 보정 +5.14 × 평점 게이트 1.00 = +5.10 (93 → 98.1).",
    "objective": "10대·환불·무로그를 반영하되, 소개가와 갱신가의 4배 차이·무료 플랜 부재·공격적 마케팅을 감점했다.",
    "ai_review": "속도·앱 완성도를 인정하되, 갱신 충격이 '가성비' 인상을 상쇄한다고 봤다."
   },
@@ -1745,15 +1778,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94,
+    "score": 97.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.69★(134,442건), 한국 4.61★(3,341건). 표본이 두껍고 두 시장의 방향이 같다.",
+    "summary": "미국 App Store 4.69★(134,442건), 한국 4.61★(3,341건). 표본이 두껍고 두 시장의 방향이 같다. v0.6.0 표본 규모 보정 +3.30 → 97.3.",
     "source_ids": [
      "itunes-surfshark"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 134442,
+     "sample_source": "reviews",
+     "base_score": 94,
+     "log_delta": 3.3213,
+     "gate": 1.0,
+     "applied": 3.3,
+     "final_score": 97.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 68,
@@ -1929,7 +1973,7 @@
    "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 갱신가 전체 표와 실제 연결 속도는 확인하지 못했다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.69★(134,442건)을 94로 환산했다. 표본이 커 최근 구간 보정 없이 반영했다.",
+   "user_rating": "미국 App Store 4.69★(134,442건)을 94로 환산했다. 표본이 커 최근 구간 보정 없이 반영했다. v0.6.0 표본 규모 보정: 누적 표본 134,442건 → 로그 보정 +3.32 × 평점 게이트 1.00 = +3.30 (94 → 97.3).",
    "objective": "기기 무제한·서버망·환불·무로그를 반영하고, 갱신가 불투명·번들 복잡성·소유 구조를 감점했다.",
    "ai_review": "가족·다기기 적합성을 높게 보되, 가격 구조의 불투명성을 감점했다."
   },
@@ -2207,15 +2251,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94,
+    "score": 98.6,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.68★(420,430건), 한국 4.35★(7,745건). 표본이 두껍고 미국 만족도가 높다.",
+    "summary": "미국 App Store 4.68★(420,430건), 한국 4.35★(7,745건). 표본이 두껍고 미국 만족도가 높다. v0.6.0 표본 규모 보정 +4.60 → 98.6.",
     "source_ids": [
      "itunes-expressvpn"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 420430,
+     "sample_source": "reviews",
+     "base_score": 94,
+     "log_delta": 4.5592,
+     "gate": 1.0,
+     "applied": 4.6,
+     "final_score": 98.6,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 62,
@@ -2392,7 +2447,7 @@
    "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 직접 연결해 속도를 재거나 Kape 관련 보도를 원문 확인하지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.68★(420,430건)을 94로 환산했다. 한국 4.35★(7,745건)은 더 낮지만 표본 차이로 미국 값을 대표로 썼다.",
+   "user_rating": "미국 App Store 4.68★(420,430건)을 94로 환산했다. 한국 4.35★(7,745건)은 더 낮지만 표본 차이로 미국 값을 대표로 썼다. v0.6.0 표본 규모 보정: 누적 표본 420,430건 → 로그 보정 +4.56 × 평점 게이트 1.00 = +4.60 (94 → 98.6).",
    "objective": "기기 수·환불·무로그를 반영하되, 최고가·갱신가·모회사 이력을 크게 감점했다.",
    "ai_review": "앱 사용성을 인정하되 가격 프리미엄의 근거가 약하다고 봤다."
   },
@@ -2604,15 +2659,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.2,
+    "score": 97.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.66★(334,682건) — 표본 가중 평균 93.2.",
+    "summary": "자동 수집: Google Play 4.66★(334,682건) — 표본 가중 평균 93.2. v0.6.0 표본 규모 보정 +4.30 → 97.5.",
     "source_ids": [
      "play-windscribe"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 334682,
+     "sample_source": "reviews",
+     "base_score": 93.2,
+     "log_delta": 4.3116,
+     "gate": 1.0,
+     "applied": 4.3,
+     "final_score": 97.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -2749,7 +2815,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.66★(334,682건) → 표본 가중 평균 93.2. 표본 334,682건.",
+   "user_rating": "Google Play 4.66★(334,682건) → 표본 가중 평균 93.2. 표본 334,682건. v0.6.0 표본 규모 보정: 누적 표본 334,682건 → 로그 보정 +4.31 × 평점 게이트 1.00 = +4.30 (93.2 → 97.5).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-16(+8).",
    "ai_review": "자동 추정 70.3: 본질 검토 전 중립값 60 · 스토어 평점 93.2(+3.3) · 90일 내 업데이트(+4) · 표본 334,682건(+3)."
   },
@@ -2961,15 +3027,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 88.4,
+    "score": 91.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.42★(109,286건) — 표본 가중 평균 88.4.",
+    "summary": "자동 수집: Google Play 4.42★(109,286건) — 표본 가중 평균 88.4. v0.6.0 표본 규모 보정 +3.10 → 91.5.",
     "source_ids": [
      "play-private-internet-access"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 109286,
+     "sample_source": "reviews",
+     "base_score": 88.4,
+     "log_delta": 3.0964,
+     "gate": 1.0,
+     "applied": 3.1,
+     "final_score": 91.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -3106,7 +3183,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.42★(109,286건) → 표본 가중 평균 88.4. 표본 109,286건.",
+   "user_rating": "Google Play 4.42★(109,286건) → 표본 가중 평균 88.4. 표본 109,286건. v0.6.0 표본 규모 보정: 누적 표본 109,286건 → 로그 보정 +3.10 × 평점 게이트 1.00 = +3.10 (88.4 → 91.5).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-16(+8).",
    "ai_review": "자동 추정 69.1: 본질 검토 전 중립값 60 · 스토어 평점 88.4(+2.1) · 90일 내 업데이트(+4) · 표본 109,286건(+3)."
   },
@@ -3318,15 +3395,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 85.8,
+    "score": 89.4,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.29★(170,762건) — 표본 가중 평균 85.8.",
+    "summary": "자동 수집: Google Play 4.29★(170,762건) — 표본 가중 평균 85.8. v0.6.0 표본 규모 보정 +3.60 → 89.4.",
     "source_ids": [
      "play-cyberghost"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 170762,
+     "sample_source": "reviews",
+     "base_score": 85.8,
+     "log_delta": 3.581,
+     "gate": 1.0,
+     "applied": 3.6,
+     "final_score": 89.4,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -3463,7 +3551,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.29★(170,762건) → 표본 가중 평균 85.8. 표본 170,762건.",
+   "user_rating": "Google Play 4.29★(170,762건) → 표본 가중 평균 85.8. 표본 170,762건. v0.6.0 표본 규모 보정: 누적 표본 170,762건 → 로그 보정 +3.58 × 평점 게이트 1.00 = +3.60 (85.8 → 89.4).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-06(+8).",
    "ai_review": "자동 추정 68.4: 본질 검토 전 중립값 60 · 스토어 평점 85.8(+1.4) · 90일 내 업데이트(+4) · 표본 170,762건(+3)."
   },

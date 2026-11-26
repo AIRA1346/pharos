@@ -231,16 +231,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 92.0,
+    "score": 94.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 92% 긍정(58,653건) · 최근 30일 91%(689건) — 표본 가중 평균 92.0.",
+    "summary": "자동 수집: Steam 누적 92% 긍정(58,653건) · 최근 30일 91%(689건) — 표본 가중 평균 92.0. v0.6.0 표본 규모 보정 +2.30 → 94.3.",
     "source_ids": [
      "steam-disco-elysium",
      "steamspy-disco-elysium"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 58653,
+     "sample_source": "reviews",
+     "base_score": 92.0,
+     "log_delta": 2.3049,
+     "gate": 1.0,
+     "applied": 2.3,
+     "final_score": 94.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -385,7 +396,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 92% 긍정(58,653건) · 최근 30일 91%(689건) → 표본 가중 평균 92.0. 표본 58,653건.",
+   "user_rating": "Steam 누적 92% 긍정(58,653건) · 최근 30일 91%(689건) → 표본 가중 평균 92.0. 표본 58,653건. v0.6.0 표본 규모 보정: 누적 표본 58,653건 → 로그 보정 +2.30 × 평점 게이트 1.00 = +2.30 (92.0 → 94.3).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 1년 내 업데이트 2025-12-17(+2) · 플랫폼 3종(+2) · 출시 7년(+4).",
    "ai_review": "자동 추정 64.0: 본질 검토 전 중립값 60 · 스토어 평점 92.0(+3.0) · 표본 58,653건(+1)."
   },
@@ -623,16 +634,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.0,
+    "score": 97.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 95% 긍정(54,043건) · 최근 30일 95%(910건) — 표본 가중 평균 95.0.",
+    "summary": "자동 수집: Steam 누적 95% 긍정(54,043건) · 최근 30일 95%(910건) — 표본 가중 평균 95.0. v0.6.0 표본 규모 보정 +2.20 → 97.2.",
     "source_ids": [
      "steam-outer-wilds",
      "steamspy-outer-wilds"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 54043,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": 2.1982,
+     "gate": 1.0,
+     "applied": 2.2,
+     "final_score": 97.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -778,7 +800,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 95% 긍정(54,043건) · 최근 30일 95%(910건) → 표본 가중 평균 95.0. 표본 54,043건.",
+   "user_rating": "Steam 누적 95% 긍정(54,043건) · 최근 30일 95%(910건) → 표본 가중 평균 95.0. 표본 54,043건. v0.6.0 표본 규모 보정: 누적 표본 54,043건 → 로그 보정 +2.20 × 평점 게이트 1.00 = +2.20 (95.0 → 97.2).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-05-06(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
    "ai_review": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 54,043건(+1)."
   },
@@ -1025,7 +1047,18 @@
     "source_ids": [
      "steam-phoenix-wright-ace-attorney-trilogy",
      "steamspy-phoenix-wright-ace-attorney-trilogy"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 10416,
+     "sample_source": "reviews",
+     "base_score": 97.0,
+     "log_delta": 0.0531,
+     "gate": 1.0,
+     "applied": 0.0,
+     "final_score": 97.0,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 80.0,
@@ -1170,7 +1203,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 97% 긍정(10,416건) · 최근 30일 93%(238건) → 표본 가중 평균 97.0. 표본 10,416건.",
+   "user_rating": "Steam 누적 97% 긍정(10,416건) · 최근 30일 93%(238건) → 표본 가중 평균 97.0. 표본 10,416건. v0.6.0 표본 규모 보정: 누적 표본 10,416건 → 로그 보정 +0.05 × 게이트 1.00 = 0에 수렴(최종 97.0).",
    "objective": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-20(+8) · 플랫폼 2종(+2) · 출시 7년(+4).",
    "ai_review": "자동 추정 69.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 90일 내 업데이트(+4) · 표본 10,416건(+1)."
   },
@@ -1409,16 +1442,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.0,
+    "score": 95.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 95% 긍정(18,185건) · 최근 30일 96%(705건) — 표본 가중 평균 95.0.",
+    "summary": "자동 수집: Steam 누적 95% 긍정(18,185건) · 최근 30일 96%(705건) — 표본 가중 평균 95.0. v0.6.0 표본 규모 보정 +0.80 → 95.8.",
     "source_ids": [
      "steam-danganronpa-trigger-happy-havoc",
      "steamspy-danganronpa-trigger-happy-havoc"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 18185,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": 0.7791,
+     "gate": 1.0,
+     "applied": 0.8,
+     "final_score": 95.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60.0,
@@ -1564,7 +1608,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 95% 긍정(18,185건) · 최근 30일 96%(705건) → 표본 가중 평균 95.0. 표본 18,185건.",
+   "user_rating": "Steam 누적 95% 긍정(18,185건) · 최근 30일 96%(705건) → 표본 가중 평균 95.0. 표본 18,185건. v0.6.0 표본 규모 보정: 누적 표본 18,185건 → 로그 보정 +0.78 × 평점 게이트 1.00 = +0.80 (95.0 → 95.8).",
    "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-09-12(-14) · 플랫폼 4종(+4) · 출시 10년(+4).",
    "ai_review": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 18,185건(+1)."
   },
@@ -1802,16 +1846,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.0,
+    "score": 97.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 95% 긍정(60,422건) · 최근 30일 96%(2,725건) — 표본 가중 평균 95.0.",
+    "summary": "자동 수집: Steam 누적 95% 긍정(60,422건) · 최근 30일 96%(2,725건) — 표본 가중 평균 95.0. v0.6.0 표본 규모 보정 +2.30 → 97.3.",
     "source_ids": [
      "steam-detroit-become-human",
      "steamspy-detroit-become-human"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 60422,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": 2.3436,
+     "gate": 1.0,
+     "applied": 2.3,
+     "final_score": 97.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -1957,7 +2012,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 95% 긍정(60,422건) · 최근 30일 96%(2,725건) → 표본 가중 평균 95.0. 표본 60,422건.",
+   "user_rating": "Steam 누적 95% 긍정(60,422건) · 최근 30일 96%(2,725건) → 표본 가중 평균 95.0. 표본 60,422건. v0.6.0 표본 규모 보정: 누적 표본 60,422건 → 로그 보정 +2.34 × 평점 게이트 1.00 = +2.30 (95.0 → 97.3).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-12-02(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
    "ai_review": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 60,422건(+1)."
   },
@@ -2190,16 +2245,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 85.0,
+    "score": 85.7,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 85% 긍정(17,480건) · 최근 30일 96%(296건) — 표본 가중 평균 85.0.",
+    "summary": "자동 수집: Steam 누적 85% 긍정(17,480건) · 최근 30일 96%(296건) — 표본 가중 평균 85.0. v0.6.0 표본 규모 보정 +0.70 → 85.7.",
     "source_ids": [
      "steam-life-is-strange-2",
      "steamspy-life-is-strange-2"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 17480,
+     "sample_source": "reviews",
+     "base_score": 85.0,
+     "log_delta": 0.7276,
+     "gate": 1.0,
+     "applied": 0.7,
+     "final_score": 85.7,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60.0,
@@ -2345,7 +2411,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 85% 긍정(17,480건) · 최근 30일 96%(296건) → 표본 가중 평균 85.0. 표본 17,480건.",
+   "user_rating": "Steam 누적 85% 긍정(17,480건) · 최근 30일 96%(296건) → 표본 가중 평균 85.0. 표본 17,480건. v0.6.0 표본 규모 보정: 누적 표본 17,480건 → 로그 보정 +0.73 × 평점 게이트 1.00 = +0.70 (85.0 → 85.7).",
    "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2019-12-11(-14) · 플랫폼 4종(+4) · 출시 8년(+4).",
    "ai_review": "자동 추정 54.2: 본질 검토 전 중립값 60 · 스토어 평점 85.0(+1.2) · 12개월 방치(-8) · 표본 17,480건(+1)."
   },
@@ -2584,16 +2650,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 96.0,
+    "score": 96.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 96% 긍정(19,002건) · 최근 30일 95%(304건) — 표본 가중 평균 96.0.",
+    "summary": "자동 수집: Steam 누적 96% 긍정(19,002건) · 최근 30일 95%(304건) — 표본 가중 평균 96.0. v0.6.0 표본 규모 보정 +0.80 → 96.8.",
     "source_ids": [
      "steam-return-of-the-obra-dinn",
      "steamspy-return-of-the-obra-dinn"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 19002,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": 0.8364,
+     "gate": 1.0,
+     "applied": 0.8,
+     "final_score": 96.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -2739,7 +2816,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 96% 긍정(19,002건) · 최근 30일 95%(304건) → 표본 가중 평균 96.0. 표본 19,002건.",
+   "user_rating": "Steam 누적 96% 긍정(19,002건) · 최근 30일 95%(304건) → 표본 가중 평균 96.0. 표본 19,002건. v0.6.0 표본 규모 보정: 누적 표본 19,002건 → 로그 보정 +0.84 × 평점 게이트 1.00 = +0.80 (96.0 → 96.8).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2022-09-14(-14) · 플랫폼 3종(+2) · 출시 8년(+4).",
    "ai_review": "자동 추정 57.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 12개월 방치(-8) · 표본 19,002건(+1)."
   },
@@ -2977,16 +3054,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94.0,
+    "score": 93.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 94% 긍정(5,315건) · 최근 30일 93%(92건) — 표본 가중 평균 94.0.",
+    "summary": "자동 수집: Steam 누적 94% 긍정(5,315건) · 최근 30일 93%(92건) — 표본 가중 평균 94.0. v0.6.0 표본 규모 보정 -0.50 → 93.5.",
     "source_ids": [
      "steam-pentiment",
      "steamspy-pentiment"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 5315,
+     "sample_source": "reviews",
+     "base_score": 94.0,
+     "log_delta": -0.549,
+     "gate": 1.0,
+     "applied": -0.5,
+     "final_score": 93.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 78.0,
@@ -3131,7 +3219,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 94% 긍정(5,315건) · 최근 30일 93%(92건) → 표본 가중 평균 94.0. 표본 5,315건.",
+   "user_rating": "Steam 누적 94% 긍정(5,315건) · 최근 30일 93%(92건) → 표본 가중 평균 94.0. 표본 5,315건. v0.6.0 표본 규모 보정: 누적 표본 5,315건 → 로그 보정 -0.55 × 평점 게이트 1.00 = -0.50 (94.0 → 93.5).",
    "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-08(+8) · 플랫폼 2종(+2) · 출시 4년(+2).",
    "ai_review": "자동 추정 67.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 90일 내 업데이트(+4)."
   },
@@ -3371,16 +3459,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.0,
+    "score": 92.6,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 93% 긍정(6,567건) · 최근 30일 84%(71건) — 표본 가중 평균 93.0.",
+    "summary": "자동 수집: Steam 누적 93% 긍정(6,567건) · 최근 30일 84%(71건) — 표본 가중 평균 93.0. v0.6.0 표본 규모 보정 -0.40 → 92.6.",
     "source_ids": [
      "steam-citizen-sleeper",
      "steamspy-citizen-sleeper"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 6567,
+     "sample_source": "reviews",
+     "base_score": 93.0,
+     "log_delta": -0.3653,
+     "gate": 1.0,
+     "applied": -0.4,
+     "final_score": 92.6,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 75.0,
@@ -3525,7 +3624,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 93% 긍정(6,567건) · 최근 30일 84%(71건) → 표본 가중 평균 93.0. 표본 6,567건.",
+   "user_rating": "Steam 누적 93% 긍정(6,567건) · 최근 30일 84%(71건) → 표본 가중 평균 93.0. 표본 6,567건. v0.6.0 표본 규모 보정: 누적 표본 6,567건 → 로그 보정 -0.37 × 평점 게이트 1.00 = -0.40 (93.0 → 92.6).",
    "objective": "자동 산정 75.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-07-21(+5) · 플랫폼 3종(+2) · 출시 4년(+2).",
    "ai_review": "자동 추정 65.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 180일 내 업데이트(+2)."
   },
@@ -3766,16 +3865,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 96.0,
+    "score": 97.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 96% 긍정(24,816건) · 최근 30일 93%(1,032건) — 표본 가중 평균 96.0.",
+    "summary": "자동 수집: Steam 누적 96% 긍정(24,816건) · 최근 30일 93%(1,032건) — 표본 가중 평균 96.0. v0.6.0 표본 규모 보정 +1.20 → 97.2.",
     "source_ids": [
      "steam-slay-the-princess",
      "steamspy-slay-the-princess"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 24816,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": 1.1842,
+     "gate": 1.0,
+     "applied": 1.2,
+     "final_score": 97.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 80.0,
@@ -3920,7 +4030,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 96% 긍정(24,816건) · 최근 30일 93%(1,032건) → 표본 가중 평균 96.0. 표본 24,816건.",
+   "user_rating": "Steam 누적 96% 긍정(24,816건) · 최근 30일 93%(1,032건) → 표본 가중 평균 96.0. 표본 24,816건. v0.6.0 표본 규모 보정: 누적 표본 24,816건 → 로그 보정 +1.18 × 평점 게이트 1.00 = +1.20 (96.0 → 97.2).",
    "objective": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-20(+8) · 플랫폼 4종(+4) · 출시 3년(+2).",
    "ai_review": "자동 추정 69.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 90일 내 업데이트(+4) · 표본 24,816건(+1)."
   },
@@ -4160,16 +4270,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 98.0,
+    "score": 97.7,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 98% 긍정(6,651건) · 최근 30일 91%(85건) — 표본 가중 평균 98.0.",
+    "summary": "자동 수집: Steam 누적 98% 긍정(6,651건) · 최근 30일 91%(85건) — 표본 가중 평균 98.0. v0.6.0 표본 규모 보정 -0.30 → 97.7.",
     "source_ids": [
      "steam-the-case-of-the-golden-idol",
      "steamspy-the-case-of-the-golden-idol"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 6651,
+     "sample_source": "reviews",
+     "base_score": 98.0,
+     "log_delta": -0.3542,
+     "gate": 1.0,
+     "applied": -0.3,
+     "final_score": 97.7,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -4314,7 +4435,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 98% 긍정(6,651건) · 최근 30일 91%(85건) → 표본 가중 평균 98.0. 표본 6,651건.",
+   "user_rating": "Steam 누적 98% 긍정(6,651건) · 최근 30일 91%(85건) → 표본 가중 평균 98.0. 표본 6,651건. v0.6.0 표본 규모 보정: 누적 표본 6,651건 → 로그 보정 -0.35 × 평점 게이트 1.00 = -0.30 (98.0 → 97.7).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 1년 내 업데이트 2026-02-15(+2) · 플랫폼 4종(+4) · 출시 4년(+2).",
    "ai_review": "자동 추정 64.5: 본질 검토 전 중립값 60 · 스토어 평점 98.0(+4.5)."
   },
@@ -4551,16 +4672,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94.0,
+    "score": 93.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 94% 긍정(4,060건) · 최근 30일 96%(50건) — 표본 가중 평균 94.0.",
+    "summary": "자동 수집: Steam 누적 94% 긍정(4,060건) · 최근 30일 96%(50건) — 표본 가중 평균 94.0. v0.6.0 표본 규모 보정 -0.80 → 93.2.",
     "source_ids": [
      "steam-zero-escape-the-nonary-games",
      "steamspy-zero-escape-the-nonary-games"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 4060,
+     "sample_source": "reviews",
+     "base_score": 94.0,
+     "log_delta": -0.7829,
+     "gate": 1.0,
+     "applied": -0.8,
+     "final_score": 93.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -4706,7 +4838,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 94% 긍정(4,060건) · 최근 30일 96%(50건) → 표본 가중 평균 94.0. 표본 4,060건.",
+   "user_rating": "Steam 누적 94% 긍정(4,060건) · 최근 30일 96%(50건) → 표본 가중 평균 94.0. 표본 4,060건. v0.6.0 표본 규모 보정: 누적 표본 4,060건 → 로그 보정 -0.78 × 평점 게이트 1.00 = -0.80 (94.0 → 93.2).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-07-25(-14) · 플랫폼 2종(+2) · 출시 9년(+4).",
    "ai_review": "자동 추정 55.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8)."
   },
@@ -4946,16 +5078,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 96.0,
+    "score": 96.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 96% 긍정(12,113건) · 최근 30일 93%(108건) — 표본 가중 평균 96.0.",
+    "summary": "자동 수집: Steam 누적 96% 긍정(12,113건) · 최근 30일 93%(108건) — 표본 가중 평균 96.0. v0.6.0 표본 규모 보정 +0.20 → 96.2.",
     "source_ids": [
      "steam-va-11-hall-a",
      "steamspy-va-11-hall-a"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 12113,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": 0.2498,
+     "gate": 1.0,
+     "applied": 0.2,
+     "final_score": 96.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 80.0,
@@ -5100,7 +5243,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 96% 긍정(12,113건) · 최근 30일 93%(108건) → 표본 가중 평균 96.0. 표본 12,113건.",
+   "user_rating": "Steam 누적 96% 긍정(12,113건) · 최근 30일 93%(108건) → 표본 가중 평균 96.0. 표본 12,113건. v0.6.0 표본 규모 보정: 누적 표본 12,113건 → 로그 보정 +0.25 × 평점 게이트 1.00 = +0.20 (96.0 → 96.2).",
    "objective": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-17(+8) · 플랫폼 3종(+2) · 출시 10년(+4).",
    "ai_review": "자동 추정 69.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 90일 내 업데이트(+4) · 표본 12,113건(+1)."
   },
@@ -5337,16 +5480,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.0,
+    "score": 94.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 95% 긍정(5,602건) · 최근 30일 98%(234건) — 표본 가중 평균 95.0.",
+    "summary": "자동 수집: Steam 누적 95% 긍정(5,602건) · 최근 30일 98%(234건) — 표본 가중 평균 95.0. v0.6.0 표본 규모 보정 -0.50 → 94.5.",
     "source_ids": [
      "steam-steins-gate",
      "steamspy-steins-gate"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 5602,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": -0.5033,
+     "gate": 1.0,
+     "applied": -0.5,
+     "final_score": 94.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -5492,7 +5646,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 95% 긍정(5,602건) · 최근 30일 98%(234건) → 표본 가중 평균 95.0. 표본 5,602건.",
+   "user_rating": "Steam 누적 95% 긍정(5,602건) · 최근 30일 98%(234건) → 표본 가중 평균 95.0. 표본 5,602건. v0.6.0 표본 규모 보정: 누적 표본 5,602건 → 로그 보정 -0.50 × 평점 게이트 1.00 = -0.50 (95.0 → 94.5).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-09-08(-14) · 플랫폼 2종(+2) · 출시 10년(+4).",
    "ai_review": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8)."
   },
@@ -5730,16 +5884,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94.0,
+    "score": 94.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 94% 긍정(18,865건) · 최근 30일 95%(305건) — 표본 가중 평균 94.0.",
+    "summary": "자동 수집: Steam 누적 94% 긍정(18,865건) · 최근 30일 95%(305건) — 표본 가중 평균 94.0. v0.6.0 표본 규모 보정 +0.80 → 94.8.",
     "source_ids": [
      "steam-what-remains-of-edith-finch",
      "steamspy-what-remains-of-edith-finch"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 18865,
+     "sample_source": "reviews",
+     "base_score": 94.0,
+     "log_delta": 0.827,
+     "gate": 1.0,
+     "applied": 0.8,
+     "final_score": 94.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -5885,7 +6050,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 94% 긍정(18,865건) · 최근 30일 95%(305건) → 표본 가중 평균 94.0. 표본 18,865건.",
+   "user_rating": "Steam 누적 94% 긍정(18,865건) · 최근 30일 95%(305건) → 표본 가중 평균 94.0. 표본 18,865건. v0.6.0 표본 규모 보정: 누적 표본 18,865건 → 로그 보정 +0.83 × 평점 게이트 1.00 = +0.80 (94.0 → 94.8).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2018-06-21(-14) · 플랫폼 2종(+2) · 출시 9년(+4).",
    "ai_review": "자동 추정 56.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8) · 표본 18,865건(+1)."
   },
@@ -6124,16 +6289,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 97.0,
+    "score": 98.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 97% 긍정(25,243건) · 최근 30일 97%(345건) — 표본 가중 평균 97.0.",
+    "summary": "자동 수집: Steam 누적 97% 긍정(25,243건) · 최근 30일 97%(345건) — 표본 가중 평균 97.0. v0.6.0 표본 규모 보정 +1.20 → 98.2.",
     "source_ids": [
      "steam-the-walking-dead",
      "steamspy-the-walking-dead"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 25243,
+     "sample_source": "reviews",
+     "base_score": 97.0,
+     "log_delta": 1.2064,
+     "gate": 1.0,
+     "applied": 1.2,
+     "final_score": 98.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -6279,7 +6455,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 97% 긍정(25,243건) · 최근 30일 97%(345건) → 표본 가중 평균 97.0. 표본 25,243건.",
+   "user_rating": "Steam 누적 97% 긍정(25,243건) · 최근 30일 97%(345건) → 표본 가중 평균 97.0. 표본 25,243건. v0.6.0 표본 규모 보정: 누적 표본 25,243건 → 로그 보정 +1.21 × 평점 게이트 1.00 = +1.20 (97.0 → 98.2).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-10-20(-14) · 플랫폼 3종(+2) · 출시 14년(+4).",
    "ai_review": "자동 추정 57.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8) · 표본 25,243건(+1)."
   },
@@ -6518,16 +6694,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94.0,
+    "score": 92.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 94% 긍정(2,584건) · 최근 30일 94%(17건) — 표본 가중 평균 94.0.",
+    "summary": "자동 수집: Steam 누적 94% 긍정(2,584건) · 최근 30일 94%(17건) — 표본 가중 평균 94.0. v0.6.0 표본 규모 보정 -1.20 → 92.8.",
     "source_ids": [
      "steam-paradise-killer",
      "steamspy-paradise-killer"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 2584,
+     "sample_source": "reviews",
+     "base_score": 94.0,
+     "log_delta": -1.1754,
+     "gate": 1.0,
+     "applied": -1.2,
+     "final_score": 92.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -6673,7 +6860,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 94% 긍정(2,584건) · 최근 30일 94%(17건) → 표본 가중 평균 94.0. 표본 2,584건.",
+   "user_rating": "Steam 누적 94% 긍정(2,584건) · 최근 30일 94%(17건) → 표본 가중 평균 94.0. 표본 2,584건. v0.6.0 표본 규모 보정: 누적 표본 2,584건 → 로그 보정 -1.18 × 평점 게이트 1.00 = -1.20 (94.0 → 92.8).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-29(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
    "ai_review": "자동 추정 55.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8)."
   },
@@ -6912,16 +7099,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 94.0,
+    "score": 94.4,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 94% 긍정(13,636건) · 최근 30일 93%(127건) — 표본 가중 평균 94.0.",
+    "summary": "자동 수집: Steam 누적 94% 긍정(13,636건) · 최근 30일 93%(127건) — 표본 가중 평균 94.0. v0.6.0 표본 규모 보정 +0.40 → 94.4.",
     "source_ids": [
      "steam-night-in-the-woods",
      "steamspy-night-in-the-woods"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 13636,
+     "sample_source": "reviews",
+     "base_score": 94.0,
+     "log_delta": 0.4041,
+     "gate": 1.0,
+     "applied": 0.4,
+     "final_score": 94.4,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60.0,
@@ -7067,7 +7265,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 94% 긍정(13,636건) · 최근 30일 93%(127건) → 표본 가중 평균 94.0. 표본 13,636건.",
+   "user_rating": "Steam 누적 94% 긍정(13,636건) · 최근 30일 93%(127건) → 표본 가중 평균 94.0. 표본 13,636건. v0.6.0 표본 규모 보정: 누적 표본 13,636건 → 로그 보정 +0.40 × 평점 게이트 1.00 = +0.40 (94.0 → 94.4).",
    "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-10-14(-14) · 플랫폼 4종(+4) · 출시 9년(+4).",
    "ai_review": "자동 추정 56.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8) · 표본 13,636건(+1)."
   },
@@ -7307,16 +7505,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 96.0,
+    "score": 99.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 96% 긍정(155,017건) · 최근 30일 96%(2,904건) — 표본 가중 평균 96.0.",
+    "summary": "자동 수집: Steam 누적 96% 긍정(155,017건) · 최근 30일 96%(2,904건) — 표본 가중 평균 96.0. v0.6.0 표본 규모 보정 +3.50 → 99.5.",
     "source_ids": [
      "steam-undertale",
      "steamspy-undertale"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 155017,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": 3.4759,
+     "gate": 1.0,
+     "applied": 3.5,
+     "final_score": 99.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60.0,
@@ -7462,7 +7671,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 96% 긍정(155,017건) · 최근 30일 96%(2,904건) → 표본 가중 평균 96.0. 표본 155,017건.",
+   "user_rating": "Steam 누적 96% 긍정(155,017건) · 최근 30일 96%(2,904건) → 표본 가중 평균 96.0. 표본 155,017건. v0.6.0 표본 규모 보정: 누적 표본 155,017건 → 로그 보정 +3.48 × 평점 게이트 1.00 = +3.50 (96.0 → 99.5).",
    "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2016-01-20(-14) · 플랫폼 4종(+4) · 출시 11년(+4).",
    "ai_review": "자동 추정 59.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 12개월 방치(-8) · 표본 155,017건(+3)."
   },
@@ -7702,16 +7911,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 97.0,
+    "score": 99.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 97% 긍정(54,812건) · 최근 30일 96%(513건) — 표본 가중 평균 97.0.",
+    "summary": "자동 수집: Steam 누적 97% 긍정(54,812건) · 최근 30일 96%(513건) — 표본 가중 평균 97.0. v0.6.0 표본 규모 보정 +2.20 → 99.2.",
     "source_ids": [
      "steam-omori",
      "steamspy-omori"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 54812,
+     "sample_source": "reviews",
+     "base_score": 97.0,
+     "log_delta": 2.2166,
+     "gate": 1.0,
+     "applied": 2.2,
+     "final_score": 99.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 56.0,
@@ -7857,7 +8077,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 97% 긍정(54,812건) · 최근 30일 96%(513건) → 표본 가중 평균 97.0. 표본 54,812건.",
+   "user_rating": "Steam 누적 97% 긍정(54,812건) · 최근 30일 96%(513건) → 표본 가중 평균 97.0. 표본 54,812건. v0.6.0 표본 규모 보정: 누적 표본 54,812건 → 로그 보정 +2.22 × 평점 게이트 1.00 = +2.20 (97.0 → 99.2).",
    "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-12-16(-14) · 플랫폼 3종(+2) · 출시 5년(+2).",
    "ai_review": "자동 추정 57.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8) · 표본 54,812건(+1)."
   },
@@ -8094,16 +8314,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 92.0,
+    "score": 91.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 92% 긍정(4,505건) · 최근 30일 75%(48건) — 표본 가중 평균 92.0.",
+    "summary": "자동 수집: Steam 누적 92% 긍정(4,505건) · 최근 30일 75%(48건) — 표본 가중 평균 92.0. v0.6.0 표본 규모 보정 -0.70 → 91.3.",
     "source_ids": [
      "steam-ai-the-somnium-files",
      "steamspy-ai-the-somnium-files"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 4505,
+     "sample_source": "reviews",
+     "base_score": 92.0,
+     "log_delta": -0.6926,
+     "gate": 1.0,
+     "applied": -0.7,
+     "final_score": 91.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -8249,7 +8480,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 92% 긍정(4,505건) · 최근 30일 75%(48건) → 표본 가중 평균 92.0. 표본 4,505건.",
+   "user_rating": "Steam 누적 92% 긍정(4,505건) · 최근 30일 75%(48건) → 표본 가중 평균 92.0. 표본 4,505건. v0.6.0 표본 규모 보정: 누적 표본 4,505건 → 로그 보정 -0.69 × 평점 게이트 1.00 = -0.70 (92.0 → 91.3).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-07-25(-14) · 플랫폼 2종(+2) · 출시 7년(+4).",
    "ai_review": "자동 추정 55.0: 본질 검토 전 중립값 60 · 스토어 평점 92.0(+3.0) · 12개월 방치(-8)."
   },
@@ -8488,16 +8719,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.0,
+    "score": 93.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 95% 긍정(1,865건) · 최근 30일 96%(52건) — 표본 가중 평균 95.0.",
+    "summary": "자동 수집: Steam 누적 95% 긍정(1,865건) · 최근 30일 96%(52건) — 표본 가중 평균 95.0. v0.6.0 표본 규모 보정 -1.50 → 93.5.",
     "source_ids": [
      "steam-paranormasight",
      "steamspy-paranormasight"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1865,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": -1.4586,
+     "gate": 1.0,
+     "applied": -1.5,
+     "final_score": 93.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 56.0,
@@ -8643,7 +8885,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 95% 긍정(1,865건) · 최근 30일 96%(52건) → 표본 가중 평균 95.0. 표본 1,865건.",
+   "user_rating": "Steam 누적 95% 긍정(1,865건) · 최근 30일 96%(52건) → 표본 가중 평균 95.0. 표본 1,865건. v0.6.0 표본 규모 보정: 누적 표본 1,865건 → 로그 보정 -1.46 × 평점 게이트 1.00 = -1.50 (95.0 → 93.5).",
    "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-04-26(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
    "ai_review": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8)."
   },
@@ -8883,16 +9125,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 82.0,
+    "score": 80.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 82% 긍정(2,472건) — 표본 가중 평균 82.0.",
+    "summary": "자동 수집: Steam 누적 82% 긍정(2,472건) — 표본 가중 평균 82.0. v0.6.0 표본 규모 보정 -1.20 → 80.8.",
     "source_ids": [
      "steam-kentucky-route-zero",
      "steamspy-kentucky-route-zero"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 2472,
+     "sample_source": "reviews",
+     "base_score": 82.0,
+     "log_delta": -1.2139,
+     "gate": 1.0,
+     "applied": -1.2,
+     "final_score": 80.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60.0,
@@ -9030,7 +9283,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 82% 긍정(2,472건) → 표본 가중 평균 82.0. 표본 2,472건.",
+   "user_rating": "Steam 누적 82% 긍정(2,472건) → 표본 가중 평균 82.0. 표본 2,472건. v0.6.0 표본 규모 보정: 누적 표본 2,472건 → 로그 보정 -1.21 × 평점 게이트 1.00 = -1.20 (82.0 → 80.8).",
    "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-11(-14) · 플랫폼 4종(+4) · 출시 13년(+4).",
    "ai_review": "자동 추정 52.5: 본질 검토 전 중립값 60 · 스토어 평점 82.0(+0.5) · 12개월 방치(-8)."
   },
@@ -9270,16 +9523,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 89.0,
+    "score": 91.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 89% 긍정(57,338건) · 최근 30일 88%(340건) — 표본 가중 평균 89.0.",
+    "summary": "자동 수집: Steam 누적 89% 긍정(57,338건) · 최근 30일 88%(340건) — 표본 가중 평균 89.0. v0.6.0 표본 규모 보정 +2.30 → 91.3.",
     "source_ids": [
      "steam-firewatch",
      "steamspy-firewatch"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 57338,
+     "sample_source": "reviews",
+     "base_score": 89.0,
+     "log_delta": 2.2753,
+     "gate": 1.0,
+     "applied": 2.3,
+     "final_score": 91.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60.0,
@@ -9425,7 +9689,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 89% 긍정(57,338건) · 최근 30일 88%(340건) → 표본 가중 평균 89.0. 표본 57,338건.",
+   "user_rating": "Steam 누적 89% 긍정(57,338건) · 최근 30일 88%(340건) → 표본 가중 평균 89.0. 표본 57,338건. v0.6.0 표본 규모 보정: 누적 표본 57,338건 → 로그 보정 +2.28 × 평점 게이트 1.00 = +2.30 (89.0 → 91.3).",
    "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2018-05-21(-14) · 플랫폼 4종(+4) · 출시 10년(+4).",
    "ai_review": "자동 추정 55.2: 본질 검토 전 중립값 60 · 스토어 평점 89.0(+2.2) · 12개월 방치(-8) · 표본 57,338건(+1)."
   },
@@ -9664,16 +9928,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 98.0,
+    "score": 98.6,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 98% 긍정(15,844건) · 최근 30일 96%(231건) — 표본 가중 평균 98.0.",
+    "summary": "자동 수집: Steam 누적 98% 긍정(15,844건) · 최근 30일 96%(231건) — 표본 가중 평균 98.0. v0.6.0 표본 규모 보정 +0.60 → 98.6.",
     "source_ids": [
      "steam-before-your-eyes",
      "steamspy-before-your-eyes"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 15844,
+     "sample_source": "reviews",
+     "base_score": 98.0,
+     "log_delta": 0.5996,
+     "gate": 1.0,
+     "applied": 0.6,
+     "final_score": 98.6,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 56.0,
@@ -9819,7 +10094,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 98% 긍정(15,844건) · 최근 30일 96%(231건) → 표본 가중 평균 98.0. 표본 15,844건.",
+   "user_rating": "Steam 누적 98% 긍정(15,844건) · 최근 30일 96%(231건) → 표본 가중 평균 98.0. 표본 15,844건. v0.6.0 표본 규모 보정: 누적 표본 15,844건 → 로그 보정 +0.60 × 평점 게이트 1.00 = +0.60 (98.0 → 98.6).",
    "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2022-10-18(-14) · 플랫폼 3종(+2) · 출시 5년(+2).",
    "ai_review": "자동 추정 57.5: 본질 검토 전 중립값 60 · 스토어 평점 98.0(+4.5) · 12개월 방치(-8) · 표본 15,844건(+1)."
   },
@@ -10056,16 +10331,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 88.0,
+    "score": 86.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 88% 긍정(1,270건) · 최근 30일 86%(23건) — 표본 가중 평균 88.0.",
+    "summary": "자동 수집: Steam 누적 88% 긍정(1,270건) · 최근 30일 86%(23건) — 표본 가중 평균 88.0. v0.6.0 표본 규모 보정 -1.80 → 86.2.",
     "source_ids": [
      "steam-as-dusk-falls",
      "steamspy-as-dusk-falls"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1270,
+     "sample_source": "reviews",
+     "base_score": 88.0,
+     "log_delta": -1.7924,
+     "gate": 1.0,
+     "applied": -1.8,
+     "final_score": 86.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 56.0,
@@ -10211,7 +10497,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 88% 긍정(1,270건) · 최근 30일 86%(23건) → 표본 가중 평균 88.0. 표본 1,270건.",
+   "user_rating": "Steam 누적 88% 긍정(1,270건) · 최근 30일 86%(23건) → 표본 가중 평균 88.0. 표본 1,270건. v0.6.0 표본 규모 보정: 누적 표본 1,270건 → 로그 보정 -1.79 × 평점 게이트 1.00 = -1.80 (88.0 → 86.2).",
    "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-07-19(-14) · 플랫폼 2종(+2) · 출시 4년(+2).",
    "ai_review": "자동 추정 54.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 12개월 방치(-8)."
   },
@@ -10450,16 +10736,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95.0,
+    "score": 94.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 95% 긍정(7,480건) · 최근 30일 94%(67건) — 표본 가중 평균 95.0.",
+    "summary": "자동 수집: Steam 누적 95% 긍정(7,480건) · 최근 30일 94%(67건) — 표본 가중 평균 95.0. v0.6.0 표본 규모 보정 -0.20 → 94.8.",
     "source_ids": [
      "steam-the-forgotten-city",
      "steamspy-the-forgotten-city"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 7480,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": -0.2522,
+     "gate": 1.0,
+     "applied": -0.2,
+     "final_score": 94.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 75.0,
@@ -10604,7 +10901,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 95% 긍정(7,480건) · 최근 30일 94%(67건) → 표본 가중 평균 95.0. 표본 7,480건.",
+   "user_rating": "Steam 누적 95% 긍정(7,480건) · 최근 30일 94%(67건) → 표본 가중 평균 95.0. 표본 7,480건. v0.6.0 표본 규모 보정: 누적 표본 7,480건 → 로그 보정 -0.25 × 평점 게이트 1.00 = -0.20 (95.0 → 94.8).",
    "objective": "자동 산정 75.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-07-07(+5) · 플랫폼 2종(+2) · 출시 5년(+2).",
    "ai_review": "자동 추정 65.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 180일 내 업데이트(+2)."
   },
@@ -10843,16 +11140,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.0,
+    "score": 91.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 93% 긍정(1,784건) · 최근 30일 93%(15건) — 표본 가중 평균 93.0.",
+    "summary": "자동 수집: Steam 누적 93% 긍정(1,784건) · 최근 30일 93%(15건) — 표본 가중 평균 93.0. v0.6.0 표본 규모 보정 -1.50 → 91.5.",
     "source_ids": [
      "steam-norco",
      "steamspy-norco"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1784,
+     "sample_source": "reviews",
+     "base_score": 93.0,
+     "log_delta": -1.4972,
+     "gate": 1.0,
+     "applied": -1.5,
+     "final_score": 91.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 72.0,
@@ -10997,7 +11305,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 93% 긍정(1,784건) · 최근 30일 93%(15건) → 표본 가중 평균 93.0. 표본 1,784건.",
+   "user_rating": "Steam 누적 93% 긍정(1,784건) · 최근 30일 93%(15건) → 표본 가중 평균 93.0. 표본 1,784건. v0.6.0 표본 규모 보정: 누적 표본 1,784건 → 로그 보정 -1.50 × 평점 게이트 1.00 = -1.50 (93.0 → 91.5).",
    "objective": "자동 산정 72.0: 가격·무료 여부를 스토어에서 확인(+4) · 1년 내 업데이트 2026-04-13(+2) · 플랫폼 3종(+2) · 출시 4년(+2).",
    "ai_review": "자동 추정 63.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2)."
   },
@@ -11237,16 +11545,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 91.0,
+    "score": 89.6,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 91% 긍정(1,983건) · 최근 30일 92%(39건) — 표본 가중 평균 91.0.",
+    "summary": "자동 수집: Steam 누적 91% 긍정(1,983건) · 최근 30일 92%(39건) — 표본 가중 평균 91.0. v0.6.0 표본 규모 보정 -1.40 → 89.6.",
     "source_ids": [
      "steam-citizen-sleeper-2",
      "steamspy-citizen-sleeper-2"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1983,
+     "sample_source": "reviews",
+     "base_score": 91.0,
+     "log_delta": -1.4054,
+     "gate": 1.0,
+     "applied": -1.4,
+     "final_score": 89.6,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 76.0,
@@ -11391,7 +11710,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 91% 긍정(1,983건) · 최근 30일 92%(39건) → 표본 가중 평균 91.0. 표본 1,983건.",
+   "user_rating": "Steam 누적 91% 긍정(1,983건) · 최근 30일 92%(39건) → 표본 가중 평균 91.0. 표본 1,983건. v0.6.0 표본 규모 보정: 누적 표본 1,983건 → 로그 보정 -1.41 × 평점 게이트 1.00 = -1.40 (91.0 → 89.6).",
    "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-12(+8) · 플랫폼 3종(+2).",
    "ai_review": "자동 추정 66.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 90일 내 업데이트(+4)."
   },
@@ -11629,16 +11948,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 96.0,
+    "score": 95.4,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 96% 긍정(4,850건) · 최근 30일 84%(65건) — 표본 가중 평균 96.0.",
+    "summary": "자동 수집: Steam 누적 96% 긍정(4,850건) · 최근 30일 84%(65건) — 표본 가중 평균 96.0. v0.6.0 표본 규모 보정 -0.60 → 95.4.",
     "source_ids": [
      "steam-1000xresist",
      "steamspy-1000xresist"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 4850,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": -0.6285,
+     "gate": 1.0,
+     "applied": -0.6,
+     "final_score": 95.4,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 70.0,
@@ -11783,7 +12113,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 96% 긍정(4,850건) · 최근 30일 84%(65건) → 표본 가중 평균 96.0. 표본 4,850건.",
+   "user_rating": "Steam 누적 96% 긍정(4,850건) · 최근 30일 84%(65건) → 표본 가중 평균 96.0. 표본 4,850건. v0.6.0 표본 규모 보정: 누적 표본 4,850건 → 로그 보정 -0.63 × 평점 게이트 1.00 = -0.60 (96.0 → 95.4).",
    "objective": "자동 산정 70.0: 가격·무료 여부를 스토어에서 확인(+4) · 1년 내 업데이트 2026-05-11(+2) · 플랫폼 2종(+2).",
    "ai_review": "자동 추정 64.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0)."
   },
@@ -12022,16 +12352,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 97.0,
+    "score": 97.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건) — 표본 가중 평균 97.0.",
+    "summary": "자동 수집: Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건) — 표본 가중 평균 97.0. v0.6.0 표본 규모 보정 +0.80 → 97.8.",
     "source_ids": [
      "steam-the-wolf-among-us",
      "steamspy-the-wolf-among-us"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 19271,
+     "sample_source": "reviews",
+     "base_score": 97.0,
+     "log_delta": 0.8547,
+     "gate": 1.0,
+     "applied": 0.8,
+     "final_score": 97.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -12177,7 +12518,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건) → 표본 가중 평균 97.0. 표본 19,271건.",
+   "user_rating": "Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건) → 표본 가중 평균 97.0. 표본 19,271건. v0.6.0 표본 규모 보정: 누적 표본 19,271건 → 로그 보정 +0.85 × 평점 게이트 1.00 = +0.80 (97.0 → 97.8).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-12-22(-14) · 플랫폼 2종(+2) · 출시 13년(+4).",
    "ai_review": "자동 추정 57.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8) · 표본 19,271건(+1)."
   },
@@ -12414,16 +12755,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.0,
+    "score": 93.1,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건) — 표본 가중 평균 93.0.",
+    "summary": "자동 수집: Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건) — 표본 가중 평균 93.0. v0.6.0 표본 규모 보정 +0.10 → 93.1.",
     "source_ids": [
      "steam-tales-from-the-borderlands",
      "steamspy-tales-from-the-borderlands"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 10442,
+     "sample_source": "reviews",
+     "base_score": 93.0,
+     "log_delta": 0.0564,
+     "gate": 1.0,
+     "applied": 0.1,
+     "final_score": 93.1,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 78.0,
@@ -12568,7 +12920,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건) → 표본 가중 평균 93.0. 표본 10,442건.",
+   "user_rating": "Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건) → 표본 가중 평균 93.0. 표본 10,442건. v0.6.0 표본 규모 보정: 누적 표본 10,442건 → 로그 보정 +0.06 × 평점 게이트 1.00 = +0.10 (93.0 → 93.1).",
    "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-02(+8) · 플랫폼 2종(+2) · 출시 5년(+2).",
    "ai_review": "자동 추정 68.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 90일 내 업데이트(+4) · 표본 10,442건(+1)."
   },
@@ -12806,16 +13158,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 81.0,
+    "score": 80.7,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건) — 표본 가중 평균 81.0.",
+    "summary": "자동 수집: Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건) — 표본 가중 평균 81.0. v0.6.0 표본 규모 보정 -0.30 → 80.7.",
     "source_ids": [
      "steam-heavy-rain",
      "steamspy-heavy-rain"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 7201,
+     "sample_source": "reviews",
+     "base_score": 81.0,
+     "log_delta": -0.2852,
+     "gate": 1.0,
+     "applied": -0.3,
+     "final_score": 80.7,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -12961,7 +13324,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건) → 표본 가중 평균 81.0. 표본 7,201건.",
+   "user_rating": "Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건) → 표본 가중 평균 81.0. 표본 7,201건. v0.6.0 표본 규모 보정: 누적 표본 7,201건 → 로그 보정 -0.29 × 평점 게이트 1.00 = -0.30 (81.0 → 80.7).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-10-22(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
    "ai_review": "자동 추정 52.2: 본질 검토 전 중립값 60 · 스토어 평점 81.0(+0.2) · 12개월 방치(-8)."
   },
@@ -13198,16 +13561,27 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 74.0,
+    "score": 73.1,
     "signal": "yellow",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건) — 표본 가중 평균 74.0.",
+    "summary": "자동 수집: Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건) — 표본 가중 평균 74.0. v0.6.0 표본 규모 보정 -0.90 → 73.1.",
     "source_ids": [
      "steam-man-of-medan",
      "steamspy-man-of-medan"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 3577,
+     "sample_source": "reviews",
+     "base_score": 74.0,
+     "log_delta": -0.893,
+     "gate": 1.0,
+     "applied": -0.9,
+     "final_score": 73.1,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 58.0,
@@ -13353,7 +13727,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건) → 표본 가중 평균 74.0. 표본 3,577건.",
+   "user_rating": "Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건) → 표본 가중 평균 74.0. 표본 3,577건. v0.6.0 표본 규모 보정: 누적 표본 3,577건 → 로그 보정 -0.89 × 평점 게이트 1.00 = -0.90 (74.0 → 73.1).",
    "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2019-09-19(-14) · 플랫폼 2종(+2) · 출시 7년(+4).",
    "ai_review": "자동 추정 50.5: 본질 검토 전 중립값 60 · 스토어 평점 74.0(-1.5) · 12개월 방치(-8)."
   },

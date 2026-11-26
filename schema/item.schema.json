@@ -402,6 +402,23 @@
         "override_reason": {
           "type": "string",
           "description": "signal_basis=review_override일 때 임계값과 다르게 판단한 이유."
+        },
+        "scale_adjustment": {
+          "type": "object",
+          "description": "v0.6.0 표본 규모 보정 기록 — user_rating 축에만 쓴다. base_score + applied = score, final_score = score 를 만족해야 한다.",
+          "additionalProperties": false,
+          "required": ["rule", "sample_count", "base_score", "log_delta", "gate", "applied", "final_score"],
+          "properties": {
+            "rule": { "type": "string", "description": "적용한 규칙 버전(예: v0.6.0)." },
+            "sample_count": { "type": ["integer", "null"], "minimum": 0, "description": "누적 표본 수(리뷰 수 또는 GitHub stars)." },
+            "sample_source": { "type": ["string", "null"], "enum": ["reviews", "github_stars", null], "description": "표본 수의 출처." },
+            "base_score": { "type": ["number", "null"], "minimum": 0, "maximum": 100, "description": "보정 전 사용자 점수." },
+            "log_delta": { "type": "number", "description": "누적 표본 수의 로그 보정치(게이트 적용 전)." },
+            "gate": { "type": "number", "minimum": 0, "maximum": 1, "description": "평점 게이트 배율(0~1)." },
+            "applied": { "type": "number", "description": "실제 적용된 보정치(클램프 반영)." },
+            "final_score": { "type": ["number", "null"], "minimum": 0, "maximum": 100, "description": "보정 후 사용자 점수 = axes.user_rating.score." },
+            "applied_flag": { "type": "boolean", "description": "보정이 점수를 실제로 움직였는가." }
+          }
         }
       }
     },
@@ -412,7 +429,7 @@
       "properties": {
         "user_rating": {
           "$ref": "#/$defs/axis",
-          "description": "축1 사용자(대중) 평가. 최근 구간 우선, 없으면 누적. v0.5.0은 표본 규모를 검증해(수십만~수백만 누적 + 4.4★ 이상) 수백 건짜리 3자 최근 표본이 큰 누적을 통째로 덮지 않게 한다(x-pharos.client.sample_scale)."
+          "description": "축1 사용자(대중) 평가. 최근 구간 우선, 없으면 누적. v0.5.0은 표본 규모를 검증해(수십만~수백만 누적 + 4.4★ 이상) 수백 건짜리 3자 최근 표본이 큰 누적을 통째로 덮지 않게 하고, v0.6.0은 누적 표본 수를 연속 로그 보정해 점수에 반영한다(x-pharos.client.sample_scale·scale_adjustment, 축의 scale_adjustment 기록)."
         },
         "objective": {
           "$ref": "#/$defs/axis",
@@ -680,7 +697,7 @@
   },
   "x-pharos": {
     "schema_version": "0.4.0",
-    "criteria_version": "0.5.0",
+    "criteria_version": "0.6.0",
     "criteria_doc": "projects/pharos/criteria.md",
     "client": {
       "note": "정적 웹 프론트엔드가 서버 없이 계산하는 계약. 아이템 1건 × 티어 1개 단위로 적용한다.",
@@ -763,7 +780,7 @@
       "default_weights_note": "v0.5.0 기본 배분은 사용자 평가 50% · 객관 25% · AI 25%. 대중이 실제로 검증한 평점의 무게를 높이고, 로컬·오픈소스 여부 같은 구조적 취향은 점수가 아니라 필터·프리셋(privacy)으로 가른다.",
       "sample_scale": {
         "axis": "user_rating",
-        "note": "v0.5.0 — 같은 4.4~4.6★이라도 표본 규모가 다르면 검증의 무게가 다르다. 표본 등급은 누적 리뷰 수로 나눈다.",
+        "note": "v0.5.0 — 같은 4.4~4.6★이라도 표본 규모가 다르면 검증의 무게가 다르다. 표본 등급은 누적 리뷰 수로 나눈다. v0.6.0 부터는 이 등급 위에 scale_adjustment(연속 로그 보정)가 실제 사용자 점수를 움직인다.",
         "grades": [
           { "key": "massive", "label": "대규모 활성 유저", "min_count": 1000000 },
           { "key": "large", "label": "대형", "min_count": 100000 },
@@ -774,9 +791,30 @@
         ],
         "thin_recent_rule": "최근 구간이 3자 집계(등급 C)이고 표본이 1,000건 미만인데, 같은 플랫폼의 스토어 누적이 등급 A/B·1만 건 이상이고 최근 표본의 100배 이상이며 4.4★(88) 이상이면 최근 구간은 '하락 방향 신호'로만 쓰고 그 플랫폼의 사용자 점수는 (누적+최근)/2 로 둔다. 수십만~수백만 명이 검증한 누적 평점을 수백 건짜리 3자 표본이 통째로 덮지 않게 하기 위해서다.",
         "risky_terms_exception": "최근 급락이 과금·약관 변경(update_profile.maintenance_quality=risky_terms)과 겹치면 이 완화를 적용하지 않는다 — 돈·조건이 바뀌어 생긴 하락은 표본이 얇아도 실제 신호다(에버노트).",
-        "tiny_sample_rule": "누적 표본 1,000건 미만(미세·표본 없음)은 규모 검증을 받지 못하므로 최근 값을 그대로 쓰고 신호를 한 단계 낮춘다(기존 규칙 유지). 점수를 새로 올리는 가산은 없다 — Hero Wars 처럼 표본이 커도 별점과 실제 불만이 어긋나는 사례를 자동으로 구제하지 않기 위해서다.",
+        "tiny_sample_rule": "누적 표본 1,000건 미만(미세·표본 없음)은 규모 검증을 받지 못하므로 최근 값을 그대로 쓰고 신호를 한 단계 낮춘다(기존 규칙 유지). v0.6.0 의 scale_adjustment 가 이 구간에 -2.0~-6.0 의 감산을 더한다.",
         "field": "axes.user_rating.score",
         "note_field": "score_notes.user_rating"
+      },
+      "scale_adjustment": {
+        "rule_version": "v0.6.0",
+        "axis": "user_rating",
+        "note": "v0.6.0 — 누적 표본 수(표본 규모)를 사용자 축 점수에 연속 보정한다. 하드 필터가 먼저 거르므로 거름 조건은 규모와 무관하고, 평점 게이트가 낮은 평점의 가산을 막는다.",
+        "anchors": [
+          { "count": 100, "delta": -5.0 },
+          { "count": 1000, "delta": -2.0 },
+          { "count": 10000, "delta": 0.0 },
+          { "count": 100000, "delta": 3.0 },
+          { "count": 1000000, "delta": 5.5 },
+          { "count": 10000000, "delta": 7.5 }
+        ],
+        "tiny": { "below_count": 100, "delta": -6.0 },
+        "interpolation": "log10(누적 표본 수)에 대해 anchors 사이를 선형 보간한다. 1천만 건 이상은 +7.5 고정, 100건 미만은 -6.0 고정.",
+        "gate": { "full_at": 70.0, "zero_below": 60.0, "rule": "기본 평점이 70 이상이면 1.0, 60~70이면 (평점-60)/10, 60 미만이면 0. 이 배율을 로그 보정치에 곱한다(가산·감산 모두)." },
+        "clamp": { "min": 0.0, "max": 100.0 },
+        "sample_count_rule": "review_snapshot.platforms[].cumulative.count 의 최댓값. 평점 표본이 없고 GitHub stars 만 있으면 stars 를 대리 표본으로 쓰고 sample_source='github_stars' 로 남긴다.",
+        "field": "axes.user_rating.scale_adjustment",
+        "note_field": "score_notes.user_rating",
+        "hard_filter_priority": "판정 1단계(하드 필터)는 이 보정과 무관하게 먼저 적용된다 — 강제 광고·핵심 P2W·서비스 종료는 표본이 커도 거름이다."
       },
       "signal_thresholds": { "green_min": 75, "yellow_min": 50 },
       "verdict_rules": [

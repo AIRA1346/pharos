@@ -339,7 +339,18 @@
     "summary": "스토어에 등록된 제품이 아니라 평점 표본이 없다. GitHub 스타 148,602개는 관심도 지표일 뿐이라 사용자 축은 ⚪로 둔다.",
     "source_ids": [
      "comfyui-github"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 148602,
+     "sample_source": "github_stars",
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 92,
@@ -750,7 +761,18 @@
     "summary": "스토어 평점 표본이 없다. GitHub 스타 29,160개는 관심도 지표라 사용자 축은 ⚪로 둔다.",
     "source_ids": [
      "invokeai-github"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 29160,
+     "sample_source": "github_stars",
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 84,
@@ -1238,7 +1260,18 @@
     "summary": "스토어 평점 표본이 없다. API·가중치 배포 모델이라 사용자 축은 ⚪로 둔다.",
     "source_ids": [
      "flux-pricing"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 88,
@@ -1712,7 +1745,18 @@
     "signal_basis": "score",
     "source_ids": [
      "mj-pricing"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 70,
@@ -2211,7 +2255,18 @@
     "signal_basis": "score",
     "source_ids": [
      "firefly-plans"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 76,

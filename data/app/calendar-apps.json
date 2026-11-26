@@ -261,15 +261,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 91,
+    "score": 94.3,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.53★(132,891건), 한국 4.59★(6,034건). 표본이 두껍고 두 시장이 비슷하다.",
+    "summary": "미국 App Store 4.53★(132,891건), 한국 4.59★(6,034건). 표본이 두껍고 두 시장이 비슷하다. v0.6.0 표본 규모 보정 +3.30 → 94.3.",
     "source_ids": [
      "itunes-google-calendar"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 132891,
+     "sample_source": "reviews",
+     "base_score": 91,
+     "log_delta": 3.3087,
+     "gate": 1.0,
+     "applied": 3.3,
+     "final_score": 94.3,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 68,
@@ -433,7 +444,7 @@
    "limitations": "데스크 리서치. App Store 표기와 Google One 저장공간 안내만 확인했고, 직접 계정을 만들어 개인화·광고 노출을 관찰하지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.53★(132,891건)을 91로 환산하고 한국 4.59★(6,034건)으로 교차 확인했다.",
+   "user_rating": "미국 App Store 4.53★(132,891건)을 91로 환산하고 한국 4.59★(6,034건)으로 교차 확인했다. v0.6.0 표본 규모 보정: 누적 표본 132,891건 → 로그 보정 +3.31 × 평점 게이트 1.00 = +3.30 (91 → 94.3).",
    "objective": "무료·호환성·내보내기를 반영하고, 계정 필수·데이터 수집·생태계 결속을 감점했다.",
    "ai_review": "일정 관리의 기본값으로서 안정성을 높게 보되, 프라이버시 대가를 감점했다."
   },
@@ -807,15 +818,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 82,
+    "score": 80.4,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "미국 App Store 4.11★(1,620건), 한국 3.60★(5건). 표본이 큰 미국 값을 썼다. 4.1★는 기능 만족도보다 '아직 거칠다'는 신호로 읽었다.",
+    "summary": "미국 App Store 4.11★(1,620건), 한국 3.60★(5건). 표본이 큰 미국 값을 썼다. 4.1★는 기능 만족도보다 '아직 거칠다'는 신호로 읽었다. v0.6.0 표본 규모 보정 -1.60 → 80.4.",
     "source_ids": [
      "itunes-proton-calendar"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1620,
+     "sample_source": "reviews",
+     "base_score": 82,
+     "log_delta": -1.581,
+     "gate": 1.0,
+     "applied": -1.6,
+     "final_score": 80.4,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 84,
@@ -968,7 +990,7 @@
    "limitations": "데스크 리서치. 공식 지원 문서와 제품 페이지, App Store 표기만 확인했고 직접 계정을 만들어 공유·초대 흐름을 시험하지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.11★(1,620건)을 82로 환산했다. 한국 표본(5건)은 너무 적어 쓰지 않았다.",
+   "user_rating": "미국 App Store 4.11★(1,620건)을 82로 환산했다. 한국 표본(5건)은 너무 적어 쓰지 않았다. v0.6.0 표본 규모 보정: 누적 표본 1,620건 → 로그 보정 -1.58 × 평점 게이트 1.00 = -1.60 (82 → 80.4).",
    "objective": "종단간 암호화·무료 3개·ICS 내보내기·무광고를 반영하고, 무료 공유 차단·iOS 갱신 정체를 감점했다.",
    "ai_review": "프라이버시 설계의 완성도를 높게 보되, 공유·협업의 유료 경계를 감점했다."
   },
@@ -1334,15 +1356,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 85,
+    "score": 86.2,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "미국 App Store 4.23★(25,037건), 한국 3.91★(324건). 표본이 큰 미국 값을 썼다. 한국 평점이 더 낮은 점은 참고로 남긴다.",
+    "summary": "미국 App Store 4.23★(25,037건), 한국 3.91★(324건). 표본이 큰 미국 값을 썼다. 한국 평점이 더 낮은 점은 참고로 남긴다. v0.6.0 표본 규모 보정 +1.20 → 86.2.",
     "source_ids": [
      "itunes-fantastical"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 25037,
+     "sample_source": "reviews",
+     "base_score": 85,
+     "log_delta": 1.1957,
+     "gate": 1.0,
+     "applied": 1.2,
+     "final_score": 86.2,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 70,
@@ -1520,7 +1553,7 @@
    "limitations": "데스크 리서치. 공식 요금 페이지·App Store·3자 요금 정리를 함께 봤고, 직접 설치해 자연어 입력을 시험하지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.23★(25,037건)을 85로 환산했다. 한국 3.91★(324건)은 표본이 작아 대표값으로 쓰지 않았다.",
+   "user_rating": "미국 App Store 4.23★(25,037건)을 85로 환산했다. 한국 3.91★(324건)은 표본이 작아 대표값으로 쓰지 않았다. v0.6.0 표본 규모 보정: 누적 표본 25,037건 → 로그 보정 +1.20 × 평점 게이트 1.00 = +1.20 (85 → 86.2).",
    "objective": "자연어 입력·세트·갱신을 반영하고, 무료 한도·구독 가격·지역 가격차를 감점했다.",
    "ai_review": "입력 경험의 우수성을 높게 보되, 애플 중심성과 무료 한도를 감점했다."
   },
@@ -1788,15 +1821,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 88,
+    "score": 84.0,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "low",
-    "summary": "미국 App Store 4.42★(216건), 한국 4.80★(5건). 표본이 얇아 만족도보다 '쓰는 사람의 평가는 좋다'로만 읽었다.",
+    "summary": "미국 App Store 4.42★(216건), 한국 4.80★(5건). 표본이 얇아 만족도보다 '쓰는 사람의 평가는 좋다'로만 읽었다. v0.6.0 표본 규모 보정 -4.00 → 84.",
     "source_ids": [
      "itunes-morgen"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 216,
+     "sample_source": "reviews",
+     "base_score": 88,
+     "log_delta": -3.9966,
+     "gate": 1.0,
+     "applied": -4.0,
+     "final_score": 84.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 60,
@@ -1959,7 +2003,7 @@
    "limitations": "데스크 리서치. 공식 요금 페이지와 App Store 표기만 확인했고, 직접 체험판을 써 보거나 데이터 처리 방식을 확인하지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.42★(216건)을 88로 환산하되 표본이 얇아 신뢰도를 낮게 잡았다.",
+   "user_rating": "미국 App Store 4.42★(216건)을 88로 환산하되 표본이 얇아 신뢰도를 낮게 잡았다. v0.6.0 표본 규모 보정: 누적 표본 216건 → 로그 보정 -4.00 × 평점 게이트 1.00 = -4.00 (88 → 84.0).",
    "objective": "통합·블록 기능을 인정하고, 무료 플랜 부재·연 $180·소규모 운영 리스크를 감점했다.",
    "ai_review": "시간 설계 흐름의 완성도를 높게 보되, '일정 보기'만 원하는 사용자에게는 과하다고 봤다."
   }
@@ -2223,15 +2267,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 95,
+    "score": 94.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "미국 App Store 4.73★(7,924건), 한국 4.64★(2,425건). 두 시장 모두 높고 표본이 충분하다.",
+    "summary": "미국 App Store 4.73★(7,924건), 한국 4.64★(2,425건). 두 시장 모두 높고 표본이 충분하다. v0.6.0 표본 규모 보정 -0.20 → 94.8.",
     "source_ids": [
      "itunes-notion-calendar"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 7924,
+     "sample_source": "reviews",
+     "base_score": 95,
+     "log_delta": -0.2021,
+     "gate": 1.0,
+     "applied": -0.2,
+     "final_score": 94.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 66,
@@ -2383,7 +2438,7 @@
    "limitations": "데스크 리서치. 제품 페이지와 App Store 표기만 확인했고, 직접 설치해 구글 계정 연결·노션 연동을 시험하지는 않았다."
   },
   "score_notes": {
-   "user_rating": "미국 App Store 4.73★(7,924건)을 95로 환산하고 한국 4.64★(2,425건)으로 교차 확인했다.",
+   "user_rating": "미국 App Store 4.73★(7,924건)을 95로 환산하고 한국 4.64★(2,425건)으로 교차 확인했다. v0.6.0 표본 규모 보정: 누적 표본 7,924건 → 로그 보정 -0.20 × 평점 게이트 1.00 = -0.20 (95 → 94.8).",
    "objective": "무료·구글 캘린더 무중복·디자인을 반영하고, 구글 종속·자체 저장소 부재를 감점했다.",
    "ai_review": "구글 캘린더 사용자의 화면 교체 수단으로 높게 보되, '구글을 떠나는' 목적에는 답이 아니라고 봤다."
   },
@@ -2589,7 +2644,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 82.0,
@@ -2928,7 +2994,18 @@
     "evidence_grade": "unknown",
     "confidence": "low",
     "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
-    "source_ids": []
+    "source_ids": [],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": null,
+     "sample_source": null,
+     "base_score": null,
+     "log_delta": 0.0,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": null,
+     "applied_flag": false
+    }
    },
    "objective": {
     "score": 80.0,
@@ -3263,15 +3340,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.8,
+    "score": 97.8,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.69★(242,924건) — 표본 가중 평균 93.8.",
+    "summary": "자동 수집: Google Play 4.69★(242,924건) — 표본 가중 평균 93.8. v0.6.0 표본 규모 보정 +4.00 → 97.8.",
     "source_ids": [
      "play-timetree"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 242924,
+     "sample_source": "reviews",
+     "base_score": 93.8,
+     "log_delta": 3.9637,
+     "gate": 1.0,
+     "applied": 4.0,
+     "final_score": 97.8,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -3406,7 +3494,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.69★(242,924건) → 표본 가중 평균 93.8. 표본 242,924건.",
+   "user_rating": "Google Play 4.69★(242,924건) → 표본 가중 평균 93.8. 표본 242,924건. v0.6.0 표본 규모 보정: 누적 표본 242,924건 → 로그 보정 +3.96 × 평점 게이트 1.00 = +4.00 (93.8 → 97.8).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8).",
    "ai_review": "자동 추정 70.4: 본질 검토 전 중립값 60 · 스토어 평점 93.8(+3.4) · 90일 내 업데이트(+4) · 표본 242,924건(+3)."
   },
@@ -3618,15 +3706,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 93.6,
+    "score": 94.5,
     "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "high",
-    "summary": "자동 수집: Google Play 4.68★(19,707건) — 표본 가중 평균 93.6.",
+    "summary": "자동 수집: Google Play 4.68★(19,707건) — 표본 가중 평균 93.6. v0.6.0 표본 규모 보정 +0.90 → 94.5.",
     "source_ids": [
      "play-calendly"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 19707,
+     "sample_source": "reviews",
+     "base_score": 93.6,
+     "log_delta": 0.8839,
+     "gate": 1.0,
+     "applied": 0.9,
+     "final_score": 94.5,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -3763,7 +3862,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 4.68★(19,707건) → 표본 가중 평균 93.6. 표본 19,707건.",
+   "user_rating": "Google Play 4.68★(19,707건) → 표본 가중 평균 93.6. 표본 19,707건. v0.6.0 표본 규모 보정: 누적 표본 19,707건 → 로그 보정 +0.88 × 평점 게이트 1.00 = +0.90 (93.6 → 94.5).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-20(+8).",
    "ai_review": "자동 추정 68.4: 본질 검토 전 중립값 60 · 스토어 평점 93.6(+3.4) · 90일 내 업데이트(+4) · 표본 19,707건(+1)."
   },
@@ -3975,15 +4074,26 @@
   ],
   "axes": {
    "user_rating": {
-    "score": 72.6,
+    "score": 72.0,
     "signal": "yellow",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 수집: Google Play 3.63★(4,914건) — 표본 가중 평균 72.6.",
+    "summary": "자동 수집: Google Play 3.63★(4,914건) — 표본 가중 평균 72.6. v0.6.0 표본 규모 보정 -0.60 → 72.",
     "source_ids": [
      "play-groupcal"
-    ]
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 4914,
+     "sample_source": "reviews",
+     "base_score": 72.6,
+     "log_delta": -0.6171,
+     "gate": 1.0,
+     "applied": -0.6,
+     "final_score": 72.0,
+     "applied_flag": true
+    }
    },
    "objective": {
     "score": 74.0,
@@ -4120,7 +4230,7 @@
    "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
   },
   "score_notes": {
-   "user_rating": "Google Play 3.63★(4,914건) → 표본 가중 평균 72.6. 표본 4,914건.",
+   "user_rating": "Google Play 3.63★(4,914건) → 표본 가중 평균 72.6. 표본 4,914건. v0.6.0 표본 규모 보정: 누적 표본 4,914건 → 로그 보정 -0.62 × 평점 게이트 1.00 = -0.60 (72.6 → 72.0).",
    "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-18(+8).",
    "ai_review": "자동 추정 62.1: 본질 검토 전 중립값 60 · 스토어 평점 72.6(-1.9) · 90일 내 업데이트(+4)."
   },

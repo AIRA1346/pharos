@@ -58,6 +58,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(ROOT / "schema"))
 
 import auto_collect as ac  # noqa: E402 — 수집 도우미·아이콘 저장기를 그대로 재사용한다
+import scale_rules as srules  # noqa: E402 — v0.6.0 표본 규모 보정 규칙(기준표 2.1.1)
 import validate as vlib    # noqa: E402 — 판정 규칙을 검증기와 한 곳에서 쓴다
 
 DATA_DIR = ROOT / "data"
@@ -1088,6 +1089,8 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
         f["rating100"] = (round(sum(s * c for s, c, _w in candidates) / total, 1) if total
                           else round(sum(s for s, _c, _w in candidates) / len(candidates), 1))
         f["sample_count"] = max(c for _s, c, _w in candidates)
+    # v0.6.0 표본 규모 보정 — 기본 평점은 그대로 두고, 사용자 축 점수만 규모로 보정한다.
+    f["scale"] = srules.adjust(f["rating100"], f["sample_count"], "reviews")
     age = recency_days(f["last_update"])
     f["days_since_update"] = age
     return f
@@ -1252,6 +1255,15 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
     price_ko = ("무료" if any(t["price"]["amount"] == 0 for t in f["tiers"]) else
                 f"{f['tiers'][0]['price']['display']}")
     rating_short_ko = (f"{f['rating100']}점" if f["rating100"] is not None else "표본 없음")
+    scale = f.get("scale") or srules.adjust(None, None)
+    user_score = scale["final_score"]
+    scale_ko = "v0.6.0 " + srules.reason_ko(scale)
+    scale_en = "v0.6.0 " + srules.reason_en(scale)
+    scale_brief_ko = (f" · v0.6.0 규모 보정 {scale['applied']:+.2f}(표본 {srules.fmt_count(scale['sample_count'])}) → {user_score}"
+                      if scale["base_score"] is not None else "")
+    scale_brief_en = (f" · v0.6.0 sample-scale adjustment {scale['applied']:+.2f} "
+                      f"({srules.fmt_count(scale['sample_count'])} samples) → {user_score}"
+                      if scale["base_score"] is not None else "")
 
     arena_short = arena["label"]
     arena_note_ko = (f"{rating_ko}. {price_ko} · 마지막 업데이트 {f['last_update'] or '미확인'}. "
@@ -1298,13 +1310,15 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
         "tiers": f["tiers"],
         "axes": {
             "user_rating": {
-                "score": f["rating100"], "signal": ac.signal_for(f["rating100"]),
+                "score": user_score, "signal": ac.signal_for(user_score),
                 "signal_basis": "score",
                 "evidence_grade": "A" if f["review_rows"] else "unknown",
                 "confidence": ("high" if (f["sample_count"] or 0) >= 10000
                                else "medium" if (f["sample_count"] or 0) >= 1000 else "low"),
-                "summary": (f"자동 수집: {rating_ko} — 표본 가중 평균 {f['rating100']}." if f["rating100"] is not None
+                "summary": (f"자동 수집: {rating_ko} — 표본 가중 평균 {f['rating100']}{scale_brief_ko}."
+                            if f["rating100"] is not None
                             else "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외)."),
+                "scale_adjustment": scale,
                 "source_ids": [s["id"] for s in f["sources"] if s["type"] in ("store", "aggregator")],
             },
             "objective": {
@@ -1407,7 +1421,8 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
                             f"순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."),
         },
         "score_notes": {
-            "user_rating": f"{rating_ko} → 표본 가중 평균 {f['rating100']}. 표본 {fmt(f['sample_count'])}건.",
+            "user_rating": ((f"{rating_ko} → 표본 가중 평균 {f['rating100']}. 표본 {fmt(f['sample_count'])}건. "
+                             + scale_ko) if f["rating100"] is not None else scale_ko),
             "objective": f"자동 산정 {obj_score}: " + " · ".join(obj_why) + ".",
             "ai_review": f"자동 추정 {ai_score}: " + " · ".join(ai_why) + ".",
         },
@@ -1426,7 +1441,7 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
         "genres": f["genres_en"][:3],
         "maintenance_note": mnote_en,
         "axes": {
-            "user_rating": {"summary": (f"Auto-collected: {rating_en} — sample-weighted {f['rating100']}."
+            "user_rating": {"summary": (f"Auto-collected: {rating_en} — sample-weighted {f['rating100']}{scale_brief_en}."
                                         if f["rating100"] is not None else
                                         "No public store rating sample, so the user axis is left empty and excluded "
                                         "from the verdict.")},
@@ -1492,7 +1507,8 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
             f"Auto-collected (auto_fact) — a first-pass record built from public APIs on {TODAY}. Terms, monetization "
             f"and copy are replaced in the sequential deep review. The one-liner is condensed from the store listing.")},
         "score_notes": {
-            "user_rating": f"{rating_en} → sample-weighted {f['rating100']}. Sample {fmt(f['sample_count'])} ratings.",
+            "user_rating": ((f"{rating_en} → sample-weighted {f['rating100']}. Sample {fmt(f['sample_count'])} ratings. "
+                             + scale_en) if f["rating100"] is not None else scale_en),
             "objective": f"Auto-estimate {obj_score}: " + " · ".join(obj_why_en) + ".",
             "ai_review": f"Provisional {ai_score}: " + " · ".join(ai_why_en) + ".",
         },
