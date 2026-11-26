@@ -57,6 +57,10 @@ id · 정규화 이름(소문자·특수문자 제거) · 스토어 ID(Steam App
 실행 로그의 `skipped[]` 에 남으며, 실패로 세지 않는다. 같은 배치를 두 번 돌려도 중복이 생기지 않는다.
 `validate.py` 도 전체 데이터의 id·정규화 이름·스토어 ID 중복을 검사해 1건이라도 있으면 FAIL 한다.
 
+**Steam 요청 간격** — `PHAROS_STEAM_PACE=1.1` 처럼 초 단위 간격을 주면 `store.steampowered.com` 요청을 그 간격만큼
+벌린다(기본 0 = 기존 동작). 160종 넘는 게임 배치에서 appdetails 가 `429` 를 내면 30종 단위로 나눠 이 값과 함께
+여러 번 돌린다 — 캐시 덕분에 재실행은 성공분을 다시 받지 않는다.
+
 **출력** — `data/{domain}/{arena}.json`(새 비교군은 새 파일, 기존 비교군은 뒤에 추가) · `data/en.json`
 (항목 오버레이 100% 영문) · `data/catalog.json`(대분류·비교군·featured) · `web/assets/icons/{id}.webp`(192×192)
 · `drafts/<배치>/bulk-<날짜>-run.json`(소요 시간·실패 목록·판정 요약).
@@ -174,6 +178,17 @@ python3 projects/pharos/scripts/smoke_v12.py --live --shots-dir projects/pharos/
 ```bash
 python3 projects/pharos/scripts/smoke_v13.py
 python3 projects/pharos/scripts/smoke_v13.py --live --shots-dir projects/pharos/live
+```
+
+## 5-0-1. smoke_v16.py — 5차 대량 적재(1,000종 돌파) 스모크
+
+카탈로그·인덱스에서 건수를 계산해(하드코딩 없이) 이번 배치의 신규 7개 비교군과 보강 8개 비교군을 확인한다.
+`자동 수집` 배지·192px 아이콘·auto_fact 상세 안내·EN 한글 0·390px 넘침 0·콘솔/HTTP 오류 0 에 더해,
+**완결작 면제 항목(Portal)이 거름이 아니라 조건부로 표시되고 상세에 '면제' 사유가 보이는지**를 확인한다.
+
+```bash
+python3 projects/pharos/scripts/smoke_v16.py
+python3 projects/pharos/scripts/smoke_v16.py --live --shots-dir projects/pharos/live
 ```
 
 ## 5-1. check_en_leaks.py — 영문 오버레이 누출 검사
