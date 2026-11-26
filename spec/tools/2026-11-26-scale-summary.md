@@ -75,14 +75,23 @@
 | Microsoft To Do | 486,000 | +4.70 | 95 → **99.7** | 66.75 → 69.10 | 🔴 유지(종료 예고) |
 | Genshin Impact | 5,250,000 | +6.90 | 78 → **84.9** | 74.50 → 77.95 | 🔴 유지(수집이 본질) |
 
-## 4. 데이터·검증
+## 4. 데이터·검증·배포
 
 - 항목마다 `axes.user_rating.scale_adjustment`(`sample_count` · `sample_source` · `base_score` · `log_delta` · `gate` · `applied` · `final_score`) 기록.
 - `score_notes.user_rating`(KO/EN)과 `axes.user_rating.summary`(KO/EN)에 계산 근거 한 줄 — 상세 모달 '산정 메모'에 그대로 보인다.
 - 검증 완료 항목 중 판정 문장에 축 점수를 박아 둔 9건(Bloons TD 6 · Clash of Clans · Arknights · 니케 · 블루 아카이브 · 붕괴: 스타레일 · Notion · Overwatch 2 · Black Desert)은 문장의 수치를 다시 계산해 고쳤다.
 - `schema/validate.py` — 기록된 보정치를 **계약으로 다시 계산해 대조**(로그 보정·게이트·적용치·최종 점수·표본 수). 변조 4종(적용치·표본 수·게이트·점수) 모두 차단 확인.
-- `validate.py` PASS(1,467건 · 판정 재계산 일치) · `check_en_leaks.py --all` 한글 0경로 · `smoke_v18.py` 로컬 29/29.
 - `bulk_ingest.py` 는 앞으로의 `auto_fact` 적재에도 같은 규칙을 적용한다(기본 평점은 AI 검토 축 계산에 그대로, 사용자 축만 보정).
+
+| 검사 | 결과 |
+|---|---|
+| `validate.py` | **PASS** — 1,467건 스키마 100% · 의미 규칙 0 · 판정 재계산 일치 · 인덱스 최신 · 음성 테스트 27/27 · 영문 1,467/1,467 · 격리 사본 일치 |
+| `check_en_leaks.py --all` | 1,467건 · 한글 남은 경로 **0** |
+| `smoke_v18.py` | 로컬 **29/29** · 라이브 **29/29** (규모 보정 반영 점수 · 산정 메모 · 하드 필터 유지 · EN 한글 0 · 390px · 콘솔 0) |
+| 라이브 서빙 | https://aira1346.github.io/pharos/ — 인덱스 1,467건 · 3도메인 · 64대분류 · 80비교군 · YouTube 사용자 87.5 확인 |
+| 스크린샷 | `projects/pharos/live/live-v18-scale-home.png` · `projects/pharos/live/live-v18-scale-detail.png` |
+
+배포 커밋 `6cdb503` (AIRA1346/pharos main). 첫 라이브 스모크에서 아이콘 1건이 GitHub Pages **503** 으로 떨어졌으나 같은 URL 을 3회 조회해 200(17,446 bytes)을 확인했고, 재실행 스모크는 29/29 PASS였다(일시 장애).
 
 ## 5. 남은 과제 (기준표 10절 31~34번)
 
