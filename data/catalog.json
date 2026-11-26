@@ -1,7 +1,7 @@
 {
  "schema_version": "0.4.0",
  "title": "Pharos 데이터 카탈로그",
- "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종). 2026-11-26 2차 대량 확장(v11)으로 AI '이미지 · 디자인 생성'의 AI 이미지 생성, 앱 '문서 · 디자인'의 PDF 뷰어·편집과 이미지·그래픽 편집, 게임 '전략 · 전술 RPG'의 턴제 전략·전술 비교군이 들어왔다(신규 4비교군 20종 · 총 107종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 2차 대량 팩트 적재(v13)로 게임에 오픈월드 RPG·샌드박스·격투·리듬·캐주얼 퍼즐·스포츠 경쟁 6개 비교군, 앱에 소셜·스트리밍·건강·언어 학습·음악 오디오·오피스 6개 비교군이 들어오고 FPS·서바이벌·로그라이크·메트로배니아·턴제 전략·MMORPG·모바일 가챠 7개 비교군을 보강했다(신규 12비교군 · 총 352종).",
+ "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종). 2026-11-26 2차 대량 확장(v11)으로 AI '이미지 · 디자인 생성'의 AI 이미지 생성, 앱 '문서 · 디자인'의 PDF 뷰어·편집과 이미지·그래픽 편집, 게임 '전략 · 전술 RPG'의 턴제 전략·전술 비교군이 들어왔다(신규 4비교군 20종 · 총 107종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 2차 대량 팩트 적재(v13)로 게임에 오픈월드 RPG·샌드박스·격투·리듬·캐주얼 퍼즐·스포츠 경쟁 6개 비교군, 앱에 소셜·스트리밍·건강·언어 학습·음악 오디오·오피스 6개 비교군이 들어오고 FPS·서바이벌·로그라이크·메트로배니아·턴제 전략·MMORPG·모바일 가챠 7개 비교군을 보강했다(신규 12비교군 · 총 352종). 2026-11-26 3차 대량 팩트 적재(v14)로 게임에 공포·스릴러, 스토리·내러티브, 생활·타이쿤 시뮬, 디지털 보드·카드·체스, 모바일 아케이드 5개 비교군이, 앱에 지도·내비게이션·여행, 사진 편집·카메라·스캔, 가계부·금융·자산, 원격 제어·네트워크, 전자책·뉴스·팟캐스트 5개 비교군이, AI 도구에 영상·음성·음악 생성 1개 비교군이 들어왔다(신규 11비교군 · 기존 20여 비교군 보강 · 총 607종).",
  "path_base": "이 파일이 있는 폴더(data/) 기준 상대경로",
  "domains": [
   {
@@ -255,6 +255,66 @@
    "domain": "app",
    "label": "오피스 · 문서 · 화이트보드",
    "description": "문서와 보드를 만드는 도구 — 파일 형식 호환, 클라우드 계정 종속, 무료 티어의 내보내기 제한이 판정을 가른다."
+  },
+  {
+   "id": "horror-thriller",
+   "domain": "game",
+   "label": "공포 · 스릴러",
+   "description": "무섭고 긴장되는 경험을 파는 게임 — 1회 구매 완결형과 시즌·DLC 구조, 비대칭 멀티 생존 여부가 판정을 가른다."
+  },
+  {
+   "id": "story-narrative",
+   "domain": "game",
+   "label": "스토리 · 내러티브",
+   "description": "대화와 선택으로 이야기를 따라가는 게임 — 완결성, 선택의 무게, 엔딩까지 과금 없이 닿는지가 판정을 가른다."
+  },
+  {
+   "id": "life-sim",
+   "domain": "game",
+   "label": "생활 · 타이쿤 시뮬",
+   "description": "농사·청소·가게 운영처럼 반복 노동을 게임으로 만든 장르 — 1회 구매 후 DLC, 모바일 광고·에너지 과금이 갈린다."
+  },
+  {
+   "id": "tabletop-card",
+   "domain": "game",
+   "label": "테이블톱 · 카드",
+   "description": "보드게임·카드게임을 디지털로 옮긴 장르 — 실제 룰 구현도, 확률형 카드 팩, 오프라인·패스 앤 플레이 지원이 판정을 가른다."
+  },
+  {
+   "id": "mobile-arcade",
+   "domain": "game",
+   "label": "모바일 아케이드",
+   "description": "한 판이 짧은 모바일 러너·아케이드 — 광고 빈도, 하트·에너지 회복 과금, 조작감이 판정을 가른다."
+  },
+  {
+   "id": "maps-travel",
+   "domain": "app",
+   "label": "지도 · 여행",
+   "description": "길찾기와 여행 예약 앱 — 무료 지도 품질, 오프라인 지도, 예약 수수료와 위치 데이터 수집 범위가 판정을 가른다."
+  },
+  {
+   "id": "photo-camera",
+   "domain": "app",
+   "label": "사진 · 카메라",
+   "description": "사진을 찍고 다듬는 앱 — 무료 편집 범위, 구독 잠금(RAW·프리셋·AI), 워터마크와 클라우드 업로드 여부가 판정을 가른다."
+  },
+  {
+   "id": "finance-money",
+   "domain": "app",
+   "label": "금융 · 자산",
+   "description": "가계부·송금·자산 조회 앱 — 무료 기능 범위, 계좌 연동 방식, 수수료와 데이터 판매·광고가 판정을 가른다."
+  },
+  {
+   "id": "reading-news",
+   "domain": "app",
+   "label": "읽기 · 뉴스",
+   "description": "전자책·만화·뉴스·팟캐스트 앱 — 대여·구독 구조, 오프라인 저장, 피드 알고리즘과 광고가 판정을 가른다."
+  },
+  {
+   "id": "ai-media-gen",
+   "domain": "ai",
+   "label": "영상 · 음성 생성",
+   "description": "AI 로 목소리·음악·영상을 만드는 도구 — 크레딧 소모 방식, 상업적 이용 조건, 로컬 실행 가능 여부가 판정을 가른다."
   }
  ],
  "arenas": [
@@ -617,6 +677,94 @@
    "label": "오피스 · 문서 · 화이트보드",
    "description": "문서·표·보드를 만드는 도구 — 파일 형식 호환, 클라우드 계정 종속, 무료 티어 내보내기 제한이 갈린다.",
    "data_file": "app/office-suite.json"
+  },
+  {
+   "id": "horror-thriller",
+   "domain": "game",
+   "category": "horror-thriller",
+   "label": "공포 · 서바이벌 호러",
+   "description": "쫓기고 숨고 도망치는 공포 게임 — 1회 구매 완결성, 시즌 패스·DLC, 비대칭 멀티 생존의 과금 구조를 나란히 둔다.",
+   "data_file": "game/horror-thriller.json"
+  },
+  {
+   "id": "story-narrative-vn",
+   "domain": "game",
+   "category": "story-narrative",
+   "label": "스토리 · 내러티브 · 추리",
+   "description": "대화와 선택으로 이야기를 따라가는 어드벤처·비주얼 노벨·추리 — 완결성, 선택의 무게, 번역 품질을 비교한다.",
+   "data_file": "game/story-narrative-vn.json"
+  },
+  {
+   "id": "sim-tycoon-casual",
+   "domain": "game",
+   "category": "life-sim",
+   "label": "생활 · 농장 · 타이쿤 시뮬",
+   "description": "농장·가게·청소 같은 생활 노동을 게임으로 옮긴 시뮬 — 1회 구매 후 DLC, 모바일 광고·에너지 과금을 비교한다.",
+   "data_file": "game/sim-tycoon-casual.json"
+  },
+  {
+   "id": "card-board-digital",
+   "domain": "game",
+   "category": "tabletop-card",
+   "label": "디지털 보드 · 카드 · 체스",
+   "description": "보드게임·TCG·체스를 디지털로 옮긴 비교군 — 룰 구현도, 카드 팩 과금, 오프라인 플레이를 나란히 둔다.",
+   "data_file": "game/card-board-digital.json"
+  },
+  {
+   "id": "mobile-action-arcade",
+   "domain": "game",
+   "category": "mobile-arcade",
+   "label": "모바일 액션 · 아케이드 · 러너",
+   "description": "한 판 3분의 모바일 러너·아케이드 — 광고 빈도, 하트·에너지 과금, 컨트롤 감도를 비교한다.",
+   "data_file": "game/mobile-action-arcade.json"
+  },
+  {
+   "id": "maps-navigation-travel",
+   "domain": "app",
+   "category": "maps-travel",
+   "label": "지도 · 내비게이션 · 여행",
+   "description": "지도·내비게이션과 여행 예약 앱 — 오프라인 지도, 무료 경로 안내, 예약 수수료와 위치 데이터 수집을 비교한다.",
+   "data_file": "app/maps-navigation-travel.json"
+  },
+  {
+   "id": "photo-camera-filter",
+   "domain": "app",
+   "category": "photo-camera",
+   "label": "사진 편집 · 카메라 · 스캔",
+   "description": "사진 편집·카메라·문서 스캔 앱 — 무료 편집 범위, 프리셋·RAW 구독 잠금, 워터마크와 업로드를 비교한다.",
+   "data_file": "app/photo-camera-filter.json"
+  },
+  {
+   "id": "finance-budget-crypto",
+   "domain": "app",
+   "category": "finance-money",
+   "label": "가계부 · 금융 · 자산 관리",
+   "description": "가계부·송금·주식·코인 조회 앱 — 무료 한도, 계좌 연동 방식, 수수료와 데이터 판매 여부를 비교한다.",
+   "data_file": "app/finance-budget-crypto.json"
+  },
+  {
+   "id": "remote-desktop-network",
+   "domain": "app",
+   "category": "security-utilities",
+   "label": "원격 제어 · 네트워크 · 유틸",
+   "description": "원격 접속·네트워크 진단·오디오 인식 도구 — 무료 세션 한도, 자체 호스팅 가능 여부, 계정·트래픽 정책을 비교한다.",
+   "data_file": "app/remote-desktop-network.json"
+  },
+  {
+   "id": "reading-ebooks-news",
+   "domain": "app",
+   "category": "reading-news",
+   "label": "전자책 · 만화 · 뉴스 · 팟캐스트",
+   "description": "전자책·팟캐스트·RSS·뉴스 앱 — 대여·구독 구조, 오프라인 저장, 피드 알고리즘과 광고를 비교한다.",
+   "data_file": "app/reading-ebooks-news.json"
+  },
+  {
+   "id": "ai-audio-video",
+   "domain": "ai",
+   "category": "ai-media-gen",
+   "label": "AI 영상 · 음성 · 음악 생성",
+   "description": "AI 로 음악·목소리·영상을 만드는 도구 — 크레딧 소모, 상업적 이용 조건, 로컬 실행 가능 여부를 비교한다.",
+   "data_file": "ai/ai-audio-video.json"
   }
  ],
  "filter_packs": {
@@ -680,6 +828,17 @@
  },
  "home": {
   "featured_arenas": [
+   "horror-thriller",
+   "story-narrative-vn",
+   "sim-tycoon-casual",
+   "card-board-digital",
+   "mobile-action-arcade",
+   "maps-navigation-travel",
+   "photo-camera-filter",
+   "finance-budget-crypto",
+   "remote-desktop-network",
+   "reading-ebooks-news",
+   "ai-audio-video",
    "open-world-rpg",
    "sandbox-creative",
    "fighting-action",

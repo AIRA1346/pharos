@@ -3135,5 +3135,792 @@
    "ai_review": "자동 추정 57.8: 본질 검토 전 중립값 60 · 스토어 평점 51.0(-7.2) · 90일 내 업데이트(+4) · 표본 31,061건(+1)."
   },
   "icon": "assets/icons/ea-sports-fc-26.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "le-mans-ultimate",
+  "name": "Le Mans Ultimate",
+  "aliases": [
+   "르망 얼티밋"
+  ],
+  "domain": "game",
+  "category": "racing-sports",
+  "arenas": [
+   "racing-sim"
+  ],
+  "arena_notes": {
+   "racing-sim": "Steam 누적 77% 긍정(7,214건) · 최근 30일 76%(311건). ₩55,000 · 마지막 업데이트 2026-10-06. 「레이싱 · 스포츠」 안에서 Studio 397의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "레이싱",
+   "시뮬레이션",
+   "스포츠"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Studio 397",
+  "publisher": "Studio 397",
+  "release_date": "2025-07-22",
+  "one_liner": "Step into the world of endurance racing and race on the official game of the FIA World Endurance Championship and 24 Hours of Le Mans. Race…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-06(51일 전).",
+  "sources": [
+   {
+    "id": "steam-le-mans-ultimate",
+    "title": "Steam — Le Mans Ultimate",
+    "url": "https://store.steampowered.com/app/2399420/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2025-07-22, 개발사 Studio 397. 평가 Steam 누적 77% 긍정(7,214건) · 최근 30일 76%(311건)."
+   },
+   {
+    "id": "steamspy-le-mans-ultimate",
+    "title": "SteamSpy — Le Mans Ultimate",
+    "url": "https://steamspy.com/app/2399420",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 5,903 / 부정 1,520 (긍정률 79.5%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-le-mans-ultimate",
+    "title": "Steam — Le Mans Ultimate 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656395764",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'V1.4.3 - Update V1.4, Patch 3 - 6th October' (2026-10-06)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ],
+    "note": "마지막 업데이트 2026-10-06(51일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 55000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩55,000"
+    },
+    "limits": [
+     "DLC 12건 별도 판매",
+     "미국 스토어 $39.99"
+    ],
+    "one_liner": "1회 구매 ₩55,000 — DLC 12건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-le-mans-ultimate"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-le-mans-ultimate"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-06(51일 전) — 활발.",
+      "source_ids": [
+       "steam-le-mans-ultimate"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-le-mans-ultimate"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 77.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 77% 긍정(7,214건) · 최근 30일 76%(311건) — 표본 가중 평균 77.0.",
+    "source_ids": [
+     "steam-le-mans-ultimate",
+     "steamspy-le-mans-ultimate"
+    ]
+   },
+   "objective": {
+    "score": 76.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-06(+8) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-le-mans-ultimate"
+    ]
+   },
+   "ai_review": {
+    "score": 63.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 63.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 77% 긍정(7,214건), 최근 업데이트 2026-10-06. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 77% 긍정(7,214건) · 최근 30일 76%(311건).",
+    "₩55,000 · 마지막 업데이트 2026-10-06(51일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 77,
+      "scale": "percent",
+      "count": 7214,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 76,
+      "scale": "percent",
+      "count": 311,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 7,214건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 77% 긍정(7,214건) · 최근 30일 76%(311건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-06",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-06",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-le-mans-ultimate"
+     ],
+     "note": "업데이트 공지 'V1.4.3 - Update V1.4, Patch 3 - 6th October'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-06(51일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-le-mans-ultimate"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-le-mans-ultimate"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩55,000. DLC 12건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 77% 긍정(7,214건) · 최근 30일 76%(311건) → 표본 가중 평균 77.0. 표본 7,214건.",
+   "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-06(+8) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 63.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/le-mans-ultimate.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ea-sports-wrc",
+  "name": "EA SPORTS WRC",
+  "aliases": [
+   "WRC"
+  ],
+  "domain": "game",
+  "category": "racing-sports",
+  "arenas": [
+   "racing-sim"
+  ],
+  "arena_notes": {
+   "racing-sim": "Steam 누적 58% 긍정(5,738건) · 최근 30일 69%(52건). ₩56,000 (할인 70% ₩16,800) · 마지막 업데이트 2025-01-27. 「레이싱 · 스포츠」 안에서 Codemasters의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "레이싱",
+   "시뮬레이션",
+   "스포츠"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Codemasters",
+  "publisher": "Electronic Arts",
+  "release_date": "2023-11-02",
+  "one_liner": "새로운 장소, 순간, 스테이지, 고성능 차량, 새로운 리버리, 라이선스를 받은 크루와 함께 2024 랠리 시즌의 스릴을 경험하세요. 계속되는 랠리 여정을 시작할 준비를 하세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2025-01-27(668일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-ea-sports-wrc",
+    "title": "Steam — EA SPORTS™ WRC",
+    "url": "https://store.steampowered.com/app/1849250/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 56,000, 출시 2023-11-02, 개발사 Codemasters. 평가 Steam 누적 58% 긍정(5,738건) · 최근 30일 69%(52건)."
+   },
+   {
+    "id": "steamspy-ea-sports-wrc",
+    "title": "SteamSpy — EA SPORTS™ WRC",
+    "url": "https://steamspy.com/app/1849250",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 6,135 / 부정 3,674 (긍정률 62.5%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-ea-sports-wrc",
+    "title": "Steam — EA SPORTS™ WRC 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1789580505440804",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'WRC 24 - Version 2.2.0 Patch Notes' (2025-01-27)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ],
+    "note": "마지막 업데이트 2025-01-27 — 12개월(668일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 56000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩56,000 (할인 70% ₩16,800)"
+    },
+    "limits": [
+     "DLC 4건 별도 판매",
+     "미국 스토어 $49.99"
+    ],
+    "one_liner": "1회 구매 ₩56,000 — DLC 4건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-ea-sports-wrc"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-ea-sports-wrc"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-01-27 — 12개월(668일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-ea-sports-wrc"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-ea-sports-wrc"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 58% 긍정(5,738건) · 최근 30일 69%(52건) — 표본 가중 평균 58.0.",
+    "source_ids": [
+     "steam-ea-sports-wrc",
+     "steamspy-ea-sports-wrc"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-01-27(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
+    "source_ids": [
+     "steam-news-ea-sports-wrc"
+    ]
+   },
+   "ai_review": {
+    "score": 46.5,
+    "signal": "red",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 46.5: 본질 검토 전 중립값 60 · 스토어 평점 58.0(-5.5) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "red"
+   },
+   "one_liner": "거름 — Steam 58% 긍정(5,738건), 최근 업데이트 2025-01-27. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 58% 긍정(5,738건) · 최근 30일 69%(52건).",
+    "₩56,000 (할인 70% ₩16,800) · 마지막 업데이트 2025-01-27(668일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "마지막 업데이트가 2025-01-27 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 58,
+      "scale": "percent",
+      "count": 5738,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 69,
+      "scale": "percent",
+      "count": 52,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 5,738건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 58% 긍정(5,738건) · 최근 30일 69%(52건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2025-01-27",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-01-27",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-ea-sports-wrc"
+     ],
+     "note": "업데이트 공지 'WRC 24 - Version 2.2.0 Patch Notes'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-01-27(668일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-ea-sports-wrc"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ea-sports-wrc"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩56,000 (할인 70% ₩16,800). DLC 4건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 58% 긍정(5,738건) · 최근 30일 69%(52건) → 표본 가중 평균 58.0. 표본 5,738건.",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-01-27(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
+   "ai_review": "자동 추정 46.5: 본질 검토 전 중립값 60 · 스토어 평점 58.0(-5.5) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/ea-sports-wrc.webp"
  }
 ]

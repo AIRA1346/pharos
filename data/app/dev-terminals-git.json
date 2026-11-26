@@ -3417,5 +3417,1029 @@
    "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/helix-editor.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "kitty-terminal",
+  "name": "kitty",
+  "aliases": [
+   "키티 터미널"
+  ],
+  "domain": "app",
+  "category": "developer-tools",
+  "arenas": [
+   "dev-terminals-git"
+  ],
+  "arena_notes": {
+   "dev-terminals-git": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-26. 「개발자 도구 · 터미널 · API」 안에서 kovidgoyal의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "golang",
+   "golang application",
+   "opengl"
+  ],
+  "platforms": [
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "kovidgoyal",
+  "publisher": "kovidgoyal",
+  "release_date": "2016-10-16",
+  "one_liner": "If you live in the terminal, kitty is made for you! Cross-platform, fast, feature-rich, GPU based.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-26(0일 전).",
+  "sources": [
+   {
+    "id": "github-kitty-terminal",
+    "title": "GitHub — kovidgoyal/kitty",
+    "url": "https://github.com/kovidgoyal/kitty",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 35,857 · 라이선스 GPL-3.0 · 최근 푸시 2026-11-26 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-kitty-terminal"
+    ],
+    "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 GPL-3.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 GPL-3.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+      "source_ids": [
+       "github-kitty-terminal"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 84.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 84.0: 오픈소스 라이선스 GPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 플랫폼 3종(+2) · 출시 10년(+4).",
+    "source_ids": [
+     "github-kitty-terminal"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-kitty-terminal"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-26(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-26",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-26",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-kitty-terminal"
+     ],
+     "note": "저장소 최근 푸시 'kovidgoyal/kitty push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-26(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 84.0: 오픈소스 라이선스 GPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 플랫폼 3종(+2) · 출시 10년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/kitty-terminal.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "windows-terminal",
+  "name": "Windows Terminal",
+  "aliases": [
+   "윈도우 터미널"
+  ],
+  "domain": "app",
+  "category": "developer-tools",
+  "arenas": [
+   "dev-terminals-git"
+  ],
+  "arena_notes": {
+   "dev-terminals-git": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-25. 「개발자 도구 · 터미널 · API」 안에서 microsoft의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "cmd",
+   "command line",
+   "console"
+  ],
+  "platforms": [
+   "windows"
+  ],
+  "developer": "microsoft",
+  "publisher": "microsoft",
+  "release_date": "2017-08-11",
+  "one_liner": "The new Windows Terminal and the original Windows console host, all in the same place!",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-25(1일 전).",
+  "sources": [
+   {
+    "id": "github-windows-terminal",
+    "title": "GitHub — microsoft/terminal",
+    "url": "https://github.com/microsoft/terminal",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 105,515 · 라이선스 MIT · 최근 푸시 2026-11-25 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-windows-terminal"
+    ],
+    "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+      "source_ids": [
+       "github-windows-terminal"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 82.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 82.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 출시 9년(+4).",
+    "source_ids": [
+     "github-windows-terminal"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-windows-terminal"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-25(1일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-windows-terminal"
+     ],
+     "note": "저장소 최근 푸시 'microsoft/terminal push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-25(1일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 82.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 출시 9년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/windows-terminal.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "tabby",
+  "name": "Tabby",
+  "aliases": [
+   "태비"
+  ],
+  "domain": "app",
+  "category": "developer-tools",
+  "arenas": [
+   "dev-terminals-git"
+  ],
+  "arena_notes": {
+   "dev-terminals-git": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-25. 「개발자 도구 · 터미널 · API」 안에서 Eugeny의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "serial",
+   "ssh client",
+   "telnet client"
+  ],
+  "platforms": [
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Eugeny",
+  "publisher": "Eugeny",
+  "release_date": "2016-12-23",
+  "one_liner": "A terminal for a more modern age",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-25(1일 전).",
+  "sources": [
+   {
+    "id": "github-tabby",
+    "title": "GitHub — Eugeny/tabby",
+    "url": "https://github.com/Eugeny/tabby",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 75,589 · 라이선스 MIT · 최근 푸시 2026-11-25 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-tabby"
+    ],
+    "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+      "source_ids": [
+       "github-tabby"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 84.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 84.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 3종(+2) · 출시 9년(+4).",
+    "source_ids": [
+     "github-tabby"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-tabby"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-25(1일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-tabby"
+     ],
+     "note": "저장소 최근 푸시 'Eugeny/tabby push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-25(1일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 84.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 3종(+2) · 출시 9년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/tabby.webp"
  }
 ]

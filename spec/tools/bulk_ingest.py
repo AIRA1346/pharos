@@ -101,6 +101,9 @@ APPLE_GENRES_KO = {
     "Education": "교육",
 }
 
+# 위 장르 사전의 역방향 — 한국 스토어에만 있는 앱의 한글 장르를 영문 화면용으로 되돌린다.
+APPLE_GENRES_EN = {ko: en for en, ko in APPLE_GENRES_KO.items()}
+
 # 시리즈·플랫폼 표기 — 사실 확인용
 PLATFORM_LABEL_KO = {
     "steam": "Steam", "windows": "Windows", "macos": "macOS", "linux": "Linux",
@@ -824,9 +827,13 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
         us_rec = (ios or {}).get("us") or {}
         genres_en_src = [g for g in (us_rec.get("genres") or genres_ko_src) if g]
         if not f["genres_en"]:
-            f["genres_en"] = genres_en_src[:3]
+            f["genres_en"] = [APPLE_GENRES_EN.get(g, g) for g in genres_en_src[:3]]
             f["genres_ko"] = ([APPLE_GENRES_KO.get(g, g) for g in genres_ko_src[:3]]
                                or genres_en_src[:3])
+        # 한국 스토어에만 있는 앱은 미국 레코드가 없어 장르가 한글로 남는다 — 영문 화면에 새지 않게 영문으로 바꾼다.
+        if any(KOREAN.search(g or "") for g in f["genres_en"]):
+            translated = [APPLE_GENRES_EN.get(g, "") for g in f["genres_en"]]
+            f["genres_en"] = [g for g in translated if g] or ["Software"]
         if not f["one_liner_ko"]:
             f["one_liner_ko"] = first_sentence(ios_primary.get("description"), 140)
         if not f["one_liner_en"]:
@@ -1538,12 +1545,7 @@ def apply_catalog(spec: dict) -> tuple[list[str], list[str]]:
     for arena_id in reversed(new_arenas):
         if arena_id not in featured:
             featured.insert(0, arena_id)
-    marker = "2026-11-26 1차 대량 팩트 적재(v12)"
-    base_note = catalog["note"].split(marker)[0].rstrip()
-    catalog["note"] = (base_note +
-                       f" {marker}로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, "
-                       f"게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다"
-                       f"(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종).")
+    # 카탈로그 note 는 stamp_catalog_note() 가 배치별로 한 번만 덧붙인다(여기서 덮어쓰지 않는다).
     write_json(CATALOG_PATH, catalog)
     return new_cats, new_arenas
 

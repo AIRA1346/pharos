@@ -1,0 +1,4569 @@
+[
+ {
+  "schema_version": "0.4.0",
+  "id": "toss",
+  "name": "Toss",
+  "aliases": [
+   "토스"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 3.36★(254,875건). 무료 · 마지막 업데이트 2026-11-19. 「가계부 · 금융 · 자산 관리」 안에서 Viva Republica의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Viva Republica",
+  "publisher": "Viva Republica",
+  "release_date": null,
+  "one_liner": "Viva Republica의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-19(7일 전).",
+  "sources": [
+   {
+    "id": "play-toss",
+    "title": "Google Play — Toss",
+    "url": "https://play.google.com/store/apps/details?id=viva.republica.toss",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.36★(254,875) · 무료 · 최근 업데이트 2026-11-19."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-toss"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-toss"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-toss"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-toss"
+    ],
+    "note": "마지막 업데이트 2026-11-19(7일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-toss"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-toss"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-19(7일 전) — 활발.",
+      "source_ids": [
+       "play-toss"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 67.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.36★(254,875건) — 표본 가중 평균 67.2.",
+    "source_ids": [
+     "play-toss"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-19(+8).",
+    "source_ids": [
+     "play-toss"
+    ]
+   },
+   "ai_review": {
+    "score": 63.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 63.8: 본질 검토 전 중립값 60 · 스토어 평점 67.2(-3.2) · 90일 내 업데이트(+4) · 표본 254,875건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-toss"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.36★(254,875건), 최근 업데이트 2026-11-19. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.36★(254,875건).",
+    "무료 · 마지막 업데이트 2026-11-19(7일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.36,
+      "scale": "stars5",
+      "count": 254875,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.36★ · 254,875건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.36★(254,875건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-19",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-19",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-toss"
+     ],
+     "note": "Play 스토어 업데이트 'Toss'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-19(7일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-toss"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-toss"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.36★(254,875건) → 표본 가중 평균 67.2. 표본 254,875건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-19(+8).",
+   "ai_review": "자동 추정 63.8: 본질 검토 전 중립값 60 · 스토어 평점 67.2(-3.2) · 90일 내 업데이트(+4) · 표본 254,875건(+3)."
+  },
+  "icon": "assets/icons/toss.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "kakaopay",
+  "name": "KakaoPay",
+  "aliases": [
+   "카카오페이"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 2.92★(56,155건). 무료 · 마지막 업데이트 2026-11-16. 「가계부 · 금융 · 자산 관리」 안에서 kakaopay corp.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "kakaopay corp.",
+  "publisher": "kakaopay corp.",
+  "release_date": null,
+  "one_liner": "kakaopay corp.의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-16(10일 전).",
+  "sources": [
+   {
+    "id": "play-kakaopay",
+    "title": "Google Play — 카카오페이",
+    "url": "https://play.google.com/store/apps/details?id=com.kakaopay.app",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 2.92★(56,155) · 무료 · 최근 업데이트 2026-11-16."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-kakaopay"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-kakaopay"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-kakaopay"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-kakaopay"
+    ],
+    "note": "마지막 업데이트 2026-11-16(10일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-kakaopay"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-kakaopay"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-16(10일 전) — 활발.",
+      "source_ids": [
+       "play-kakaopay"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 58.4,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 2.92★(56,155건) — 표본 가중 평균 58.4.",
+    "source_ids": [
+     "play-kakaopay"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-16(+8).",
+    "source_ids": [
+     "play-kakaopay"
+    ]
+   },
+   "ai_review": {
+    "score": 59.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 59.6: 본질 검토 전 중립값 60 · 스토어 평점 58.4(-5.4) · 90일 내 업데이트(+4) · 표본 56,155건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-kakaopay"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 2.92★(56,155건), 최근 업데이트 2026-11-16. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 2.92★(56,155건).",
+    "무료 · 마지막 업데이트 2026-11-16(10일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 2.92,
+      "scale": "stars5",
+      "count": 56155,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 2.92★ · 56,155건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 2.92★(56,155건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-16",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-16",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-kakaopay"
+     ],
+     "note": "Play 스토어 업데이트 '카카오페이'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-16(10일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-kakaopay"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-kakaopay"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 2.92★(56,155건) → 표본 가중 평균 58.4. 표본 56,155건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-16(+8).",
+   "ai_review": "자동 추정 59.6: 본질 검토 전 중립값 60 · 스토어 평점 58.4(-5.4) · 90일 내 업데이트(+4) · 표본 56,155건(+1)."
+  },
+  "icon": "assets/icons/kakaopay.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "kakaobank",
+  "name": "KakaoBank",
+  "aliases": [
+   "카카오뱅크"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 3.25★(62,237건). 무료 · 마지막 업데이트 2026-11-09. 「가계부 · 금융 · 자산 관리」 안에서 KakaoBank Corp.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "KakaoBank Corp.",
+  "publisher": "KakaoBank Corp.",
+  "release_date": null,
+  "one_liner": "KakaoBank Corp.의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-09(17일 전).",
+  "sources": [
+   {
+    "id": "play-kakaobank",
+    "title": "Google Play — 카카오뱅크",
+    "url": "https://play.google.com/store/apps/details?id=com.kakaobank.channel",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.25★(62,237) · 무료 · 최근 업데이트 2026-11-09."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-kakaobank"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 있다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-kakaobank"
+    ],
+    "note": "마지막 업데이트 2026-11-09(17일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "free",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "무료 티어 한도는 검수 전"
+    ],
+    "one_liner": "무료",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-09(17일 전) — 활발.",
+      "source_ids": [
+       "play-kakaobank"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 65.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.25★(62,237건) — 표본 가중 평균 65.0.",
+    "source_ids": [
+     "play-kakaobank"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-09(+8).",
+    "source_ids": [
+     "play-kakaobank"
+    ]
+   },
+   "ai_review": {
+    "score": 61.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 61.2: 본질 검토 전 중립값 60 · 스토어 평점 65.0(-3.8) · 90일 내 업데이트(+4) · 표본 62,237건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-kakaobank"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.25★(62,237건), 최근 업데이트 2026-11-09. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.25★(62,237건).",
+    "무료 · 마지막 업데이트 2026-11-09(17일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.25,
+      "scale": "stars5",
+      "count": 62237,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.25★ · 62,237건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.25★(62,237건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-09",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-09",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-kakaobank"
+     ],
+     "note": "Play 스토어 업데이트 '카카오뱅크'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-09(17일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": true,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-kakaobank"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.25★(62,237건) → 표본 가중 평균 65.0. 표본 62,237건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-09(+8).",
+   "ai_review": "자동 추정 61.2: 본질 검토 전 중립값 60 · 스토어 평점 65.0(-3.8) · 90일 내 업데이트(+4) · 표본 62,237건(+1)."
+  },
+  "icon": "assets/icons/kakaobank.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "money-manager",
+  "name": "Money Manager Expense & Budget",
+  "aliases": [
+   "편한가계부"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.63★(470,202건). 무료 · 마지막 업데이트 2026-11-24. 「가계부 · 금융 · 자산 관리」 안에서 Realbyte Inc.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Realbyte Inc.",
+  "publisher": "Realbyte Inc.",
+  "release_date": null,
+  "one_liner": "Realbyte Inc.의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-24(2일 전).",
+  "sources": [
+   {
+    "id": "play-money-manager",
+    "title": "Google Play — Money Manager Expense &amp; Budget",
+    "url": "https://play.google.com/store/apps/details?id=com.realbyteapps.moneymanagerfree",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.63★(470,202) · 무료 · 최근 업데이트 2026-11-24."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-money-manager"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 있다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-money-manager"
+    ],
+    "note": "마지막 업데이트 2026-11-24(2일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-24(2일 전) — 활발.",
+      "source_ids": [
+       "play-money-manager"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 92.6,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.63★(470,202건) — 표본 가중 평균 92.6.",
+    "source_ids": [
+     "play-money-manager"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-24(+8).",
+    "source_ids": [
+     "play-money-manager"
+    ]
+   },
+   "ai_review": {
+    "score": 70.1,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 70.1: 본질 검토 전 중립값 60 · 스토어 평점 92.6(+3.1) · 90일 내 업데이트(+4) · 표본 470,202건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-money-manager"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.63★(470,202건), 최근 업데이트 2026-11-24. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.63★(470,202건).",
+    "무료 · 마지막 업데이트 2026-11-24(2일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.63,
+      "scale": "stars5",
+      "count": 470202,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.63★ · 470,202건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.63★(470,202건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-24",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-24",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-money-manager"
+     ],
+     "note": "Play 스토어 업데이트 'Money Manager Expense & Budget'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-24(2일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": true,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-money-manager"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.63★(470,202건) → 표본 가중 평균 92.6. 표본 470,202건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-24(+8).",
+   "ai_review": "자동 추정 70.1: 본질 검토 전 중립값 60 · 스토어 평점 92.6(+3.1) · 90일 내 업데이트(+4) · 표본 470,202건(+3)."
+  },
+  "icon": "assets/icons/money-manager.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ynab",
+  "name": "YNAB",
+  "aliases": [
+   "유네브"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "App Store 4.79★(62,293건). 무료 · 마지막 업데이트 2026-11-25. 「가계부 · 금융 · 자산 관리」 안에서 You Need A Budget LLC의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "Finance",
+   "생산성"
+  ],
+  "platforms": [
+   "ios"
+  ],
+  "developer": "You Need A Budget LLC",
+  "publisher": "You Need A Budget LLC",
+  "release_date": "2015-10-20",
+  "one_liner": "Have you ever worried about money?",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-25(1일 전).",
+  "sources": [
+   {
+    "id": "itunes-ynab",
+    "title": "Apple App Store — YNAB: Budget & Money Planner",
+    "url": "https://apps.apple.com/us/app/ynab-budget-money-planner/id1010865877?uo=4",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "가격 Free, 4.79★(62,293건), 버전 26.45, 최근 릴리스 2026-11-25."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-ynab"
+    ],
+    "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "kind": "freemium",
+    "label": "iOS 무료",
+    "price": {
+     "amount": 0,
+     "currency": "USD",
+     "period": "none",
+     "display": "Free"
+    },
+    "limits": [
+     "앱 내 구입·구독 구조는 검수 전"
+    ],
+    "one_liner": "무료 · 평점 4.8★",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+      "source_ids": [
+       "itunes-ynab"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: App Store 4.79★(62,293건) — 표본 가중 평균 95.8.",
+    "source_ids": [
+     "itunes-ynab"
+    ]
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8) · 출시 11년(+4).",
+    "source_ids": [
+     "itunes-ynab"
+    ]
+   },
+   "ai_review": {
+    "score": 68.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.9: 본질 검토 전 중립값 60 · 스토어 평점 95.8(+3.9) · 90일 내 업데이트(+4) · 표본 62,293건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "itunes-ynab"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — App Store 4.79★(62,293건), 최근 업데이트 2026-11-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "App Store 4.79★(62,293건).",
+    "무료 · 마지막 업데이트 2026-11-25(1일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.79,
+      "scale": "stars5",
+      "count": 62293,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.79★ · 62,293건 표본(한국·미국 중 큰 쪽)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: App Store 4.79★(62,293건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-ynab"
+     ],
+     "note": "앱 버전 26.45 릴리스 'YNAB: Budget & Money Planner 26.45'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-25(1일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "itunes-ynab"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "App Store 4.79★(62,293건) → 표본 가중 평균 95.8. 표본 62,293건.",
+   "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8) · 출시 11년(+4).",
+   "ai_review": "자동 추정 68.9: 본질 검토 전 중립값 60 · 스토어 평점 95.8(+3.9) · 90일 내 업데이트(+4) · 표본 62,293건(+1)."
+  },
+  "icon": "assets/icons/ynab.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "splitwise",
+  "name": "Splitwise",
+  "aliases": [
+   "스플릿와이즈"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 3.94★(194,944건). 무료 · 마지막 업데이트 2026-11-24. 「가계부 · 금융 · 자산 관리」 안에서 Splitwise의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Splitwise",
+  "publisher": "Splitwise",
+  "release_date": null,
+  "one_liner": "Splitwise의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-24(2일 전).",
+  "sources": [
+   {
+    "id": "play-splitwise",
+    "title": "Google Play — Splitwise",
+    "url": "https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.94★(194,944) · 무료 · 최근 업데이트 2026-11-24."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-splitwise"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-splitwise"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-splitwise"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-splitwise"
+    ],
+    "note": "마지막 업데이트 2026-11-24(2일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-splitwise"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-splitwise"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-24(2일 전) — 활발.",
+      "source_ids": [
+       "play-splitwise"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 78.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.94★(194,944건) — 표본 가중 평균 78.8.",
+    "source_ids": [
+     "play-splitwise"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-24(+8).",
+    "source_ids": [
+     "play-splitwise"
+    ]
+   },
+   "ai_review": {
+    "score": 66.7,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.7: 본질 검토 전 중립값 60 · 스토어 평점 78.8(-0.3) · 90일 내 업데이트(+4) · 표본 194,944건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-splitwise"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.94★(194,944건), 최근 업데이트 2026-11-24. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.94★(194,944건).",
+    "무료 · 마지막 업데이트 2026-11-24(2일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.94,
+      "scale": "stars5",
+      "count": 194944,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.94★ · 194,944건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.94★(194,944건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-24",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-24",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-splitwise"
+     ],
+     "note": "Play 스토어 업데이트 'Splitwise'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-24(2일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-splitwise"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-splitwise"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.94★(194,944건) → 표본 가중 평균 78.8. 표본 194,944건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-24(+8).",
+   "ai_review": "자동 추정 66.7: 본질 검토 전 중립값 60 · 스토어 평점 78.8(-0.3) · 90일 내 업데이트(+4) · 표본 194,944건(+3)."
+  },
+  "icon": "assets/icons/splitwise.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "monefy",
+  "name": "Monefy",
+  "aliases": [
+   "모네피"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 3.98★(194,858건). 무료 · 마지막 업데이트 2026-11-23. 「가계부 · 금융 · 자산 관리」 안에서 Reflective Technologies의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Reflective Technologies",
+  "publisher": "Reflective Technologies",
+  "release_date": null,
+  "one_liner": "Reflective Technologies의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-23(3일 전).",
+  "sources": [
+   {
+    "id": "play-monefy",
+    "title": "Google Play — Monefy: Money &amp; Budget App",
+    "url": "https://play.google.com/store/apps/details?id=com.monefy.app.lite",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.98★(194,858) · 무료 · 최근 업데이트 2026-11-23."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-monefy"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-monefy"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-monefy"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-monefy"
+    ],
+    "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-monefy"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-monefy"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+      "source_ids": [
+       "play-monefy"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 79.6,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.98★(194,858건) — 표본 가중 평균 79.6.",
+    "source_ids": [
+     "play-monefy"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+    "source_ids": [
+     "play-monefy"
+    ]
+   },
+   "ai_review": {
+    "score": 66.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.9: 본질 검토 전 중립값 60 · 스토어 평점 79.6(-0.1) · 90일 내 업데이트(+4) · 표본 194,858건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-monefy"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.98★(194,858건), 최근 업데이트 2026-11-23. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.98★(194,858건).",
+    "무료 · 마지막 업데이트 2026-11-23(3일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.98,
+      "scale": "stars5",
+      "count": 194858,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.98★ · 194,858건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.98★(194,858건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-23",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-23",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-monefy"
+     ],
+     "note": "Play 스토어 업데이트 'Monefy: Money & Budget App'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-23(3일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-monefy"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-monefy"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.98★(194,858건) → 표본 가중 평균 79.6. 표본 194,858건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+   "ai_review": "자동 추정 66.9: 본질 검토 전 중립값 60 · 스토어 평점 79.6(-0.1) · 90일 내 업데이트(+4) · 표본 194,858건(+3)."
+  },
+  "icon": "assets/icons/monefy.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "tradingview",
+  "name": "TradingView",
+  "aliases": [
+   "트레이딩뷰"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.57★(968,539건). 무료 · 마지막 업데이트 2026-11-20. 「가계부 · 금융 · 자산 관리」 안에서 TradingView Inc.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "TradingView Inc.",
+  "publisher": "TradingView Inc.",
+  "release_date": null,
+  "one_liner": "TradingView Inc.의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-20(6일 전).",
+  "sources": [
+   {
+    "id": "play-tradingview",
+    "title": "Google Play — TradingView: Track All Markets",
+    "url": "https://play.google.com/store/apps/details?id=com.tradingview.tradingviewapp",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.57★(968,539) · 무료 · 최근 업데이트 2026-11-20."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-tradingview"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 있다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-tradingview"
+    ],
+    "note": "마지막 업데이트 2026-11-20(6일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-20(6일 전) — 활발.",
+      "source_ids": [
+       "play-tradingview"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.57★(968,539건) — 표본 가중 평균 91.4.",
+    "source_ids": [
+     "play-tradingview"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-20(+8).",
+    "source_ids": [
+     "play-tradingview"
+    ]
+   },
+   "ai_review": {
+    "score": 69.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 69.9: 본질 검토 전 중립값 60 · 스토어 평점 91.4(+2.9) · 90일 내 업데이트(+4) · 표본 968,539건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-tradingview"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.57★(968,539건), 최근 업데이트 2026-11-20. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.57★(968,539건).",
+    "무료 · 마지막 업데이트 2026-11-20(6일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.57,
+      "scale": "stars5",
+      "count": 968539,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.57★ · 968,539건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.57★(968,539건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-20",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-20",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-tradingview"
+     ],
+     "note": "Play 스토어 업데이트 'TradingView: Track All Markets'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-20(6일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": true,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-tradingview"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.57★(968,539건) → 표본 가중 평균 91.4. 표본 968,539건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-20(+8).",
+   "ai_review": "자동 추정 69.9: 본질 검토 전 중립값 60 · 스토어 평점 91.4(+2.9) · 90일 내 업데이트(+4) · 표본 968,539건(+3)."
+  },
+  "icon": "assets/icons/tradingview.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "yahoo-finance",
+  "name": "Yahoo Finance",
+  "aliases": [
+   "야후 파이낸스"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.59★(244,159건). 무료 · 마지막 업데이트 2026-11-17. 「가계부 · 금융 · 자산 관리」 안에서 Yahoo의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Yahoo",
+  "publisher": "Yahoo",
+  "release_date": null,
+  "one_liner": "Yahoo의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-17(9일 전).",
+  "sources": [
+   {
+    "id": "play-yahoo-finance",
+    "title": "Google Play — Yahoo Finance: Stocks &amp; News",
+    "url": "https://play.google.com/store/apps/details?id=com.yahoo.mobile.client.android.finance",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.59★(244,159) · 무료 · 최근 업데이트 2026-11-17."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-yahoo-finance"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 있다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-yahoo-finance"
+    ],
+    "note": "마지막 업데이트 2026-11-17(9일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-17(9일 전) — 활발.",
+      "source_ids": [
+       "play-yahoo-finance"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.59★(244,159건) — 표본 가중 평균 91.8.",
+    "source_ids": [
+     "play-yahoo-finance"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-17(+8).",
+    "source_ids": [
+     "play-yahoo-finance"
+    ]
+   },
+   "ai_review": {
+    "score": 69.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 69.9: 본질 검토 전 중립값 60 · 스토어 평점 91.8(+2.9) · 90일 내 업데이트(+4) · 표본 244,159건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-yahoo-finance"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.59★(244,159건), 최근 업데이트 2026-11-17. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.59★(244,159건).",
+    "무료 · 마지막 업데이트 2026-11-17(9일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.59,
+      "scale": "stars5",
+      "count": 244159,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.59★ · 244,159건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.59★(244,159건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-17",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-17",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-yahoo-finance"
+     ],
+     "note": "Play 스토어 업데이트 'Yahoo Finance: Stocks & News'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-17(9일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": true,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-yahoo-finance"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.59★(244,159건) → 표본 가중 평균 91.8. 표본 244,159건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-17(+8).",
+   "ai_review": "자동 추정 69.9: 본질 검토 전 중립값 60 · 스토어 평점 91.8(+2.9) · 90일 내 업데이트(+4) · 표본 244,159건(+3)."
+  },
+  "icon": "assets/icons/yahoo-finance.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "coinmarketcap",
+  "name": "CoinMarketCap",
+  "aliases": [
+   "코인마켓캡"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.67★(549,120건). 무료 · 마지막 업데이트 2026-11-20. 「가계부 · 금융 · 자산 관리」 안에서 CoinMarketCap.com의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "CoinMarketCap.com",
+  "publisher": "CoinMarketCap.com",
+  "release_date": null,
+  "one_liner": "CoinMarketCap.com의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-20(6일 전).",
+  "sources": [
+   {
+    "id": "play-coinmarketcap",
+    "title": "Google Play — CoinMarketCap: Crypto Tracker",
+    "url": "https://play.google.com/store/apps/details?id=com.coinmarketcap.android",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.67★(549,120) · 무료 · 최근 업데이트 2026-11-20."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-coinmarketcap"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 있다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-coinmarketcap"
+    ],
+    "note": "마지막 업데이트 2026-11-20(6일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-20(6일 전) — 활발.",
+      "source_ids": [
+       "play-coinmarketcap"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 93.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.67★(549,120건) — 표본 가중 평균 93.4.",
+    "source_ids": [
+     "play-coinmarketcap"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-20(+8).",
+    "source_ids": [
+     "play-coinmarketcap"
+    ]
+   },
+   "ai_review": {
+    "score": 70.4,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 70.4: 본질 검토 전 중립값 60 · 스토어 평점 93.4(+3.4) · 90일 내 업데이트(+4) · 표본 549,120건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-coinmarketcap"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.67★(549,120건), 최근 업데이트 2026-11-20. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.67★(549,120건).",
+    "무료 · 마지막 업데이트 2026-11-20(6일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.67,
+      "scale": "stars5",
+      "count": 549120,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.67★ · 549,120건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.67★(549,120건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-20",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-20",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-coinmarketcap"
+     ],
+     "note": "Play 스토어 업데이트 'CoinMarketCap: Crypto Tracker'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-20(6일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": true,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-coinmarketcap"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.67★(549,120건) → 표본 가중 평균 93.4. 표본 549,120건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-20(+8).",
+   "ai_review": "자동 추정 70.4: 본질 검토 전 중립값 60 · 스토어 평점 93.4(+3.4) · 90일 내 업데이트(+4) · 표본 549,120건(+3)."
+  },
+  "icon": "assets/icons/coinmarketcap.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "wise",
+  "name": "Wise",
+  "aliases": [
+   "와이즈"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.77★(2,145,355건). 무료 · 마지막 업데이트 2026-11-23. 「가계부 · 금융 · 자산 관리」 안에서 Wise Payments Ltd.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Wise Payments Ltd.",
+  "publisher": "Wise Payments Ltd.",
+  "release_date": null,
+  "one_liner": "Wise Payments Ltd.의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-23(3일 전).",
+  "sources": [
+   {
+    "id": "play-wise",
+    "title": "Google Play — Wise: International Transfers",
+    "url": "https://play.google.com/store/apps/details?id=com.transferwise.android",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.77★(2,145,355) · 무료 · 최근 업데이트 2026-11-23."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-wise"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-wise"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-wise"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-wise"
+    ],
+    "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "free",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "무료 티어 한도는 검수 전"
+    ],
+    "one_liner": "무료",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-wise"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-wise"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+      "source_ids": [
+       "play-wise"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.77★(2,145,355건) — 표본 가중 평균 95.4.",
+    "source_ids": [
+     "play-wise"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+    "source_ids": [
+     "play-wise"
+    ]
+   },
+   "ai_review": {
+    "score": 70.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 70.9: 본질 검토 전 중립값 60 · 스토어 평점 95.4(+3.9) · 90일 내 업데이트(+4) · 표본 2,145,355건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-wise"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.77★(2,145,355건), 최근 업데이트 2026-11-23. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.77★(2,145,355건).",
+    "무료 · 마지막 업데이트 2026-11-23(3일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.77,
+      "scale": "stars5",
+      "count": 2145355,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.77★ · 2,145,355건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.77★(2,145,355건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-23",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-23",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-wise"
+     ],
+     "note": "Play 스토어 업데이트 'Wise: International Transfers'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-23(3일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-wise"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-wise"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.77★(2,145,355건) → 표본 가중 평균 95.4. 표본 2,145,355건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+   "ai_review": "자동 추정 70.9: 본질 검토 전 중립값 60 · 스토어 평점 95.4(+3.9) · 90일 내 업데이트(+4) · 표본 2,145,355건(+3)."
+  },
+  "icon": "assets/icons/wise.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "revolut",
+  "name": "Revolut",
+  "aliases": [
+   "레볼루트"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.51★(4,198,315건). 무료 · 마지막 업데이트 2026-11-16. 「가계부 · 금융 · 자산 관리」 안에서 Revolut Ltd의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Revolut Ltd",
+  "publisher": "Revolut Ltd",
+  "release_date": null,
+  "one_liner": "Revolut Ltd의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-16(10일 전).",
+  "sources": [
+   {
+    "id": "play-revolut",
+    "title": "Google Play — Revolut: Spend, Save, Trade",
+    "url": "https://play.google.com/store/apps/details?id=com.revolut.revolut",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.51★(4,198,315) · 무료 · 최근 업데이트 2026-11-16."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-revolut"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-revolut"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-revolut"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-revolut"
+    ],
+    "note": "마지막 업데이트 2026-11-16(10일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "free",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "무료 티어 한도는 검수 전"
+    ],
+    "one_liner": "무료",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-revolut"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-revolut"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-16(10일 전) — 활발.",
+      "source_ids": [
+       "play-revolut"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 90.2,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.51★(4,198,315건) — 표본 가중 평균 90.2.",
+    "source_ids": [
+     "play-revolut"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-16(+8).",
+    "source_ids": [
+     "play-revolut"
+    ]
+   },
+   "ai_review": {
+    "score": 69.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 69.6: 본질 검토 전 중립값 60 · 스토어 평점 90.2(+2.6) · 90일 내 업데이트(+4) · 표본 4,198,315건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-revolut"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.51★(4,198,315건), 최근 업데이트 2026-11-16. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.51★(4,198,315건).",
+    "무료 · 마지막 업데이트 2026-11-16(10일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.51,
+      "scale": "stars5",
+      "count": 4198315,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.51★ · 4,198,315건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.51★(4,198,315건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-16",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-16",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-revolut"
+     ],
+     "note": "Play 스토어 업데이트 'Revolut: Spend, Save, Trade'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-16(10일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-revolut"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-revolut"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.51★(4,198,315건) → 표본 가중 평균 90.2. 표본 4,198,315건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-16(+8).",
+   "ai_review": "자동 추정 69.6: 본질 검토 전 중립값 60 · 스토어 평점 90.2(+2.6) · 90일 내 업데이트(+4) · 표본 4,198,315건(+3)."
+  },
+  "icon": "assets/icons/revolut.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "coinbase",
+  "name": "Coinbase",
+  "aliases": [
+   "코인베이스"
+  ],
+  "domain": "app",
+  "category": "finance-money",
+  "arenas": [
+   "finance-budget-crypto"
+  ],
+  "arena_notes": {
+   "finance-budget-crypto": "Google Play 4.32★(930,143건). 무료 · 마지막 업데이트 2026-11-19. 「가계부 · 금융 · 자산 관리」 안에서 Coinbase Inc의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Coinbase Inc",
+  "publisher": "Coinbase Inc",
+  "release_date": null,
+  "one_liner": "Coinbase Inc의 가계부 · 금융 · 자산 관리 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-19(7일 전).",
+  "sources": [
+   {
+    "id": "play-coinbase",
+    "title": "Google Play — Coinbase: Buy Crypto &amp; Stocks",
+    "url": "https://play.google.com/store/apps/details?id=com.coinbase.android",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.32★(930,143) · 무료 · 최근 업데이트 2026-11-19."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-coinbase"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-coinbase"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-coinbase"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-coinbase"
+    ],
+    "note": "마지막 업데이트 2026-11-19(7일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "free",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "무료 티어 한도는 검수 전"
+    ],
+    "one_liner": "무료",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-coinbase"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-coinbase"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-19(7일 전) — 활발.",
+      "source_ids": [
+       "play-coinbase"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 86.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.32★(930,143건) — 표본 가중 평균 86.4.",
+    "source_ids": [
+     "play-coinbase"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-19(+8).",
+    "source_ids": [
+     "play-coinbase"
+    ]
+   },
+   "ai_review": {
+    "score": 68.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.6: 본질 검토 전 중립값 60 · 스토어 평점 86.4(+1.6) · 90일 내 업데이트(+4) · 표본 930,143건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-coinbase"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.32★(930,143건), 최근 업데이트 2026-11-19. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.32★(930,143건).",
+    "무료 · 마지막 업데이트 2026-11-19(7일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.32,
+      "scale": "stars5",
+      "count": 930143,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.32★ · 930,143건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.32★(930,143건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-19",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-19",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-coinbase"
+     ],
+     "note": "Play 스토어 업데이트 'Coinbase: Buy Crypto & Stocks'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-19(7일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-coinbase"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-coinbase"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.32★(930,143건) → 표본 가중 평균 86.4. 표본 930,143건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-19(+8).",
+   "ai_review": "자동 추정 68.6: 본질 검토 전 중립값 60 · 스토어 평점 86.4(+1.6) · 90일 내 업데이트(+4) · 표본 930,143건(+3)."
+  },
+  "icon": "assets/icons/coinbase.webp"
+ }
+]
