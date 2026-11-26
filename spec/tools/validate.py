@@ -65,6 +65,64 @@ FILTER_TO_FLAG = {
     "data_collection": "data_collected",
 }
 
+# 전체 데이터 간 중복 검사용 — 항목 id 가 달라도 같은 스토어 ID 면 같은 제품이다.
+STORE_URL_PATTERNS = {
+    "steam": re.compile(r"store\.steampowered\.com/app/(\d+)"),
+    "appstore": re.compile(r"apps\.apple\.com/[^/\s]+/app/[^/\s]*?/?id(\d+)"),
+    "play": re.compile(r"play\.google\.com/store/apps/details\?id=([\w.\-]+)"),
+    "github": re.compile(r"github\.com/([\w.\-]+/[\w.\-]+)"),
+}
+NAME_STRIP = re.compile(r"[^a-z0-9가-힣]")
+
+
+def normalize_name(text):
+    return NAME_STRIP.sub("", (text or "").lower())
+
+
+def store_ids_of(item):
+    """출처 URL 에서 스토어 ID(steam appid · App Store trackId · Play 패키지 · GitHub 저장소)."""
+    found = set()
+    for src in item.get("sources") or []:
+        url = src.get("url") or ""
+        for kind, pattern in STORE_URL_PATTERNS.items():
+            match = pattern.search(url)
+            if not match:
+                continue
+            value = match.group(1)
+            if kind == "github":
+                value = value[:-4] if value.endswith(".git") else value
+                value = value.lower()
+            found.add((kind, value))
+    return found
+
+
+def duplicate_item_errors(items):
+    """전체 데이터에서 id · 정규화 이름 · 스토어 ID 가 겹치는 항목을 찾는다."""
+    errs = []
+    seen_id, seen_name, seen_store = {}, {}, {}
+    for item in items:
+        iid = item.get("id")
+        arena = (item.get("arenas") or ["?"])[0]
+        if iid in seen_id:
+            errs.append(f"아이템 id 전체 중복: {iid} ({seen_id[iid]} 와 겹침)")
+        else:
+            seen_id[iid] = arena
+        for name in [item.get("name")] + list(item.get("aliases") or []):
+            key = normalize_name(name)
+            if not key:
+                continue
+            if key in seen_name and seen_name[key] != iid:
+                errs.append(f"이름 전체 중복: '{name}' — {seen_name[key]} 와 {iid}")
+            else:
+                seen_name[key] = iid
+        for kind, value in store_ids_of(item):
+            key = (kind, value)
+            if key in seen_store and seen_store[key] != iid:
+                errs.append(f"스토어 ID 전체 중복: {kind} {value} — {seen_store[key]} 와 {iid}")
+            else:
+                seen_store[key] = iid
+    return errs
+
 
 def load(path):
     with path.open(encoding="utf-8") as fh:
@@ -1390,6 +1448,18 @@ def main():
         print("  → 의미 규칙 위반 있음")
         return 1
 
+    # 3-1) 비교군 파일을 넘나드는 중복(같은 제품이 두 항목으로 들어오는 것)
+    print("\n[3-1] 전체 데이터 중복 검사 — id · 정규화 이름 · 스토어 ID")
+    dup_errs = duplicate_item_errors(all_items)
+    for err in dup_errs[:40]:
+        print(f"  × {err}")
+    if len(dup_errs) > 40:
+        print(f"  × … 외 {len(dup_errs) - 40}건")
+    if dup_errs:
+        print("  → 중복 적재 차단")
+        return 1
+    print(f"  - {len(all_items)}건 · id/이름/스토어 ID 중복 0건")
+
     # 3-1) 계층 구성
     print("\n[4] 계층 구성 (도메인 → 대분류 → 비교군 → 항목)")
     for dom in catalog["domains"]:
@@ -1426,6 +1496,12 @@ def main():
     for label, caught in neg + neg_cat:
         print(f"  - {label}: {'차단됨 PASS' if caught else '통과됨 FAIL'}")
     if not all(caught for _, caught in neg + neg_cat):
+        return 1
+    probe = copy.deepcopy(all_items[0])
+    probe["id"] = "duplicate-probe"
+    dup_caught = bool(duplicate_item_errors(all_items + [probe]))
+    print(f"  - 전체 중복 검사: 이름·스토어 ID 가 같은 항목을 복제하면 차단: {'차단됨 PASS' if dup_caught else '통과됨 FAIL'}")
+    if not dup_caught:
         return 1
 
     # 6) 완결작 면제 규칙

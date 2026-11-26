@@ -212,6 +212,12 @@ def fmt(n) -> str:
     return ac.fmt(n)
 
 
+def en_safe(text: str | None, fallback: str) -> str:
+    """영문 화면에 쓰는 문자열 — 스토어가 한국어 이름만 주면 대체 문구로 바꾼다."""
+    text = (text or "").strip()
+    return text if text and not KOREAN.search(text) else fallback
+
+
 def clip(value: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, value))
 
@@ -228,6 +234,106 @@ def years_since(iso: str | None) -> float | None:
 # ─────────────────────────────────────────────────────────────── 1) ID 확정
 def norm(text: str) -> str:
     return re.sub(r"[^a-z0-9가-힣]", "", (text or "").lower())
+
+
+# ─────────────────────────────────────────────────── 1-1) 중복 방지 가드
+# 어떤 배치를 돌려도 기존 210종과 겹쳐 적재되지 않도록, 시작 전에 data/ 전체에서
+# id · 정규화 이름 · 스토어 ID(steam appid · App Store trackId · Play 패키지 · GitHub 저장소)를
+# 인덱스로 만들고 스펙 항목을 자동 스킵한다. 수집이 끝난 뒤 확정된 스토어 ID 로 한 번 더 본다.
+STORE_URL_PATTERNS = {
+    "steam": re.compile(r"store\.steampowered\.com/app/(\d+)"),
+    "ios": re.compile(r"apps\.apple\.com/[^/\s]+/app/[^/\s]*?/?id(\d+)"),
+    "play": re.compile(r"play\.google\.com/store/apps/details\?id=([\w.\-]+)"),
+    "github": re.compile(r"github\.com/([\w.\-]+/[\w.\-]+)"),
+}
+STORE_ID_FIELDS = (("steam", "steam_id"), ("ios", "ios_id"),
+                   ("play", "play_package"), ("github", "github_repo"))
+
+
+def store_ids_of_sources(sources) -> list[tuple[str, str]]:
+    """출처 URL 에서 스토어 ID 를 뽑는다(수집기가 남기는 주소 형식 그대로)."""
+    found: list[tuple[str, str]] = []
+    for src in sources or []:
+        url = (src or {}).get("url") or ""
+        for kind, pattern in STORE_URL_PATTERNS.items():
+            match = pattern.search(url)
+            if not match:
+                continue
+            value = match.group(1)
+            if kind == "github":
+                value = value[:-4] if value.endswith(".git") else value
+                value = value.lower()
+            found.append((kind, value))
+    return found
+
+
+def build_dup_index(paths: list[Path]) -> dict:
+    """기존 데이터 전체를 중복 판정 인덱스로 만든다(검색 인덱스와 비교군 파일이 겹치면 id 로 한 번만 센다)."""
+    index: dict = {"ids": {}, "names": {}, "stores": {}, "items": 0, "files": 0}
+    seen_ids: set[str] = set()
+    for path in paths:
+        try:
+            rows = json.loads(Path(path).read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(rows, dict):
+            rows = rows.get("items") or []
+        if not isinstance(rows, list):
+            continue
+        index["files"] += 1
+        for row in rows:
+            if not isinstance(row, dict) or not row.get("id"):
+                continue
+            item_id = row["id"]
+            index["ids"].setdefault(item_id, Path(path).name)
+            if item_id not in seen_ids:
+                seen_ids.add(item_id)
+                index["items"] += 1
+            for name in [row.get("name")] + list(row.get("aliases") or []):
+                key = norm(name)
+                if key:
+                    index["names"].setdefault(key, item_id)
+            for kind, value in store_ids_of_sources(row.get("sources")):
+                index["stores"].setdefault((kind, value), item_id)
+    return index
+
+
+def load_dup_index() -> dict:
+    """data/search-index.json 과 data/{domain}/*.json 을 모두 읽어 가드 인덱스를 만든다."""
+    return build_dup_index([DATA_DIR / "search-index.json"] + sorted(DATA_DIR.glob("*/*.json")))
+
+
+def duplicate_reason(entry: dict, index: dict, raw: dict | None = None) -> str | None:
+    """새 스펙 항목이 기존 데이터와 겹치면 사유를, 아니면 None 을 돌려준다."""
+    item_id = entry.get("id") or ""
+    if item_id in index["ids"]:
+        return f"id '{item_id}' 이미 존재({index['ids'][item_id]})"
+    for name in [entry.get("name")] + list(entry.get("aliases") or []):
+        key = norm(name)
+        if key and key in index["names"]:
+            return f"이름 '{name}' 이 기존 항목 '{index['names'][key]}' 과 같음"
+    for kind, field in STORE_ID_FIELDS:
+        value = entry.get(field)
+        if not value:
+            continue
+        value = str(value)
+        value = value.lower() if kind == "github" else value
+        if (kind, value) in index["stores"]:
+            return f"{kind} ID '{value}' 가 기존 항목 '{index['stores'][(kind, value)]}' 과 같음"
+    if raw:
+        resolved: list[tuple[str, str]] = []
+        if raw.get("steam"):
+            resolved.append(("steam", str(raw["steam"]["app_id"])))
+        for record in (raw.get("ios") or {}).values():
+            resolved.append(("ios", str(record.get("trackId"))))
+        if ((raw.get("play") or {}).get("en") or {}).get("package"):
+            resolved.append(("play", raw["play"]["en"]["package"]))
+        if (raw.get("github") or {}).get("repo"):
+            resolved.append(("github", raw["github"]["repo"].lower()))
+        for kind, value in resolved:
+            if (kind, value) in index["stores"]:
+                return f"{kind} ID '{value}' 가 기존 항목 '{index['stores'][(kind, value)]}' 과 같음"
+    return None
 
 
 def resolve_steam(term: str, name: str) -> tuple[int, str, str]:
@@ -714,10 +820,13 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
         for p in ("ios",):
             if p not in f["platforms"]:
                 f["platforms"].append(p)
-        genres_en = [g for g in (ios_primary.get("genres") or []) if g]
+        genres_ko_src = [g for g in (ios_primary.get("genres") or []) if g]
+        us_rec = (ios or {}).get("us") or {}
+        genres_en_src = [g for g in (us_rec.get("genres") or genres_ko_src) if g]
         if not f["genres_en"]:
-            f["genres_en"] = genres_en[:3]
-            f["genres_ko"] = [APPLE_GENRES_KO.get(g, g) for g in genres_en[:3]]
+            f["genres_en"] = genres_en_src[:3]
+            f["genres_ko"] = ([APPLE_GENRES_KO.get(g, g) for g in genres_ko_src[:3]]
+                               or genres_en_src[:3])
         if not f["one_liner_ko"]:
             f["one_liner_ko"] = first_sentence(ios_primary.get("description"), 140)
         if not f["one_liner_en"]:
@@ -749,9 +858,12 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
             f["update_kind"] = f"앱 버전 {ios_primary.get('version')} 릴리스"
             f["update_kind_en"] = f"app version {ios_primary.get('version')} release"
             f["update_title"] = f"{ios_primary.get('trackName')} {ios_primary.get('version')}"
+            f["update_title_en"] = (f"{en_safe((((ios or {}).get('us') or ios_primary).get('trackName')), entry['name'])} "
+                                    f"{ios_primary.get('version')}")
             f["update_url"] = ios_primary.get("trackViewUrl")
         f["price_known"] = True
         amount = price or 0
+        price_en_label = en_safe(((ios or {}).get("us") or {}).get("formattedPrice"), "")
         f["tiers"].append({
             "tier_id": "ios", "kind": "one_time" if amount else "freemium",
             "label": "iOS 1회 구매" if amount else "iOS 무료",
@@ -759,12 +871,12 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
             "price": {"amount": amount, "currency": ios_primary.get("currency") or "KRW",
                       "period": "one_time" if amount else "none",
                       "display": ios_primary.get("formattedPrice") or ("무료" if not amount else "가격 미확인")},
-            "price_display_en": ios_primary.get("formattedPrice") or ("Free" if not amount else "Price not listed"),
+            "price_display_en": price_en_label or ("Free" if not amount else "Price not listed"),
             "limits": ["앱 내 구입·구독 구조는 검수 전"],
             "limits_en": ["In-app purchases and subscriptions not reviewed yet"],
             "one_liner": (f"{ios_primary.get('formattedPrice')} · 1회 구매" if amount
                           else f"무료 · 평점 {stars:.1f}★" if stars else "무료"),
-            "one_liner_en": (f"{ios_primary.get('formattedPrice')} one-time" if amount
+            "one_liner_en": (f"{price_en_label} one-time" if amount and price_en_label
                              else f"Free · {stars:.1f}★" if stars else "Free"),
         })
     if play_en:
@@ -801,6 +913,7 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
             f["update_kind"] = "Play 스토어 업데이트"
             f["update_kind_en"] = "Play Store update"
             f["update_title"] = play_en.get("name")
+            f["update_title_en"] = en_safe(play_en.get("name"), entry["name"])
             f["update_url"] = play_en.get("url")
         f["store_ads"] = play_en.get("contains_ads")
         if not f["tiers"]:
@@ -992,22 +1105,24 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
                    title_en=f"Steam — {steam.get('name')}")
     if ios:
         rec = max(ios.items(), key=lambda kv: (kv[1].get("userRatingCount") or 0))[1]
+        rec_en = (ios or {}).get("us") or rec
         add_source(f, f"itunes-{entry['id']}", f"Apple App Store — {rec.get('trackName')}",
                    rec.get("trackViewUrl") or f"https://apps.apple.com/app/id{rec.get('trackId')}", "store", "A",
                    f"가격 {rec.get('formattedPrice')}, {rec.get('averageUserRating') and round(rec['averageUserRating'], 2)}★"
                    f"({fmt(rec.get('userRatingCount'))}건), 버전 {rec.get('version')}, "
                    f"최근 릴리스 {(rec.get('currentVersionReleaseDate') or '')[:10]}.",
-                   f"Price {rec.get('formattedPrice')}, {rec.get('averageUserRating') and round(rec['averageUserRating'], 2)}★ "
-                   f"({fmt(rec.get('userRatingCount'))} ratings), version {rec.get('version')}, "
-                   f"released {(rec.get('currentVersionReleaseDate') or '')[:10]}.",
-                   title_en=f"Apple App Store — {rec.get('trackName')}")
+                   f"Price {en_safe(rec_en.get('formattedPrice'), 'free or in-app')}, "
+                   f"{rec_en.get('averageUserRating') and round(rec_en['averageUserRating'], 2)}★ "
+                   f"({fmt(rec_en.get('userRatingCount'))} ratings), version {rec_en.get('version')}, "
+                   f"released {(rec_en.get('currentVersionReleaseDate') or '')[:10]}.",
+                   title_en=f"Apple App Store — {en_safe(rec_en.get('trackName'), entry['name'])}")
     if raw.get("play"):
         en = raw["play"]["en"]
         add_source(f, f"play-{entry['id']}", f"Google Play — {en.get('name')}", en["url"], "store", "A",
                    f"평점 {en.get('rating')}★({fmt(en.get('count'))}) · 무료 · 최근 업데이트 {parse_play_date(en.get('updated')) or '미표기'}.",
                    f"{en.get('rating')}★ ({fmt(en.get('count'))}) · free · last updated "
                    f"{parse_play_date(en.get('updated')) or 'not listed'}.",
-                   title_en=f"Google Play — {en.get('name')}")
+                   title_en=f"Google Play — {en_safe(en.get('name'), entry['name'])}")
     if raw.get("github"):
         gh = raw["github"]
         add_source(f, f"github-{entry['id']}", f"GitHub — {gh['full_name']}", gh["url"], "official", "A",
@@ -1261,7 +1376,7 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
             "promise_status": "not_applicable", "evidence_grade": "A",
             "source_ids": ([f"steam-news-{entry['id']}"] if steam else
                            [src["id"] for src in f["sources"] if src["id"].endswith(entry["id"])][:1]),
-            "note": f"{f.get('update_kind_en') or 'latest update'} '{clean(f.get('update_title'), 90)}'.",
+            "note": f"{f.get('update_kind_en') or 'latest update'} '{clean(f.get('update_title_en') or f.get('update_title'), 90)}'.",
         }] if f["last_update"] else []),
             "assessment": (
             f"Last update {f['last_update']} ({f['days_since_update']} days ago). Auto-collection only checks the "
@@ -1423,12 +1538,37 @@ def apply_catalog(spec: dict) -> tuple[list[str], list[str]]:
     for arena_id in reversed(new_arenas):
         if arena_id not in featured:
             featured.insert(0, arena_id)
-    catalog["note"] = (catalog["note"].rstrip() +
-                       f" 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, "
+    marker = "2026-11-26 1차 대량 팩트 적재(v12)"
+    base_note = catalog["note"].split(marker)[0].rstrip()
+    catalog["note"] = (base_note +
+                       f" {marker}로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, "
                        f"게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다"
                        f"(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종).")
     write_json(CATALOG_PATH, catalog)
     return new_cats, new_arenas
+
+
+def count_items() -> int:
+    """카탈로그에 등록된 비교군 파일의 항목 수 합계."""
+    catalog = load_json(CATALOG_PATH)
+    total = 0
+    for arena in catalog["arenas"]:
+        path = DATA_DIR / arena["data_file"]
+        if path.exists():
+            total += len(load_json(path))
+    return total
+
+
+def stamp_catalog_note(spec: dict) -> None:
+    """배치 요약 문장을 카탈로그 note 에 한 번만 붙인다(총 종수는 기록된 데이터에서 센다)."""
+    tail = spec.get("catalog_note")
+    if not tail:
+        return
+    catalog = load_json(CATALOG_PATH)
+    marker = spec.get("catalog_note_marker") or tail.split("로 ")[0]
+    base = catalog["note"].split(marker)[0].rstrip()
+    catalog["note"] = base + " " + tail.format(total=count_items())
+    write_json(CATALOG_PATH, catalog)
 
 
 def apply_en(spec: dict, en_items: dict) -> None:
@@ -1513,6 +1653,19 @@ def main() -> int:
         items = [row for row in items if row["id"] in only]
     if args.limit:
         items = items[: args.limit]
+
+    # 0) 중복 방지 가드 — 스펙 단계에서 기존 데이터와 겹치는 항목을 먼저 걸러낸다
+    dup_index = load_dup_index()
+    skipped: list[dict] = []
+    kept: list[dict] = []
+    for entry in items:
+        reason = duplicate_reason(entry, dup_index)
+        if reason:
+            skipped.append({"id": entry["id"], "reason": reason})
+        else:
+            kept.append(entry)
+    items = kept
+
     catalog = load_json(CATALOG_PATH)
     bundle = load_json(EN_PATH)
     arena_by_id = {a["id"]: dict(a) for a in catalog["arenas"]}
@@ -1532,6 +1685,11 @@ def main() -> int:
     started = time.perf_counter()
     print("=" * 80)
     print(f"Pharos bulk_ingest — {len(items)}종 · {TODAY} · 워커 {args.workers}")
+    print(f"중복 가드: 기존 {dup_index['items']}건 인덱스(파일 {dup_index['files']} · id {len(dup_index['ids'])} · "
+          f"이름 {len(dup_index['names'])} · 스토어 ID {len(dup_index['stores'])}) — "
+          f"스펙 {len(items) + len(skipped)}종 중 {len(skipped)}종 스킵")
+    for row in skipped:
+        print(f"  ↷ 스킵 {row['id']}: {row['reason']}")
     print("=" * 80)
 
     # 1) 병렬 수집
@@ -1548,6 +1706,16 @@ def main() -> int:
             except Exception as exc:  # noqa: BLE001
                 failures.append({"id": entry["id"], "error": f"{type(exc).__name__}: {exc}"})
                 print(f"  × {entry['id']:<38} {exc}")
+
+    # 1-1) 수집으로 확정된 스토어 ID 로 한 번 더 가드(이름은 달라도 같은 앱·게임이면 스킵)
+    for entry in list(items):
+        reason = duplicate_reason(entry, dup_index, raw_by_id.get(entry["id"]))
+        if not reason:
+            continue
+        skipped.append({"id": entry["id"], "reason": reason})
+        items.remove(entry)
+        raw_by_id.pop(entry["id"], None)
+        print(f"  ↷ 스킵 {entry['id']}: {reason}")
     collect_s = round(time.perf_counter() - started, 2)
 
     # 2) 항목 조립
@@ -1594,6 +1762,7 @@ def main() -> int:
         new_cats, new_arenas = apply_catalog(spec)
         apply_en(spec, {iid: (built[iid][0], built[iid][1]) for iid in built})
         written = write_arenas(spec, by_arena)
+        stamp_catalog_note(spec)
         print(f"\n  카탈로그: 신규 대분류 {len(new_cats)} · 신규 비교군 {len(new_arenas)}")
         for arena_id, (path, before, added) in written.items():
             print(f"  → {path}: {before} + {added}")
@@ -1603,10 +1772,12 @@ def main() -> int:
     summary = {
         "batch": spec.get("batch"),
         "date": TODAY,
-        "items_in_spec": len(items),
+        "items_in_spec": len(items) + len(skipped),
         "items_built": ok,
         "failed": len(failures),
         "failures": failures,
+        "skipped_count": len(skipped),
+        "skipped": skipped,
         "timing": {"collect_s": collect_s, "build_s": build_s, "icons_s": icon_s, "total_s": total_s,
                    "seconds_per_item": round(total_s / max(ok, 1), 2)},
         "http_requests": len([r for r in HTTP_LOG if r.get("status") != "cache"]),
@@ -1626,7 +1797,7 @@ def main() -> int:
     write_json(log_path, summary)
 
     print("\n" + "=" * 80)
-    print(f"결과: {ok}/{len(items)}종 생성 · 실패 {len(failures)} · 총 {total_s}s "
+    print(f"결과: {ok}/{len(items)}종 생성 · 실패 {len(failures)} · 중복 스킵 {len(skipped)} · 총 {total_s}s "
           f"(수집 {collect_s}s · 조립 {build_s}s · 아이콘 {icon_s}s · 항목당 {summary['timing']['seconds_per_item']}s)")
     print(f"HTTP {summary['http_requests']}회 · 캐시 {summary['http_cache_hits']}회 · "
           f"아이콘 저장 {summary['icons']['saved']}건")

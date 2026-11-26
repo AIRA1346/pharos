@@ -50,6 +50,13 @@ appdetails, 상점 평가 요약, ISteamNews, SteamSpy) · App Store(iTunes 한�
 `data_quality.unverified`·안내 문구로 남긴다. 12개월 넘게 공지·릴리스가 없으면 `stale_over_12m=yes`(상태 미확인)로
 검증기 규칙대로 거름이 되고, 완결작 여부는 심층 리뷰에서 확정한다.
 
+**중복 방지 가드** — 적재를 시작하기 전에 `data/search-index.json` 과 `data/{domain}/*.json` 전체를 읽어
+id · 정규화 이름(소문자·특수문자 제거) · 스토어 ID(Steam AppID · App Store trackId · Play 패키지 · GitHub 저장소)를
+인덱스로 만든다(`load_dup_index`). 스펙 항목이 겹치면 **수집 전에** 스킵하고, 수집이 끝나면 검색어로 확정된 실제
+스토어 ID 로 **한 번 더** 검사한다(이름이 달라도 같은 제품이면 걸린다). 스킵은 `↷ 스킵 {id}: {사유}` 로 출력되고
+실행 로그의 `skipped[]` 에 남으며, 실패로 세지 않는다. 같은 배치를 두 번 돌려도 중복이 생기지 않는다.
+`validate.py` 도 전체 데이터의 id·정규화 이름·스토어 ID 중복을 검사해 1건이라도 있으면 FAIL 한다.
+
 **출력** — `data/{domain}/{arena}.json`(새 비교군은 새 파일, 기존 비교군은 뒤에 추가) · `data/en.json`
 (항목 오버레이 100% 영문) · `data/catalog.json`(대분류·비교군·featured) · `web/assets/icons/{id}.webp`(192×192)
 · `drafts/<배치>/bulk-<날짜>-run.json`(소요 시간·실패 목록·판정 요약).
@@ -157,6 +164,17 @@ python3 projects/pharos/scripts/smoke_v12.py --live --shots-dir projects/pharos/
 확인 항목 — 데이터 칩(건수·비교군), 홈 장르 블록 = featured, 신규 비교군 건수·`자동 수집` 배지·192px 아이콘,
 `auto_fact` 상세의 1차 판정 안내(검증 완료 항목에는 없음), EN 모드 한글 0건·`Auto-collected` 배지,
 390px 가로 넘침 0, 콘솔 오류·HTTP 4xx 0건, 스크린샷(`live-v12-bulk100-home.png`·`live-v12-bulk100-arena.png`).
+
+## 5-0. smoke_v13.py — 2차 대량 적재(330종+) 스모크
+
+카탈로그·인덱스에서 건수를 계산해(하드코딩 없이) 이번 배치의 신규 12개 비교군과 보강 7개 비교군을 확인한다:
+홈 데이터 칩·장르 블록, 비교군별 카드 수·`자동 수집` 배지·192px 아이콘, auto_fact 상세 안내, EN 한글 0,
+390px 넘침 0, 콘솔·HTTP 오류 0, 스크린샷 2장(`live-v13-bulk2-home.png`·`live-v13-bulk2-arena.png`).
+
+```bash
+python3 projects/pharos/scripts/smoke_v13.py
+python3 projects/pharos/scripts/smoke_v13.py --live --shots-dir projects/pharos/live
+```
 
 ## 5-1. check_en_leaks.py — 영문 오버레이 누출 검사
 
