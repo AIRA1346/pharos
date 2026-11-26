@@ -13,11 +13,11 @@
 | 2단계 인증 · OTP · 인증기 | 10 | 0 | 10 | 0 |
 | 마인드맵 · 다이어그램 · 화이트보드 | 10 | 0 | 10 | 0 |
 | 커뮤니티 · RSS · 뉴스레터 | 12 | 0 | 12 | 0 |
-| 모바일 · 크로스플랫폼 MMORPG | 12 | 0 | 11 | 1 |
+| 모바일 · 크로스플랫폼 MMORPG | 12 | 0 | 12 | 0 |
 | 스포츠 매니저 · 구단 운영 | 12 | 0 | 11 | 1 |
 
-이번 278종 판정: 추천 **21** · 조건부 **229** · 거름 **28**.
-전체 1,467종: 추천 **365** 🟢 · 조건부 **977** 🟡 · 거름 **125** 🔴(직전 97 → 125, 이번 배치의 12개월 공백 게임이 더해졌고 2단계에서 34건을 면제로 되돌렸다).
+이번 278종 판정: 추천 **21** · 조건부 **230** · 거름 **27**.
+전체 1,467종: 추천 **365** 🟢 · 조건부 **978** 🟡 · 거름 **124** 🔴(직전 97 → 124, 이번 배치의 12개월 공백 게임이 더해졌고 2단계에서 34건을 면제로 되돌렸다).
 
 ## 계획서와 다르게 판단한 것 — 'TCG'·'리듬'은 기존 비교군 보강으로
 계획서는 `digital-tcg-card` · `rhythm-music-games` 를 신규 비교군으로 적었지만, 이미 `card-board-digital`(22종: Hearthstone·MTG Arena·Yu-Gi-Oh! Master Duel·MARVEL SNAP·Shadowverse·Legends of Runeterra…)과 `rhythm-music`(17종: DJMAX RESPECT V·Muse Dash·osu!·Arcaea·Cytus II·Phigros·Taiko…)이 같은 장르를 담고 있었다. 같은 이름의 비교군을 하나 더 만들면 중복 가드가 계획서가 든 후보 대부분을 스킵해 **빈 껍데기 비교군**이 되므로, 이 두 갈래는 **기존 비교군 보강**으로 넣었다(TCG 6종 · 리듬 6종). 신규 비교군은 실제로 비어 있던 7개(앱 5 · 게임 2)로 세웠다.
@@ -51,6 +51,12 @@
 - 대표: The Wolf Among Us 77.3 · Cobalt Core 76.0 · Snakebird 75.88 · Islets 75.45 · Luck be a Landlord 75.38 · Rise of the Tomb Raider 75.0 · Shin Megami Tensei V: Vengeance 74.38 · My Time at Portia 73.95 · The Mortuary Assistant · Tales of Berseria · Dicey Dungeons · AC Origins · Heavy Rain · F1 Manager 2024 · Anno 2070 …
 - **일부러 남긴 것**: Steam 이 Co-op·PvP·멀티 분류를 표기한 85종(Wreckfest · Hot Wheels Unleashed 2 · Just Shapes & Beats · Divinity: Original Sin 2 · Nightingale · Sons of the Forest · Man of Medan(PvP 표기) 등)과 멀티 전용 4종(It Takes Two · GTFO · Gang Beasts · We Were Here).
 - **버그 수정**: 면제 항목의 영문 `verdict.one_liner` 가 할인가 표기(`₩47,000 (할인 75% ₩11,750)`)를 그대로 써서 영문 화면에 한글이 새던 문제를 고쳤다(영문 티어의 `price.display` 사용). 12건 재작성.
+
+
+### 사실 보정 1건 — Torchlight: Infinite(시즌 공지 누락)
+- 자동 수집은 업데이트 공지 제목에서 `patch·update·changelog·version` 만 업데이트로 본다. Torchlight: Infinite 는 2026-10-16 **`"Tartarus" SEASON`** 공지를 냈는데 제목에 그 낱말이 없어 마지막 업데이트가 2024-04-17 로 남았고, 라이브 서비스 게임이 '12개월 공백'으로 **거름(avoid)** 이 됐다.
+- Steam 개발사 공지(등급 A)를 근거로 `update_profile.latest_update=2026-10-16` · `maintenance_status=active` · `flags.stale_over_12m=no` 로 **사실을 바로잡고** 판정을 다시 계산했다(거름 → **조건부 62.0**, `fix_recent_announcement.py`).
+- 재발 방지로 `bulk_ingest.py` 의 `UPDATE_RE` 에 `season·시즌·expansion·release notes·major update·content update` 를 더했다(다음 배치부터 적용).
 
 ## 3단계 — 검증
 | 항목 | 결과 |

@@ -80,7 +80,8 @@ HTTP_LOG: list[dict] = []
 LOG_LOCK = threading.Lock()
 
 UPDATE_RE = re.compile(
-    r"(patch|hotfix|changelog|change log|update now|now live|version\s*\d|ver\.?\s*\d|업데이트|패치|핫픽스)",
+    r"(patch|hotfix|changelog|change log|update now|now live|version\s*\d|ver\.?\s*\d|업데이트|패치|핫픽스"
+    r"|\bseason\b|시즌|expansion|release notes|major update|content update)",
     re.I,
 )
 

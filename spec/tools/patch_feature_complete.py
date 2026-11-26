@@ -167,9 +167,12 @@ def main() -> int:
                     f"purchase complete without a subscription or server, so it is treated as finished "
                     f"(evidence grade {grade})."
                 )
+                en_tier = next((t for t in en.get("tiers") or []
+                                if t.get("tier_id") == item["verdict"]["tier_of_record"]), None)
+                en_price = ((en_tier or {}).get("price") or {}).get("display") or "price not listed"
                 en["verdict"]["one_liner"] = (
                     f"{ {'recommend': 'Recommended', 'conditional': 'Conditional', 'avoid': 'Filtered out'}[overall] } — "
-                    f"{tier.get('price', {}).get('display') or 'price not listed'} · last update {last}. "
+                    f"{en_price} · last update {last}. "
                     "Feature-complete exemption applied; first-pass auto assessment."
                 )
                 en_reasons = [r for r in en["verdict"].get("reasons") or [] if "First-pass verdict" not in r]
