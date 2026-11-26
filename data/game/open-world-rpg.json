@@ -1610,8 +1610,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2022-01-26(1765일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2022-01-26(1765일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-horizon-zero-dawn",
@@ -1776,7 +1776,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2022-01-26 — 12개월(1765일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -1804,8 +1804,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -1845,24 +1845,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 89% 긍정(51,839건), 최근 업데이트 2022-01-26. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — 가격 미표기(스토어 응답 없음) · 마지막 업데이트 2022-01-26. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 89% 긍정(51,839건) · 최근 30일 85%(113건).",
     "가격 미표기(스토어 응답 없음) · 마지막 업데이트 2022-01-26(1765일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2022-01-26 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -3188,8 +3188,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2023-05-22(1284일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2023-05-22(1284일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-god-of-war",
@@ -3354,7 +3354,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2023-05-22 — 12개월(1284일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -3382,8 +3382,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -3423,24 +3423,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 96% 긍정(61,476건), 최근 업데이트 2023-05-22. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩52,800 (할인 60% ₩21,120) · 마지막 업데이트 2023-05-22. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 96% 긍정(61,476건) · 최근 30일 92%(882건).",
     "₩52,800 (할인 60% ₩21,120) · 마지막 업데이트 2023-05-22(1284일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2023-05-22 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -3584,8 +3584,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2019-05-23(2744일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2019-05-23(2744일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-assassins-creed-odyssey",
@@ -3750,7 +3750,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2019-05-23 — 12개월(2744일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -3778,8 +3778,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -3819,24 +3819,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 89% 긍정(60,729건), 최근 업데이트 2019-05-23. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩65,000 · 마지막 업데이트 2019-05-23. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 89% 긍정(60,729건) · 최근 30일 87%(926건).",
     "₩65,000 · 마지막 업데이트 2019-05-23(2744일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2019-05-23 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -5554,8 +5554,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2025-07-21(493일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-07-21(493일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-days-gone",
@@ -5720,7 +5720,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2025-07-21 — 12개월(493일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -5748,8 +5748,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -5789,24 +5789,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 92% 긍정(37,517건), 최근 업데이트 2025-07-21. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩44,800 (할인 67% ₩14,780) · 마지막 업데이트 2025-07-21. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 92% 긍정(37,517건) · 최근 30일 90%(616건).",
     "₩44,800 (할인 67% ₩14,780) · 마지막 업데이트 2025-07-21(493일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2025-07-21 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -6338,8 +6338,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2024-04-25(945일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-04-25(945일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-horizon-forbidden-west",
@@ -6504,7 +6504,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2024-04-25 — 12개월(945일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -6532,8 +6532,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -6573,24 +6573,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 87% 긍정(11,379건), 최근 업데이트 2024-04-25. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩62,800 (할인 50% ₩31,400) · 마지막 업데이트 2024-04-25. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 87% 긍정(11,379건) · 최근 30일 85%(235건).",
     "₩62,800 (할인 50% ₩31,400) · 마지막 업데이트 2024-04-25(945일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2024-04-25 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -6732,8 +6732,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2023-10-18(1135일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2023-10-18(1135일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-marvels-spider-man-remastered",
@@ -6898,7 +6898,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2023-10-18 — 12개월(1135일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -6926,8 +6926,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -6967,24 +6967,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 96% 긍정(58,370건), 최근 업데이트 2023-10-18. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩62,800 (할인 60% ₩25,120) · 마지막 업데이트 2023-10-18. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 96% 긍정(58,370건) · 최근 30일 95%(1,083건).",
     "₩62,800 (할인 60% ₩25,120) · 마지막 업데이트 2023-10-18(1135일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2023-10-18 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -7126,8 +7126,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2025-08-20(463일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-08-20(463일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-god-of-war-ragnarok",
@@ -7292,7 +7292,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2025-08-20 — 12개월(463일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -7320,8 +7320,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -7361,24 +7361,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 89% 긍정(16,706건), 최근 업데이트 2025-08-20. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩62,800 (할인 33% ₩42,080) · 마지막 업데이트 2025-08-20. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 89% 긍정(16,706건) · 최근 30일 92%(467건).",
     "₩62,800 (할인 33% ₩42,080) · 마지막 업데이트 2025-08-20(463일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2025-08-20 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -7519,8 +7519,8 @@
   "assessed_at": "2026-11-26",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2025-07-03(511일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-07-03(511일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-the-last-of-us-part-i",
@@ -7685,7 +7685,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2025-07-03 — 12개월(511일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -7713,8 +7713,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -7754,24 +7754,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 84% 긍정(30,192건), 최근 업데이트 2025-07-03. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩62,800 (할인 50% ₩31,400) · 마지막 업데이트 2025-07-03. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 84% 긍정(30,192건) · 최근 30일 95%(887건).",
     "₩62,800 (할인 50% ₩31,400) · 마지막 업데이트 2025-07-03(511일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-26 스토어 표기 기준이다.",
-    "마지막 업데이트가 2025-07-03 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -8272,5 +8272,3122 @@
    "ai_review": "자동 추정 65.5: 본질 검토 전 중립값 60 · 스토어 평점 82.0(+0.5) · 90일 내 업데이트(+4) · 표본 84,785건(+1)."
   },
   "icon": "assets/icons/grand-theft-auto-v.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "fallout-new-vegas",
+  "name": "Fallout: New Vegas",
+  "aliases": [
+   "폴아웃 뉴베가스"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 96% 긍정(171,604건) · 최근 30일 95%(953건). ₩11,000 (할인 75% ₩2,750) · 마지막 업데이트 미확인. 「오픈월드 RPG · 어드벤처」 안에서 Obsidian Entertainment의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Obsidian Entertainment",
+  "publisher": "Bethesda Softworks",
+  "release_date": "2010-10-21",
+  "one_liner": "Welcome to Vegas. New Vegas. Enjoy your stay!",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 날짜를 확인하지 못했다 — 완결·방치 여부도 미확인.",
+  "sources": [
+   {
+    "id": "steam-fallout-new-vegas",
+    "title": "Steam — Fallout: New Vegas",
+    "url": "https://store.steampowered.com/app/22380/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 11,000, 출시 2010-10-21, 개발사 Obsidian Entertainment. 평가 Steam 누적 96% 긍정(171,604건) · 최근 30일 95%(953건)."
+   },
+   {
+    "id": "steamspy-fallout-new-vegas",
+    "title": "SteamSpy — Fallout: New Vegas",
+    "url": "https://steamspy.com/app/22380",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 204,883 / 부정 8,742 (긍정률 95.9%). 보유자 규모 5,000,000 .. 10,000,000."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 11000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩11,000 (할인 75% ₩2,750)"
+    },
+    "limits": [
+     "DLC 7건 별도 판매",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩11,000 — DLC 7건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-fallout-new-vegas"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-fallout-new-vegas"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-fallout-new-vegas"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 96.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 96% 긍정(171,604건) · 최근 30일 95%(953건) — 표본 가중 평균 96.0.",
+    "source_ids": [
+     "steam-fallout-new-vegas",
+     "steamspy-fallout-new-vegas"
+    ]
+   },
+   "objective": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 68.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 업데이트 확인 실패(-4) · 플랫폼 2종(+2) · 출시 16년(+4).",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ]
+   },
+   "ai_review": {
+    "score": 67.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 67.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 표본 171,604건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 96% 긍정(171,604건), 업데이트 기록 없음. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 96% 긍정(171,604건) · 최근 30일 95%(953건).",
+    "₩11,000 (할인 75% ₩2,750) · 마지막 업데이트 미확인.",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 171604,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 953,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 171,604건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 96% 긍정(171,604건) · 최근 30일 95%(953건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": null,
+   "cadence": "unknown",
+   "entries": [],
+   "maintenance_quality": "unknown",
+   "assessment": "최근 업데이트 기록을 찾지 못했다 — 완결·방치 여부도 검수 전이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-fallout-new-vegas"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-new-vegas"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩11,000 (할인 75% ₩2,750). DLC 7건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 96% 긍정(171,604건) · 최근 30일 95%(953건) → 표본 가중 평균 96.0. 표본 171,604건.",
+   "objective": "자동 산정 68.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 업데이트 확인 실패(-4) · 플랫폼 2종(+2) · 출시 16년(+4).",
+   "ai_review": "자동 추정 67.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 표본 171,604건(+3)."
+  },
+  "icon": "assets/icons/fallout-new-vegas.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "fallout-3",
+  "name": "Fallout 3",
+  "aliases": [
+   "폴아웃 3"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 80% 긍정(9,935건) · 최근 30일 91%(37건). ₩11,000 (할인 75% ₩2,750) · 마지막 업데이트 2024-06-04. 「오픈월드 RPG · 어드벤처」 안에서 Bethesda Game Studios의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Bethesda Game Studios",
+  "publisher": "Bethesda Softworks",
+  "release_date": "2008-10-28",
+  "one_liner": "Vault-Tec engineers have worked around the clock on an interactive reproduction of Wasteland life for you to enjoy from the comfort of your…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-06-04(905일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-fallout-3",
+    "title": "Steam — Fallout 3",
+    "url": "https://store.steampowered.com/app/22300/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 11,000, 출시 2008-10-28, 개발사 Bethesda Game Studios. 평가 Steam 누적 80% 긍정(9,935건) · 최근 30일 91%(37건)."
+   },
+   {
+    "id": "steamspy-fallout-3",
+    "title": "SteamSpy — Fallout 3",
+    "url": "https://steamspy.com/app/22300",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 14,665 / 부정 3,450 (긍정률 81.0%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-fallout-3",
+    "title": "Steam — Fallout 3 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5742731639348784741",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Fallout 3 - Game Launcher Update' (2024-06-04)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-3"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-3"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-3"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-fallout-3"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-fallout-3"
+    ],
+    "note": "마지막 업데이트 2024-06-04 — 12개월(905일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 11000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩11,000 (할인 75% ₩2,750)"
+    },
+    "limits": [
+     "DLC 6건 별도 판매",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩11,000 — DLC 6건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-fallout-3"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-fallout-3"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-06-04 — 12개월(905일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-fallout-3"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-fallout-3"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 80.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 80% 긍정(9,935건) · 최근 30일 91%(37건) — 표본 가중 평균 80.0.",
+    "source_ids": [
+     "steam-fallout-3",
+     "steamspy-fallout-3"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-04(-14) · 플랫폼 2종(+2) · 출시 18년(+4).",
+    "source_ids": [
+     "steam-news-fallout-3"
+    ]
+   },
+   "ai_review": {
+    "score": 52.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 52.0: 본질 검토 전 중립값 60 · 스토어 평점 80.0(+0.0) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-fallout-3"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩11,000 (할인 75% ₩2,750) · 마지막 업데이트 2024-06-04. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 80% 긍정(9,935건) · 최근 30일 91%(37건).",
+    "₩11,000 (할인 75% ₩2,750) · 마지막 업데이트 2024-06-04(905일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 80,
+      "scale": "percent",
+      "count": 9935,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 37,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 9,935건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 80% 긍정(9,935건) · 최근 30일 91%(37건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-06-04",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-06-04",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-fallout-3"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Fallout 3 - Game Launcher Update'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-06-04(905일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-fallout-3"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-fallout-3"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩11,000 (할인 75% ₩2,750). DLC 6건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 80% 긍정(9,935건) · 최근 30일 91%(37건) → 표본 가중 평균 80.0. 표본 9,935건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-04(-14) · 플랫폼 2종(+2) · 출시 18년(+4).",
+   "ai_review": "자동 추정 52.0: 본질 검토 전 중립값 60 · 스토어 평점 80.0(+0.0) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/fallout-3.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "mass-effect-legendary",
+  "name": "Mass Effect Legendary Edition",
+  "aliases": [
+   "매스 이펙트"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 91% 긍정(43,019건) · 최근 30일 95%(1,000건). ₩66,000 (할인 85% ₩9,900) · 마지막 업데이트 2024-02-16. 「오픈월드 RPG · 어드벤처」 안에서 BioWare의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "BioWare",
+  "publisher": "Electronic Arts",
+  "release_date": "2021-05-14",
+  "one_liner": "Mass Effect™ Legendary Edition은 널리 호평받는 Mass Effect, Mass Effect 2, Mass Effect 3의 모든 싱글 플레이어 기본 콘텐츠와 40가지 이상의 DLC, 프로모션 무기, 아머, 팩 등이 모두…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-02-16(1014일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-mass-effect-legendary",
+    "title": "Steam — Mass Effect™ Legendary Edition",
+    "url": "https://store.steampowered.com/app/1328670/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 66,000, 출시 2021-05-14, 개발사 BioWare. 평가 Steam 누적 91% 긍정(43,019건) · 최근 30일 95%(1,000건)."
+   },
+   {
+    "id": "steamspy-mass-effect-legendary",
+    "title": "SteamSpy — Mass Effect™ Legendary Edition",
+    "url": "https://steamspy.com/app/1328670",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 58,845 / 부정 5,577 (긍정률 91.3%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-mass-effect-legendary",
+    "title": "Steam — Mass Effect™ Legendary Edition 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/8033928544497756666",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Save 84%* on Mass Effect™ Legendary Edition' (2024-02-16)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ],
+    "note": "마지막 업데이트 2024-02-16 — 12개월(1014일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 66000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩66,000 (할인 85% ₩9,900)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $59.99"
+    ],
+    "one_liner": "1회 구매 ₩66,000 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-mass-effect-legendary"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-mass-effect-legendary"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-02-16 — 12개월(1014일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-mass-effect-legendary"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-mass-effect-legendary"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 91% 긍정(43,019건) · 최근 30일 95%(1,000건) — 표본 가중 평균 91.0.",
+    "source_ids": [
+     "steam-mass-effect-legendary",
+     "steamspy-mass-effect-legendary"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-02-16(-14) · 플랫폼 2종(+2) · 출시 5년(+2).",
+    "source_ids": [
+     "steam-news-mass-effect-legendary"
+    ]
+   },
+   "ai_review": {
+    "score": 55.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 43,019건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩66,000 (할인 85% ₩9,900) · 마지막 업데이트 2024-02-16. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 91% 긍정(43,019건) · 최근 30일 95%(1,000건).",
+    "₩66,000 (할인 85% ₩9,900) · 마지막 업데이트 2024-02-16(1014일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 43019,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 1000,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 43,019건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 91% 긍정(43,019건) · 최근 30일 95%(1,000건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-02-16",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-02-16",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-mass-effect-legendary"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Save 84%* on Mass Effect™ Legendary Edition'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-02-16(1014일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-mass-effect-legendary"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mass-effect-legendary"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩66,000 (할인 85% ₩9,900). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 91% 긍정(43,019건) · 최근 30일 95%(1,000건) → 표본 가중 평균 91.0. 표본 43,019건.",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-02-16(-14) · 플랫폼 2종(+2) · 출시 5년(+2).",
+   "ai_review": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 43,019건(+1)."
+  },
+  "icon": "assets/icons/mass-effect-legendary.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "dragon-age-inquisition",
+  "name": "Dragon Age: Inquisition",
+  "aliases": [
+   "드래곤 에이지 인퀴지션"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 75% 긍정(11,147건) · 최근 30일 80%(104건). ₩44,000 (할인 80% ₩8,800) · 마지막 업데이트 2024-06-20. 「오픈월드 RPG · 어드벤처」 안에서 BioWare의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "BioWare",
+  "publisher": "Electronic Arts",
+  "release_date": "2020-06-04",
+  "one_liner": "테다스를 구하기 위한 싸움에서 여러분의 모든 선택이 앞 길에 영향을 미칩니다. 자신만의 영웅을 만들고, 스킬을 선택하고, 동료를 모아 왕국에서 악을 제거하세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2024-06-20(889일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-dragon-age-inquisition",
+    "title": "Steam — Dragon Age™ Inquisition",
+    "url": "https://store.steampowered.com/app/1222690/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 44,000, 출시 2020-06-04, 개발사 BioWare. 평가 Steam 누적 75% 긍정(11,147건) · 최근 30일 80%(104건)."
+   },
+   {
+    "id": "steamspy-dragon-age-inquisition",
+    "title": "SteamSpy — Dragon Age™ Inquisition",
+    "url": "https://steamspy.com/app/1222690",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 14,756 / 부정 4,656 (긍정률 76.0%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-dragon-age-inquisition",
+    "title": "Steam — Dragon Age™ Inquisition 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5759622039976921683",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Massive 90% Off Dragon Age Franchise Sale*!' (2024-06-20)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ],
+    "note": "마지막 업데이트 2024-06-20 — 12개월(889일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 44000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩44,000 (할인 80% ₩8,800)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $39.99"
+    ],
+    "one_liner": "1회 구매 ₩44,000 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-dragon-age-inquisition"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-dragon-age-inquisition"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-06-20 — 12개월(889일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-dragon-age-inquisition"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-dragon-age-inquisition"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 75.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 75% 긍정(11,147건) · 최근 30일 80%(104건) — 표본 가중 평균 75.0.",
+    "source_ids": [
+     "steam-dragon-age-inquisition",
+     "steamspy-dragon-age-inquisition"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-20(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
+    "source_ids": [
+     "steam-news-dragon-age-inquisition"
+    ]
+   },
+   "ai_review": {
+    "score": 51.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 51.8: 본질 검토 전 중립값 60 · 스토어 평점 75.0(-1.2) · 12개월 방치(-8) · 표본 11,147건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 75% 긍정(11,147건), 최근 업데이트 2024-06-20. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 75% 긍정(11,147건) · 최근 30일 80%(104건).",
+    "₩44,000 (할인 80% ₩8,800) · 마지막 업데이트 2024-06-20(889일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "마지막 업데이트가 2024-06-20 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 75,
+      "scale": "percent",
+      "count": 11147,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 80,
+      "scale": "percent",
+      "count": 104,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 11,147건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 75% 긍정(11,147건) · 최근 30일 80%(104건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-06-20",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-06-20",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-dragon-age-inquisition"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Massive 90% Off Dragon Age Franchise Sale*!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-06-20(889일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-dragon-age-inquisition"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dragon-age-inquisition"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩44,000 (할인 80% ₩8,800). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 75% 긍정(11,147건) · 최근 30일 80%(104건) → 표본 가중 평균 75.0. 표본 11,147건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-20(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
+   "ai_review": "자동 추정 51.8: 본질 검토 전 중립값 60 · 스토어 평점 75.0(-1.2) · 12개월 방치(-8) · 표본 11,147건(+1)."
+  },
+  "icon": "assets/icons/dragon-age-inquisition.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "oblivion-remastered",
+  "name": "The Elder Scrolls IV: Oblivion Remastered",
+  "aliases": [
+   "엘더 스크롤 4 오블리비언"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 77% 긍정(48,635건) · 최근 30일 50%(316건). ₩55,900 (할인 40% ₩33,540) · 마지막 업데이트 2026-11-03. 「오픈월드 RPG · 어드벤처」 안에서 Bethesda Game Studios의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Bethesda Game Studios",
+  "publisher": "Bethesda Softworks",
+  "release_date": "2025-04-22",
+  "one_liner": "Elder Scrolls IV: Oblivion™ Remastered에서 멋진 새 비주얼과 정제된 게임플레이로 새로워진 Cyrodiil을 탐험해 보세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-03(23일 전).",
+  "sources": [
+   {
+    "id": "steam-oblivion-remastered",
+    "title": "Steam — The Elder Scrolls IV: Oblivion Remastered",
+    "url": "https://store.steampowered.com/app/2623190/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 55,900, 출시 2025-04-22, 개발사 Bethesda Game Studios, Virtuos. 평가 Steam 누적 77% 긍정(48,635건) · 최근 30일 50%(316건)."
+   },
+   {
+    "id": "steamspy-oblivion-remastered",
+    "title": "SteamSpy — The Elder Scrolls IV: Oblivion Remastered",
+    "url": "https://steamspy.com/app/2623190",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 45,704 / 부정 14,540 (긍정률 75.9%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-oblivion-remastered",
+    "title": "Steam — The Elder Scrolls IV: Oblivion Remastered 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302252414",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'The Elder Scrolls VI: Official Name Reveal' (2026-11-03)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ],
+    "note": "마지막 업데이트 2026-11-03(23일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 55900,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩55,900 (할인 40% ₩33,540)"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $49.99"
+    ],
+    "one_liner": "1회 구매 ₩55,900 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-oblivion-remastered"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-oblivion-remastered"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-03(23일 전) — 활발.",
+      "source_ids": [
+       "steam-oblivion-remastered"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-oblivion-remastered"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 77.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 77% 긍정(48,635건) · 최근 30일 50%(316건) — 표본 가중 평균 77.0.",
+    "source_ids": [
+     "steam-oblivion-remastered",
+     "steamspy-oblivion-remastered"
+    ]
+   },
+   "objective": {
+    "score": 76.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-03(+8) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-oblivion-remastered"
+    ]
+   },
+   "ai_review": {
+    "score": 64.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 90일 내 업데이트(+4) · 표본 48,635건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 77% 긍정(48,635건), 최근 업데이트 2026-11-03. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 77% 긍정(48,635건) · 최근 30일 50%(316건).",
+    "₩55,900 (할인 40% ₩33,540) · 마지막 업데이트 2026-11-03(23일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 77,
+      "scale": "percent",
+      "count": 48635,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 50,
+      "scale": "percent",
+      "count": 316,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 48,635건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 77% 긍정(48,635건) · 최근 30일 50%(316건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-03",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-03",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-oblivion-remastered"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'The Elder Scrolls VI: Official Name Reveal'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-03(23일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-oblivion-remastered"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-oblivion-remastered"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩55,900 (할인 40% ₩33,540). DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 77% 긍정(48,635건) · 최근 30일 50%(316건) → 표본 가중 평균 77.0. 표본 48,635건.",
+   "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-03(+8) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 64.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 90일 내 업데이트(+4) · 표본 48,635건(+1)."
+  },
+  "icon": "assets/icons/oblivion-remastered.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-witcher-2",
+  "name": "The Witcher 2: Assassins of Kings Enhanced Edition",
+  "aliases": [
+   "위처 2"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 87% 긍정(26,378건) · 최근 30일 84%(275건). ₩21,000 · 마지막 업데이트 2024-12-13. 「오픈월드 RPG · 어드벤처」 안에서 CD PROJEKT RED의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "CD PROJEKT RED",
+  "publisher": "CD PROJEKT RED",
+  "release_date": "2012-04-16",
+  "one_liner": "대혼란의 시대가 도래했습니다. 권력을 잡고 힘을 행사하기 위해 막강한 세력들이 은밀히 움직이고 있습니다. 북부 왕국이 전쟁에 동원되었지만 이 정도의 아군으로 도처에 널린 음모를 뿌리 뽑기에는 역부족입니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-12-13(713일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-the-witcher-2",
+    "title": "Steam — The Witcher 2: Assassins of Kings Enhanced Edition",
+    "url": "https://store.steampowered.com/app/20920/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2012-04-16, 개발사 CD PROJEKT RED. 평가 Steam 누적 87% 긍정(26,378건) · 최근 30일 84%(275건)."
+   },
+   {
+    "id": "steamspy-the-witcher-2",
+    "title": "SteamSpy — The Witcher 2: Assassins of Kings Enhanced Edition",
+    "url": "https://steamspy.com/app/20920",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 73,081 / 부정 8,405 (긍정률 89.7%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-the-witcher-2",
+    "title": "Steam — The Witcher 2: Assassins of Kings Enhanced Edition 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1785774543542052",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'The Witcher IV — Cinematic Reveal Trailer' (2024-12-13)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ],
+    "note": "마지막 업데이트 2024-12-13 — 12개월(713일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,000"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,000 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-the-witcher-2"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-the-witcher-2"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-12-13 — 12개월(713일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-the-witcher-2"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-the-witcher-2"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 87.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 87% 긍정(26,378건) · 최근 30일 84%(275건) — 표본 가중 평균 87.0.",
+    "source_ids": [
+     "steam-the-witcher-2",
+     "steamspy-the-witcher-2"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-12-13(-14) · 플랫폼 4종(+4) · 출시 14년(+4).",
+    "source_ids": [
+     "steam-news-the-witcher-2"
+    ]
+   },
+   "ai_review": {
+    "score": 54.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 54.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8) · 표본 26,378건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩21,000 · 마지막 업데이트 2024-12-13. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 87% 긍정(26,378건) · 최근 30일 84%(275건).",
+    "₩21,000 · 마지막 업데이트 2024-12-13(713일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 26378,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 84,
+      "scale": "percent",
+      "count": 275,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 26,378건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 87% 긍정(26,378건) · 최근 30일 84%(275건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-12-13",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-12-13",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-the-witcher-2"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'The Witcher IV — Cinematic Reveal Trailer'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-12-13(713일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-the-witcher-2"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-witcher-2"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,000. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 87% 긍정(26,378건) · 최근 30일 84%(275건) → 표본 가중 평균 87.0. 표본 26,378건.",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-12-13(-14) · 플랫폼 4종(+4) · 출시 14년(+4).",
+   "ai_review": "자동 추정 54.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8) · 표본 26,378건(+1)."
+  },
+  "icon": "assets/icons/the-witcher-2.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "sleeping-dogs",
+  "name": "Sleeping Dogs: Definitive Edition",
+  "aliases": [
+   "슬리핑 독스"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 95% 긍정(31,468건) · 최근 30일 95%(566건). ₩24,600 (할인 85% ₩3,690) · 마지막 업데이트 2014-10-17. 「오픈월드 RPG · 어드벤처」 안에서 United Front Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "레이싱"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "United Front Games",
+  "publisher": "Square Enix",
+  "release_date": "2014-10-08",
+  "one_liner": "The Definitive Edition of the critically acclaimed, award winning open-world action adventure, reworked, rebuilt and re-mastered for the…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2014-10-17(4423일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-sleeping-dogs",
+    "title": "Steam — Sleeping Dogs: Definitive Edition",
+    "url": "https://store.steampowered.com/app/307690/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 24,600, 출시 2014-10-08, 개발사 United Front Games, Feral Interactive (Mac). 평가 Steam 누적 95% 긍정(31,468건) · 최근 30일 95%(566건)."
+   },
+   {
+    "id": "steamspy-sleeping-dogs",
+    "title": "SteamSpy — Sleeping Dogs: Definitive Edition",
+    "url": "https://steamspy.com/app/307690",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 67,548 / 부정 4,214 (긍정률 94.1%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-sleeping-dogs",
+    "title": "Steam — Sleeping Dogs: Definitive Edition 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/521615416670640033",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'HD Texture issue/resolution' (2014-10-17)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ],
+    "note": "마지막 업데이트 2014-10-17 — 12개월(4423일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 24600,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩24,600 (할인 85% ₩3,690)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩24,600 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-sleeping-dogs"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-sleeping-dogs"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2014-10-17 — 12개월(4423일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-sleeping-dogs"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-sleeping-dogs"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 95% 긍정(31,468건) · 최근 30일 95%(566건) — 표본 가중 평균 95.0.",
+    "source_ids": [
+     "steam-sleeping-dogs",
+     "steamspy-sleeping-dogs"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2014-10-17(-14) · 플랫폼 3종(+2) · 출시 12년(+4).",
+    "source_ids": [
+     "steam-news-sleeping-dogs"
+    ]
+   },
+   "ai_review": {
+    "score": 56.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 31,468건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩24,600 (할인 85% ₩3,690) · 마지막 업데이트 2014-10-17. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 95% 긍정(31,468건) · 최근 30일 95%(566건).",
+    "₩24,600 (할인 85% ₩3,690) · 마지막 업데이트 2014-10-17(4423일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 31468,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 566,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 31,468건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 95% 긍정(31,468건) · 최근 30일 95%(566건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2014-10-17",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2014-10-17",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-sleeping-dogs"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'HD Texture issue/resolution'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2014-10-17(4423일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-sleeping-dogs"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-sleeping-dogs"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩24,600 (할인 85% ₩3,690). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 95% 긍정(31,468건) · 최근 30일 95%(566건) → 표본 가중 평균 95.0. 표본 31,468건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2014-10-17(-14) · 플랫폼 3종(+2) · 출시 12년(+4).",
+   "ai_review": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 31,468건(+1)."
+  },
+  "icon": "assets/icons/sleeping-dogs.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "mad-max",
+  "name": "Mad Max",
+  "aliases": [
+   "매드 맥스"
+  ],
+  "domain": "game",
+  "category": "open-world-adventure",
+  "arenas": [
+   "open-world-rpg"
+  ],
+  "arena_notes": {
+   "open-world-rpg": "Steam 누적 91% 긍정(27,125건) · 최근 30일 88%(323건). ₩21,000 (할인 85% ₩3,150) · 마지막 업데이트 2015-10-26. 「오픈월드 RPG · 어드벤처」 안에서 Avalanche Studios의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Avalanche Studios",
+  "publisher": "Warner Bros. Games",
+  "release_date": "2015-09-01",
+  "one_liner": "생존자이자 영웅으로 불리기를 꺼리는 영웅, Mad Max로 플레이하세요. 그가 원하는 것은 단지 이 혼란에서부터 벗어나 안정을 찾는 것입니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2015-10-26(4049일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-mad-max",
+    "title": "Steam — Mad Max",
+    "url": "https://store.steampowered.com/app/234140/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 21,000, 출시 2015-09-01, 개발사 Avalanche Studios. 평가 Steam 누적 91% 긍정(27,125건) · 최근 30일 88%(323건)."
+   },
+   {
+    "id": "steamspy-mad-max",
+    "title": "SteamSpy — Mad Max",
+    "url": "https://steamspy.com/app/234140",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 53,572 / 부정 4,745 (긍정률 91.9%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-mad-max",
+    "title": "Steam — Mad Max 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/371904442465623986",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'Update: Mad Max, Patch 4' (2015-10-26)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mad-max"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mad-max"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mad-max"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-mad-max"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-mad-max"
+    ],
+    "note": "마지막 업데이트 2015-10-26 — 12개월(4049일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,000 (할인 85% ₩3,150)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,000 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-mad-max"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-mad-max"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2015-10-26 — 12개월(4049일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-mad-max"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-mad-max"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 91% 긍정(27,125건) · 최근 30일 88%(323건) — 표본 가중 평균 91.0.",
+    "source_ids": [
+     "steam-mad-max",
+     "steamspy-mad-max"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2015-10-26(-14) · 플랫폼 2종(+2) · 출시 11년(+4).",
+    "source_ids": [
+     "steam-news-mad-max"
+    ]
+   },
+   "ai_review": {
+    "score": 55.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 27,125건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-mad-max"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩21,000 (할인 85% ₩3,150) · 마지막 업데이트 2015-10-26. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 91% 긍정(27,125건) · 최근 30일 88%(323건).",
+    "₩21,000 (할인 85% ₩3,150) · 마지막 업데이트 2015-10-26(4049일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 27125,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 88,
+      "scale": "percent",
+      "count": 323,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 27,125건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 91% 긍정(27,125건) · 최근 30일 88%(323건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2015-10-26",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2015-10-26",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-mad-max"
+     ],
+     "note": "업데이트 공지 'Update: Mad Max, Patch 4'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2015-10-26(4049일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-mad-max"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-mad-max"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,000 (할인 85% ₩3,150). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 91% 긍정(27,125건) · 최근 30일 88%(323건) → 표본 가중 평균 91.0. 표본 27,125건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2015-10-26(-14) · 플랫폼 2종(+2) · 출시 11년(+4).",
+   "ai_review": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 27,125건(+1)."
+  },
+  "icon": "assets/icons/mad-max.webp"
  }
 ]

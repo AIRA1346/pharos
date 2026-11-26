@@ -133,6 +133,23 @@ def cache_path(url: str) -> Path:
     return CACHE_DIR / f"{digest}.gz"
 
 
+
+# ── Steam 요청 간격(초) — appdetails·상점 페이지의 IP 기준 요청 제한(약 200회/5분)을 넘지 않게 한다.
+STEAM_PACE = float(os.environ.get("PHAROS_STEAM_PACE", "0") or 0)
+STEAM_GATE = threading.Lock()
+STEAM_LAST = [0.0]
+
+
+def steam_throttle(url: str) -> None:
+    """Steam 호스트 요청을 최소 간격으로 벌린다(PHAROS_STEAM_PACE>0 일 때)."""
+    if STEAM_PACE <= 0 or "steampowered.com" not in url:
+        return
+    with STEAM_GATE:
+        wait = STEAM_LAST[0] + STEAM_PACE - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        STEAM_LAST[0] = time.monotonic()
+
 def http_raw(url: str, headers: dict | None = None, timeout: int = 30, retries: int = 2,
              use_cache: bool = True, label: str = "") -> tuple[bytes, dict]:
     """URL 응답 바이트 — 같은 URL 은 캐시에서 즉시 돌려준다."""
@@ -145,6 +162,7 @@ def http_raw(url: str, headers: dict | None = None, timeout: int = 30, retries: 
     last: Exception | None = None
     started = time.perf_counter()
     for attempt in range(retries + 1):
+        steam_throttle(url)
         try:
             req = urllib.request.Request(url, headers={**UA, **(headers or {})})
             with urllib.request.urlopen(req, timeout=timeout) as res:
@@ -406,6 +424,16 @@ def resolve_ios(term: str, name: str) -> dict:
     return found
 
 
+
+def json_unescape(text: str | None) -> str | None:
+    """JSON-LD/HTML 에 \\u0026 처럼 남은 유니코드 이스케이프를 실제 문자로 되돌린다."""
+    if not text:
+        return text
+    def repl(m):
+        return chr(int(m.group(1), 16))
+    return re.sub(r"\\u([0-9a-fA-F]{4})", repl, text).replace("\\/", "/")
+
+
 def fetch_play(package: str, lang: str) -> dict:
     hl, gl = ("ko", "KR") if lang == "ko" else ("en", "US")
     html = tget(f"https://play.google.com/store/apps/details?id={package}&hl={hl}&gl={gl}",
@@ -424,12 +452,12 @@ def fetch_play(package: str, lang: str) -> dict:
     updated = re.search(r"Updated on</div><div[^>]*>([^<]+)", html)
     return {
         "package": package,
-        "name": re.sub(r"\s*-\s*Apps on Google Play$", "", title.group(1)) if title else package,
+        "name": json_unescape(re.sub(r"\s*-\s*Apps on Google Play$", "", title.group(1))) if title else package,
         "description": htmllib.unescape(desc.group(1)) if desc else "",
         "image": image.group(1) if image else None,
         "rating": rating,
         "count": count,
-        "developer": dev.group(1) if dev else None,
+        "developer": json_unescape(dev.group(1)) if dev else None,
         "contains_ads": ("Contains ads" in html),
         "has_iap": ("In-app purchases" in html),
         "updated": updated.group(1).strip() if updated else None,
