@@ -1,7 +1,7 @@
 {
  "schema_version": "0.4.0",
  "title": "Pharos 데이터 카탈로그",
- "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종). 2026-11-26 2차 대량 확장(v11)으로 AI '이미지 · 디자인 생성'의 AI 이미지 생성, 앱 '문서 · 디자인'의 PDF 뷰어·편집과 이미지·그래픽 편집, 게임 '전략 · 전술 RPG'의 턴제 전략·전술 비교군이 들어왔다(신규 4비교군 20종 · 총 107종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 2차 대량 팩트 적재(v13)로 게임에 오픈월드 RPG·샌드박스·격투·리듬·캐주얼 퍼즐·스포츠 경쟁 6개 비교군, 앱에 소셜·스트리밍·건강·언어 학습·음악 오디오·오피스 6개 비교군이 들어오고 FPS·서바이벌·로그라이크·메트로배니아·턴제 전략·MMORPG·모바일 가챠 7개 비교군을 보강했다(신규 12비교군 · 총 352종). 2026-11-26 3차 대량 팩트 적재(v14)로 게임에 공포·스릴러, 스토리·내러티브, 생활·타이쿤 시뮬, 디지털 보드·카드·체스, 모바일 아케이드 5개 비교군이, 앱에 지도·내비게이션·여행, 사진 편집·카메라·스캔, 가계부·금융·자산, 원격 제어·네트워크, 전자책·뉴스·팟캐스트 5개 비교군이, AI 도구에 영상·음성·음악 생성 1개 비교군이 들어왔다(신규 11비교군 · 기존 20여 비교군 보강 · 총 607종).",
+ "note": "도메인 → 대분류 → 비교군 계층과 데이터 파일 위치를 정의한다. 아이템 데이터는 비교군별 파일로 나뉘어 있어 웹은 선택한 비교군 파일만 지연 로딩(lazy load)한다. AI 도메인(v0.4.2)의 filter_labels 는 같은 9개 필터를 AI 도구 문법(크레딧·모델 종속·계정 강제)으로 다시 부르는 표시용 이름이다 — 스키마·엔진은 바꾸지 않는다. v0.4.3 분야 확장으로 앱에 '인터넷 · 프라이버시' 대분류와 웹 브라우저·클라우드 스토리지, AI 도구에 '대화 · 리서치' 대분류와 AI 어시스턴트·검색 비교군이 들어왔다. 2026-11-25 4차 확장(auto_collect.py 반자동 수집)으로 게임 '메트로배니아 · 플랫포머'와 앱 '이메일 클라이언트' 비교군이 들어왔다. 2026-11-25 1차 대량 확장(v10)으로 앱에 VPN·캘린더·시간 관리, 게임에 '액션 · 슈팅' 대분류의 FPS·슈팅과 '생존 · 시뮬레이션' 대분류의 서바이벌·크래프팅 비교군이 들어왔다(신규 4비교군 20종). 2026-11-26 2차 대량 확장(v11)으로 AI '이미지 · 디자인 생성'의 AI 이미지 생성, 앱 '문서 · 디자인'의 PDF 뷰어·편집과 이미지·그래픽 편집, 게임 '전략 · 전술 RPG'의 턴제 전략·전술 비교군이 들어왔다(신규 4비교군 20종 · 총 107종). 2026-11-26 1차 대량 팩트 적재(v12)로 앱에 협업·미디어·영상 편집·개발자 도구·백업·읽기 6개 비교군, 게임에 액션 RPG·소울라이크·경영 시뮬·협동·레이싱 5개 비교군이 들어왔다(신규 11비교군 · 기존 4비교군 보강 · 총 210종 · auto_fact 103종). 2026-11-26 2차 대량 팩트 적재(v13)로 게임에 오픈월드 RPG·샌드박스·격투·리듬·캐주얼 퍼즐·스포츠 경쟁 6개 비교군, 앱에 소셜·스트리밍·건강·언어 학습·음악 오디오·오피스 6개 비교군이 들어오고 FPS·서바이벌·로그라이크·메트로배니아·턴제 전략·MMORPG·모바일 가챠 7개 비교군을 보강했다(신규 12비교군 · 총 352종). 2026-11-26 3차 대량 팩트 적재(v14)로 게임에 공포·스릴러, 스토리·내러티브, 생활·타이쿤 시뮬, 디지털 보드·카드·체스, 모바일 아케이드 5개 비교군이, 앱에 지도·내비게이션·여행, 사진 편집·카메라·스캔, 가계부·금융·자산, 원격 제어·네트워크, 전자책·뉴스·팟캐스트 5개 비교군이, AI 도구에 영상·음성·음악 생성 1개 비교군이 들어왔다(신규 11비교군 · 기존 20여 비교군 보강 · 총 607종). 2026-11-26 4차 대량 팩트 적재(v15)로 게임에 퍼즐·두뇌·공간 논리, 잠입·전술, 우주·비행 시뮬, JRPG·애니메이션 RPG, 모바일 서브컬처·방치형 5개 비교군이, 앱에 번역·필기·학습, 3D·CAD·모델링, 시스템·파일 유틸, 쇼핑·배달·중고, 날씨·스마트홈 5개 비교군이 들어왔다(신규 10비교군 · 기존 39비교군 보강 · 총 867종).",
  "path_base": "이 파일이 있는 폴더(data/) 기준 상대경로",
  "domains": [
   {
@@ -315,6 +315,66 @@
    "domain": "ai",
    "label": "영상 · 음성 생성",
    "description": "AI 로 목소리·음악·영상을 만드는 도구 — 크레딧 소모 방식, 상업적 이용 조건, 로컬 실행 가능 여부가 판정을 가른다."
+  },
+  {
+   "id": "puzzle-logic",
+   "domain": "game",
+   "label": "퍼즐 · 두뇌 · 논리",
+   "description": "공간·논리 퍼즐로 머리를 쓰는 게임 — 1회 구매 완결형과 힌트·스테이지 과금, 퍼즐 설계의 밀도가 판정을 가른다."
+  },
+  {
+   "id": "stealth-tactical",
+   "domain": "game",
+   "label": "잠입 · 전술",
+   "description": "들키지 않고 목표를 달성하는 잠입·전술 액션 — 1회 구매 완결성, 리플레이 가치, 시즌·DLC 과금이 판정을 가른다."
+  },
+  {
+   "id": "space-flight",
+   "domain": "game",
+   "label": "우주 · 비행 시뮬",
+   "description": "우주선·항공기를 직접 몰고 관리하는 시뮬 — 1회 구매 후 DLC, 조작 진입 장벽, 모드 생태계가 판정을 가른다."
+  },
+  {
+   "id": "jrpg-anime",
+   "domain": "game",
+   "label": "JRPG · 애니 RPG",
+   "description": "일본식 턴제·액션 RPG — 본편 완결성, 확장팩·의상 DLC, 스토리 분량과 번역 품질이 판정을 가른다."
+  },
+  {
+   "id": "subculture-mobile",
+   "domain": "game",
+   "label": "모바일 서브컬처 · 방치형",
+   "description": "캐릭터 수집형 모바일 RPG와 방치형 성장 게임 — 가챠 확률·천장, 무과금 성장 속도, 일일 숙제 분량이 판정을 가른다."
+  },
+  {
+   "id": "translation-study",
+   "domain": "app",
+   "label": "번역 · 필기 · 학습",
+   "description": "번역기·필기 앱·학습 도우미 — 무료 번역 한도, 필기 앱의 동기화·내보내기, 문제 풀이의 근거 표시가 판정을 가른다."
+  },
+  {
+   "id": "design-3d",
+   "domain": "app",
+   "label": "3D · CAD · 모델링",
+   "description": "3D 모델링·CAD·벡터 도구 — 무료 범위, 파일 포맷 호환(DWG·STEP·SKP), 상업적 사용 조건이 판정을 가른다."
+  },
+  {
+   "id": "system-utils",
+   "domain": "app",
+   "label": "시스템 · 파일 · 유틸",
+   "description": "압축·파일 관리·디스크·런처 유틸 — 오픈소스 여부, 번들 설치·광고, 윈도우·모바일 지원 범위가 판정을 가른다."
+  },
+  {
+   "id": "shopping-life",
+   "domain": "app",
+   "label": "쇼핑 · 생활 · 배달",
+   "description": "쇼핑·중고거래·배달·기차 예약 앱 — 수수료와 배달비, 무료 멤버십의 실제 이득, 위치·결제 정보 수집 범위가 판정을 가른다."
+  },
+  {
+   "id": "weather-smarthome",
+   "domain": "app",
+   "label": "날씨 · 스마트홈",
+   "description": "날씨 앱과 스마트홈·IoT 허브 — 무료 예보 범위, 기기 연동 개방성, 계정·클라우드 의존도가 판정을 가른다."
   }
  ],
  "arenas": [
@@ -765,6 +825,86 @@
    "label": "AI 영상 · 음성 · 음악 생성",
    "description": "AI 로 음악·목소리·영상을 만드는 도구 — 크레딧 소모, 상업적 이용 조건, 로컬 실행 가능 여부를 비교한다.",
    "data_file": "ai/ai-audio-video.json"
+  },
+  {
+   "id": "puzzle-logic",
+   "domain": "game",
+   "category": "puzzle-logic",
+   "label": "퍼즐 · 두뇌 · 공간 논리",
+   "description": "포털·시점·언어 퍼즐처럼 규칙을 스스로 깨우치게 하는 게임 — 1회 구매 완결성, 힌트 과금, 퍼즐 밀도를 나란히 둔다.",
+   "data_file": "game/puzzle-logic.json"
+  },
+  {
+   "id": "stealth-tactical",
+   "domain": "game",
+   "category": "stealth-tactical",
+   "label": "잠입 · 전술 액션",
+   "description": "들키지 않고 목표를 달성하는 잠입·전술 액션 — 리플레이 경로의 자유도, 시즌·DLC 과금, 난이도 조절을 비교한다.",
+   "data_file": "game/stealth-tactical.json"
+  },
+  {
+   "id": "space-flight-sim",
+   "domain": "game",
+   "category": "space-flight",
+   "label": "우주 · 비행 · SF 시뮬",
+   "description": "우주선·항공기를 몰고 관리하는 시뮬 — 조작 진입 장벽, 1회 구매 후 DLC, 모드 생태계를 나란히 둔다.",
+   "data_file": "game/space-flight-sim.json"
+  },
+  {
+   "id": "anime-jrpg",
+   "domain": "game",
+   "category": "jrpg-anime",
+   "label": "JRPG · 애니메이션 RPG",
+   "description": "일본식 턴제·액션 RPG — 본편 완결성, 확장팩·의상 DLC, 스토리 분량과 번역 품질을 비교한다.",
+   "data_file": "game/anime-jrpg.json"
+  },
+  {
+   "id": "mobile-subculture-idle",
+   "domain": "game",
+   "category": "subculture-mobile",
+   "label": "모바일 서브컬처 · 방치형 · 수집 RPG",
+   "description": "캐릭터 수집형 모바일 RPG와 방치형 성장 게임 — 가챠 확률·천장, 무과금 성장 속도, 일일 숙제 분량을 비교한다.",
+   "data_file": "game/mobile-subculture-idle.json"
+  },
+  {
+   "id": "translation-study-notes",
+   "domain": "app",
+   "category": "translation-study",
+   "label": "번역 · 필기 · 학습 도구",
+   "description": "번역기·필기 앱·문제 풀이 도우미 — 무료 번역 한도, 필기의 동기화·내보내기, 풀이 근거 표시를 비교한다.",
+   "data_file": "app/translation-study-notes.json"
+  },
+  {
+   "id": "3d-cad-design",
+   "domain": "app",
+   "category": "design-3d",
+   "label": "3D · CAD · 모델링 · 벡터",
+   "description": "3D 모델링·CAD·벡터 도구 — 무료 범위, DWG·STEP·SKP 포맷 호환, 상업적 사용 조건을 비교한다.",
+   "data_file": "app/3d-cad-design.json"
+  },
+  {
+   "id": "system-file-utils",
+   "domain": "app",
+   "category": "system-utils",
+   "label": "시스템 · 압축 · 파일 · 런처",
+   "description": "압축·파일 관리·부팅 디스크·런처 유틸 — 오픈소스 여부, 번들 설치·광고, 지원 플랫폼을 비교한다.",
+   "data_file": "app/system-file-utils.json"
+  },
+  {
+   "id": "shopping-delivery-korea",
+   "domain": "app",
+   "category": "shopping-life",
+   "label": "쇼핑 · 배달 · 중고 · 예약",
+   "description": "쇼핑·중고거래·배달·기차 예약 앱 — 수수료와 배달비, 멤버십의 실제 이득, 위치·결제 정보 수집 범위를 비교한다.",
+   "data_file": "app/shopping-delivery-korea.json"
+  },
+  {
+   "id": "weather-iot-smarthome",
+   "domain": "app",
+   "category": "weather-smarthome",
+   "label": "날씨 · 스마트홈 · IoT",
+   "description": "날씨 앱과 스마트홈 허브 — 무료 예보 범위·광고, 기기 연동 개방성, 계정·클라우드 의존도를 비교한다.",
+   "data_file": "app/weather-iot-smarthome.json"
   }
  ],
  "filter_packs": {
@@ -828,6 +968,16 @@
  },
  "home": {
   "featured_arenas": [
+   "puzzle-logic",
+   "stealth-tactical",
+   "space-flight-sim",
+   "anime-jrpg",
+   "mobile-subculture-idle",
+   "translation-study-notes",
+   "3d-cad-design",
+   "system-file-utils",
+   "shopping-delivery-korea",
+   "weather-iot-smarthome",
    "horror-thriller",
    "story-narrative-vn",
    "sim-tycoon-casual",

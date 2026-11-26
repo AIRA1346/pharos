@@ -104,6 +104,18 @@ APPLE_GENRES_KO = {
 # 위 장르 사전의 역방향 — 한국 스토어에만 있는 앱의 한글 장르를 영문 화면용으로 되돌린다.
 APPLE_GENRES_EN = {ko: en for en, ko in APPLE_GENRES_KO.items()}
 
+# 한국 스토어에만 있는 앱의 개발사·퍼블리셔가 한글일 때 영문 화면에 쓸 공식 영문 사명.
+# 사전에 없는 회사는 사명을 비워 화면에서 숨긴다(한글 사명을 그대로 두면 EN 화면에 한글이 샌다).
+KO_COMPANY_EN = {
+    "한국철도공사": "Korea Railroad Corporation (KORAIL)",
+    "㈜SR - 새로운 고속열차 SRT": "SR Co., Ltd.",
+    "번개장터 주식회사": "Bungaejangter Inc.",
+    "주식회사 카카오": "Kakao Corp.",
+    "(주)카카오": "Kakao Corp.",
+    "네이버 주식회사": "NAVER Corp.",
+    "주식회사 우아한형제들": "Woowa Brothers Corp.",
+}
+
 # 시리즈·플랫폼 표기 — 사실 확인용
 PLATFORM_LABEL_KO = {
     "steam": "Steam", "windows": "Windows", "macos": "macOS", "linux": "Linux",
@@ -221,6 +233,21 @@ def en_safe(text: str | None, fallback: str) -> str:
     return text if text and not KOREAN.search(text) else fallback
 
 
+def en_name(entry: dict) -> str:
+    """스펙이 준 영문 이름(없으면 원래 이름)."""
+    return entry.get("name_en") or entry["name"]
+
+
+def company_en(name: str | None, fallback: str) -> str:
+    """영문 화면의 개발사 사명 — 한글이면 공식 영문 사명으로 바꾸고, 모르면 fallback."""
+    name = (name or "").strip()
+    if not name:
+        return fallback
+    if not KOREAN.search(name):
+        return name
+    return KO_COMPANY_EN.get(name, fallback)
+
+
 def clip(value: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, value))
 
@@ -330,7 +357,9 @@ def duplicate_reason(entry: dict, index: dict, raw: dict | None = None) -> str |
         for record in (raw.get("ios") or {}).values():
             resolved.append(("ios", str(record.get("trackId"))))
         if ((raw.get("play") or {}).get("en") or {}).get("package"):
-            resolved.append(("play", raw["play"]["en"]["package"]))
+            play_rec = raw["play"].get("en") or raw["play"].get("ko") or {}
+            if play_rec.get("package"):
+                resolved.append(("play", play_rec["package"]))
         if (raw.get("github") or {}).get("repo"):
             resolved.append(("github", raw["github"]["repo"].lower()))
         for kind, value in resolved:
@@ -543,10 +572,15 @@ def collect_entry(entry: dict) -> dict:
         except CollectError as exc:
             raw["warnings"].append(str(exc))
     if entry.get("play"):
-        try:
-            raw["play"] = {"en": fetch_play(entry["play"], "en"), "ko": fetch_play(entry["play"], "ko")}
-        except CollectError as exc:
-            raw["warnings"].append(str(exc))
+        # 한국·영어 스토어 페이지를 따로 받는다 — 한쪽 페이지가 없어도(해외 전용·지역 제한) 나머지로 항목을 만든다.
+        play_rec: dict = {}
+        for lang in ("en", "ko"):
+            try:
+                play_rec[lang] = fetch_play(entry["play"], lang)
+            except CollectError as exc:
+                raw["warnings"].append(f"play:{entry['play']}:{lang} — {exc}")
+        if play_rec.get("en") or play_rec.get("ko"):
+            raw["play"] = play_rec
     if entry.get("github"):
         try:
             raw["github"] = fetch_github(entry["github"])
@@ -865,7 +899,7 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
             f["update_kind"] = f"앱 버전 {ios_primary.get('version')} 릴리스"
             f["update_kind_en"] = f"app version {ios_primary.get('version')} release"
             f["update_title"] = f"{ios_primary.get('trackName')} {ios_primary.get('version')}"
-            f["update_title_en"] = (f"{en_safe((((ios or {}).get('us') or ios_primary).get('trackName')), entry['name'])} "
+            f["update_title_en"] = (f"{en_safe((((ios or {}).get('us') or ios_primary).get('trackName')), en_name(entry))} "
                                     f"{ios_primary.get('version')}")
             f["update_url"] = ios_primary.get("trackViewUrl")
         f["price_known"] = True
@@ -920,7 +954,7 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
             f["update_kind"] = "Play 스토어 업데이트"
             f["update_kind_en"] = "Play Store update"
             f["update_title"] = play_en.get("name")
-            f["update_title_en"] = en_safe(play_en.get("name"), entry["name"])
+            f["update_title_en"] = en_safe(play_en.get("name"), en_name(entry))
             f["update_url"] = play_en.get("url")
         f["store_ads"] = play_en.get("contains_ads")
         if not f["tiers"]:
@@ -976,11 +1010,12 @@ def build_facts(entry: dict, raw: dict, arena: dict) -> dict:
             f["update_kind_en"] = "latest repository push"
             f["update_title"] = f"{gh['full_name']} push"
             f["update_url"] = gh.get("url")
+    dev_en = company_en(f["developer"], "")
     if KOREAN.search(f["one_liner_en"] or ""):
-        f["one_liner_en"] = f"{f['developer'] or entry['name']} — {arena['label_en']} entry"
+        f["one_liner_en"] = f"{dev_en or en_name(entry)} — {arena['label_en']} entry"
     if not f["one_liner_ko"]:
         f["one_liner_ko"] = f"{f['developer'] or entry['name']}의 {arena['label']} 항목"
-        f["one_liner_en"] = f"{f['developer'] or entry['name']} — {arena['label_en']} entry"
+        f["one_liner_en"] = f"{dev_en or en_name(entry)} — {arena['label_en']} entry"
     if not f["genres_ko"]:
         f["genres_ko"] = ["소프트웨어"]
         f["genres_en"] = f["genres_en"] or ["Software"]
@@ -1094,6 +1129,7 @@ def add_source(f: dict, sid: str, title: str, url: str, stype: str, grade: str,
 def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, dict, dict]:
     """수집 원본 → (한국어 item, 영어 오버레이, 아이콘 후보)."""
     f = build_facts(entry, raw, arena)
+    dev_en = company_en(f["developer"], "")
     f["source_kinds"] = {k for k in ("steam", "ios", "play", "github") if k in raw}
     steam, ios, gh = raw.get("steam"), raw.get("ios"), raw.get("github")
     f["paid_one_time"] = bool(steam) and not steam.get("is_free")
@@ -1122,14 +1158,14 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
                    f"{rec_en.get('averageUserRating') and round(rec_en['averageUserRating'], 2)}★ "
                    f"({fmt(rec_en.get('userRatingCount'))} ratings), version {rec_en.get('version')}, "
                    f"released {(rec_en.get('currentVersionReleaseDate') or '')[:10]}.",
-                   title_en=f"Apple App Store — {en_safe(rec_en.get('trackName'), entry['name'])}")
+                   title_en=f"Apple App Store — {en_safe(rec_en.get('trackName'), en_name(entry))}")
     if raw.get("play"):
-        en = raw["play"]["en"]
+        en = raw["play"].get("en") or raw["play"].get("ko") or {}
         add_source(f, f"play-{entry['id']}", f"Google Play — {en.get('name')}", en["url"], "store", "A",
                    f"평점 {en.get('rating')}★({fmt(en.get('count'))}) · 무료 · 최근 업데이트 {parse_play_date(en.get('updated')) or '미표기'}.",
                    f"{en.get('rating')}★ ({fmt(en.get('count'))}) · free · last updated "
                    f"{parse_play_date(en.get('updated')) or 'not listed'}.",
-                   title_en=f"Google Play — {en_safe(en.get('name'), entry['name'])}")
+                   title_en=f"Google Play — {en_safe(en.get('name'), en_name(entry))}")
     if raw.get("github"):
         gh = raw["github"]
         add_source(f, f"github-{entry['id']}", f"GitHub — {gh['full_name']}", gh["url"], "official", "A",
@@ -1173,7 +1209,7 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
                      f"「{arena_short}」 안에서 {f['developer'] or entry['name']}의 자리는 이 수치로 잡았다.")
     arena_note_en = (f"{rating_en}. {('Free' if price_ko == '무료' else f['tiers'][0]['price_display_en'])} · "
                      f"last update {f['last_update'] or 'not found'}. "
-                     f"This is where {f['developer'] or entry['name']} sits in {arena['label_en']}.")
+                     f"This is where {dev_en or en_name(entry)} sits in {arena['label_en']}.")
 
     reasons_ko = [rating_ko + ".",
                   f"{price_ko} · 마지막 업데이트 {f['last_update'] or '미확인'}"
@@ -1332,7 +1368,9 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
 
     # 영어 오버레이 — 검증기가 요구하는 항목을 전부 채운다(한글 잔존 0)
     en = {
-        "name": entry.get("name_en") or item["name"],
+        "name": en_name(entry),
+        "developer": dev_en,
+        "publisher": company_en(f["publisher"], dev_en),
         "one_liner": f["one_liner_en"],
         "tagline": f["tiers"][0]["one_liner_en"],
         "arena_notes": {arena["id"]: arena_note_en},
@@ -1416,8 +1454,8 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
         if rec.get("artworkUrl512") or rec.get("artworkUrl100"):
             icon = {"url": rec.get("artworkUrl512") or rec.get("artworkUrl100"),
                     "provider": "Apple App Store 공식 아트워크", "crop": "center", "note": "artworkUrl512"}
-    if icon is None and raw.get("play") and raw["play"]["en"].get("image"):
-        icon = {"url": raw["play"]["en"]["image"], "provider": "Google Play 공식 아이콘",
+    if icon is None and raw.get("play") and (raw["play"].get("en") or raw["play"].get("ko") or {}).get("image"):
+        icon = {"url": (raw["play"].get("en") or raw["play"].get("ko"))["image"], "provider": "Google Play 공식 아이콘",
                 "crop": "center", "note": "og:image 512px"}
     if icon is None and raw.get("github") and raw["github"].get("avatar"):
         icon = {"url": raw["github"]["avatar"],
@@ -1642,6 +1680,8 @@ def main() -> int:
     parser.add_argument("--resolve-only", action="store_true")
     parser.add_argument("--no-icon", action="store_true")
     parser.add_argument("--no-write", action="store_true")
+    parser.add_argument("--force", action="store_true",
+                        help="이미 적재된 항목도 다시 만들어 덮어쓴다(스크립트 수정 후 특정 id 재생성용)")
     args = parser.parse_args()
 
     spec_path = Path(args.spec)
@@ -1661,7 +1701,7 @@ def main() -> int:
     skipped: list[dict] = []
     kept: list[dict] = []
     for entry in items:
-        reason = duplicate_reason(entry, dup_index)
+        reason = None if args.force else duplicate_reason(entry, dup_index)
         if reason:
             skipped.append({"id": entry["id"], "reason": reason})
         else:
@@ -1711,7 +1751,7 @@ def main() -> int:
 
     # 1-1) 수집으로 확정된 스토어 ID 로 한 번 더 가드(이름은 달라도 같은 앱·게임이면 스킵)
     for entry in list(items):
-        reason = duplicate_reason(entry, dup_index, raw_by_id.get(entry["id"]))
+        reason = None if args.force else duplicate_reason(entry, dup_index, raw_by_id.get(entry["id"]))
         if not reason:
             continue
         skipped.append({"id": entry["id"], "reason": reason})
