@@ -2761,3 +2761,225 @@ table.data.compare-table thead th:not(.compare-rowlabel) { z-index: 0; }
 }
 
 table.data.compare-table td.cmp-cell--best { background: var(--green-soft); }
+
+/* ==========================================================================
+   등대(Lighthouse) — 조건을 고르면 명작 하나와 실제 퀘스트를 비춘다
+   ========================================================================== */
+
+.lh { display: grid; gap: 16px; }
+.lh-hero { display: grid; gap: 10px; }
+.lh-hero .lede { max-width: 68ch; }
+.lh-stats { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--muted); }
+.lh-stats b { color: var(--ink); font-family: var(--mono); font-size: 13px; }
+
+.lh-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-soft);
+  min-width: 0;
+}
+.lh-group { display: grid; gap: 6px; min-width: 0; }
+.lh-label { font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+.lh-seg {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  overflow-x: auto;
+  scrollbar-width: none;
+  min-width: 0;
+}
+.lh-seg::-webkit-scrollbar { display: none; }
+.lh-seg button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.lh-seg button:hover { color: var(--ink); }
+.lh-seg button[aria-checked="true"] {
+  background: var(--beam-soft);
+  color: var(--beam);
+  box-shadow: inset 0 0 0 1px var(--beam);
+}
+.lh-seg button:disabled { opacity: 0.5; cursor: not-allowed; }
+.lh-draw-row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.lh-draw { white-space: nowrap; }
+.lh-hint { font-size: 12px; color: var(--muted); min-width: 0; }
+
+.lh-result { display: grid; min-width: 0; }
+.lh-card {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(520px 220px at 100% 0%, var(--beam-soft), transparent 70%),
+    var(--panel);
+  box-shadow: var(--shadow-soft);
+  min-width: 0;
+}
+.lh-card-top { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.lh-card-id { display: grid; gap: 4px; min-width: 0; }
+.lh-card-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.lh-score { font-family: var(--mono); font-size: 11.5px; color: var(--beam); }
+.lh-chip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.lh-game-name { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+.lh-game-meta { margin: 0; font-size: 12px; color: var(--muted); }
+
+.lh-quest {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  min-width: 0;
+}
+.lh-quest-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; font-size: 11.5px; color: var(--muted); }
+.lh-tier-badge {
+  padding: 2px 9px;
+  border: 1px solid var(--beam);
+  border-radius: 999px;
+  background: var(--beam-soft);
+  color: var(--beam);
+  font-weight: 700;
+}
+.lh-quest-title { margin: 0; font-size: 18px; line-height: 1.35; letter-spacing: -0.01em; }
+.lh-quest-desc { margin: 0; font-size: 13.5px; line-height: 1.65; color: var(--ink-2); }
+.lh-quest-tip {
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--sea);
+  border-radius: 8px;
+  background: var(--sea-soft);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.lh-quest-tip b { color: var(--sea); }
+.lh-quest-time { margin: 0; font-size: 12px; color: var(--muted); }
+.lh-quest-time b { color: var(--ink); font-family: var(--mono); font-size: 12.5px; }
+
+.lh-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lh-tier-hint { margin: 0; font-size: 12px; color: var(--muted); }
+
+.lh-empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 30px 20px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--panel);
+  text-align: center;
+}
+.lh-empty-glyph { font-size: 34px; filter: drop-shadow(0 6px 16px var(--beam-soft)); }
+.lh-empty h2 { margin: 0; font-size: 17px; }
+.lh-empty p { margin: 0; max-width: 56ch; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.lh-history { display: grid; gap: 10px; }
+.lh-history-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.lh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+}
+.lh-badge-text { display: grid; min-width: 0; font-size: 11.5px; color: var(--ink); }
+.lh-badge-text b {
+  max-width: 32ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.lh-badge-date { font-family: var(--mono); font-size: 10px; color: var(--beam); }
+
+/* 보상형 광고 슬롯(정식 출시 전 테스트) */
+.modal--ad { max-width: 520px; }
+.lh-ad-slot {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 26px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background:
+    repeating-linear-gradient(135deg, var(--beam-soft) 0 10px, transparent 10px 20px),
+    var(--card);
+  text-align: center;
+}
+.lh-ad-tag {
+  padding: 2px 8px;
+  border: 1px solid var(--beam);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--beam);
+}
+.lh-ad-copy { margin: 0; font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+.lh-ad-sub { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.6; }
+.lh-ad-count { font-family: var(--mono); font-size: 34px; line-height: 1; color: var(--beam); }
+.lh-ad-count small { margin-left: 4px; font-size: 12px; color: var(--muted); }
+.lh-ad-actions { display: flex; justify-content: center; margin-top: 14px; }
+
+@media (max-width: 720px) {
+  .lh-controls { padding: 12px 12px 14px; gap: 10px; grid-template-columns: minmax(0, 1fr); }
+  .lh-card { padding: 15px; }
+  .lh-game-name { font-size: 19px; }
+  .lh-quest { padding: 13px; }
+  .lh-quest-title { font-size: 16.5px; }
+  .lh-actions .primary-btn, .lh-actions .ghost-btn { flex: 1 1 100%; justify-content: center; }
+  .lh-badge-text b { max-width: 18ch; }
+}
+
+/* 등대 액션 행 — 상세 보기는 링크 폭만 차지하게 */
+.lh-actions .text-btn { flex: 0 0 auto; }
+
+@media (max-width: 720px) {
+  .lh-draw-row { flex-direction: column; align-items: stretch; }
+  .lh-draw { width: 100%; white-space: normal; }
+  .lh-hint { width: 100%; }
+}
+
+/* 상단 탭은 줄바꿈 대신 가로 스크롤 — EN 라벨이 두 줄로 늘어나지 않게 */
+.domain-tabs button { white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .domain-tabs { gap: 2px; }
+  .domain-tabs button { padding: 6px 10px; font-size: 12.5px; }
+}
+
+@media (max-width: 420px) {
+  .domain-tabs button { padding: 6px 8px; }
+}

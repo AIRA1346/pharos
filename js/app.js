@@ -17,6 +17,7 @@ const LS = {
   theme: 'pharos-theme',
   prefs: 'pharos-prefs',
   bookmarks: 'pharos-bookmarks',
+  lighthouse: 'pharos_lighthouse_state_v1',
 };
 
 const PRESETS = [
@@ -68,6 +69,14 @@ const state = {
   theme: 'dark',
   lang: 'ko',
   lastFocus: null,
+  lh: {
+    data: null,
+    filters: { price: 'all', platform: 'all', tier: 1 },
+    current: null,
+    history: [],
+    skips: 0,
+    lastGameId: null,
+  },
 };
 
 const $ = (id) => document.getElementById(id);
@@ -218,6 +227,7 @@ async function init() {
     return;
   }
   loadPrefs();
+  await loadLighthouse();
   buildMethodBody();
   renderDatasetChip();
   await applyUrl();
@@ -275,8 +285,18 @@ function switchLang(lang) {
 function parseUrl() {
   const params = new URLSearchParams(location.search);
   const route = { view: 'home', domain: null, category: null, arena: null, item: null, compare: [] };
+  const tab = params.get('tab');
   const domain = params.get('domain');
-  if (domain && state.cat.domain(domain)) {
+  const wantsLighthouse = domain === 'lighthouse' || tab === 'lighthouse';
+  if (wantsLighthouse) {
+    route.view = 'lighthouse';
+    const tier = Number(params.get('lh_tier'));
+    if ([1, 2, 3].includes(tier)) state.lh.filters.tier = tier;
+    const price = params.get('lh_price');
+    if (price === 'free' || price === 'all') state.lh.filters.price = price;
+    const platform = params.get('lh_platform');
+    if (platform === 'pc' || platform === 'mobile' || platform === 'all') state.lh.filters.platform = platform;
+  } else if (domain && state.cat.domain(domain)) {
     route.view = 'browse';
     route.domain = domain;
     const category = params.get('category');
@@ -310,7 +330,7 @@ function parseUrl() {
     const rec = recordById(item);
     if (rec) {
       route.item = item;
-      if (!route.arena && rec.arenas.length) {
+      if (route.view !== 'lighthouse' && !route.arena && rec.arenas.length) {
         const arena = state.cat.arena(rec.arenas[0]);
         if (arena) {
           route.view = 'browse';
@@ -367,7 +387,13 @@ function urlForRoute() {
   const params = new URLSearchParams();
   const route = state.route;
   params.set('lang', state.lang);
-  if (route.domain) {
+  if (route.view === 'lighthouse') {
+    params.set('domain', 'lighthouse');
+    const { tier, price, platform } = state.lh.filters;
+    if (tier !== 1) params.set('lh_tier', String(tier));
+    if (price !== 'all') params.set('lh_price', price);
+    if (platform !== 'all') params.set('lh_platform', platform);
+  } else if (route.domain) {
     params.set('domain', route.domain);
     if (route.category && !route.arena) params.set('category', route.category);
     if (route.arena) {
@@ -393,7 +419,6 @@ function urlForRoute() {
   const qs = params.toString();
   return `${location.pathname}${qs ? `?${qs}` : ''}`;
 }
-
 function syncUrl(mode = 'push') {
   const next = urlForRoute();
   const now = `${location.pathname}${location.search}`;
@@ -414,8 +439,10 @@ async function render({ replace = false } = {}) {
   renderDomainTabs();
   renderBreadcrumb();
   renderCompareBar();
-  document.body.classList.toggle('is-home', !state.route.domain);
-  if (!state.route.domain) {
+  document.body.classList.toggle('is-home', !state.route.domain && state.route.view !== 'lighthouse');
+  if (state.route.view === 'lighthouse') {
+    renderLighthouse();
+  } else if (!state.route.domain) {
     renderHome();
   } else if (state.route.view === 'compare' && state.route.compare.length >= 2) {
     await renderCompare(seq);
@@ -427,8 +454,11 @@ async function render({ replace = false } = {}) {
     renderDomain();
   }
   if (seq !== renderSeq) return;
-  if (state.route.item) await showDetail(state.route.item);
-  else closeDetail({ silent: true });
+  if (state.route.item) {
+    const rec = recordById(state.route.item);
+    const arenaOverride = state.route.view === 'lighthouse' ? rec?.arenas?.[0] : null;
+    await showDetail(state.route.item, arenaOverride);
+  } else closeDetail({ silent: true });
   $('view').focus({ preventScroll: true });
 }
 
@@ -475,13 +505,14 @@ function renderDomainTabs() {
   const wrap = $('domainTabs');
   if (!wrap) return;
   const items = [
-    { key: 'home', label: t('nav.home'), active: !state.route.domain, action: 'home' },
+    { key: 'home', label: t('nav.home'), active: !state.route.domain && state.route.view !== 'lighthouse', action: 'home' },
     ...(state.cat?.catalog.domains || []).map((dom) => ({
       key: dom.id,
       label: dom.label,
       active: state.route.domain === dom.id,
       action: 'domain',
     })),
+    { key: 'lighthouse', label: t('nav.lighthouse'), active: state.route.view === 'lighthouse', action: 'lighthouse' },
   ];
   wrap.innerHTML = items
     .map(
@@ -499,7 +530,9 @@ function renderBreadcrumb() {
   if (!wrap) return;
   const route = state.route;
   const crumbs = [{ label: t('nav.home'), action: 'home' }];
-  if (route.domain) {
+  if (route.view === 'lighthouse') {
+    crumbs.push({ label: t('nav.lighthouse') });
+  } else if (route.domain) {
     const dom = state.cat.domain(route.domain);
     crumbs.push({ label: dom?.label || route.domain, action: 'domain', domain: route.domain });
     if (route.category && !route.arena) {
@@ -525,11 +558,14 @@ function renderBreadcrumb() {
     .join('<li class="crumb-sep" aria-hidden="true">/</li>');
   if (note) {
     const arena = route.arena ? state.cat.arena(route.arena) : null;
-    note.textContent = arena
-      ? `${shortText(arena.description, 64)}`
-      : route.domain
-        ? `${state.cat.domain(route.domain)?.description || ''}`
-        : t('crumb.homeNote');
+    note.textContent =
+      route.view === 'lighthouse'
+        ? t('lh.crumbNote')
+        : arena
+          ? `${shortText(arena.description, 64)}`
+          : route.domain
+            ? `${state.cat.domain(route.domain)?.description || ''}`
+            : t('crumb.homeNote');
   }
 }
 
@@ -1457,10 +1493,10 @@ async function openDetail(id) {
   await render();
 }
 
-async function showDetail(id) {
+async function showDetail(id, arenaOverride = null) {
   const rec = recordById(id);
   if (!rec) return;
-  const arenaId = state.route.arena || rec.arenas[0];
+  const arenaId = arenaOverride || state.route.arena || rec.arenas[0];
   let pool = state.store.get(arenaId);
   if (!pool) pool = await state.store.load(arenaId);
   const item = pool.find((row) => row.id === id);
@@ -2585,6 +2621,371 @@ function closeMethod() {
   document.body.style.overflow = '';
 }
 
+/* ------------------------------------------------------------------ 등대(Lighthouse)
+   조건(가격·플랫폼·단계)을 고르면 명작 하나를 추첨해 그 게임의 실제 퀘스트를 고정한다.
+   한 번 받은 퀘스트는 완료하거나 광고 슬롯으로 건너뛰기 전까지 localStorage 에 남는다. */
+
+const LH_TIERS = [1, 2, 3];
+const lhText = (row, field) =>
+  String((getLang() === 'en' ? row?.[`${field}_en`] : row?.[`${field}_ko`]) ?? '');
+
+function lhLoadState() {
+  const raw = readStore(LS.lighthouse, null);
+  if (!raw || typeof raw !== 'object') return;
+  const filters = raw.filters || {};
+  if (filters.price === 'free' || filters.price === 'all') state.lh.filters.price = filters.price;
+  if (['pc', 'mobile', 'all'].includes(filters.platform)) state.lh.filters.platform = filters.platform;
+  if (LH_TIERS.includes(Number(filters.tier))) state.lh.filters.tier = Number(filters.tier);
+  if (Array.isArray(raw.history)) {
+    state.lh.history = raw.history.filter((row) => row && typeof row.game_id === 'string').slice(-100);
+  }
+  if (Number.isFinite(Number(raw.skips))) state.lh.skips = Math.max(0, Number(raw.skips));
+  if (typeof raw.last_game_id === 'string') state.lh.lastGameId = raw.last_game_id;
+  const current = raw.current;
+  if (current && typeof current.game_id === 'string' && LH_TIERS.includes(Number(current.tier))) {
+    state.lh.current = {
+      game_id: current.game_id,
+      tier: Number(current.tier),
+      issued_at: current.issued_at || null,
+      filters: {
+        price: current.filters?.price === 'free' ? 'free' : 'all',
+        platform: ['pc', 'mobile'].includes(current.filters?.platform) ? current.filters.platform : 'all',
+        tier: LH_TIERS.includes(Number(current.filters?.tier)) ? Number(current.filters.tier) : Number(current.tier),
+      },
+    };
+    state.lh.filters = { ...state.lh.current.filters };
+  }
+}
+
+function lhSaveState() {
+  writeStore(LS.lighthouse, {
+    version: 1,
+    filters: state.lh.filters,
+    current: state.lh.current,
+    history: state.lh.history,
+    skips: state.lh.skips,
+    last_game_id: state.lh.lastGameId,
+  });
+}
+
+async function loadLighthouse() {
+  try {
+    const res = await fetch('./data/lighthouse-quests.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(String(res.status));
+    const data = await res.json();
+    if (!Array.isArray(data.games) || !data.games.length) throw new Error('empty');
+    state.lh.data = data;
+    lhLoadState();
+    lhPruneCurrent();
+  } catch (err) {
+    state.lh.data = null;
+    state.lh.loadError = err?.message || String(err);
+  }
+}
+
+const lhGameById = (id) => (state.lh.data?.games || []).find((game) => game.game_id === id) || null;
+const lhQuizOf = (game, tier) => (game?.quests || []).find((quest) => quest.tier === Number(tier)) || null;
+const lhTierMeta = (tier) => (state.lh.data?.tiers || []).find((row) => row.tier === Number(tier)) || null;
+
+/** 저장된 퀘스트가 데이터에서 사라졌으면 잠금을 풀어 준다(데이터 개편 대비). */
+function lhPruneCurrent() {
+  const current = state.lh.current;
+  if (!current) return;
+  const game = lhGameById(current.game_id);
+  if (!game || !lhQuizOf(game, current.tier)) {
+    state.lh.current = null;
+    lhSaveState();
+  }
+}
+
+function lhDrawableGames() {
+  const { price, platform } = state.lh.filters;
+  return (state.lh.data?.games || []).filter(
+    (game) => (price !== 'free' || game.free_to_play) && (platform === 'all' || game.platforms.includes(platform)),
+  );
+}
+
+function lhDraw() {
+  if (!state.lh.data) {
+    toast(t('lh.toast.noData'));
+    return;
+  }
+  if (state.lh.current) return;
+  let pool = lhDrawableGames();
+  if (!pool.length) {
+    toast(t('lh.toast.noMatch'));
+    return;
+  }
+  if (pool.length > 1 && state.lh.lastGameId) {
+    const fresh = pool.filter((game) => game.game_id !== state.lh.lastGameId);
+    if (fresh.length) pool = fresh;
+  }
+  const game = pool[Math.floor(Math.random() * pool.length)];
+  const tier = state.lh.filters.tier;
+  state.lh.current = {
+    game_id: game.game_id,
+    tier,
+    issued_at: new Date().toISOString(),
+    filters: { ...state.lh.filters },
+  };
+  state.lh.lastGameId = game.game_id;
+  lhSaveState();
+  syncUrl('replace');
+  renderLighthouse();
+  toast(t('lh.toast.drawn'), lhQuizOf(game, tier)?.[getLang() === 'en' ? 'title_en' : 'title_ko'] || '');
+}
+
+function lhComplete() {
+  const current = state.lh.current;
+  if (!current) return;
+  const game = lhGameById(current.game_id);
+  const quest = lhQuizOf(game, current.tier);
+  if (!game || !quest) {
+    state.lh.current = null;
+    lhSaveState();
+    renderLighthouse();
+    return;
+  }
+  state.lh.history.push({
+    game_id: game.game_id,
+    tier: current.tier,
+    title_ko: quest.title_ko,
+    title_en: quest.title_en,
+    completed_at: new Date().toISOString(),
+  });
+  state.lh.history = state.lh.history.slice(-100);
+  state.lh.current = null;
+  lhSaveState();
+  renderLighthouse();
+  toast(t('lh.toast.completed', { name: recordById(game.game_id)?.name || game.game_id }), lhText(quest, 'title'));
+}
+
+function lhSkipComplete() {
+  if (!state.lh.current) return;
+  state.lh.skips += 1;
+  state.lh.current = null;
+  lhSaveState();
+  lhCloseAd();
+  renderLighthouse();
+  toast(t('lh.toast.skipped'));
+}
+
+let lhAdTimer = null;
+
+function lhOpenAd() {
+  if (!state.lh.current) return;
+  const backdrop = $('lhAdBackdrop');
+  if (!backdrop) return;
+  backdrop.hidden = false;
+  document.body.style.overflow = 'hidden';
+  const btn = $('lhAdSkip');
+  const count = $('lhAdCount');
+  let left = 5;
+  if (count) count.textContent = String(left);
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = t('lh.ad.wait', { n: left });
+  }
+  clearInterval(lhAdTimer);
+  lhAdTimer = setInterval(() => {
+    left -= 1;
+    if (count) count.textContent = String(Math.max(0, left));
+    if (left > 0) {
+      if (btn) btn.textContent = t('lh.ad.wait', { n: left });
+      return;
+    }
+    clearInterval(lhAdTimer);
+    lhAdTimer = null;
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = t('lh.ad.ready');
+    }
+    if (count) count.textContent = '0';
+  }, 1000);
+  $('lhAdModal')?.focus({ preventScroll: true });
+}
+
+function lhCloseAd() {
+  clearInterval(lhAdTimer);
+  lhAdTimer = null;
+  const backdrop = $('lhAdBackdrop');
+  if (backdrop) backdrop.hidden = true;
+  document.body.style.overflow = '';
+}
+
+function lhFilterButtons(group, value, options) {
+  return options
+    .map(
+      (opt) =>
+        `<button type="button" role="radio" aria-checked="${value === opt.value ? 'true' : 'false'}"` +
+        ` data-lh-${group}="${esc(opt.value)}"${state.lh.current ? ' disabled' : ''}>${esc(opt.label)}</button>`,
+    )
+    .join('');
+}
+
+function lhQuestHtml(game, tier) {
+  const quest = lhQuizOf(game, tier);
+  if (!quest) return '';
+  const meta = lhTierMeta(tier);
+  return `
+    <div class="lh-quest" data-lh-tier-view="${tier}">
+      <p class="lh-quest-kicker"><span class="lh-tier-badge">${esc(lhText(meta, 'label'))}</span><span>${esc(lhText(meta, 'window'))}</span><span>${esc(t('lh.questKicker'))}</span></p>
+      <h3 class="lh-quest-title">${esc(lhText(quest, 'title'))}</h3>
+      <p class="lh-quest-desc">${esc(lhText(quest, 'desc'))}</p>
+      <p class="lh-quest-tip"><b>${esc(t('lh.tipLabel'))}</b> ${esc(lhText(quest, 'tip'))}</p>
+      <p class="lh-quest-time"><span aria-hidden="true">⏱</span> ${esc(t('lh.estLabel'))} <b>${esc(lhText(quest, 'est_time'))}</b></p>
+    </div>`;
+}
+
+function lhResultHtml() {
+  const current = state.lh.current;
+  if (!state.lh.data) {
+    return `<div class="lh-empty"><p>${esc(t('lh.toast.noData'))}</p></div>`;
+  }
+  if (!current) {
+    return `
+      <div class="lh-empty">
+        <span class="lh-empty-glyph" aria-hidden="true">🚨</span>
+        <h2>${esc(t('lh.emptyTitle'))}</h2>
+        <p>${esc(t('lh.emptyBody'))}</p>
+      </div>`;
+  }
+  const game = lhGameById(current.game_id);
+  const rec = recordById(current.game_id);
+  if (!game || !rec) return '';
+  const verdict = engine.VERDICT_META[rec.verdict] || engine.VERDICT_META.conditional;
+  const scoreText = typeof rec.score === 'number' ? rec.score.toFixed(1) : '—';
+  const tier = current.tier;
+  const freeLabel = game.free_to_play ? t('lh.badge.free') : t('lh.badge.paid');
+  const platformLabel = game.platforms.map((p) => (p === 'pc' ? 'PC' : t('lh.platform.mobile'))).join(' · ');
+  return `
+    <article class="lh-card" data-lh-game="${esc(game.game_id)}">
+      <div class="lh-card-top">
+        ${iconHtml(rec, 'detail')}
+        <div class="lh-card-id">
+          <div class="lh-card-chips">
+            <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${esc(verdict.label)}</span>
+            <span class="lh-score">${esc(t('lh.score', { score: scoreText }))}</span>
+            <span class="lh-chip">${esc(freeLabel)}</span>
+            <span class="lh-chip">${esc(platformLabel)}</span>
+          </div>
+          <h2 class="lh-game-name">${esc(rec.name)}</h2>
+          <p class="lh-game-meta">${esc(state.cat.categoryLabel(rec.category))}${rec.developer ? ` · ${esc(rec.developer)}` : ''}</p>
+        </div>
+      </div>
+      ${lhQuestHtml(game, tier)}
+      <div class="lh-actions">
+        <button type="button" class="primary-btn" data-lh-complete>${esc(t('lh.complete'))}</button>
+        <button type="button" class="ghost-btn" data-lh-ad>${esc(t('lh.adSkip'))}</button>
+        <button type="button" class="text-btn" data-lh-detail="${esc(game.game_id)}">${esc(t('lh.detail'))} →</button>
+      </div>
+    </article>`;
+}
+
+function lhHistoryHtml() {
+  const history = state.lh.history || [];
+  const rows = [...history].reverse().slice(0, 8);
+  return `
+    <section class="lh-history" id="lhHistory">
+      <div class="section-head">
+        <h2>${esc(t('lh.historyTitle'))}</h2>
+        <span class="section-hint">${esc(t('lh.historyCount', { n: history.length, s: state.lh.skips }))}</span>
+      </div>
+      <div class="lh-history-list">
+        ${
+          rows.length
+            ? rows
+                .map((row) => {
+                  const rec = recordById(row.game_id);
+                  const date = row.completed_at ? new Date(row.completed_at) : null;
+                  const dateText = date && !Number.isNaN(date.getTime())
+                    ? date.toLocaleDateString(locale(), { month: 'short', day: 'numeric' })
+                    : '';
+                  const title = getLang() === 'en' ? row.title_en : row.title_ko;
+                  return `<span class="lh-badge" title="${esc(title || '')}">${rec ? iconHtml(rec, 'small') : ''}<span class="lh-badge-text">${esc(rec?.name || row.game_id)}<b>${esc(title || '')}</b></span><span class="lh-badge-date">${esc(dateText)}</span></span>`;
+                })
+                .join('')
+            : `<p class="empty">${esc(t('lh.historyEmpty'))}</p>`
+        }
+      </div>
+    </section>`;
+}
+
+function renderLighthouse() {
+  const wrap = $('view');
+  if (!wrap) return;
+  const { price, platform, tier } = state.lh.filters;
+  const locked = Boolean(state.lh.current);
+  const count = state.lh.data?.counts || {};
+  const pool = lhDrawableGames();
+  wrap.innerHTML = `
+    <section class="lh">
+      <div class="hero hero--compact lh-hero">
+        <p class="eyebrow">${esc(t('lh.eyebrow'))}</p>
+        <h1>${esc(t('lh.titleBefore'))}<span class="hl">${esc(t('lh.titleHl'))}</span></h1>
+        <p class="lede">${esc(t('lh.lede'))}</p>
+        <div class="lh-stats">
+          <span>${t('lh.statGames', { n: count.games ?? 0, q: count.quests ?? 0 })}</span>
+          <span>${t('lh.statFree', { n: count.free_to_play ?? 0 })}</span>
+          <span>${t('lh.statDone', { n: state.lh.history.length })}</span>
+        </div>
+      </div>
+
+      <div class="lh-controls" role="group" aria-label="${esc(t('lh.filtersAria'))}">
+        <div class="lh-group">
+          <span class="lh-label">${esc(t('lh.price'))}</span>
+          <div class="lh-seg" role="radiogroup" aria-label="${esc(t('lh.price'))}">
+            ${lhFilterButtons('price', price, [
+              { value: 'all', label: t('lh.price.all') },
+              { value: 'free', label: t('lh.price.free') },
+            ])}
+          </div>
+        </div>
+        <div class="lh-group">
+          <span class="lh-label">${esc(t('lh.platform'))}</span>
+          <div class="lh-seg" role="radiogroup" aria-label="${esc(t('lh.platform'))}">
+            ${lhFilterButtons('platform', platform, [
+              { value: 'all', label: t('lh.platform.all') },
+              { value: 'pc', label: 'PC' },
+              { value: 'mobile', label: t('lh.platform.mobile') },
+            ])}
+          </div>
+        </div>
+        <div class="lh-group lh-group--tier">
+          <span class="lh-label">${esc(t('lh.tier'))}</span>
+          <div class="lh-seg" role="radiogroup" aria-label="${esc(t('lh.tier'))}">
+            ${lhFilterButtons(
+              'tier',
+              String(tier),
+              LH_TIERS.map((n) => ({ value: String(n), label: t('lh.tierShort', { n }) })),
+            )}
+          </div>
+          <span class="lh-tier-hint">${esc(lhText(lhTierMeta(tier), 'window'))} — ${esc(lhText(lhTierMeta(tier), 'hint'))}</span>
+        </div>
+        <div class="lh-draw-row">
+          <button type="button" class="primary-btn lh-draw" data-lh-draw${locked ? ' disabled' : ''}>${esc(
+            locked ? t('lh.drawLocked') : t('lh.draw'),
+          )}</button>
+          <span class="lh-hint">${esc(
+            locked ? t('lh.lockedNote') : t('lh.poolNote', { n: pool.length }),
+          )}</span>
+        </div>
+      </div>
+
+      <div id="lhResult" class="lh-result" aria-live="polite">${lhResultHtml()}</div>
+      ${lhHistoryHtml()}
+    </section>`;
+}
+
+async function openLighthouseDetail(id) {
+  const rec = recordById(id);
+  if (!rec) return;
+  state.lastFocus = document.activeElement;
+  state.route = { ...state.route, item: id };
+  syncUrl('replace');
+  await showDetail(id, rec.arenas[0]);
+}
+
 /* ------------------------------------------------------------- 보관함·공유 */
 
 function toggleBookmark(id) {
@@ -2696,6 +3097,13 @@ function bindEvents() {
   $('methodBackdrop')?.addEventListener('mousedown', (event) => {
     if (event.target === $('methodBackdrop')) closeMethod();
   });
+  $('lhAdBackdrop')?.addEventListener('mousedown', (event) => {
+    if (event.target === $('lhAdBackdrop')) lhCloseAd();
+  });
+  $('lhAdClose')?.addEventListener('click', lhCloseAd);
+  $('lhAdSkip')?.addEventListener('click', () => {
+    if (!$('lhAdSkip').disabled) lhSkipComplete();
+  });
   $('bookmarkBtn')?.addEventListener('click', async () => {
     if (state.route.view !== 'home') await goHome();
     $('bookmarkSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2723,6 +3131,59 @@ function bindEvents() {
 
 async function onClick(event) {
   const target = event.target;
+
+  // 등대 — 필터·추첨·완료·광고 슬롯·상세 열기
+  const lhPrice = target.closest('[data-lh-price]');
+  if (lhPrice) {
+    if (!state.lh.current) {
+      state.lh.filters.price = lhPrice.dataset.lhPrice;
+      lhSaveState();
+      syncUrl('replace');
+      renderLighthouse();
+    }
+    return;
+  }
+  const lhPlatform = target.closest('[data-lh-platform]');
+  if (lhPlatform) {
+    if (!state.lh.current) {
+      state.lh.filters.platform = lhPlatform.dataset.lhPlatform;
+      lhSaveState();
+      syncUrl('replace');
+      renderLighthouse();
+    }
+    return;
+  }
+  const lhTier = target.closest('[data-lh-tier]');
+  if (lhTier) {
+    if (!state.lh.current) {
+      state.lh.filters.tier = Number(lhTier.dataset.lhTier) || 1;
+      lhSaveState();
+      syncUrl('replace');
+      renderLighthouse();
+    }
+    return;
+  }
+  const lhDrawBtn = target.closest('[data-lh-draw]');
+  if (lhDrawBtn) {
+    lhDraw();
+    return;
+  }
+  const lhDone = target.closest('[data-lh-complete]');
+  if (lhDone) {
+    lhComplete();
+    return;
+  }
+  const lhAd = target.closest('[data-lh-ad]');
+  if (lhAd) {
+    lhOpenAd();
+    return;
+  }
+  const lhDetail = target.closest('[data-lh-detail]');
+  if (lhDetail) {
+    event.preventDefault();
+    openLighthouseDetail(lhDetail.dataset.lhDetail);
+    return;
+  }
 
   // 보관함·비교·공유 같은 카드 내부 버튼이 카드 열기를 가로채지 않게 먼저 처리
   const bookmark = target.closest('[data-bookmark]');
@@ -2767,6 +3228,7 @@ async function onClick(event) {
   if (action) {
     const kind = action.dataset.action;
     if (kind === 'home') return goHome();
+    if (kind === 'lighthouse') return navigate({ view: 'lighthouse', domain: null });
     if (kind === 'domain') return navigate({ view: 'browse', domain: action.dataset.domain, category: null });
     if (kind === 'category') return navigate({ domain: action.dataset.domain, category: action.dataset.category });
     if (kind === 'arena')
@@ -2812,11 +3274,13 @@ async function onClick(event) {
 
 function onKeydown(event) {
   if (event.key === 'Escape') {
+    if (!$('lhAdBackdrop')?.hidden) return lhCloseAd();
     if (!$('methodBackdrop')?.hidden) return closeMethod();
     if (!$('modalBackdrop')?.hidden) return closeDetail();
     if (!$('tuneDrawer')?.hidden) return closeTune();
   }
   if (event.key === 'Tab') {
+    if (!$('lhAdBackdrop')?.hidden) return trapFocus(event, $('lhAdModal'));
     if (!$('modalBackdrop')?.hidden) return trapFocus(event, $('modal'));
     if (!$('methodBackdrop')?.hidden) return trapFocus(event, $('methodModal'));
   }

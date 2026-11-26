@@ -126,6 +126,31 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="lhAdBackdrop" hidden>
+  <div class="modal modal--ad" id="lhAdModal" role="dialog" aria-modal="true" aria-labelledby="lhAdTitle" tabindex="-1">
+    <div class="modal-head">
+      <div class="modal-titles">
+        <p class="mini-label" data-i18n="lh.ad.label">보상형 광고 자리</p>
+        <h2 id="lhAdTitle" data-i18n="lh.ad.title">광고 보고 건너뛰기</h2>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="icon-btn" id="lhAdClose" aria-label="광고 닫기" data-i18n-aria-label="lh.ad.close">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="lh-ad-slot">
+        <span class="lh-ad-tag">AD</span>
+        <p class="lh-ad-copy" data-i18n="lh.ad.mock">정식 출시 시 보상형 동영상 광고가 재생되는 자리입니다</p>
+        <p class="lh-ad-sub" data-i18n="lh.ad.sub">지금은 5초 테스트 시청으로 대체합니다. 끝나면 새 퀘스트를 뽑을 수 있습니다.</p>
+        <div class="lh-ad-count" aria-live="polite"><span id="lhAdCount">5</span><small data-i18n="lh.ad.seconds">초</small></div>
+      </div>
+      <div class="lh-ad-actions">
+        <button type="button" class="primary-btn" id="lhAdSkip" disabled>5초 후 건너뛰기 가능</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <p class="toast" id="toast" hidden role="status" aria-live="polite"></p>
 
 <noscript>
