@@ -11788,5 +11788,1575 @@
    "ai_review": "자동 추정 64.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0)."
   },
   "icon": "assets/icons/1000xresist.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-wolf-among-us",
+  "name": "The Wolf Among Us",
+  "aliases": [
+   "울프 어몽 어스"
+  ],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건). ₩15,500 · 마지막 업데이트 2023-12-22. 「스토리 · 내러티브 · 추리」 안에서 Telltale의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "캐주얼"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Telltale",
+  "publisher": "Telltale",
+  "release_date": "2013-10-11",
+  "one_liner": "From the makers of the 2012 Game of the Year: The Walking Dead, comes a thriller based on the award-winning Fables comic books. As Bigby…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2023-12-22(1070일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-the-wolf-among-us",
+    "title": "Steam — The Wolf Among Us",
+    "url": "https://store.steampowered.com/app/250320/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2013-10-11, 개발사 Telltale. 평가 Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건)."
+   },
+   {
+    "id": "steamspy-the-wolf-among-us",
+    "title": "SteamSpy — The Wolf Among Us",
+    "url": "https://steamspy.com/app/250320",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 31,965 / 부정 714 (긍정률 97.8%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-the-wolf-among-us",
+    "title": "Steam — The Wolf Among Us 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5410576585133122547",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'WINTER SALE | GET THE WOLF AMONG US NOW!' (2023-12-22)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ],
+    "note": "마지막 업데이트 2023-12-22 — 12개월(1070일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 15500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩15,500"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $14.99"
+    ],
+    "one_liner": "1회 구매 ₩15,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-the-wolf-among-us"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-the-wolf-among-us"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2023-12-22 — 12개월(1070일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-the-wolf-among-us"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-the-wolf-among-us"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 97.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건) — 표본 가중 평균 97.0.",
+    "source_ids": [
+     "steam-the-wolf-among-us",
+     "steamspy-the-wolf-among-us"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-12-22(-14) · 플랫폼 2종(+2) · 출시 13년(+4).",
+    "source_ids": [
+     "steam-news-the-wolf-among-us"
+    ]
+   },
+   "ai_review": {
+    "score": 57.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 57.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8) · 표본 19,271건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩15,500 · 마지막 업데이트 2023-12-22. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건).",
+    "₩15,500 · 마지막 업데이트 2023-12-22(1070일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 19271,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 94,
+      "scale": "percent",
+      "count": 119,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 19,271건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2023-12-22",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2023-12-22",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-the-wolf-among-us"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'WINTER SALE | GET THE WOLF AMONG US NOW!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2023-12-22(1070일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-the-wolf-among-us"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-wolf-among-us"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩15,500. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 97% 긍정(19,271건) · 최근 30일 94%(119건) → 표본 가중 평균 97.0. 표본 19,271건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-12-22(-14) · 플랫폼 2종(+2) · 출시 13년(+4).",
+   "ai_review": "자동 추정 57.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8) · 표본 19,271건(+1)."
+  },
+  "icon": "assets/icons/the-wolf-among-us.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "tales-from-the-borderlands",
+  "name": "Tales from the Borderlands",
+  "aliases": [
+   "테일즈 프롬 더 보더랜즈"
+  ],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건). ₩22,800 · 마지막 업데이트 2026-11-02. 「스토리 · 내러티브 · 추리」 안에서 Telltale Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Telltale Games",
+  "publisher": "2K",
+  "release_date": "2021-02-16",
+  "one_liner": "테일즈 프롬 더 보더랜드는 보더랜드 2와 3 사이를 배경으로 하며, 무자비한 판도라에서 벌어진 이벤트를 다루는 다섯 개 에피소드로 구성된 게임입니다. 위대한 여정을 떠나는 두 명의 탐험가를 다루는 이 이야기에는 보더랜드 특유의 유머가 가득합니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-02(24일 전).",
+  "sources": [
+   {
+    "id": "steam-tales-from-the-borderlands",
+    "title": "Steam — Tales from the Borderlands",
+    "url": "https://store.steampowered.com/app/330830/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2021-02-16, 개발사 Telltale Games. 평가 Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건)."
+   },
+   {
+    "id": "steamspy-tales-from-the-borderlands",
+    "title": "SteamSpy — Tales from the Borderlands",
+    "url": "https://steamspy.com/app/330830",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 14,246 / 부정 930 (긍정률 93.9%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-tales-from-the-borderlands",
+    "title": "Steam — Tales from the Borderlands 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302249164",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Save big with the Borderlands Franchise Sale' (2026-11-02)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ],
+    "note": "마지막 업데이트 2026-11-02(24일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 22800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩22,800"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩22,800 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-tales-from-the-borderlands"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-tales-from-the-borderlands"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-02(24일 전) — 활발.",
+      "source_ids": [
+       "steam-tales-from-the-borderlands"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-tales-from-the-borderlands"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 93.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건) — 표본 가중 평균 93.0.",
+    "source_ids": [
+     "steam-tales-from-the-borderlands",
+     "steamspy-tales-from-the-borderlands"
+    ]
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-02(+8) · 플랫폼 2종(+2) · 출시 5년(+2).",
+    "source_ids": [
+     "steam-news-tales-from-the-borderlands"
+    ]
+   },
+   "ai_review": {
+    "score": 68.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 90일 내 업데이트(+4) · 표본 10,442건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — Steam 93% 긍정(10,442건), 최근 업데이트 2026-11-02. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건).",
+    "₩22,800 · 마지막 업데이트 2026-11-02(24일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 93,
+      "scale": "percent",
+      "count": 10442,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 50,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 10,442건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-02",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-02",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-tales-from-the-borderlands"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Save big with the Borderlands Franchise Sale'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-02(24일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-tales-from-the-borderlands"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-tales-from-the-borderlands"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩22,800. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 93% 긍정(10,442건) · 최근 30일 96%(50건) → 표본 가중 평균 93.0. 표본 10,442건.",
+   "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-02(+8) · 플랫폼 2종(+2) · 출시 5년(+2).",
+   "ai_review": "자동 추정 68.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 90일 내 업데이트(+4) · 표본 10,442건(+1)."
+  },
+  "icon": "assets/icons/tales-from-the-borderlands.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "heavy-rain",
+  "name": "Heavy Rain",
+  "aliases": [
+   "헤비 레인"
+  ],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건). ₩21,500 (할인 90% ₩2,150) · 마지막 업데이트 2021-10-22. 「스토리 · 내러티브 · 추리」 안에서 Quantic Dream의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Quantic Dream",
+  "publisher": "Quantic Dream",
+  "release_date": "2020-06-18",
+  "one_liner": "셀 수 없는 우여곡절로 가득한 매혹적인 심리 스릴러 극을 체험해 보세요. \"종이접기 살인마\"로 알려진 범죄자를 잡기 위한 추적이 시작되었습니다. 각자의 단서를 따라온 네 명의 캐릭터는 살인자가 새로운 희생자를 찾는 걸 막기 위한 필사적인 노력에…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2021-10-22(1861일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-heavy-rain",
+    "title": "Steam — Heavy Rain",
+    "url": "https://store.steampowered.com/app/960910/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 21,500, 출시 2020-06-18, 개발사 Quantic Dream. 평가 Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건)."
+   },
+   {
+    "id": "steamspy-heavy-rain",
+    "title": "SteamSpy — Heavy Rain",
+    "url": "https://steamspy.com/app/960910",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 23,821 / 부정 4,024 (긍정률 85.5%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-heavy-rain",
+    "title": "Steam — Heavy Rain 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4103335143108662507",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Trading cards are now available for Heavy Rain!' (2021-10-22)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-heavy-rain"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-heavy-rain"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-heavy-rain"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-heavy-rain"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-heavy-rain"
+    ],
+    "note": "마지막 업데이트 2021-10-22 — 12개월(1861일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,500 (할인 90% ₩2,150)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-heavy-rain"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-heavy-rain"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2021-10-22 — 12개월(1861일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-heavy-rain"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-heavy-rain"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 81.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건) — 표본 가중 평균 81.0.",
+    "source_ids": [
+     "steam-heavy-rain",
+     "steamspy-heavy-rain"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-10-22(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
+    "source_ids": [
+     "steam-news-heavy-rain"
+    ]
+   },
+   "ai_review": {
+    "score": 52.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 52.2: 본질 검토 전 중립값 60 · 스토어 평점 81.0(+0.2) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-heavy-rain"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩21,500 (할인 90% ₩2,150) · 마지막 업데이트 2021-10-22. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건).",
+    "₩21,500 (할인 90% ₩2,150) · 마지막 업데이트 2021-10-22(1861일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 81,
+      "scale": "percent",
+      "count": 7201,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 85,
+      "scale": "percent",
+      "count": 470,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 7,201건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2021-10-22",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-10-22",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-heavy-rain"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Trading cards are now available for Heavy Rain!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2021-10-22(1861일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-heavy-rain"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-heavy-rain"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,500 (할인 90% ₩2,150). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 81% 긍정(7,201건) · 최근 30일 85%(470건) → 표본 가중 평균 81.0. 표본 7,201건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-10-22(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
+   "ai_review": "자동 추정 52.2: 본질 검토 전 중립값 60 · 스토어 평점 81.0(+0.2) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/heavy-rain.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "man-of-medan",
+  "name": "The Dark Pictures Anthology: Man of Medan",
+  "aliases": [
+   "맨 오브 메단"
+  ],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건). ₩24,800 · 마지막 업데이트 2019-09-19. 「스토리 · 내러티브 · 추리」 안에서 Supermassive Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Supermassive Games",
+  "publisher": "BANDAI NAMCO Entertainment Europe",
+  "release_date": "2019-08-29",
+  "one_liner": "더 다크 픽처스 앤솔로지는 1인용 시네마틱 공포 게임 시리즈로, 온라인 환경에서 친구들과 플레이하실 수도 있습니다. 맨 오브 메단에서는, 다섯 명의 친구들이 휴가를 맞이하여 다이빙 여행을 떠난 지 얼마 지나지 않아 악몽같은 시간을 겪게 됩니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2019-09-19(2625일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-man-of-medan",
+    "title": "Steam — The Dark Pictures Anthology: Man of Medan",
+    "url": "https://store.steampowered.com/app/939850/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2019-08-29, 개발사 Supermassive Games. 평가 Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건)."
+   },
+   {
+    "id": "steamspy-man-of-medan",
+    "title": "SteamSpy — The Dark Pictures Anthology: Man of Medan",
+    "url": "https://steamspy.com/app/939850",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 8,812 / 부정 2,797 (긍정률 75.9%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-man-of-medan",
+    "title": "Steam — The Dark Pictures Anthology: Man of Medan 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/2406534841128368085",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'New Patch is Live!' (2019-09-19)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-man-of-medan"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-man-of-medan"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-man-of-medan"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-man-of-medan"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-man-of-medan"
+    ],
+    "note": "마지막 업데이트 2019-09-19 — 12개월(2625일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 24800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩24,800"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩24,800 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-man-of-medan"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-man-of-medan"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2019-09-19 — 12개월(2625일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-man-of-medan"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-man-of-medan"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건) — 표본 가중 평균 74.0.",
+    "source_ids": [
+     "steam-man-of-medan",
+     "steamspy-man-of-medan"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2019-09-19(-14) · 플랫폼 2종(+2) · 출시 7년(+4).",
+    "source_ids": [
+     "steam-news-man-of-medan"
+    ]
+   },
+   "ai_review": {
+    "score": 50.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 50.5: 본질 검토 전 중립값 60 · 스토어 평점 74.0(-1.5) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-man-of-medan"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 74% 긍정(3,577건), 최근 업데이트 2019-09-19. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건).",
+    "₩24,800 · 마지막 업데이트 2019-09-19(2625일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "마지막 업데이트가 2019-09-19 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 74,
+      "scale": "percent",
+      "count": 3577,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 67,
+      "scale": "percent",
+      "count": 55,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 3,577건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2019-09-19",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2019-09-19",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-man-of-medan"
+     ],
+     "note": "업데이트 공지 'New Patch is Live!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2019-09-19(2625일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-man-of-medan"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-man-of-medan"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩24,800. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 74% 긍정(3,577건) · 최근 30일 67%(55건) → 표본 가중 평균 74.0. 표본 3,577건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2019-09-19(-14) · 플랫폼 2종(+2) · 출시 7년(+4).",
+   "ai_review": "자동 추정 50.5: 본질 검토 전 중립값 60 · 스토어 평점 74.0(-1.5) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/man-of-medan.webp"
  }
 ]

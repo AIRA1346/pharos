@@ -5231,5 +5231,1421 @@
    "ai_review": "자동 추정 67.4: 본질 검토 전 중립값 60 · 스토어 평점 81.6(+0.4) · 90일 내 업데이트(+4) · 표본 260,124건(+3)."
   },
   "icon": "assets/icons/mapy-cz.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "sygic",
+  "name": "Sygic",
+  "aliases": [
+   "사이직"
+  ],
+  "domain": "app",
+  "category": "maps-travel",
+  "arenas": [
+   "maps-navigation-travel"
+  ],
+  "arena_notes": {
+   "maps-navigation-travel": "Google Play 4.15★(1,889,891건). 무료 · 마지막 업데이트 2026-11-13. 「지도 · 내비게이션 · 여행」 안에서 Sygic.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Sygic.",
+  "publisher": "Sygic.",
+  "release_date": null,
+  "one_liner": "Sygic.의 지도 · 내비게이션 · 여행 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-13(13일 전).",
+  "sources": [
+   {
+    "id": "play-sygic",
+    "title": "Google Play — Sygic: GPS Navigation &amp; Maps",
+    "url": "https://play.google.com/store/apps/details?id=com.sygic.aura",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.15★(1,889,891) · 무료 · 최근 업데이트 2026-11-13."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-sygic"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-sygic"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-sygic"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-sygic"
+    ],
+    "note": "마지막 업데이트 2026-11-13(13일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-sygic"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-sygic"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-13(13일 전) — 활발.",
+      "source_ids": [
+       "play-sygic"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 83.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.15★(1,889,891건) — 표본 가중 평균 83.0.",
+    "source_ids": [
+     "play-sygic"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-13(+8).",
+    "source_ids": [
+     "play-sygic"
+    ]
+   },
+   "ai_review": {
+    "score": 67.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 67.8: 본질 검토 전 중립값 60 · 스토어 평점 83.0(+0.8) · 90일 내 업데이트(+4) · 표본 1,889,891건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-sygic"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.15★(1,889,891건), 최근 업데이트 2026-11-13. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.15★(1,889,891건).",
+    "무료 · 마지막 업데이트 2026-11-13(13일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.15,
+      "scale": "stars5",
+      "count": 1889891,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.15★ · 1,889,891건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.15★(1,889,891건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-13",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-13",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-sygic"
+     ],
+     "note": "Play 스토어 업데이트 'Sygic: GPS Navigation & Maps'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-13(13일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-sygic"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-sygic"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.15★(1,889,891건) → 표본 가중 평균 83.0. 표본 1,889,891건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-13(+8).",
+   "ai_review": "자동 추정 67.8: 본질 검토 전 중립값 60 · 스토어 평점 83.0(+0.8) · 90일 내 업데이트(+4) · 표본 1,889,891건(+3)."
+  },
+  "icon": "assets/icons/sygic.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "tomtom-go",
+  "name": "TomTom GO",
+  "aliases": [
+   "톰톰"
+  ],
+  "domain": "app",
+  "category": "maps-travel",
+  "arenas": [
+   "maps-navigation-travel"
+  ],
+  "arena_notes": {
+   "maps-navigation-travel": "Google Play 3.55★(279,175건). 무료 · 마지막 업데이트 2026-10-12. 「지도 · 내비게이션 · 여행」 안에서 TomTom International BV의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "TomTom International BV",
+  "publisher": "TomTom International BV",
+  "release_date": null,
+  "one_liner": "TomTom International BV의 지도 · 내비게이션 · 여행 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-12(45일 전).",
+  "sources": [
+   {
+    "id": "play-tomtom-go",
+    "title": "Google Play — TomTom GO Expert: Truck GPS",
+    "url": "https://play.google.com/store/apps/details?id=com.tomtom.gplay.navapp",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.55★(279,175) · 무료 · 최근 업데이트 2026-10-12."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-tomtom-go"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-tomtom-go"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-tomtom-go"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-tomtom-go"
+    ],
+    "note": "마지막 업데이트 2026-10-12(45일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-tomtom-go"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-tomtom-go"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-12(45일 전) — 활발.",
+      "source_ids": [
+       "play-tomtom-go"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 71.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.55★(279,175건) — 표본 가중 평균 71.0.",
+    "source_ids": [
+     "play-tomtom-go"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-12(+8).",
+    "source_ids": [
+     "play-tomtom-go"
+    ]
+   },
+   "ai_review": {
+    "score": 64.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 71.0(-2.2) · 90일 내 업데이트(+4) · 표본 279,175건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-tomtom-go"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.55★(279,175건), 최근 업데이트 2026-10-12. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.55★(279,175건).",
+    "무료 · 마지막 업데이트 2026-10-12(45일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.55,
+      "scale": "stars5",
+      "count": 279175,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.55★ · 279,175건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.55★(279,175건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-12",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-12",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-tomtom-go"
+     ],
+     "note": "Play 스토어 업데이트 'TomTom GO Expert: Truck GPS'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-12(45일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-tomtom-go"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-tomtom-go"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.55★(279,175건) → 표본 가중 평균 71.0. 표본 279,175건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-12(+8).",
+   "ai_review": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 71.0(-2.2) · 90일 내 업데이트(+4) · 표본 279,175건(+3)."
+  },
+  "icon": "assets/icons/tomtom-go.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "here-wego",
+  "name": "HERE WeGo",
+  "aliases": [
+   "히어 위고"
+  ],
+  "domain": "app",
+  "category": "maps-travel",
+  "arenas": [
+   "maps-navigation-travel"
+  ],
+  "arena_notes": {
+   "maps-navigation-travel": "Google Play 3.23★(500,956건). 무료 · 마지막 업데이트 2026-11-19. 「지도 · 내비게이션 · 여행」 안에서 HERE Europe B.V.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "HERE Europe B.V.",
+  "publisher": "HERE Europe B.V.",
+  "release_date": null,
+  "one_liner": "HERE Europe B.V.의 지도 · 내비게이션 · 여행 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-19(7일 전).",
+  "sources": [
+   {
+    "id": "play-here-wego",
+    "title": "Google Play — HERE WeGo: Maps &amp; Navigation",
+    "url": "https://play.google.com/store/apps/details?id=com.here.app.maps",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.23★(500,956) · 무료 · 최근 업데이트 2026-11-19."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-here-wego"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-here-wego"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-here-wego"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-here-wego"
+    ],
+    "note": "마지막 업데이트 2026-11-19(7일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "free",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "무료 티어 한도는 검수 전"
+    ],
+    "one_liner": "무료",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-here-wego"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-here-wego"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-19(7일 전) — 활발.",
+      "source_ids": [
+       "play-here-wego"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 64.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.23★(500,956건) — 표본 가중 평균 64.6.",
+    "source_ids": [
+     "play-here-wego"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-19(+8).",
+    "source_ids": [
+     "play-here-wego"
+    ]
+   },
+   "ai_review": {
+    "score": 63.1,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 63.1: 본질 검토 전 중립값 60 · 스토어 평점 64.6(-3.9) · 90일 내 업데이트(+4) · 표본 500,956건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-here-wego"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.23★(500,956건), 최근 업데이트 2026-11-19. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.23★(500,956건).",
+    "무료 · 마지막 업데이트 2026-11-19(7일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.23,
+      "scale": "stars5",
+      "count": 500956,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.23★ · 500,956건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.23★(500,956건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-19",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-19",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-here-wego"
+     ],
+     "note": "Play 스토어 업데이트 'HERE WeGo: Maps & Navigation'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-19(7일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-here-wego"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-here-wego"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.23★(500,956건) → 표본 가중 평균 64.6. 표본 500,956건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-19(+8).",
+   "ai_review": "자동 추정 63.1: 본질 검토 전 중립값 60 · 스토어 평점 64.6(-3.9) · 90일 내 업데이트(+4) · 표본 500,956건(+3)."
+  },
+  "icon": "assets/icons/here-wego.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "moovit",
+  "name": "Moovit",
+  "aliases": [
+   "무빗"
+  ],
+  "domain": "app",
+  "category": "maps-travel",
+  "arenas": [
+   "maps-navigation-travel"
+  ],
+  "arena_notes": {
+   "maps-navigation-travel": "Google Play 3.79★(1,534,116건). 무료 · 마지막 업데이트 2026-11-15. 「지도 · 내비게이션 · 여행」 안에서 Moovit의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Moovit",
+  "publisher": "Moovit",
+  "release_date": null,
+  "one_liner": "Moovit의 지도 · 내비게이션 · 여행 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-15(11일 전).",
+  "sources": [
+   {
+    "id": "play-moovit",
+    "title": "Google Play — Moovit: Your Transit Tracker",
+    "url": "https://play.google.com/store/apps/details?id=com.tranzmate",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.79★(1,534,116) · 무료 · 최근 업데이트 2026-11-15."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-moovit"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 있다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-moovit"
+    ],
+    "note": "마지막 업데이트 2026-11-15(11일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-15(11일 전) — 활발.",
+      "source_ids": [
+       "play-moovit"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 75.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 3.79★(1,534,116건) — 표본 가중 평균 75.8.",
+    "source_ids": [
+     "play-moovit"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-15(+8).",
+    "source_ids": [
+     "play-moovit"
+    ]
+   },
+   "ai_review": {
+    "score": 65.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 65.9: 본질 검토 전 중립값 60 · 스토어 평점 75.8(-1.1) · 90일 내 업데이트(+4) · 표본 1,534,116건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-moovit"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.79★(1,534,116건), 최근 업데이트 2026-11-15. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.79★(1,534,116건).",
+    "무료 · 마지막 업데이트 2026-11-15(11일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.79,
+      "scale": "stars5",
+      "count": 1534116,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.79★ · 1,534,116건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.79★(1,534,116건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-15",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-15",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-moovit"
+     ],
+     "note": "Play 스토어 업데이트 'Moovit: Your Transit Tracker'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-15(11일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": true,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-moovit"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.79★(1,534,116건) → 표본 가중 평균 75.8. 표본 1,534,116건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-15(+8).",
+   "ai_review": "자동 추정 65.9: 본질 검토 전 중립값 60 · 스토어 평점 75.8(-1.1) · 90일 내 업데이트(+4) · 표본 1,534,116건(+3)."
+  },
+  "icon": "assets/icons/moovit.webp"
  }
 ]

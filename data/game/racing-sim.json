@@ -7067,5 +7067,1563 @@
    "ai_review": "자동 추정 67.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 90일 내 업데이트(+4) · 표본 19,707건(+1)."
   },
   "icon": "assets/icons/snowrunner.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "wreckfest",
+  "name": "Wreckfest",
+  "aliases": [
+   "레크페스트"
+  ],
+  "domain": "game",
+  "category": "racing-sports",
+  "arenas": [
+   "racing-sim"
+  ],
+  "arena_notes": {
+   "racing-sim": "Steam 누적 87% 긍정(19,023건) · 최근 30일 89%(116건). ₩31,900 · 마지막 업데이트 2025-03-20. 「레이싱 · 스포츠」 안에서 Bugbear의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "인디",
+   "레이싱"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Bugbear",
+  "publisher": "THQ Nordic",
+  "release_date": "2018-06-14",
+  "one_liner": "히어로 영화를 방불케하는 파괴적인 액션, 우승을 놓고 벌어지는 치열한 접전, 기상천외한 충돌 등 오직 Wreckfest에서만 볼 수 있는 최고의 순간들을 만나보세요. FlatOut 1편과 2편을 제작한 유명 개발사 Bugbear가 빚어낸 사실적인…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2025-03-20(616일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-wreckfest",
+    "title": "Steam — Wreckfest",
+    "url": "https://store.steampowered.com/app/228380/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2018-06-14, 개발사 Bugbear. 평가 Steam 누적 87% 긍정(19,023건) · 최근 30일 89%(116건)."
+   },
+   {
+    "id": "steamspy-wreckfest",
+    "title": "SteamSpy — Wreckfest",
+    "url": "https://steamspy.com/app/228380",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 27,692 / 부정 3,955 (긍정률 87.5%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-wreckfest",
+    "title": "Steam — Wreckfest 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1794102528307251",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Wheels Off, Chaos On: Wreckfest 2 Smashes into Early Access!' (2025-03-20)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-wreckfest"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-wreckfest"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-wreckfest"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-wreckfest"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-wreckfest"
+    ],
+    "note": "마지막 업데이트 2025-03-20 — 12개월(616일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 31900,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩31,900"
+    },
+    "limits": [
+     "DLC 14건 별도 판매",
+     "미국 스토어 $29.99"
+    ],
+    "one_liner": "1회 구매 ₩31,900 — DLC 14건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-wreckfest"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-wreckfest"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-03-20 — 12개월(616일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-wreckfest"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-wreckfest"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 87.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 87% 긍정(19,023건) · 최근 30일 89%(116건) — 표본 가중 평균 87.0.",
+    "source_ids": [
+     "steam-wreckfest",
+     "steamspy-wreckfest"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-03-20(-14) · 플랫폼 2종(+2) · 출시 8년(+4).",
+    "source_ids": [
+     "steam-news-wreckfest"
+    ]
+   },
+   "ai_review": {
+    "score": 54.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 54.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8) · 표본 19,023건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-wreckfest"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 87% 긍정(19,023건), 최근 업데이트 2025-03-20. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 87% 긍정(19,023건) · 최근 30일 89%(116건).",
+    "₩31,900 · 마지막 업데이트 2025-03-20(616일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "마지막 업데이트가 2025-03-20 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 19023,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 89,
+      "scale": "percent",
+      "count": 116,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 19,023건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 87% 긍정(19,023건) · 최근 30일 89%(116건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2025-03-20",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-03-20",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-wreckfest"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Wheels Off, Chaos On: Wreckfest 2 Smashes into Early Access!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-03-20(616일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-wreckfest"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-wreckfest"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩31,900. DLC 14건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 87% 긍정(19,023건) · 최근 30일 89%(116건) → 표본 가중 평균 87.0. 표본 19,023건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-03-20(-14) · 플랫폼 2종(+2) · 출시 8년(+4).",
+   "ai_review": "자동 추정 54.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8) · 표본 19,023건(+1)."
+  },
+  "icon": "assets/icons/wreckfest.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "art-of-rally",
+  "name": "art of rally",
+  "aliases": [
+   "아트 오브 랠리"
+  ],
+  "domain": "game",
+  "category": "racing-sports",
+  "arenas": [
+   "racing-sim"
+  ],
+  "arena_notes": {
+   "racing-sim": "Steam 누적 93% 긍정(4,095건) · 최근 30일 87%(40건). ₩26,500 (할인 50% ₩13,250) · 마지막 업데이트 2026-10-14. 「레이싱 · 스포츠」 안에서 Funselektor의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "인디",
+   "레이싱"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Funselektor",
+  "publisher": "Funselektor",
+  "release_date": "2020-09-23",
+  "one_liner": "랠리의 황금기를 직접 경험해보세요. 1960년대 부터 1980년대 그룹 B 차량들 중 당신이 타고 싶은 차를 골라서 실제 장소에 영감을 받아 만든 스테이지들을 질주해보세요. 당신은 아트 오브 랠리의 고수가 될 수 있을까요? 한 번 시도해보세요!",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-14(43일 전).",
+  "sources": [
+   {
+    "id": "steam-art-of-rally",
+    "title": "Steam — art of rally",
+    "url": "https://store.steampowered.com/app/550320/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 26,500, 출시 2020-09-23, 개발사 Funselektor. 평가 Steam 누적 93% 긍정(4,095건) · 최근 30일 87%(40건)."
+   },
+   {
+    "id": "steamspy-art-of-rally",
+    "title": "SteamSpy — art of rally",
+    "url": "https://steamspy.com/app/550320",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 5,243 / 부정 425 (긍정률 92.5%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-art-of-rally",
+    "title": "Steam — art of rally 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706675615",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'over the hill available NOW!' (2026-10-14)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-art-of-rally"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-art-of-rally"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-art-of-rally"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-art-of-rally"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-art-of-rally"
+    ],
+    "note": "마지막 업데이트 2026-10-14(43일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 26500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩26,500 (할인 50% ₩13,250)"
+    },
+    "limits": [
+     "DLC 3건 별도 판매",
+     "미국 스토어 $24.99"
+    ],
+    "one_liner": "1회 구매 ₩26,500 — DLC 3건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-art-of-rally"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-art-of-rally"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-14(43일 전) — 활발.",
+      "source_ids": [
+       "steam-art-of-rally"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-art-of-rally"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 93.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 93% 긍정(4,095건) · 최근 30일 87%(40건) — 표본 가중 평균 93.0.",
+    "source_ids": [
+     "steam-art-of-rally",
+     "steamspy-art-of-rally"
+    ]
+   },
+   "objective": {
+    "score": 82.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-14(+8) · 플랫폼 4종(+4) · 출시 6년(+4).",
+    "source_ids": [
+     "steam-news-art-of-rally"
+    ]
+   },
+   "ai_review": {
+    "score": 67.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 67.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-art-of-rally"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — Steam 93% 긍정(4,095건), 최근 업데이트 2026-10-14. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 93% 긍정(4,095건) · 최근 30일 87%(40건).",
+    "₩26,500 (할인 50% ₩13,250) · 마지막 업데이트 2026-10-14(43일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 93,
+      "scale": "percent",
+      "count": 4095,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 40,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 4,095건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 93% 긍정(4,095건) · 최근 30일 87%(40건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-14",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-14",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-art-of-rally"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'over the hill available NOW!'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-14(43일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-art-of-rally"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-art-of-rally"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩26,500 (할인 50% ₩13,250). DLC 3건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 93% 긍정(4,095건) · 최근 30일 87%(40건) → 표본 가중 평균 93.0. 표본 4,095건.",
+   "objective": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-14(+8) · 플랫폼 4종(+4) · 출시 6년(+4).",
+   "ai_review": "자동 추정 67.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/art-of-rally.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "trackmania",
+  "name": "Trackmania",
+  "aliases": [
+   "트랙매니아"
+  ],
+  "domain": "game",
+  "category": "racing-sports",
+  "arenas": [
+   "racing-sim"
+  ],
+  "arena_notes": {
+   "racing-sim": "Steam 누적 79% 긍정(14,935건) · 최근 30일 82%(250건). 무료 · 마지막 업데이트 2026-11-13. 「레이싱 · 스포츠」 안에서 Nadeo의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "레이싱"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Nadeo",
+  "publisher": "Ubisoft",
+  "release_date": "2023-02-02",
+  "one_liner": "정밀함과 창의성을 결합한 독특한 레이싱 게임, 트랙매니아 다섯 가지 멋진 환경에서 무료로 플레이하고, 매주 플레이어가 만든 최고의 트랙에서 경주하며, 지역 순위를 올려보세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-13(13일 전).",
+  "sources": [
+   {
+    "id": "steam-trackmania",
+    "title": "Steam — Trackmania",
+    "url": "https://store.steampowered.com/app/2225070/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "무료, 출시 2023-02-02, 개발사 Nadeo. 평가 Steam 누적 79% 긍정(14,935건) · 최근 30일 82%(250건)."
+   },
+   {
+    "id": "steam-news-trackmania",
+    "title": "Steam — Trackmania 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849192144188052",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Trackmania Summit Presented by Visa: Registrations Are Open!' (2026-11-13)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-trackmania"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-trackmania"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-trackmania"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-trackmania"
+    ],
+    "note": "마지막 업데이트 2026-11-13(13일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "free",
+    "label": "Steam 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "캐시 상점·확률형 상품 등 선택 과금은 검수 전"
+    ],
+    "one_liner": "무료 플레이 — 선택 과금 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-trackmania"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-trackmania"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-13(13일 전) — 활발.",
+      "source_ids": [
+       "steam-trackmania"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 79.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 79% 긍정(14,935건) · 최근 30일 82%(250건) — 표본 가중 평균 79.0.",
+    "source_ids": [
+     "steam-trackmania"
+    ]
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-13(+8) · 플랫폼 2종(+2) · 출시 3년(+2).",
+    "source_ids": [
+     "steam-news-trackmania"
+    ]
+   },
+   "ai_review": {
+    "score": 64.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 79.0(-0.2) · 90일 내 업데이트(+4) · 표본 14,935건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-trackmania"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 79% 긍정(14,935건), 최근 업데이트 2026-11-13. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 79% 긍정(14,935건) · 최근 30일 82%(250건).",
+    "무료 · 마지막 업데이트 2026-11-13(13일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 79,
+      "scale": "percent",
+      "count": 14935,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 82,
+      "scale": "percent",
+      "count": 250,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 14,935건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 79% 긍정(14,935건) · 최근 30일 82%(250건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-13",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-13",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-trackmania"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Trackmania Summit Presented by Visa: Registrations Are Open!'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-13(13일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-trackmania"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "steam-trackmania"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 79% 긍정(14,935건) · 최근 30일 82%(250건) → 표본 가중 평균 79.0. 표본 14,935건.",
+   "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-13(+8) · 플랫폼 2종(+2) · 출시 3년(+2).",
+   "ai_review": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 79.0(-0.2) · 90일 내 업데이트(+4) · 표본 14,935건(+1)."
+  },
+  "icon": "assets/icons/trackmania.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "hot-wheels-unleashed-2",
+  "name": "HOT WHEELS UNLEASHED 2 - Turbocharged",
+  "aliases": [
+   "핫휠 언리쉬드 2"
+  ],
+  "domain": "game",
+  "category": "racing-sports",
+  "arenas": [
+   "racing-sim"
+  ],
+  "arena_notes": {
+   "racing-sim": "Steam 누적 77% 긍정(994건) · 최근 30일 89%(19건). ₩44,800 · 마지막 업데이트 2024-05-14. 「레이싱 · 스포츠」 안에서 Milestone S.r.l.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "레이싱"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Milestone S.r.l.",
+  "publisher": "Milestone S.r.l.",
+  "release_date": "2023-10-19",
+  "one_liner": "멋진 차들이 향상된 재미와 함께 돌아왔습니다! 130종이 넘는 차량과 신규 메커니즘으로 레이스를 즐기세요. 또한 새로운 환경과 게임 모드에서 트랙을 건설하고 온/오프라인에서 즐겨보세요!",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2024-05-14(926일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-hot-wheels-unleashed-2",
+    "title": "Steam — HOT WHEELS UNLEASHED™ 2 - Turbocharged",
+    "url": "https://store.steampowered.com/app/2051120/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2023-10-19, 개발사 Milestone S.r.l.. 평가 Steam 누적 77% 긍정(994건) · 최근 30일 89%(19건)."
+   },
+   {
+    "id": "steamspy-hot-wheels-unleashed-2",
+    "title": "SteamSpy — HOT WHEELS UNLEASHED™ 2 - Turbocharged",
+    "url": "https://steamspy.com/app/2051120",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 495 / 부정 169 (긍정률 74.5%). 보유자 규모 0 .. 20,000."
+   },
+   {
+    "id": "steam-news-hot-wheels-unleashed-2",
+    "title": "Steam — HOT WHEELS UNLEASHED™ 2 - Turbocharged 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5768625435413472505",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'New patch released!' (2024-05-14)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ],
+    "note": "마지막 업데이트 2024-05-14 — 12개월(926일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 44800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩44,800"
+    },
+    "limits": [
+     "DLC 25건 별도 판매",
+     "미국 스토어 $39.99"
+    ],
+    "one_liner": "1회 구매 ₩44,800 — DLC 25건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-hot-wheels-unleashed-2"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-hot-wheels-unleashed-2"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-05-14 — 12개월(926일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-hot-wheels-unleashed-2"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-hot-wheels-unleashed-2"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 77.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "low",
+    "summary": "자동 수집: Steam 누적 77% 긍정(994건) · 최근 30일 89%(19건) — 표본 가중 평균 77.0.",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2",
+     "steamspy-hot-wheels-unleashed-2"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-05-14(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
+    "source_ids": [
+     "steam-news-hot-wheels-unleashed-2"
+    ]
+   },
+   "ai_review": {
+    "score": 51.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 51.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 77% 긍정(994건), 최근 업데이트 2024-05-14. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 77% 긍정(994건) · 최근 30일 89%(19건).",
+    "₩44,800 · 마지막 업데이트 2024-05-14(926일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "마지막 업데이트가 2024-05-14 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 77,
+      "scale": "percent",
+      "count": 994,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 89,
+      "scale": "percent",
+      "count": 19,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 994건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 77% 긍정(994건) · 최근 30일 89%(19건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-05-14",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-05-14",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-hot-wheels-unleashed-2"
+     ],
+     "note": "업데이트 공지 'New patch released!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-05-14(926일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-hot-wheels-unleashed-2"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-hot-wheels-unleashed-2"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩44,800. DLC 25건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 77% 긍정(994건) · 최근 30일 89%(19건) → 표본 가중 평균 77.0. 표본 994건.",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-05-14(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
+   "ai_review": "자동 추정 51.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/hot-wheels-unleashed-2.webp"
  }
 ]

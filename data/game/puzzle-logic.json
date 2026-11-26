@@ -7819,5 +7819,1538 @@
    "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/the-roottrees-are-dead.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "antichamber",
+  "name": "Antichamber",
+  "aliases": [
+   "안티체임버"
+  ],
+  "domain": "game",
+  "category": "puzzle-logic",
+  "arenas": [
+   "puzzle-logic"
+  ],
+  "arena_notes": {
+   "puzzle-logic": "Steam 누적 95% 긍정(10,264건) · 최근 30일 90%(11건). ₩21,000 · 마지막 업데이트 미확인. 「퍼즐 · 두뇌 · 공간 논리」 안에서 Alexander Bruce의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Alexander Bruce",
+  "publisher": "Demruth",
+  "release_date": "2013-01-31",
+  "one_liner": "Antichamber is a mind-bending psychological exploration game where nothing can be taken for granted. Discover an Escher-like world where…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 날짜를 확인하지 못했다 — 완결·방치 여부도 미확인.",
+  "sources": [
+   {
+    "id": "steam-antichamber",
+    "title": "Steam — Antichamber",
+    "url": "https://store.steampowered.com/app/219890/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2013-01-31, 개발사 Alexander Bruce. 평가 Steam 누적 95% 긍정(10,264건) · 최근 30일 90%(11건)."
+   },
+   {
+    "id": "steamspy-antichamber",
+    "title": "SteamSpy — Antichamber",
+    "url": "https://steamspy.com/app/219890",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 13,060 / 부정 637 (긍정률 95.3%). 보유자 규모 1,000,000 .. 2,000,000."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-antichamber"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-antichamber"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-antichamber"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-antichamber"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,000"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,000 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-antichamber"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-antichamber"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-antichamber"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 95% 긍정(10,264건) · 최근 30일 90%(11건) — 표본 가중 평균 95.0.",
+    "source_ids": [
+     "steam-antichamber",
+     "steamspy-antichamber"
+    ]
+   },
+   "objective": {
+    "score": 70.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 70.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 업데이트 확인 실패(-4) · 플랫폼 4종(+4) · 출시 13년(+4).",
+    "source_ids": [
+     "steam-antichamber"
+    ]
+   },
+   "ai_review": {
+    "score": 64.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 표본 10,264건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-antichamber"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 95% 긍정(10,264건), 업데이트 기록 없음. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 95% 긍정(10,264건) · 최근 30일 90%(11건).",
+    "₩21,000 · 마지막 업데이트 미확인.",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 10264,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 90,
+      "scale": "percent",
+      "count": 11,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 10,264건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 95% 긍정(10,264건) · 최근 30일 90%(11건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": null,
+   "cadence": "unknown",
+   "entries": [],
+   "maintenance_quality": "unknown",
+   "assessment": "최근 업데이트 기록을 찾지 못했다 — 완결·방치 여부도 검수 전이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-antichamber"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-antichamber"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,000. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 95% 긍정(10,264건) · 최근 30일 90%(11건) → 표본 가중 평균 95.0. 표본 10,264건.",
+   "objective": "자동 산정 70.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 업데이트 확인 실패(-4) · 플랫폼 4종(+4) · 출시 13년(+4).",
+   "ai_review": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 표본 10,264건(+1)."
+  },
+  "icon": "assets/icons/antichamber.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "toki-tori-2",
+  "name": "Toki Tori 2+",
+  "aliases": [
+   "토키 토리 2"
+  ],
+  "domain": "game",
+  "category": "puzzle-logic",
+  "arenas": [
+   "puzzle-logic"
+  ],
+  "arena_notes": {
+   "puzzle-logic": "Steam 누적 87% 긍정(755건). ₩12,500 · 마지막 업데이트 2017-01-31. 「퍼즐 · 두뇌 · 공간 논리」 안에서 Two Tribes의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "캐주얼",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Two Tribes",
+  "publisher": "Two Tribes",
+  "release_date": "2013-07-11",
+  "one_liner": "Toki Tori 2+는 귀여워 보이지만 만만치 않은 퍼즐 어드벤처 게임입니다. 휘파람과 발 구르기, 단 두 가지 동작만으로 울창한 숲의 섬을 자유롭게 탐험하며 점점 복잡해지는 퍼즐을 풀어 보세요!",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2017-01-31(3586일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-toki-tori-2",
+    "title": "Steam — Toki Tori 2+",
+    "url": "https://store.steampowered.com/app/201420/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2013-07-11, 개발사 Two Tribes. 평가 Steam 누적 87% 긍정(755건)."
+   },
+   {
+    "id": "steamspy-toki-tori-2",
+    "title": "SteamSpy — Toki Tori 2+",
+    "url": "https://steamspy.com/app/201420",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 662 / 부정 93 (긍정률 87.7%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-toki-tori-2",
+    "title": "Steam — Toki Tori 2+ 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/3819571572127542262",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Help us out with our marketing!' (2017-01-31)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ],
+    "note": "마지막 업데이트 2017-01-31 — 12개월(3586일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 12500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩12,500"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $14.99"
+    ],
+    "one_liner": "1회 구매 ₩12,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-toki-tori-2"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-toki-tori-2"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2017-01-31 — 12개월(3586일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-toki-tori-2"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-toki-tori-2"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 87.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "low",
+    "summary": "자동 수집: Steam 누적 87% 긍정(755건) — 표본 가중 평균 87.0.",
+    "source_ids": [
+     "steam-toki-tori-2",
+     "steamspy-toki-tori-2"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2017-01-31(-14) · 플랫폼 4종(+4) · 출시 13년(+4).",
+    "source_ids": [
+     "steam-news-toki-tori-2"
+    ]
+   },
+   "ai_review": {
+    "score": 53.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 53.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩12,500 · 마지막 업데이트 2017-01-31. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 87% 긍정(755건).",
+    "₩12,500 · 마지막 업데이트 2017-01-31(3586일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 755,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 755건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 87% 긍정(755건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2017-01-31",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2017-01-31",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-toki-tori-2"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Help us out with our marketing!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2017-01-31(3586일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-toki-tori-2"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-toki-tori-2"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩12,500. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 87% 긍정(755건) → 표본 가중 평균 87.0. 표본 755건.",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2017-01-31(-14) · 플랫폼 4종(+4) · 출시 13년(+4).",
+   "ai_review": "자동 추정 53.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/toki-tori-2.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "snakebird",
+  "name": "Snakebird",
+  "aliases": [
+   "스네이크버드"
+  ],
+  "domain": "game",
+  "category": "puzzle-logic",
+  "arenas": [
+   "puzzle-logic"
+  ],
+  "arena_notes": {
+   "puzzle-logic": "Steam 누적 94% 긍정(915건). ₩7,500 · 마지막 업데이트 2015-06-11. 「퍼즐 · 두뇌 · 공간 논리」 안에서 Noumenon Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Noumenon Games",
+  "publisher": "Noumenon Games",
+  "release_date": "2015-05-04",
+  "one_liner": "Do you like puzzles, fruit and the notion of crossing a snake with a bird for no good reason? If the answer to at least one of those…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2015-06-11(4186일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-snakebird",
+    "title": "Steam — Snakebird",
+    "url": "https://store.steampowered.com/app/357300/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2015-05-04, 개발사 Noumenon Games. 평가 Steam 누적 94% 긍정(915건)."
+   },
+   {
+    "id": "steamspy-snakebird",
+    "title": "SteamSpy — Snakebird",
+    "url": "https://steamspy.com/app/357300",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 869 / 부정 46 (긍정률 95.0%). 보유자 규모 50,000 .. 100,000."
+   },
+   {
+    "id": "steam-news-snakebird",
+    "title": "Steam — Snakebird 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/499118981895840816",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'Patch 1.02' (2015-06-11)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-snakebird"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-snakebird"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-snakebird"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-snakebird"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-snakebird"
+    ],
+    "note": "마지막 업데이트 2015-06-11 — 12개월(4186일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 7500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩7,500"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $6.99"
+    ],
+    "one_liner": "1회 구매 ₩7,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-snakebird"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-snakebird"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2015-06-11 — 12개월(4186일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-snakebird"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-snakebird"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 94.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "low",
+    "summary": "자동 수집: Steam 누적 94% 긍정(915건) — 표본 가중 평균 94.0.",
+    "source_ids": [
+     "steam-snakebird",
+     "steamspy-snakebird"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2015-06-11(-14) · 플랫폼 4종(+4) · 출시 11년(+4).",
+    "source_ids": [
+     "steam-news-snakebird"
+    ]
+   },
+   "ai_review": {
+    "score": 55.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-snakebird"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩7,500 · 마지막 업데이트 2015-06-11. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 94% 긍정(915건).",
+    "₩7,500 · 마지막 업데이트 2015-06-11(4186일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 94,
+      "scale": "percent",
+      "count": 915,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 915건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 94% 긍정(915건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2015-06-11",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2015-06-11",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-snakebird"
+     ],
+     "note": "업데이트 공지 'Patch 1.02'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2015-06-11(4186일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-snakebird"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-snakebird"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩7,500. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 94% 긍정(915건) → 표본 가중 평균 94.0. 표본 915건.",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2015-06-11(-14) · 플랫폼 4종(+4) · 출시 11년(+4).",
+   "ai_review": "자동 추정 55.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/snakebird.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "entropy-centre",
+  "name": "The Entropy Centre",
+  "aliases": [
+   "엔트로피 센터"
+  ],
+  "domain": "game",
+  "category": "puzzle-logic",
+  "arenas": [
+   "puzzle-logic"
+  ],
+  "arena_notes": {
+   "puzzle-logic": "Steam 누적 87% 긍정(2,105건) · 최근 30일 70%(27건). ₩21,500 (할인 80% ₩4,300) · 마지막 업데이트 2025-08-19. 「퍼즐 · 두뇌 · 공간 논리」 안에서 Stubby Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Stubby Games",
+  "publisher": "Playstack",
+  "release_date": "2022-11-03",
+  "one_liner": "거꾸로 생각하세요. 재치로 불가능을 뛰어넘어 보세요. 정신이 아찔해지는 일인칭 어드벤처 게임에서 물체의 시간을 되감아 가며 기발하고 복잡한 퍼즐을 풀어보세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-08-19(464일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-entropy-centre",
+    "title": "Steam — The Entropy Centre",
+    "url": "https://store.steampowered.com/app/1730590/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 21,500, 출시 2022-11-03, 개발사 Stubby Games. 평가 Steam 누적 87% 긍정(2,105건) · 최근 30일 70%(27건)."
+   },
+   {
+    "id": "steamspy-entropy-centre",
+    "title": "SteamSpy — The Entropy Centre",
+    "url": "https://steamspy.com/app/1730590",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 3,312 / 부정 367 (긍정률 90.0%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-entropy-centre",
+    "title": "Steam — The Entropy Centre 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1808061939510334",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) '75% Off The Entropy Centre + New Bundle Available' (2025-08-19)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-entropy-centre"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-entropy-centre"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-entropy-centre"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-entropy-centre"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-entropy-centre"
+    ],
+    "note": "마지막 업데이트 2025-08-19 — 12개월(464일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,500 (할인 80% ₩4,300)"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,500 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-entropy-centre"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-entropy-centre"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-08-19 — 12개월(464일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-entropy-centre"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-entropy-centre"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 87.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 87% 긍정(2,105건) · 최근 30일 70%(27건) — 표본 가중 평균 87.0.",
+    "source_ids": [
+     "steam-entropy-centre",
+     "steamspy-entropy-centre"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-08-19(-14) · 플랫폼 2종(+2) · 출시 4년(+2).",
+    "source_ids": [
+     "steam-news-entropy-centre"
+    ]
+   },
+   "ai_review": {
+    "score": 53.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 53.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-entropy-centre"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩21,500 (할인 80% ₩4,300) · 마지막 업데이트 2025-08-19. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 87% 긍정(2,105건) · 최근 30일 70%(27건).",
+    "₩21,500 (할인 80% ₩4,300) · 마지막 업데이트 2025-08-19(464일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 2105,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 70,
+      "scale": "percent",
+      "count": 27,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 2,105건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 87% 긍정(2,105건) · 최근 30일 70%(27건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2025-08-19",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-08-19",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-entropy-centre"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) '75% Off The Entropy Centre + New Bundle Available'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-08-19(464일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-entropy-centre"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-entropy-centre"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,500 (할인 80% ₩4,300). DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 87% 긍정(2,105건) · 최근 30일 70%(27건) → 표본 가중 평균 87.0. 표본 2,105건.",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-08-19(-14) · 플랫폼 2종(+2) · 출시 4년(+2).",
+   "ai_review": "자동 추정 53.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/entropy-centre.webp"
  }
 ]

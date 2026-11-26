@@ -1,0 +1,4140 @@
+[
+ {
+  "schema_version": "0.4.0",
+  "id": "substack",
+  "name": "Substack",
+  "aliases": [
+   "서브스택"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "Google Play 4.83★(358,880건). 무료 · 마지막 업데이트 2026-11-23. 「커뮤니티 · RSS · 뉴스레터」 안에서 Substack Inc.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "Substack Inc.",
+  "publisher": "Substack Inc.",
+  "release_date": null,
+  "one_liner": "Substack Inc.의 커뮤니티 · RSS · 뉴스레터 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-23(3일 전).",
+  "sources": [
+   {
+    "id": "play-substack",
+    "title": "Google Play — Substack",
+    "url": "https://play.google.com/store/apps/details?id=com.substack.app",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.83★(358,880) · 무료 · 최근 업데이트 2026-11-23."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-substack"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-substack"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-substack"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-substack"
+    ],
+    "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "free",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "무료 티어 한도는 검수 전"
+    ],
+    "one_liner": "무료",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-substack"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-substack"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+      "source_ids": [
+       "play-substack"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 96.6,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Google Play 4.83★(358,880건) — 표본 가중 평균 96.6.",
+    "source_ids": [
+     "play-substack"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+    "source_ids": [
+     "play-substack"
+    ]
+   },
+   "ai_review": {
+    "score": 71.1,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 71.1: 본질 검토 전 중립값 60 · 스토어 평점 96.6(+4.1) · 90일 내 업데이트(+4) · 표본 358,880건(+3). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-substack"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.83★(358,880건), 최근 업데이트 2026-11-23. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.83★(358,880건).",
+    "무료 · 마지막 업데이트 2026-11-23(3일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.83,
+      "scale": "stars5",
+      "count": 358880,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.83★ · 358,880건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.83★(358,880건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-23",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-23",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-substack"
+     ],
+     "note": "Play 스토어 업데이트 'Substack'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-23(3일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-substack"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-substack"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.83★(358,880건) → 표본 가중 평균 96.6. 표본 358,880건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+   "ai_review": "자동 추정 71.1: 본질 검토 전 중립값 60 · 스토어 평점 96.6(+4.1) · 90일 내 업데이트(+4) · 표본 358,880건(+3)."
+  },
+  "icon": "assets/icons/substack.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "netnewswire",
+  "name": "NetNewsWire",
+  "aliases": [
+   "넷뉴스와이어"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-25. 「커뮤니티 · RSS · 뉴스레터」 안에서 Ranchero-Software의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "feed reader",
+   "json feed",
+   "rss"
+  ],
+  "platforms": [
+   "macos",
+   "ios"
+  ],
+  "developer": "Ranchero-Software",
+  "publisher": "Ranchero-Software",
+  "release_date": "2017-05-21",
+  "one_liner": "RSS reader for macOS and iOS.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-25(1일 전).",
+  "sources": [
+   {
+    "id": "github-netnewswire",
+    "title": "GitHub — Ranchero-Software/NetNewsWire",
+    "url": "https://github.com/Ranchero-Software/NetNewsWire",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 10,574 · 라이선스 MIT · 최근 푸시 2026-11-25 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-netnewswire"
+    ],
+    "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+      "source_ids": [
+       "github-netnewswire"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 84.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 84.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 2종(+2) · 출시 9년(+4).",
+    "source_ids": [
+     "github-netnewswire"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-netnewswire"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-25(1일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-netnewswire"
+     ],
+     "note": "저장소 최근 푸시 'Ranchero-Software/NetNewsWire push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-25(1일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 84.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 2종(+2) · 출시 9년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/netnewswire.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "freshrss",
+  "name": "FreshRSS",
+  "aliases": [
+   "프레시 RSS"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-25. 「커뮤니티 · RSS · 뉴스레터」 안에서 FreshRSS의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "feed",
+   "news aggregator",
+   "php"
+  ],
+  "platforms": [
+   "web",
+   "linux"
+  ],
+  "developer": "FreshRSS",
+  "publisher": "FreshRSS",
+  "release_date": "2012-10-21",
+  "one_liner": "A free, self-hostable news aggregator…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-25(1일 전).",
+  "sources": [
+   {
+    "id": "github-freshrss",
+    "title": "GitHub — FreshRSS/FreshRSS",
+    "url": "https://github.com/FreshRSS/FreshRSS",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 16,677 · 라이선스 AGPL-3.0 · 최근 푸시 2026-11-25 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-freshrss"
+    ],
+    "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 AGPL-3.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 AGPL-3.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+      "source_ids": [
+       "github-freshrss"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 84.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 84.0: 오픈소스 라이선스 AGPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 2종(+2) · 출시 14년(+4).",
+    "source_ids": [
+     "github-freshrss"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-freshrss"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-25(1일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-freshrss"
+     ],
+     "note": "저장소 최근 푸시 'FreshRSS/FreshRSS push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-25(1일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 84.0: 오픈소스 라이선스 AGPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-25(+8) · 플랫폼 2종(+2) · 출시 14년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/freshrss.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "miniflux",
+  "name": "Miniflux",
+  "aliases": [
+   "미니플럭스"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-26. 「커뮤니티 · RSS · 뉴스레터」 안에서 miniflux의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "atom",
+   "feed",
+   "golang"
+  ],
+  "platforms": [
+   "web",
+   "linux"
+  ],
+  "developer": "miniflux",
+  "publisher": "miniflux",
+  "release_date": "2017-11-20",
+  "one_liner": "Minimalist and opinionated feed reader",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-26(0일 전).",
+  "sources": [
+   {
+    "id": "github-miniflux",
+    "title": "GitHub — miniflux/v2",
+    "url": "https://github.com/miniflux/v2",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 9,982 · 라이선스 Apache-2.0 · 최근 푸시 2026-11-26 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-miniflux"
+    ],
+    "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 Apache-2.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 Apache-2.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+      "source_ids": [
+       "github-miniflux"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 84.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 84.0: 오픈소스 라이선스 Apache-2.0(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 플랫폼 2종(+2) · 출시 9년(+4).",
+    "source_ids": [
+     "github-miniflux"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-miniflux"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-26(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-26",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-26",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-miniflux"
+     ],
+     "note": "저장소 최근 푸시 'miniflux/v2 push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-26(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 84.0: 오픈소스 라이선스 Apache-2.0(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 플랫폼 2종(+2) · 출시 9년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/miniflux.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "tiny-tiny-rss",
+  "name": "Tiny Tiny RSS",
+  "aliases": [
+   "tt-rss"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-22. 「커뮤니티 · RSS · 뉴스레터」 안에서 tt-rss의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "rss",
+   "rss aggregator",
+   "rss generator"
+  ],
+  "platforms": [
+   "web",
+   "linux"
+  ],
+  "developer": "tt-rss",
+  "publisher": "tt-rss",
+  "release_date": "2025-10-03",
+  "one_liner": "A free, flexible, open-source, web-based news feed (RSS/Atom/other) reader and aggregator.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-22(4일 전).",
+  "sources": [
+   {
+    "id": "github-tiny-tiny-rss",
+    "title": "GitHub — tt-rss/tt-rss",
+    "url": "https://github.com/tt-rss/tt-rss",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 893 · 라이선스 GPL-3.0 · 최근 푸시 2026-11-22 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-tiny-tiny-rss"
+    ],
+    "note": "마지막 업데이트 2026-11-22(4일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 GPL-3.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 GPL-3.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-22(4일 전) — 활발.",
+      "source_ids": [
+       "github-tiny-tiny-rss"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 80.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 80.0: 오픈소스 라이선스 GPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-22(+8) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "github-tiny-tiny-rss"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-tiny-tiny-rss"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-22. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-22(4일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-22",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-22",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-tiny-tiny-rss"
+     ],
+     "note": "저장소 최근 푸시 'tt-rss/tt-rss push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-22(4일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 80.0: 오픈소스 라이선스 GPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-22(+8) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/tiny-tiny-rss.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "newsblur",
+  "name": "NewsBlur",
+  "aliases": [
+   "뉴스블러"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "Google Play 4.17★(2,613건). 무료 · 마지막 업데이트 2026-11-25. 「커뮤니티 · RSS · 뉴스레터」 안에서 NewsBlur, Inc.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "NewsBlur, Inc.",
+  "publisher": "NewsBlur, Inc.",
+  "release_date": null,
+  "one_liner": "NewsBlur, Inc.의 커뮤니티 · RSS · 뉴스레터 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-25(1일 전).",
+  "sources": [
+   {
+    "id": "play-newsblur",
+    "title": "Google Play — NewsBlur: RSS News Reader",
+    "url": "https://play.google.com/store/apps/details?id=com.newsblur",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 4.17★(2,613) · 무료 · 최근 업데이트 2026-11-25."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-newsblur"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-newsblur"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-newsblur"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-newsblur"
+    ],
+    "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-newsblur"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-newsblur"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-25(1일 전) — 활발.",
+      "source_ids": [
+       "play-newsblur"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 83.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Google Play 4.17★(2,613건) — 표본 가중 평균 83.4.",
+    "source_ids": [
+     "play-newsblur"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8).",
+    "source_ids": [
+     "play-newsblur"
+    ]
+   },
+   "ai_review": {
+    "score": 64.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.9: 본질 검토 전 중립값 60 · 스토어 평점 83.4(+0.9) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-newsblur"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 4.17★(2,613건), 최근 업데이트 2026-11-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 4.17★(2,613건).",
+    "무료 · 마지막 업데이트 2026-11-25(1일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.17,
+      "scale": "stars5",
+      "count": 2613,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 4.17★ · 2,613건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 4.17★(2,613건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-25",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-25",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-newsblur"
+     ],
+     "note": "Play 스토어 업데이트 'NewsBlur: RSS News Reader'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-25(1일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-newsblur"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-newsblur"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 4.17★(2,613건) → 표본 가중 평균 83.4. 표본 2,613건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-25(+8).",
+   "ai_review": "자동 추정 64.9: 본질 검토 전 중립값 60 · 스토어 평점 83.4(+0.9) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/newsblur.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "reeder",
+  "name": "Reeder",
+  "aliases": [
+   "리더"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "App Store 4.29★(929건). 무료 · 마지막 업데이트 2026-10-30. 「커뮤니티 · RSS · 뉴스레터」 안에서 Silvio Rizzi의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "뉴스",
+   "소셜 네트워킹"
+  ],
+  "platforms": [
+   "ios"
+  ],
+  "developer": "Silvio Rizzi",
+  "publisher": "Silvio Rizzi",
+  "release_date": "2024-09-05",
+  "one_liner": "Reeder is your all-in-one inbox for reading, watching and listening to content from various sources.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-30(27일 전).",
+  "sources": [
+   {
+    "id": "itunes-reeder",
+    "title": "Apple App Store — Reeder.",
+    "url": "https://apps.apple.com/us/app/reeder/id6475002485?uo=4",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "가격 Free, 4.29★(929건), 버전 2026.11.2, 최근 릴리스 2026-10-30."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-reeder"
+    ],
+    "note": "마지막 업데이트 2026-10-30(27일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "kind": "freemium",
+    "label": "iOS 무료",
+    "price": {
+     "amount": 0,
+     "currency": "USD",
+     "period": "none",
+     "display": "Free"
+    },
+    "limits": [
+     "앱 내 구입·구독 구조는 검수 전"
+    ],
+    "one_liner": "무료 · 평점 4.3★",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-30(27일 전) — 활발.",
+      "source_ids": [
+       "itunes-reeder"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 85.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "low",
+    "summary": "자동 수집: App Store 4.29★(929건) — 표본 가중 평균 85.8.",
+    "source_ids": [
+     "itunes-reeder"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-30(+8).",
+    "source_ids": [
+     "itunes-reeder"
+    ]
+   },
+   "ai_review": {
+    "score": 65.4,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 65.4: 본질 검토 전 중립값 60 · 스토어 평점 85.8(+1.4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "itunes-reeder"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — App Store 4.29★(929건), 최근 업데이트 2026-10-30. 자동 수집 1차 판정.",
+   "reasons": [
+    "App Store 4.29★(929건).",
+    "무료 · 마지막 업데이트 2026-10-30(27일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 4.29,
+      "scale": "stars5",
+      "count": 929,
+      "window": "전체(US 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "US 4.29★ · 929건 표본(한국·미국 중 큰 쪽)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: App Store 4.29★(929건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-30",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-30",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-reeder"
+     ],
+     "note": "앱 버전 2026.11.2 릴리스 'Reeder. 2026.11.2'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-30(27일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "itunes-reeder"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "App Store 4.29★(929건) → 표본 가중 평균 85.8. 표본 929건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-30(+8).",
+   "ai_review": "자동 추정 65.4: 본질 검토 전 중립값 60 · 스토어 평점 85.8(+1.4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/reeder.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "lemmy",
+  "name": "Lemmy",
+  "aliases": [
+   "레미"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-26. 「커뮤니티 · RSS · 뉴스레터」 안에서 LemmyNet의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "activitypub",
+   "chat",
+   "fediverse"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "developer": "LemmyNet",
+  "publisher": "LemmyNet",
+  "release_date": "2019-02-14",
+  "one_liner": "A decentralised discussion platform for communities.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-26(0일 전).",
+  "sources": [
+   {
+    "id": "github-lemmy",
+    "title": "GitHub — LemmyNet/lemmy",
+    "url": "https://github.com/LemmyNet/lemmy",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 14,691 · 라이선스 AGPL-3.0 · 최근 푸시 2026-11-26 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-lemmy"
+    ],
+    "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 AGPL-3.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 AGPL-3.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+      "source_ids": [
+       "github-lemmy"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 82.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 82.0: 오픈소스 라이선스 AGPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 7년(+4).",
+    "source_ids": [
+     "github-lemmy"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-lemmy"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-26(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-26",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-26",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-lemmy"
+     ],
+     "note": "저장소 최근 푸시 'LemmyNet/lemmy push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-26(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 82.0: 오픈소스 라이선스 AGPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 7년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/lemmy.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "mbin",
+  "name": "Mbin",
+  "aliases": [
+   "엠빈"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-24. 「커뮤니티 · RSS · 뉴스레터」 안에서 MbinOrg의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "activitypub",
+   "content ratings",
+   "federated"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "developer": "MbinOrg",
+  "publisher": "MbinOrg",
+  "release_date": "2023-10-12",
+  "one_liner": "Mbin: a federated content aggregator, voting, discussion and microblogging platform",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-24(2일 전).",
+  "sources": [
+   {
+    "id": "github-mbin",
+    "title": "GitHub — MbinOrg/mbin",
+    "url": "https://github.com/MbinOrg/mbin",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 436 · 라이선스 AGPL-3.0 · 최근 푸시 2026-11-24 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-mbin"
+    ],
+    "note": "마지막 업데이트 2026-11-24(2일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 AGPL-3.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 AGPL-3.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-24(2일 전) — 활발.",
+      "source_ids": [
+       "github-mbin"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 80.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 80.0: 오픈소스 라이선스 AGPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-24(+8) · 출시 3년(+2).",
+    "source_ids": [
+     "github-mbin"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-mbin"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-24. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-24(2일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-24",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-24",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-mbin"
+     ],
+     "note": "저장소 최근 푸시 'MbinOrg/mbin push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-24(2일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 80.0: 오픈소스 라이선스 AGPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-24(+8) · 출시 3년(+2).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/mbin.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ghost",
+  "name": "Ghost",
+  "aliases": [
+   "고스트"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-26. 「커뮤니티 · RSS · 뉴스레터」 안에서 TryGhost의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "blogging",
+   "cms",
+   "journalism"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "developer": "TryGhost",
+  "publisher": "TryGhost",
+  "release_date": "2013-05-04",
+  "one_liner": "Independent technology for modern publishing, memberships, subscriptions and newsletters.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-26(0일 전).",
+  "sources": [
+   {
+    "id": "github-ghost",
+    "title": "GitHub — TryGhost/Ghost",
+    "url": "https://github.com/TryGhost/Ghost",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 55,920 · 라이선스 MIT · 최근 푸시 2026-11-26 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-ghost"
+    ],
+    "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+      "source_ids": [
+       "github-ghost"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 82.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 82.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 13년(+4).",
+    "source_ids": [
+     "github-ghost"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-ghost"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-26(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-26",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-26",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-ghost"
+     ],
+     "note": "저장소 최근 푸시 'TryGhost/Ghost push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-26(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 82.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 13년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/ghost.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "primal",
+  "name": "Primal",
+  "aliases": [
+   "프라이멀"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "Google Play 3.47★(367건). 무료 · 마지막 업데이트 2026-11-23. 「커뮤니티 · RSS · 뉴스레터」 안에서 PRIMAL SYSTEMS INC.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "소프트웨어"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "PRIMAL SYSTEMS INC.",
+  "publisher": "PRIMAL SYSTEMS INC.",
+  "release_date": null,
+  "one_liner": "PRIMAL SYSTEMS INC.의 커뮤니티 · RSS · 뉴스레터 항목",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-23(3일 전).",
+  "sources": [
+   {
+    "id": "play-primal",
+    "title": "Google Play — Primal",
+    "url": "https://play.google.com/store/apps/details?id=net.primal.android",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "평점 3.47★(367) · 무료 · 최근 업데이트 2026-11-23."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-primal"
+    ],
+    "note": "Google Play 데이터 보안 표기에 '광고 포함'이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-primal"
+    ],
+    "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+    "verification": "direct"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "play-primal"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "play-primal"
+    ],
+    "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "android",
+    "kind": "freemium",
+    "label": "Google Play 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 한도는 검수 전"
+    ],
+    "one_liner": "무료 — 앱 내 구입 구조는 검수 전",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "스토어에 광고 표기가 없고, 실행 전 광고 안내도 없다.",
+      "source_ids": [
+       "play-primal"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "play-primal"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-23(3일 전) — 활발.",
+      "source_ids": [
+       "play-primal"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 69.4,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "low",
+    "summary": "자동 수집: Google Play 3.47★(367건) — 표본 가중 평균 69.4.",
+    "source_ids": [
+     "play-primal"
+    ]
+   },
+   "objective": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+    "source_ids": [
+     "play-primal"
+    ]
+   },
+   "ai_review": {
+    "score": 61.4,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 61.4: 본질 검토 전 중립값 60 · 스토어 평점 69.4(-2.6) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "play-primal"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "android",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Google Play 3.47★(367건), 최근 업데이트 2026-11-23. 자동 수집 1차 판정.",
+   "reasons": [
+    "Google Play 3.47★(367건).",
+    "무료 · 마지막 업데이트 2026-11-23(3일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "android",
+     "cumulative": {
+      "metric": "stars",
+      "value": 3.47,
+      "scale": "stars5",
+      "count": 367,
+      "window": "전체(Play 표시 평가 수)",
+      "evidence_grade": "A"
+     },
+     "note": "Google Play 3.47★ · 367건."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Google Play 3.47★(367건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-23",
+   "latest_update_platform": "android",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-23",
+     "type": "other",
+     "platform": "android",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "play-primal"
+     ],
+     "note": "Play 스토어 업데이트 'Primal'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-23(3일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": false,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "play-primal"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "play-primal"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Google Play 3.47★(367건) → 표본 가중 평균 69.4. 표본 367건.",
+   "objective": "자동 산정 74.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-23(+8).",
+   "ai_review": "자동 추정 61.4: 본질 검토 전 중립값 60 · 스토어 평점 69.4(-2.6) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/primal.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "amethyst",
+  "name": "Amethyst",
+  "aliases": [
+   "아메시스트"
+  ],
+  "domain": "app",
+  "category": "social-community",
+  "arenas": [
+   "community-rss-newsletter"
+  ],
+  "arena_notes": {
+   "community-rss-newsletter": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-26. 「커뮤니티 · RSS · 뉴스레터」 안에서 vitorpamplona의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "kotlin",
+   "nostr",
+   "social network"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "developer": "vitorpamplona",
+  "publisher": "vitorpamplona",
+  "release_date": "2023-01-11",
+  "one_liner": "Nostr client for Android",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-26(0일 전).",
+  "sources": [
+   {
+    "id": "github-amethyst",
+    "title": "GitHub — vitorpamplona/amethyst",
+    "url": "https://github.com/vitorpamplona/amethyst",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "스타 1,626 · 라이선스 MIT · 최근 푸시 2026-11-26 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-amethyst"
+    ],
+    "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-26(0일 전) — 활발.",
+      "source_ids": [
+       "github-amethyst"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 80.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 80.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 3년(+2).",
+    "source_ids": [
+     "github-amethyst"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-amethyst"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-26(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-26",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-26",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-amethyst"
+     ],
+     "note": "저장소 최근 푸시 'vitorpamplona/amethyst push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-26(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "스토어 평점 표본 없음 → 표본 가중 평균 None. 표본 0건.",
+   "objective": "자동 산정 80.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 3년(+2).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/amethyst.webp"
+ }
+]

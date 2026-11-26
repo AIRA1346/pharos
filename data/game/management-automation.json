@@ -5096,5 +5096,1570 @@
    "ai_review": "자동 추정 68.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 90일 내 업데이트(+4) · 표본 24,347건(+1)."
   },
   "icon": "assets/icons/dwarf-fortress.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "plan-b-terraform",
+  "name": "Plan B: Terraform",
+  "aliases": [
+   "플랜 B"
+  ],
+  "domain": "game",
+  "category": "management-automation",
+  "arenas": [
+   "management-automation"
+  ],
+  "arena_notes": {
+   "management-automation": "Steam 누적 91% 긍정(1,998건) · 최근 30일 92%(54건). ₩17,500 · 마지막 업데이트 2026-10-29. 「경영 · 자동화 · 공장 건설」 안에서 Gaddy Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "인디",
+   "시뮬레이션",
+   "전략"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Gaddy Games",
+  "publisher": "Gaddy Games",
+  "release_date": "2025-08-29",
+  "one_liner": "새롭게 발견된 행성, 여러분만의 세계를 운영해 발전하는 것을 지켜보고 인구를 키우세요. 자원을 모아서 가공하여 도시로 보내 영역을 키울 수 있습니다. 여러분의 임무는 이 행성을 테라포밍하여 인류가 살기 적합한 곳으로 만드는 것입니다. 대기 기온을…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-29(28일 전).",
+  "sources": [
+   {
+    "id": "steam-plan-b-terraform",
+    "title": "Steam — Plan B: Terraform",
+    "url": "https://store.steampowered.com/app/1894430/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2025-08-29, 개발사 Gaddy Games. 평가 Steam 누적 91% 긍정(1,998건) · 최근 30일 92%(54건)."
+   },
+   {
+    "id": "steamspy-plan-b-terraform",
+    "title": "SteamSpy — Plan B: Terraform",
+    "url": "https://steamspy.com/app/1894430",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 2,220 / 부정 205 (긍정률 91.5%). 보유자 규모 100,000 .. 200,000."
+   },
+   {
+    "id": "steam-news-plan-b-terraform",
+    "title": "Steam — Plan B: Terraform 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302234922",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Plan B - v1.1.4 and Demo' (2026-10-29)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ],
+    "note": "마지막 업데이트 2026-10-29(28일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 17500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩17,500"
+    },
+    "limits": [
+     "DLC 2건 별도 판매",
+     "미국 스토어 $15.99"
+    ],
+    "one_liner": "1회 구매 ₩17,500 — DLC 2건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-plan-b-terraform"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-plan-b-terraform"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-29(28일 전) — 활발.",
+      "source_ids": [
+       "steam-plan-b-terraform"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-plan-b-terraform"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 91% 긍정(1,998건) · 최근 30일 92%(54건) — 표본 가중 평균 91.0.",
+    "source_ids": [
+     "steam-plan-b-terraform",
+     "steamspy-plan-b-terraform"
+    ]
+   },
+   "objective": {
+    "score": 76.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-29(+8) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-plan-b-terraform"
+    ]
+   },
+   "ai_review": {
+    "score": 66.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — Steam 91% 긍정(1,998건), 최근 업데이트 2026-10-29. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 91% 긍정(1,998건) · 최근 30일 92%(54건).",
+    "₩17,500 · 마지막 업데이트 2026-10-29(28일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 1998,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 92,
+      "scale": "percent",
+      "count": 54,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,998건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 91% 긍정(1,998건) · 최근 30일 92%(54건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-29",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-29",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-plan-b-terraform"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Plan B - v1.1.4 and Demo'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-29(28일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-plan-b-terraform"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-plan-b-terraform"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩17,500. DLC 2건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 91% 긍정(1,998건) · 최근 30일 92%(54건) → 표본 가중 평균 91.0. 표본 1,998건.",
+   "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-29(+8) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 66.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/plan-b-terraform.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "astro-colony",
+  "name": "Astro Colony",
+  "aliases": [
+   "아스트로 콜로니"
+  ],
+  "domain": "game",
+  "category": "management-automation",
+  "arenas": [
+   "management-automation"
+  ],
+  "arena_notes": {
+   "management-automation": "Steam 누적 81% 긍정(1,403건) · 최근 30일 89%(39건). ₩19,900 (할인 50% ₩9,950) · 마지막 업데이트 2026-10-31. 「경영 · 자동화 · 공장 건설」 안에서 Terad Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "캐주얼"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Terad Games",
+  "publisher": "Terad Games",
+  "release_date": "2026-06-02",
+  "one_liner": "끝없는 우주를 탐험하고 가장 효율적인 식민지 별자리를 만드세요. 생산 자동화를 위한 컨베이어 시스템을 구축하세요. 우주 비행사와 그들이 요구하는 내용을 돌봐 주세요! 은하간 시뮬레이션의 일부로 새로운 식민지를 설립하세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-31(26일 전).",
+  "sources": [
+   {
+    "id": "steam-astro-colony",
+    "title": "Steam — Astro Colony",
+    "url": "https://store.steampowered.com/app/1614550/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 19,900, 출시 2026-06-02, 개발사 Terad Games. 평가 Steam 누적 81% 긍정(1,403건) · 최근 30일 89%(39건)."
+   },
+   {
+    "id": "steamspy-astro-colony",
+    "title": "SteamSpy — Astro Colony",
+    "url": "https://steamspy.com/app/1614550",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 1,855 / 부정 401 (긍정률 82.2%). 보유자 규모 50,000 .. 100,000."
+   },
+   {
+    "id": "steam-news-astro-colony",
+    "title": "Steam — Astro Colony 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302242312",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'MODS - improved Steam Workshop' (2026-10-31)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-astro-colony"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-astro-colony"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-astro-colony"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-astro-colony"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-astro-colony"
+    ],
+    "note": "마지막 업데이트 2026-10-31(26일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 19900,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩19,900 (할인 50% ₩9,950)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩19,900 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-astro-colony"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-astro-colony"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-31(26일 전) — 활발.",
+      "source_ids": [
+       "steam-astro-colony"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-astro-colony"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 81.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 81% 긍정(1,403건) · 최근 30일 89%(39건) — 표본 가중 평균 81.0.",
+    "source_ids": [
+     "steam-astro-colony",
+     "steamspy-astro-colony"
+    ]
+   },
+   "objective": {
+    "score": 76.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-31(+8) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-astro-colony"
+    ]
+   },
+   "ai_review": {
+    "score": 64.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.2: 본질 검토 전 중립값 60 · 스토어 평점 81.0(+0.2) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-astro-colony"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 81% 긍정(1,403건), 최근 업데이트 2026-10-31. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 81% 긍정(1,403건) · 최근 30일 89%(39건).",
+    "₩19,900 (할인 50% ₩9,950) · 마지막 업데이트 2026-10-31(26일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 81,
+      "scale": "percent",
+      "count": 1403,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 89,
+      "scale": "percent",
+      "count": 39,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,403건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 81% 긍정(1,403건) · 최근 30일 89%(39건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-31",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-31",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-astro-colony"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'MODS - improved Steam Workshop'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-31(26일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-astro-colony"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-astro-colony"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩19,900 (할인 50% ₩9,950). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 81% 긍정(1,403건) · 최근 30일 89%(39건) → 표본 가중 평균 81.0. 표본 1,403건.",
+   "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-31(+8) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 64.2: 본질 검토 전 중립값 60 · 스토어 평점 81.0(+0.2) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/astro-colony.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "nova-lands",
+  "name": "Nova Lands",
+  "aliases": [
+   "노바 랜즈"
+  ],
+  "domain": "game",
+  "category": "management-automation",
+  "arenas": [
+   "management-automation"
+  ],
+  "arena_notes": {
+   "management-automation": "Steam 누적 89% 긍정(1,140건). ₩21,500 · 마지막 업데이트 2023-12-20. 「경영 · 자동화 · 공장 건설」 안에서 BEHEMUTT의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디",
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "BEHEMUTT",
+  "publisher": "HypeTrain Digital",
+  "release_date": "2023-06-22",
+  "one_liner": "Nova Lands는 공장 건물, 탐험, 섬 관리를 경험할 수 있는 오픈 월드 게임입니다. 거중 중인 행성을 탐험하고 유용한 봇을 이용해 산업을 자동화하며, 충돌과 협상 능력을 필요로 하는 챌린지 및 퀘스트에 참여하세요. 수많은 별들 가운데 여러분의…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2023-12-20(1072일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-nova-lands",
+    "title": "Steam — Nova Lands",
+    "url": "https://store.steampowered.com/app/1501610/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2023-06-22, 개발사 BEHEMUTT. 평가 Steam 누적 89% 긍정(1,140건)."
+   },
+   {
+    "id": "steamspy-nova-lands",
+    "title": "SteamSpy — Nova Lands",
+    "url": "https://steamspy.com/app/1501610",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 2,546 / 부정 277 (긍정률 90.2%). 보유자 규모 100,000 .. 200,000."
+   },
+   {
+    "id": "steam-news-nova-lands",
+    "title": "Steam — Nova Lands 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5410576585126314383",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'Quantum Gravity Update - 1.1.18 (hotfix)' (2023-12-20)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-nova-lands"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-nova-lands"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-nova-lands"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-nova-lands"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-nova-lands"
+    ],
+    "note": "마지막 업데이트 2023-12-20 — 12개월(1072일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,500"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,500 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-nova-lands"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-nova-lands"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2023-12-20 — 12개월(1072일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-nova-lands"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-nova-lands"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 89.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 89% 긍정(1,140건) — 표본 가중 평균 89.0.",
+    "source_ids": [
+     "steam-nova-lands",
+     "steamspy-nova-lands"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-12-20(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
+    "source_ids": [
+     "steam-news-nova-lands"
+    ]
+   },
+   "ai_review": {
+    "score": 54.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 54.2: 본질 검토 전 중립값 60 · 스토어 평점 89.0(+2.2) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-nova-lands"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩21,500 · 마지막 업데이트 2023-12-20. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 89% 긍정(1,140건).",
+    "₩21,500 · 마지막 업데이트 2023-12-20(1072일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 89,
+      "scale": "percent",
+      "count": 1140,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,140건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 89% 긍정(1,140건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2023-12-20",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2023-12-20",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-nova-lands"
+     ],
+     "note": "업데이트 공지 'Quantum Gravity Update - 1.1.18 (hotfix)'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2023-12-20(1072일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-nova-lands"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-nova-lands"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,500. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 89% 긍정(1,140건) → 표본 가중 평균 89.0. 표본 1,140건.",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-12-20(-14) · 플랫폼 2종(+2) · 출시 3년(+2).",
+   "ai_review": "자동 추정 54.2: 본질 검토 전 중립값 60 · 스토어 평점 89.0(+2.2) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/nova-lands.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-crust",
+  "name": "The Crust",
+  "aliases": [
+   "더 크러스트"
+  ],
+  "domain": "game",
+  "category": "management-automation",
+  "arenas": [
+   "management-automation"
+  ],
+  "arena_notes": {
+   "management-automation": "Steam 누적 74% 긍정(2,217건) · 최근 30일 83%(177건). ₩34,900 · 마지막 업데이트 2026-10-26. 「경영 · 자동화 · 공장 건설」 안에서 VEOM Studio의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "시뮬레이션",
+   "전략"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "VEOM Studio",
+  "publisher": "Crytivo",
+  "release_date": "2026-09-10",
+  "one_liner": "거대한 달 식민지 회사의 CEO가 되는 게임인 The Crust에 오신 것을 환영합니다. 풍부한 설정과 드라마틱한 스크립트뿐만 아니라 서바이벌 요소도 즐길 수 있는 대규모 경제 시뮬레이션 게임입니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-26(31일 전).",
+  "sources": [
+   {
+    "id": "steam-the-crust",
+    "title": "Steam — The Crust",
+    "url": "https://store.steampowered.com/app/1465470/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2026-09-10, 개발사 VEOM Studio. 평가 Steam 누적 74% 긍정(2,217건) · 최근 30일 83%(177건)."
+   },
+   {
+    "id": "steamspy-the-crust",
+    "title": "SteamSpy — The Crust",
+    "url": "https://steamspy.com/app/1465470",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 2,003 / 부정 600 (긍정률 76.9%). 보유자 규모 100,000 .. 200,000."
+   },
+   {
+    "id": "steam-news-the-crust",
+    "title": "Steam — The Crust 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114046602",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'Hotfix 1.0.49' (2026-10-26)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-crust"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-crust"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-crust"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-the-crust"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-the-crust"
+    ],
+    "note": "마지막 업데이트 2026-10-26(31일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 34900,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩34,900"
+    },
+    "limits": [
+     "DLC 2건 별도 판매",
+     "미국 스토어 $31.99"
+    ],
+    "one_liner": "1회 구매 ₩34,900 — DLC 2건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-the-crust"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-the-crust"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-26(31일 전) — 활발.",
+      "source_ids": [
+       "steam-the-crust"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-the-crust"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 74% 긍정(2,217건) · 최근 30일 83%(177건) — 표본 가중 평균 74.0.",
+    "source_ids": [
+     "steam-the-crust",
+     "steamspy-the-crust"
+    ]
+   },
+   "objective": {
+    "score": 76.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-26(+8) · 플랫폼 3종(+2).",
+    "source_ids": [
+     "steam-news-the-crust"
+    ]
+   },
+   "ai_review": {
+    "score": 62.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 62.5: 본질 검토 전 중립값 60 · 스토어 평점 74.0(-1.5) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-the-crust"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 74% 긍정(2,217건), 최근 업데이트 2026-10-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 74% 긍정(2,217건) · 최근 30일 83%(177건).",
+    "₩34,900 · 마지막 업데이트 2026-10-26(31일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 74,
+      "scale": "percent",
+      "count": 2217,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 83,
+      "scale": "percent",
+      "count": 177,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 2,217건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 74% 긍정(2,217건) · 최근 30일 83%(177건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-26",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-26",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-the-crust"
+     ],
+     "note": "업데이트 공지 'Hotfix 1.0.49'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-26(31일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-the-crust"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-crust"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩34,900. DLC 2건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 74% 긍정(2,217건) · 최근 30일 83%(177건) → 표본 가중 평균 74.0. 표본 2,217건.",
+   "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-26(+8) · 플랫폼 3종(+2).",
+   "ai_review": "자동 추정 62.5: 본질 검토 전 중립값 60 · 스토어 평점 74.0(-1.5) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/the-crust.webp"
  }
 ]

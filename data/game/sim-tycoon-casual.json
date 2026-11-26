@@ -8237,5 +8237,1582 @@
    "ai_review": "자동 추정 51.5: 본질 검토 전 중립값 60 · 스토어 평점 78.0(-0.5) · 12개월 방치(-8)."
   },
   "icon": "assets/icons/story-of-seasons-awl.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "graveyard-keeper",
+  "name": "Graveyard Keeper",
+  "aliases": [
+   "그레이브야드 키퍼"
+  ],
+  "domain": "game",
+  "category": "life-sim",
+  "arenas": [
+   "sim-tycoon-casual"
+  ],
+  "arena_notes": {
+   "sim-tycoon-casual": "Steam 누적 84% 긍정(18,002건) · 최근 30일 80%(245건). ₩21,500 · 마지막 업데이트 2022-04-18. 「생활 · 농장 · 타이쿤 시뮬」 안에서 Lazy Bear Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Lazy Bear Games",
+  "publisher": "tinyBuild",
+  "release_date": "2018-08-15",
+  "one_liner": "Punch Club 제작자들이 Graveyard Keeper로 돌아왔습니다. 역사상 가장 부정확한 고증을 자랑하는 중세 묘지 경영 시뮬레이션 게임으로 말이죠.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2022-04-18(1683일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-graveyard-keeper",
+    "title": "Steam — Graveyard Keeper",
+    "url": "https://store.steampowered.com/app/599140/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2018-08-15, 개발사 Lazy Bear Games. 평가 Steam 누적 84% 긍정(18,002건) · 최근 30일 80%(245건)."
+   },
+   {
+    "id": "steamspy-graveyard-keeper",
+    "title": "SteamSpy — Graveyard Keeper",
+    "url": "https://steamspy.com/app/599140",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 34,894 / 부정 5,575 (긍정률 86.2%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-graveyard-keeper",
+    "title": "Steam — Graveyard Keeper 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5493837466493352006",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'Version 1.405' (2022-04-18)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ],
+    "note": "마지막 업데이트 2022-04-18 — 12개월(1683일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 21500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩21,500"
+    },
+    "limits": [
+     "DLC 5건 별도 판매",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩21,500 — DLC 5건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-graveyard-keeper"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-graveyard-keeper"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2022-04-18 — 12개월(1683일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-graveyard-keeper"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-graveyard-keeper"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 84.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 84% 긍정(18,002건) · 최근 30일 80%(245건) — 표본 가중 평균 84.0.",
+    "source_ids": [
+     "steam-graveyard-keeper",
+     "steamspy-graveyard-keeper"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2022-04-18(-14) · 플랫폼 4종(+4) · 출시 8년(+4).",
+    "source_ids": [
+     "steam-news-graveyard-keeper"
+    ]
+   },
+   "ai_review": {
+    "score": 54.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 54.0: 본질 검토 전 중립값 60 · 스토어 평점 84.0(+1.0) · 12개월 방치(-8) · 표본 18,002건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩21,500 · 마지막 업데이트 2022-04-18. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 84% 긍정(18,002건) · 최근 30일 80%(245건).",
+    "₩21,500 · 마지막 업데이트 2022-04-18(1683일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 84,
+      "scale": "percent",
+      "count": 18002,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 80,
+      "scale": "percent",
+      "count": 245,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 18,002건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 84% 긍정(18,002건) · 최근 30일 80%(245건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2022-04-18",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2022-04-18",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-graveyard-keeper"
+     ],
+     "note": "업데이트 공지 'Version 1.405'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2022-04-18(1683일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-graveyard-keeper"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-graveyard-keeper"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩21,500. DLC 5건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 84% 긍정(18,002건) · 최근 30일 80%(245건) → 표본 가중 평균 84.0. 표본 18,002건.",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2022-04-18(-14) · 플랫폼 4종(+4) · 출시 8년(+4).",
+   "ai_review": "자동 추정 54.0: 본질 검토 전 중립값 60 · 스토어 평점 84.0(+1.0) · 12개월 방치(-8) · 표본 18,002건(+1)."
+  },
+  "icon": "assets/icons/graveyard-keeper.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "my-time-at-portia",
+  "name": "My Time at Portia",
+  "aliases": [
+   "포트리아"
+  ],
+  "domain": "game",
+  "category": "life-sim",
+  "arenas": [
+   "sim-tycoon-casual"
+  ],
+  "arena_notes": {
+   "sim-tycoon-casual": "Steam 누적 91% 긍정(12,135건) · 최근 30일 84%(45건). ₩34,800 · 마지막 업데이트 2024-09-24. 「생활 · 농장 · 타이쿤 시뮬」 안에서 Pathea Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "캐주얼",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "Pathea Games",
+  "publisher": "Focus Entertainment",
+  "release_date": "2019-01-15",
+  "one_liner": "아름다운 Portia 마을에서 새 삶을 시작하세요! 아버지가 방치한 작업장에서 제작을 부탁받고, 작물을 키우고, 가축을 기르고, 아름다운 세기말의 땅에서 특이한 친구들을 사귀며 작업장을 예전의 멋진 모습으로 복원하세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-09-24(793일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-my-time-at-portia",
+    "title": "Steam — My Time at Portia",
+    "url": "https://store.steampowered.com/app/666140/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2019-01-15, 개발사 Pathea Games. 평가 Steam 누적 91% 긍정(12,135건) · 최근 30일 84%(45건)."
+   },
+   {
+    "id": "steamspy-my-time-at-portia",
+    "title": "SteamSpy — My Time at Portia",
+    "url": "https://steamspy.com/app/666140",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 31,936 / 부정 2,980 (긍정률 91.5%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-my-time-at-portia",
+    "title": "Steam — My Time at Portia 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/6341720536520929455",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'My Time at Evershine Kickstarter is Now Live! – New Trailer Released!' (2024-09-24)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ],
+    "note": "마지막 업데이트 2024-09-24 — 12개월(793일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 34800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩34,800"
+    },
+    "limits": [
+     "DLC 6건 별도 판매",
+     "미국 스토어 $29.99"
+    ],
+    "one_liner": "1회 구매 ₩34,800 — DLC 6건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-my-time-at-portia"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-my-time-at-portia"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-09-24 — 12개월(793일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-my-time-at-portia"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-my-time-at-portia"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 91% 긍정(12,135건) · 최근 30일 84%(45건) — 표본 가중 평균 91.0.",
+    "source_ids": [
+     "steam-my-time-at-portia",
+     "steamspy-my-time-at-portia"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-09-24(-14) · 플랫폼 3종(+2) · 출시 7년(+4).",
+    "source_ids": [
+     "steam-news-my-time-at-portia"
+    ]
+   },
+   "ai_review": {
+    "score": 55.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 12,135건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩34,800 · 마지막 업데이트 2024-09-24. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 91% 긍정(12,135건) · 최근 30일 84%(45건).",
+    "₩34,800 · 마지막 업데이트 2024-09-24(793일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 12135,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 84,
+      "scale": "percent",
+      "count": 45,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 12,135건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 91% 긍정(12,135건) · 최근 30일 84%(45건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-09-24",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-09-24",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-my-time-at-portia"
+     ],
+     "note": "업데이트 공지 'My Time at Evershine Kickstarter is Now Live! – New Trailer Released!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-09-24(793일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-my-time-at-portia"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-my-time-at-portia"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩34,800. DLC 6건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 91% 긍정(12,135건) · 최근 30일 84%(45건) → 표본 가중 평균 91.0. 표본 12,135건.",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-09-24(-14) · 플랫폼 3종(+2) · 출시 7년(+4).",
+   "ai_review": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 12,135건(+1)."
+  },
+  "icon": "assets/icons/my-time-at-portia.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ranch-simulator",
+  "name": "Ranch Simulator",
+  "aliases": [
+   "랜치 시뮬레이터"
+  ],
+  "domain": "game",
+  "category": "life-sim",
+  "arenas": [
+   "sim-tycoon-casual"
+  ],
+  "arena_notes": {
+   "sim-tycoon-casual": "Steam 누적 77% 긍정(12,243건) · 최근 30일 82%(377건). ₩26,000 (할인 85% ₩3,900) · 마지막 업데이트 2026-09-01. 「생활 · 농장 · 타이쿤 시뮬」 안에서 Toxic Dog의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Toxic Dog",
+  "publisher": "Excalibur Games",
+  "release_date": "2023-11-03",
+  "one_liner": "건축. 농사. 사냥. 거래. 목장 경영은 만만한 일이 아닙니다. 당신에게는 허름한 가족의 농가를 계곡에서 가장 번창하는 목장으로 키울 저력이 있나요? 그렇다면 지금 이 흥미진진한 싱글 및 멀티 플레이어 오픈 월드 시뮬레이션 게임에서 대자연 속으로…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-09-01(86일 전).",
+  "sources": [
+   {
+    "id": "steam-ranch-simulator",
+    "title": "Steam — Ranch Simulator: Build, Hunt, Farm",
+    "url": "https://store.steampowered.com/app/1119730/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 ₩ 26,000, 출시 2023-11-03, 개발사 Toxic Dog. 평가 Steam 누적 77% 긍정(12,243건) · 최근 30일 82%(377건)."
+   },
+   {
+    "id": "steamspy-ranch-simulator",
+    "title": "SteamSpy — Ranch Simulator: Build, Hunt, Farm",
+    "url": "https://steamspy.com/app/1119730",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 32,919 / 부정 8,694 (긍정률 79.1%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-ranch-simulator",
+    "title": "Steam — Ranch Simulator: Build, Hunt, Farm 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842212951313645",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'Hotfix - 1st September 2026' (2026-09-01)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ],
+    "note": "마지막 업데이트 2026-09-01(86일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 26000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩26,000 (할인 85% ₩3,900)"
+    },
+    "limits": [
+     "DLC 3건 별도 판매",
+     "미국 스토어 $24.99"
+    ],
+    "one_liner": "1회 구매 ₩26,000 — DLC 3건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-ranch-simulator"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-ranch-simulator"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-09-01(86일 전) — 활발.",
+      "source_ids": [
+       "steam-ranch-simulator"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-ranch-simulator"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 77.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 77% 긍정(12,243건) · 최근 30일 82%(377건) — 표본 가중 평균 77.0.",
+    "source_ids": [
+     "steam-ranch-simulator",
+     "steamspy-ranch-simulator"
+    ]
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-01(+8) · 플랫폼 2종(+2) · 출시 3년(+2).",
+    "source_ids": [
+     "steam-news-ranch-simulator"
+    ]
+   },
+   "ai_review": {
+    "score": 64.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 90일 내 업데이트(+4) · 표본 12,243건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 77% 긍정(12,243건), 최근 업데이트 2026-09-01. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 77% 긍정(12,243건) · 최근 30일 82%(377건).",
+    "₩26,000 (할인 85% ₩3,900) · 마지막 업데이트 2026-09-01(86일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 77,
+      "scale": "percent",
+      "count": 12243,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 82,
+      "scale": "percent",
+      "count": 377,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 12,243건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 77% 긍정(12,243건) · 최근 30일 82%(377건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-09-01",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-09-01",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-ranch-simulator"
+     ],
+     "note": "업데이트 공지 'Hotfix - 1st September 2026'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-09-01(86일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-ranch-simulator"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ranch-simulator"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩26,000 (할인 85% ₩3,900). DLC 3건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 77% 긍정(12,243건) · 최근 30일 82%(377건) → 표본 가중 평균 77.0. 표본 12,243건.",
+   "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-01(+8) · 플랫폼 2종(+2) · 출시 3년(+2).",
+   "ai_review": "자동 추정 64.2: 본질 검토 전 중립값 60 · 스토어 평점 77.0(-0.8) · 90일 내 업데이트(+4) · 표본 12,243건(+1)."
+  },
+  "icon": "assets/icons/ranch-simulator.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "megaquarium",
+  "name": "Megaquarium",
+  "aliases": [
+   "메가아쿠아리움"
+  ],
+  "domain": "game",
+  "category": "life-sim",
+  "arenas": [
+   "sim-tycoon-casual"
+  ],
+  "arena_notes": {
+   "sim-tycoon-casual": "Steam 누적 95% 긍정(2,467건) · 최근 30일 93%(15건). ₩26,500 · 마지막 업데이트 2026-11-03. 「생활 · 농장 · 타이쿤 시뮬」 안에서 Twice Circled의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "캐주얼",
+   "인디",
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Twice Circled",
+  "publisher": "Twice Circled",
+  "release_date": "2018-09-13",
+  "one_liner": "The public aquarium simulator. Design your displays, look after your fish, manage your staff and keep your guests happy! It's all in a…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-26",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-03(23일 전).",
+  "sources": [
+   {
+    "id": "steam-megaquarium",
+    "title": "Steam — Megaquarium",
+    "url": "https://store.steampowered.com/app/600480/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "정가 미표기, 출시 2018-09-13, 개발사 Twice Circled. 평가 Steam 누적 95% 긍정(2,467건) · 최근 30일 93%(15건)."
+   },
+   {
+    "id": "steamspy-megaquarium",
+    "title": "SteamSpy — Megaquarium",
+    "url": "https://steamspy.com/app/600480",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-26",
+    "note": "전체 언어 누적 긍정 3,302 / 부정 166 (긍정률 95.2%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-megaquarium",
+    "title": "Steam — Megaquarium 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302251433",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-26",
+    "note": "최근 업데이트 공지 'v5.1.6 patch' (2026-11-03)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-megaquarium"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-megaquarium"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-megaquarium"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-megaquarium"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-megaquarium"
+    ],
+    "note": "마지막 업데이트 2026-11-03(23일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 26500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩26,500"
+    },
+    "limits": [
+     "DLC 4건 별도 판매",
+     "미국 스토어 $24.99"
+    ],
+    "one_liner": "1회 구매 ₩26,500 — DLC 4건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-megaquarium"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-megaquarium"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-03(23일 전) — 활발.",
+      "source_ids": [
+       "steam-megaquarium"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-megaquarium"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 95% 긍정(2,467건) · 최근 30일 93%(15건) — 표본 가중 평균 95.0.",
+    "source_ids": [
+     "steam-megaquarium",
+     "steamspy-megaquarium"
+    ]
+   },
+   "objective": {
+    "score": 82.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-03(+8) · 플랫폼 4종(+4) · 출시 8년(+4).",
+    "source_ids": [
+     "steam-news-megaquarium"
+    ]
+   },
+   "ai_review": {
+    "score": 67.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 67.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-megaquarium"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — Steam 95% 긍정(2,467건), 최근 업데이트 2026-11-03. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 95% 긍정(2,467건) · 최근 30일 93%(15건).",
+    "₩26,500 · 마지막 업데이트 2026-11-03(23일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-26 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 2467,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 93,
+      "scale": "percent",
+      "count": 15,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 2,467건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 95% 긍정(2,467건) · 최근 30일 93%(15건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-03",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-03",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-megaquarium"
+     ],
+     "note": "업데이트 공지 'v5.1.6 patch'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-03(23일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-megaquarium"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-megaquarium"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩26,500. DLC 4건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-26 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 95% 긍정(2,467건) · 최근 30일 93%(15건) → 표본 가중 평균 95.0. 표본 2,467건.",
+   "objective": "자동 산정 82.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-03(+8) · 플랫폼 4종(+4) · 출시 8년(+4).",
+   "ai_review": "자동 추정 67.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/megaquarium.webp"
  }
 ]

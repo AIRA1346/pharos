@@ -150,6 +150,23 @@ def steam_throttle(url: str) -> None:
             time.sleep(wait)
         STEAM_LAST[0] = time.monotonic()
 
+# ── App Store(iTunes) 요청 간격(초) — iTunes Search API 는 짧은 시간에 몰리면 429/403 을 준다.
+ITUNES_PACE = float(os.environ.get("PHAROS_ITUNES_PACE", "0") or 0)
+ITUNES_GATE = threading.Lock()
+ITUNES_LAST = [0.0]
+
+
+def itunes_throttle(url: str) -> None:
+    """itunes.apple.com 요청을 최소 간격으로 벌린다(PHAROS_ITUNES_PACE>0 일 때)."""
+    if ITUNES_PACE <= 0 or "itunes.apple.com" not in url:
+        return
+    with ITUNES_GATE:
+        wait = ITUNES_LAST[0] + ITUNES_PACE - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        ITUNES_LAST[0] = time.monotonic()
+
+
 def http_raw(url: str, headers: dict | None = None, timeout: int = 30, retries: int = 2,
              use_cache: bool = True, label: str = "") -> tuple[bytes, dict]:
     """URL 응답 바이트 — 같은 URL 은 캐시에서 즉시 돌려준다."""
@@ -163,6 +180,7 @@ def http_raw(url: str, headers: dict | None = None, timeout: int = 30, retries: 
     started = time.perf_counter()
     for attempt in range(retries + 1):
         steam_throttle(url)
+        itunes_throttle(url)
         try:
             req = urllib.request.Request(url, headers={**UA, **(headers or {})})
             with urllib.request.urlopen(req, timeout=timeout) as res:
@@ -180,8 +198,10 @@ def http_raw(url: str, headers: dict | None = None, timeout: int = 30, retries: 
                 return raw, info
         except urllib.error.HTTPError as exc:
             last = exc
-            if exc.code in (429, 500, 502, 503, 504) and attempt < retries:
-                time.sleep(1.5 * (attempt + 1))
+            # iTunes 는 요청이 몰리면 403(Forbidden)으로도 막는다 — 같은 호스트에만 재시도 대상으로 둔다.
+            retryable = (429, 500, 502, 503, 504) + ((403,) if "itunes.apple.com" in url else ())
+            if exc.code in retryable and attempt < retries:
+                time.sleep((2.5 if exc.code == 403 else 1.5) * (attempt + 1))
                 continue
             break
         except Exception as exc:  # noqa: BLE001 — 네트워크 오류는 재시도 후 실패로 남긴다
