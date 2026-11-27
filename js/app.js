@@ -288,6 +288,8 @@ function parseUrl() {
   const tab = params.get('tab');
   const domain = params.get('domain');
   const wantsLighthouse = domain === 'lighthouse' || tab === 'lighthouse';
+  // `?domain=catalog` · `?domain=all` 은 카탈로그 홈(전체 탐색)으로 — 실제 도메인이 아니라 화면 이름이다.
+  const wantsCatalog = domain === 'catalog' || domain === 'all' || tab === 'catalog';
   if (wantsLighthouse) {
     route.view = 'lighthouse';
     const tier = Number(params.get('lh_tier'));
@@ -296,6 +298,8 @@ function parseUrl() {
     if (price === 'free' || price === 'all') state.lh.filters.price = price;
     const platform = params.get('lh_platform');
     if (platform === 'pc' || platform === 'mobile' || platform === 'all') state.lh.filters.platform = platform;
+  } else if (wantsCatalog) {
+    route.view = 'home';
   } else if (domain && state.cat.domain(domain)) {
     route.view = 'browse';
     route.domain = domain;
@@ -341,6 +345,9 @@ function parseUrl() {
       }
     }
   }
+
+  // 기본 랜딩은 등대 — 주소에 화면·도메인·항목이 없을 때만(?lang·?preset 같은 설정 파라미터는 무시).
+  if (!domain && !tab && !route.domain && !route.item) route.view = 'lighthouse';
 
   const preset = params.get('preset');
   if (preset && PRESETS.some((p) => p.id === preset)) state.preset = preset;
@@ -393,6 +400,8 @@ function urlForRoute() {
     if (tier !== 1) params.set('lh_tier', String(tier));
     if (price !== 'all') params.set('lh_price', price);
     if (platform !== 'all') params.set('lh_platform', platform);
+  } else if (route.view === 'home' && !route.domain) {
+    params.set('domain', 'catalog');
   } else if (route.domain) {
     params.set('domain', route.domain);
     if (route.category && !route.arena) params.set('category', route.category);
@@ -440,6 +449,7 @@ async function render({ replace = false } = {}) {
   renderBreadcrumb();
   renderCompareBar();
   document.body.classList.toggle('is-home', !state.route.domain && state.route.view !== 'lighthouse');
+  document.body.classList.toggle('is-lighthouse', state.route.view === 'lighthouse');
   if (state.route.view === 'lighthouse') {
     renderLighthouse();
   } else if (!state.route.domain) {
@@ -499,20 +509,28 @@ function goHome() {
   return render();
 }
 
+/** 기본 화면인 등대 — 로고·첫 탭이 가리킨다. */
+function goLighthouse() {
+  state.query = '';
+  state.route = { view: 'lighthouse', domain: null, category: null, arena: null, item: null, compare: [] };
+  return render();
+}
+
 /* ------------------------------------------------------------ 상단·경로 UI */
 
 function renderDomainTabs() {
   const wrap = $('domainTabs');
   if (!wrap) return;
+  const inCatalog = !state.route.domain && state.route.view !== 'lighthouse';
   const items = [
-    { key: 'home', label: t('nav.home'), active: !state.route.domain && state.route.view !== 'lighthouse', action: 'home' },
+    { key: 'lighthouse', label: t('nav.lighthouse'), active: state.route.view === 'lighthouse', action: 'lighthouse' },
+    { key: 'catalog', label: t('nav.catalog'), active: inCatalog, action: 'catalog' },
     ...(state.cat?.catalog.domains || []).map((dom) => ({
       key: dom.id,
       label: dom.label,
       active: state.route.domain === dom.id,
       action: 'domain',
     })),
-    { key: 'lighthouse', label: t('nav.lighthouse'), active: state.route.view === 'lighthouse', action: 'lighthouse' },
   ];
   wrap.innerHTML = items
     .map(
@@ -529,10 +547,13 @@ function renderBreadcrumb() {
   const note = $('crumbNote');
   if (!wrap) return;
   const route = state.route;
-  const crumbs = [{ label: t('nav.home'), action: 'home' }];
+  const crumbs = [{ label: t('nav.lighthouse'), action: 'lighthouse' }];
   if (route.view === 'lighthouse') {
-    crumbs.push({ label: t('nav.lighthouse') });
-  } else if (route.domain) {
+    /* 등대는 첫 화면 — 경로 대신 화면 아래 안내를 쓴다. */
+  } else {
+    crumbs.push({ label: t('nav.catalog'), action: 'catalog' });
+  }
+  if (route.view !== 'lighthouse' && route.domain) {
     const dom = state.cat.domain(route.domain);
     crumbs.push({ label: dom?.label || route.domain, action: 'domain', domain: route.domain });
     if (route.category && !route.arena) {
@@ -2921,13 +2942,21 @@ function renderLighthouse() {
   wrap.innerHTML = `
     <section class="lh">
       <div class="hero hero--compact lh-hero">
-        <p class="eyebrow">${esc(t('lh.eyebrow'))}</p>
-        <h1>${esc(t('lh.titleBefore'))}<span class="hl">${esc(t('lh.titleHl'))}</span></h1>
-        <p class="lede">${esc(t('lh.lede'))}</p>
+        <div class="lh-hero-lead">
+          <p class="eyebrow">${esc(t('lh.eyebrow'))}</p>
+          <h1>${esc(t('lh.titleBefore'))}<span class="hl">${esc(t('lh.titleHl'))}</span>${esc(t('lh.titleAfter'))}</h1>
+          <p class="lede">${esc(t('lh.lede', { n: count.games ?? 0 }))}</p>
+          <ol class="lh-steps" aria-label="${esc(t('lh.stepsAria'))}">
+            <li>${esc(t('lh.step1'))}</li>
+            <li>${esc(t('lh.step2'))}</li>
+            <li>${esc(t('lh.step3'))}</li>
+          </ol>
+        </div>
         <div class="lh-stats">
-          <span>${t('lh.statGames', { n: count.games ?? 0, q: count.quests ?? 0 })}</span>
-          <span>${t('lh.statFree', { n: count.free_to_play ?? 0 })}</span>
-          <span>${t('lh.statDone', { n: state.lh.history.length })}</span>
+          <span class="lh-stat"><b>${num(count.games ?? 0)}</b><small>${esc(t('lh.stat.games'))}</small></span>
+          <span class="lh-stat"><b>${num(count.quests ?? 0)}</b><small>${esc(t('lh.stat.quests'))}</small></span>
+          <span class="lh-stat"><b>${num(count.free_to_play ?? 0)}</b><small>${esc(t('lh.stat.free'))}</small></span>
+          <span class="lh-stat"><b>${num(state.lh.history.length)}</b><small>${esc(t('lh.stat.done'))}</small></span>
         </div>
       </div>
 
@@ -2974,6 +3003,13 @@ function renderLighthouse() {
 
       <div id="lhResult" class="lh-result" aria-live="polite">${lhResultHtml()}</div>
       ${lhHistoryHtml()}
+      <a class="lh-catalog-banner" href="?lang=${esc(state.lang)}&domain=catalog" data-action="catalog">
+        <span class="lh-catalog-main">
+          <span class="lh-catalog-kicker">${esc(t('lh.catalog.kicker'))}</span>
+          <strong class="lh-catalog-link">${esc(t('lh.catalog.link', { n: num(state.core.index.counts.items) }))}<span class="lh-catalog-arrow" aria-hidden="true">→</span></strong>
+        </span>
+        <span class="lh-catalog-sub">${esc(t('lh.catalog.sub'))}</span>
+      </a>
     </section>`;
 }
 
@@ -3108,6 +3144,11 @@ function bindEvents() {
     if (state.route.view !== 'home') await goHome();
     $('bookmarkSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  // 로고는 언제나 등대(첫 화면)로 돌아온다 — 페이지를 새로 받지 않고 화면만 바꿔 퀘스트 잠금·기록을 그대로 둔다.
+  document.querySelector('.brand')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    goLighthouse();
+  });
   $('modalBackdrop')?.addEventListener('mousedown', (event) => {
     if (event.target === $('modalBackdrop')) closeDetail();
   });
@@ -3227,8 +3268,11 @@ async function onClick(event) {
   const action = target.closest('[data-action]');
   if (action) {
     const kind = action.dataset.action;
-    if (kind === 'home') return goHome();
-    if (kind === 'lighthouse') return navigate({ view: 'lighthouse', domain: null });
+    if (kind === 'catalog') {
+      event.preventDefault();
+      return goHome();
+    }
+    if (kind === 'lighthouse') return goLighthouse();
     if (kind === 'domain') return navigate({ view: 'browse', domain: action.dataset.domain, category: null });
     if (kind === 'category') return navigate({ domain: action.dataset.domain, category: action.dataset.category });
     if (kind === 'arena')

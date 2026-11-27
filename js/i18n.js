@@ -18,14 +18,14 @@ export const LANG_STORE_KEY = 'pharos-lang';
 const M = {
   /* 공통 */
   'skip.link': ['본문으로 건너뛰기', 'Skip to content'],
-  'brand.home': ['파로스 홈', 'Pharos home'],
+  'brand.home': ['파로스 등대 홈', 'Pharos Lighthouse home'],
   'brand.tagline': [
     '별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별',
     'Apps, games and AI tools filtered by your standards, not star ratings',
   ],
   'brand.sub': ['파로스', ''],
-  'nav.domains': ['도메인 전환', 'Switch domain'],
-  'nav.home': ['홈', 'Home'],
+  'nav.domains': ['화면 전환', 'Switch view'],
+  'nav.catalog': ['🧭 전체 탐색', '🧭 Explore'],
   'nav.lighthouse': ['🚨 등대', '🚨 Lighthouse'],
   'nav.bookmarks': ['보관함', 'Saved'],
   'nav.method': ['방법론', 'Method'],
@@ -52,7 +52,7 @@ const M = {
   'crumb.compare': ['나란히 비교', 'Side by side'],
 
   /* 홈 */
-  'home.eyebrow': ['PHAROS · 파로스', 'PHAROS'],
+  'home.eyebrow': ['CATALOG · 전체 탐색', 'CATALOG · EXPLORE'],
   'home.title.before': ['별점 대신, ', 'Filter by '],
   'home.title.hl': ['내 기준', 'your own standards'],
   'home.title.after': ['으로 거르는 앱·게임·AI 도구 선별', ', not star ratings'],
@@ -629,20 +629,20 @@ const M = {
 
   /* 페이지 메타 */
   'meta.title': [
-    '파로스 Pharos — 별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별',
-    'Pharos — screen apps, games and AI tools by your standards, not star ratings',
+    '파로스 Pharos — 오늘 도전할 목표를 비추는 등대 · 앱·게임·AI 도구 선별',
+    'Pharos — a lighthouse for your next goal · apps, games and AI tools screened',
   ],
   'meta.description': [
-    '파로스는 사용자 평가·객관 신뢰 지표·AI 검토를 내 가중치로 합치고, 강제 광고·확률형 아이템·불투명 크레딧 같은 절대 거름 조건을 적용해 앱·게임·AI 도구를 선별합니다. 도메인 → 대분류 → 비교군 → 항목 순으로 탐색하고, 모든 계산은 브라우저에서 실시간으로 이뤄집니다.',
-    'Pharos combines user ratings, objective trust metrics and AI review with your own weights, then applies hard filters — forced ads, gacha items, opaque credits — to screen apps, games and AI tools. Browse domain → category → arena → item; every calculation runs live in your browser.',
+    '오늘 뭐 하지? 파로스 등대는 가격·플랫폼·기간을 고르면 검증한 명작 중 하나와 그 안의 실제 목표를 퀘스트로 비춥니다. 앱·게임·AI 도구는 사용자 평가·객관 신뢰 지표·AI 검토를 내 가중치로 합치고, 강제 광고·확률형 아이템·불투명 크레딧 같은 절대 거름 조건을 적용해 선별합니다. 모든 계산은 브라우저에서 실시간으로 이뤄집니다.',
+    'What do I play tonight? Pick price, platform and length, and the Pharos Lighthouse shines on one vetted masterwork and a real goal inside it. Apps, games and AI tools are screened by combining user ratings, objective trust metrics and AI review with your own weights, then applying hard filters — forced ads, gacha items, opaque credits. Every calculation runs live in your browser.',
   ],
   'meta.ogTitle': [
-    '파로스 Pharos — 별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별',
-    'Pharos — screen apps, games and AI tools by your standards',
+    '파로스 Pharos — 오늘 도전할 목표를 비추는 등대',
+    'Pharos — a lighthouse for your next goal',
   ],
   'meta.ogDescription': [
-    '별점은 높은데 거름 판정? 파로스는 조건(광고·과금·계정·수명)으로 거르고, 같은 비교군 안에서만 비교합니다.',
-    'High stars but filtered out? Pharos screens on conditions — ads, monetization, accounts, lifecycle — and compares only inside the same arena.',
+    '조건만 고르면 명작 한 편과 그 안의 실제 목표 하나를 비춥니다. 별점 대신 조건(광고·과금·계정·수명)으로 거르는 앱·게임·AI 도구 선별은 옆 탐색 탭에.',
+    'Pick your terms and get one masterwork and a real goal inside it. Screening by conditions — ads, monetization, accounts, lifecycle — instead of star ratings lives in the Explore tab.',
   ],
 
   /* 판정 규칙 전문(방법론·계산 과정) */
@@ -946,15 +946,25 @@ const M = {
 
   /* 등대(Lighthouse) — 조건을 골라 명작 퀘스트 하나를 받는 화면 */
   'lh.eyebrow': ['LIGHTHOUSE · 등대', 'LIGHTHOUSE'],
-  'lh.titleBefore': ['조건을 고르면 ', 'Pick your terms and '],
-  'lh.titleHl': ['등대가 한 게임을 비춥니다', 'the lighthouse shines on one game'],
+  'lh.titleBefore': ['별점 사이트가 아니라, ', 'Not another ratings site. '],
+  'lh.titleHl': ['지금 도전할 목표', 'A goal for right now'],
+  'lh.titleAfter': ['를 비춥니다', '.'],
   'lh.lede': [
-    '가격·플랫폼·기간을 고르면, 파로스가 검증한 명작 50종 중 하나를 추첨해 그 게임의 실제 목표를 하나 비춰 줍니다. 장비 목록이 아니라 “오늘 뭐 하지”에 대한 답입니다.',
-    'Choose price, platform and length, and the Lighthouse draws one of 50 vetted masterworks and shines on a real goal inside it — an answer to “what do I play tonight,” not another backlog list.',
+    '가격·플랫폼·기간만 고르면, 파로스가 검증한 명작 {n}종 중 하나와 그 안의 실제 목표 하나를 퀘스트로 비춥니다. 장비 목록이 아니라 “오늘 뭐 하지”에 대한 답입니다.',
+    'Pick price, platform and length, and the Lighthouse shines on one of {n} vetted masterworks and a real goal inside it — an answer to “what do I play tonight,” not another backlog list.',
   ],
-  'lh.statGames': ['명작 <b>{n}</b>종 · 퀘스트 <b>{q}</b>개', '<b>{n}</b> games · <b>{q}</b> quests'],
-  'lh.statFree': ['무료 <b>{n}</b>종', '<b>{n}</b> free to play'],
-  'lh.statDone': ['내 완료 <b>{n}</b>개', 'Completed by you: <b>{n}</b>'],
+  'lh.stepsAria': ['등대 사용 순서', 'How the Lighthouse works'],
+  'lh.step1': ['① 조건 고르기', '① Set your terms'],
+  'lh.step2': ['② 명작 한 편', '② One masterwork'],
+  'lh.step3': ['③ 목표 하나 완료', '③ Finish one goal'],
+  'lh.stat.games': ['명작 게임', 'Vetted games'],
+  'lh.stat.quests': ['퀘스트', 'Quests'],
+  'lh.stat.free': ['무료 게임', 'Free to play'],
+  'lh.stat.done': ['내 완료', 'Done by you'],
+  'lh.catalog.kicker': ['전체 카탈로그 · CATALOG', 'FULL CATALOG'],
+  'lh.catalog.link': ['{n}개 앱·게임·AI 도구 직접 비교해 보기', 'Compare all {n} apps, games and AI tools'],
+  'lh.catalog.sub': ['장르별 추천부터 3축 점수·근거까지 — 등대 뒤의 파로스 전체 데이터',
+    'Genre picks, three-axis scores and evidence — the whole Pharos dataset'],
   'lh.filtersAria': ['등대 조건', 'Lighthouse conditions'],
   'lh.price': ['가격', 'Price'],
   'lh.price.all': ['전체', 'All'],
