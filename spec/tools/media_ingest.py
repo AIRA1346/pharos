@@ -724,29 +724,21 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
 # ------------------------------------------------------------------ 포스터 아이콘
 
 def make_icon(data: bytes, out: Path) -> None:
+    """포스터(2:3) → 정사각 아이콘.
+
+    46px 카드 틀에서는 세로로 앉힌 포스터가 너무 작아 읽히지 않는다. 그래서 포스터를
+    **정사각으로 잘라 채우되**, 초점이 보통 인물·배경에 있는 위쪽 45% 지점을 중심으로 잡는다.
+    """
     img = Image.open(io.BytesIO(data)).convert("RGB")
     size = 320
-    # 배경: 꽉 채워 흐리게
-    bg_scale = max(size / img.width, size / img.height)
-    bg = img.resize((max(1, int(img.width * bg_scale)), max(1, int(img.height * bg_scale))), Image.LANCZOS)
-    left, top = (bg.width - size) // 2, (bg.height - size) // 2
-    bg = bg.crop((left, top, left + size, top + size)).filter(ImageFilter.GaussianBlur(14))
-    bg = Image.blend(bg, Image.new("RGB", (size, size), (12, 13, 18)), 0.35)
-    # 전경: 높이 맞춤
-    fg_h = size - 16
-    fg_w = max(1, int(img.width * fg_h / img.height))
-    fg = img.resize((fg_w, fg_h), Image.LANCZOS)
-    if fg_w > size - 16:
-        fg = fg.crop(((fg_w - (size - 16)) // 2, 0, (fg_w - (size - 16)) // 2 + size - 16, fg_h))
-        fg_w = fg.width
-    canvas = bg.copy()
-    canvas.paste(fg, ((size - fg_w) // 2, (size - fg_height(fg)) // 2))
+    scale = max(size / img.width, size / img.height)
+    scaled = img.resize((max(1, round(img.width * scale)), max(1, round(img.height * scale))), Image.LANCZOS)
+    left = (scaled.width - size) // 2
+    top = int((scaled.height - size) * 0.45)
+    top = max(0, min(scaled.height - size, top))
+    canvas = scaled.crop((left, top, left + size, top + size))
     out.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(out, "WEBP", quality=84, method=6)
-
-
-def fg_height(img: Image.Image) -> int:
-    return img.height
 
 
 # ------------------------------------------------------------------ 카탈로그·EN 병합
