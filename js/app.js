@@ -3072,7 +3072,7 @@ function lhStep2Html() {
               sub: lhText(meta, 'window'),
               hint: lhText(meta, 'hint'),
               active: tier === n,
-            }).replace('data-lh-pick="tier"', 'data-lh-pick="tier" data-lh-auto="1"');
+            });
           }).join('')}
         </div>
       </div>
@@ -3354,7 +3354,6 @@ async function onClick(event) {
   const lhPickBtn = target.closest('[data-lh-pick]');
   if (lhPickBtn) {
     lhPick(lhPickBtn.dataset.lhPick, lhPickBtn.dataset.lhValue);
-    if (lhPickBtn.dataset.lhAuto) lhSetStep(3);
     return;
   }
   const lhDrawBtn = target.closest('[data-lh-draw]');
