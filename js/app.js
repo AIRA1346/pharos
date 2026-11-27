@@ -1360,7 +1360,7 @@ async function renderCompare(seq) {
         return chips.length ? chips.join('') : `<span class="muted">${esc(t('compare.none'))}</span>`;
       },
     },
-    { id: 'stars', label: t('compare.row.stars'), num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
+    { id: 'stars', label: state.route.domain === 'media' ? t('compare.row.stars.score') : t('compare.row.stars'), num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
     { id: 'recent', label: t('compare.row.recent'), render: (v) => recentReviewText(v.item) },
     { id: 'life', label: t('compare.row.life'), render: (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status) },
     { id: 'freshness', label: t('compare.row.freshness'), render: (v) => {
@@ -1451,32 +1451,38 @@ async function renderCompare(seq) {
 
 const STORE_PLATFORMS = ['android', 'ios', 'steam'];
 
-/** 누적 별점 행의 이름 — 실제 스토어 표본이면 '스토어 누적 별점', G2 같은 3자 집계면 '누적 평점(3자 집계)'. */
+/** 누적 별점 행의 이름 — 실제 스토어 표본이면 '스토어 누적 별점', G2 같은 3자 집계면 '누적 평점(3자 집계)'.
+ *  미디어 도메인은 5점 척도가 아니라 100점 척도(AniList)만 있어 '누적 평점(100점)' 으로 부른다. */
 function storeStarsLabel(item) {
-  const top = (item.review_snapshot?.platforms || [])
-    .filter((row) => row.cumulative && row.cumulative.scale === 'stars5')
+  const rows = (item.review_snapshot?.platforms || []).filter((row) => row.cumulative);
+  const stars = rows
+    .filter((row) => row.cumulative.scale === 'stars5')
     .sort((a, b) => (b.cumulative.count || 0) - (a.cumulative.count || 0))[0];
-  if (!top) return t('compare.row.stars');
-  return STORE_PLATFORMS.includes(top.platform) ? t('stars.store') : t('stars.aggregate');
+  if (!stars) {
+    const hundred = rows.filter((row) => row.cumulative.scale === 'out_of_100');
+    return hundred.length ? t('compare.row.stars.score') : t('compare.row.stars');
+  }
+  return STORE_PLATFORMS.includes(stars.platform) ? t('stars.store') : t('stars.aggregate');
 }
 
 function storeStarsText(item) {
   const rows = (item.review_snapshot?.platforms || [])
     .map((row) => ({ row, metric: row.cumulative }))
-    .filter(({ metric }) => metric && metric.scale === 'stars5')
+    .filter(({ metric }) => metric && (metric.scale === 'stars5' || metric.scale === 'out_of_100'))
     .sort((a, b) => (b.metric.count || 0) - (a.metric.count || 0));
   if (!rows.length) return '<span class="muted">—</span>';
   const { row, metric } = rows[0];
-  return `★ ${Number(metric.value).toFixed(1)} <span class="muted">${engine.PLATFORM_LABEL[row.platform] || row.platform} · ${esc(
+  const head = metric.scale === 'stars5' ? `★ ${Number(metric.value).toFixed(1)}` : `${Number(metric.value).toFixed(metric.value % 1 ? 1 : 0)}/100`;
+  return `${head} <span class="muted">${engine.PLATFORM_LABEL[row.platform] || row.platform} · ${esc(
     t('reviews.count', { n: num(metric.count) }),
   )}</span>`;
 }
 
-/** 비교 표에서 '최고'를 표시할 때 쓰는 누적 별점 숫자(가장 큰 표본의 stars5 값). */
+/** 비교 표에서 '최고'를 표시할 때 쓰는 누적 평점 숫자(가장 큰 표본 — 5점 척도는 그대로, 100점 척도는 그대로 비교). */
 function storeStarsValue(item) {
   const values = (item.review_snapshot?.platforms || [])
     .map((row) => row.cumulative)
-    .filter((metric) => metric && metric.scale === 'stars5')
+    .filter((metric) => metric && (metric.scale === 'stars5' || metric.scale === 'out_of_100'))
     .sort((a, b) => (b.count || 0) - (a.count || 0));
   return values.length ? Number(values[0].value) : undefined;
 }
@@ -1488,7 +1494,7 @@ function recentReviewText(item) {
     .map((row) => {
       const { gap } = engine.reviewGap(row);
       const metric = row.recent;
-      const value = metric.scale === 'percent' ? `${metric.value}%` : metric.scale === 'stars5' ? `★ ${metric.value}` : `${metric.value}/10`;
+      const value = metric.scale === 'percent' ? `${metric.value}%` : metric.scale === 'stars5' ? `★ ${metric.value}` : metric.scale === 'out_of_100' ? `${metric.value}/100` : `${metric.value}/10`;
       return `${esc(engine.PLATFORM_LABEL[row.platform] || row.platform)} ${value}${
         gap == null ? '' : ` <span class="muted">(${gap > 0 ? '+' : ''}${gap.toFixed(1)}p)</span>`
       }`;
@@ -1790,7 +1796,7 @@ function sectionFacts(view) {
   const stars = storeStarsText(item);
   const starsLabel = storeStarsLabel(item);
   const rows = [
-    [t('facts.developer'), `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
+    [t(item.domain === 'media' ? 'facts.creator' : 'facts.developer'), `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
       .map((p) => esc(engine.PLATFORM_LABEL[p] || p))
       .join(' · ')}${item.release_date ? ` · ${esc(t('facts.released', { date: item.release_date }))}` : ''}</span>`],
     [t('facts.price'), `${esc(tier?.price?.display || '—')}<br><span class="muted">${esc(tier?.label || '')}${
@@ -2031,7 +2037,7 @@ function sectionReviews(view) {
         metric ? `${metric.window || t('reviews.periodUnknown')} · ${engine.reviewToHundred(metric.value, metric.scale)?.toFixed(1)}/100 · ${t('axes.evidence', { grade: engine.gradeWeakest(metric.evidence_grade) })}` : '';
       const metricValue = (metric) =>
         metric
-          ? `${metric.value}${metric.scale === 'percent' ? '%' : metric.scale === 'stars5' ? '★' : '/10'} <span class="muted">· ${esc(t('reviews.count', { n: num(metric.count) }))}</span>`
+          ? `${metric.value}${metric.scale === 'percent' ? '%' : metric.scale === 'stars5' ? '★' : metric.scale === 'out_of_100' ? '/100' : '/10'} <span class="muted">· ${esc(t('reviews.count', { n: num(metric.count) }))}</span>`
           : `<span class="muted">${esc(t('reviews.none'))}</span>`;
       const gapState = gap == null ? '' : gap <= -15 ? t('reviews.gapDamaged') : gap <= -5 ? t('reviews.gapDown') : gap >= 5 ? t('reviews.gapUp') : t('reviews.gapStable');
       return `

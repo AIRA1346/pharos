@@ -168,7 +168,7 @@
     },
     "platform": {
       "type": "string",
-      "enum": ["steam", "android", "ios", "windows", "macos", "linux", "web", "console", "other"]
+      "enum": ["steam", "android", "ios", "windows", "macos", "linux", "web", "console", "other", "cinema", "streaming", "tv", "print", "anilist", "letterboxd"]
     },
     "sourceIdList": {
       "type": "array",
@@ -493,7 +493,7 @@
           "enum": ["positive_rate", "stars", "score"]
         },
         "value": { "type": "number", "minimum": 0 },
-        "scale": { "type": "string", "enum": ["percent", "stars5", "out_of_10"] },
+        "scale": { "type": "string", "enum": ["percent", "stars5", "out_of_10", "out_of_100"] },
         "count": { "type": ["integer", "null"], "minimum": 0 },
         "window": { "type": "string", "description": "집계 기간(예: 최근 30일, 2026-06-08~2026-11-01)." },
         "evidence_grade": { "$ref": "#/$defs/grade" }
