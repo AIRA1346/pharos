@@ -240,6 +240,7 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         sample = sum(int(row["amount"]) for row in ((m.get("stats") or {}).get("scoreDistribution") or []))
         unit_ko, unit_en = "/100", "/100"
         score_txt = f"{base:.0f}/100"
+        metric_value = base
         poster_url = (m.get("coverImage") or {}).get("extraLarge")
         genres_raw = [g for g in (m.get("genres") or [])]
         start = iso_date(m.get("startDate"))
@@ -265,6 +266,7 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         sample = int((f.get("aggregateRating") or {}).get("ratingCount") or 0)
         unit_ko, unit_en = "★/5", "★/5"
         score_txt = f"{rating:.2f}/5"
+        metric_value = rating
         poster_url = f.get("image")
         genres_raw = [g for g in (f.get("genre") or [])]
         start = f.get("dateCreated")
@@ -296,9 +298,10 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
             if chapters and volumes:
                 head = f"만화 {chapters}화·{volumes}권" if lang == "ko" else f"{chapters} chapters in {volumes} volumes"
             elif chapters:
-                head = f"만화 {chapters}화 연재 중" if lang == "ko" else f"{chapters} chapters so far"
+                head = (f"만화 {chapters}화 " + ("휴재 중" if life == "hiatus" else "연재 중")) if lang == "ko" else \
+                    (f"{chapters} chapters" + (" (on hiatus)" if life == "hiatus" else " so far"))
             else:
-                head = "연재 중" if lang == "ko" else "serialised"
+                head = "휴재 중" if (lang == "ko" and life == "hiatus") else ("연재 중" if lang == "ko" else "serialised")
             span = f"{year}~{end[:4]}" if end and end[:4] != str(year) else (f"{year}~" if life != "complete" else str(year))
             return f"{head} ({span})"
         head = f"영화 {runtime}분" if runtime and lang == "ko" else (f"{runtime} min" if runtime else "feature film")
@@ -479,14 +482,20 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
 
     # ---------- 수명·갱신
     if life == "complete":
-        maintenance_note_ko = (f"완결 — AniList 종료일 {end or release} 기준으로 연재·방영이 끝난 작품이다. "
-                               "후속 시즌·외전은 이 항목에서 다루지 않는다.")
-        maintenance_note_en = (f"Complete — serialisation or broadcast ended on {end or release} (AniList end date). "
+        end_src_ko = "개봉일" if kind == "movie" else "AniList 종료일"
+        end_src_en = "release date" if kind == "movie" else "AniList end date"
+        maintenance_note_ko = (f"완결 — {end_src_ko} {end or release} 기준으로 공개가 끝난 작품이다. "
+                               "후속작·외전은 이 항목에서 다루지 않는다.")
+        maintenance_note_en = (f"Complete — released and finished ({end_src_en} {end or release}). "
                                "Sequels and spin-offs are outside this entry.")
         cadence = "dormant"
         latest_update = end or release
-        upd_note_ko = f"최종화·최종권 공개({end or release}) — AniList 종료일."
-        upd_note_en = f"Final episode or volume released ({end or release}) — AniList end date."
+        upd_note_ko = (f"개봉({end or release}) — Letterboxd 개봉일." if kind == "movie"
+                       else f"극장판 공개({end or release}) — AniList 종료일." if fmt == "MOVIE"
+                       else f"최종화·최종권 공개({end or release}) — AniList 종료일.")
+        upd_note_en = (f"Released ({end or release}) — Letterboxd release date." if kind == "movie"
+                       else f"Film released ({end or release}) — AniList end date." if fmt == "MOVIE"
+                       else f"Final episode or volume released ({end or release}) — AniList end date.")
     elif life == "ongoing":
         maintenance_note_ko = ("연재·방영 중 — 원작이나 후속 시즌이 이어지는 작품이다. 최근 화 공개일은 확인하지 않았다.")
         maintenance_note_en = ("Still running — the source work or new seasons continue. The date of the latest instalment is not verified.")
@@ -566,7 +575,8 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
             "min_sample": 100,
             "platforms": [{
                 "platform": "anilist" if kind in ("anime", "manga") else "letterboxd",
-                "cumulative": {"metric": "score", "value": base, "scale": "out_of_100" if kind in ("anime", "manga") else "stars5",
+                "cumulative": {"metric": "score", "value": metric_value,
+                               "scale": "out_of_100" if kind in ("anime", "manga") else "stars5",
                                "count": sample, "window": "전체 누적", "evidence_grade": "A"},
                 "note": f"{score_txt} · {sample:,}건 (전체 누적)",
             }],
@@ -624,14 +634,14 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
     item["verdict"]["reasons"] = [
         f"{src_label} {score_txt} · 채점 {sample:,}건 (표본 보정 {applied:+.2f} → {user_score}).",
         f"{fmt_ko} · {credit_ko}.",
-        (f"{life_ko} — AniList 종료일 {end or release}." if life == "complete"
+        (f"{life_ko} — {('개봉일' if kind == 'movie' else 'AniList 종료일')} {end or release}." if life == "complete"
          else f"{life_ko} — 후속 시즌·연재가 이어지고 있다." if life == "ongoing"
          else "장기 휴재 — 최근 연재일은 확인하지 못했다."),
     ]
     item["verdict"]["condition_notes"] = [
         "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
         "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-        (f"완결작 면제는 AniList 종료일({end or release})에 근거한 자동 판단이다." if life == "complete"
+        (f"완결작 면제는 {('Letterboxd 개봉일' if kind == 'movie' else 'AniList 종료일')}({end or release})에 근거한 자동 판단이다." if life == "complete"
          else "연재·방영이 이어지는 작품 — 최근 화 공개일은 확인하지 않았다." if life == "ongoing"
          else "장기 휴재 상태 — 최근 연재일을 확인하지 못해 12개월 공백으로 남겼다."),
     ]
@@ -659,14 +669,14 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
             "reasons": [
                 f"{score_txt} on {src_label} across {sample:,} ratings (scale adjustment {applied:+.2f} → {user_score}).",
                 f"{fmt_en} · {credit_en}.",
-                (f"{life_en.capitalize()} — AniList end date {end or release}." if life == "complete"
+                (f"{life_en.capitalize()} — {('release date' if kind == 'movie' else 'AniList end date')} {end or release}." if life == "complete"
                  else "Still running — sequels or the source serialisation continue." if life == "ongoing"
                  else "On a long hiatus; the latest chapter date is not verified."),
             ],
             "condition_notes": [
                 "Auto-collected entry — core quality is confirmed in the sequential deep review.",
                 "Streaming or reading platforms available in Korea, and per-title prices, are not verified.",
-                (f"The completed-work exemption rests on the AniList end date ({end or release}) and is an automated judgement." if life == "complete"
+                (f"The completed-work exemption rests on the {('Letterboxd release date' if kind == 'movie' else 'AniList end date')} ({end or release}) and is an automated judgement." if life == "complete"
                  else "The work is still running; the latest instalment date is not verified." if life == "ongoing"
                  else "The work is on a long hiatus, and the latest chapter date could not be verified."),
             ],
@@ -681,7 +691,8 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         "review_snapshot": {
             "platforms": [{
                 "platform": "anilist" if kind in ("anime", "manga") else "letterboxd",
-                "cumulative": {"metric": "score", "value": base, "scale": "out_of_100" if kind in ("anime", "manga") else "stars5",
+                "cumulative": {"metric": "score", "value": metric_value,
+                               "scale": "out_of_100" if kind in ("anime", "manga") else "stars5",
                                "count": sample, "window": "All-time", "evidence_grade": "A"},
                 "note": f"{score_txt} · {sample:,} ratings (all-time)",
             }],
