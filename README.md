@@ -48,7 +48,7 @@ v3 의 원칙 — **"처음엔 장르와 그 장르의 추천, 들어가면 자�
 - **딥링크** — `?domain=lighthouse&lh_cat=anime&lh_tier=2&lh_diff=normal` 처럼 분야도 주소에 실립니다(기존 `lh_tier`·`lh_price`·`lh_platform`·`lh_diff` 유지).
 - **검증** — `build_lighthouse.py`(v3 규칙: 4분야·분야별 25종/40목표 이상·단계×난이도 9조합 후보 2개 이상) ·
   `validate.py` [11](음성 테스트 10종) · `check_en_leaks.py --all` 한글 0경로 ·
-  `smoke_v28_lighthouse_v3.py` **103/103** · `smoke_v21` 120/120 · `smoke_v22` 69/69 · `smoke_v23` 61/61 · `smoke_v26_media` 31/31 (로컬·라이브).
+  `smoke_v28_lighthouse_v3.py` **101/101** · `smoke_v21` 120/120 · `smoke_v22` 69/69 · `smoke_v23` 61/61 · `smoke_v26_media` 31/31 (로컬·라이브).
   스크린샷 `live-v28-lighthouse-v3-category.png` · `live-v28-lighthouse-v3-media-quest.png`.
 
 ## v25 — 등대 목표 전면 리뉴얼: 상징 목표 125개 · 퀘스트별 난이도 (2026-11-27)

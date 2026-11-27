@@ -348,4 +348,4 @@ python3 projects/pharos/scripts/smoke_v26_media.py --live --shots-dir projects/p
 `web/tests/verify_ui.py` 는 v3 홈(`.hero`) 시절 선택자를 아직 들고 있어 현재 등대 첫 화면에서는
 `Page.inner_text(.hero)` 대기로 멈춘다(이번 배치 이전부터의 상태). 지금의 회귀 검증은
 `smoke_v21.py`(120항목) · `smoke_v22_brand.py`(69) · `smoke_v23_pledge.py`(61) · `smoke_v26_media.py`(31) ·
-`smoke_v28_lighthouse_v3.py`(103, 등대 4분야·전체 램던)가 맡는다.
+`smoke_v28_lighthouse_v3.py`(101, 등대 4분야·전체 랜덤)가 맡는다.

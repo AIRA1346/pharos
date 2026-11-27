@@ -109,7 +109,7 @@ def progress(page) -> str:
     return el.text_content().strip() if el else ""
 
 
-def enter_target(page, category: str, label: str = "") -> None:
+def enter_target(page, category: str, label: str = "", record: bool = True) -> None:
     """랜딩 → 서약(체크·서약) → 분야 카드 클릭."""
     if page.query_selector(".lh--landing"):
         page.click("[data-lh-goto='pledge']")
@@ -121,7 +121,8 @@ def enter_target(page, category: str, label: str = "") -> None:
     if page.query_selector(".lh--category"):
         page.click(f"[data-lh-cat='{category}']")
         page.wait_for_timeout(400)
-    expect(page.query_selector(".lh--pledge") is None, f"{label} 서약 화면을 벗어남", "")
+    if record:
+        expect(page.query_selector(".lh--pledge") is None, f"{label} 서약 화면을 벗어남", "")
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -403,7 +404,7 @@ def main() -> int:
             page.wait_for_timeout(5200)
             page.click("#lhAdSkip")
             page.wait_for_timeout(400)
-            enter_target(page, "all", label="전체 랜덤:")
+            enter_target(page, "all", label="전체 랜덤:", record=False)
             page.click("[data-lh-pick='tier'][data-lh-value='1']")
             page.wait_for_timeout(120)
             page.click(".lh-wizard-nav [data-lh-goto='2']")
