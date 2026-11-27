@@ -71,7 +71,8 @@ const state = {
   lastFocus: null,
   lh: {
     data: null,
-    filters: { price: 'all', platform: 'all', tier: 1 },
+    step: 0,
+    filters: { price: 'all', platform: 'all', tier: 1, difficulty: 'all' },
     current: null,
     history: [],
     skips: 0,
@@ -298,6 +299,8 @@ function parseUrl() {
     if (price === 'free' || price === 'all') state.lh.filters.price = price;
     const platform = params.get('lh_platform');
     if (platform === 'pc' || platform === 'mobile' || platform === 'all') state.lh.filters.platform = platform;
+    const difficulty = params.get('lh_diff');
+    if (['chill', 'normal', 'hardcore', 'all'].includes(difficulty)) state.lh.filters.difficulty = difficulty;
   } else if (wantsCatalog) {
     route.view = 'home';
   } else if (domain && state.cat.domain(domain)) {
@@ -396,10 +399,11 @@ function urlForRoute() {
   params.set('lang', state.lang);
   if (route.view === 'lighthouse') {
     params.set('domain', 'lighthouse');
-    const { tier, price, platform } = state.lh.filters;
+    const { tier, price, platform, difficulty } = state.lh.filters;
     if (tier !== 1) params.set('lh_tier', String(tier));
     if (price !== 'all') params.set('lh_price', price);
     if (platform !== 'all') params.set('lh_platform', platform);
+    if (difficulty !== 'all') params.set('lh_diff', difficulty);
   } else if (route.view === 'home' && !route.domain) {
     params.set('domain', 'catalog');
   } else if (route.domain) {
@@ -512,6 +516,7 @@ function goHome() {
 /** 기본 화면인 등대 — 로고·첫 탭이 가리킨다. */
 function goLighthouse() {
   state.query = '';
+  state.lh.step = 0;
   state.route = { view: 'lighthouse', domain: null, category: null, arena: null, item: null, compare: [] };
   return render();
 }
@@ -2647,6 +2652,8 @@ function closeMethod() {
    한 번 받은 퀘스트는 완료하거나 광고 슬롯으로 건너뛰기 전까지 localStorage 에 남는다. */
 
 const LH_TIERS = [1, 2, 3];
+const LH_DIFFICULTIES = ['all', 'chill', 'normal', 'hardcore'];
+const LH_STEP_TOTAL = 3;
 const lhText = (row, field) =>
   String((getLang() === 'en' ? row?.[`${field}_en`] : row?.[`${field}_ko`]) ?? '');
 
@@ -2657,6 +2664,7 @@ function lhLoadState() {
   if (filters.price === 'free' || filters.price === 'all') state.lh.filters.price = filters.price;
   if (['pc', 'mobile', 'all'].includes(filters.platform)) state.lh.filters.platform = filters.platform;
   if (LH_TIERS.includes(Number(filters.tier))) state.lh.filters.tier = Number(filters.tier);
+  if (LH_DIFFICULTIES.includes(filters.difficulty)) state.lh.filters.difficulty = filters.difficulty;
   if (Array.isArray(raw.history)) {
     state.lh.history = raw.history.filter((row) => row && typeof row.game_id === 'string').slice(-100);
   }
@@ -2672,6 +2680,7 @@ function lhLoadState() {
         price: current.filters?.price === 'free' ? 'free' : 'all',
         platform: ['pc', 'mobile'].includes(current.filters?.platform) ? current.filters.platform : 'all',
         tier: LH_TIERS.includes(Number(current.filters?.tier)) ? Number(current.filters.tier) : Number(current.tier),
+        difficulty: LH_DIFFICULTIES.includes(current.filters?.difficulty) ? current.filters.difficulty : 'all',
       },
     };
     state.lh.filters = { ...state.lh.current.filters };
@@ -2680,7 +2689,7 @@ function lhLoadState() {
 
 function lhSaveState() {
   writeStore(LS.lighthouse, {
-    version: 1,
+    version: 2,
     filters: state.lh.filters,
     current: state.lh.current,
     history: state.lh.history,
@@ -2719,11 +2728,48 @@ function lhPruneCurrent() {
   }
 }
 
-function lhDrawableGames() {
-  const { price, platform } = state.lh.filters;
+/** 위저드 단계 — 진행 중인 퀘스트가 있으면 언제나 4(결과 카드). */
+function lhStep() {
+  if (state.lh.current) return 4;
+  const step = Number(state.lh.step);
+  return Number.isInteger(step) && step >= 0 && step <= LH_STEP_TOTAL ? step : 0;
+}
+
+/** 현재 조건(플랫폼·가격·난이도)에 맞는 후보. */
+function lhPoolGames() {
+  const { price, platform, difficulty } = state.lh.filters;
   return (state.lh.data?.games || []).filter(
-    (game) => (price !== 'free' || game.free_to_play) && (platform === 'all' || game.platforms.includes(platform)),
+    (game) =>
+      (price !== 'free' || game.free_to_play) &&
+      (platform === 'all' || (game.platforms || []).includes(platform)) &&
+      (difficulty === 'all' || game.difficulty === difficulty),
   );
+}
+
+function lhSetStep(step) {
+  if (state.lh.current) return;
+  state.lh.step = Math.max(0, Math.min(LH_STEP_TOTAL, Number(step) || 0));
+  renderLighthouse();
+  document.querySelector('.lh-q')?.focus?.({ preventScroll: true });
+}
+
+function lhPick(group, value) {
+  if (state.lh.current) return;
+  if (group === 'tier') {
+    const tier = Number(value);
+    if (LH_TIERS.includes(tier)) state.lh.filters.tier = tier;
+  } else if (group === 'platform' && ['all', 'pc', 'mobile'].includes(value)) {
+    state.lh.filters.platform = value;
+  } else if (group === 'price' && ['all', 'free'].includes(value)) {
+    state.lh.filters.price = value;
+  } else if (group === 'difficulty' && LH_DIFFICULTIES.includes(value)) {
+    state.lh.filters.difficulty = value;
+  } else {
+    return;
+  }
+  lhSaveState();
+  syncUrl('replace');
+  renderLighthouse();
 }
 
 function lhDraw() {
@@ -2732,7 +2778,7 @@ function lhDraw() {
     return;
   }
   if (state.lh.current) return;
-  let pool = lhDrawableGames();
+  let pool = lhPoolGames();
   if (!pool.length) {
     toast(t('lh.toast.noMatch'));
     return;
@@ -2750,6 +2796,7 @@ function lhDraw() {
     filters: { ...state.lh.filters },
   };
   state.lh.lastGameId = game.game_id;
+  state.lh.step = LH_STEP_TOTAL + 1;
   lhSaveState();
   syncUrl('replace');
   renderLighthouse();
@@ -2770,12 +2817,14 @@ function lhComplete() {
   state.lh.history.push({
     game_id: game.game_id,
     tier: current.tier,
+    difficulty: game.difficulty || 'normal',
     title_ko: quest.title_ko,
     title_en: quest.title_en,
     completed_at: new Date().toISOString(),
   });
   state.lh.history = state.lh.history.slice(-100);
   state.lh.current = null;
+  state.lh.step = 0;
   lhSaveState();
   renderLighthouse();
   toast(t('lh.toast.completed', { name: recordById(game.game_id)?.name || game.game_id }), lhText(quest, 'title'));
@@ -2785,6 +2834,7 @@ function lhSkipComplete() {
   if (!state.lh.current) return;
   state.lh.skips += 1;
   state.lh.current = null;
+  state.lh.step = 0;
   lhSaveState();
   lhCloseAd();
   renderLighthouse();
@@ -2834,14 +2884,12 @@ function lhCloseAd() {
   document.body.style.overflow = '';
 }
 
-function lhFilterButtons(group, value, options) {
-  return options
-    .map(
-      (opt) =>
-        `<button type="button" role="radio" aria-checked="${value === opt.value ? 'true' : 'false'}"` +
-        ` data-lh-${group}="${esc(opt.value)}"${state.lh.current ? ' disabled' : ''}>${esc(opt.label)}</button>`,
-    )
-    .join('');
+function lhChoiceButton({ group, value, label, sub, hint, active }) {
+  return `<button type="button" class="lh-choice${active ? ' is-on' : ''}" role="radio" aria-checked="${active ? 'true' : 'false'}" data-lh-pick="${group}" data-lh-value="${esc(value)}">
+      <span class="lh-choice-label">${esc(label)}</span>
+      ${sub ? `<span class="lh-choice-sub">${esc(sub)}</span>` : ''}
+      ${hint ? `<span class="lh-choice-hint">${esc(hint)}</span>` : ''}
+    </button>`;
 }
 
 function lhQuestHtml(game, tier) {
@@ -2851,60 +2899,37 @@ function lhQuestHtml(game, tier) {
   return `
     <div class="lh-quest" data-lh-tier-view="${tier}">
       <p class="lh-quest-kicker"><span class="lh-tier-badge">${esc(lhText(meta, 'label'))}</span><span>${esc(lhText(meta, 'window'))}</span><span>${esc(t('lh.questKicker'))}</span></p>
-      <h3 class="lh-quest-title">${esc(lhText(quest, 'title'))}</h3>
+      <h2 class="lh-quest-title">${esc(lhText(quest, 'title'))}</h2>
       <p class="lh-quest-desc">${esc(lhText(quest, 'desc'))}</p>
       <p class="lh-quest-tip"><b>${esc(t('lh.tipLabel'))}</b> ${esc(lhText(quest, 'tip'))}</p>
       <p class="lh-quest-time"><span aria-hidden="true">⏱</span> ${esc(t('lh.estLabel'))} <b>${esc(lhText(quest, 'est_time'))}</b></p>
     </div>`;
 }
 
-function lhResultHtml() {
-  const current = state.lh.current;
-  if (!state.lh.data) {
-    return `<div class="lh-empty"><p>${esc(t('lh.toast.noData'))}</p></div>`;
-  }
-  if (!current) {
-    return `
-      <div class="lh-empty">
-        <span class="lh-empty-glyph" aria-hidden="true">🚨</span>
-        <h2>${esc(t('lh.emptyTitle'))}</h2>
-        <p>${esc(t('lh.emptyBody'))}</p>
-      </div>`;
-  }
-  const game = lhGameById(current.game_id);
-  const rec = recordById(current.game_id);
-  if (!game || !rec) return '';
-  const verdict = engine.VERDICT_META[rec.verdict] || engine.VERDICT_META.conditional;
-  const scoreText = typeof rec.score === 'number' ? rec.score.toFixed(1) : '—';
-  const tier = current.tier;
-  const freeLabel = game.free_to_play ? t('lh.badge.free') : t('lh.badge.paid');
-  const platformLabel = game.platforms.map((p) => (p === 'pc' ? 'PC' : t('lh.platform.mobile'))).join(' · ');
+function lhStepper(step) {
   return `
-    <article class="lh-card" data-lh-game="${esc(game.game_id)}">
-      <div class="lh-card-top">
-        ${iconHtml(rec, 'detail')}
-        <div class="lh-card-id">
-          <div class="lh-card-chips">
-            <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${esc(verdict.label)}</span>
-            <span class="lh-score">${esc(t('lh.score', { score: scoreText }))}</span>
-            <span class="lh-chip">${esc(freeLabel)}</span>
-            <span class="lh-chip">${esc(platformLabel)}</span>
-          </div>
-          <h2 class="lh-game-name">${esc(rec.name)}</h2>
-          <p class="lh-game-meta">${esc(state.cat.categoryLabel(rec.category))}${rec.developer ? ` · ${esc(rec.developer)}` : ''}</p>
-        </div>
-      </div>
-      ${lhQuestHtml(game, tier)}
-      <div class="lh-actions">
-        <button type="button" class="primary-btn" data-lh-complete>${esc(t('lh.complete'))}</button>
-        <button type="button" class="ghost-btn" data-lh-ad>${esc(t('lh.adSkip'))}</button>
-        <button type="button" class="text-btn" data-lh-detail="${esc(game.game_id)}">${esc(t('lh.detail'))} →</button>
-      </div>
-    </article>`;
+    <div class="lh-stepper">
+      <span class="lh-progress" aria-label="${step} / ${LH_STEP_TOTAL}">
+        <span class="lh-progress-text">${step} / ${LH_STEP_TOTAL}</span>
+        <span class="lh-dots" aria-hidden="true">${LH_TIERS.map((n) => `<i class="${n <= step ? 'is-on' : ''}"></i>`).join('')}</span>
+      </span>
+    </div>`;
+}
+
+function lhCatalogBanner() {
+  return `
+      <a class="lh-catalog-banner" href="?lang=${esc(state.lang)}&domain=catalog" data-action="catalog">
+        <span class="lh-catalog-main">
+          <span class="lh-catalog-kicker">${esc(t('lh.catalog.kicker'))}</span>
+          <strong class="lh-catalog-link">${esc(t('lh.catalog.link', { n: num(state.core.index.counts.items) }))}<span class="lh-catalog-arrow" aria-hidden="true">→</span></strong>
+        </span>
+        <span class="lh-catalog-sub">${esc(t('lh.catalog.sub'))}</span>
+      </a>`;
 }
 
 function lhHistoryHtml() {
   const history = state.lh.history || [];
+  if (!history.length) return '';
   const rows = [...history].reverse().slice(0, 8);
   return `
     <section class="lh-history" id="lhHistory">
@@ -2913,104 +2938,179 @@ function lhHistoryHtml() {
         <span class="section-hint">${esc(t('lh.historyCount', { n: history.length, s: state.lh.skips }))}</span>
       </div>
       <div class="lh-history-list">
-        ${
-          rows.length
-            ? rows
-                .map((row) => {
-                  const rec = recordById(row.game_id);
-                  const date = row.completed_at ? new Date(row.completed_at) : null;
-                  const dateText = date && !Number.isNaN(date.getTime())
-                    ? date.toLocaleDateString(locale(), { month: 'short', day: 'numeric' })
-                    : '';
-                  const title = getLang() === 'en' ? row.title_en : row.title_ko;
-                  return `<span class="lh-badge" title="${esc(title || '')}">${rec ? iconHtml(rec, 'small') : ''}<span class="lh-badge-text">${esc(rec?.name || row.game_id)}<b>${esc(title || '')}</b></span><span class="lh-badge-date">${esc(dateText)}</span></span>`;
-                })
-                .join('')
-            : `<p class="empty">${esc(t('lh.historyEmpty'))}</p>`
-        }
+        ${rows
+          .map((row) => {
+            const rec = recordById(row.game_id);
+            const date = row.completed_at ? new Date(row.completed_at) : null;
+            const dateText = date && !Number.isNaN(date.getTime())
+              ? date.toLocaleDateString(locale(), { month: 'short', day: 'numeric' })
+              : '';
+            const title = getLang() === 'en' ? row.title_en : row.title_ko;
+            const diff = LH_DIFFICULTIES.includes(row.difficulty) ? t(`lh.diff.${row.difficulty}`) : '';
+            return `<span class="lh-badge" title="${esc(title || '')}">${rec ? iconHtml(rec, 'small') : ''}<span class="lh-badge-text">${esc(rec?.name || row.game_id)}<b>${esc(title || '')}</b></span>${diff ? `<span class="lh-badge-diff">${esc(diff)}</span>` : ''}<span class="lh-badge-date">${esc(dateText)}</span></span>`;
+          })
+          .join('')}
       </div>
+    </section>`;
+}
+
+function lhLandingHtml() {
+  return `
+    <section class="lh lh--landing">
+      <div class="lh-landing">
+        <p class="lh-landing-kicker">🚨 ${esc(t('lh.kicker'))}</p>
+        <h1 class="lh-landing-title">
+          <span>${esc(t('lh.landing.l1'))}</span>
+          <span class="hl">${esc(t('lh.landing.l2'))}</span>
+        </h1>
+        <button type="button" class="primary-btn lh-start" data-lh-goto="1">${esc(t('lh.start'))}</button>
+      </div>
+      ${lhHistoryHtml()}
+      ${lhCatalogBanner()}
+    </section>`;
+}
+
+function lhStep1Html() {
+  const { platform, price } = state.lh.filters;
+  return `
+    <section class="lh lh--wizard lh--step1">
+      ${lhStepper(1)}
+      <div class="lh-panel">
+        <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.platform'))}</h1>
+        <div class="lh-choices" role="radiogroup" aria-label="${esc(t('lh.q.platform'))}">
+          ${lhChoiceButton({ group: 'platform', value: 'all', label: t('lh.opt.all'), sub: t('lh.opt.allSub'), active: platform === 'all' })}
+          ${lhChoiceButton({ group: 'platform', value: 'pc', label: 'PC', sub: t('lh.opt.pcSub'), active: platform === 'pc' })}
+          ${lhChoiceButton({ group: 'platform', value: 'mobile', label: t('lh.opt.mobile'), sub: t('lh.opt.mobileSub'), active: platform === 'mobile' })}
+        </div>
+        <h2 class="lh-q lh-q--sub">${esc(t('lh.q.price'))}</h2>
+        <div class="lh-choices lh-choices--seg" role="radiogroup" aria-label="${esc(t('lh.q.price'))}">
+          ${lhChoiceButton({ group: 'price', value: 'all', label: t('lh.opt.all'), sub: t('lh.opt.priceAllSub'), active: price === 'all' })}
+          ${lhChoiceButton({ group: 'price', value: 'free', label: t('lh.price.free'), sub: t('lh.opt.priceFreeSub'), active: price === 'free' })}
+        </div>
+      </div>
+      <div class="lh-wizard-nav">
+        <button type="button" class="text-btn" data-lh-goto="0">${esc(t('lh.home'))}</button>
+        <button type="button" class="primary-btn" data-lh-goto="2">${esc(t('lh.next'))}</button>
+      </div>
+    </section>`;
+}
+
+function lhStep2Html() {
+  const { tier } = state.lh.filters;
+  return `
+    <section class="lh lh--wizard lh--step2">
+      ${lhStepper(2)}
+      <div class="lh-panel">
+        <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.time'))}</h1>
+        <div class="lh-choices lh-choices--tiers" role="radiogroup" aria-label="${esc(t('lh.q.time'))}">
+          ${LH_TIERS.map((n) => {
+            const meta = lhTierMeta(n);
+            return lhChoiceButton({
+              group: 'tier',
+              value: String(n),
+              label: lhText(meta, 'label'),
+              sub: lhText(meta, 'window'),
+              hint: lhText(meta, 'hint'),
+              active: tier === n,
+            }).replace('data-lh-pick="tier"', 'data-lh-pick="tier" data-lh-auto="1"');
+          }).join('')}
+        </div>
+      </div>
+      <div class="lh-wizard-nav">
+        <button type="button" class="text-btn" data-lh-goto="1">${esc(t('lh.prev'))}</button>
+        <button type="button" class="primary-btn" data-lh-goto="3">${esc(t('lh.next'))}</button>
+      </div>
+    </section>`;
+}
+
+function lhSummaryText() {
+  const { platform, price, tier } = state.lh.filters;
+  const platformLabel = platform === 'all' ? t('lh.opt.all') : platform === 'pc' ? 'PC' : t('lh.opt.mobile');
+  const priceLabel = price === 'free' ? t('lh.price.free') : t('lh.opt.priceAll');
+  return [platformLabel, priceLabel, lhText(lhTierMeta(tier), 'label')].join(' · ');
+}
+
+function lhStep3Html() {
+  const { difficulty } = state.lh.filters;
+  const pool = lhPoolGames();
+  const count = pool.length;
+  return `
+    <section class="lh lh--wizard lh--step3">
+      ${lhStepper(3)}
+      <div class="lh-panel">
+        <p class="lh-summary">${esc(lhSummaryText())}</p>
+        <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.difficulty'))}</h1>
+        <div class="lh-choices lh-choices--diff" role="radiogroup" aria-label="${esc(t('lh.q.difficulty'))}">
+          ${lhChoiceButton({ group: 'difficulty', value: 'all', label: t('lh.diff.all'), sub: t('lh.opt.diffAllSub'), active: difficulty === 'all' })}
+          ${lhChoiceButton({ group: 'difficulty', value: 'chill', label: t('lh.diff.chill'), sub: t('lh.opt.diffChillSub'), active: difficulty === 'chill' })}
+          ${lhChoiceButton({ group: 'difficulty', value: 'normal', label: t('lh.diff.normal'), sub: t('lh.opt.diffNormalSub'), active: difficulty === 'normal' })}
+          ${lhChoiceButton({ group: 'difficulty', value: 'hardcore', label: t('lh.diff.hardcore'), sub: t('lh.opt.diffHardSub'), active: difficulty === 'hardcore' })}
+        </div>
+        <p class="lh-count${count ? '' : ' is-empty'}" aria-live="polite">${esc(count ? t('lh.count', { n: count }) : t('lh.countZero'))}</p>
+        <button type="button" class="primary-btn lh-draw" data-lh-draw${count ? '' : ' disabled'}>${esc(t('lh.draw'))}</button>
+        ${count ? '' : `<p class="lh-hint">${esc(t('lh.countZeroHint'))}</p>`}
+      </div>
+      <div class="lh-wizard-nav">
+        <button type="button" class="text-btn" data-lh-goto="2">${esc(t('lh.prev'))}</button>
+      </div>
+    </section>`;
+}
+
+function lhResultHtml() {
+  const current = state.lh.current;
+  if (!state.lh.data) {
+    return `<section class="lh lh--wizard"><div class="lh-empty"><span class="lh-empty-glyph" aria-hidden="true">🚨</span><h1>${esc(t('lh.toast.noData'))}</h1></div></section>`;
+  }
+  if (!current) return '';
+  const game = lhGameById(current.game_id);
+  const rec = recordById(current.game_id);
+  if (!game || !rec) return '';
+  const verdict = engine.VERDICT_META[rec.verdict] || engine.VERDICT_META.conditional;
+  const scoreText = typeof rec.score === 'number' ? rec.score.toFixed(1) : '—';
+  const tier = current.tier;
+  const platformLabel = game.platforms.map((p) => (p === 'pc' ? 'PC' : t('lh.opt.mobile'))).join(' · ');
+  return `
+    <section class="lh lh--result">
+      <p class="lh-result-kicker">${esc(t('lh.inprogress'))}</p>
+      <article class="lh-card" data-lh-game="${esc(game.game_id)}" data-lh-difficulty="${esc(game.difficulty)}">
+        <div class="lh-card-top">
+          ${iconHtml(rec, 'detail')}
+          <div class="lh-card-id">
+            <div class="lh-card-chips">
+              <span class="lh-diff lh-diff--${esc(game.difficulty)}">${esc(t(`lh.diff.${game.difficulty}`))}</span>
+              <span class="lh-chip">${esc(game.free_to_play ? t('lh.badge.free') : t('lh.badge.paid'))}</span>
+              <span class="lh-chip">${esc(platformLabel)}</span>
+              <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${esc(verdict.label)}</span>
+              <span class="lh-score">${esc(t('lh.score', { score: scoreText }))}</span>
+            </div>
+            <h1 class="lh-game-name">${esc(rec.name)}</h1>
+            <p class="lh-game-meta">${esc(state.cat.categoryLabel(rec.category))}${rec.developer ? ` · ${esc(rec.developer)}` : ''}</p>
+          </div>
+        </div>
+        ${lhQuestHtml(game, tier)}
+        <div class="lh-actions">
+          <button type="button" class="primary-btn" data-lh-complete>${esc(t('lh.complete'))}</button>
+          <button type="button" class="ghost-btn" data-lh-ad>${esc(t('lh.adSkip'))}</button>
+          <button type="button" class="text-btn" data-lh-detail="${esc(game.game_id)}">${esc(t('lh.detail'))} →</button>
+        </div>
+        <p class="lh-locked">${esc(t('lh.lockedNote'))}</p>
+      </article>
     </section>`;
 }
 
 function renderLighthouse() {
   const wrap = $('view');
   if (!wrap) return;
-  const { price, platform, tier } = state.lh.filters;
-  const locked = Boolean(state.lh.current);
-  const count = state.lh.data?.counts || {};
-  const pool = lhDrawableGames();
-  wrap.innerHTML = `
-    <section class="lh">
-      <div class="hero hero--compact lh-hero">
-        <div class="lh-hero-lead">
-          <p class="eyebrow">${esc(t('lh.eyebrow'))}</p>
-          <h1>${esc(t('lh.titleBefore'))}<span class="hl">${esc(t('lh.titleHl'))}</span>${esc(t('lh.titleAfter'))}</h1>
-          <p class="lede">${esc(t('lh.lede', { n: count.games ?? 0 }))}</p>
-          <ol class="lh-steps" aria-label="${esc(t('lh.stepsAria'))}">
-            <li>${esc(t('lh.step1'))}</li>
-            <li>${esc(t('lh.step2'))}</li>
-            <li>${esc(t('lh.step3'))}</li>
-          </ol>
-        </div>
-        <div class="lh-stats">
-          <span class="lh-stat"><b>${num(count.games ?? 0)}</b><small>${esc(t('lh.stat.games'))}</small></span>
-          <span class="lh-stat"><b>${num(count.quests ?? 0)}</b><small>${esc(t('lh.stat.quests'))}</small></span>
-          <span class="lh-stat"><b>${num(count.free_to_play ?? 0)}</b><small>${esc(t('lh.stat.free'))}</small></span>
-          <span class="lh-stat"><b>${num(state.lh.history.length)}</b><small>${esc(t('lh.stat.done'))}</small></span>
-        </div>
-      </div>
-
-      <div class="lh-controls" role="group" aria-label="${esc(t('lh.filtersAria'))}">
-        <div class="lh-group">
-          <span class="lh-label">${esc(t('lh.price'))}</span>
-          <div class="lh-seg" role="radiogroup" aria-label="${esc(t('lh.price'))}">
-            ${lhFilterButtons('price', price, [
-              { value: 'all', label: t('lh.price.all') },
-              { value: 'free', label: t('lh.price.free') },
-            ])}
-          </div>
-        </div>
-        <div class="lh-group">
-          <span class="lh-label">${esc(t('lh.platform'))}</span>
-          <div class="lh-seg" role="radiogroup" aria-label="${esc(t('lh.platform'))}">
-            ${lhFilterButtons('platform', platform, [
-              { value: 'all', label: t('lh.platform.all') },
-              { value: 'pc', label: 'PC' },
-              { value: 'mobile', label: t('lh.platform.mobile') },
-            ])}
-          </div>
-        </div>
-        <div class="lh-group lh-group--tier">
-          <span class="lh-label">${esc(t('lh.tier'))}</span>
-          <div class="lh-seg" role="radiogroup" aria-label="${esc(t('lh.tier'))}">
-            ${lhFilterButtons(
-              'tier',
-              String(tier),
-              LH_TIERS.map((n) => ({ value: String(n), label: t('lh.tierShort', { n }) })),
-            )}
-          </div>
-          <span class="lh-tier-hint">${esc(lhText(lhTierMeta(tier), 'window'))} — ${esc(lhText(lhTierMeta(tier), 'hint'))}</span>
-        </div>
-        <div class="lh-draw-row">
-          <button type="button" class="primary-btn lh-draw" data-lh-draw${locked ? ' disabled' : ''}>${esc(
-            locked ? t('lh.drawLocked') : t('lh.draw'),
-          )}</button>
-          <span class="lh-hint">${esc(
-            locked ? t('lh.lockedNote') : t('lh.poolNote', { n: pool.length }),
-          )}</span>
-        </div>
-      </div>
-
-      <div id="lhResult" class="lh-result" aria-live="polite">${lhResultHtml()}</div>
-      ${lhHistoryHtml()}
-      <a class="lh-catalog-banner" href="?lang=${esc(state.lang)}&domain=catalog" data-action="catalog">
-        <span class="lh-catalog-main">
-          <span class="lh-catalog-kicker">${esc(t('lh.catalog.kicker'))}</span>
-          <strong class="lh-catalog-link">${esc(t('lh.catalog.link', { n: num(state.core.index.counts.items) }))}<span class="lh-catalog-arrow" aria-hidden="true">→</span></strong>
-        </span>
-        <span class="lh-catalog-sub">${esc(t('lh.catalog.sub'))}</span>
-      </a>
-    </section>`;
+  const step = lhStep();
+  if (!state.lh.data) {
+    wrap.innerHTML = `<section class="lh lh--wizard"><div class="lh-empty"><span class="lh-empty-glyph" aria-hidden="true">🚨</span><h1>${esc(t('lh.toast.noData'))}</h1><p>${esc(t('lh.emptyBody'))}</p></div></section>`;
+    return;
+  }
+  if (step === 0) wrap.innerHTML = lhLandingHtml();
+  else if (step === 1) wrap.innerHTML = lhStep1Html();
+  else if (step === 2) wrap.innerHTML = lhStep2Html();
+  else if (step === 3) wrap.innerHTML = lhStep3Html();
+  else wrap.innerHTML = lhResultHtml();
 }
 
 async function openLighthouseDetail(id) {
@@ -3173,40 +3273,21 @@ function bindEvents() {
 async function onClick(event) {
   const target = event.target;
 
-  // 등대 — 필터·추첨·완료·광고 슬롯·상세 열기
-  const lhPrice = target.closest('[data-lh-price]');
-  if (lhPrice) {
-    if (!state.lh.current) {
-      state.lh.filters.price = lhPrice.dataset.lhPrice;
-      lhSaveState();
-      syncUrl('replace');
-      renderLighthouse();
-    }
+  // 등대 — 위저드 단계 이동·조건 선택·추첨·완료·광고 슬롯·상세 열기
+  const lhGoto = target.closest('[data-lh-goto]');
+  if (lhGoto) {
+    lhSetStep(Number(lhGoto.dataset.lhGoto));
     return;
   }
-  const lhPlatform = target.closest('[data-lh-platform]');
-  if (lhPlatform) {
-    if (!state.lh.current) {
-      state.lh.filters.platform = lhPlatform.dataset.lhPlatform;
-      lhSaveState();
-      syncUrl('replace');
-      renderLighthouse();
-    }
-    return;
-  }
-  const lhTier = target.closest('[data-lh-tier]');
-  if (lhTier) {
-    if (!state.lh.current) {
-      state.lh.filters.tier = Number(lhTier.dataset.lhTier) || 1;
-      lhSaveState();
-      syncUrl('replace');
-      renderLighthouse();
-    }
+  const lhPickBtn = target.closest('[data-lh-pick]');
+  if (lhPickBtn) {
+    lhPick(lhPickBtn.dataset.lhPick, lhPickBtn.dataset.lhValue);
+    if (lhPickBtn.dataset.lhAuto) lhSetStep(3);
     return;
   }
   const lhDrawBtn = target.closest('[data-lh-draw]');
   if (lhDrawBtn) {
-    lhDraw();
+    if (!lhDrawBtn.disabled) lhDraw();
     return;
   }
   const lhDone = target.closest('[data-lh-complete]');

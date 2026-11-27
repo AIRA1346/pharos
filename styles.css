@@ -2987,7 +2987,17 @@ table.data.compare-table td.cmp-cell--best { background: var(--green-soft); }
 .lh-quest-time { margin: 0; font-size: 12px; color: var(--muted); }
 .lh-quest-time b { color: var(--ink); font-family: var(--mono); font-size: 12.5px; }
 
-.lh-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lh-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.lh-actions .text-btn {
+  width: auto;
+  border: 0;
+  padding: 6px 2px;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+.lh-actions .text-btn:hover { color: var(--beam); text-decoration-color: var(--beam); border: 0; }
 .lh-tier-hint { margin: 0; font-size: 12px; color: var(--muted); }
 
 .lh-empty {
@@ -3028,6 +3038,216 @@ table.data.compare-table td.cmp-cell--best { background: var(--green-soft); }
   color: var(--muted);
 }
 .lh-badge-date { font-family: var(--mono); font-size: 10px; color: var(--beam); }
+
+/* --- 등대 위저드(v21) — 한 화면에 한 단계씩 --------------------------------- */
+
+.lh--landing {
+  display: grid;
+  gap: clamp(20px, 4vh, 40px);
+  align-content: space-between;
+  min-height: calc(100vh - 210px);
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(10px, 4vh, 40px) 0 8px;
+}
+.lh-landing {
+  display: grid;
+  justify-items: center;
+  gap: clamp(18px, 3vh, 28px);
+  padding: clamp(26px, 8vh, 88px) 12px clamp(18px, 4vh, 40px);
+  text-align: center;
+}
+.lh-landing-kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--beam);
+}
+.lh-landing-title {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  font-size: clamp(28px, 4.6vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.lh-landing-title .hl { color: var(--beam); }
+.lh-start {
+  font-size: clamp(16px, 1.6vw, 18px);
+  padding: 16px 34px;
+  border-radius: 999px;
+  box-shadow: 0 16px 40px -18px var(--beam);
+}
+.lh-start:focus-visible { outline: 2px solid var(--beam); outline-offset: 3px; }
+
+.lh--wizard,
+.lh--result {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+  min-height: calc(100vh - 230px);
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(4px, 2vh, 20px) 0;
+}
+.lh-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 24px;
+}
+.lh-stepper .text-btn,
+.lh-wizard-nav .text-btn {
+  width: auto;
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 2px;
+  color: var(--muted);
+}
+.lh-stepper .text-btn:hover,
+.lh-wizard-nav .text-btn:hover { color: var(--beam); border: 0; }
+.lh-progress {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.lh-dots { display: inline-flex; gap: 4px; }
+.lh-dots i {
+  display: block;
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--line-strong);
+}
+.lh-dots i.is-on { background: var(--beam); }
+
+.lh-panel {
+  display: grid;
+  gap: clamp(14px, 2.4vw, 20px);
+  padding: clamp(20px, 3.4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(520px 260px at 100% 0%, var(--beam-soft), transparent 70%),
+    var(--panel);
+  box-shadow: var(--shadow-soft);
+  min-width: 0;
+}
+.lh-q {
+  margin: 0;
+  font-size: clamp(20px, 2.6vw, 28px);
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  outline: none;
+}
+.lh-q--sub {
+  margin-top: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+.lh-summary {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.lh-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lh-choices--seg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.lh-choices--tiers { grid-template-columns: minmax(0, 1fr); }
+.lh-choices--diff { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.lh-choice {
+  display: grid;
+  gap: 3px;
+  align-content: start;
+  justify-items: center;
+  text-align: center;
+  padding: 15px 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  min-width: 0;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.lh-choice:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+.lh-choice:focus-visible { outline: 2px solid var(--beam); outline-offset: 2px; }
+.lh-choice.is-on {
+  border-color: var(--beam);
+  background: var(--beam-soft);
+  box-shadow: inset 0 0 0 1px var(--beam);
+}
+.lh-choice-label { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+.lh-choice-sub { font-size: 11.5px; color: var(--muted); }
+.lh-choice-hint { font-size: 11px; line-height: 1.4; color: var(--ink-2); }
+.lh-choices--tiers .lh-choice { justify-items: start; text-align: left; padding: 16px 18px; }
+
+.lh-wizard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+}
+.lh-count { margin: 2px 0 0; font-size: 14px; line-height: 1.5; color: var(--ink); }
+.lh-count.is-empty { color: var(--muted); }
+.lh-draw { justify-self: start; font-size: 16px; padding: 13px 26px; }
+.lh-draw:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.lh--result .lh-result-kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--beam);
+}
+.lh-diff {
+  padding: 2px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.lh-diff--chill { border-color: var(--green); background: var(--green-soft); color: var(--green); }
+.lh-diff--normal { border-color: var(--sea); background: var(--sea-soft); color: var(--sea); }
+.lh-diff--hardcore { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+.lh-badge-diff { font-size: 10px; color: var(--muted); }
+.lh-locked { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .lh--landing,
+  .lh--wizard,
+  .lh--result { padding-top: 0; }
+  .lh-landing { padding: clamp(20px, 6vh, 56px) 4px 10px; gap: 20px; }
+  .lh-landing-title { font-size: clamp(26px, 8vw, 34px); }
+  .lh-start { width: 100%; max-width: 320px; padding: 15px 20px; }
+  .lh-choices--diff { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lh-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .lh-choice { padding: 12px 6px; }
+  .lh-choice-label { font-size: 13.5px; }
+  .lh-choice-sub { font-size: 10.5px; }
+  .lh-choice-hint { font-size: 10px; }
+  .lh-panel { padding: 18px 14px; }
+  .lh-q { font-size: 20px; }
+  .lh-draw { width: 100%; }
+  .lh-wizard-nav .primary-btn { padding: 12px 18px; }
+}
 
 /* 보상형 광고 슬롯(정식 출시 전 테스트) */
 .modal--ad { max-width: 520px; }
