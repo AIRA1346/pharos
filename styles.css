@@ -173,6 +173,15 @@ code {
   flex: none;
   filter: drop-shadow(0 6px 18px var(--beam-soft));
 }
+/* v22 — 파로스 룬(사파이어 나침반) 브랜드 마크 */
+.mark--rune {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 9px rgba(96, 150, 235, 0.32)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.55));
+}
+.mark--rune img { display: block; width: 100%; height: 100%; }
+html[data-theme="light"] .mark--rune { filter: drop-shadow(0 2px 6px rgba(30, 45, 60, 0.28)); }
 .brand-text { display: grid; gap: 1px; }
 .wordmark {
   margin: 0;
@@ -3054,9 +3063,35 @@ table.data.compare-table td.cmp-cell--best { background: var(--green-soft); }
 .lh-landing {
   display: grid;
   justify-items: center;
-  gap: clamp(18px, 3vh, 28px);
-  padding: clamp(26px, 8vh, 88px) 12px clamp(18px, 4vh, 40px);
+  gap: clamp(14px, 2.4vh, 24px);
+  padding: clamp(18px, 5vh, 56px) 12px clamp(14px, 3vh, 32px);
   text-align: center;
+}
+/* v22 — 첫 화면 중앙의 등대 심볼(골드 모노라인, 투명 PNG/WebP) */
+.lh-symbol {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 0 clamp(2px, 1vh, 10px);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.55));
+}
+.lh-symbol::before {
+  content: "";
+  position: absolute;
+  inset: -22% -32% -18%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 58%, rgba(244, 183, 94, 0.26), rgba(244, 183, 94, 0.06) 45%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+.lh-symbol img { display: block; height: clamp(126px, 21vh, 180px); width: auto; }
+html[data-theme="light"] .lh-symbol {
+  filter: drop-shadow(0 0 1px rgba(20, 32, 44, 0.75)) drop-shadow(0 1px 1px rgba(20, 32, 44, 0.45))
+    drop-shadow(0 8px 16px rgba(20, 32, 44, 0.16));
+}
+html[data-theme="light"] .lh-symbol::before {
+  background: radial-gradient(ellipse at 50% 58%, rgba(143, 90, 13, 0.1), transparent 68%);
 }
 .lh-landing-kicker {
   margin: 0;
@@ -3234,7 +3269,9 @@ table.data.compare-table td.cmp-cell--best { background: var(--green-soft); }
   .lh--landing,
   .lh--wizard,
   .lh--result { padding-top: 0; }
-  .lh-landing { padding: clamp(20px, 6vh, 56px) 4px 10px; gap: 20px; }
+  .lh-landing { padding: clamp(16px, 4.5vh, 40px) 4px 10px; gap: 16px; }
+  .lh-symbol { margin-bottom: 0; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.55)); }
+  .lh-symbol img { height: clamp(104px, 17vh, 140px); }
   .lh-landing-title { font-size: clamp(26px, 8vw, 34px); }
   .lh-start { width: 100%; max-width: 320px; padding: 15px 20px; }
   .lh-choices--diff { grid-template-columns: repeat(2, minmax(0, 1fr)); }

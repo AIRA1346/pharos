@@ -2958,7 +2958,11 @@ function lhLandingHtml() {
   return `
     <section class="lh lh--landing">
       <div class="lh-landing">
-        <p class="lh-landing-kicker">🚨 ${esc(t('lh.kicker'))}</p>
+        <picture class="lh-symbol">
+          <source srcset="./assets/brand/pharos-lighthouse.webp" type="image/webp" />
+          <img src="./assets/brand/pharos-lighthouse.png" alt="" width="406" height="560" aria-hidden="true" decoding="async" fetchpriority="high" />
+        </picture>
+        <p class="lh-landing-kicker">${esc(t('lh.kicker'))}</p>
         <h1 class="lh-landing-title">
           <span>${esc(t('lh.landing.l1'))}</span>
           <span class="hl">${esc(t('lh.landing.l2'))}</span>

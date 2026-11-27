@@ -10,7 +10,11 @@
 <meta property="og:description" content="조건만 고르면 명작 한 편과 그 안의 실제 목표 하나를 비춥니다. 별점 대신 조건(광고·과금·계정·수명)으로 거르는 앱·게임·AI 도구 선별은 옆 탐색 탭에." />
 <meta property="og:type" content="website" />
 <link rel="stylesheet" href="./styles.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070e19'/%3E%3Cpath d='M16 5l3.2 6.4L16 27l-3.2-15.6z' fill='%23f4b75e'/%3E%3Ccircle cx='16' cy='9' r='1.6' fill='%23fff8ea'/%3E%3C/svg%3E" />
+<link rel="icon" href="./assets/brand/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="./assets/brand/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/brand/apple-touch-icon.png" />
 </head>
 <body>
 <a class="skip-link" href="#view" data-i18n="skip.link">본문으로 건너뛰기</a>
@@ -21,20 +25,10 @@
 
 <header class="topbar">
   <a class="brand" href="./" data-nav="lighthouse" aria-label="파로스 홈" data-i18n-aria-label="brand.home">
-    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-      <defs>
-        <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffe3ae" />
-          <stop offset="100%" stop-color="#f4b75e" stop-opacity="0.15" />
-        </linearGradient>
-      </defs>
-      <path class="mark-beam" d="M24 6 L10 26 H17 L24 6 Z" fill="url(#beamGrad)" opacity="0.75" />
-      <path class="mark-beam" d="M24 6 L38 26 H31 L24 6 Z" fill="url(#beamGrad)" opacity="0.45" />
-      <path d="M21.2 6h5.6l2.2 26H19z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-      <path d="M18.4 32h11.2l2 8H16.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-      <circle cx="24" cy="12" r="2" fill="currentColor" />
-      <path d="M15 44h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-    </svg>
+    <picture class="mark mark--rune">
+      <source srcset="./assets/brand/pharos-rune-96.webp" type="image/webp" />
+      <img src="./assets/brand/pharos-rune-96.png" alt="" width="46" height="46" aria-hidden="true" decoding="async" />
+    </picture>
     <span class="brand-text">
       <span class="wordmark">PHAROS<span class="wordmark-sub" data-i18n="brand.sub">파로스</span></span>
       <span class="tagline" data-i18n="brand.tagline">별점 대신, 내 기준으로 거르는 앱·게임·AI 도구 선별</span>
