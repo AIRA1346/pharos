@@ -69,7 +69,33 @@ def main() -> int:
     for key, values in sorted(leaks.items()):
         print(f"{key:38} {len(values):3}  {sorted(values)[:2]}")
     print(f"\n검사 {checked}건 · 한글 남은 경로 {len(leaks)}개")
-    return 0 if not leaks else 1
+
+    # 등대(Lighthouse) 퀘스트 — 오버레이가 아니라 파일 안에 EN 필드를 따로 둔다.
+    lh_path = DATA / "lighthouse-quests.json"
+    lh_leaks = 0
+    if lh_path.exists():
+        lh = json.loads(lh_path.read_text(encoding="utf-8"))
+        rows = []
+        for field in ("title_en", "note_en"):
+            if KOREAN.search(str(lh.get(field) or "")):
+                rows.append((f"lighthouse.{field}", lh.get(field)))
+        for row in lh.get("tiers") or []:
+            for field in ("label_en", "window_en", "hint_en"):
+                if KOREAN.search(str(row.get(field) or "")):
+                    rows.append((f"lighthouse.tiers[{row.get('tier')}].{field}", row.get(field)))
+        quests = 0
+        for game in lh.get("games") or []:
+            for quest in game.get("quests") or []:
+                quests += 1
+                for field in ("title_en", "desc_en", "tip_en", "est_time_en"):
+                    value = quest.get(field)
+                    if KOREAN.search(str(value or "")):
+                        rows.append((f"lighthouse.{game.get('game_id')}.t{quest.get('tier')}.{field}", value))
+        lh_leaks = len(rows)
+        for key, value in rows[:10]:
+            print(f"{key:52} {str(value)[:40]}")
+        print(f"등대 퀘스트 검사 {quests}개 · EN 필드 한글 잔존 {lh_leaks}건")
+    return 0 if not leaks and not lh_leaks else 1
 
 
 if __name__ == "__main__":

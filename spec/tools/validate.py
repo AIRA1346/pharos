@@ -38,6 +38,10 @@ WEB_DATA_DIR = WEB_DIR / "data"
 WEB_SCHEMA_PATH = WEB_DIR / "schema" / "item.schema.json"
 WEB_JS_DIR = WEB_DIR / "js"
 EN_PATH = ROOT / "data" / "en.json"
+# 등대(Lighthouse) 퀘스트 — 비교군 데이터가 아니라 조건 추첨용 별도 카탈로그다.
+# 카탈로그의 data_file 목록에는 넣지 않고, 별도 검사([11])에서 다룬다.
+LIGHTHOUSE_PATH = ROOT / "data" / "lighthouse-quests.json"
+WEB_LIGHTHOUSE_PATH = WEB_DATA_DIR / "lighthouse-quests.json"
 KOREAN = re.compile(r"[\uac00-\ud7a3]")
 
 AXES = [("user_rating", 0.50), ("objective", 0.25), ("ai_review", 0.25)]
@@ -413,7 +417,7 @@ def catalog_errors(catalog, data_dir):
     # 파일 목록에 남은 고아 데이터(카탈로그에 없는 json)
     declared = {(data_dir / f).resolve() for f in data_files if f}
     for path in sorted(data_dir.rglob("*.json")):
-        if path.name in {"catalog.json", "search-index.json", "en.json"}:
+        if path.name in {"catalog.json", "search-index.json", "en.json", "lighthouse-quests.json"}:
             continue
         if path.resolve() not in declared:
             errs.append(f"카탈로그에 없는 데이터 파일: {path.relative_to(ROOT)}")
@@ -1360,6 +1364,167 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+# --------------------------------------------------------------- 등대(Lighthouse)
+
+LIGHTHOUSE_TIERS = (1, 2, 3)
+LIGHTHOUSE_PLATFORMS = {"pc", "mobile"}
+LIGHTHOUSE_DIFFICULTIES = ("chill", "normal", "hardcore")
+LIGHTHOUSE_FIELDS = ("title_ko", "title_en", "desc_ko", "desc_en", "tip_ko", "tip_en",
+                     "est_time_ko", "est_time_en")
+LIGHTHOUSE_MIN_GAMES, LIGHTHOUSE_MAX_GAMES = 50, 70
+LIGHTHOUSE_MIN_QUESTS, LIGHTHOUSE_MIN_FREE = 100, 10
+LIGHTHOUSE_MIN_PER_COMBO = 2
+
+
+def _lighthouse_pool(games):
+    """추첨·필터의 단위는 게임이 아니라 퀘스트다(퀘스트마다 난이도가 다르다)."""
+    for game in games:
+        for quest in game.get("quests") or []:
+            yield game, quest
+
+
+def _lighthouse_combo(games, platform, price, tier, difficulty):
+    n = 0
+    for game, quest in _lighthouse_pool(games):
+        if price == "free" and not game.get("free_to_play"):
+            continue
+        if platform != "all" and platform not in (game.get("platforms") or []):
+            continue
+        if tier != "all" and quest.get("tier") != int(tier):
+            continue
+        if difficulty != "all" and quest.get("difficulty") != difficulty:
+            continue
+        n += 1
+    return n
+
+
+def lighthouse_errors(index, payload):
+    """등대 퀘스트 카탈로그 — 명작 50~70종 · 상징 목표 100개 이상 · 퀘스트별 (tier, difficulty)."""
+    errs = []
+    if not isinstance(payload, dict):
+        return ["lighthouse-quests.json 최상위는 객체여야 함"]
+    games = payload.get("games") or []
+    tiers = payload.get("tiers") or []
+    if [row.get("tier") for row in tiers] != list(LIGHTHOUSE_TIERS):
+        errs.append("lighthouse tiers 메타가 1·2·3 이 아님")
+    for row in tiers:
+        for field in ("label_ko", "label_en", "window_ko", "window_en", "hint_ko", "hint_en"):
+            if not str(row.get(field) or "").strip():
+                errs.append(f"lighthouse tiers[{row.get('tier')}].{field} 비어 있음")
+            elif field.endswith("_en") and KOREAN.search(str(row.get(field))):
+                errs.append(f"lighthouse tiers[{row.get('tier')}].{field} 에 한글 잔존")
+    if not LIGHTHOUSE_MIN_GAMES <= len(games) <= LIGHTHOUSE_MAX_GAMES:
+        errs.append(f"등대 게임 {len(games)}종 — {LIGHTHOUSE_MIN_GAMES}~{LIGHTHOUSE_MAX_GAMES}종이어야 함")
+    records = {row["id"]: row for row in index.get("items") or []}
+    seen = set()
+    quests_total = 0
+    free = 0
+    for game in games:
+        gid = game.get("game_id")
+        rec = records.get(gid)
+        if rec is None:
+            errs.append(f"등대 game_id 가 search-index.json 에 없음: {gid!r}")
+        elif rec.get("domain") != "game":
+            errs.append(f"등대 {gid}: 게임 도메인이 아님({rec.get('domain')})")
+        if gid in seen:
+            errs.append(f"등대 game_id 중복: {gid}")
+        seen.add(gid)
+        if not isinstance(game.get("free_to_play"), bool):
+            errs.append(f"등대 {gid}: free_to_play 가 bool 이 아님")
+        if game.get("free_to_play") is True:
+            free += 1
+        platforms = game.get("platforms") or []
+        if not platforms or set(platforms) - LIGHTHOUSE_PLATFORMS:
+            errs.append(f"등대 {gid}: platforms 는 pc·mobile 만 허용 {platforms}")
+        quests = game.get("quests") or []
+        if not 1 <= len(quests) <= 6:
+            errs.append(f"등대 {gid}: 퀘스트 {len(quests)}개 — 게임마다 1~6개여야 함")
+        seen_keys = set()
+        quests_total += len(quests)
+        for quest in quests:
+            key = (quest.get("tier"), quest.get("difficulty"))
+            if quest.get("tier") not in LIGHTHOUSE_TIERS:
+                errs.append(f"등대 {gid}: tier 는 1·2·3 중 하나여야 함({quest.get('tier')})")
+            if quest.get("difficulty") not in LIGHTHOUSE_DIFFICULTIES:
+                errs.append(f"등대 {gid}: difficulty 는 chill·normal·hardcore 중 하나여야 함({quest.get('difficulty')})")
+            if key in seen_keys:
+                errs.append(f"등대 {gid}: (tier {key[0]}, {key[1]}) 목표가 중복")
+            seen_keys.add(key)
+            for field in LIGHTHOUSE_FIELDS:
+                value = quest.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    errs.append(f"등대 {gid} tier {quest.get('tier')} {quest.get('difficulty')}: {field} 비어 있음")
+                elif field.endswith("_en") and KOREAN.search(value):
+                    errs.append(f"등대 {gid} tier {quest.get('tier')} {quest.get('difficulty')}: {field} 에 한글 — {value[:30]}")
+    if quests_total < LIGHTHOUSE_MIN_QUESTS:
+        errs.append(f"등대 퀘스트 {quests_total}개 — {LIGHTHOUSE_MIN_QUESTS}개 이상이어야 함")
+    if free < LIGHTHOUSE_MIN_FREE:
+        errs.append(f"등대 무료 게임 {free}종 — {LIGHTHOUSE_MIN_FREE}종 이상이어야 함")
+    # 위저드의 어떤 필터 조합도 후보가 2개 미만이면 안 된다.
+    for platform in ("all",) + tuple(sorted(LIGHTHOUSE_PLATFORMS)):
+        for price in ("all", "free"):
+            for tier in ("all",) + LIGHTHOUSE_TIERS:
+                for difficulty in ("all",) + LIGHTHOUSE_DIFFICULTIES:
+                    n = _lighthouse_combo(games, platform, price, str(tier), difficulty)
+                    if n < LIGHTHOUSE_MIN_PER_COMBO:
+                        errs.append(
+                            f"등대 후보 {n}개 조합: 플랫폼={platform} 가격={price} 단계={tier} 난이도={difficulty}"
+                        )
+    counts = payload.get("counts") or {}
+    if counts.get("games") != len(games) or counts.get("quests") != quests_total or counts.get("free_to_play") != free:
+        errs.append(f"등대 counts 불일치: {counts} (게임 {len(games)} · 퀘스트 {quests_total} · 무료 {free})")
+    by_diff = counts.get("by_difficulty") or {}
+    for difficulty in LIGHTHOUSE_DIFFICULTIES:
+        actual = sum(1 for _g, q in _lighthouse_pool(games) if q.get("difficulty") == difficulty)
+        if by_diff.get(difficulty) != actual:
+            errs.append(f"등대 counts.by_difficulty[{difficulty}] 불일치: {by_diff.get(difficulty)} (실제 {actual})")
+    by_tier = counts.get("by_tier") or {}
+    for tier in LIGHTHOUSE_TIERS:
+        actual = sum(1 for _g, q in _lighthouse_pool(games) if q.get("tier") == tier)
+        if by_tier.get(str(tier), by_tier.get(tier)) != actual:
+            errs.append(f"등대 counts.by_tier[{tier}] 불일치: {by_tier.get(str(tier), by_tier.get(tier))} (실제 {actual})")
+    for field in ("title_ko", "title_en", "note_ko", "note_en"):
+        if not str(payload.get(field) or "").strip():
+            errs.append(f"등대 {field} 비어 있음")
+    return errs
+
+
+def lighthouse_negative_tests(payload, index):
+    """등대 검사기가 고의 오류를 잡는지."""
+    results = []
+    broken = copy.deepcopy(payload)
+    broken["games"][0]["game_id"] = "no-such-game"
+    results.append(("등대: 없는 game_id → 차단", bool(lighthouse_errors(index, broken))))
+
+    broken = copy.deepcopy(payload)
+    broken["games"][0]["quests"][1]["tier"] = broken["games"][0]["quests"][0]["tier"]
+    broken["games"][0]["quests"][1]["difficulty"] = broken["games"][0]["quests"][0]["difficulty"]
+    results.append(("등대: 같은 게임의 (단계·난이도) 중복 → 차단", bool(lighthouse_errors(index, broken))))
+
+    broken = copy.deepcopy(payload)
+    broken["games"][0]["quests"][0]["title_en"] = "한글 제목"
+    results.append(("등대: EN 필드 한글 → 차단", bool(lighthouse_errors(index, broken))))
+
+    broken = copy.deepcopy(payload)
+    broken["games"][0]["platforms"] = ["console"]
+    results.append(("등대: pc·mobile 밖 플랫폼 → 차단", bool(lighthouse_errors(index, broken))))
+
+    broken = copy.deepcopy(payload)
+    broken["games"][0]["quests"][0]["difficulty"] = "nightmare"
+    results.append(("등대: 잘못된 난이도 → 차단", bool(lighthouse_errors(index, broken))))
+
+    broken = copy.deepcopy(payload)
+    for game in broken["games"]:
+        if game.get("free_to_play") and "mobile" in (game.get("platforms") or []):
+            game["quests"] = [q for q in game["quests"] if not (q.get("tier") == 3 and q.get("difficulty") == "hardcore")]
+        game["quests"] = game["quests"] or []
+    broken["games"] = [g for g in broken["games"] if g["quests"]]
+    results.append(("등대: 필터 조합 후보 2개 미만 → 차단", bool(lighthouse_errors(index, broken))))
+
+    return results
+
+
+
 def web_sync_errors(catalog, items_by_arena):
     """웹 배포 사본이 원본과 같은지, 웹 JS 가 웹 폴더 밖을 참조하지 않는지."""
     errs = []
@@ -1370,6 +1535,8 @@ def web_sync_errors(catalog, items_by_arena):
     ]
     if EN_PATH.exists():
         pairs.append(("영문 번들", EN_PATH, WEB_DATA_DIR / "en.json"))
+    if LIGHTHOUSE_PATH.exists():
+        pairs.append(("등대 퀘스트", LIGHTHOUSE_PATH, WEB_LIGHTHOUSE_PATH))
     for arena_id, (path, _items) in items_by_arena.items():
         pairs.append((f"비교군 {arena_id}", path, WEB_DATA_DIR / path.relative_to(DATA_DIR)))
     for label, src, dst in pairs:
@@ -1682,13 +1849,41 @@ def main():
           f"대분류 {len(bundle.get('categories') or {})}/{len(categories)} · 도메인 {len(bundle.get('domains') or {})}/{len(domains)}")
     print("  - 표시 문자열에 한글 잔존 0건(검색 전용 별칭·키워드 제외) · 티어 라벨·가격 표기·사실 서술 포함")
 
+    print("\n[11] 등대(Lighthouse) 퀘스트 카탈로그")
+    if not LIGHTHOUSE_PATH.exists():
+        print("  × data/lighthouse-quests.json 없음 — python3 projects/pharos/scripts/build_lighthouse.py")
+        return 1
+    lighthouse = load(LIGHTHOUSE_PATH)
+    lh_errs = lighthouse_errors(index, lighthouse)
+    for err in lh_errs[:20]:
+        print(f"  × {err}")
+    if len(lh_errs) > 20:
+        print(f"  × … 외 {len(lh_errs) - 20}건")
+    if lh_errs:
+        return 1
+    lh_games = lighthouse["games"]
+    lh_quests = sum(len(g["quests"]) for g in lh_games)
+    lh_free = sum(1 for g in lh_games if g["free_to_play"])
+    lh_diff = lighthouse["counts"]["by_difficulty"]
+    print(f"  - 게임 {len(lh_games)}종(무료 {lh_free} · 유료 {len(lh_games) - lh_free}) · 퀘스트 {lh_quests}개 "
+          f"(편안 {lh_diff['chill']} · 보통 {lh_diff['normal']} · 매운맛 {lh_diff['hardcore']}) · 모든 game_id 가 search-index.json 에 있음")
+    print("  - 퀘스트마다 (단계·난이도) · 플랫폼×가격×단계×난이도 모든 조합 후보 2개 이상")
+    print("  - KO/EN 필드 8종 완비 · EN 모드 한글 잔존 0건 · 플랫폼 pc/mobile · 웹 사본 일치")
+    print("  - 등대 검사 음성 테스트")
+    lh_neg = lighthouse_negative_tests(lighthouse, index)
+    for label, caught in lh_neg:
+        print(f"    - {label}: {'차단됨 PASS' if caught else '통과됨 FAIL'}")
+    if not all(caught for _, caught in lh_neg):
+        return 1
+
     print("\n" + "=" * 78)
     print(f"결과: PASS — 아이템 {total}건 스키마 100% 충족 · 의미 규칙 위반 0 · "
           f"계층 {len(domains)}/{len(categories)}/{len(arenas_meta)} 정상 · 판정 재계산 일치 · "
           f"인덱스 최신 · 음성 테스트 {sum(1 for _, c in neg + neg_cat if c)}/{len(neg) + len(neg_cat)} 차단 · "
           f"완결작 면제 {sum(1 for _, ok, _ in rules if ok)}/{len(rules)} 통과 · "
           f"강도 3단계 {sum(1 for _, ok, _ in impact_rules if ok)}/{len(impact_rules)} 통과 · "
-          f"아이콘 {with_icon}/{len(all_items)}건 · 영문 {covered}/{total}건 · web/ 사본 일치")
+          f"아이콘 {with_icon}/{len(all_items)}건 · 영문 {covered}/{total}건 · web/ 사본 일치 "
+          f"· 등대 {len(lh_games)}종/{lh_quests}퀘스트")
     print("=" * 78)
     return 0
 

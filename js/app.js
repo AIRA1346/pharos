@@ -2679,6 +2679,7 @@ function lhLoadState() {
     state.lh.current = {
       game_id: current.game_id,
       tier: Number(current.tier),
+      difficulty: LH_DIFFICULTIES.includes(current.difficulty) ? current.difficulty : null,
       issued_at: current.issued_at || null,
       filters: {
         price: current.filters?.price === 'free' ? 'free' : 'all',
@@ -2718,7 +2719,9 @@ async function loadLighthouse() {
 }
 
 const lhGameById = (id) => (state.lh.data?.games || []).find((game) => game.game_id === id) || null;
-const lhQuizOf = (game, tier) => (game?.quests || []).find((quest) => quest.tier === Number(tier)) || null;
+/** 목표는 (게임, 단계, 난이도)로 특정된다 — 같은 게임이 같은 단계에 다른 난이도의 목표를 가질 수 있다. */
+const lhQuestOf = (game, tier, difficulty) =>
+  (game?.quests || []).find((quest) => quest.tier === Number(tier) && quest.difficulty === difficulty) || null;
 const lhTierMeta = (tier) => (state.lh.data?.tiers || []).find((row) => row.tier === Number(tier)) || null;
 
 /** 저장된 퀘스트가 데이터에서 사라졌으면 잠금을 풀어 준다(데이터 개편 대비). */
@@ -2726,7 +2729,7 @@ function lhPruneCurrent() {
   const current = state.lh.current;
   if (!current) return;
   const game = lhGameById(current.game_id);
-  if (!game || !lhQuizOf(game, current.tier)) {
+  if (!game || !lhQuestOf(game, current.tier, current.difficulty)) {
     state.lh.current = null;
     lhSaveState();
   }
@@ -2741,15 +2744,20 @@ function lhStep() {
   return Number.isInteger(step) && step >= 0 && step <= LH_STEP_TOTAL ? step : 0;
 }
 
-/** 현재 조건(플랫폼·가격·난이도)에 맞는 후보. */
-function lhPoolGames() {
-  const { price, platform, difficulty } = state.lh.filters;
-  return (state.lh.data?.games || []).filter(
-    (game) =>
-      (price !== 'free' || game.free_to_play) &&
-      (platform === 'all' || (game.platforms || []).includes(platform)) &&
-      (difficulty === 'all' || game.difficulty === difficulty),
-  );
+/** 현재 조건(플랫폼·가격·단계·난이도)에 맞는 후보 목표. 추첨 단위는 게임이 아니라 퀘스트다. */
+function lhPoolQuests() {
+  const { price, platform, tier, difficulty } = state.lh.filters;
+  const pool = [];
+  for (const game of state.lh.data?.games || []) {
+    if (price === 'free' && !game.free_to_play) continue;
+    if (platform !== 'all' && !(game.platforms || []).includes(platform)) continue;
+    for (const quest of game.quests || []) {
+      if (quest.tier !== Number(tier)) continue;
+      if (difficulty !== 'all' && quest.difficulty !== difficulty) continue;
+      pool.push({ game, quest });
+    }
+  }
+  return pool;
 }
 
 function lhSetStep(step) {
@@ -2790,20 +2798,20 @@ function lhDraw() {
     return;
   }
   if (state.lh.current) return;
-  let pool = lhPoolGames();
+  let pool = lhPoolQuests();
   if (!pool.length) {
     toast(t('lh.toast.noMatch'));
     return;
   }
   if (pool.length > 1 && state.lh.lastGameId) {
-    const fresh = pool.filter((game) => game.game_id !== state.lh.lastGameId);
+    const fresh = pool.filter((row) => row.game.game_id !== state.lh.lastGameId);
     if (fresh.length) pool = fresh;
   }
-  const game = pool[Math.floor(Math.random() * pool.length)];
-  const tier = state.lh.filters.tier;
+  const { game, quest } = pool[Math.floor(Math.random() * pool.length)];
   state.lh.current = {
     game_id: game.game_id,
-    tier,
+    tier: quest.tier,
+    difficulty: quest.difficulty,
     issued_at: new Date().toISOString(),
     filters: { ...state.lh.filters },
   };
@@ -2812,14 +2820,14 @@ function lhDraw() {
   lhSaveState();
   syncUrl('replace');
   renderLighthouse();
-  toast(t('lh.toast.drawn'), lhQuizOf(game, tier)?.[getLang() === 'en' ? 'title_en' : 'title_ko'] || '');
+  toast(t('lh.toast.drawn'), lhText(quest, 'title'));
 }
 
 function lhComplete() {
   const current = state.lh.current;
   if (!current) return;
   const game = lhGameById(current.game_id);
-  const quest = lhQuizOf(game, current.tier);
+  const quest = lhQuestOf(game, current.tier, current.difficulty);
   if (!game || !quest) {
     state.lh.current = null;
     lhSaveState();
@@ -2829,7 +2837,7 @@ function lhComplete() {
   state.lh.history.push({
     game_id: game.game_id,
     tier: current.tier,
-    difficulty: game.difficulty || 'normal',
+    difficulty: quest.difficulty,
     title_ko: quest.title_ko,
     title_en: quest.title_en,
     completed_at: new Date().toISOString(),
@@ -2904,13 +2912,12 @@ function lhChoiceButton({ group, value, label, sub, hint, active }) {
     </button>`;
 }
 
-function lhQuestHtml(game, tier) {
-  const quest = lhQuizOf(game, tier);
+function lhQuestHtml(game, quest) {
   if (!quest) return '';
-  const meta = lhTierMeta(tier);
+  const meta = lhTierMeta(quest.tier);
   return `
-    <div class="lh-quest" data-lh-tier-view="${tier}">
-      <p class="lh-quest-kicker"><span class="lh-tier-badge">${esc(lhText(meta, 'label'))}</span><span>${esc(lhText(meta, 'window'))}</span><span>${esc(t('lh.questKicker'))}</span></p>
+    <div class="lh-quest" data-lh-tier-view="${quest.tier}" data-lh-difficulty-view="${esc(quest.difficulty)}">
+      <p class="lh-quest-kicker"><span class="lh-tier-badge">${esc(lhText(meta, 'label'))}</span><span>${esc(lhText(meta, 'window'))}</span><span class="lh-diff lh-diff--${esc(quest.difficulty)}">${esc(t(`lh.diff.${quest.difficulty}`))}</span><span>${esc(t('lh.questKicker'))}</span></p>
       <h2 class="lh-quest-title">${esc(lhText(quest, 'title'))}</h2>
       <p class="lh-quest-desc">${esc(lhText(quest, 'desc'))}</p>
       <p class="lh-quest-tip"><b>${esc(t('lh.tipLabel'))}</b> ${esc(lhText(quest, 'tip'))}</p>
@@ -3092,7 +3099,7 @@ function lhSummaryText() {
 
 function lhStep3Html() {
   const { difficulty } = state.lh.filters;
-  const pool = lhPoolGames();
+  const pool = lhPoolQuests();
   const count = pool.length;
   return `
     <section class="lh lh--wizard lh--step3">
@@ -3125,19 +3132,20 @@ function lhResultHtml() {
   const game = lhGameById(current.game_id);
   const rec = recordById(current.game_id);
   if (!game || !rec) return '';
+  const quest = lhQuestOf(game, current.tier, current.difficulty);
+  if (!quest) return '';
   const verdict = engine.VERDICT_META[rec.verdict] || engine.VERDICT_META.conditional;
   const scoreText = typeof rec.score === 'number' ? rec.score.toFixed(1) : '—';
-  const tier = current.tier;
   const platformLabel = game.platforms.map((p) => (p === 'pc' ? 'PC' : t('lh.opt.mobile'))).join(' · ');
   return `
     <section class="lh lh--result">
       <p class="lh-result-kicker">${esc(t('lh.inprogress'))}</p>
-      <article class="lh-card" data-lh-game="${esc(game.game_id)}" data-lh-difficulty="${esc(game.difficulty)}">
+      <article class="lh-card" data-lh-game="${esc(game.game_id)}" data-lh-difficulty="${esc(quest.difficulty)}">
         <div class="lh-card-top">
           ${iconHtml(rec, 'detail')}
           <div class="lh-card-id">
             <div class="lh-card-chips">
-              <span class="lh-diff lh-diff--${esc(game.difficulty)}">${esc(t(`lh.diff.${game.difficulty}`))}</span>
+              <span class="lh-diff lh-diff--${esc(quest.difficulty)}">${esc(t(`lh.diff.${quest.difficulty}`))}</span>
               <span class="lh-chip">${esc(game.free_to_play ? t('lh.badge.free') : t('lh.badge.paid'))}</span>
               <span class="lh-chip">${esc(platformLabel)}</span>
               <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${esc(verdict.label)}</span>
@@ -3147,7 +3155,7 @@ function lhResultHtml() {
             <p class="lh-game-meta">${esc(state.cat.categoryLabel(rec.category))}${rec.developer ? ` · ${esc(rec.developer)}` : ''}</p>
           </div>
         </div>
-        ${lhQuestHtml(game, tier)}
+        ${lhQuestHtml(game, quest)}
         <div class="lh-actions">
           <button type="button" class="primary-btn" data-lh-complete>${esc(t('lh.complete'))}</button>
           <button type="button" class="ghost-btn" data-lh-ad>${esc(t('lh.adSkip'))}</button>
