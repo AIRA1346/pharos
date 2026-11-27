@@ -3145,7 +3145,6 @@ function lhResultHtml() {
           ${iconHtml(rec, 'detail')}
           <div class="lh-card-id">
             <div class="lh-card-chips">
-              <span class="lh-diff lh-diff--${esc(quest.difficulty)}">${esc(t(`lh.diff.${quest.difficulty}`))}</span>
               <span class="lh-chip">${esc(game.free_to_play ? t('lh.badge.free') : t('lh.badge.paid'))}</span>
               <span class="lh-chip">${esc(platformLabel)}</span>
               <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${esc(verdict.label)}</span>
