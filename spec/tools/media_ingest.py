@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""파로스 미디어 도메인(애니·만화·영화) 적재 — media_ingest.py (v1.0)
+"""파로스 미디어 도메인(애니·만화·영화) 적재 — media_ingest.py (v1.1)
 
 새 도메인 `media`(🎬 영화 · 애니 · 만화)를 3개 대분류·3개 비교군으로 만들고,
 대표 명작 90종을 **공개 API 사실**로 스키마 100% 채워 `data/media/{arena}.json` ·
@@ -18,10 +18,22 @@
 
 확인하지 못한 것(한국 시청 가능 플랫폼·작품 단위 가격·최근 화 공개일)은 지어내지 않고 `unknown`·`unverified` 로 남긴다.
 
+2차 대량 적재(v1.1)에서 더한 것
+  · `--spec`·`--hooks` 로 다른 배치의 스펙을 넘길 수 있다(기본: drafts/media-2026-11-27).
+  · `--merge` 는 새 스펙의 항목만 더하고 **이미 적재된 항목은 건드리지 않는다**(첫 배치 90종 보존).
+  · `life` 는 스펙 훅에 없으면 AniList `status` 에서 정한다(FINISHED→완결 · RELEASING→연재 중 ·
+    HIATUS→휴재). 영화는 항상 완결. `LIFE_OVERRIDE` 는 AniList 표기와 실제 연재 상황이 다른
+    알려진 두 건(나나 · 헌터×헌터 만화)만 사람이 정한 값으로 덮는다.
+  · 이름이 같은 다른 매체 항목과 겹칠 때는 스펙의 `suffix_ko`/`suffix_en`(예: `(만화)`)을 붙인다.
+  · 기록 전에 **id · AniList id · Letterboxd 슬러그 · 정규화 이름** 네 가지로 중복을 다시 확인한다.
+
 사용
   python3 projects/pharos/scripts/media_ingest.py                # 수집·생성·기록(아이콘 포함)
   python3 projects/pharos/scripts/media_ingest.py --no-icon      # 포스터 아이콘 생략
   python3 projects/pharos/scripts/media_ingest.py --only anime   # 한 비교군만
+  python3 projects/pharos/scripts/media_ingest.py --merge \
+      --spec drafts/media-2026-11-27/batch2/spec.json \
+      --hooks drafts/media-2026-11-27/batch2/hooks.json          # 2차 210종 더하기
 """
 
 from __future__ import annotations
@@ -75,6 +87,12 @@ GENRE_EN = {v: k for k, v in GENRE_KO.items()}
 GENRE_EN["SF"] = "Sci-Fi"
 GENRE_EN["애니메이션"] = "Animation"
 GENRE_EN["가족"] = "Family"
+
+# AniList status 로는 드러나지 않는 연재 상황 — 사람이 확인한 두 건만 덮는다.
+LIFE_OVERRIDE = {
+    "nana": "hiatus",              # 2009년 이후 휴재(AniList 는 RELEASING 으로 남아 있다)
+    "hunter-x-hunter-manga": "hiatus",   # 장기 휴재(AniList 는 RELEASING)
+}
 
 ANILIST_FIELDS = """
   id title { romaji english native } synonyms averageScore meanScore popularity favourites
@@ -226,7 +244,8 @@ def clamp(x: float, lo: float = 0.0, hi: float = 100.0) -> float:
 
 # ------------------------------------------------------------------ 항목 생성
 
-def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, scale: dict) -> tuple[dict, dict]:
+def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, scale: dict,
+               life: str | None = None) -> tuple[dict, dict]:
     kind = work["type"]
     meta = ARENA[kind]
     arena_id = meta["arena"]
@@ -278,7 +297,7 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         release = start
 
     year = int((start or work.get("year") or NOW_YEAR)[:4]) if start else work["year"]
-    life = hook["life"]
+    life = life or hook.get("life") or "complete"
     life_ko = {"complete": "완결", "ongoing": "연재·방영 중", "hiatus": "장기 휴재"}[life]
     life_en = {"complete": "complete", "ongoing": "still running", "hiatus": "on long hiatus"}[life]
 
@@ -525,11 +544,13 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         "one_liner": tier_line_ko,
         "recommended_path": True,
     }
+    suffix_ko = f" {work['suffix_ko']}" if work.get("suffix_ko") else (" (애니메이션)" if work.get("suffix") else "")
+    suffix_en = f" {work['suffix_en']}" if work.get("suffix_en") else ""
     item = {
         "schema_version": "0.4.0",
         "id": work["id"],
-        "name": work["ko"] + (" (애니메이션)" if work.get("suffix") else ""),
-        "aliases": [title_en + (" (anime)" if work.get("suffix") else "")],
+        "name": work["ko"] + suffix_ko,
+        "aliases": [title_en + suffix_en],
         "domain": "media",
         "category": meta["category"],
         "arenas": [arena_id],
@@ -651,7 +672,7 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
     # ---------- EN 오버레이
     en_genres = [GENRE_EN.get(GENRE_KO.get(g, g), g) for g in genres_raw[:3]]
     en = {
-        "name": title_en,
+        "name": title_en + suffix_en,
         "developer": credit_en,
         "one_liner": hook["en"],
         "tagline": tier_line_en,
@@ -806,6 +827,10 @@ def update_catalog(catalog: dict) -> None:
     tag = " 2026-11-27 미디어 도메인(v26)으로 영화·애니·만화 3개 비교군 90종이 들어왔다(도메인 4 · 대분류 13 · 비교군 83)."
     if "미디어 도메인(v26)" not in note:
         catalog["note"] = note.rstrip() + tag
+        note = catalog["note"]
+    tag2 = " 2026-11-27 2차 대량 적재(v27)로 미디어가 애니 100 · 만화 100 · 영화 100, 합계 300종이 됐다."
+    if "2차 대량 적재(v27)" not in note:
+        catalog["note"] = note.rstrip() + tag2
 
 
 def update_en(bundle: dict, items_en: dict[str, dict]) -> None:
@@ -849,20 +874,92 @@ def update_en(bundle: dict, items_en: dict[str, dict]) -> None:
 
 # ------------------------------------------------------------------ main
 
+def life_from(work: dict, media: dict | None) -> str:
+    """작품 수명 — AniList status 사실 + 사람이 확인한 두 건의 override."""
+    if work["type"] == "movie":
+        return "complete"
+    if work["id"] in LIFE_OVERRIDE:
+        return LIFE_OVERRIDE[work["id"]]
+    status = ((media or {}).get("status") or "").upper()
+    return {
+        "FINISHED": "complete",
+        "RELEASING": "ongoing",
+        "HIATUS": "hiatus",
+        "CANCELLED": "hiatus",
+        "NOT_YET_RELEASED": "ongoing",
+    }.get(status, "ongoing")
+
+
+def normalized(text: str) -> str:
+    return re.sub(r"[^a-z0-9가-힣]", "", (text or "").lower())
+
+
+def loaded_items(kind: str) -> list[dict]:
+    path = DATA / ARENA[kind]["file"]
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+
+
+def guard_duplicates(spec: list[dict], existing: list[dict]) -> list[str]:
+    """id · AniList id · Letterboxd 슬러그 · 정규화 이름(별칭 포함)으로 중복을 막는다."""
+    errs: list[str] = []
+    seen_ids: dict[str, str] = {}
+    names: dict[str, str] = {}
+    anilist: dict[int, str] = {}
+    slugs: dict[str, str] = {}
+
+    for item in existing:
+        seen_ids[item["id"]] = "기존"
+        for name in [item.get("name")] + list(item.get("aliases") or []):
+            names.setdefault(normalized(name), item["id"])
+        for src in item.get("sources") or []:
+            m = re.search(r"anilist\.co/\w+/(\d+)", src.get("url") or "")
+            if m:
+                anilist.setdefault(int(m.group(1)), item["id"])
+            m = re.search(r"letterboxd\.com/film/([^/]+)/", src.get("url") or "")
+            if m:
+                slugs.setdefault(m.group(1), item["id"])
+
+    for w in spec:
+        if w["id"] in seen_ids:
+            errs.append(f"{w['id']}: id 중복 ({seen_ids[w['id']]} 항목과 겹침)")
+        seen_ids[w["id"]] = "신규"
+        name_ko = w["ko"] + (f" {w['suffix_ko']}" if w.get("suffix_ko") else (" (애니메이션)" if w.get("suffix") else ""))
+        name_en = w["en"] + (f" {w['suffix_en']}" if w.get("suffix_en") else "")
+        for name in (name_ko, name_en):
+            key = normalized(name)
+            if key in names and names[key] != w["id"]:
+                errs.append(f"{w['id']}: 이름 중복 '{name}' ({names[key]} 항목과 겹침)")
+            names.setdefault(key, w["id"])
+        if w.get("anilist_id"):
+            oid = int(w["anilist_id"])
+            if oid in anilist:
+                errs.append(f"{w['id']}: AniList id {oid} 중복 ({anilist[oid]})")
+            anilist[oid] = w["id"]
+        if w.get("slug"):
+            if w["slug"] in slugs:
+                errs.append(f"{w['id']}: Letterboxd 슬러그 {w['slug']} 중복 ({slugs[w['slug']]})")
+            slugs[w["slug"]] = w["id"]
+    return errs
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", choices=list(ARENA), help="한 비교군만 적재")
     ap.add_argument("--no-icon", action="store_true")
+    ap.add_argument("--spec", default=str(DRAFT / "spec.json"), help="작품·ID·슬러그 스펙")
+    ap.add_argument("--hooks", default=str(DRAFT / "hooks.json"), help="한 줄 소개·작가")
+    ap.add_argument("--merge", action="store_true", help="이미 적재된 항목은 그대로 두고 새 항목만 더한다")
+    ap.add_argument("--icons-only", action="store_true", help="스펙의 포스터 아이콘만 만든다(기록 없음)")
     args = ap.parse_args()
 
-    spec = json.loads((DRAFT / "spec.json").read_text(encoding="utf-8"))
-    hooks = json.loads((DRAFT / "hooks.json").read_text(encoding="utf-8"))
+    spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
+    hooks = json.loads(Path(args.hooks).read_text(encoding="utf-8"))
     if args.only:
         spec = [w for w in spec if w["type"] == args.only]
 
     missing_hooks = [w["id"] for w in spec if w["id"] not in hooks]
     if missing_hooks:
-        print(f"× hooks.json 에 없는 항목: {missing_hooks}")
+        print(f"× hooks 에 없는 항목: {missing_hooks}")
         return 1
 
     catalog = json.loads((DATA / "catalog.json").read_text(encoding="utf-8"))
@@ -870,8 +967,49 @@ def main() -> int:
     scale = (schema.get("x-pharos") or {}).get("client", {}).get("scale_adjustment") or {}
 
     print("=" * 78)
-    print(f"미디어 도메인 적재 — {len(spec)}종")
+    print(f"미디어 도메인 적재 — {len(spec)}종" + (" (merge)" if args.merge else ""))
     print("=" * 78)
+
+    if args.icons_only:
+        done = 0
+        for w in spec:
+            icon_path = WEB / "assets" / "icons" / f"{w['id']}.webp"
+            if icon_path.exists():
+                continue
+            if w["type"] in ("anime", "manga"):
+                path = _cache_path("anilist", w["id"])
+                poster = ((json.loads(path.read_text(encoding="utf-8")).get("coverImage") or {}).get("extraLarge")
+                          if path.exists() else None)
+            else:
+                path = _cache_path("letterboxd", w["slug"])
+                poster = (json.loads(path.read_text(encoding="utf-8")).get("image") if path.exists() else None)
+            if not poster:
+                print(f"  ! {w['id']}: 포스터 URL 없음")
+                continue
+            try:
+                make_icon(_http(poster, headers={"Accept": "image/webp,image/*,*/*"}), icon_path)
+                done += 1
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! {w['id']}: 포스터 실패 {exc}")
+            if done % 25 == 0:
+                print(f"  · 아이콘 {done}", flush=True)
+        print(f"→ 아이콘 {done}개 생성")
+        return 0
+
+    existing_by_kind = {kind: loaded_items(kind) for kind in ARENA}
+    existing_all = [item for rows in existing_by_kind.values() for item in rows]
+    existing_ids = {item["id"] for item in existing_all}
+    spec = [w for w in spec if w["id"] not in existing_ids] if args.merge else spec
+    if args.merge:
+        print(f"  · 이미 적재된 항목 제외 후 신규 {len(spec)}종")
+
+    errs = guard_duplicates(spec, existing_all if args.merge else [])
+    if errs:
+        print("× 중복 가드 — 적재 중단")
+        for e in errs:
+            print("   ", e)
+        return 1
+    print(f"  · 중복 가드: id · AniList id · Letterboxd 슬러그 · 정규화 이름 충돌 0건")
 
     anilist_works = [w for w in spec if w["type"] in ("anime", "manga")]
     media_map = anilist_resolve(anilist_works) if anilist_works else {}
@@ -905,7 +1043,8 @@ def main() -> int:
     for w in spec:
         media = media_map.get(w["id"]) if w["type"] in ("anime", "manga") else None
         film = films.get(w["id"]) if w["type"] == "movie" else None
-        item, en = build_item(w, hooks[w["id"]], media, film, scale)
+        life = life_from(w, media)
+        item, en = build_item(w, hooks[w["id"]], media, film, scale, life)
         by_type[w["type"]].append((item, en))
         en_items[w["id"]] = en
         icon_path = WEB / "assets" / "icons" / f"{w['id']}.webp"
@@ -918,21 +1057,23 @@ def main() -> int:
                 data = _http(poster, headers={"Accept": "image/webp,image/*,*/*"})
                 make_icon(data, WEB / "assets" / "icons" / f"{w['id']}.webp")
                 icon_done += 1
-                time.sleep(0.5)
+                time.sleep(0.4)
             except Exception as exc:  # noqa: BLE001
                 print(f"  ! {w['id']}: 포스터 실패 {exc}")
 
-    # 파일 기록
+    # 파일 기록 — merge 면 기존 항목 앞에 그대로 두고 새 항목을 뒤에 붙인다.
     for kind, rows in by_type.items():
         if not rows:
             continue
+        keep = existing_by_kind[kind] if args.merge else []
+        merged = list(keep) + [item for item, _en in rows]
         path = DATA / ARENA[kind]["file"]
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps([item for item, _en in rows], ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(merged, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         verdicts = {}
-        for item, _en in rows:
+        for item in merged:
             verdicts[item["verdict"]["overall"]] = verdicts.get(item["verdict"]["overall"], 0) + 1
-        print(f"→ {path.relative_to(ROOT)} · {len(rows)}건 · {verdicts}")
+        print(f"→ {path.relative_to(ROOT)} · {len(merged)}건 (신규 {len(rows)}) · {verdicts}")
 
     update_catalog(catalog)
     (DATA / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -950,10 +1091,10 @@ def main() -> int:
     fails = 0
     for kind, rows in by_type.items():
         for item, _en in rows:
-            errs = sorted(validator.iter_errors(item), key=lambda e: list(e.path))
-            if errs:
+            errs_ = sorted(validator.iter_errors(item), key=lambda e: list(e.path))
+            if errs_:
                 fails += 1
-                print(f"  × {item['id']}: {len(errs)}건 — {errs[0].message[:120]}")
+                print(f"  × {item['id']}: {len(errs_)}건 — {errs_[0].message[:120]}")
     print(f"스키마 검사: {sum(len(r) for r in by_type.values()) - fails}통과 / {fails}실패")
     return 0 if fails == 0 else 1
 

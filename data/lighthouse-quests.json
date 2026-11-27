@@ -1,52 +1,251 @@
 {
-  "schema_version": "2.0.0",
-  "title_ko": "🚨 등대 — 명작 64종, 상징 목표 125개",
-  "title_en": "🚨 Lighthouse — 64 masterworks, 125 iconic goals",
-  "note_ko": "등대는 플랫폼·가격·시간·난이도를 한 단계씩 고르면, 파로스가 고른 명작 하나와 그 안의 상징적인 목표를 비춰 준다. 목표마다 난이도가 다르고, 한 번 받은 목표는 완료하거나 건너뛰기 전까지 그대로 유지된다.",
-  "note_en": "Pick platform, price, length and difficulty one step at a time, and the Lighthouse shines on one hand-picked game with an iconic goal inside it. Each goal carries its own difficulty, and a drawn goal stays fixed until you complete it or skip it.",
-  "tiers": [
+  "schema_version": "3.0.0",
+  "title_ko": "🚨 등대 — 명작 139종, 상징 목표 271개",
+  "title_en": "🚨 Lighthouse — 139 masterworks, 271 iconic goals",
+  "note_ko": "등대는 분야와 시간·난이도를 한 단계씩 고르면, 파로스가 고른 명작 하나와 그 안의 상징적인 목표를 비춰 준다. 게임은 플랫폼과 가격까지 묻고, 애니·영화·만화는 분량만 고르면 된다. 한 번 받은 목표는 완료하거나 건너뛰기 전까지 그대로 유지된다.",
+  "note_en": "Pick a field, a length and a weight one step at a time, and the Lighthouse shines on one hand-picked work with an iconic goal inside it. Games also ask platform and price; anime, movies and manga ask only how much you want. A drawn goal stays fixed until you complete it or skip it.",
+  "categories": [
     {
-      "tier": 1,
-      "label_ko": "1단계 · 짧게",
-      "label_en": "Tier 1 · Short",
-      "window_ko": "1~5시간",
-      "window_en": "1–5 hours",
-      "hint_ko": "한 번의 결전·한 판의 증명",
-      "hint_en": "One decisive fight, one run, one proof"
+      "id": "game",
+      "label_ko": "🎮 게임",
+      "label_en": "🎮 Games",
+      "badge_ko": "🎮 게임",
+      "badge_en": "🎮 Game",
+      "sub_ko": "플랫폼·가격·시간·난이도",
+      "sub_en": "Platform, price, length, difficulty",
+      "hint_ko": "PC·모바일, 무료 포함 여부까지 묻습니다",
+      "hint_en": "PC or mobile, free or paid — you choose",
+      "has_platform": true
     },
     {
-      "tier": 2,
-      "label_ko": "2단계 · 제대로",
-      "label_en": "Tier 2 · Proper",
-      "window_ko": "엔딩까지 · 며칠",
-      "window_en": "To the ending · days",
-      "hint_ko": "일주일, 하나의 완주",
-      "hint_en": "A week, one full run"
+      "id": "anime",
+      "label_ko": "📺 애니",
+      "label_en": "📺 Anime",
+      "badge_ko": "📺 애니",
+      "badge_en": "📺 Anime",
+      "sub_ko": "한 편 · 한 시즌 · 정주행",
+      "sub_en": "A film, a season, a full run",
+      "hint_ko": "극장판 한 편부터 장편 정주행까지",
+      "hint_en": "From one film to a hundred-episode run",
+      "has_platform": false
     },
     {
-      "tier": 3,
-      "label_ko": "3단계 · 길게",
-      "label_en": "Tier 3 · Long",
-      "window_ko": "수십 시간",
-      "window_en": "Dozens of hours",
-      "hint_ko": "수십 시간, 인생에 남는 한 컷",
-      "hint_en": "Dozens of hours, one scene you keep"
+      "id": "movie",
+      "label_ko": "🎬 영화",
+      "label_en": "🎬 Movies",
+      "badge_ko": "🎬 영화",
+      "badge_en": "🎬 Movie",
+      "sub_ko": "한 편 · 두 편 · 마라톤",
+      "sub_en": "One film, two films, a marathon",
+      "hint_ko": "오늘 한 편부터 트릴로지 마라톤까지",
+      "hint_en": "One film tonight to a full trilogy day",
+      "has_platform": false
+    },
+    {
+      "id": "manga",
+      "label_ko": "📖 만화",
+      "label_en": "📖 Manga",
+      "badge_ko": "📖 만화",
+      "badge_en": "📖 Manga",
+      "sub_ko": "단편 · 한 아크 · 완독",
+      "sub_en": "A short run, one arc, a full read",
+      "hint_ko": "1~5권부터 30권 완독까지",
+      "hint_en": "From five volumes to a thirty-volume read",
+      "has_platform": false
+    },
+    {
+      "id": "all",
+      "label_ko": "🎲 상관없이",
+      "label_en": "🎲 Surprise me",
+      "badge_ko": "🎲 전체",
+      "badge_en": "🎲 Any",
+      "sub_ko": "전체 랜덤",
+      "sub_en": "All four, one draw",
+      "hint_ko": "게임·애니·영화·만화에서 한 목표",
+      "hint_en": "One goal from all four fields",
+      "has_platform": false
     }
   ],
+  "tiers": {
+    "game": [
+      {
+        "tier": 1,
+        "label_ko": "1단계 · 짧게",
+        "label_en": "Tier 1 · Short",
+        "window_ko": "1~5시간",
+        "window_en": "1–5 hours",
+        "hint_ko": "한 번의 결전·한 판의 증명",
+        "hint_en": "One decisive fight, one run, one proof"
+      },
+      {
+        "tier": 2,
+        "label_ko": "2단계 · 제대로",
+        "label_en": "Tier 2 · Proper",
+        "window_ko": "엔딩까지 · 며칠",
+        "window_en": "To the ending · days",
+        "hint_ko": "일주일, 하나의 완주",
+        "hint_en": "A week, one full run"
+      },
+      {
+        "tier": 3,
+        "label_ko": "3단계 · 길게",
+        "label_en": "Tier 3 · Long",
+        "window_ko": "수십 시간",
+        "window_en": "Dozens of hours",
+        "hint_ko": "수십 시간, 인생에 남는 한 컷",
+        "hint_en": "Dozens of hours, one scene you keep"
+      }
+    ],
+    "anime": [
+      {
+        "tier": 1,
+        "label_ko": "1단계 · 한 편",
+        "label_en": "Tier 1 · One film",
+        "window_ko": "극장판 한 편 · 1~3시간",
+        "window_en": "One film · 1–3 hours",
+        "hint_ko": "오늘 밤 한 편의 여운",
+        "hint_en": "One film, one evening"
+      },
+      {
+        "tier": 2,
+        "label_ko": "2단계 · 한 시즌",
+        "label_en": "Tier 2 · One season",
+        "window_ko": "12~26화 · 며칠",
+        "window_en": "12–26 episodes · days",
+        "hint_ko": "한 주, 한 작품 완주",
+        "hint_en": "A week, one season"
+      },
+      {
+        "tier": 3,
+        "label_ko": "3단계 · 정주행",
+        "label_en": "Tier 3 · Binge",
+        "window_ko": "50화 이상 · 수십 시간",
+        "window_en": "50+ episodes · dozens of hours",
+        "hint_ko": "수십 시간, 통째로 건너가기",
+        "hint_en": "Dozens of hours, all at once"
+      }
+    ],
+    "movie": [
+      {
+        "tier": 1,
+        "label_ko": "1단계 · 한 편",
+        "label_en": "Tier 1 · One film",
+        "window_ko": "2시간 안팎 · 한 번",
+        "window_en": "About two hours · one sitting",
+        "hint_ko": "오늘 밤, 한 편",
+        "hint_en": "Tonight, one film"
+      },
+      {
+        "tier": 2,
+        "label_ko": "2단계 · 두 편",
+        "label_en": "Tier 2 · Two films",
+        "window_ko": "4~6시간 · 주말",
+        "window_en": "4–6 hours · a weekend",
+        "hint_ko": "주말 하나, 두 편의 대화",
+        "hint_en": "One weekend, two films in conversation"
+      },
+      {
+        "tier": 3,
+        "label_ko": "3단계 · 마라톤",
+        "label_en": "Tier 3 · Marathon",
+        "window_ko": "세 편 이상 · 7시간+",
+        "window_en": "Three films or more · 7+ hours",
+        "hint_ko": "하루를 통째로, 세계 하나",
+        "hint_en": "A whole day inside one world"
+      }
+    ],
+    "manga": [
+      {
+        "tier": 1,
+        "label_ko": "1단계 · 단편",
+        "label_en": "Tier 1 · Short run",
+        "window_ko": "1~5권 · 2~4시간",
+        "window_en": "1–5 volumes · 2–4 hours",
+        "hint_ko": "한자리에서 끝나는 한 권의 충격",
+        "hint_en": "One sitting, one volume's shock"
+      },
+      {
+        "tier": 2,
+        "label_ko": "2단계 · 한 아크",
+        "label_en": "Tier 2 · One arc",
+        "window_ko": "10~20권 · 일주일",
+        "window_en": "10–20 volumes · a week",
+        "hint_ko": "일주일, 한 아크 완독",
+        "hint_en": "A week, one arc"
+      },
+      {
+        "tier": 3,
+        "label_ko": "3단계 · 완독",
+        "label_en": "Tier 3 · Full read",
+        "window_ko": "30권 이상 · 수십 시간",
+        "window_en": "30+ volumes · dozens of hours",
+        "hint_ko": "서가 하나를 통째로",
+        "hint_en": "A whole shelf, read through"
+      }
+    ],
+    "all": [
+      {
+        "tier": 1,
+        "label_ko": "1단계 · 가볍게",
+        "label_en": "Tier 1 · Light",
+        "window_ko": "한 편 · 한 판 · 몇 시간",
+        "window_en": "One film, one run · hours",
+        "hint_ko": "오늘 안에 끝내는 한 가지",
+        "hint_en": "Something finished tonight"
+      },
+      {
+        "tier": 2,
+        "label_ko": "2단계 · 제대로",
+        "label_en": "Tier 2 · Proper",
+        "window_ko": "며칠 · 한 작품",
+        "window_en": "Days · one work",
+        "hint_ko": "한 주, 하나의 완주",
+        "hint_en": "A week, one full run"
+      },
+      {
+        "tier": 3,
+        "label_ko": "3단계 · 길게",
+        "label_en": "Tier 3 · Long",
+        "window_ko": "수십 시간 · 정주행",
+        "window_en": "Dozens of hours · binge",
+        "hint_ko": "인생에 남는 한 컷",
+        "hint_en": "One scene you keep"
+      }
+    ]
+  },
   "counts": {
+    "items": 139,
     "games": 64,
-    "quests": 125,
+    "quests": 271,
     "free_to_play": 18,
     "premium": 46,
+    "by_category": {
+      "game": {
+        "items": 64,
+        "quests": 125
+      },
+      "anime": {
+        "items": 25,
+        "quests": 51
+      },
+      "movie": {
+        "items": 25,
+        "quests": 51
+      },
+      "manga": {
+        "items": 25,
+        "quests": 44
+      }
+    },
     "by_difficulty": {
-      "chill": 37,
-      "normal": 43,
-      "hardcore": 45
+      "chill": 85,
+      "normal": 102,
+      "hardcore": 84
     },
     "by_tier": {
-      "1": 31,
-      "2": 46,
-      "3": 48
+      "1": 85,
+      "2": 107,
+      "3": 79
     }
   },
   "games": [
@@ -2140,5 +2339,2215 @@
         }
       ]
     }
-  ]
+  ],
+  "media": {
+    "anime": [
+      {
+        "item_id": "steins-gate-anime",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "12화의 벽을 넘고 24화 트루 엔딩까지",
+            "title_en": "Climb the wall at episode 12 to the true ending",
+            "desc_ko": "1화부터 12화에서 한 번 무너지고, 다시 일어나 24화 트루 엔딩까지 닿는다. 세계선이 바뀌는 규칙을 따라가는 것이 이 작품의 진짜 줄거리다.",
+            "desc_en": "Break at episode 12, get back up, and carry on to the true ending at episode 24. Following the rules of world-line shifts is the real plot of this show.",
+            "tip_ko": "12화를 본 뒤 며칠 쉬어도 좋다 — 돌아온 사람에게 13화부터가 열린다.",
+            "tip_en": "It is fine to take a few days off after episode 12; episode 13 opens only for those who come back.",
+            "est_time_ko": "24화 · 약 9시간",
+            "est_time_en": "24 eps · ~9 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "트루 엔딩까지 완주 + 세계선 이동 기록표",
+            "title_en": "True ending plus a written world-line log",
+            "desc_ko": "다이버전스 수치가 바뀌는 장면을 전부 표로 적으며 24화까지 간다. 두 번째 회차에서만 보이는 복선이 얼마나 많은지가 이 목표의 보상이다.",
+            "desc_en": "Keep a table of every scene where the divergence number changes, all the way to episode 24. The reward is how many planted clues only a second pass reveals.",
+            "tip_ko": "1화와 24화의 첫 장면을 나란히 놓고 보면 마지막 복선이 보인다.",
+            "tip_en": "Put the opening of episode 1 beside episode 24 and the last clue shows itself.",
+            "est_time_ko": "24화 · 약 10시간",
+            "est_time_en": "24 eps · ~10 h"
+          }
+        ]
+      },
+      {
+        "item_id": "attack-on-titan",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "하루 한 화, 파이널 시즌 마지막 화까지",
+            "title_en": "One episode a day to the final episode",
+            "desc_ko": "속도를 내지 않고 하루 한 화씩, 첫 화의 벽에서 최종화의 바다까지 걸어간다. 이 작품은 몰아보는 것보다 하루씩 소화하는 편이 오래 남는다.",
+            "desc_en": "No rushing: one episode a day from the wall in episode one to the sea in the finale. This one lingers longer when you digest it a day at a time.",
+            "tip_ko": "각 화가 끝나면 그 화에서 누가 무엇을 알게 됐는지만 한 줄로 적어 두면 좋다.",
+            "tip_en": "After each episode, note one line on what someone learned in it.",
+            "est_time_ko": "80화 이상 · 약 30시간",
+            "est_time_en": "80+ eps · ~30 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "1화부터 최종화까지 — 진격의 거인 전체 완주",
+            "title_en": "From episode one to the finale, all of Attack on Titan",
+            "desc_ko": "1기부터 파이널 시즌 최종화까지 끊지 않고 완주한다. 벽 안의 세계가 벽 밖의 세계로 열리는 순간을 직접 통과하는 것이 목표다.",
+            "desc_en": "Watch it through from season one to the final season's last episode without a gap. The goal is to walk through the moment the world inside the walls opens into the world outside.",
+            "tip_ko": "시즌 사이의 극장판 총집편은 건너뛰고 본편 화수로 이어 붙여라.",
+            "tip_en": "Skip the recap films between seasons and stitch the episode list together instead.",
+            "est_time_ko": "80화 이상 · 약 28시간",
+            "est_time_en": "80+ eps · ~28 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "전체 완주 + 1화의 복선 회수 노트",
+            "title_en": "Full run plus a payoff note for episode one",
+            "desc_ko": "최종화까지 완주한 뒤 1화를 다시 틀어, 그 화에서 이미 말해 둔 것들을 전부 찾아 적는다. 마지막 화를 본 사람만 읽을 수 있는 첫 화다.",
+            "desc_en": "Finish the series, then rewatch episode one and write down everything it had already told you. It is an episode only those who saw the finale can read.",
+            "tip_ko": "1화 오프닝의 한 컷과 최종화의 같은 구도를 찾으면 절반은 끝난다.",
+            "tip_en": "Find the matching shot between the episode one opening and the finale and you are halfway there.",
+            "est_time_ko": "80화 + 1화 재시청 · 약 30시간",
+            "est_time_en": "80+ eps plus a rewatch · ~30 h"
+          }
+        ]
+      },
+      {
+        "item_id": "fullmetal-alchemist-brotherhood",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "64화를 하루 두 화씩, 한 달 동안",
+            "title_en": "Sixty-four episodes, two a day for a month",
+            "desc_ko": "서두르지 않고 하루 두 화씩 64화를 완주한다. 에드와 알의 여행이 한 달짜리 달력이 되어 남는다.",
+            "desc_en": "Take it slow, two episodes a day, and finish all sixty-four. Ed and Al's journey ends up kept as a month-long calendar.",
+            "tip_ko": "하루 두 화가 부담스러우면 한 화로 줄여도 된다 — 완주가 목표다.",
+            "tip_en": "If two a day is too much, drop to one; finishing is the goal.",
+            "est_time_ko": "64화 · 약 26시간",
+            "est_time_en": "64 eps · ~26 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "64화 완주 — 등가교환의 마지막까지",
+            "title_en": "All sixty-four episodes to the last exchange",
+            "desc_ko": "1화의 실수에서 시작해 64화의 마지막 등가교환까지 끊지 않고 간다. 이 이야기가 '무엇을 잃고 무엇을 얻는가'라는 질문에 내놓는 답을 끝까지 듣는다.",
+            "desc_en": "Start from the mistake in episode one and go unbroken to the final exchange in episode sixty-four. Hear the answer this story finally gives to what is lost and what is gained.",
+            "tip_ko": "중반의 북부 여행 파트가 가장 길다 — 거기서 하루 쉬어 가면 뒤가 가볍다.",
+            "tip_en": "The northern journey in the middle is the longest stretch; rest a day there and the rest flies.",
+            "est_time_ko": "64화 · 약 25시간",
+            "est_time_en": "64 eps · ~25 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "64화 완주 + '인체 연성'이 나오는 화 전부 표시",
+            "title_en": "Full run plus every episode that shows human transmutation",
+            "desc_ko": "완주하면서 인체 연성과 그 대가가 언급되는 화를 전부 표시해 목록을 만든다. 이 작품의 규칙이 얼마나 일관되게 지켜지는지가 목록 위에 드러난다.",
+            "desc_en": "While watching, mark every episode that mentions human transmutation and its price, and build the list. The list is where you see how consistently the rules hold.",
+            "tip_ko": "문의 진실이 공개되는 화를 기점으로 앞뒤를 나눠 보면 규칙이 더 선명해진다.",
+            "tip_en": "Split the list before and after the episode that reveals the truth of the Gate.",
+            "est_time_ko": "64화 + 기록 · 약 27시간",
+            "est_time_en": "64 eps plus notes · ~27 h"
+          }
+        ]
+      },
+      {
+        "item_id": "cowboy-bebop",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "26화, 한 화씩 여운 남기며",
+            "title_en": "Twenty-six episodes, one at a time, no rush",
+            "desc_ko": "한 화에 한 사건, 그 사이에 흐르는 재즈를 놓치지 않고 26화를 천천히 완주한다. 화마다 다른 장르를 시도하는 구성이 이 작품의 진짜 매력이다.",
+            "desc_en": "One case per episode and the jazz running underneath it, all the way through twenty-six without hurry. The real charm is how each episode tries a different genre.",
+            "tip_ko": "각 화의 엔딩이 서로 다른 이유를 하나씩 찾아보면 좋다.",
+            "tip_en": "Try to find, episode by episode, why each ending song differs.",
+            "est_time_ko": "26화 · 약 10시간",
+            "est_time_en": "26 eps · ~10 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "26화 완주 — 'See You Space Cowboy'까지",
+            "title_en": "All twenty-six, to \"See You Space Cowboy\"",
+            "desc_ko": "스파이크와 비셔스의 과거가 현재를 따라잡는 마지막 두 화까지 완주한다. 마지막 화의 엔딩 카드 한 줄이 이 작품의 전부다.",
+            "desc_en": "Go through to the last two episodes, where Spike and Vicious's past catches up with the present. One line on the final episode's end card is the whole show.",
+            "tip_ko": "마지막 화를 보기 전에 5화와 13화를 한 번 더 보면 마지막이 다르게 읽힌다.",
+            "tip_en": "Rewatch episodes five and thirteen before the finale and it reads differently.",
+            "est_time_ko": "26화 · 약 10시간",
+            "est_time_en": "26 eps · ~10 h"
+          }
+        ]
+      },
+      {
+        "item_id": "code-geass",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1기 25화 완주 — 스자쿠와의 마지막 총성까지",
+            "title_en": "Season one, twenty-five episodes, to the last shot",
+            "desc_ko": "기아스의 규칙이 처음 어긋나는 순간부터 25화의 결별까지 완주한다. 어떤 거짓말이 어떤 결과를 낳는지가 이 작품의 진짜 전개다.",
+            "desc_en": "From the first time the Geass slips to the parting in episode twenty-five. Which lie produces which consequence is the real plot here.",
+            "tip_ko": "를르슈가 기아스를 쓴 상대를 화별로 한 명씩 적어 두면 2기가 쉬워진다.",
+            "tip_en": "Note one Geass target per episode and season two becomes easy.",
+            "est_time_ko": "25화 · 약 10시간",
+            "est_time_en": "25 eps · ~10 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "1기 25화 완주 + 를르슈의 거짓말 전부 표시",
+            "title_en": "Season one plus every lie Lelouch tells",
+            "desc_ko": "완주하면서 를르슈가 아군에게 한 거짓말을 전부 표시한다. 어디까지가 계산이고 어디부터가 감정인지가 마지막 화에서 뒤집힌다.",
+            "desc_en": "While watching, mark every lie Lelouch tells his own side. Where calculation ends and feeling begins is what the finale turns over.",
+            "tip_ko": "같은 거짓말을 두 번 하는 장면을 찾으면 대본의 구조가 보인다.",
+            "tip_en": "Find the scene where he tells the same lie twice and the script's structure shows.",
+            "est_time_ko": "25화 + 기록 · 약 11시간",
+            "est_time_en": "25 eps plus notes · ~11 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "R1+R2 50화 완주 — 제로 레퀴엠까지",
+            "title_en": "Fifty episodes across both seasons to Zero Requiem",
+            "desc_ko": "1기 25화와 2기 25화를 이어 붙여 마지막 제로 레퀴엠까지 간다. 마지막 화를 보고 1화를 다시 보면 주인공이 처음부터 준비하고 있었음이 드러난다.",
+            "desc_en": "Watch season one's twenty-five and season two's twenty-five back to back, through Zero Requiem. Rewatch episode one after the finale and you see the plan was there from the start.",
+            "tip_ko": "2기 중반의 학원 파트에서 흐름을 놓치기 쉽다 — 거기서 각 인물의 목표만 다시 확인하라.",
+            "tip_en": "The school stretch in mid season two loses people; recheck each character's goal there.",
+            "est_time_ko": "50화 · 약 20시간",
+            "est_time_en": "50 eps · ~20 h"
+          }
+        ]
+      },
+      {
+        "item_id": "death-note-anime",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "1~25화 — L과 라이토의 첫 승부까지",
+            "title_en": "Episodes one to twenty-five, the first duel",
+            "desc_ko": "데스노트를 줍는 1화부터 두 천재의 첫 승부가 끝나는 25화까지만 본다. 한 편의 완결된 심리전으로 읽어도 충분히 강하다.",
+            "desc_en": "From picking up the notebook in episode one to the end of the first duel in twenty-five. Read as a self-contained mind game, it already stands.",
+            "tip_ko": "L이 라이토를 의심하기 시작하는 화를 표시해 두면 이후가 훨씬 선명하다.",
+            "tip_en": "Mark the episode where L starts suspecting Light and everything after sharpens.",
+            "est_time_ko": "25화 · 약 9시간",
+            "est_time_en": "25 eps · ~9 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "37화 완주 — 마지막 1분까지",
+            "title_en": "All thirty-seven to the final minute",
+            "desc_ko": "25화 이후의 두 번째 승부까지 37화를 완주한다. 노트를 쥔 자리가 어떻게 사람을 바꾸는지, 마지막 1분이 전부 계산해 둔 답이다.",
+            "desc_en": "Go past episode twenty-five into the second duel and finish all thirty-seven. The final minute answers what holding the notebook does to a person.",
+            "tip_ko": "후반부는 등장인물이 크게 바뀐다 — 첫 등장 장면을 기억해 두고 비교하라.",
+            "tip_en": "The cast shifts hard in the back half; remember each first appearance and compare.",
+            "est_time_ko": "37화 · 약 14시간",
+            "est_time_en": "37 eps · ~14 h"
+          }
+        ]
+      },
+      {
+        "item_id": "neon-genesis-evangelion",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "26화 완주 — 해석은 나중에",
+            "title_en": "Twenty-six episodes, interpretation later",
+            "desc_ko": "설명을 붙이려 하지 않고 26화까지 그냥 본다. 이해가 안 되는 채로 끝나는 것이 이 작품이 의도한 첫 경험이다.",
+            "desc_en": "Watch all twenty-six without trying to explain anything. Ending without understanding is the first experience this show intends.",
+            "tip_ko": "마지막 두 화에서 멈추고 싶어도 일단 끝까지 보는 것이 좋다.",
+            "tip_en": "Even if the last two episodes make you want to stop, see them through.",
+            "est_time_ko": "26화 · 약 10시간",
+            "est_time_en": "26 eps · ~10 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "26화 완주 + 마지막 두 화 해석 노트",
+            "title_en": "All twenty-six plus notes on the last two episodes",
+            "desc_ko": "25·26화가 무엇을 말하는지 각자 문장 세 개로 정리한다. 총집편이 아니라 TV판 결말을 기준으로, 신지가 마지막에 내리는 선택의 근거를 찾는 것이 목표다.",
+            "desc_en": "Put what episodes twenty-five and twenty-six say into three sentences each. Work from the TV ending, not the recap film, and find the grounds for the choice Shinji makes at the end.",
+            "tip_ko": "1화의 첫 대사와 26화의 마지막 대사를 나란히 놓고 보라.",
+            "tip_en": "Set the first line of episode one beside the last line of episode twenty-six.",
+            "est_time_ko": "26화 + 기록 · 약 11시간",
+            "est_time_en": "26 eps plus notes · ~11 h"
+          }
+        ]
+      },
+      {
+        "item_id": "madoka-magica",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "12화 완주 — 10화의 반전까지 한 번에",
+            "title_en": "Twelve episodes in one go through the turn at ten",
+            "desc_ko": "12화짜리 한 시즌을 끊지 않고 본다. 10화에서 지금까지의 모든 화가 다시 읽히는 순간이 이 목표의 정점이다.",
+            "desc_en": "Watch the twelve-episode season unbroken. The peak is episode ten, where every earlier episode rereads itself.",
+            "tip_ko": "3화의 한 장면을 10화 뒤에 다시 보면 감정이 완전히 달라진다.",
+            "tip_en": "Rewatch one scene from episode three after ten and the feeling is not the same.",
+            "est_time_ko": "12화 · 약 5시간",
+            "est_time_en": "12 eps · ~5 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "12화 완주 + 마법소녀 계약 조건 전부 기록",
+            "title_en": "Twelve episodes plus every clause of the contract",
+            "desc_ko": "소원을 빌면 무엇을 받고 무엇을 내주는지, 계약 조건이 화마다 어떻게 드러나는지 전부 적는다. 귀여운 그림 뒤의 계약서를 읽는 것이 이 작품의 진짜 관전 포인트다.",
+            "desc_en": "Write down what a wish gives and what it costs, and how each episode reveals the terms. Reading the contract behind the cute art is the real point of the show.",
+            "tip_ko": "큐베의 대사를 그대로 옮겨 적어라 — 한 글자도 장식이 아니다.",
+            "tip_en": "Copy Kyubey's lines verbatim; not a word is decoration.",
+            "est_time_ko": "12화 + 기록 · 약 6시간",
+            "est_time_en": "12 eps plus notes · ~6 h"
+          }
+        ]
+      },
+      {
+        "item_id": "hunter-x-hunter-2011",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "개미편 완주 — 메르엠의 마지막까지",
+            "title_en": "The Chimera Ant arc to Meruem's last move",
+            "desc_ko": "76화부터 136화까지, 이 애니메이션 최고봉으로 꼽히는 개미편을 완주한다. 곤과 네페르피트의 대면에서 시작해 왕과 코무기의 마지막 장면까지 간다.",
+            "desc_en": "Finish episodes seventy-six to one hundred thirty-six, the Chimera Ant arc people call this adaptation's peak. Start at Gon and Neferpitou and go to the king and Komugi's final scene.",
+            "tip_ko": "내레이션이 많은 구간은 배속을 올리지 말고 그대로 보는 편이 좋다.",
+            "tip_en": "In the narration-heavy stretch, do not speed up; watch it as it is.",
+            "est_time_ko": "개미편 61화 · 약 22시간",
+            "est_time_en": "61 episodes · ~22 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "148화 완주 — 마지막 투표까지",
+            "title_en": "All one hundred forty-eight to the final vote",
+            "desc_ko": "시험편부터 선거편 마지막 표까지 148화를 완주한다. 네 명의 주인공이 각자 다른 방식으로 '사냥'을 배우는 과정을 한 번에 통과하는 것이 목표다.",
+            "desc_en": "From the exam arc to the last vote of the election arc, all one hundred forty-eight. The goal is to pass through how each of the four leads learns to hunt in a different way.",
+            "tip_ko": "선거편은 인물이 많다 — 처음 나온 이름만 따로 적어 두면 좋다.",
+            "tip_en": "The election arc has a big cast; note each name at first appearance.",
+            "est_time_ko": "148화 · 약 50시간",
+            "est_time_en": "148 eps · ~50 h"
+          }
+        ]
+      },
+      {
+        "item_id": "frieren",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "28화 완주 — 여행의 속도에 맞춰",
+            "title_en": "Twenty-eight episodes at the journey's own pace",
+            "desc_ko": "한 화에 한 마을씩, 프리렌의 걸음에 맞춰 28화를 완주한다. 이 작품은 몰아보면 오히려 손해다 — 화 사이의 빈 시간이 이야기의 절반이다.",
+            "desc_en": "One village an episode, at Frieren's walking pace, through twenty-eight. Binging actually costs you here: the empty time between episodes is half the story.",
+            "tip_ko": "화가 끝나면 오늘 본 풍경 하나를 떠올려 보라.",
+            "tip_en": "When an episode ends, recall one landscape you saw today.",
+            "est_time_ko": "28화 · 약 11시간",
+            "est_time_en": "28 eps · ~11 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "28화 완주 + 프리렌이 기억하는 사람 목록",
+            "title_en": "Twenty-eight episodes plus the people Frieren remembers",
+            "desc_ko": "완주하면서 프리렌이 떠올리는 힘멜 일행과 스러져 간 사람들을 이름과 함께 적는다. 그 목록이 길어질수록 이 작품이 왜 장송의 프리렌인지 알게 된다.",
+            "desc_en": "While watching, list Himmel's party and everyone else Frieren recalls, by name. The longer the list grows, the clearer it is why this is Frieren at the funeral.",
+            "tip_ko": "힘멜의 대사를 인용해 두면 나중에 그 화가 다시 떠오른다.",
+            "tip_en": "Quote one line from Himmel and the episode comes back later.",
+            "est_time_ko": "28화 + 기록 · 약 12시간",
+            "est_time_en": "28 eps plus notes · ~12 h"
+          }
+        ]
+      },
+      {
+        "item_id": "demon-slayer",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "하루 두 화, 26화를 2주에",
+            "title_en": "Two episodes a day, twenty-six in two weeks",
+            "desc_ko": "하루 두 화씩, 화를 아껴 26화를 2주에 걸쳐 완주한다. 매 화가 끝나는 지점이 좋아서 하루 두 화로 끊는 편이 오히려 오래 남는다.",
+            "desc_en": "Two episodes a day, rationed over two weeks. Each episode ends well, and stopping at two a day makes it stay longer.",
+            "tip_ko": "전투가 끝나는 화 다음은 하루 쉬어도 흐름이 끊기지 않는다.",
+            "tip_en": "After a fight wraps, a day off will not break the flow.",
+            "est_time_ko": "26화 · 약 10시간",
+            "est_time_en": "26 eps · ~10 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "26화 완주 — 19화 히노카미 카구라까지",
+            "title_en": "All twenty-six through Hinokami Kagura in nineteen",
+            "desc_ko": "1화의 눈보라에서 19화의 히노카미 카구라까지 26화를 완주한다. 이 애니메이션이 왜 회차 단위로 회자되는지 가장 잘 보여 주는 구간이다.",
+            "desc_en": "From the snow in episode one to Hinokami Kagura in nineteen, all twenty-six episodes. This stretch best shows why the show gets talked about episode by episode.",
+            "tip_ko": "19화는 반드시 큰 화면으로, 그 화만은 멈추지 말고 보라.",
+            "tip_en": "Watch episode nineteen on the biggest screen you have, and do not pause it.",
+            "est_time_ko": "26화 · 약 10시간",
+            "est_time_en": "26 eps · ~10 h"
+          }
+        ]
+      },
+      {
+        "item_id": "jujutsu-kaisen",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "24화 완주 — 시부야 사변 직전까지",
+            "title_en": "All twenty-four up to the Shibuya incident",
+            "desc_ko": "유지의 첫 임무부터 교토 자매교 편을 지나 24화까지 완주한다. 마지막 화가 다음 사건의 문을 열어 두고 끝나므로, 거기까지가 1기의 완결된 한 걸음이다.",
+            "desc_en": "From Yuji's first mission through the Kyoto sister-school arc to episode twenty-four. The last episode leaves the next incident's door open, so this is season one's complete step.",
+            "tip_ko": "술식 설명이 나오는 화는 메모해 두면 후반 전투가 훨씬 재미있다.",
+            "tip_en": "Note the episodes that explain a technique; the later fights get much better.",
+            "est_time_ko": "24화 · 약 9시간",
+            "est_time_en": "24 eps · ~9 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "24화 완주 + 술식 도감 20개",
+            "title_en": "Twenty-four episodes plus a twenty-technique codex",
+            "desc_ko": "완주하면서 등장한 술식과 그 대가를 20개 이상 정리한다. 이 작품의 전투는 힘이 아니라 규칙 싸움이라, 도감을 만들면 모든 결말이 납득된다.",
+            "desc_en": "While watching, write down at least twenty techniques and their costs. The fights here are rule fights, not power fights, so a codex makes every outcome land.",
+            "tip_ko": "같은 술식이 두 번 나오는 화를 찾으면 규칙의 예외가 보인다.",
+            "tip_en": "Find the episode where one technique appears twice and you see the rule's exception.",
+            "est_time_ko": "24화 + 기록 · 약 10시간",
+            "est_time_en": "24 eps plus notes · ~10 h"
+          }
+        ]
+      },
+      {
+        "item_id": "chainsaw-man",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "12화를 하루에 통째로",
+            "title_en": "All twelve episodes in one day",
+            "desc_ko": "12화짜리 한 시즌을 하루에 끝까지 본다. 영화적인 연출과 빠른 호흡이 하루 몰아보기에 맞춰져 있다.",
+            "desc_en": "Watch the twelve-episode season start to finish in a day. The cinematic staging and fast pacing are built for a single-day run.",
+            "tip_ko": "오프닝을 매 화 보면 후반의 인물 변화가 더 크게 느껴진다.",
+            "tip_en": "Watch the opening every episode and the late character shifts land harder.",
+            "est_time_ko": "12화 · 약 5시간",
+            "est_time_en": "12 eps · ~5 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "12화 완주 + 악마 계약 조건 전부 기록",
+            "title_en": "Twelve episodes plus every devil contract",
+            "desc_ko": "악마와 계약할 때 무엇을 주고 무엇을 받는지 전부 적으며 12화를 완주한다. 데빌 헌터의 세계가 얼마나 냉정한 거래로 굴러가는지가 목록에 남는다.",
+            "desc_en": "Write down what is given and taken in every devil contract while you finish twelve. The list shows how coldly the devil hunter world runs on deals.",
+            "tip_ko": "포치타의 말투가 바뀌는 순간을 찾아보라 — 거래의 방향이 뒤집힌다.",
+            "tip_en": "Find where Pochita's tone changes; the direction of the deal flips.",
+            "est_time_ko": "12화 + 기록 · 약 6시간",
+            "est_time_en": "12 eps plus notes · ~6 h"
+          }
+        ]
+      },
+      {
+        "item_id": "vinland-saga",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "24화를 3주에 나눠서",
+            "title_en": "Twenty-four episodes over three weeks",
+            "desc_ko": "한 주에 여덟 화씩, 3주에 걸쳐 완주한다. 무거운 장면이 많은 작품이라 하루에 몰아보지 않는 편이 좋다.",
+            "desc_en": "Eight episodes a week for three weeks. There are heavy scenes here, so do not stack them into one day.",
+            "tip_ko": "전투가 끝난 화 다음 날은 가벼운 화를 골라도 좋다.",
+            "tip_en": "After a fight-heavy episode, pick a lighter one the next day.",
+            "est_time_ko": "24화 · 약 9시간",
+            "est_time_en": "24 eps · ~9 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "24화 완주 — 복수가 끝나는 자리까지",
+            "title_en": "All twenty-four to where the revenge ends",
+            "desc_ko": "토르핀이 아스켈라드를 따라가는 24화를 완주한다. 복수가 목표가 아니라 복수가 비워 버리는 것들이 이 이야기의 본체다.",
+            "desc_en": "Finish the twenty-four episodes of Thorfinn following Askeladd. The story is not the revenge but what the revenge empties out.",
+            "tip_ko": "1화의 아버지 장면을 24화 뒤에 다시 보면 전부 다르게 읽힌다.",
+            "tip_en": "Rewatch the father scene in episode one after twenty-four and it all rereads.",
+            "est_time_ko": "24화 · 약 9시간",
+            "est_time_en": "24 eps · ~9 h"
+          }
+        ]
+      },
+      {
+        "item_id": "mob-psycho-100",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "12화 완주 — 모브가 100%가 되는 순간 세기",
+            "title_en": "Twelve episodes, counting every 100% moment",
+            "desc_ko": "12화를 완주하면서 모브의 감정이 100%에 닿는 순간을 전부 센다. 싸움보다 감정의 눈금이 이 작품의 주인공이다.",
+            "desc_en": "Finish twelve episodes and count every moment Mob's meter reaches one hundred percent. The emotional gauge, not the fight, is the lead here.",
+            "tip_ko": "100%가 터지는 화의 배경 음악을 따로 찾아 들어 보라.",
+            "tip_en": "Look up the music from the episode where it hits one hundred.",
+            "est_time_ko": "12화 · 약 5시간",
+            "est_time_en": "12 eps · ~5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "gurren-lagann",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "27화 완주 + '천원돌파' 대사 전부 받아 적기",
+            "title_en": "All twenty-seven plus every line about piercing the heavens",
+            "desc_ko": "27화를 완주하면서 시몬과 카미나가 외치는 대사를 전부 받아 적는다. 같은 말이 화마다 무게를 달리하는 것을 직접 확인하는 것이 목표다.",
+            "desc_en": "Finish twenty-seven episodes and transcribe every line Simon and Kamina shout. Watch the same words carry different weight each time.",
+            "tip_ko": "8화 이후 그림체가 바뀌는 화를 지나면 톤이 완전히 달라진다 — 놓치지 말 것.",
+            "tip_en": "After the episode where the art shifts, the tone changes completely; do not skip it.",
+            "est_time_ko": "27화 + 기록 · 약 12시간",
+            "est_time_en": "27 eps plus notes · ~12 h"
+          }
+        ]
+      },
+      {
+        "item_id": "your-name",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "한 편, 크레딧 끝까지",
+            "title_en": "One film, through the credits",
+            "desc_ko": "약 2시간, 멈추지 않고 처음부터 크레딧 끝까지 본다. 마지막 곡이 끝날 때까지가 이 영화의 러닝타임이다.",
+            "desc_en": "About two hours without pausing, from the first frame through the credits. The film's running time includes the last song.",
+            "tip_ko": "휴대폰은 뒤집어 두고 보라 — 이 영화는 집중력으로 값을 매긴다.",
+            "tip_en": "Put the phone face down; this film charges you in attention.",
+            "est_time_ko": "극장판 · 약 2시간",
+            "est_time_en": "Feature · ~2 h"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "시간선 두 개를 종이에 그리며 완주",
+            "title_en": "Finish it while charting both timelines on paper",
+            "desc_ko": "미츠하와 타키의 시간선을 종이에 나란히 그리며 완주한다. 두 선이 처음 겹치는 장면에서 이 영화의 장치가 전부 드러난다.",
+            "desc_en": "Draw Mitsuha's and Taki's timelines side by side as you watch. The scene where the two lines first cross reveals the film's whole device.",
+            "tip_ko": "날짜와 요일을 적어 두면 두 시간선의 간격이 보인다.",
+            "tip_en": "Note dates and weekdays and the gap between the timelines shows.",
+            "est_time_ko": "극장판 + 기록 · 약 2시간 30분",
+            "est_time_en": "Feature plus notes · ~2.5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "spirited-away",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "무자막으로 처음부터 엔딩까지",
+            "title_en": "From the first frame to the ending, no subtitles",
+            "desc_ko": "자막을 끄고 그림과 음악만으로 완주한다. 대사를 놓쳐도 이야기는 온전히 따라온다는 것을 확인하는 것이 이 목표다.",
+            "desc_en": "Turn subtitles off and watch with only image and music. The goal is to find that the story carries you even without the lines.",
+            "tip_ko": "처음 10분의 배경 음악에 귀를 기울여 보라.",
+            "tip_en": "Listen closely to the score in the first ten minutes.",
+            "est_time_ko": "극장판 · 약 2시간",
+            "est_time_en": "Feature · ~2 h"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "이름을 잃는 장면의 복선 3개 찾기",
+            "title_en": "Find three clues before the name is lost",
+            "desc_ko": "완주하면서 치히로가 이름을 잃기 전에 이미 깔려 있던 복선 세 개를 찾아 적는다. 두 번째 시청에서 이 영화가 완전히 다른 영화가 된다.",
+            "desc_en": "While watching, find and note three clues planted before Chihiro loses her name. On a second pass this becomes a different film.",
+            "tip_ko": "하쿠가 처음 등장하는 화면을 유심히 보라.",
+            "tip_en": "Watch closely the first time Haku appears on screen.",
+            "est_time_ko": "극장판 + 기록 · 약 2시간 30분",
+            "est_time_en": "Feature plus notes · ~2.5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "a-silent-voice",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "극장판 완주 — 마지막 손짓까지",
+            "title_en": "The whole film to the last gesture",
+            "desc_ko": "약 2시간 10분을 끊지 않고, 마지막 장면의 손짓까지 본다. 이 영화의 결말은 대사가 아니라 손에 있다.",
+            "desc_en": "About two hours ten without a break, through the gesture of the last scene. This film's ending is in a hand, not a line.",
+            "tip_ko": "주인공이 사람들의 얼굴에 X를 그리던 초반을 기억하고 마지막과 비교하라.",
+            "tip_en": "Remember the early habit of marking faces with X and compare it to the end.",
+            "est_time_ko": "극장판 · 약 2시간 10분",
+            "est_time_en": "Feature · ~2 h 10 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "완주 + 이시다의 독백이 바뀌는 순간 3곳",
+            "title_en": "The film plus three turns in Ishida's inner voice",
+            "desc_ko": "완주하면서 이시다가 남을 향해 말하는 방식이 바뀌는 지점 세 곳을 찾아 적는다. 청각을 잃은 소녀와 자기혐오의 소년이 서로를 듣게 되는 과정을 문장으로 남기는 목표다.",
+            "desc_en": "While watching, find three points where the way Ishida speaks to others changes. The goal is to put into words how a deaf girl and a boy who hates himself start hearing each other.",
+            "tip_ko": "이시다가 처음으로 사과하는 장면을 기준점으로 삼아라.",
+            "tip_en": "Use the first time Ishida apologizes as your anchor.",
+            "est_time_ko": "극장판 + 기록 · 약 3시간",
+            "est_time_en": "Feature plus notes · ~3 h"
+          }
+        ]
+      },
+      {
+        "item_id": "mononoke-hime",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "한 편 완주 — 엔딩곡까지",
+            "title_en": "One film, through the ending song",
+            "desc_ko": "약 2시간 15분, 숲과 철의 마을이 부딪히는 장면을 그대로 따라가며 완주한다. 결론을 내리지 않고 끝나는 것이 이 영화의 예의다.",
+            "desc_en": "About two hours fifteen, following the clash between forest and iron town to the end. The film's courtesy is that it refuses to conclude.",
+            "tip_ko": "아시타카가 팔에 걸린 저주가 옅어지는 순간들을 세어 보라.",
+            "tip_en": "Count the moments the curse on Ashitaka's arm fades.",
+            "est_time_ko": "극장판 · 약 2시간 15분",
+            "est_time_en": "Feature · ~2 h 15 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "어느 편도 들지 않고 '누가 옳았나' 정리",
+            "title_en": "Take no side and write out who was right",
+            "desc_ko": "완주한 뒤 숲의 신들, 철의 마을, 사무라이 중 어디에도 서지 않고 각자의 명분과 잘못을 한 장으로 정리한다. 이 영화가 답을 주지 않는 이유를 직접 쓰는 것이 목표다.",
+            "desc_en": "After finishing, side with none of the forest gods, Iron Town or the samurai, and set out each side's case and fault on one page. The goal is to write for yourself why the film gives no answer.",
+            "tip_ko": "에보시의 대사 중 가장 맞는 말과 가장 틀린 말을 하나씩 골라라.",
+            "tip_en": "Pick the truest and the falsest thing Eboshi says.",
+            "est_time_ko": "극장판 + 기록 · 약 3시간",
+            "est_time_en": "Feature plus notes · ~3 h"
+          }
+        ]
+      },
+      {
+        "item_id": "howls-moving-castle",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "한 편 완주 — 가족과 함께",
+            "title_en": "One film, with family",
+            "desc_ko": "약 2시간, 누군가와 함께 보고 끝난 뒤 10분만 이야기를 나눈다. 혼자 볼 때와 다른 장면이 남는 영화다.",
+            "desc_en": "About two hours, watched with someone, then ten minutes of talk after. Different scenes stay with you than when you watch alone.",
+            "tip_ko": "가장 좋아하는 방 하나를 서로 말해 보라.",
+            "tip_en": "Each of you name your favorite room in the castle.",
+            "est_time_ko": "극장판 · 약 2시간",
+            "est_time_en": "Feature · ~2 h"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "완주 + 하울의 이름이 바뀌는 순간 세기",
+            "title_en": "Finish it and count when Howl's name changes",
+            "desc_ko": "완주하면서 하울이 불리는 이름과 그 이름이 바뀌는 순간을 전부 적는다. 이름을 잃는 것이 이 영화의 저주이고, 소피의 저주와 정확히 대칭이다.",
+            "desc_en": "While watching, note every name Howl is called and when it changes. Losing a name is the curse here, exactly mirrored by Sophie's.",
+            "tip_ko": "소피가 늙은 모습과 젊은 모습을 오가는 장면을 이름과 함께 기록하라.",
+            "tip_en": "Record the scenes where Sophie shifts between old and young alongside the names.",
+            "est_time_ko": "극장판 + 기록 · 약 2시간 30분",
+            "est_time_en": "Feature plus notes · ~2.5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "violet-evergarden",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "13화 완주 — 10화의 편지까지",
+            "title_en": "Thirteen episodes up to the letter in ten",
+            "desc_ko": "13화를 완주하되, 특히 10화의 어머니와 딸 이야기를 지나칠 수 없다. 대필가가 남기는 것이 무엇인지 이 화 하나로 이해하게 된다.",
+            "desc_en": "Finish the thirteen episodes, but the mother-and-daughter episode ten is the one you cannot pass by. It tells you what a ghostwriter leaves behind.",
+            "tip_ko": "10화가 끝나면 잠시 멈추고 그 편지를 다시 읽어 보라.",
+            "tip_en": "After episode ten, pause and read that letter again.",
+            "est_time_ko": "13화 · 약 6시간",
+            "est_time_en": "13 eps · ~6 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "13화 완주 + 모든 대필 의뢰 기록",
+            "title_en": "Thirteen episodes plus every ghostwriting request",
+            "desc_ko": "화마다 들어오는 의뢰인과 그들이 말하지 못한 진짜 사연을 적으며 완주한다. 남의 마음을 대신 써 주는 일이 어떻게 사람을 바꾸는지가 목록에 남는다.",
+            "desc_en": "Note each client and the real story they cannot say, episode by episode. The list records how writing someone else's heart changes the writer.",
+            "tip_ko": "의뢰인이 처음 한 말과 마지막에 한 말을 나란히 적어라.",
+            "tip_en": "Set each client's first words beside their last.",
+            "est_time_ko": "13화 + 기록 · 약 7시간",
+            "est_time_en": "13 eps plus notes · ~7 h"
+          }
+        ]
+      },
+      {
+        "item_id": "your-lie-in-april",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "22화, 계절에 맞춰 한 화씩",
+            "title_en": "Twenty-two episodes, one a day with the seasons",
+            "desc_ko": "봄에서 겨울로 가는 이야기의 계절에 맞춰 한 화씩 완주한다. 한 화의 여운을 다음 화로 넘기지 않는 편이 좋다.",
+            "desc_en": "One episode a day, following the story from spring to winter. Let each episode's afterglow pass before the next.",
+            "tip_ko": "계절이 바뀌는 화에서 창밖 풍경을 한 번씩 확인하라.",
+            "tip_en": "At each seasonal turn, look once at the view outside the window.",
+            "est_time_ko": "22화 · 약 9시간",
+            "est_time_en": "22 eps · ~9 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "22화 완주 — 마지막 연주까지",
+            "title_en": "All twenty-two through the last performance",
+            "desc_ko": "코세이가 피아노를 다시 잡는 1화부터 마지막 연주까지 22화를 완주한다. 음악이 인물의 대사보다 많은 것을 말하는 작품이다.",
+            "desc_en": "From the episode where Kosei plays again to the final performance, all twenty-two. Here the music says more than the dialogue.",
+            "tip_ko": "연주 장면은 헤드폰으로, 가능하면 볼륨을 올려서 보라.",
+            "tip_en": "Watch the performances on headphones, volume up if you can.",
+            "est_time_ko": "22화 · 약 9시간",
+            "est_time_en": "22 eps · ~9 h"
+          }
+        ]
+      },
+      {
+        "item_id": "legend-of-the-galactic-heroes",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "첫 시즌 26화 완주 — 아스타테 회전까지",
+            "title_en": "Season one's twenty-six episodes through the Astarte battle",
+            "desc_ko": "110화 전체의 첫 관문인 26화까지 완주한다. 두 천재가 처음으로 서로를 인정하는 전투를 통과하면 이 작품의 문법이 보인다.",
+            "desc_en": "Finish the first twenty-six of one hundred ten. Once you pass the battle where two geniuses first recognize each other, the show's grammar is visible.",
+            "tip_ko": "인물이 매우 많다 — 이름과 소속을 첫 등장에 적어 두면 이후가 편하다.",
+            "tip_en": "The cast is huge; note name and affiliation at first appearance.",
+            "est_time_ko": "26화 · 약 13시간",
+            "est_time_en": "26 eps · ~13 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "110화 완주 — 두 천재의 마지막까지",
+            "title_en": "All one hundred ten to the end of two geniuses",
+            "desc_ko": "OVA 110화를 완주해 라인하르트와 양웨인이 각자 어디에 닿는지 끝까지 본다. 전쟁과 정치, 두 편의 역사서를 한 번에 읽는 셈이다.",
+            "desc_en": "Finish all one hundred ten OVA episodes and see where Reinhard and Yang each arrive. It is reading two histories, war and politics, at once.",
+            "tip_ko": "주요 인물이 죽는 화는 미리 알 필요가 없다 — 그대로 보라.",
+            "tip_en": "You do not need advance warning of the episodes where major figures die; watch as they come.",
+            "est_time_ko": "110화 · 약 55시간",
+            "est_time_en": "110 eps · ~55 h"
+          }
+        ]
+      },
+      {
+        "item_id": "cyberpunk-edgerunners",
+        "category": "anime",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "10화를 하루에 완주",
+            "title_en": "Ten episodes in one day",
+            "desc_ko": "10화짜리 한 시즌을 하루에 끝낸다. 나이트 시티의 속도에 몸을 맡기면 열 화가 한 편의 영화처럼 지나간다.",
+            "desc_en": "Finish the ten-episode season in a day. Give yourself to Night City's speed and the ten episodes pass like one film.",
+            "tip_ko": "마지막 화 뒤에는 아무 일도 잡지 마라.",
+            "tip_en": "Do not schedule anything after the last episode.",
+            "est_time_ko": "10화 · 약 4시간",
+            "est_time_en": "10 eps · ~4 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "10화 완주 + 루시의 달까지",
+            "title_en": "Ten episodes plus Lucy's moon",
+            "desc_ko": "완주하면서 데이비드와 루시가 각자 무엇을 위해 달리는지 적어 둔다. 마지막 화의 달 장면이 두 사람의 선택을 전부 정리해 준다.",
+            "desc_en": "While watching, note what David and Lucy are each running toward. The moon in the finale settles every choice the two of them made.",
+            "tip_ko": "1화의 첫 장면과 마지막 화의 마지막 장면을 비교하라.",
+            "tip_en": "Compare the first shot of episode one with the last shot of the finale.",
+            "est_time_ko": "10화 + 기록 · 약 5시간",
+            "est_time_en": "10 eps plus notes · ~5 h"
+          }
+        ]
+      }
+    ],
+    "movie": [
+      {
+        "item_id": "the-shawshank-redemption",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "142분 한 번에 — 크레딧까지",
+            "title_en": "One hundred forty-two minutes straight, through the credits",
+            "desc_ko": "멈추지 않고 142분을 완주한다. 마지막 빗속 장면이 끝나도 크레딧이 올라오는 동안 자리를 지키는 것이 이 영화의 예의다.",
+            "desc_en": "Sit through all one hundred forty-two minutes without pausing. Stay in your seat while the credits roll after the rain; that is the courtesy this film asks.",
+            "tip_ko": "밤에 보라 — 이 영화는 어두울수록 밝다.",
+            "tip_en": "Watch it at night; the darker the room, the brighter this film.",
+            "est_time_ko": "영화 한 편 · 2시간 22분",
+            "est_time_en": "One film · 2 h 22 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "완주 + 앤디가 감옥에 들여온 것 전부 세기",
+            "title_en": "Finish it and count everything Andy brings inside",
+            "desc_ko": "완주하면서 앤디가 감옥 안으로 들여온 물건과, 그가 벽에 새긴 것들을 전부 적는다. 20년의 계획이 어디서 시작됐는지가 목록에 드러난다.",
+            "desc_en": "While watching, list everything Andy gets into the prison and everything he carves into his wall. The list shows where a twenty-year plan began.",
+            "tip_ko": "포스터가 나오는 장면마다 무엇을 가리고 있는지 확인하라.",
+            "tip_en": "At every poster scene, check what it is covering.",
+            "est_time_ko": "영화 + 기록 · 약 3시간",
+            "est_time_en": "Film plus notes · ~3 h"
+          }
+        ]
+      },
+      {
+        "item_id": "the-godfather",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "175분 완주 — 마이클이 변하는 세 장면",
+            "title_en": "One hundred seventy-five minutes, three turns of Michael",
+            "desc_ko": "완주하면서 마이클이 아버지의 아들에서 가문의 수장으로 바뀌는 장면 세 개를 골라 적는다. 마지막 문이 닫히는 컷이 그 답이다.",
+            "desc_en": "While watching, pick the three scenes where Michael turns from his father's son into the head of the family. The closing door gives you the answer.",
+            "tip_ko": "식당 장면의 소리와 화면이 어긋나는 순간을 놓치지 마라.",
+            "tip_en": "Do not miss the moment sound and image pull apart in the restaurant scene.",
+            "est_time_ko": "영화 한 편 · 2시간 55분",
+            "est_time_en": "One film · 2 h 55 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "대부 1편 + 2편 연속 — 두 세대의 대비",
+            "title_en": "Parts I and II back to back, two generations apart",
+            "desc_ko": "1편과 2편을 이어서 본다. 아버지의 시대와 아들의 시대가 교차하는 구조가 2편에서 완성되는 것을 한자리에서 확인하는 목표다.",
+            "desc_en": "Watch Part I and Part II in sequence. The goal is to see, in one sitting, how Part II completes the cross-cut between the father's era and the son's.",
+            "tip_ko": "2편의 과거 파트가 1편과 같은 인물의 다른 시점임을 기억하라.",
+            "tip_en": "Remember that Part II's past scenes are the same people from another angle.",
+            "est_time_ko": "두 편 · 6시간 20분",
+            "est_time_en": "Two films · 6 h 20 m"
+          }
+        ]
+      },
+      {
+        "item_id": "pulp-fiction",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "154분, 순서는 신경 쓰지 않고",
+            "title_en": "One hundred fifty-four minutes, order ignored",
+            "desc_ko": "처음 볼 때는 장면 순서를 맞히려 하지 말고 그냥 따라간다. 인물들의 대화가 주는 재미만으로도 두 시간 반이 지나간다.",
+            "desc_en": "On a first pass, do not try to solve the order; just follow. The dialogue alone carries two and a half hours.",
+            "tip_ko": "식당 장면이 두 번 나온다는 것만 기억하면 된다.",
+            "tip_en": "The only thing to hold on to is that the diner appears twice.",
+            "est_time_ko": "영화 한 편 · 2시간 34분",
+            "est_time_en": "One film · 2 h 34 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "154분 — 장면을 시간순으로 재배열하기",
+            "title_en": "One hundred fifty-four minutes, rearranged in order",
+            "desc_ko": "본 뒤에 영화의 장면을 실제 시간 순서로 종이에 재배열한다. 세 개의 이야기가 어디서 겹치는지 알아내는 순간 이 영화의 구조가 손에 잡힌다.",
+            "desc_en": "After watching, lay the scenes out on paper in true chronological order. The moment you find where the three stories overlap, the structure is in your hands.",
+            "tip_ko": "금고 장면과 식당 장면 중 무엇이 먼저인지가 열쇠다.",
+            "tip_en": "The key is whether the briefcase scene or the diner comes first.",
+            "est_time_ko": "영화 + 기록 · 약 3시간 30분",
+            "est_time_en": "Film plus notes · ~3.5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "the-matrix",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "136분 완주 — 빨간 약까지",
+            "title_en": "One hundred thirty-six minutes to the red pill",
+            "desc_ko": "1편만, 136분을 완주한다. 빨간 약을 삼키는 장면을 지나 네오가 처음으로 매트릭스의 코드를 보는 순간까지가 이 영화의 문이다.",
+            "desc_en": "Just the first film, all one hundred thirty-six minutes. The door is the moment Neo first sees the code, past the red pill.",
+            "tip_ko": "그린 톤이 강한 장면이 어디서 끊기는지 보라.",
+            "tip_en": "Watch where the heavy green tint cuts off.",
+            "est_time_ko": "영화 한 편 · 2시간 16분",
+            "est_time_en": "One film · 2 h 16 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "완주 + 현실과 시뮬레이션의 색 구분 3곳",
+            "title_en": "Finish it and mark three shifts between real and simulated",
+            "desc_ko": "완주하면서 현실 세계와 매트릭스 안을 구분하는 시각적 장치를 세 곳 찾아 적는다. 이 영화가 관객에게 계속 던지는 '지금이 어디인가'라는 질문의 근거다.",
+            "desc_en": "While watching, find three visual cues that tell the real world from inside the Matrix. They are the grounds for the question the film keeps asking: where are you now.",
+            "tip_ko": "트레이너가 등장하는 장면의 배경색을 비교하라.",
+            "tip_en": "Compare the background color in the scenes where the trainer appears.",
+            "est_time_ko": "영화 + 기록 · 약 3시간",
+            "est_time_en": "Film plus notes · ~3 h"
+          }
+        ]
+      },
+      {
+        "item_id": "interstellar",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "169분 완주 — 밀러 행성의 23년 세기",
+            "title_en": "One hundred sixty-nine minutes, counting the 23 years",
+            "desc_ko": "완주하면서 밀러 행성에서 흘러간 시간이 지구의 몇 년이었는지 계산해 본다. 이 영화의 감정은 물리 법칙 위에 서 있다.",
+            "desc_en": "While watching, work out how many Earth years pass during the time on Miller's planet. This film's feeling stands on physics.",
+            "tip_ko": "도킹 장면은 소리 없이 보면 더 무섭다.",
+            "tip_en": "The docking scene is scarier with the sound off.",
+            "est_time_ko": "영화 한 편 · 2시간 49분",
+            "est_time_en": "One film · 2 h 49 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "인터스텔라 + 인셉션, 주말 이틀",
+            "title_en": "Interstellar and Inception over a weekend",
+            "desc_ko": "놀란의 두 영화를 이틀에 나눠 본다. 첫날은 우주, 둘째 날은 꿈 — 같은 감독이 시간을 다루는 두 가지 방식을 비교하는 목표다.",
+            "desc_en": "Split two Nolan films across a weekend: space on day one, dreams on day two. Compare the two ways one director handles time.",
+            "tip_ko": "두 영화 모두 끝에 한 번 더 돌아보는 장면이 있다.",
+            "tip_en": "Both films turn back for one last look at the end.",
+            "est_time_ko": "두 편 · 5시간 20분",
+            "est_time_en": "Two films · 5 h 20 m"
+          }
+        ]
+      },
+      {
+        "item_id": "inception",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "148분 완주 + 꿈의 층위 시간 배율 계산",
+            "title_en": "One hundred forty-eight minutes plus the dream-time math",
+            "desc_ko": "완주하면서 각 꿈의 층위에서 시간이 몇 배로 흐르는지 종이에 계산한다. 마지막 팽이가 넘어지기 직전에 무엇이 남는지가 이 계산의 답이다.",
+            "desc_en": "While watching, keep the time multiplier for each dream layer on paper. What remains just before the top falls is the answer to that math.",
+            "tip_ko": "비 오는 층과 눈 덮인 층의 시간 차이부터 계산해 보라.",
+            "tip_en": "Start with the gap between the rainy layer and the snow layer.",
+            "est_time_ko": "영화 + 기록 · 약 3시간 15분",
+            "est_time_en": "Film plus notes · ~3 h 15 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "인셉션 + 인터스텔라 — 꿈과 시간의 두 영화",
+            "title_en": "Inception and Interstellar, dreams and time",
+            "desc_ko": "두 영화를 연속으로 본다. 꿈속의 시간과 우주에서의 시간이 각각 어떻게 인물을 늙게 하는지 비교하는 것이 목표다.",
+            "desc_en": "Watch the two in sequence. Compare how time in a dream and time in space each age the people in them.",
+            "tip_ko": "두 영화의 마지막 장면이 모두 '집'을 향한다는 점을 기억하라.",
+            "tip_en": "Both final scenes head home; keep that in mind.",
+            "est_time_ko": "두 편 · 5시간 15분",
+            "est_time_en": "Two films · 5 h 15 m"
+          }
+        ]
+      },
+      {
+        "item_id": "the-dark-knight",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "152분 완주 — 조커의 첫 등장까지",
+            "title_en": "One hundred fifty-two minutes to the Joker's first scene",
+            "desc_ko": "1편을 완주하되, 은행 강도 장면에서 조커가 마스크를 벗는 순간까지를 한 번에 통과한다. 이 영화의 모든 것이 그 장면에서 이미 시작됐다.",
+            "desc_en": "Finish the film, and in one go pass the bank heist up to the moment the Joker takes off the mask. Everything in this movie had already begun there.",
+            "tip_ko": "조커가 말하는 두 가지 상반된 이야기를 세어 보라.",
+            "tip_en": "Count the two contradictory stories the Joker tells about his scars.",
+            "est_time_ko": "영화 한 편 · 2시간 32분",
+            "est_time_en": "One film · 2 h 32 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "다크 나이트 3부작 하루 마라톤",
+            "title_en": "The Dark Knight trilogy in one day",
+            "desc_ko": "비긴즈부터 라이즈까지 세 편을 하루에 몰아 본다. 한 사람이 왜 그 옷을 입는지가 세 편을 이어 붙일 때 완성된다.",
+            "desc_en": "Run all three films, Begins through Rises, in one day. Why one man wears the suit only completes when the three are joined.",
+            "tip_ko": "2편과 3편 사이에 30분 휴식을 넣어라 — 마지막 한 시간이 다르게 온다.",
+            "tip_en": "Take thirty minutes between the second and third; the last hour arrives differently.",
+            "est_time_ko": "세 편 · 약 7시간 30분",
+            "est_time_en": "Three films · ~7 h 30 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "3부작 완주 + 조커의 거짓말 전부 기록",
+            "title_en": "The trilogy plus every lie the Joker tells",
+            "desc_ko": "세 편을 완주하면서 조커가 말하는 상처의 기원, 배의 규칙, 두 척의 선택을 전부 적는다. 그가 던진 거짓말 중 무엇이 진짜였는지가 이 마라톤의 결론이다.",
+            "desc_en": "Through all three films, write down every origin story for the scars, every rule of the ferry game, every choice on the two boats. What was true among his lies is the marathon's conclusion.",
+            "tip_ko": "2편의 배 장면에서 누가 먼저 투표했는지 확인하라.",
+            "tip_en": "In the ferry scene, check who votes first.",
+            "est_time_ko": "세 편 + 기록 · 8시간",
+            "est_time_en": "Three films plus notes · 8 h"
+          }
+        ]
+      },
+      {
+        "item_id": "whiplash",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "107분 완주 + 'Not my tempo' 세 번 반복",
+            "title_en": "One hundred seven minutes, \"not my tempo\" three times",
+            "desc_ko": "완주하면서 'Not my tempo'가 나오는 장면을 세 번 곱씹어 본다. 같은 말이 언제 조롱이고 언제 인정으로 바뀌는지가 이 영화의 전부다.",
+            "desc_en": "Watch the film, then sit three times with the scenes where that line lands. When the same words turn from mockery to recognition is the whole film.",
+            "tip_ko": "마지막 9분은 앉아서 손을 떼고 보라.",
+            "tip_en": "For the last nine minutes, sit on your hands.",
+            "est_time_ko": "영화 + 재시청 · 약 2시간 40분",
+            "est_time_en": "Film plus rewatch · ~2 h 40 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "위플래쉬 + 라라랜드 — 음악과 집착 두 편",
+            "title_en": "Whiplash and La La Land, music and obsession",
+            "desc_ko": "두 영화를 연속으로 본다. 재즈를 위해 무엇을 버리는가라는 같은 질문에 두 영화가 정반대의 답을 내놓는 것을 확인하는 목표다.",
+            "desc_en": "Watch both in a row. The goal is to see two opposite answers to the same question about what you give up for jazz.",
+            "tip_ko": "두 영화의 마지막 10분을 나란히 비교하면 답이 보인다.",
+            "tip_en": "Set the last ten minutes of each side by side and the answer appears.",
+            "est_time_ko": "두 편 · 4시간",
+            "est_time_en": "Two films · 4 h"
+          }
+        ]
+      },
+      {
+        "item_id": "mad-max-fury-road",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "121분 완주 — 스턴트에 몸을 맡기기",
+            "title_en": "One hundred twenty-one minutes, let the stunts carry you",
+            "desc_ko": "줄거리를 붙잡으려 하지 말고 121분의 질주를 그대로 따라간다. 대사가 거의 없는 영화라 오히려 집중력이 편하다.",
+            "desc_en": "Do not try to hold the plot; just ride the hundred twenty-one minutes. There is almost no dialogue, which makes it easy to focus.",
+            "tip_ko": "볼륨을 올려라 — 이 영화의 대사는 엔진 소리다.",
+            "tip_en": "Turn it up; the dialogue in this film is the engine.",
+            "est_time_ko": "영화 한 편 · 2시간 1분",
+            "est_time_en": "One film · 2 h 1 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "매드맥스 + 1917, 액션 두 편",
+            "title_en": "Mad Max and 1917, two films on the move",
+            "desc_ko": "이틀에 하나씩, 멈추지 않고 달리는 두 영화를 본다. 차와 걸음, 두 가지 속도로 만들어진 액션의 차이를 비교하는 목표다.",
+            "desc_en": "One a day, two films that never stop moving. Compare action built on wheels against action built on footsteps.",
+            "tip_ko": "두 영화 모두 카메라가 인물을 떠나지 않는다.",
+            "tip_en": "In both, the camera never leaves the characters.",
+            "est_time_ko": "두 편 · 4시간",
+            "est_time_en": "Two films · 4 h"
+          }
+        ]
+      },
+      {
+        "item_id": "la-la-land",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "129분 완주 — 마지막 5분까지",
+            "title_en": "One hundred twenty-nine minutes through the last five",
+            "desc_ko": "완주하되 마지막 5분을 절대 건너뛰지 않는다. 이 영화의 결말은 지나간 선택을 다시 상상하는 한 장면에 전부 담겨 있다.",
+            "desc_en": "Finish it, but never skip the last five minutes. The ending lives entirely in one imagined rerun of the choices already made.",
+            "tip_ko": "마지막 5분이 시작되면 일어나지 말고 앉아 있어라.",
+            "tip_en": "When the last five minutes start, do not get up.",
+            "est_time_ko": "영화 한 편 · 2시간 9분",
+            "est_time_en": "One film · 2 h 9 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "라라랜드 + 위플래쉬, 이틀에 나눠",
+            "title_en": "La La Land and Whiplash, split over two days",
+            "desc_ko": "첫날은 사랑, 둘째 날은 집착. 같은 재즈를 완전히 다르게 쓰는 두 영화를 이틀에 나눠 보는 목표다.",
+            "desc_en": "Love on day one, obsession on day two. Two films use the same jazz in completely different ways.",
+            "tip_ko": "두 영화의 마지막 연주 장면을 비교하라.",
+            "tip_en": "Compare the final performance in each.",
+            "est_time_ko": "두 편 · 4시간",
+            "est_time_en": "Two films · 4 h"
+          }
+        ]
+      },
+      {
+        "item_id": "the-grand-budapest-hotel",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "100분 완주 — 색과 구도만 따라가기",
+            "title_en": "One hundred minutes, follow only color and framing",
+            "desc_ko": "이야기보다 화면의 색과 좌우 대칭 구도만 따라가며 완주한다. 한 편을 그림처럼 보는 경험이 이 목표의 전부다.",
+            "desc_en": "Follow only the color and the centered symmetry, not the plot. Watching a film as a painting is the whole goal.",
+            "tip_ko": "분홍색 호텔이 나오는 장면의 조명을 유심히 보라.",
+            "tip_en": "Watch the light in the pink hotel scenes.",
+            "est_time_ko": "영화 한 편 · 1시간 40분",
+            "est_time_en": "One film · 1 h 40 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "100분 완주 + 화면 비율이 바뀌는 시대 3개",
+            "title_en": "One hundred minutes plus three eras of aspect ratio",
+            "desc_ko": "완주하면서 화면 비율이 바뀌는 지점을 세 번 찾아, 어느 시대의 이야기인지 구분한다. 형식이 곧 시간표인 영화다.",
+            "desc_en": "While watching, find the three points where the frame ratio changes and sort the eras. Here the format is the timetable.",
+            "tip_ko": "화면이 넓어지고 좁아지는 순간에 인물의 나이를 확인하라.",
+            "tip_en": "When the frame widens or narrows, check the character's age.",
+            "est_time_ko": "영화 + 기록 · 약 2시간 30분",
+            "est_time_en": "Film plus notes · ~2 h 30 m"
+          }
+        ]
+      },
+      {
+        "item_id": "eternal-sunshine",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "108분 완주 — 지우는 장면에서 멈추지 않기",
+            "title_en": "One hundred eight minutes, no stopping at the erasing",
+            "desc_ko": "기억이 지워지는 장면이 불편해도 108분을 끝까지 본다. 마지막에 남는 것이 무엇인지가 이 영화의 답이다.",
+            "desc_en": "Even when the erasing scenes are uncomfortable, see the hundred eight minutes through. What survives at the end is the answer.",
+            "tip_ko": "집이 무너지는 장면 다음에 오는 화면을 기억하라.",
+            "tip_en": "Remember the image that follows the house collapsing.",
+            "est_time_ko": "영화 한 편 · 1시간 48분",
+            "est_time_en": "One film · 1 h 48 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "완주 + 두 사람의 기억 순서 되짚기",
+            "title_en": "Finish it and trace the order of their memories",
+            "desc_ko": "완주한 뒤 조엘과 클레멘타인의 기억이 지워지는 순서를 뒤에서부터 다시 정리한다. 가장 나중에 지워지는 것이 가장 오래된 기억이라는 규칙을 확인하는 목표다.",
+            "desc_en": "After watching, rebuild the order in which Joel's and Clementine's memories are erased, from the end backward. Confirm the rule: what goes last is the oldest.",
+            "tip_ko": "가장 처음 장면이 실제로는 가장 마지막 기억이다.",
+            "tip_en": "The first scene is actually the last memory.",
+            "est_time_ko": "영화 + 기록 · 약 2시간 30분",
+            "est_time_en": "Film plus notes · ~2 h 30 m"
+          }
+        ]
+      },
+      {
+        "item_id": "parasite",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "133분 완주 + 계단이 나오는 장면 전부 찾기",
+            "title_en": "One hundred thirty-three minutes plus every staircase",
+            "desc_ko": "완주하면서 계단이 나오는 장면을 전부 찾아 위아래 방향을 적는다. 이 영화의 계급은 대사가 아니라 계단으로 말한다.",
+            "desc_en": "While watching, find every staircase and note which way it goes. Class in this film speaks in stairs, not in lines.",
+            "tip_ko": "폭우 장면에서 누가 내려가고 누가 올라가는지 확인하라.",
+            "tip_en": "In the rain, check who descends and who climbs.",
+            "est_time_ko": "영화 + 기록 · 약 3시간",
+            "est_time_en": "Film plus notes · ~3 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "기생충 + 살인의 추억, 봉준호 두 편",
+            "title_en": "Parasite and Memories of Murder, two Bong films",
+            "desc_ko": "두 영화를 이틀에 나눠 본다. 같은 감독이 '해결되지 않는 사건'을 다루는 두 가지 방식을 비교하는 목표다.",
+            "desc_en": "Split over two days, two films by the same director. Compare two ways of handling a case that will not close.",
+            "tip_ko": "두 영화 모두 마지막에 인물이 정면을 응시한다.",
+            "tip_en": "Both end with a character looking straight at you.",
+            "est_time_ko": "두 편 · 4시간 30분",
+            "est_time_en": "Two films · 4 h 30 m"
+          }
+        ]
+      },
+      {
+        "item_id": "memories-of-murder",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "131분 완주 — 마지막 들판 장면까지",
+            "title_en": "One hundred thirty-one minutes to the final field",
+            "desc_ko": "사건이 해결되지 않는 채로 끝나는 131분을 완주한다. 마지막 들판에서 카메라가 멈추는 곳이 이 영화의 진짜 결말이다.",
+            "desc_en": "Finish the hundred thirty-one minutes that end with the case unsolved. Where the camera stops in the final field is the real ending.",
+            "tip_ko": "수사가 삐끗할 때마다 웃음이 나오는 장면의 온도를 기억하라.",
+            "tip_en": "Note the temperature of the comedy each time the investigation slips.",
+            "est_time_ko": "영화 한 편 · 2시간 11분",
+            "est_time_en": "One film · 2 h 11 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "살인의 추억 + 기생충 — 두 결말 대조 노트",
+            "title_en": "Memories of Murder and Parasite, two endings compared",
+            "desc_ko": "두 영화를 연속으로 보고 결말이 남기는 감정을 각각 한 장으로 정리한다. 답을 주지 않는 영화와 답을 준 영화가 어떻게 같은 곳에 닿는지가 목표다.",
+            "desc_en": "Watch both in a row and write one page on the feeling each ending leaves. The goal is how a film with no answer and a film with one land in the same place.",
+            "tip_ko": "두 영화의 마지막 응시 장면을 나란히 놓고 보라.",
+            "tip_en": "Put the final stare of each film side by side.",
+            "est_time_ko": "두 편 + 기록 · 5시간",
+            "est_time_en": "Two films plus notes · 5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "oldboy",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "120분 완주 — 복수의 대가까지",
+            "title_en": "One hundred twenty minutes, the price of revenge",
+            "desc_ko": "15년의 감금과 복수를 120분 안에 통과한다. 복수가 끝나는 순간 무엇이 남는지가 이 영화의 마지막 질문이다.",
+            "desc_en": "Fifteen years of captivity and revenge inside a hundred twenty minutes. What remains when the revenge ends is the last question.",
+            "tip_ko": "복도 격투 장면은 한 컷으로 이어지는지 확인하며 보라.",
+            "tip_en": "In the corridor fight, watch whether it holds in one shot.",
+            "est_time_ko": "영화 한 편 · 2시간",
+            "est_time_en": "One film · 2 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "올드보이 + 아가씨 — 박찬욱 두 편",
+            "title_en": "Oldboy and The Handmaiden, two Park films",
+            "desc_ko": "두 영화를 연속으로 본다. 복수하는 사람과 복수를 당하는 사람, 같은 감독이 두 편에서 뒤집는 시점을 비교하는 목표다.",
+            "desc_en": "Both in a row. Compare how the same director flips the point of view between the one taking revenge and the one on whom it is taken.",
+            "tip_ko": "두 영화 모두 이야기가 절반에서 다시 시작된다.",
+            "tip_en": "Both films restart their story at the halfway mark.",
+            "est_time_ko": "두 편 · 4시간 30분",
+            "est_time_en": "Two films · 4 h 30 m"
+          }
+        ]
+      },
+      {
+        "item_id": "the-handmaiden",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "145분 완주 — 세 파트의 시점 따라가기",
+            "title_en": "One hundred forty-five minutes across three parts",
+            "desc_ko": "같은 사건이 세 번 다른 시점으로 반복되는 145분을 그대로 따라간다. 두 번째 파트에서 앞의 모든 장면이 다시 읽힌다.",
+            "desc_en": "Follow the same events told three times from three angles. The second part rereads every earlier scene.",
+            "tip_ko": "파트가 바뀌는 자막을 놓치지 마라 — 그 순간이 시점이 바뀌는 지점이다.",
+            "tip_en": "Do not miss the part titles; that is where the angle turns.",
+            "est_time_ko": "영화 한 편 · 2시간 25분",
+            "est_time_en": "One film · 2 h 25 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "아가씨 + 올드보이, 이틀에 나눠",
+            "title_en": "The Handmaiden and Oldboy over two days",
+            "desc_ko": "첫날은 아가씨, 둘째 날은 올드보이. 감독의 두 영화가 같은 방에서 다른 결말로 끝나는 것을 비교하는 목표다.",
+            "desc_en": "The Handmaiden on day one, Oldboy on day two. Compare two films by the same director that end in the same room with different outcomes.",
+            "tip_ko": "두 영화 모두 마지막에 인물이 홀로 남는 장면으로 끝난다.",
+            "tip_en": "Both end with a character left alone.",
+            "est_time_ko": "두 편 · 4시간 30분",
+            "est_time_en": "Two films · 4 h 30 m"
+          }
+        ]
+      },
+      {
+        "item_id": "decision-to-leave",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "한 편 완주 — 밤에 불 끄고",
+            "title_en": "One film at night, lights off",
+            "desc_ko": "139분을 밤에, 불을 끄고 완주한다. 이 영화는 화면이 어두워서 낮에 보면 절반을 잃는다.",
+            "desc_en": "Watch the hundred thirty-nine minutes at night with the lights off. The image is dark enough that daylight costs you half of it.",
+            "tip_ko": "안개와 바다 장면에서 화면 밝기를 낮추지 마라.",
+            "tip_en": "Do not raise the brightness in the fog and sea scenes.",
+            "est_time_ko": "영화 한 편 · 2시간 19분",
+            "est_time_en": "One film · 2 h 19 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "139분 완주 — 마지막 바다까지",
+            "title_en": "One hundred thirty-nine minutes to the last sea",
+            "desc_ko": "형사와 피의자의 시선이 뒤섞이는 139분을 완주한다. 마지막 장면의 바다와 발자국이 이 영화가 숨긴 답이다.",
+            "desc_en": "Finish the hundred thirty-nine minutes where detective and suspect blur. The sea and footprints in the last scene are the answer it hid.",
+            "tip_ko": "인물이 서 있는 높이와 앉아 있는 장면을 비교하며 보라.",
+            "tip_en": "Compare the scenes standing high and the ones seated low.",
+            "est_time_ko": "영화 한 편 · 2시간 19분",
+            "est_time_en": "One film · 2 h 19 m"
+          }
+        ]
+      },
+      {
+        "item_id": "train-to-busan",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "한 편 완주 — 아버지와 딸 이야기로 보기",
+            "title_en": "One film, read as a father and daughter story",
+            "desc_ko": "좀비 공포를 넘어 아버지와 딸이 마지막에 도착하는 곳에 집중하며 118분을 완주한다. 마지막 손 장면 전까지 숨을 참게 된다.",
+            "desc_en": "Past the zombie horror, watch the hundred eighteen minutes for where the father and daughter finally arrive. You hold your breath until the hand.",
+            "tip_ko": "마지막 기차가 멈추는 장면에서 앞을 보지 말고 인물을 보라.",
+            "tip_en": "When the last train stops, watch the people, not the tunnel.",
+            "est_time_ko": "영화 한 편 · 1시간 58분",
+            "est_time_en": "One film · 1 h 58 m"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "118분 완주 — 첫 좀비까지 20분",
+            "title_en": "One hundred eighteen minutes, twenty to the first zombie",
+            "desc_ko": "개봉 20분 만에 열차 안에서 벌어지는 일을 지나 마지막 역까지 완주한다. 좁은 공간이 어떻게 공포와 가족극을 동시에 만드는지가 목표다.",
+            "desc_en": "Pass the outbreak inside the train twenty minutes in and ride to the last station. The goal is how one narrow space makes both horror and a family story.",
+            "tip_ko": "9호 차량 장면 전에 물을 준비해 두라.",
+            "tip_en": "Have water ready before the car nine scene.",
+            "est_time_ko": "영화 한 편 · 1시간 58분",
+            "est_time_en": "One film · 1 h 58 m"
+          }
+        ]
+      },
+      {
+        "item_id": "1917",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "119분 완주 + 한 컷처럼 보이는 이음매 3곳",
+            "title_en": "One hundred nineteen minutes plus three hidden seams",
+            "desc_ko": "완주하면서 카메라가 끊긴 것처럼 보이는 지점 세 곳을 찾아낸다. 한 컷처럼 보이도록 감춘 이음매를 찾는 것이 이 영화를 두 번 보게 만든다.",
+            "desc_en": "While watching, find three points where the camera hides a cut. Finding the seams disguised as one shot is what makes this a two-viewing film.",
+            "tip_ko": "인물이 벽이나 어둠을 통과하는 순간을 유심히 보라.",
+            "tip_en": "Watch the moments a character passes through a wall or the dark.",
+            "est_time_ko": "영화 + 기록 · 약 2시간 45분",
+            "est_time_en": "Film plus notes · ~2 h 45 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1917 + 매드맥스 — 멈추지 않는 두 편",
+            "title_en": "1917 and Mad Max, two films that never stop",
+            "desc_ko": "두 영화를 연속으로 본다. 걸어서 건너는 전쟁과 차로 달리는 사막, 같은 '멈추지 않는 영화' 문법이 어떻게 다르게 쓰이는지 비교하는 목표다.",
+            "desc_en": "Both in a row. A war crossed on foot and a desert crossed on wheels: compare how the same no-stop grammar is used two ways.",
+            "tip_ko": "두 영화 모두 잠깐 멈추는 장면에서 가장 무섭다.",
+            "tip_en": "Both are scariest in the moment they briefly stop.",
+            "est_time_ko": "두 편 · 4시간",
+            "est_time_en": "Two films · 4 h"
+          }
+        ]
+      },
+      {
+        "item_id": "dune",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "155분 완주 — 모래벌레 첫 등장까지",
+            "title_en": "One hundred fifty-five minutes to the first sandworm",
+            "desc_ko": "사막의 행성과 향료, 예언이 제국 정치와 얽히는 155분을 완주한다. 1편은 세계를 설명하는 대신 보여 주는 영화다.",
+            "desc_en": "Finish the hundred fifty-five minutes where desert, spice and prophecy tangle with imperial politics. Part one shows its world instead of explaining it.",
+            "tip_ko": "사운드가 크게 나오는 장면은 이어폰으로 보면 다르다.",
+            "tip_en": "The loudest scenes are different on headphones.",
+            "est_time_ko": "영화 한 편 · 2시간 35분",
+            "est_time_en": "One film · 2 h 35 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "듄 1+2 연속 + 원작 1권 대조",
+            "title_en": "Dune parts one and two plus the first novel",
+            "desc_ko": "1편과 2편을 연속으로 보고, 원작 1권에서 영화가 생략한 것을 찾아 적는다. 영화가 왜 그 장면을 버렸는지 이해하는 것이 이 목표의 끝이다.",
+            "desc_en": "Watch both parts in a row, then find in the first novel what the films omitted. Understanding why a scene was cut is where this ends.",
+            "tip_ko": "2편의 마지막 30분을 본 뒤 원작의 같은 장을 읽어라.",
+            "tip_en": "After part two's last thirty minutes, read the matching chapter.",
+            "est_time_ko": "두 편 + 원작 · 약 10시간",
+            "est_time_en": "Two films plus the novel · ~10 h"
+          }
+        ]
+      },
+      {
+        "item_id": "dune-part-two",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "파트 2 먼저, 1편은 다음 날",
+            "title_en": "Part two first, part one the next day",
+            "desc_ko": "2편을 먼저 보고 1편을 다음 날 본다. 이미 결말을 아는 상태에서 1편의 복선이 얼마나 촘촘했는지 확인하는 목표다.",
+            "desc_en": "Watch part two first, part one the next day. Knowing the outcome, check how tightly part one laid its clues.",
+            "tip_ko": "1편의 꿈 장면에서 2편의 어느 장면이 보이는지 찾아라.",
+            "tip_en": "In part one's dream scenes, find which part two scenes appear.",
+            "est_time_ko": "두 편 · 5시간 22분",
+            "est_time_en": "Two films · 5 h 22 m"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "듄 1편 + 2편 연속 — 5시간 반",
+            "title_en": "Dune parts one and two back to back",
+            "desc_ko": "1편이 끝나면 쉬지 않고 2편으로 넘어간다. 폴이 예언의 사람이 되는 과정을 한자리에서 통과하는 것이 목표다.",
+            "desc_en": "When part one ends, go straight into part two. The goal is to pass, in one sitting, the making of Paul into the prophesied figure.",
+            "tip_ko": "1편의 마지막 장면과 2편의 첫 장면이 같은 곳에서 이어진다.",
+            "tip_en": "Part one's last scene and part two's first continue in the same place.",
+            "est_time_ko": "두 편 · 5시간 22분",
+            "est_time_en": "Two films · 5 h 22 m"
+          }
+        ]
+      },
+      {
+        "item_id": "lotr-fellowship",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "179분 완주 — 모리아의 다리까지",
+            "title_en": "One hundred seventy-nine minutes to the bridge of Moria",
+            "desc_ko": "샤이어부터 모리아의 다리까지 179분을 완주한다. 반지 원정대가 처음으로 무엇을 잃는지가 이 영화의 중심이다.",
+            "desc_en": "From the Shire to the bridge of Moria in a hundred seventy-nine minutes. What the Fellowship first loses is the center of this film.",
+            "tip_ko": "샤이어의 초록과 모리아의 어둠을 비교하며 보라.",
+            "tip_en": "Compare the green of the Shire with the dark of Moria.",
+            "est_time_ko": "영화 한 편 · 2시간 59분",
+            "est_time_en": "One film · 2 h 59 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "반지의 제왕 3편, 하루에 한 편",
+            "title_en": "The three Lord of the Rings films, one a day",
+            "desc_ko": "확장판 세 편을 사흘에 나눠 완주한다. 하루에 하나씩, 중간 세계를 하루씩 체류하는 방식이다.",
+            "desc_en": "The three extended editions across three days. One a day, a day's stay in Middle-earth at a time.",
+            "tip_ko": "각 편이 끝나면 그 편의 마지막 장소를 지도에서 찾아보라.",
+            "tip_en": "After each film, find its final location on a map.",
+            "est_time_ko": "확장판 3편 · 약 12시간",
+            "est_time_en": "Three extended cuts · ~12 h"
+          }
+        ]
+      },
+      {
+        "item_id": "lotr-two-towers",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "179분 완주 — 헬름 협곡까지",
+            "title_en": "One hundred seventy-nine minutes to Helm's Deep",
+            "desc_ko": "두 개의 탑을 완주하며 헬름 협곡의 밤을 통과한다. 세 갈래로 흩어진 원정대가 각자 무엇을 지키는지가 이 편의 주제다.",
+            "desc_en": "Finish The Two Towers and get through the night at Helm's Deep. What each scattered part of the Fellowship defends is this film's subject.",
+            "tip_ko": "엔트의 느린 장면에서 시간 감각을 놓치지 마라.",
+            "tip_en": "Do not lose the sense of time in the slow Ent scenes.",
+            "est_time_ko": "영화 한 편 · 2시간 59분",
+            "est_time_en": "One film · 2 h 59 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "두 개의 탑 → 왕의 귀환, 이틀 몰아보기",
+            "title_en": "Two Towers into Return of the King over two days",
+            "desc_ko": "2편과 3편을 이틀에 나눠 몰아 본다. 헬름 협곡의 밤과 미나스 티리스의 새벽이 어떻게 한 전쟁의 앞뒤인지 확인하는 목표다.",
+            "desc_en": "Run parts two and three across two days. Confirm how the night at Helm's Deep and the dawn at Minas Tirith are two halves of one war.",
+            "tip_ko": "2편의 끝과 3편의 시작 사이에 하루를 두어라.",
+            "tip_en": "Leave a day between the end of two and the start of three.",
+            "est_time_ko": "두 편 · 약 8시간",
+            "est_time_en": "Two films · ~8 h"
+          }
+        ]
+      },
+      {
+        "item_id": "lotr-return-of-the-king",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "201분 완주 + 엔딩이 끊기는 지점 세기",
+            "title_en": "Two hundred one minutes, counting the false endings",
+            "desc_ko": "201분을 완주하면서 영화가 끝나는 것처럼 보였다가 다시 이어지는 지점을 센다. 그 모든 '끝'을 지나야 진짜 마지막 장면이 온다.",
+            "desc_en": "Watch all two hundred one minutes and count each place the film seems to end and then continues. The real last scene only comes after all of them.",
+            "tip_ko": "관객이 일어났다가 다시 앉는 지점을 세면 정확하다.",
+            "tip_en": "Count the points where the audience half rises and sits back down.",
+            "est_time_ko": "영화 + 기록 · 약 3시간 45분",
+            "est_time_en": "Film plus notes · ~3 h 45 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "3편 확장판 연속 12시간 마라톤",
+            "title_en": "All three extended cuts in one twelve-hour marathon",
+            "desc_ko": "확장판 세 편을 하루에 끊지 않고 이어 본다. 새벽에 샤이어를 떠나 자정 무렵 회색 항구에 도착하는 것이 목표다.",
+            "desc_en": "All three extended editions in one day without a break. Leave the Shire at dawn and reach the Grey Havens near midnight.",
+            "tip_ko": "세 편 사이 휴식은 15분씩만, 식사는 책상에서 하라.",
+            "tip_en": "Fifteen-minute breaks only, and eat at your desk.",
+            "est_time_ko": "확장판 3편 · 약 12시간",
+            "est_time_en": "Three extended cuts · ~12 h"
+          }
+        ]
+      },
+      {
+        "item_id": "oppenheimer",
+        "category": "movie",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "181분 완주 — 트리니티 시험까지",
+            "title_en": "One hundred eighty-one minutes to Trinity",
+            "desc_ko": "시간이 뒤섞인 181분을 완주한다. 트리니티 시험의 3초 침묵이 이 영화의 중심이고, 그 뒤의 모든 장면이 그 침묵의 결과다.",
+            "desc_en": "Finish the hundred eighty-one minutes with their crossed timelines. The three seconds of silence at Trinity is the center; everything after is its consequence.",
+            "tip_ko": "흑백 장면과 컬러 장면이 누구의 시점인지 구분하며 보라.",
+            "tip_en": "Track whose view the black-and-white scenes and the color scenes each belong to.",
+            "est_time_ko": "영화 한 편 · 3시간 1분",
+            "est_time_en": "One film · 3 h 1 m"
+          },
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "놀란 3편 — 인셉션·인터스텔라·오펜하이머, 사흘에",
+            "title_en": "Three Nolan films across three days",
+            "desc_ko": "사흘에 하나씩, 꿈·우주·폭탄을 다룬 세 영화를 본다. 같은 감독이 시간을 다루는 세 가지 방식을 하루씩 체험하는 목표다.",
+            "desc_en": "One a day: dreams, space, and the bomb. Experience, a day at a time, three ways one director handles time.",
+            "tip_ko": "세 영화 모두 마지막에 인물이 한 곳을 응시한다.",
+            "tip_en": "All three end with a character staring at one thing.",
+            "est_time_ko": "세 편 · 약 8시간",
+            "est_time_en": "Three films · ~8 h"
+          }
+        ]
+      }
+    ],
+    "manga": [
+      {
+        "item_id": "berserk",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "황금시대 편 1~13권 — 일식까지",
+            "title_en": "The Golden Age, volumes one to thirteen, to the Eclipse",
+            "desc_ko": "가츠가 용병단에 들어가고, 그리피스가 무엇을 위해 무엇을 버리는지 13권까지 통과한다. 일식 편을 지나면 이 만화의 모든 이미지가 다시 읽힌다.",
+            "desc_en": "Guts joins the band, and by volume thirteen you see what Griffith gives up and for what. Once you pass the Eclipse, every image in this manga rereads.",
+            "tip_ko": "13권 이후는 하루 쉬고 읽어라 — 바로 이어 읽으면 감정이 따라오지 않는다.",
+            "tip_en": "Take a day after volume thirteen; reading straight on outruns your feelings.",
+            "est_time_ko": "13권 · 약 10시간",
+            "est_time_en": "13 volumes · ~10 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "현재 단행본 전권 — 마지막 페이지까지",
+            "title_en": "Every volume published so far, to the last page",
+            "desc_ko": "황금시대를 넘어 지금까지 나온 단행본 전권을 완독한다. 미완인 이야기를 완결처럼 읽는 것이 이 목표의 무게다.",
+            "desc_en": "Past the Golden Age, read every volume published to date. The weight is reading an unfinished story as if it were complete.",
+            "tip_ko": "권이 바뀔 때마다 가츠의 오른팔이 무엇을 하고 있는지 확인하며 읽어라.",
+            "tip_en": "At each volume break, check what Guts's right arm is doing.",
+            "est_time_ko": "약 40권 · 약 35시간",
+            "est_time_en": "About 40 volumes · ~35 h"
+          }
+        ]
+      },
+      {
+        "item_id": "slam-dunk",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "1~15권, 인터하이 예선까지",
+            "title_en": "Volumes one to fifteen, through the Inter-High qualifiers",
+            "desc_ko": "농구를 전혀 모르는 강백호가 리바운드를 잡기 시작하는 15권까지 읽는다. 스포츠 만화의 첫 문법을 천천히 통과하는 목표다.",
+            "desc_en": "Read to volume fifteen, where Hanamichi, who knows nothing about basketball, starts pulling rebounds. A slow first pass at how sports manga works.",
+            "tip_ko": "시합 장면에서 공이 어디로 가는지 화면 밖까지 상상하며 읽어라.",
+            "tip_en": "In game scenes, imagine where the ball goes off panel.",
+            "est_time_ko": "15권 · 약 9시간",
+            "est_time_en": "15 volumes · ~9 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "산왕전 마지막 1분까지 — 31권 완독",
+            "title_en": "All thirty-one volumes to the last minute of Sannoh",
+            "desc_ko": "1권의 농구부 입단에서 31권 산왕전의 마지막 1분까지 완독한다. 마지막 두 권은 대사 없이도 소리 지르게 된다.",
+            "desc_en": "From joining the team in volume one to the last minute against Sannoh in thirty-one. The final two volumes make you shout with no dialogue at all.",
+            "tip_ko": "31권 마지막 장면은 주변을 정리하고 읽어라.",
+            "tip_en": "Clear the room for the last scene of volume thirty-one.",
+            "est_time_ko": "31권 · 약 20시간",
+            "est_time_en": "31 volumes · ~20 h"
+          }
+        ]
+      },
+      {
+        "item_id": "monster",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1~9권 — 요한의 첫 등장까지",
+            "title_en": "Volumes one to nine, to Johan's first appearance",
+            "desc_ko": "천마 박사의 선택에서 시작해 요한이라는 이름이 처음 세상에 나오는 9권까지 읽는다. 여기까지 읽으면 멈출 수 없다.",
+            "desc_en": "From Dr. Tenma's choice to volume nine, where the name Johan first enters the world. By then you cannot stop.",
+            "tip_ko": "1권의 마지막 장면을 기억하고 9권과 비교하라.",
+            "tip_en": "Hold the last scene of volume one and compare it to volume nine.",
+            "est_time_ko": "9권 · 약 8시간",
+            "est_time_en": "9 volumes · ~8 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "18권 완독 — 요한의 마지막까지",
+            "title_en": "All eighteen volumes to Johan's last",
+            "desc_ko": "의사가 살린 소년이 무엇이 되는지를 18권 끝까지 따라간다. 마지막 병실 장면이 이 만화의 전부이고, 그것을 읽는 것이 목표다.",
+            "desc_en": "Follow what the boy a doctor saved becomes, through eighteen volumes. The last hospital scene is the whole manga, and reading it is the goal.",
+            "tip_ko": "중반에 등장하는 동화책 삽화를 메모해 두면 결말이 선명해진다.",
+            "tip_en": "Note the picture book illustrations in the middle; they clarify the ending.",
+            "est_time_ko": "18권 · 약 16시간",
+            "est_time_en": "18 volumes · ~16 h"
+          }
+        ]
+      },
+      {
+        "item_id": "20th-century-boys",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "22권 완독 — 마지막 '친구'까지",
+            "title_en": "All twenty-two volumes to the last Friend",
+            "desc_ko": "어린 시절 지어낸 이야기가 현실이 되는 22권을 완독한다. 켄지의 노래 한 소절이 마지막 페이지까지 따라온다.",
+            "desc_en": "Finish the twenty-two volumes where a childhood story becomes real. One line of Kenji's song follows you to the last page.",
+            "tip_ko": "1970년대와 2015년을 오갈 때 인물의 나이를 적어 두면 길을 잃지 않는다.",
+            "tip_en": "Note each character's age as the timeline jumps; it keeps you oriented.",
+            "est_time_ko": "22권 · 약 20시간",
+            "est_time_en": "22 volumes · ~20 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "22권 완독 + '친구'의 정체 복선 전부 표시",
+            "title_en": "Twenty-two volumes plus every clue to who Friend is",
+            "desc_ko": "완독하면서 '친구'의 정체를 가리키는 장면을 전부 표시한다. 두 번째 독서에서 우라사와가 얼마나 일찍 답을 놓아 두었는지가 드러난다.",
+            "desc_en": "While reading, mark every scene that points to who Friend is. A second pass shows how early Urasawa left the answer in plain sight.",
+            "tip_ko": "가면이 나오는 첫 장면의 대사를 그대로 적어 두라.",
+            "tip_en": "Copy verbatim the first scene with the mask.",
+            "est_time_ko": "22권 + 기록 · 약 23시간",
+            "est_time_en": "22 volumes plus notes · ~23 h"
+          }
+        ]
+      },
+      {
+        "item_id": "pluto",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "8권 완독 — 마지막권의 빛까지",
+            "title_en": "All eight volumes to the light in the last one",
+            "desc_ko": "로봇이 사람을 죽일 수 있는지를 8권 안에서 끝까지 묻는다. 마지막 권의 한 장면이 이 만화가 남기는 유일한 위로다.",
+            "desc_en": "Can a robot kill a person — the question runs to the end of eight volumes. One panel in the last volume is the only comfort it leaves.",
+            "tip_ko": "권마다 표지의 로봇 얼굴을 비교하며 읽어라.",
+            "tip_en": "Compare the robot face on each cover as you go.",
+            "est_time_ko": "8권 · 약 6시간",
+            "est_time_en": "8 volumes · ~6 h"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "8권 완독 + 원작 '아톰' 대조 노트",
+            "title_en": "Eight volumes plus notes against the original Ast'ro Boy",
+            "desc_ko": "완독하면서 데즈카 원작의 어느 장면을 다시 썼는지 찾아 적는다. 리메이크가 원작을 어떻게 존중하고 어떻게 배신하는지가 목표다.",
+            "desc_en": "While reading, note which scenes from Tezuka's original are rewritten. The goal is how a remake honors and betrays its source.",
+            "tip_ko": "원작의 '가장 강한 로봇' 편을 먼저 읽고 오면 대조가 쉬워진다.",
+            "tip_en": "Read the original's strongest robot chapter first and the comparison is easy.",
+            "est_time_ko": "8권 + 대조 · 약 9시간",
+            "est_time_en": "8 volumes plus notes · ~9 h"
+          }
+        ]
+      },
+      {
+        "item_id": "vagabond",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1~15권 — 무사시의 첫 결투들",
+            "title_en": "Volumes one to fifteen, Musashi's first duels",
+            "desc_ko": "미야모토 무사시가 강해지려는 이유를 잃고 다시 찾는 15권까지 읽는다. 검을 휘두르는 이유가 바뀌는 순간이 이 구간의 정점이다.",
+            "desc_en": "Read to volume fifteen, where Musashi loses and refinds his reason for strength. The peak is the moment the reason for swinging changes.",
+            "tip_ko": "이노우에의 붓이 바뀌는 화를 찾아보라 — 인물의 변화와 겹친다.",
+            "tip_en": "Find the chapter where Inoue's brushwork shifts; it matches the character's.",
+            "est_time_ko": "15권 · 약 12시간",
+            "est_time_en": "15 volumes · ~12 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "현재 37권까지 — 휴재 지점에서 기다리기",
+            "title_en": "All thirty-seven volumes so far, waiting at the hiatus",
+            "desc_ko": "지금 나온 권까지 완독하고, 이야기가 멈춘 자리에서 기다린다. 완결되지 않은 작품을 읽는 법을 배우는 목표다.",
+            "desc_en": "Read every volume published and wait where the story stopped. The goal is learning to read a work that is not finished.",
+            "tip_ko": "권 사이에 검을 내려놓는 장면이 반복된다 — 그 간격을 세어 보라.",
+            "tip_en": "The scenes where he sets the sword down repeat; count the intervals.",
+            "est_time_ko": "37권 · 약 30시간",
+            "est_time_en": "37 volumes · ~30 h"
+          }
+        ]
+      },
+      {
+        "item_id": "death-note",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "1~5권, L의 등장까지",
+            "title_en": "Volumes one to five, up to L",
+            "desc_ko": "데스노트를 줍고 첫 살인을 저지르는 1권부터 L이 직접 나서는 5권까지. 한 권씩, 하루에 한 권이면 일주일이다.",
+            "desc_en": "From finding the notebook in volume one to L stepping in around volume five. One a day makes it a week.",
+            "tip_ko": "라이토가 처음 웃는 장면과 마지막에 웃는 장면을 비교하라.",
+            "tip_en": "Compare Light's first smile with his last.",
+            "est_time_ko": "5권 · 약 3시간",
+            "est_time_en": "5 volumes · ~3 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "12권 완독 — L과 라이토의 마지막",
+            "title_en": "All twelve volumes to the end of L and Light",
+            "desc_ko": "노트를 줍는 1권부터 두 천재의 승부가 끝나는 지점까지 12권을 완독한다. 애니메이션보다 만화의 표정이 더 차갑다.",
+            "desc_en": "From picking up the notebook in volume one to the end of the duel, all twelve. The faces are colder on the page than in the anime.",
+            "tip_ko": "L이 앉는 자세가 바뀌는 장면을 세어 보라.",
+            "tip_en": "Count the scenes where L's sitting posture changes.",
+            "est_time_ko": "12권 · 약 8시간",
+            "est_time_en": "12 volumes · ~8 h"
+          }
+        ]
+      },
+      {
+        "item_id": "dragon-ball",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1~16권, 피콜로 대마왕까지",
+            "title_en": "Volumes one to sixteen, through King Piccolo",
+            "desc_ko": "천하제일무도회와 크리링의 죽음, 피콜로 대마왕까지 16권을 읽는다. 아직 우주로 가지 않은 손오공이 가장 사람 냅니다.",
+            "desc_en": "Read to volume sixteen: the tournaments, Krillin's death, King Piccolo. Before space, Goku is at his most human.",
+            "tip_ko": "무도회 대진표를 직접 그려 보면 재미가 두 배다.",
+            "tip_en": "Sketch the tournament brackets yourself; it doubles the fun.",
+            "est_time_ko": "16권 · 약 8시간",
+            "est_time_en": "16 volumes · ~8 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "42권 완독 — 하루 두 권",
+            "title_en": "All forty-two volumes, two a day",
+            "desc_ko": "하루 두 권씩, 3주에 걸쳐 42권을 완독한다. 소년 만화의 40년 문법이 어디서 만들어졌는지 천천히 지나가는 목표다.",
+            "desc_en": "Two volumes a day for three weeks, all forty-two. A slow pass through where forty years of boys' manga learned its grammar.",
+            "tip_ko": "권이 바뀔 때 손오공의 나이를 확인하며 읽어라.",
+            "tip_en": "At each volume break, check Goku's age.",
+            "est_time_ko": "42권 · 약 21시간",
+            "est_time_en": "42 volumes · ~21 h"
+          }
+        ]
+      },
+      {
+        "item_id": "akira",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "6권을 사흘에 완독",
+            "title_en": "Six volumes in three days",
+            "desc_ko": "네오 도쿄의 붕괴를 6권에 담은 작품을 사흘에 읽는다. 하루 두 권이면 그림의 밀도를 놓치지 않는다.",
+            "desc_en": "Six volumes hold the collapse of Neo-Tokyo; read them in three days. Two a day keeps the density in view.",
+            "tip_ko": "배경의 원근이 무너지는 장면을 일부러 찾아보라.",
+            "tip_en": "Deliberately look for the panels where perspective breaks.",
+            "est_time_ko": "6권 · 약 6시간",
+            "est_time_en": "6 volumes · ~6 h"
+          },
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "6권 완독 + 마지막 컷 해석 노트",
+            "title_en": "Six volumes plus a note on the final panel",
+            "desc_ko": "완독하고 마지막 장면이 무엇인지 세 문장으로 쓴다. 오토모가 영화에서 바꾼 결말과 만화의 결말을 비교하는 것이 목표다.",
+            "desc_en": "Finish it and put the final scene into three sentences. Compare the manga's ending with the one Otomo changed for the film.",
+            "tip_ko": "영화를 먼저 본 사람은 마지막 권부터 다시 읽어라.",
+            "tip_en": "If you saw the film first, reread from the last volume.",
+            "est_time_ko": "6권 + 기록 · 약 8시간",
+            "est_time_en": "6 volumes plus notes · ~8 h"
+          }
+        ]
+      },
+      {
+        "item_id": "yotsuba",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "1~5권, 한 권씩 웃으며",
+            "title_en": "Volumes one to five, one smile at a time",
+            "desc_ko": "이야기도 사건도 없이 웃기기만 하는 5권을 한 권씩 읽는다. 잠들기 전 한 권이 이 만화의 정확한 사용법이다.",
+            "desc_en": "Five volumes with no plot and no incident, only laughter, one at a time. One before bed is the correct way to use this manga.",
+            "tip_ko": "웃은 페이지에 표시를 해 두면 나중에 그 페이지만 다시 볼 수 있다.",
+            "tip_en": "Mark the pages that made you laugh and revisit only those.",
+            "est_time_ko": "5권 · 약 3시간",
+            "est_time_en": "5 volumes · ~3 h"
+          }
+        ]
+      },
+      {
+        "item_id": "fullmetal-alchemist-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "1~12권, 첫 여행까지",
+            "title_en": "Volumes one to twelve, through the first journey",
+            "desc_ko": "형제가 현자의 돌을 찾아 떠나는 12권까지 읽는다. 한 권에 한 사건씩, 여행처럼 읽는 것이 이 구간의 방식이다.",
+            "desc_en": "Read to volume twelve, the brothers' search for the stone. One incident a volume, read like a journey.",
+            "tip_ko": "권 사이 표지의 그림자가 인물의 상태와 맞물린다 — 눈여겨보라.",
+            "tip_en": "The cover shadows track the characters' state; watch them.",
+            "est_time_ko": "12권 · 약 7시간",
+            "est_time_en": "12 volumes · ~7 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "27권 완독 — 마지막 등가교환까지",
+            "title_en": "All twenty-seven volumes to the last exchange",
+            "desc_ko": "1권의 실수에서 27권의 마지막 등가교환까지 완독한다. 애니메이션과 달리 만화만의 마지막 페이지 호흡이 있다.",
+            "desc_en": "From the mistake in volume one to the last exchange in twenty-seven. Unlike the anime, the page has its own final breath.",
+            "tip_ko": "마지막 권은 밤에, 한 번에 읽어라.",
+            "tip_en": "Read the final volume at night, in one go.",
+            "est_time_ko": "27권 · 약 18시간",
+            "est_time_en": "27 volumes · ~18 h"
+          }
+        ]
+      },
+      {
+        "item_id": "one-piece",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "1~61권 — 마린포드 전쟁의 마지막까지",
+            "title_en": "Volumes one to sixty-one to the end of Marineford",
+            "desc_ko": "동쪽 바다에서 마린포드 전쟁의 마지막까지 61권을 완독한다. 한 시대가 끝나는 장면을 지나면 이 만화의 무게가 달라진다.",
+            "desc_en": "From the East Blue to the end of Marineford, sixty-one volumes. Passing the scene where an era ends changes the manga's weight.",
+            "tip_ko": "권이 바뀔 때마다 현상금을 적어 두면 성장이 눈에 보인다.",
+            "tip_en": "Note the bounties at each volume and the growth is visible.",
+            "est_time_ko": "61권 · 약 45시간",
+            "est_time_en": "61 volumes · ~45 h"
+          }
+        ]
+      },
+      {
+        "item_id": "vinland-saga-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1~14권 — 농장 편 끝까지",
+            "title_en": "Volumes one to fourteen, through the farm arc",
+            "desc_ko": "복수를 버린 남자가 밭에서 다시 사람이 되는 농장 편까지 읽는다. 이 만화가 소년 만화의 문법을 스스로 부수는 구간이다.",
+            "desc_en": "Read to the farm arc, where a man who gave up revenge becomes a person again in a field. This is where the manga breaks its own genre.",
+            "tip_ko": "노예가 된 뒤의 대사를 소리 내어 읽어 보라.",
+            "tip_en": "Read the lines after he becomes a slave out loud.",
+            "est_time_ko": "14권 · 약 12시간",
+            "est_time_en": "14 volumes · ~12 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "chill",
+            "title_ko": "29권 완독 — 북해의 끝까지",
+            "title_en": "All twenty-nine volumes to the end of the North Sea",
+            "desc_ko": "현재까지 나온 29권을 완독한다. 복수에서 평화로 넘어가는 긴 여정을 서두르지 않고 통과하는 목표다.",
+            "desc_en": "Read all twenty-nine volumes published so far. Cross the long move from revenge to peace without hurrying.",
+            "tip_ko": "권 사이에 등장하는 편지 장면을 모아 두면 마지막이 다르게 온다.",
+            "tip_en": "Collect the letter scenes as you go; the ending arrives differently.",
+            "est_time_ko": "29권 · 약 25시간",
+            "est_time_en": "29 volumes · ~25 h"
+          }
+        ]
+      },
+      {
+        "item_id": "kingdom",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "hardcore",
+            "title_ko": "1~24권 — 합종군의 마지막 방어까지",
+            "title_en": "Volumes one to twenty-four to the coalition's last stand",
+            "desc_ko": "노예 소년이 장군이 되는 길을 24권까지 달린다. 여섯 나라가 한꺼번에 밀려오는 합종군 편을 통과하는 것이 이 목표의 정점이다.",
+            "desc_en": "Run to volume twenty-four, a slave boy's road to general. The peak is passing the coalition arc, when six states come at once.",
+            "tip_ko": "전장 지도를 직접 그려 보면 전투가 두 배로 읽힌다.",
+            "tip_en": "Sketch the battlefield maps yourself and the battles double.",
+            "est_time_ko": "24권 · 약 20시간",
+            "est_time_en": "24 volumes · ~20 h"
+          }
+        ]
+      },
+      {
+        "item_id": "haikyuu-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "1~15권 — 인터하이 예선까지",
+            "title_en": "Volumes one to fifteen, through the Inter-High qualifiers",
+            "desc_ko": "히나타가 처음으로 블로킹을 배우는 15권까지 읽는다. 하루 한 권, 시합 하나씩 보는 방식이다.",
+            "desc_en": "Read to volume fifteen, where Hinata first learns to block. One volume a day, one match at a time.",
+            "tip_ko": "각 시합이 끝나면 점수를 적어 두면 흐름이 보인다.",
+            "tip_en": "Note the score after each match and the flow shows.",
+            "est_time_ko": "15권 · 약 9시간",
+            "est_time_en": "15 volumes · ~9 h"
+          },
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "45권 완독 — 마지막 랠리까지",
+            "title_en": "All forty-five volumes to the last rally",
+            "desc_ko": "1권의 첫 연습에서 45권의 마지막 랠리까지 완독한다. 마지막 권의 마지막 랠리가 이 만화의 주제를 한 번에 말한다.",
+            "desc_en": "From the first practice in volume one to the last rally in forty-five. That final rally says the whole theme at once.",
+            "tip_ko": "마지막 두 권은 손에서 놓지 말고 한 번에 읽어라.",
+            "tip_en": "Read the last two volumes in one sitting.",
+            "est_time_ko": "45권 · 약 28시간",
+            "est_time_en": "45 volumes · ~28 h"
+          }
+        ]
+      },
+      {
+        "item_id": "frieren-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "10권까지 — 한 구간씩",
+            "title_en": "Ten volumes, one stretch at a time",
+            "desc_ko": "프리렌과 일행의 여행을 10권까지 읽는다. 한 권에 한 구간씩, 지도에 선을 그어 가며 읽는 것이 이 만화의 방식이다.",
+            "desc_en": "Read Frieren's journey to volume ten, one stretch a volume, drawing the route on a map as you go.",
+            "tip_ko": "권마다 지나온 마을 이름을 적어 두면 여행이 남는다.",
+            "tip_en": "Name each town you pass per volume and the journey stays with you.",
+            "est_time_ko": "10권 · 약 7시간",
+            "est_time_en": "10 volumes · ~7 h"
+          }
+        ]
+      },
+      {
+        "item_id": "kaguya-sama-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "1~10권, 웃으면서",
+            "title_en": "Volumes one to ten, laughing",
+            "desc_ko": "아직 아무 일도 일어나지 않는 10권까지, 하루 한 권씩 웃으며 읽는다. 이 만화의 코미디는 이후의 로맨스를 위해 쌓이는 것이다.",
+            "desc_en": "Read to volume ten, where nothing has happened yet, one volume a day with a laugh. The comedy is what the romance later stands on.",
+            "tip_ko": "좋아하는 화 한 개를 골라 두면 이후에 다시 오게 된다.",
+            "tip_en": "Pick one favorite chapter; you will come back to it later.",
+            "est_time_ko": "10권 · 약 7시간",
+            "est_time_en": "10 volumes · ~7 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1~16권 — 문화제 고백까지",
+            "title_en": "Volumes one to sixteen to the festival confession",
+            "desc_ko": "두 사람이 서로를 좋아한다는 것을 서로만 모르는 상태에서 시작해 문화제의 고백까지 읽는다. 제목이 회차마다 비틀리는 재미가 이 만화의 핵심이다.",
+            "desc_en": "Start where only the two of them do not know they like each other, and read to the festival confession. The fun is how the title twists every chapter.",
+            "tip_ko": "각 화의 제목을 끝에 다시 읽어 보라.",
+            "tip_en": "Re-read each chapter's title at the end.",
+            "est_time_ko": "16권 · 약 10시간",
+            "est_time_en": "16 volumes · ~10 h"
+          }
+        ]
+      },
+      {
+        "item_id": "parasyte",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "10권을 이틀에 + 숙주와의 대화 전부 표시",
+            "title_en": "Ten volumes in two days, marking every host conversation",
+            "desc_ko": "이틀에 완독하면서 기생생물과 숙주가 대화하는 장면을 전부 표시한다. 누가 사람이고 누가 괴물인지가 표시된 목록에서 뒤집힌다.",
+            "desc_en": "Finish in two days and mark every scene where parasite and host talk. On the list, who is human and who is the monster flips.",
+            "tip_ko": "이틀에 몰아 읽으면 그림의 그로테스크가 오히려 흐려진다 — 그것도 의도된 경험이다.",
+            "tip_en": "Read in two days and the grotesque blurs, which is itself the intended experience.",
+            "est_time_ko": "10권 + 기록 · 약 9시간",
+            "est_time_en": "10 volumes plus notes · ~9 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "10권 완독 — 미기의 마지막",
+            "title_en": "All ten volumes to Migi's last",
+            "desc_ko": "오른손에 기생생물이 들어온 소년이 사람으로 남는지를 10권 안에서 끝까지 본다. 마지막에 미기가 남기는 말이 이 만화의 결론이다.",
+            "desc_en": "A boy with a parasite in his right hand staying human, resolved in ten volumes. Migi's last words are the conclusion.",
+            "tip_ko": "미기가 처음 대화를 거는 장면과 마지막 대화를 나란히 읽어라.",
+            "tip_en": "Set Migi's first speaking scene beside the last conversation.",
+            "est_time_ko": "10권 · 약 7시간",
+            "est_time_en": "10 volumes · ~7 h"
+          }
+        ]
+      },
+      {
+        "item_id": "nausicaa-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "hardcore",
+            "title_ko": "7권 완독 — 극장판과 다른 결말",
+            "title_en": "All seven volumes, an ending the film does not have",
+            "desc_ko": "극장판이 다루지 못한 오염된 숲의 진실과 종말을 7권 끝까지 읽는다. 영화를 본 사람이 만화를 읽으면 다른 작품을 읽게 된다.",
+            "desc_en": "Read to the end of seven volumes for the truth of the toxic forest the film never reached. If you saw the film, the manga is a different work.",
+            "tip_ko": "영화를 먼저 봤다면 4권부터 결말이 완전히 달라진다는 점을 기억하라.",
+            "tip_en": "If you saw the film, know that from volume four the ending is entirely different.",
+            "est_time_ko": "7권 · 약 8시간",
+            "est_time_en": "7 volumes · ~8 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "7권 두 번 — 2회차 설정 노트",
+            "title_en": "Seven volumes twice, notes on the second pass",
+            "desc_ko": "1회차는 이야기로, 2회차는 설정과 정치 구도로 읽는다. 붓으로 그린 배경의 밀도와 각 세력의 이해관계를 함께 정리하는 목표다.",
+            "desc_en": "First pass for the story, second for the setting and the politics. Together, note the density of the brushwork and each faction's interest.",
+            "tip_ko": "2회차에는 대사만 읽고 그림은 넘겨도 좋다 — 구조가 먼저다.",
+            "tip_en": "On the second pass, read only the dialogue and skip panels; structure first.",
+            "est_time_ko": "7권 ×2 + 기록 · 약 15시간",
+            "est_time_en": "Seven volumes twice plus notes · ~15 h"
+          }
+        ]
+      },
+      {
+        "item_id": "billy-bat",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "1~5권, 첫 사건",
+            "title_en": "Volumes one to five, the first case",
+            "desc_ko": "배트를 그리는 만화가가 살해당하는 사건을 5권까지 따라간다. 여기까지가 이 만화의 문이고, 문 안쪽은 훨씬 넓다.",
+            "desc_en": "Follow the case of the murdered cartoonist to volume five. That is the door; the room behind it is far larger.",
+            "tip_ko": "1권 첫 장면의 연도를 기억하라 — 마지막까지 돌아온다.",
+            "tip_en": "Remember the year of volume one's opening; it returns at the end.",
+            "est_time_ko": "5권 · 약 4시간",
+            "est_time_en": "5 volumes · ~4 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "20권 완독 — 마지막 배트까지",
+            "title_en": "All twenty volumes to the last bat",
+            "desc_ko": "만화가가 그린 배트가 역사를 바꾼다는 설정을 20권 끝까지 따라간다. 우라사와가 자기 업을 스스로 의심하는 작품이다.",
+            "desc_en": "Follow the premise that a drawn bat changes history, to the end of twenty volumes. Urasawa doubting his own profession.",
+            "tip_ko": "케네디와 히틀러가 나오는 장면을 따로 표시해 두면 구조가 보인다.",
+            "tip_en": "Mark the Kennedy and Hitler scenes separately and the structure shows.",
+            "est_time_ko": "20권 · 약 16시간",
+            "est_time_en": "20 volumes · ~16 h"
+          }
+        ]
+      },
+      {
+        "item_id": "real",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "1~3권, 천천히",
+            "title_en": "Volumes one to three, slowly",
+            "desc_ko": "농구를 하지 못하게 된 세 사람의 이야기를 3권까지 읽는다. 이노우에가 슬램덩크 다음에 그린 작품은 훨씬 조용하다.",
+            "desc_en": "Read to volume three, three people who cannot play basketball. What Inoue drew after Slam Dunk is far quieter.",
+            "tip_ko": "한 권에 하루씩, 밤에 읽어라.",
+            "tip_en": "One volume a day, at night.",
+            "est_time_ko": "3권 · 약 2시간",
+            "est_time_en": "3 volumes · ~2 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "normal",
+            "title_ko": "1~10권, 세 사람의 코트까지",
+            "title_en": "Volumes one to ten, three men on one court",
+            "desc_ko": "세 주인공이 각자 농구로 돌아오는 10권까지 읽는다. 휠체어 농구와 재활, 두 갈래의 코트가 만나는 구간이 목표다.",
+            "desc_en": "Read to volume ten, where each of the three returns to basketball. The goal is where wheelchair basketball and rehab meet.",
+            "tip_ko": "각 인물의 첫 등장 권수를 적어 두면 구조가 보인다.",
+            "tip_en": "Note each character's first volume and the structure shows.",
+            "est_time_ko": "10권 · 약 8시간",
+            "est_time_en": "10 volumes · ~8 h"
+          }
+        ]
+      },
+      {
+        "item_id": "kaiji",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 2,
+            "difficulty": "hardcore",
+            "title_ko": "13권 완독 + 모든 도박 규칙 정리",
+            "title_en": "Thirteen volumes plus every gambling rule",
+            "desc_ko": "가위바위보부터 지하 노동까지, 카이지가 빠지는 모든 도박의 규칙과 배당을 정리하며 읽는다. 규칙을 이해하면 승부가 두 배로 아프다.",
+            "desc_en": "Note the rules and odds of every gamble Kaiji falls into, from rock-paper-scissors to underground labor. Understand the rules and the losses hurt twice as much.",
+            "tip_ko": "각 게임이 시작될 때 이길 방법을 먼저 적고 읽어라 — 대부분 틀린다.",
+            "tip_en": "Write your winning plan before each game and read on; you are mostly wrong.",
+            "est_time_ko": "13권 + 기록 · 약 12시간",
+            "est_time_en": "13 volumes plus notes · ~12 h"
+          }
+        ]
+      },
+      {
+        "item_id": "master-keaton",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "chill",
+            "title_ko": "1~2권, 밤에 한 권씩",
+            "title_en": "Volumes one and two, one a night",
+            "desc_ko": "단편이라 어디서 멈춰도 되는 2권을 이틀 밤에 읽는다. 잠들기 전 한 사건씩이 이 만화의 정확한 속도다.",
+            "desc_en": "Two volumes of short cases, readable from anywhere, over two nights. One case before sleep is the correct speed.",
+            "tip_ko": "가장 좋아하는 화 하나를 골라 두면 여행 갈 때 다시 읽게 된다.",
+            "tip_en": "Pick one favorite chapter and you will reread it on a trip.",
+            "est_time_ko": "2권 · 약 2시간",
+            "est_time_en": "2 volumes · ~2 h"
+          },
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "1~4권 — 첫 사건들",
+            "title_en": "Volumes one to four, the first cases",
+            "desc_ko": "보험 조사원이자 고고학자인 키튼이 유럽 곳곳에서 사건을 푸는 단편들을 4권까지 읽는다. 한 화에 한 나라, 여행기처럼 읽는 목표다.",
+            "desc_en": "Read to volume four: Keaton, insurance investigator and archaeologist, solving cases across Europe. One country a chapter, read like a travelogue.",
+            "tip_ko": "각 화의 배경 도시를 지도에서 찾으며 읽어라.",
+            "tip_en": "Find each chapter's city on a map as you read.",
+            "est_time_ko": "4권 · 약 3시간",
+            "est_time_en": "4 volumes · ~3 h"
+          }
+        ]
+      },
+      {
+        "item_id": "dungeon-meshi-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 1,
+            "difficulty": "normal",
+            "title_ko": "1~3권, 첫 요리까지",
+            "title_en": "Volumes one to three, the first dish",
+            "desc_ko": "라이오스가 잡혀 갔다는 사실보다 먼저 배가 고픈 3권까지 읽는다. 이 만화의 첫 문법은 공포가 아니라 식욕이다.",
+            "desc_en": "Read to volume three, which is hungry before it is worried about Laios. Its first grammar is appetite, not horror.",
+            "tip_ko": "1권의 첫 요리 장면과 3권의 요리를 비교하라.",
+            "tip_en": "Compare the first dish in volume one with the one in volume three.",
+            "est_time_ko": "3권 · 약 2시간",
+            "est_time_en": "3 volumes · ~2 h"
+          },
+          {
+            "tier": 2,
+            "difficulty": "chill",
+            "title_ko": "1~7권, 요리 하나씩",
+            "title_en": "Volumes one to seven, one dish at a time",
+            "desc_ko": "던전에서 몬스터를 잡아 요리하는 7권까지 읽는다. 화마다 나오는 요리를 하나씩 골라 기억하는 것이 이 만화의 즐거움이다.",
+            "desc_en": "Read to volume seven, cooking monsters in a dungeon. The pleasure is remembering one dish per chapter.",
+            "tip_ko": "읽는 동안 진짜로 뭘 먹고 싶어지는지 메모해 두라.",
+            "tip_en": "Note what you actually crave while reading.",
+            "est_time_ko": "7권 · 약 5시간",
+            "est_time_en": "7 volumes · ~5 h"
+          }
+        ]
+      },
+      {
+        "item_id": "hunter-x-hunter-manga",
+        "category": "manga",
+        "quests": [
+          {
+            "tier": 3,
+            "difficulty": "normal",
+            "title_ko": "1~10권 — 요크신 시티까지",
+            "title_en": "Volumes one to ten, through Yorknew City",
+            "desc_ko": "시험편에서 요크신 시티의 경매까지 10권을 읽는다. 토가시가 소년 만화의 규칙을 비트는 방식이 이 구간에서 처음 드러난다.",
+            "desc_en": "Read to volume ten: the exam through the Yorknew auction. This is where Togashi first shows how he bends the genre's rules.",
+            "tip_ko": "넨의 규칙이 설명되는 화를 따로 표시해 두면 이후가 쉽다.",
+            "tip_en": "Mark the chapter that explains Nen and everything after is easier.",
+            "est_time_ko": "10권 · 약 8시간",
+            "est_time_en": "10 volumes · ~8 h"
+          }
+        ]
+      }
+    ]
+  }
 }

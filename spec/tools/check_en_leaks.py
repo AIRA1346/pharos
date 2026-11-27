@@ -79,18 +79,26 @@ def main() -> int:
         for field in ("title_en", "note_en"):
             if KOREAN.search(str(lh.get(field) or "")):
                 rows.append((f"lighthouse.{field}", lh.get(field)))
-        for row in lh.get("tiers") or []:
-            for field in ("label_en", "window_en", "hint_en"):
+        for row in lh.get("categories") or []:
+            for field in ("label_en", "badge_en", "sub_en", "hint_en"):
                 if KOREAN.search(str(row.get(field) or "")):
-                    rows.append((f"lighthouse.tiers[{row.get('tier')}].{field}", row.get(field)))
+                    rows.append((f"lighthouse.categories[{row.get('id')}].{field}", row.get(field)))
+        for category, tier_rows in (lh.get("tiers") or {}).items():
+            for row in tier_rows:
+                for field in ("label_en", "window_en", "hint_en"):
+                    if KOREAN.search(str(row.get(field) or "")):
+                        rows.append((f"lighthouse.tiers[{category}][{row.get('tier')}].{field}", row.get(field)))
         quests = 0
-        for game in lh.get("games") or []:
-            for quest in game.get("quests") or []:
+        entries = [(g.get("game_id"), g.get("quests") or []) for g in lh.get("games") or []]
+        for category, media_rows in (lh.get("media") or {}).items():
+            entries.extend((f"{category}/{row.get('item_id')}", row.get("quests") or []) for row in media_rows)
+        for label, quests_of in entries:
+            for quest in quests_of:
                 quests += 1
                 for field in ("title_en", "desc_en", "tip_en", "est_time_en"):
                     value = quest.get(field)
                     if KOREAN.search(str(value or "")):
-                        rows.append((f"lighthouse.{game.get('game_id')}.t{quest.get('tier')}.{field}", value))
+                        rows.append((f"lighthouse.{label}.t{quest.get('tier')}.{field}", value))
         lh_leaks = len(rows)
         for key, value in rows[:10]:
             print(f"{key:52} {str(value)[:40]}")

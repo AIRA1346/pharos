@@ -191,6 +191,88 @@ python3 projects/pharos/scripts/smoke_v16.py
 python3 projects/pharos/scripts/smoke_v16.py --live --shots-dir projects/pharos/live
 ```
 
+## 5-0-2. smoke_v21.py — 등대 위저드·명작 50종 v21 스모크
+
+기본 URL(Step 0 심플 랜딩)부터 `목표 탐색` → **항해 서약(v23, 체크 + `서약하고 나아가기`)** → Step 1(플랫폼·가격) → Step 2(소요 시간) → Step 3(난이도·후보 수) →
+Step 4(목표 카드)까지 실제로 클릭하며 확인한다. 난이도 `chill`·`normal`·`hardcore` 각각 후보 수와 발급 게임의 난이도가
+데이터와 일치하는지, 24개 조건 조합이 비지 않는지, 새로고침 잠금·5초 광고 건너뛰기·완료 기록 누적·EN 한글 0건·
+390px 가로 넘침 0건·`?domain=catalog`/`?arena=`/`?item=` 회귀·콘솔/HTTP 오류 0건을 본다.
+
+```bash
+python3 projects/pharos/scripts/smoke_v21.py                     # web/ 로컬 서버
+python3 projects/pharos/scripts/smoke_v21.py --live --shots-dir projects/pharos/live
+```
+
+스크린샷은 `--shots-dir` 에 `{prefix}-step0-desktop.png` · `{prefix}-step2-3-desktop.png` · `{prefix}-result-mobile.png` 로 저장된다.
+
+## 5-0-2-1. smoke_v23_pledge.py — 항해 서약 v23 스모크
+
+`목표 탐색` 직후의 **항해 서약(Pledge)** 단계를 본다. 서약을 건너뛰고 Step 1 로 가는 경로가 없는지, 키커·제목·세 문장이
+확정 문구(② “끝까지 걸어가는 사람을…”)와 같은지, 체크 전 `서약하고 나아가기` 가 비활성이고 마우스·키보드(Space)로 켜지는지,
+`돌아가기` → Step 0 복귀와 재진입 시 체크 초기화, 잠긴 퀘스트가 있으면 서약 없이 결과 카드로 가는지,
+EN 한글 잔존 0건, 라이트 테마 룬 주변 사각 배경 없음, 390px 넘침 0, 오류 0건을 확인한다.
+
+```bash
+python3 projects/pharos/scripts/smoke_v23_pledge.py
+python3 projects/pharos/scripts/smoke_v23_pledge.py --live --shots-dir projects/pharos/live
+```
+
+스크린샷은 `{prefix}-desktop.png` · `-mobile.png`(라이브 기본 prefix `live-v23-pledge`).
+
+## 5-0-3. smoke_v22_brand.py — 브랜드 룬·등대 심볼 v22 스모크
+
+`assets/brand/` 에셋의 존재·알파(모서리 0)·HTTP 200, 헤더 룬 마크(46px/모바일 34px)·파비콘 연결, Step 0 등대 심볼의
+크기(데스크톱 126~180px · 모바일 104~140px)·가로 중앙·CTA 위 배치, `🚨` 제거, 라이트 테마에서 모서리에 사각 배경이
+비치지 않는지(스크린샷 픽셀), KO/EN, 390px 넘침 0, 콘솔/HTTP 오류 0 을 본다.
+
+```bash
+python3 projects/pharos/scripts/smoke_v22_brand.py
+python3 projects/pharos/scripts/smoke_v22_brand.py --live --shots-dir projects/pharos/live
+```
+
+스크린샷은 `{prefix}-desktop.png` · `-mobile.png` · `-light.png` · `-en.png` 로 저장된다(라이브 기본 prefix `live-v22-brand`).
+
+## 5-0-4. make_brand_assets.py — 브랜드 심볼 에셋 생성
+
+`downloads/` 의 승인 원본(사파이어 나침반 룬 · 골드 모노라인 등대)에서 검정/딥 네이비 배경을 알파로 분리하고,
+경계 픽셀을 배경색으로 un-premultiply 해 프린징 없이 페더링한 뒤 타이트 트리밍해 `web/assets/brand/` 에 저장한다.
+원본은 `web/assets/brand/source/` 와 `projects/pharos/assets/brand/source/` 에 그대로 보관하며 절대 덮어쓰지 않는다.
+
+```bash
+python3 projects/pharos/scripts/make_brand_assets.py            # 에셋 생성
+python3 projects/pharos/scripts/make_brand_assets.py --preview  # live/brand-preview/ 에 다크·라이트 합성 미리보기
+```
+
+## 5-0-5. smoke_v28_lighthouse_v3.py — 등대 v3(4분야 + 전체 랜덤) 스모크
+
+등대가 게임·애니·영화·만화 네 분야와 `🎲 상관없이(전체 랜덤)` 를 함께 추첨하는 v3 흐름을 본다.
+서약 뒤 **분야 선택**(다섯 카드) → 게임은 `1/3 플랫폼·가격 → 2/3 소요 시간 → 3/3 난이도`,
+애니·영화·만화·전체 랜덤은 `1/2 분량·시간 → 2/2 무게감`(플랫폼·가격 단계 없음) → 목표 카드.
+카드의 분야 배지(🎮/📺/🎬/📖)·목표 문구·난이도·상세 모달·완료·5초 광고 건너뛰기, 분야와 무관하게
+`localStorage` 의 current 가 하나만 잠기는지(version 3), 새로고침 뒤에도 같은 목표인지, EN 각 단계 한글 0건,
+390px 가로 넘침 0건, 콘솔·HTTP 오류 0건을 확인한다. 데이터 계약(작품 139종 · 목표 271개 ·
+분야마다 단계×난이도 9조합 후보 2개 이상 · 모든 id 가 search-index.json 과 일치)도 함께 검사한다.
+
+```bash
+python3 projects/pharos/scripts/smoke_v28_lighthouse_v3.py
+python3 projects/pharos/scripts/smoke_v28_lighthouse_v3.py --live --shots-dir projects/pharos/live
+```
+
+스크린샷은 `{prefix}-lighthouse-v3-category.png` · `-lighthouse-v3-media-quest.png` · `-lighthouse-v3-media-mobile.png`
+(라이브 기본 prefix `live-v28`).
+
+## 4-1. build_lighthouse.py — 등대 퀘스트 카탈로그(v3.0.0)
+
+`drafts/lighthouse/` 의 편집 원본(게임 `games-*.json`, 미디어 `media-anime.json`·`media-movie.json`·`media-manga.json`)을
+한 파일 `data/lighthouse-quests.json`(+`web/data/` 사본)로 합친다. 게임은 `game_id`·`free_to_play`·`platforms`,
+미디어는 `item_id`·`category` 만 다르고 퀘스트 8필드(`title`·`desc`·`tip`·`est_time` × KO/EN)는 같다.
+분야별 단계 문구(`tiers.game/anime/movie/manga/all`)와 분야 메타(`categories`)도 여기서 만든다.
+
+```bash
+python3 projects/pharos/scripts/build_lighthouse.py          # 쓰기 + 검사
+python3 projects/pharos/scripts/build_lighthouse.py --check   # 원본·사본 최신 여부만
+```
+
 ## 5-1. check_en_leaks.py — 영문 오버레이 누출 검사
 
 `data/en.json` 은 부분 번역(오버레이)이라 덮지 않은 필드가 영문 화면에 한글로 남기 쉽다.
@@ -230,3 +312,40 @@ python3 projects/pharos/scripts/fetch_icons.py --ids todoist,cline
 
 수집 로그: `drafts/logs/2026-11-25-auto-collect.json` · 초안/리뷰: `drafts/*.draft.json`, `drafts/*.review.json`,
 `drafts/reviewed/*.json`
+
+## 7. media_ingest.py — 미디어 도메인(영화·애니·만화) 적재
+
+```bash
+python3 projects/pharos/scripts/media_ingest.py            # 90종 수집·생성·기록(포스터 아이콘 포함)
+python3 projects/pharos/scripts/media_ingest.py --no-icon  # 아이콘 생략
+python3 projects/pharos/scripts/media_ingest.py --only anime
+```
+
+새 도메인 `media`(🎬 영화 · 애니 · 만화)를 대분류 3개(애니메이션·만화·영화)와 비교군 3개
+(`anime-tv` · `manga-volumes` · `feature-films`)로 만들고, 스펙(`drafts/media-2026-11-27/spec.json`)의
+90종을 **AniList GraphQL**(평균 점수·채점 분포·표지·장르·방영/연재 기간·스튜디오·작가)과
+**Letterboxd 영화 페이지 JSON-LD**(평점·평가 수·감독·장르·개봉일·포스터)로 채운다. 키가 필요 없다.
+
+| 축 | 계산 |
+| :--- | :--- |
+| 사용자 | AniList 평균(0~100)·Letterboxd 평점(5점)×20, 표본 수 = 채점 분포 합 / 평가 수 |
+| 표본 보정 | v0.6.0 계약(`validate.scale_expected`)을 그대로 호출 — 검증기와 같은 계산 |
+| 객관 | 62 + 완결성(+12/−10/−14) + 접근 경로 수(+8/+2) + 작품 수명(+8/+5/+2) |
+| AI 검토 | 중립 60 + (사용자 평균−80)×0.7 + min(6, log10 표본) + 완결성(+6/0/−6) |
+| 판정 | `validate.compute_verdict` — 손으로 쓴 판정 없음 |
+
+포스터는 2:3 비율을 그대로 쓰지 않고 **흐린 배경 위에 세로로 앉힌 320×320 WebP** 로 만들어
+정사각 아이콘 틀(`.item-icon`)에서 잘리지 않게 한다. 확인하지 못한 값(한국 시청 플랫폼·작품 단위 가격·
+최근 화 공개일)은 `unknown`·`data_quality.unverified` 로 남기고, 가격 표기는 `amount: null`(통화 `none`)이다.
+
+```bash
+python3 projects/pharos/scripts/smoke_v26_media.py                     # 로컬 미디어 도메인 스모크 30항목
+python3 projects/pharos/scripts/smoke_v26_media.py --live --shots-dir projects/pharos/live
+```
+
+## 8. verify_ui.py 상태 (2026-11-27)
+
+`web/tests/verify_ui.py` 는 v3 홈(`.hero`) 시절 선택자를 아직 들고 있어 현재 등대 첫 화면에서는
+`Page.inner_text(.hero)` 대기로 멈춘다(이번 배치 이전부터의 상태). 지금의 회귀 검증은
+`smoke_v21.py`(120항목) · `smoke_v22_brand.py`(69) · `smoke_v23_pledge.py`(61) · `smoke_v26_media.py`(31) ·
+`smoke_v28_lighthouse_v3.py`(103, 등대 4분야·전체 램던)가 맡는다.

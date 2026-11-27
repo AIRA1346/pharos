@@ -72,11 +72,11 @@ const state = {
   lh: {
     data: null,
     step: 0,
-    filters: { price: 'all', platform: 'all', tier: 1, difficulty: 'all' },
+    filters: { category: null, price: 'all', platform: 'all', tier: 1, difficulty: 'all' },
     current: null,
     history: [],
     skips: 0,
-    lastGameId: null,
+    lastItemId: null,
     /** 항해 서약 체크 — 저장하지 않는다. 목표 탐색을 누를 때마다 새로 서약한다. */
     pledgeAccepted: false,
   },
@@ -295,6 +295,8 @@ function parseUrl() {
   const wantsCatalog = domain === 'catalog' || domain === 'all' || tab === 'catalog';
   if (wantsLighthouse) {
     route.view = 'lighthouse';
+    const category = params.get('lh_cat');
+    if (['game', 'anime', 'movie', 'manga', 'all'].includes(category)) state.lh.filters.category = category;
     const tier = Number(params.get('lh_tier'));
     if ([1, 2, 3].includes(tier)) state.lh.filters.tier = tier;
     const price = params.get('lh_price');
@@ -401,7 +403,8 @@ function urlForRoute() {
   params.set('lang', state.lang);
   if (route.view === 'lighthouse') {
     params.set('domain', 'lighthouse');
-    const { tier, price, platform, difficulty } = state.lh.filters;
+    const { tier, price, platform, difficulty, category } = state.lh.filters;
+    if (category) params.set('lh_cat', category);
     if (tier !== 1) params.set('lh_tier', String(tier));
     if (price !== 'all') params.set('lh_price', price);
     if (platform !== 'all') params.set('lh_platform', platform);
@@ -2663,57 +2666,126 @@ function closeMethod() {
   document.body.style.overflow = '';
 }
 
-/* ------------------------------------------------------------------ 등대(Lighthouse)
-   조건(가격·플랫폼·단계)을 고르면 명작 하나를 추첨해 그 게임의 실제 퀘스트를 고정한다.
-   한 번 받은 퀘스트는 완료하거나 광고 슬롯으로 건너뛰기 전까지 localStorage 에 남는다. */
+/* ------------------------------------------------------------------ 등대(Lighthouse) v3
+   4분야(게임 · 애니 · 영화 · 만화)와 전체 랜덤을 한 등대로 묶는다. 분야마다 흐름이 다르고
+   (게임만 플랫폼·가격을 묻는다), 한 번 받은 목표는 분야와 상관없이 딱 하나만 잠긴다. */
 
 const LH_TIERS = [1, 2, 3];
 const LH_DIFFICULTIES = ['all', 'chill', 'normal', 'hardcore'];
-const LH_STEP_TOTAL = 3;
-/** 서약 화면의 단계 표식 — 조건 단계(1~3)와 숫자를 섞지 않으려고 문자열로 둔다. */
+const LH_CATEGORIES = ['game', 'anime', 'movie', 'manga', 'all'];
+const LH_MEDIA = ['anime', 'movie', 'manga'];
+/** 서약·분야 화면의 단계 표식 — 조건 단계(1~3)와 숫자를 섞지 않으려고 문자열로 둔다. */
 const LH_PLEDGE = 'pledge';
+const LH_CATEGORY = 'category';
 const lhText = (row, field) =>
   String((getLang() === 'en' ? row?.[`${field}_en`] : row?.[`${field}_ko`]) ?? '');
+
+const lhCategoryMeta = (id) => (state.lh.data?.categories || []).find((row) => row.id === id) || null;
+
+/** 분야의 진행 흐름 — 게임만 플랫폼·가격을 묻고, 나머지는 분량/시간부터 시작한다. */
+function lhFlow() {
+  return state.lh.filters.category === 'game' ? ['platform', 'time', 'difficulty'] : ['time', 'difficulty'];
+}
+const lhStepTotal = () => lhFlow().length;
+
+/** 단계 문구는 분야마다 다르다 — 분야를 고르기 전(전체 랜덤 포함)에는 중립 문구를 쓴다. */
+function lhTierMeta(tier) {
+  const key = LH_MEDIA.includes(state.lh.filters.category) || state.lh.filters.category === 'game'
+    ? state.lh.filters.category
+    : 'all';
+  const rows = state.lh.data?.tiers?.[key] || state.lh.data?.tiers?.all || [];
+  return rows.find((row) => row.tier === Number(tier)) || null;
+}
+
+/** 추첨 단위는 작품이 아니라 퀘스트 — 분야별 데이터를 같은 모양으로 편다. */
+function lhEntries(category = 'all') {
+  const data = state.lh.data;
+  if (!data) return [];
+  const out = [];
+  if (category === 'all' || category === 'game') {
+    for (const game of data.games || []) {
+      out.push({
+        id: game.game_id,
+        category: 'game',
+        free_to_play: !!game.free_to_play,
+        platforms: game.platforms || [],
+        quests: game.quests || [],
+      });
+    }
+  }
+  for (const key of LH_MEDIA) {
+    if (category !== 'all' && category !== key) continue;
+    for (const row of data.media?.[key] || []) {
+      out.push({ id: row.item_id, category: key, free_to_play: null, platforms: [], quests: row.quests || [] });
+    }
+  }
+  return out;
+}
+
+const lhEntryById = (id) => lhEntries('all').find((entry) => entry.id === id) || null;
+/** 목표는 (작품, 단계, 난이도)로 특정된다 — 같은 작품이 같은 단계에 다른 난이도의 목표를 가질 수 있다. */
+const lhQuestOf = (entry, tier, difficulty) =>
+  (entry?.quests || []).find((quest) => quest.tier === Number(tier) && quest.difficulty === difficulty) || null;
 
 function lhLoadState() {
   const raw = readStore(LS.lighthouse, null);
   if (!raw || typeof raw !== 'object') return;
   const filters = raw.filters || {};
+  if (LH_CATEGORIES.includes(filters.category)) state.lh.filters.category = filters.category;
   if (filters.price === 'free' || filters.price === 'all') state.lh.filters.price = filters.price;
   if (['pc', 'mobile', 'all'].includes(filters.platform)) state.lh.filters.platform = filters.platform;
   if (LH_TIERS.includes(Number(filters.tier))) state.lh.filters.tier = Number(filters.tier);
   if (LH_DIFFICULTIES.includes(filters.difficulty)) state.lh.filters.difficulty = filters.difficulty;
   if (Array.isArray(raw.history)) {
-    state.lh.history = raw.history.filter((row) => row && typeof row.game_id === 'string').slice(-100);
+    state.lh.history = raw.history
+      .filter((row) => row && typeof (row.item_id || row.game_id) === 'string')
+      .map((row) => ({
+        item_id: row.item_id || row.game_id,
+        category: LH_CATEGORIES.includes(row.category) && row.category !== 'all' ? row.category : 'game',
+        tier: Number(row.tier) || null,
+        difficulty: LH_DIFFICULTIES.includes(row.difficulty) ? row.difficulty : null,
+        title_ko: row.title_ko || '',
+        title_en: row.title_en || '',
+        completed_at: row.completed_at || null,
+      }))
+      .slice(-100);
   }
   if (Number.isFinite(Number(raw.skips))) state.lh.skips = Math.max(0, Number(raw.skips));
-  if (typeof raw.last_game_id === 'string') state.lh.lastGameId = raw.last_game_id;
+  const last = typeof raw.last_item_id === 'string' ? raw.last_item_id : raw.last_game_id;
+  if (typeof last === 'string') state.lh.lastItemId = last;
   const current = raw.current;
-  if (current && typeof current.game_id === 'string' && LH_TIERS.includes(Number(current.tier))) {
+  const currentId = typeof current?.item_id === 'string'
+    ? current.item_id
+    : typeof current?.game_id === 'string'
+      ? current.game_id
+      : null;
+  if (currentId && LH_TIERS.includes(Number(current.tier))) {
     state.lh.current = {
-      game_id: current.game_id,
+      item_id: currentId,
+      category: LH_CATEGORIES.includes(current.category) && current.category !== 'all' ? current.category : 'game',
       tier: Number(current.tier),
       difficulty: LH_DIFFICULTIES.includes(current.difficulty) ? current.difficulty : null,
       issued_at: current.issued_at || null,
       filters: {
+        category: LH_CATEGORIES.includes(current.filters?.category) ? current.filters.category : null,
         price: current.filters?.price === 'free' ? 'free' : 'all',
         platform: ['pc', 'mobile'].includes(current.filters?.platform) ? current.filters.platform : 'all',
         tier: LH_TIERS.includes(Number(current.filters?.tier)) ? Number(current.filters.tier) : Number(current.tier),
         difficulty: LH_DIFFICULTIES.includes(current.filters?.difficulty) ? current.filters.difficulty : 'all',
       },
     };
-    state.lh.filters = { ...state.lh.current.filters };
+    state.lh.filters = { ...state.lh.filters, ...state.lh.current.filters };
   }
 }
 
 function lhSaveState() {
   writeStore(LS.lighthouse, {
-    version: 2,
+    version: 3,
     filters: state.lh.filters,
     current: state.lh.current,
     history: state.lh.history,
     skips: state.lh.skips,
-    last_game_id: state.lh.lastGameId,
+    last_item_id: state.lh.lastItemId,
   });
 }
 
@@ -2732,43 +2804,42 @@ async function loadLighthouse() {
   }
 }
 
-const lhGameById = (id) => (state.lh.data?.games || []).find((game) => game.game_id === id) || null;
-/** 목표는 (게임, 단계, 난이도)로 특정된다 — 같은 게임이 같은 단계에 다른 난이도의 목표를 가질 수 있다. */
-const lhQuestOf = (game, tier, difficulty) =>
-  (game?.quests || []).find((quest) => quest.tier === Number(tier) && quest.difficulty === difficulty) || null;
-const lhTierMeta = (tier) => (state.lh.data?.tiers || []).find((row) => row.tier === Number(tier)) || null;
-
-/** 저장된 퀘스트가 데이터에서 사라졌으면 잠금을 풀어 준다(데이터 개편 대비). */
+/** 저장된 목표가 데이터에서 사라졌으면 잠금을 풀어 준다(데이터 개편 대비). */
 function lhPruneCurrent() {
   const current = state.lh.current;
   if (!current) return;
-  const game = lhGameById(current.game_id);
-  if (!game || !lhQuestOf(game, current.tier, current.difficulty)) {
+  const entry = lhEntryById(current.item_id);
+  if (!entry || !lhQuestOf(entry, current.tier, current.difficulty)) {
     state.lh.current = null;
     lhSaveState();
   }
 }
 
-/** 위저드 단계 — 진행 중인 퀘스트가 있으면 언제나 4(결과 카드).
- *  0 랜딩 · 'pledge' 항해 서약 · 1 플랫폼·가격 · 2 소요 시간 · 3 난이도 · 4 결과 */
+/** 위저드 단계 — 진행 중인 목표가 있으면 언제나 4(결과 카드).
+ *  0 랜딩 · 'pledge' 항해 서약 · 'category' 분야 선택 · 1~3 조건(분야별 2~3단계) · 4 결과 */
 function lhStep() {
   if (state.lh.current) return 4;
   if (state.lh.step === LH_PLEDGE) return LH_PLEDGE;
+  if (state.lh.step === LH_CATEGORY) return LH_CATEGORY;
   const step = Number(state.lh.step);
-  return Number.isInteger(step) && step >= 0 && step <= LH_STEP_TOTAL ? step : 0;
+  if (!Number.isInteger(step) || step < 0 || step > lhStepTotal()) return 0;
+  if (step >= 1 && !state.lh.filters.category) return LH_CATEGORY;
+  return step;
 }
 
-/** 현재 조건(플랫폼·가격·단계·난이도)에 맞는 후보 목표. 추첨 단위는 게임이 아니라 퀘스트다. */
+/** 현재 조건(분야·플랫폼·가격·단계·난이도)에 맞는 후보 목표. 추첨 단위는 작품이 아니라 퀘스트다. */
 function lhPoolQuests() {
-  const { price, platform, tier, difficulty } = state.lh.filters;
+  const { category, price, platform, tier, difficulty } = state.lh.filters;
   const pool = [];
-  for (const game of state.lh.data?.games || []) {
-    if (price === 'free' && !game.free_to_play) continue;
-    if (platform !== 'all' && !(game.platforms || []).includes(platform)) continue;
-    for (const quest of game.quests || []) {
+  for (const entry of lhEntries(category || 'all')) {
+    if (category === 'game') {
+      if (price === 'free' && !entry.free_to_play) continue;
+      if (platform !== 'all' && !(entry.platforms || []).includes(platform)) continue;
+    }
+    for (const quest of entry.quests) {
       if (quest.tier !== Number(tier)) continue;
       if (difficulty !== 'all' && quest.difficulty !== difficulty) continue;
-      pool.push({ game, quest });
+      pool.push({ entry, quest });
     }
   }
   return pool;
@@ -2780,16 +2851,23 @@ function lhSetStep(step) {
     state.lh.step = LH_PLEDGE;
     // 서약은 매번 새로 — 체크는 저장하지 않고, 화면에 들어올 때 늘 비어 있다.
     state.lh.pledgeAccepted = false;
+  } else if (step === LH_CATEGORY) {
+    state.lh.step = LH_CATEGORY;
   } else {
-    state.lh.step = Math.max(0, Math.min(LH_STEP_TOTAL, Number(step) || 0));
+    state.lh.step = Math.max(0, Math.min(lhStepTotal(), Number(step) || 0));
   }
   renderLighthouse();
-  document.querySelector('.lh-pledge-title, .lh-q')?.focus?.({ preventScroll: true });
+  document.querySelector('.lh-pledge-title, .lh-cat-title, .lh-q')?.focus?.({ preventScroll: true });
 }
 
 function lhPick(group, value) {
   if (state.lh.current) return;
-  if (group === 'tier') {
+  if (group === 'category') {
+    // 분야 카드를 고르면 바로 첫 조건 화면으로 — 흐름이 분야마다 다르기 때문이다.
+    if (!LH_CATEGORIES.includes(value)) return;
+    state.lh.filters.category = value;
+    state.lh.step = 1;
+  } else if (group === 'tier') {
     const tier = Number(value);
     if (LH_TIERS.includes(tier)) state.lh.filters.tier = tier;
   } else if (group === 'platform' && ['all', 'pc', 'mobile'].includes(value)) {
@@ -2817,20 +2895,21 @@ function lhDraw() {
     toast(t('lh.toast.noMatch'));
     return;
   }
-  if (pool.length > 1 && state.lh.lastGameId) {
-    const fresh = pool.filter((row) => row.game.game_id !== state.lh.lastGameId);
+  if (pool.length > 1 && state.lh.lastItemId) {
+    const fresh = pool.filter((row) => row.entry.id !== state.lh.lastItemId);
     if (fresh.length) pool = fresh;
   }
-  const { game, quest } = pool[Math.floor(Math.random() * pool.length)];
+  const { entry, quest } = pool[Math.floor(Math.random() * pool.length)];
   state.lh.current = {
-    game_id: game.game_id,
+    item_id: entry.id,
+    category: entry.category,
     tier: quest.tier,
     difficulty: quest.difficulty,
     issued_at: new Date().toISOString(),
     filters: { ...state.lh.filters },
   };
-  state.lh.lastGameId = game.game_id;
-  state.lh.step = LH_STEP_TOTAL + 1;
+  state.lh.lastItemId = entry.id;
+  state.lh.step = lhStepTotal() + 1;
   lhSaveState();
   syncUrl('replace');
   renderLighthouse();
@@ -2840,16 +2919,17 @@ function lhDraw() {
 function lhComplete() {
   const current = state.lh.current;
   if (!current) return;
-  const game = lhGameById(current.game_id);
-  const quest = lhQuestOf(game, current.tier, current.difficulty);
-  if (!game || !quest) {
+  const entry = lhEntryById(current.item_id);
+  const quest = lhQuestOf(entry, current.tier, current.difficulty);
+  if (!entry || !quest) {
     state.lh.current = null;
     lhSaveState();
     renderLighthouse();
     return;
   }
   state.lh.history.push({
-    game_id: game.game_id,
+    item_id: entry.id,
+    category: entry.category,
     tier: current.tier,
     difficulty: quest.difficulty,
     title_ko: quest.title_ko,
@@ -2861,7 +2941,7 @@ function lhComplete() {
   state.lh.step = 0;
   lhSaveState();
   renderLighthouse();
-  toast(t('lh.toast.completed', { name: recordById(game.game_id)?.name || game.game_id }), lhText(quest, 'title'));
+  toast(t('lh.toast.completed', { name: recordById(entry.id)?.name || entry.id }), lhText(quest, 'title'));
 }
 
 function lhSkipComplete() {
@@ -2926,7 +3006,21 @@ function lhChoiceButton({ group, value, label, sub, hint, active }) {
     </button>`;
 }
 
-function lhQuestHtml(game, quest) {
+/** 결과 카드의 분야 배지 — 🎮 게임 / 📺 애니 / 🎬 영화 / 📖 만화 */
+function lhCategoryBadge(category) {
+  const meta = lhCategoryMeta(category);
+  return `<span class="lh-cat-badge lh-cat-badge--${esc(category)}">${esc(lhText(meta, 'badge') || category)}</span>`;
+}
+
+/** 미디어 작품의 상태 칩 — 완결작인지 연재·방영 중인지 (게임은 무료/유료 칩을 쓴다). */
+function lhMediaStatusChip(rec) {
+  const status = rec?.maintenance_status;
+  if (status === 'feature_complete') return t('lh.badge.complete');
+  if (status === 'active') return t('lh.badge.ongoing');
+  return t('lh.badge.unknown');
+}
+
+function lhQuestHtml(entry, quest) {
   if (!quest) return '';
   const meta = lhTierMeta(quest.tier);
   return `
@@ -2940,11 +3034,12 @@ function lhQuestHtml(game, quest) {
 }
 
 function lhStepper(step) {
+  const total = lhStepTotal();
   return `
     <div class="lh-stepper">
-      <span class="lh-progress" aria-label="${step} / ${LH_STEP_TOTAL}">
-        <span class="lh-progress-text">${step} / ${LH_STEP_TOTAL}</span>
-        <span class="lh-dots" aria-hidden="true">${LH_TIERS.map((n) => `<i class="${n <= step ? 'is-on' : ''}"></i>`).join('')}</span>
+      <span class="lh-progress" aria-label="${step} / ${total}">
+        <span class="lh-progress-text">${step} / ${total}</span>
+        <span class="lh-dots" aria-hidden="true">${Array.from({ length: total }, (_v, i) => `<i class="${i + 1 <= step ? 'is-on' : ''}"></i>`).join('')}</span>
       </span>
     </div>`;
 }
@@ -2973,14 +3068,14 @@ function lhHistoryHtml() {
       <div class="lh-history-list">
         ${rows
           .map((row) => {
-            const rec = recordById(row.game_id);
+            const rec = recordById(row.item_id);
             const date = row.completed_at ? new Date(row.completed_at) : null;
             const dateText = date && !Number.isNaN(date.getTime())
               ? date.toLocaleDateString(locale(), { month: 'short', day: 'numeric' })
               : '';
             const title = getLang() === 'en' ? row.title_en : row.title_ko;
             const diff = LH_DIFFICULTIES.includes(row.difficulty) ? t(`lh.diff.${row.difficulty}`) : '';
-            return `<span class="lh-badge" title="${esc(title || '')}">${rec ? iconHtml(rec, 'small') : ''}<span class="lh-badge-text">${esc(rec?.name || row.game_id)}<b>${esc(title || '')}</b></span>${diff ? `<span class="lh-badge-diff">${esc(diff)}</span>` : ''}<span class="lh-badge-date">${esc(dateText)}</span></span>`;
+            return `<span class="lh-badge" title="${esc(title || '')}">${rec ? iconHtml(rec, 'small') : ''}<span class="lh-badge-text">${esc(rec?.name || row.item_id)}<b>${esc(title || '')}</b></span>${diff ? `<span class="lh-badge-diff">${esc(diff)}</span>` : ''}<span class="lh-badge-date">${esc(dateText)}</span></span>`;
           })
           .join('')}
       </div>
@@ -3014,7 +3109,7 @@ function lhPledgeDate() {
   return `${now.getFullYear()}.${pad(now.getMonth() + 1)}.${pad(now.getDate())}`;
 }
 
-/** 항해 서약(Pledge) — 목표 탐색 직후, 조건을 고르기 전에 서는 각서 화면. */
+/** 항해 서약(Pledge) — 목표 탐색 직후, 분야·조건을 고르기 전에 서는 각서 화면. */
 function lhPledgeHtml() {
   const clauses = ['lh.pledge.body1', 'lh.pledge.body2', 'lh.pledge.body3'];
   return `
@@ -3051,89 +3146,132 @@ function lhPledgeHtml() {
     </section>`;
 }
 
-function lhStep1Html() {
-  const { platform, price } = state.lh.filters;
+/** 분야 선택 — 🎮 게임 · 📺 애니 · 🎬 영화 · 📖 만화 · 🎲 상관없이(전체 랜덤). */
+function lhCategoryHtml() {
+  const cats = state.lh.data?.categories || [];
+  const active = state.lh.filters.category;
   return `
-    <section class="lh lh--wizard lh--step1">
-      ${lhStepper(1)}
+    <section class="lh lh--wizard lh--category">
       <div class="lh-panel">
-        <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.platform'))}</h1>
-        <div class="lh-choices" role="radiogroup" aria-label="${esc(t('lh.q.platform'))}">
-          ${lhChoiceButton({ group: 'platform', value: 'all', label: t('lh.opt.all'), sub: t('lh.opt.allSub'), active: platform === 'all' })}
-          ${lhChoiceButton({ group: 'platform', value: 'pc', label: 'PC', sub: t('lh.opt.pcSub'), active: platform === 'pc' })}
-          ${lhChoiceButton({ group: 'platform', value: 'mobile', label: t('lh.opt.mobile'), sub: t('lh.opt.mobileSub'), active: platform === 'mobile' })}
-        </div>
-        <h2 class="lh-q lh-q--sub">${esc(t('lh.q.price'))}</h2>
-        <div class="lh-choices lh-choices--seg" role="radiogroup" aria-label="${esc(t('lh.q.price'))}">
-          ${lhChoiceButton({ group: 'price', value: 'all', label: t('lh.opt.all'), sub: t('lh.opt.priceAllSub'), active: price === 'all' })}
-          ${lhChoiceButton({ group: 'price', value: 'free', label: t('lh.price.free'), sub: t('lh.opt.priceFreeSub'), active: price === 'free' })}
+        <h1 class="lh-q lh-cat-title" tabindex="-1">${esc(t('lh.q.category'))}</h1>
+        <p class="lh-cat-lede">${esc(t('lh.category.lede'))}</p>
+        <div class="lh-cats" role="radiogroup" aria-label="${esc(t('lh.q.category'))}">
+          ${cats
+            .map(
+              (row) => `<button type="button" class="lh-cat${active === row.id ? ' is-on' : ''}" role="radio" aria-checked="${active === row.id ? 'true' : 'false'}" data-lh-cat="${esc(row.id)}">
+              <span class="lh-cat-label">${esc(lhText(row, 'label'))}</span>
+              <span class="lh-cat-sub">${esc(lhText(row, 'sub'))}</span>
+              <span class="lh-cat-hint">${esc(lhText(row, 'hint'))}</span>
+            </button>`,
+            )
+            .join('')}
         </div>
       </div>
       <div class="lh-wizard-nav">
         <button type="button" class="text-btn" data-lh-goto="0">${esc(t('lh.home'))}</button>
-        <button type="button" class="primary-btn" data-lh-goto="2">${esc(t('lh.next'))}</button>
       </div>
     </section>`;
 }
 
-function lhStep2Html() {
-  const { tier } = state.lh.filters;
+function lhPlatformPanelHtml() {
+  const { platform, price } = state.lh.filters;
   return `
-    <section class="lh lh--wizard lh--step2">
-      ${lhStepper(2)}
-      <div class="lh-panel">
-        <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.time'))}</h1>
-        <div class="lh-choices lh-choices--tiers" role="radiogroup" aria-label="${esc(t('lh.q.time'))}">
-          ${LH_TIERS.map((n) => {
-            const meta = lhTierMeta(n);
-            return lhChoiceButton({
-              group: 'tier',
-              value: String(n),
-              label: lhText(meta, 'label'),
-              sub: lhText(meta, 'window'),
-              hint: lhText(meta, 'hint'),
-              active: tier === n,
-            });
-          }).join('')}
-        </div>
-      </div>
-      <div class="lh-wizard-nav">
-        <button type="button" class="text-btn" data-lh-goto="1">${esc(t('lh.prev'))}</button>
-        <button type="button" class="primary-btn" data-lh-goto="3">${esc(t('lh.next'))}</button>
-      </div>
-    </section>`;
+    <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.platform'))}</h1>
+    <div class="lh-choices" role="radiogroup" aria-label="${esc(t('lh.q.platform'))}">
+      ${lhChoiceButton({ group: 'platform', value: 'all', label: t('lh.opt.all'), sub: t('lh.opt.allSub'), active: platform === 'all' })}
+      ${lhChoiceButton({ group: 'platform', value: 'pc', label: 'PC', sub: t('lh.opt.pcSub'), active: platform === 'pc' })}
+      ${lhChoiceButton({ group: 'platform', value: 'mobile', label: t('lh.opt.mobile'), sub: t('lh.opt.mobileSub'), active: platform === 'mobile' })}
+    </div>
+    <h2 class="lh-q lh-q--sub">${esc(t('lh.q.price'))}</h2>
+    <div class="lh-choices lh-choices--seg" role="radiogroup" aria-label="${esc(t('lh.q.price'))}">
+      ${lhChoiceButton({ group: 'price', value: 'all', label: t('lh.opt.all'), sub: t('lh.opt.priceAllSub'), active: price === 'all' })}
+      ${lhChoiceButton({ group: 'price', value: 'free', label: t('lh.price.free'), sub: t('lh.opt.priceFreeSub'), active: price === 'free' })}
+    </div>`;
+}
+
+function lhTierPanelHtml() {
+  const { tier, category } = state.lh.filters;
+  const qKey = category === 'game' ? 'lh.q.time' : category === 'manga' ? 'lh.q.read' : category === 'anime' || category === 'movie' ? 'lh.q.watch' : 'lh.q.amount';
+  return `
+    <h1 class="lh-q" tabindex="-1">${esc(t(qKey))}</h1>
+    <div class="lh-choices lh-choices--tiers" role="radiogroup" aria-label="${esc(t(qKey))}">
+      ${LH_TIERS.map((n) => {
+        const meta = lhTierMeta(n);
+        return lhChoiceButton({
+          group: 'tier',
+          value: String(n),
+          label: lhText(meta, 'label'),
+          sub: lhText(meta, 'window'),
+          hint: lhText(meta, 'hint'),
+          active: tier === n,
+        });
+      }).join('')}
+    </div>`;
+}
+
+function lhDifficultyPanelHtml() {
+  const { difficulty, category } = state.lh.filters;
+  const isGame = category === 'game';
+  const pool = lhPoolQuests();
+  const count = pool.length;
+  const qKey = isGame ? 'lh.q.difficulty' : 'lh.q.mood';
+  const subs = isGame
+    ? ['lh.opt.diffAllSub', 'lh.opt.diffChillSub', 'lh.opt.diffNormalSub', 'lh.opt.diffHardSub']
+    : ['lh.opt.moodAllSub', 'lh.opt.moodChillSub', 'lh.opt.moodNormalSub', 'lh.opt.moodHardSub'];
+  const values = ['all', 'chill', 'normal', 'hardcore'];
+  return `
+    <p class="lh-summary">${esc(lhSummaryText())}</p>
+    <h1 class="lh-q" tabindex="-1">${esc(t(qKey))}</h1>
+    <div class="lh-choices lh-choices--diff" role="radiogroup" aria-label="${esc(t(qKey))}">
+      ${values
+        .map((value, i) =>
+          lhChoiceButton({
+            group: 'difficulty',
+            value,
+            label: value === 'all' ? t('lh.diff.all') : t(`lh.diff.${value}`),
+            sub: t(subs[i]),
+            active: difficulty === value,
+          }),
+        )
+        .join('')}
+    </div>
+    <p class="lh-count${count ? '' : ' is-empty'}" aria-live="polite">${esc(count ? t('lh.count', { n: count }) : t('lh.countZero'))}</p>
+    <button type="button" class="primary-btn lh-draw" data-lh-draw${count ? '' : ' disabled'}>${esc(t('lh.draw'))}</button>
+    ${count ? '' : `<p class="lh-hint">${esc(t(isGame ? 'lh.countZeroHint' : 'lh.countZeroHintMedia'))}</p>`}`;
 }
 
 function lhSummaryText() {
-  const { platform, price, tier } = state.lh.filters;
-  const platformLabel = platform === 'all' ? t('lh.opt.all') : platform === 'pc' ? 'PC' : t('lh.opt.mobile');
-  const priceLabel = price === 'free' ? t('lh.price.free') : t('lh.opt.priceAll');
-  return [platformLabel, priceLabel, lhText(lhTierMeta(tier), 'label')].join(' · ');
+  const { category, platform, price, tier } = state.lh.filters;
+  const parts = [];
+  if (category === 'game') {
+    parts.push(platform === 'all' ? t('lh.opt.all') : platform === 'pc' ? 'PC' : t('lh.opt.mobile'));
+    parts.push(price === 'free' ? t('lh.price.free') : t('lh.opt.priceAll'));
+  } else {
+    const meta = lhCategoryMeta(category);
+    if (meta) parts.push(lhText(meta, 'label'));
+  }
+  const tierMeta = lhTierMeta(tier);
+  if (tierMeta) parts.push(lhText(tierMeta, 'label'));
+  return parts.filter(Boolean).join(' · ');
 }
 
-function lhStep3Html() {
-  const { difficulty } = state.lh.filters;
-  const pool = lhPoolQuests();
-  const count = pool.length;
+/** 조건 화면 — 분야에 따라 1(플랫폼·가격 또는 시간) → 2(시간 또는 난이도) → 3(난이도). */
+function lhWizardStepHtml(index) {
+  const flow = lhFlow();
+  const kind = flow[index - 1];
+  const total = flow.length;
+  const panel = kind === 'platform' ? lhPlatformPanelHtml() : kind === 'time' ? lhTierPanelHtml() : lhDifficultyPanelHtml();
+  const back = index === 1
+    ? `<button type="button" class="text-btn" data-lh-goto="category">${esc(t('lh.backCategory'))}</button>`
+    : `<button type="button" class="text-btn" data-lh-goto="${index - 1}">${esc(t('lh.prev'))}</button>`;
+  const next = index < total
+    ? `<button type="button" class="primary-btn" data-lh-goto="${index + 1}">${esc(t('lh.next'))}</button>`
+    : '';
   return `
-    <section class="lh lh--wizard lh--step3">
-      ${lhStepper(3)}
-      <div class="lh-panel">
-        <p class="lh-summary">${esc(lhSummaryText())}</p>
-        <h1 class="lh-q" tabindex="-1">${esc(t('lh.q.difficulty'))}</h1>
-        <div class="lh-choices lh-choices--diff" role="radiogroup" aria-label="${esc(t('lh.q.difficulty'))}">
-          ${lhChoiceButton({ group: 'difficulty', value: 'all', label: t('lh.diff.all'), sub: t('lh.opt.diffAllSub'), active: difficulty === 'all' })}
-          ${lhChoiceButton({ group: 'difficulty', value: 'chill', label: t('lh.diff.chill'), sub: t('lh.opt.diffChillSub'), active: difficulty === 'chill' })}
-          ${lhChoiceButton({ group: 'difficulty', value: 'normal', label: t('lh.diff.normal'), sub: t('lh.opt.diffNormalSub'), active: difficulty === 'normal' })}
-          ${lhChoiceButton({ group: 'difficulty', value: 'hardcore', label: t('lh.diff.hardcore'), sub: t('lh.opt.diffHardSub'), active: difficulty === 'hardcore' })}
-        </div>
-        <p class="lh-count${count ? '' : ' is-empty'}" aria-live="polite">${esc(count ? t('lh.count', { n: count }) : t('lh.countZero'))}</p>
-        <button type="button" class="primary-btn lh-draw" data-lh-draw${count ? '' : ' disabled'}>${esc(t('lh.draw'))}</button>
-        ${count ? '' : `<p class="lh-hint">${esc(t('lh.countZeroHint'))}</p>`}
-      </div>
-      <div class="lh-wizard-nav">
-        <button type="button" class="text-btn" data-lh-goto="2">${esc(t('lh.prev'))}</button>
-      </div>
+    <section class="lh lh--wizard lh--step${index} lh--flow-${esc(kind)}">
+      ${lhStepper(index)}
+      <div class="lh-panel">${panel}</div>
+      <div class="lh-wizard-nav">${back}${next}</div>
     </section>`;
 }
 
@@ -3143,36 +3281,44 @@ function lhResultHtml() {
     return `<section class="lh lh--wizard"><div class="lh-empty"><span class="lh-empty-glyph" aria-hidden="true">🚨</span><h1>${esc(t('lh.toast.noData'))}</h1></div></section>`;
   }
   if (!current) return '';
-  const game = lhGameById(current.game_id);
-  const rec = recordById(current.game_id);
-  if (!game || !rec) return '';
-  const quest = lhQuestOf(game, current.tier, current.difficulty);
+  const entry = lhEntryById(current.item_id);
+  const rec = recordById(current.item_id);
+  if (!entry || !rec) return '';
+  const quest = lhQuestOf(entry, current.tier, current.difficulty);
   if (!quest) return '';
+  const isGame = entry.category === 'game';
   const verdict = engine.VERDICT_META[rec.verdict] || engine.VERDICT_META.conditional;
   const scoreText = typeof rec.score === 'number' ? rec.score.toFixed(1) : '—';
-  const platformLabel = game.platforms.map((p) => (p === 'pc' ? 'PC' : t('lh.opt.mobile'))).join(' · ');
+  const statusChip = isGame
+    ? (entry.free_to_play ? t('lh.badge.free') : t('lh.badge.paid'))
+    : lhMediaStatusChip(rec);
+  const platformChip = isGame
+    ? `<span class="lh-chip">${esc(entry.platforms.map((p) => (p === 'pc' ? 'PC' : t('lh.opt.mobile'))).join(' · '))}</span>`
+    : '';
+  const catLabel = state.cat.categoryLabel(rec.category);
   return `
     <section class="lh lh--result">
       <p class="lh-result-kicker">${esc(t('lh.inprogress'))}</p>
-      <article class="lh-card" data-lh-game="${esc(game.game_id)}" data-lh-difficulty="${esc(quest.difficulty)}">
+      <article class="lh-card" data-lh-game="${esc(entry.id)}" data-lh-item="${esc(entry.id)}" data-lh-category-view="${esc(entry.category)}" data-lh-difficulty="${esc(quest.difficulty)}">
         <div class="lh-card-top">
           ${iconHtml(rec, 'detail')}
           <div class="lh-card-id">
             <div class="lh-card-chips">
-              <span class="lh-chip">${esc(game.free_to_play ? t('lh.badge.free') : t('lh.badge.paid'))}</span>
-              <span class="lh-chip">${esc(platformLabel)}</span>
+              ${lhCategoryBadge(entry.category)}
+              <span class="lh-chip">${esc(statusChip)}</span>
+              ${platformChip}
               <span class="verdict verdict--${verdict.tone}"><span class="v-emoji" aria-hidden="true">${verdict.emoji}</span>${esc(verdict.label)}</span>
               <span class="lh-score">${esc(t('lh.score', { score: scoreText }))}</span>
             </div>
             <h1 class="lh-game-name">${esc(rec.name)}</h1>
-            <p class="lh-game-meta">${esc(state.cat.categoryLabel(rec.category))}${rec.developer ? ` · ${esc(rec.developer)}` : ''}</p>
+            <p class="lh-game-meta">${esc(catLabel)}${rec.developer ? ` · ${esc(rec.developer)}` : ''}</p>
           </div>
         </div>
-        ${lhQuestHtml(game, quest)}
+        ${lhQuestHtml(entry, quest)}
         <div class="lh-actions">
           <button type="button" class="primary-btn" data-lh-complete>${esc(t('lh.complete'))}</button>
           <button type="button" class="ghost-btn" data-lh-ad>${esc(t('lh.adSkip'))}</button>
-          <button type="button" class="text-btn" data-lh-detail="${esc(game.game_id)}">${esc(t('lh.detail'))} →</button>
+          <button type="button" class="text-btn" data-lh-detail="${esc(entry.id)}">${esc(isGame ? t('lh.detail') : t('lh.detailMedia'))} →</button>
         </div>
         <p class="lh-locked">${esc(t('lh.lockedNote'))}</p>
       </article>
@@ -3189,9 +3335,8 @@ function renderLighthouse() {
   }
   if (step === 0) wrap.innerHTML = lhLandingHtml();
   else if (step === LH_PLEDGE) wrap.innerHTML = lhPledgeHtml();
-  else if (step === 1) wrap.innerHTML = lhStep1Html();
-  else if (step === 2) wrap.innerHTML = lhStep2Html();
-  else if (step === 3) wrap.innerHTML = lhStep3Html();
+  else if (step === LH_CATEGORY) wrap.innerHTML = lhCategoryHtml();
+  else if (step >= 1 && step <= lhStepTotal()) wrap.innerHTML = lhWizardStepHtml(step);
   else wrap.innerHTML = lhResultHtml();
 }
 
@@ -3355,11 +3500,16 @@ function bindEvents() {
 async function onClick(event) {
   const target = event.target;
 
-  // 등대 — 위저드 단계 이동·조건 선택·추첨·완료·광고 슬롯·상세 열기
+  // 등대 — 위저드 단계 이동·분야 선택·조건 선택·추첨·완료·광고 슬롯·상세 열기
   const lhGoto = target.closest('[data-lh-goto]');
   if (lhGoto) {
     const to = lhGoto.dataset.lhGoto;
-    lhSetStep(to === LH_PLEDGE ? LH_PLEDGE : Number(to));
+    lhSetStep(to === LH_PLEDGE || to === LH_CATEGORY ? to : Number(to));
+    return;
+  }
+  const lhCat = target.closest('[data-lh-cat]');
+  if (lhCat) {
+    lhPick('category', lhCat.dataset.lhCat);
     return;
   }
   const lhOath = target.closest('[data-lh-oath]');
@@ -3369,7 +3519,7 @@ async function onClick(event) {
       document.querySelector('[data-lh-oath-check]')?.focus?.({ preventScroll: true });
       return;
     }
-    lhSetStep(1);
+    lhSetStep(LH_CATEGORY);
     return;
   }
   const lhPickBtn = target.closest('[data-lh-pick]');

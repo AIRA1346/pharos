@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""파로스 v26 미디어 도메인 스모크 — 영화 · 애니 · 만화 90종.
+"""파로스 v26/v27 미디어 도메인 스모크 — 영화 · 애니 · 만화 (데이터에서 건수를 읽는다).
+
+v27(2차 대량 적재)부터 **기대 건수를 데이터에서 읽는다** — 화면이 카탈로그·비교군 파일과
+같은 수를 보여 주는지 확인하므로, 작품이 늘어도 이 스크립트는 낡지 않는다.
+지금 값은 미디어 300종(비교군 3 × 100종).
 
 무엇을 확인하는가
   1) 도메인 — 상단 탭에 `영화 · 애니 · 만화` 가 있고, 도메인 화면이 3개 대분류 · 90건을 보여 준다.
@@ -22,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import json
 import http.server
 import os
 import re
@@ -48,6 +53,14 @@ WEB_ROOT = ROOT / "web"
 LIVE = "https://aira1346.github.io/pharos/"
 KOREAN = re.compile(r"[\uac00-\ud7a3]")
 RESULTS: list[tuple[str, bool, str]] = []
+
+# 기대 건수는 데이터에서 읽는다(스크립트에 숫자를 박지 않는다).
+_CATALOG = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+ARENA_COUNTS = {
+    a["id"]: len(json.loads((ROOT / "data" / a["data_file"]).read_text(encoding="utf-8")))
+    for a in _CATALOG["arenas"] if a.get("domain") == "media"
+}
+MEDIA_TOTAL = sum(ARENA_COUNTS.values())
 
 CHROME_CANDIDATES = [
     os.environ.get("PHAROS_CHROME", ""),
@@ -119,7 +132,8 @@ def main() -> int:
         tabs = page.locator("#domainTabs button").all_inner_texts()
         expect(any("영화 · 애니 · 만화" in tab for tab in tabs), "상단 탭에 영화 · 애니 · 만화가 있다", tabs)
         h1 = page.locator("h1").first.inner_text()
-        expect("90건" in h1, "도메인 화면이 90건을 보여 준다", h1)
+        expect(f"{MEDIA_TOTAL}건" in h1, f"도메인 화면이 {MEDIA_TOTAL}건을 보여 준다", h1)
+        expect(MEDIA_TOTAL >= 300, "미디어 도메인이 300종을 넘었다", MEDIA_TOTAL)
         cats = page.locator(".level-badges .chip").all_inner_texts()
         expect(sum(1 for c in cats if re.search(r"\n?\s*1$", c.strip())) >= 3 or len(cats) >= 3,
                "도메인 화면에 대분류 3개가 있다", cats[:6])
@@ -131,9 +145,9 @@ def main() -> int:
 
         # 2) 비교군 카드 30장 · 아이콘 로드
         for arena, label, expected in (
-            ("anime-tv", "TV · 극장 애니메이션", 30),
-            ("manga-volumes", "만화 · 단행본", 30),
-            ("feature-films", "실사 영화", 30),
+            ("anime-tv", "TV · 극장 애니메이션", ARENA_COUNTS["anime-tv"]),
+            ("manga-volumes", "만화 · 단행본", ARENA_COUNTS["manga-volumes"]),
+            ("feature-films", "실사 영화", ARENA_COUNTS["feature-films"]),
         ):
             page.goto(f"{base}?domain=media&arena={arena}", wait_until="networkidle")
             page.wait_for_timeout(1200)

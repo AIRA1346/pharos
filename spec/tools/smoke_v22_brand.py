@@ -315,7 +315,10 @@ def main() -> int:
             page.wait_for_timeout(150)
             page.click("[data-lh-oath]")
             page.wait_for_timeout(400)
-            r(page.query_selector(".lh--step1") is not None, "회귀: 서약 뒤 Step 1 진입", "")
+            r(page.query_selector(".lh--category") is not None, "회귀: 서약 뒤 분야 선택 진입", "")
+            page.click("[data-lh-cat='game']")
+            page.wait_for_timeout(400)
+            r(page.query_selector(".lh--step1") is not None, "회귀: 분야 선택 뒤 Step 1 진입", "")
             ctx.close()
             browser.close()
     finally:

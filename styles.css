@@ -3437,6 +3437,67 @@ html[data-theme="light"] .lh-pledge-rune img {
 .lh-choice-hint { font-size: 11px; line-height: 1.4; color: var(--ink-2); }
 .lh-choices--tiers .lh-choice { justify-items: start; text-align: left; padding: 16px 18px; }
 
+/* 분야 선택 — 다섯 장의 카드(게임 · 애니 · 영화 · 만화 · 전체 랜덤) */
+.lh-cat-lede {
+  margin: -6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.lh-cats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.lh-cat {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  justify-items: start;
+  text-align: left;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  min-width: 0;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.lh-cat:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+.lh-cat:focus-visible { outline: 2px solid var(--beam); outline-offset: 2px; }
+.lh-cat.is-on {
+  border-color: var(--beam);
+  background: var(--beam-soft);
+  box-shadow: inset 0 0 0 1px var(--beam);
+}
+.lh-cat-label { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.lh-cat-sub { font-size: 11.5px; color: var(--muted); }
+.lh-cat-hint { font-size: 11px; line-height: 1.4; color: var(--ink-2); }
+.lh-cats .lh-cat:last-child { grid-column: 1 / -1; }
+
+/* 결과 카드의 분야 배지 */
+.lh-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.lh-cat-badge--game { border-color: var(--sea); background: var(--sea-soft); color: var(--sea); }
+.lh-cat-badge--anime { border-color: var(--beam); background: var(--beam-soft); color: var(--beam); }
+.lh-cat-badge--movie { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+.lh-cat-badge--manga { border-color: var(--green); background: var(--green-soft); color: var(--green); }
+
+
 .lh-wizard-nav {
   display: flex;
   align-items: center;
@@ -3494,6 +3555,10 @@ html[data-theme="light"] .lh-pledge-rune img {
   .lh-start { width: 100%; max-width: 320px; padding: 15px 20px; }
   .lh-choices--diff { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lh-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .lh-cats { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .lh-cat { padding: 13px 14px; }
+  .lh-cat-label { font-size: 15px; }
+  .lh-cat-hint { font-size: 10.5px; }
   .lh-choice { padding: 12px 6px; }
   .lh-choice-label { font-size: 13.5px; }
   .lh-choice-sub { font-size: 10.5px; }

@@ -3,7 +3,7 @@
 
 무엇을 확인하는가
   1) Step 0 심플 랜딩 — 히어로·통계·필터·빈 점선 박스·완료 기록 없이 카피와 `🚨 목표 탐색` 하나
-  2) 위저드 전체 흐름 Step 1(플랫폼·가격) → 2(소요 시간·카드 선택은 하이라이트만, `다음` 으로 이동)
+  2) 위저드 전체 흐름 — 서약 → 분야 선택(🎮 게임) → Step 1(플랫폼·가격) → 2(소요 시간·카드 선택은 하이라이트만, `다음` 으로 이동)
      → 3(난이도·후보 수) → 4(목표 카드)
   3) 난이도 필터(chill·normal·hardcore)가 후보 수와 실제 발급 게임을 바꾼다
   4) 새로고침 잠금 유지 · 5초 광고 건너뛰기 · 완료 기록 누적
@@ -113,14 +113,17 @@ def checked(page, group: str) -> str:
     return el.get_attribute("data-lh-value") if el else ""
 
 
-def enter_wizard(page, label: str = "서약") -> None:
-    """랜딩 `목표 탐색` → 항해 서약(체크 + `서약하고 나아가기`) → Step 1."""
+def enter_wizard(page, label: str = "서약", category: str = "game") -> None:
+    """랜딩 `목표 탐색` → 항해 서약(체크 + `서약하고 나아가기`) → 분야 선택 → Step 1."""
     page.click("[data-lh-goto='pledge']")
     page.wait_for_timeout(400)
     expect(page.is_visible(".lh--pledge"), f"{label}: 목표 탐색 직후 항해 서약 화면", "")
     page.click(".lh-pledge-check")
     page.wait_for_timeout(150)
     page.click("[data-lh-oath]")
+    page.wait_for_timeout(400)
+    expect(page.is_visible(".lh--category"), f"{label}: 서약 뒤 분야 선택 화면", "")
+    page.click(f"[data-lh-cat='{category}']")
     page.wait_for_timeout(400)
 
 
@@ -313,7 +316,7 @@ def main() -> int:
         expect(checked(page, "platform") == "all" and checked(page, "price") == "all",
                "Step 1: 기본 선택 = 전체 / 전체", f"{checked(page, 'platform')}/{checked(page, 'price')}")
         nav1 = page.inner_text(".lh-wizard-nav").replace("\n", " ")
-        expect("처음으로" in nav1 and "다음" in nav1, "Step 1: `← 처음으로` / `다음 →` 버튼", nav1)
+        expect("분야 선택" in nav1 and "다음" in nav1, "Step 1: `← 분야 선택` / `다음 →` 버튼", nav1)
 
         page.click("[data-lh-pick='platform'][data-lh-value='pc']")
         page.wait_for_timeout(200)
@@ -461,7 +464,7 @@ def main() -> int:
 
         # 7) 모바일+무료+매운맛 조합 (딥링크 파라미터)
         mctx, mp = pages.open()
-        mp.goto(base + "?domain=lighthouse&lh_platform=mobile&lh_price=free&lh_diff=hardcore&lh_tier=3",
+        mp.goto(base + "?domain=lighthouse&lh_cat=game&lh_platform=mobile&lh_price=free&lh_diff=hardcore&lh_tier=3",
                 wait_until="networkidle")
         mp.wait_for_timeout(600)
         enter_wizard(mp, "서약(딥링크)")
@@ -539,6 +542,10 @@ def main() -> int:
         en.wait_for_timeout(150)
         en.click("[data-lh-oath]")
         en.wait_for_timeout(400)
+        expect(en.is_visible(".lh--category"), "EN: 분야 선택 화면", "")
+        expect(not korean_left(en), "EN: 분야 선택 한글 0건", str(korean_left(en)[:3]))
+        en.click("[data-lh-cat='game']")
+        en.wait_for_timeout(400)
         expect(not korean_left(en), "EN: Step 1 한글 0건", str(korean_left(en)[:3]))
         en.click(".lh-wizard-nav [data-lh-goto='2']")
         en.wait_for_timeout(300)
@@ -584,6 +591,10 @@ def main() -> int:
         mobile.click(".lh-pledge-check")
         mobile.wait_for_timeout(150)
         mobile.click("[data-lh-oath]")
+        mobile.wait_for_timeout(400)
+        expect(mobile.is_visible(".lh--category"), "390px: 분야 선택 화면", "")
+        expect(overflow(mobile) == 0, "390px 분야 선택 가로 넘침 0", str(overflow(mobile)))
+        mobile.click("[data-lh-cat='game']")
         mobile.wait_for_timeout(400)
         expect(overflow(mobile) == 0, "390px Step 1 가로 넘침 0", str(overflow(mobile)))
         mobile.click(".lh-wizard-nav [data-lh-goto='2']")
