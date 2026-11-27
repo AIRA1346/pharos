@@ -1360,7 +1360,7 @@ async function renderCompare(seq) {
         return chips.length ? chips.join('') : `<span class="muted">${esc(t('compare.none'))}</span>`;
       },
     },
-    { id: 'stars', label: state.route.domain === 'media' ? t('compare.row.stars.score') : t('compare.row.stars'), num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
+    { id: 'stars', label: compareStarsLabel(views), num: (v) => storeStarsValue(v.item), render: (v) => storeStarsText(v.item) },
     { id: 'recent', label: t('compare.row.recent'), render: (v) => recentReviewText(v.item) },
     { id: 'life', label: t('compare.row.life'), render: (v) => esc(engine.MAINTENANCE_STATUS_META[v.item.maintenance_status]?.label || v.item.maintenance_status) },
     { id: 'freshness', label: t('compare.row.freshness'), render: (v) => {
@@ -1463,6 +1463,14 @@ function storeStarsLabel(item) {
     return hundred.length ? t('compare.row.stars.score') : t('compare.row.stars');
   }
   return STORE_PLATFORMS.includes(stars.platform) ? t('stars.store') : t('stars.aggregate');
+}
+
+/** 비교 표의 누적 평점 행 이름 — 비교 대상 중 5점 척도 표본이 없으면(미디어 도메인) 100점 척도로 부른다. */
+function compareStarsLabel(views) {
+  const hasStars = (views || []).some((v) =>
+    (v.item?.review_snapshot?.platforms || []).some((row) => row.cumulative?.scale === 'stars5'),
+  );
+  return hasStars ? t('compare.row.stars') : t('compare.row.stars.score');
 }
 
 function storeStarsText(item) {
