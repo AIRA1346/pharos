@@ -58,6 +58,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(ROOT / "schema"))
 
 import auto_collect as ac  # noqa: E402 — 수집 도우미·아이콘 저장기를 그대로 재사용한다
+import encyclopedia as enc  # noqa: E402 — 사전(encyclopedia) 자동 블록
 import scale_rules as srules  # noqa: E402 — v0.6.0 표본 규모 보정 규칙(기준표 2.1.1)
 import validate as vlib    # noqa: E402 — 판정 규칙을 검증기와 한 곳에서 쓴다
 
@@ -543,6 +544,10 @@ def fetch_steam(app_id: int) -> dict:
         "is_free": bool(primary.get("is_free")),
         "genres_ko": [g.get("description") for g in (dk.get("genres") or primary.get("genres") or [])],
         "genres_en": [g.get("description") for g in (du.get("genres") or primary.get("genres") or [])],
+        "categories_en": [c.get("description") for c in (du.get("categories") or dk.get("categories") or [])],
+        "languages_en": [re.sub(r"<[^>]+>", "", part).strip()
+                         for part in (primary.get("supported_languages") or "").split(",")],
+        "website": primary.get("website"),
         "platforms": [k for k, v in (primary.get("platforms") or {}).items() if v],
         "short_ko": dk.get("short_description") or primary.get("short_description"),
         "short_en": du.get("short_description") or primary.get("short_description"),
@@ -1178,6 +1183,84 @@ def add_source(f: dict, sid: str, title: str, url: str, stype: str, grade: str,
                          "title_en": title_en or title})
 
 
+def auto_encyclopedia(item: dict, f: dict, raw: dict, entry: dict, arena: dict) -> tuple[dict, dict]:
+    """수집 사실만으로 기본 사전 블록을 만든다(수치를 지어내지 않는다).
+
+    제원: 플랫폼 · 한국어(Steam 언어 목록) · 플레이 방식 · 모드(Steam 분류) · 가격 · 평가 ·
+          최근 업데이트 · 라이선스(GitHub) — 확인된 것만 넣고 최소 3개를 못 채우면 ValueError.
+    """
+    domain = item["domain"]
+    steam = raw.get("steam") or {}
+    gh = raw.get("github") or {}
+    tier = (f.get("tiers") or [{}])[0]
+    kind_ko = {"free": "무료", "freemium": "무료 + 유료", "demo": "체험판", "one_time": "1회 구매",
+               "subscription": "구독", "license": "라이선스", "consumable": "소모품 과금"}.get(tier.get("kind"), tier.get("kind") or "")
+    kind_en = {"free": "Free", "freemium": "Free + paid tiers", "demo": "Demo", "one_time": "One-time purchase",
+               "subscription": "Subscription", "license": "License", "consumable": "Consumable purchases"}.get(tier.get("kind"), tier.get("kind") or "")
+    langs = [x for x in (steam.get("languages_en") or []) if x]
+    korean = ("지원" if any("Korean" in x for x in langs) else "미지원") if langs else None
+    cats = [c for c in (steam.get("categories_en") or []) if c]
+    modes = [c for c in cats if c in ("Single-player", "Multi-player", "Online PvP", "PvP", "Online Co-op", "Co-op",
+                                      "Shared/Split Screen Co-op", "Shared/Split Screen", "MMO", "Cross-Platform Multiplayer")]
+    license_id = gh.get("license") or ""
+    facts = [
+        enc.fact("플랫폼", "Platforms", enc.platform_list(item["platforms"], lambda p: enc.PLATFORM_KO.get(p, p)),
+                 enc.platform_list(item["platforms"], lambda p: enc.PLATFORM_EN.get(p, p))),
+        enc.fact("한국어", "Korean", korean or "", "Supported" if korean == "지원" else ("Not supported" if korean else ""),
+                 "Steam 표시 언어 목록", "Steam supported languages") if korean else None,
+        enc.fact("플레이 방식", "How it plays", " · ".join(f["genres_ko"][:3]) or arena["label"],
+                 " · ".join(f["genres_en"][:3]) or arena.get("label_en", arena["label"])),
+        enc.fact("모드", "Modes", " · ".join(modes), " · ".join(modes), "Steam 상점 분류", "Steam store categories") if modes else None,
+        enc.fact("가격", "Price", f"{tier.get('price_display_ko') or tier.get('price', {}).get('display') or '미표기'}"
+                 + (f" ({kind_ko})" if kind_ko else ""),
+                 f"{tier.get('price_display_en') or tier.get('price', {}).get('display') or 'not listed'}"
+                 + (f" ({kind_en})" if kind_en else "")),
+        enc.fact("평가", "Rating", " · ".join(f.get("rating_lines_ko") or []) or "표본 없음",
+                 " · ".join(f.get("rating_lines_en") or []) or "no sample"),
+        enc.fact("최근 업데이트", "Latest update", f.get("last_update") or "기록 없음",
+                 f.get("last_update") or "no record", "수집 시점 스토어·저장소 표기", "As listed when collected"),
+        enc.fact("라이선스", "License", license_id or "", license_id, "GitHub 저장소", "GitHub repository") if license_id else None,
+        enc.fact("출시", "Released", item.get("release_date") or "미표기", item.get("release_date") or "not listed") if item.get("release_date") else None,
+    ]
+    facts = [row for row in facts if row]
+
+    name_ko, name_en = item["name"], entry.get("en") or item["name"]
+    head_ko, head_en = enc.summary_line(domain, name_ko=name_ko, name_en=name_en,
+                                        developer_ko=item["developer"], developer_en=item["developer"],
+                                        release=item.get("release_date"),
+                                        genres_ko=item["genres"], genres_en=f.get("genres_en") or item["genres"])
+    rating_ko = " · ".join(f.get("rating_lines_ko") or []) or "공개 표본 없음"
+    rating_en = " · ".join(f.get("rating_lines_en") or []) or "no public sample"
+    summary_ko = f"{head_ko} {item['one_liner']} 평가 표본은 {rating_ko}"
+    summary_en = f"{head_en} {f.get('one_liner_en') or item['one_liner']} Rating sample: {rating_en}."
+
+    high_ko, high_en = [], []
+    if korean:
+        high_ko.append(f"한국어 {korean} — Steam 표시 언어 목록 기준.")
+        high_en.append(f"Korean: {'supported' if korean == '지원' else 'not supported'} in Steam's language list.")
+    if modes:
+        high_ko.append(f"Steam 분류: {' · '.join(modes)}.")
+        high_en.append(f"Steam categories: {', '.join(modes)}.")
+    if f.get("rating_lines_ko"):
+        high_ko.append(f"공개 평가 {rating_ko}.")
+        high_en.append(f"Public ratings: {rating_en}.")
+    high_ko.append(f"가격은 {tier.get('price_display_ko') or tier.get('price', {}).get('display') or '미표기'}"
+                   f"{' (' + kind_ko + ')' if kind_ko else ''}.")
+    high_en.append(f"Price: {tier.get('price_display_en') or tier.get('price', {}).get('display') or 'not listed'}"
+                   f"{' (' + kind_en + ')' if kind_en else ''}.")
+    if f.get("last_update"):
+        high_ko.append(f"최근 업데이트 {f['last_update']}.")
+        high_en.append(f"Latest update {f['last_update']}.")
+
+    links = []
+    if steam.get("website"):
+        links.append(enc.link("공식 홈페이지", "Official site", steam["website"]))
+    if gh.get("url"):
+        links.append(enc.link("공식 저장소", "Official repository", gh["url"]))
+    return enc.compose(summary_ko=summary_ko, summary_en=summary_en, facts=facts,
+                       highlights_ko=high_ko, highlights_en=high_en, official_links=links)
+
+
 def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, dict, dict]:
     """수집 원본 → (한국어 item, 영어 오버레이, 아이콘 후보)."""
     f = build_facts(entry, raw, arena)
@@ -1318,7 +1401,8 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
                 "summary": (f"자동 수집: {rating_ko} — 표본 가중 평균 {f['rating100']}{scale_brief_ko}."
                             if f["rating100"] is not None
                             else "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외)."),
-                "scale_adjustment": scale,
+                # 표본이 없어 사용자 축을 비운 항목에는 규모 보정 기록을 붙이지 않는다(v0.6.0 계약).
+                **({"scale_adjustment": scale} if user_score is not None else {}),
                 "source_ids": [s["id"] for s in f["sources"] if s["type"] in ("store", "aggregator")],
             },
             "objective": {
@@ -1530,6 +1614,14 @@ def build_item(entry: dict, arena: dict, meta: dict, raw: dict) -> tuple[dict, d
         icon = {"url": f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{steam['app_id']}/library_600x900.jpg",
                 "provider": "Steam 공식 라이브러리 캡슐 아트", "crop": "center", "note": "300×450 원본에서 정사각 크롭",
                 "fallback_url": steam.get("header_image")}
+
+    # ── 사전(encyclopedia) — 수집한 사실만으로 기본 블록을 만든다. 대표작은 backfill 이 문장을 덮어쓴다.
+    try:
+        enc_ko, enc_en = auto_encyclopedia(item, f, raw, entry, arena)
+        item["encyclopedia"] = enc_ko
+        en["encyclopedia"] = enc_en
+    except ValueError:
+        pass  # 재원 3개를 채울 수 없는 항목(주로 표본 없는 GitHub 도구)은 사전 없이 둔다 — UI 폴백 뷰가 보여 준다.
     return _strip_en(item), en, icon
 
 
@@ -1892,6 +1984,13 @@ def main() -> int:
         "icons": {"saved": sum(1 for r in icons if r.get("ok") and not r.get("skipped")),
                   "skipped": sum(1 for r in icons if r.get("skipped")),
                   "failed": [r for r in icons if not r.get("ok")]},
+        "encyclopedia": {
+            "items": sum(1 for _iid, (ko, _en, _ic) in built.items() if ko.get("encyclopedia")),
+            "facts": sum(len((ko.get("encyclopedia") or {}).get("key_facts") or [])
+                         for ko, _en, _ic in built.values()),
+            "highlights": sum(len((ko.get("encyclopedia") or {}).get("highlights") or [])
+                              for ko, _en, _ic in built.values()),
+        },
         "arenas": written,
         "verdicts": {},
     }
@@ -1907,7 +2006,8 @@ def main() -> int:
     print(f"결과: {ok}/{len(items)}종 생성 · 실패 {len(failures)} · 중복 스킵 {len(skipped)} · 총 {total_s}s "
           f"(수집 {collect_s}s · 조립 {build_s}s · 아이콘 {icon_s}s · 항목당 {summary['timing']['seconds_per_item']}s)")
     print(f"HTTP {summary['http_requests']}회 · 캐시 {summary['http_cache_hits']}회 · "
-          f"아이콘 저장 {summary['icons']['saved']}건")
+          f"아이콘 저장 {summary['icons']['saved']}건 · "
+          f"사전 {summary['encyclopedia']['items']}/{ok}종(제원 {summary['encyclopedia']['facts']})")
     print(f"로그: {Path(os.path.relpath(log_path, ROOT.parent.parent))}")
     print("=" * 80)
     if failures:

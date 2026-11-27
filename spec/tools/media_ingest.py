@@ -55,6 +55,7 @@ from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]          # projects/pharos
 sys.path.insert(0, str(ROOT / "schema"))
+import encyclopedia as enc  # noqa: E402 — 사전(encyclopedia) 자동 블록
 import validate as vlib  # noqa: E402 — 판정·표본 보정 규칙을 검증기와 한 곳에서 쓴다
 
 DATA = ROOT / "data"
@@ -750,6 +751,43 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         "flags": en_flags,
         "sources": [{"title": src_title, "note": src_note_en}],
     }
+
+    # ---------- 사전(encyclopedia) — 수집한 사실만으로 기본 블록(대표작은 backfill 이 문장을 덮어쓴다)
+    kind_ko = {"anime": "애니메이션", "manga": "만화", "movie": "영화"}[kind]
+    kind_en = {"anime": "animated work", "manga": "manga", "movie": "film"}[kind]
+    path_ko = " · ".join(enc.PLATFORM_KO.get(p, p) for p in platforms)
+    path_en = " · ".join(enc.PLATFORM_EN.get(p, p) for p in platforms)
+    head_ko, head_en = enc.summary_line("media", name_ko=item["name"], name_en=title_en + suffix_en,
+                                        developer_ko=credit_ko, developer_en=credit_en,
+                                        release=release, genres_ko=item["genres"], genres_en=en_genres)
+    enc_facts = [
+        enc.fact("제작", "Created by", credit_ko or "미상", credit_en or "not listed",
+                 "감독·작가·스튜디오 표기" if kind != "movie" else "감독 표기",
+                 "Director, author or studio as listed" if kind != "movie" else "Director as listed"),
+        enc.fact("분량", "Format", fmt_ko, fmt_en),
+        enc.fact("방영·출간", "Release", f"{release or '미상'} · {life_ko}", f"{release or 'not listed'} · {life_en}"),
+        enc.fact("평점", "Rating", f"{src_label} {score_txt} · 채점 {sample:,}건",
+                 f"{src_label} {score_txt} · {sample:,} ratings"),
+        enc.fact("장르", "Genres", " · ".join(item["genres"][:3]), " · ".join(en_genres[:3])),
+        enc.fact("감상 경로", "Where it runs", path_ko, path_en),
+    ]
+    enc_facts = [row for row in enc_facts if row]
+    enc_high_ko = [f"{fmt_ko} · {life_ko}.",
+                   f"{src_label} {score_txt}, 채점 {sample:,}건.",
+                   f"{path_ko}로 볼 수 있는 {kind_ko}."]
+    enc_high_en = [f"{fmt_en}; {life_en}.",
+                   f"{score_txt} on {src_label} across {sample:,} ratings.",
+                   f"A {kind_en} available via {path_en}."]
+    if item["genres"]:
+        enc_high_ko.append(f"장르: {' · '.join(item['genres'][:3])}.")
+        enc_high_en.append(f"Genres: {', '.join(en_genres[:3])}.")
+    enc_links = [enc.link(f"{src_label} 작품 페이지", f"{src_label} page", src_url)]
+    try:
+        item["encyclopedia"], en["encyclopedia"] = enc.compose(
+            summary_ko=f"{head_ko} {hook['ko']}", summary_en=f"{head_en} {hook['en']}",
+            facts=enc_facts, highlights_ko=enc_high_ko, highlights_en=enc_high_en, official_links=enc_links)
+    except ValueError:
+        pass
     return item, en
 
 
@@ -950,6 +988,7 @@ def main() -> int:
     ap.add_argument("--hooks", default=str(DRAFT / "hooks.json"), help="한 줄 소개·작가")
     ap.add_argument("--merge", action="store_true", help="이미 적재된 항목은 그대로 두고 새 항목만 더한다")
     ap.add_argument("--icons-only", action="store_true", help="스펙의 포스터 아이콘만 만든다(기록 없음)")
+    ap.add_argument("--dry-run", action="store_true", help="아무것도 쓰지 않고 빌드·스키마만 확인")
     args = ap.parse_args()
 
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
@@ -1048,7 +1087,7 @@ def main() -> int:
         by_type[w["type"]].append((item, en))
         en_items[w["id"]] = en
         icon_path = WEB / "assets" / "icons" / f"{w['id']}.webp"
-        if not args.no_icon and not icon_path.exists():
+        if not args.no_icon and not args.dry_run and not icon_path.exists():
             poster = ((media or {}).get("coverImage") or {}).get("extraLarge") if media else (film or {}).get("image")
             if not poster:
                 print(f"  ! {w['id']}: 포스터 URL 없음")
@@ -1062,8 +1101,11 @@ def main() -> int:
                 print(f"  ! {w['id']}: 포스터 실패 {exc}")
 
     # 파일 기록 — merge 면 기존 항목 앞에 그대로 두고 새 항목을 뒤에 붙인다.
+    if args.dry_run:
+        enc_count = sum(1 for rows in by_type.values() for item, _en in rows if item.get("encyclopedia"))
+        print(f"(dry-run — 기록 없음) 빌드 {sum(len(r) for r in by_type.values())}종 · 사전 {enc_count}종")
     for kind, rows in by_type.items():
-        if not rows:
+        if not rows or args.dry_run:
             continue
         keep = existing_by_kind[kind] if args.merge else []
         merged = list(keep) + [item for item, _en in rows]
@@ -1076,14 +1118,16 @@ def main() -> int:
         print(f"→ {path.relative_to(ROOT)} · {len(merged)}건 (신규 {len(rows)}) · {verdicts}")
 
     update_catalog(catalog)
-    (DATA / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"→ data/catalog.json (도메인 {len(catalog['domains'])} · 대분류 {len(catalog['categories'])} · 비교군 {len(catalog['arenas'])})")
+    if not args.dry_run:
+        (DATA / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"→ data/catalog.json (도메인 {len(catalog['domains'])} · 대분류 {len(catalog['categories'])} · 비교군 {len(catalog['arenas'])})")
 
-    en_path = DATA / "en.json"
-    bundle = json.loads(en_path.read_text(encoding="utf-8"))
-    update_en(bundle, en_items)
-    en_path.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"→ data/en.json (항목 {len(bundle['items'])}건) · 아이콘 {icon_done}개")
+    if not args.dry_run:
+        en_path = DATA / "en.json"
+        bundle = json.loads(en_path.read_text(encoding="utf-8"))
+        update_en(bundle, en_items)
+        en_path.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"→ data/en.json (항목 {len(bundle['items'])}건) · 아이콘 {icon_done}개")
 
     # 스키마 검사(항목 단위) — 기록 직후 바로 확인
     from jsonschema import Draft202012Validator, FormatChecker

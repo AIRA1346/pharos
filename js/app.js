@@ -1587,6 +1587,7 @@ async function showDetail(id, arenaOverride = null) {
     : '';
   $('modalBody').innerHTML = [
     tierNotice,
+    sectionEncyclopedia(view),
     sectionVerdict(view, verdictMeta),
     sectionFacts(view),
     sectionOpinion(view),
@@ -1630,6 +1631,130 @@ function correctionUrl(item) {
     }),
   );
   return `https://github.com/AIRA1346/pharos/issues/new?template=correction.yml&title=${title}&body=${body}`;
+}
+
+/* --- 📖 기본 정보 · 사전 --- */
+/**
+ * 평가(점수·티어·판정)와 분리된 사전 섹션.
+ * encyclopedia 블록이 있으면 개요·핵심 제원·핵심 특징·관련작·공식 링크를,
+ * 없으면 기존 필드(one_liner·developer·release_date·genres·platforms·sources)를
+ * 조합한 기본 제원 폴백을 그린다 — 2,000여 전 항목이 같은 자리에서 사전처럼 보인다.
+ */
+function sectionEncyclopedia(view) {
+  const item = view.item;
+  const tier = view.recordTier;
+  const enc = item.encyclopedia;
+  const lines = (value) => String(value || '').split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  const paragraphs = (value) =>
+    lines(value)
+      .map((line) => `<p>${esc(line)}</p>`)
+      .join('');
+
+  /* 기본 제원 폴백 — 이미 수집된 사실만 쓴다(새 수치를 만들지 않는다). */
+  const fallbackFacts = () => {
+    const rows = [];
+    if (item.one_liner) rows.push({ key: t('enc.field.overview'), value: item.one_liner });
+    if (item.developer || item.publisher) {
+      const creator =
+        item.domain === 'media'
+          ? [item.developer, item.publisher].filter(Boolean)
+          : [item.developer, item.publisher].filter(Boolean);
+      rows.push({ key: t(item.domain === 'media' ? 'enc.field.creator' : 'enc.field.developer'), value: creator.join(' · ') });
+    }
+    if (item.release_date) rows.push({ key: t('enc.field.release'), value: item.release_date });
+    if ((item.genres || []).length) rows.push({ key: t('enc.field.genres'), value: item.genres.join(' · ') });
+    if ((item.platforms || []).length) {
+      rows.push({
+        key: t('enc.field.platforms'),
+        value: item.platforms.map((p) => engine.PLATFORM_LABEL[p] || p).join(' · '),
+      });
+    }
+    if (tier?.price?.display) rows.push({ key: t('enc.field.price'), value: tier.price.display });
+    const arenas = (item.arenas || []).map((aid) => state.cat.arenaLabel(aid)).filter(Boolean);
+    if (arenas.length) rows.push({ key: t('enc.field.arena'), value: arenas.join(' · ') });
+    return rows;
+  };
+
+  const facts = enc?.key_facts?.length ? enc.key_facts : fallbackFacts();
+  const factsHtml = facts.length
+    ? `<dl class="enc-facts">${facts
+        .map(
+          (row) => `<div class="enc-fact"><dt>${esc(row.key)}</dt><dd>${esc(row.value)}${
+            row.note ? `<span class="enc-fact-note">${esc(row.note)}</span>` : ''
+          }</dd></div>`,
+        )
+        .join('')}</dl>`
+    : '';
+
+  const highlights = enc?.highlights || [];
+  const highlightsHtml = highlights.length
+    ? `<div class="enc-block"><p class="mini-label">${esc(t('enc.highlightsLabel'))}</p><ul class="enc-highlights">${highlights
+        .map((line) => `<li>${esc(line)}</li>`)
+        .join('')}</ul></div>`
+    : '';
+
+  const related = (enc?.related || []).filter((row) => recordById(row.id));
+  const relatedHtml = related.length
+    ? `<div class="enc-block"><p class="mini-label">${esc(t('enc.relatedLabel'))}</p>
+        <div class="enc-related">${related
+          .map((row) => {
+            const rec = recordById(row.id);
+            const name = rec?.name || row.id;
+            const relation = t(`enc.relation.${row.relation}`);
+            return `<button type="button" class="enc-rel" data-item="${esc(row.id)}" aria-label="${esc(
+              t('enc.jump', { name }),
+            )}">${iconHtml(rec || { name }, 'small')}<span class="enc-rel-body"><span class="enc-rel-name">${esc(
+              name,
+            )}</span><span class="enc-rel-meta"><span class="enc-rel-type enc-rel-type--${esc(row.relation)}">${esc(
+              relation,
+            )}</span>${row.note ? ` · ${esc(row.note)}` : ''}</span></span><span class="enc-rel-arrow" aria-hidden="true">→</span></button>`;
+          })
+          .join('')}</div>
+        <p class="m-sec-note">${esc(t('enc.relatedNote'))}</p></div>`
+    : '';
+
+  const links = (enc?.official_links || []).filter((row) => safeUrl(row.url));
+  const linksHtml = links.length
+    ? `<div class="enc-block"><p class="mini-label">${esc(t('enc.linksLabel'))}</p><div class="enc-links">${links
+        .map(
+          (row) => `<a class="enc-link" href="${esc(safeUrl(row.url))}" target="_blank" rel="noopener noreferrer"><span>${esc(
+            row.label,
+          )}</span><span aria-hidden="true">↗</span></a>${row.note ? `<span class="enc-link-note">${esc(row.note)}</span>` : ''}`,
+        )
+        .join('')}</div></div>`
+    : '';
+
+  const sources = item.sources || [];
+  const sourcesHtml =
+    !enc && sources.length
+      ? `<div class="enc-block"><p class="mini-label">${esc(t('enc.field.sources'))}</p><div class="enc-sources">${sources
+          .map((source) => {
+            const url = safeUrl(source.url);
+            const label = esc(source.title);
+            return url
+              ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`
+              : `<span>${label}</span>`;
+          })
+          .join('')}</div></div>`
+      : '';
+
+  const summaryHtml = enc?.summary
+    ? `<div class="enc-summary">${paragraphs(enc.summary)}</div>`
+    : '';
+
+  return `
+  <section class="m-sec" id="secEncyclopedia">
+    <div class="m-sec-head"><span class="sec-num">📖</span><h3>${esc(t('enc.title'))}</h3>
+      <span class="pill pill--${enc ? 'beam' : 'muted'}">${esc(t(enc ? 'enc.badge.book' : 'enc.badge.fallback'))}</span>
+    </div>
+    ${enc ? '' : `<p class="m-sec-note">${esc(t('enc.fallbackNote'))}</p>`}
+    ${summaryHtml}
+    ${factsHtml}
+    ${highlightsHtml}
+    ${relatedHtml}
+    ${linksHtml}
+    ${sourcesHtml}
+  </section>`;
 }
 
 /* --- 01 판정 요약 --- */

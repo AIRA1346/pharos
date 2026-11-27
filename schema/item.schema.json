@@ -145,6 +145,10 @@
         "ai_review": { "type": "string", "minLength": 1 }
       },
       "description": "v0.5.0 축 점수 산정 메모 — 사실(스토어 평점·표본 수·플래그)은 그대로 두고, 어떤 원칙(표본 규모 검증·비편향 객관 평가)이 점수를 움직였는지만 남긴다. 점수가 바뀐 축에는 반드시 채운다."
+    },
+    "encyclopedia": {
+      "$ref": "#/$defs/encyclopedia",
+      "description": "선택 사전 블록 — 평가·점수·티어와 별개로 작품·앱 자체를 설명하는 기본 정보. 개요(summary)·도메인별 핵심 제원(key_facts)·핵심 특징(highlights)·파로스 내 관련작 연결(related)·공식 참고 링크(official_links). 없으면 UI 가 기존 필드(one_liner·developer·release_date·genres·platforms·sources)로 기본 제원 폴백 뷰를 그린다. 기존 2,072종은 이 필드 없이도 그대로 유효하다(추가 전 선택 필드)."
     }
   },
   "$defs": {
@@ -666,6 +670,78 @@
         "summary": { "type": "string" }
       }
     },
+    "encyclopediaFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "value"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1, "maxLength": 40, "description": "제원 이름(플레이타임·한국어 지원·지원 OS·분량 등). 도메인 규칙은 x-pharos.client.encyclopedia.key_facts 를 따른다." },
+        "value": { "type": "string", "minLength": 1, "maxLength": 200, "description": "사람이 읽는 값. 수치·표기는 확인한 출처와 같은 단위로 적는다." },
+        "note": { "type": "string", "maxLength": 200, "description": "값의 근거·조건 한 줄(선택)." }
+      }
+    },
+    "encyclopediaRelated": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "relation"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "description": "파로스 카탈로그에 실제 존재하는 항목 id 만 참조한다(validate.py 가 무결성 검사)." },
+        "relation": {
+          "type": "string",
+          "enum": ["sequel", "prequel", "adaptation", "series", "alternative"],
+          "description": "sequel=이 작품의 후속작, prequel=전편, adaptation=원작·매체화 관계(애니↔만화, 영화↔원작), series=같은 시리즈·세계관의 다른 작품, alternative=같은 자리의 대안."
+        },
+        "note": { "type": "string", "maxLength": 200, "description": "관계를 한 줄로 설명(선택)." }
+      }
+    },
+    "encyclopediaLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "url"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "url": { "type": "string", "format": "uri" },
+        "note": { "type": "string", "maxLength": 160 }
+      }
+    },
+    "encyclopedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "key_facts", "highlights"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 20,
+          "description": "여러 줄 개요 — 작품이 무엇인지, 누가 만들었고 어떤 경험이며 어디까지 나왔는지. 마케팅 문구가 아니라 확인한 사실로 쓴다(줄바꿈 \n 허용)."
+        },
+        "key_facts": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/encyclopediaFact" },
+          "description": "도메인별 핵심 제원 — 게임=플랫폼·한국어·플레이 방식·모드·가격, 앱=지원 OS·한국어·오프라인·오픈소스·가격 모델, AI=모델·제공 방식·로컬 실행·라이선스, 미디어=제작사·감독·분량·방영/출간·원작. 확인하지 못한 값은 넣지 않는다."
+        },
+        "highlights": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": { "type": "string", "minLength": 4, "maxLength": 200 },
+          "description": "핵심 특징·볼거리·장점 3~4줄. 평가 문구(추천/거름)가 아니라 작품 자체를 설명한다."
+        },
+        "related": {
+          "type": "array",
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/encyclopediaRelated" },
+          "description": "파로스 안의 관련작 연결 — 클릭하면 그 작품 상세로 이동한다. 반드시 실제 존재하는 id 만."
+        },
+        "official_links": {
+          "type": "array",
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/encyclopediaLink" },
+          "description": "공식 홈페이지·위키·공식 채널 등 추가 참고 링크(선택). 스토어 출처는 sources 가 이미 갖고 있다."
+        }
+      }
+    },
     "dataQuality": {
       "type": "object",
       "additionalProperties": false,
@@ -754,6 +830,26 @@
         "filter_key": "stale_over_12m",
         "recorded_status": "exempt",
         "rule": "tier.hard_filters.stale_over_12m.status == 'fail' 이라도 item.maintenance_status == 'feature_complete' 이면 거름으로 잡지 않고 'exempt' 로 계산한다. 단 flags.compat_risk.value == 'yes'(보안·OS 호환성 별도 신호)면 추천 대신 '조건부 경고'로 내린다. abandoned·stale_unknown 과 서비스형 앱·라이브 게임의 12개월 이상 중단은 그대로 fail 로 거른다."
+      },
+      "encyclopedia": {
+        "section": "📖 기본 정보 · 사전",
+        "section_en": "📖 Profile · Encyclopedia",
+        "note": "평가(점수·티어·판정)와 분리된 작품·앱 사전. 상세 모달의 첫 섹션으로 항상 보여 준다. encyclopedia 가 없는 항목은 one_liner·developer·release_date·genres·platforms·sources 로 기본 제원 폴백 뷰를 그린다(fallback_fields). 이 블록은 판정 계산에 쓰이지 않는다.",
+        "fallback_fields": ["one_liner", "developer", "publisher", "release_date", "genres", "platforms", "sources"],
+        "relations": [
+          { "key": "sequel", "label": "후속작", "label_en": "Sequel" },
+          { "key": "prequel", "label": "전편", "label_en": "Prequel" },
+          { "key": "adaptation", "label": "원작·매체화", "label_en": "Adaptation" },
+          { "key": "series", "label": "같은 시리즈", "label_en": "Same series" },
+          { "key": "alternative", "label": "같은 자리의 대안", "label_en": "Alternative" }
+        ],
+        "key_facts": {
+          "game": ["플랫폼", "한국어", "플레이 방식", "모드", "가격"],
+          "app": ["지원 OS", "한국어", "오프라인", "오픈소스", "가격 모델"],
+          "ai": ["모델·제공 방식", "로컬 실행", "라이선스", "가격 모델"],
+          "media": ["제작", "분량", "방영·출간", "원작", "평점"]
+        },
+        "integrity": "related[].id 는 파로스 카탈로그의 실제 항목 id 여야 하고(자기 참조 금지·중복 금지·최대 n개), relation 은 5개 열거형만 쓴다. 원본이 있으면 영문 번들도 같은 개수·같은 순서로 완역한다(validate.py 가 검사)."
       },
       "monetization_impact": {
         "keys": ["gacha_random_items", "p2w"],

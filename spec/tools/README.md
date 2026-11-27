@@ -349,3 +349,64 @@ python3 projects/pharos/scripts/smoke_v26_media.py --live --shots-dir projects/p
 `Page.inner_text(.hero)` 대기로 멈춘다(이번 배치 이전부터의 상태). 지금의 회귀 검증은
 `smoke_v21.py`(120항목) · `smoke_v22_brand.py`(69) · `smoke_v23_pledge.py`(61) · `smoke_v26_media.py`(31) ·
 `smoke_v28_lighthouse_v3.py`(101, 등대 4분야·전체 랜덤)가 맡는다.
+
+## 9. v29 (2026-11-28) — 미디어 3차 225종 + 게임·앱·AI 80종 = 2,072종
+
+미디어는 2차와 같은 두 스크립트로 적재하고(새 배치 폴더 `drafts/media-2026-11-28-batch3/`), 게임·앱·AI 는
+`bulk_ingest.py` 스펙 하나(`drafts/bulk7-2026-11-28/spec7.json`, 96종 중 80종 신규)로 넣었다.
+이번 배치부터 `bulk_ingest.py` 는 **사용자 축이 빈 항목에 `scale_adjustment` 기록을 만들지 않는다**
+(표본이 없는데 `sample_count` 0 기록이 붙어 검증기와 어긋나던 문제).
+
+```bash
+python3 projects/pharos/drafts/media-2026-11-28-batch3/build_spec.py
+python3 projects/pharos/drafts/media-2026-11-28-batch3/resolve.py --only anilist
+python3 projects/pharos/drafts/media-2026-11-28-batch3/resolve.py --only movie
+python3 projects/pharos/scripts/media_ingest.py --merge \
+    --spec projects/pharos/drafts/media-2026-11-28-batch3/spec.json \
+    --hooks projects/pharos/drafts/media-2026-11-28-batch3/hooks.json
+python3 projects/pharos/scripts/bulk_ingest.py --spec projects/pharos/drafts/bulk7-2026-11-28/spec7.json
+python3 projects/pharos/drafts/bulk7-2026-11-28/check_steam_categories.py     # 완결작 면제 근거
+python3 projects/pharos/drafts/bulk7-2026-11-28/patch_feature_complete.py --write
+python3 projects/pharos/scripts/sync_web_data.py
+python3 projects/pharos/scripts/check_en_leaks.py --all
+python3 projects/pharos/scripts/shot_v29_2000.py        # live-v29-2000-home.png · -media.png
+```
+
+결과 기록: `projects/pharos/drafts/bulk7-2026-11-28/2026-11-28-v29-summary.md`
+
+## 10. v30 (2026-11-28) — 사전(encyclopedia) 기반 · 대표작 168종 백필
+
+평가(점수·티어·판정)와 분리된 **작품·앱 사전**을 스키마·파이프라인·상세 UI 에 넣었다.
+`encyclopedia` 는 선택 필드라 기존 2,072종은 그대로 유효하고, 없는 항목은 UI 가
+`one_liner·developer·release_date·genres·platforms·sources` 로 **기본 제원 폴백 뷰**를 그린다.
+
+```bash
+# 1) 대표작 사실 재확인 — Steam 언어(한국어 지원)·상점 분류(모드)·공식 사이트 (49종)
+python3 projects/pharos/scripts/enrich_encyclopedia_facts.py
+
+# 2) 큐레이션(등대 139종 + 주요 앱·AI 29종) + 수집 사실 → data/{domain}/*.json · data/en.json
+python3 projects/pharos/scripts/backfill_encyclopedia.py --dry-run
+python3 projects/pharos/scripts/backfill_encyclopedia.py
+
+# 3) 인덱스·웹 사본·검증
+python3 projects/pharos/scripts/sync_web_data.py
+python3 projects/pharos/scripts/check_en_leaks.py --all
+
+# 4) 스모크 — 신규 사전 + 기존 등대·브랜드·서약·미디어
+python3 projects/pharos/scripts/smoke_v30_encyclopedia.py
+python3 projects/pharos/scripts/smoke_v21.py
+python3 projects/pharos/scripts/smoke_v22_brand.py
+python3 projects/pharos/scripts/smoke_v23_pledge.py
+python3 projects/pharos/scripts/smoke_v26_media.py
+python3 projects/pharos/scripts/smoke_v28_lighthouse_v3.py
+```
+
+**파이프라인** — `bulk_ingest.py` 는 이제 Steam `supported_languages`·`categories`·`website` 를 함께 읽어
+신규 항목에 기본 사전(플랫폼·한국어·플레이 방식·모드·가격·평가·최근 업데이트·라이선스)을 자동 생성한다.
+`media_ingest.py` 도 제작·분량·방영·평점·장르·감상 경로로 기본 사전을 만들고, `--dry-run` 으로 쓰지 않고 확인할 수 있다.
+두 스크립트의 사전 생성은 `scripts/encyclopedia.py`(`compose`)를 공유하며, 확인하지 못한 값은 넣지 않는다
+(제원 3개를 못 채우면 사전 없이 두고 UI 폴백이 맡는다).
+
+**검증기** — `validate.py` 가 ⑴ 사전 블록의 타입·길이(스키마), ⑵ `related[].id` 가 실제 카탈로그 항목인지·자기 참조·중복,
+⑶ `related[].relation` 5종, ⑷ KO/EN 개수·순서 일치와 한글 잔존, ⑸ 음성 테스트(없는 id·자기 참조·중복·짧은 개요·http(s) 아님)를
+검사하고, 관계 왕복(sequel↔prequel)은 경고로 남긴다.

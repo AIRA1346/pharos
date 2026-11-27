@@ -2048,6 +2048,98 @@ table.data.compare-table thead th .compare-head-name { text-transform: none; }
 .tune-foot p { margin: 0; font-size: 12px; color: var(--muted); }
 body.drawer-open { overflow: hidden; }
 
+/* ------------------------------------------------------------- 사전(기본 정보) */
+
+.enc-summary { display: grid; gap: 6px; }
+.enc-summary p { margin: 0; font-size: 13px; line-height: 1.72; color: var(--ink-2); }
+.enc-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+.enc-fact {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--card-2);
+  min-width: 0;
+}
+.enc-fact dt { font-size: 10.5px; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 3px; }
+.enc-fact dd { margin: 0; font-size: 12.5px; color: var(--ink); line-height: 1.5; overflow-wrap: anywhere; }
+.enc-fact-note { display: block; margin-top: 3px; font-size: 10.5px; color: var(--muted); }
+.enc-block { display: grid; gap: 6px; }
+.enc-block .mini-label { margin: 0; }
+.enc-highlights { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.enc-highlights li {
+  position: relative;
+  padding: 6px 10px 6px 24px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.enc-highlights li::before {
+  content: "✦";
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  font-size: 10px;
+  color: var(--beam);
+}
+.enc-related { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px; }
+.enc-rel {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px;
+  text-align: left;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.enc-rel:hover, .enc-rel:focus-visible { border-color: var(--beam); background: var(--card-2); }
+.enc-rel:active { transform: translateY(1px); }
+.enc-rel .icon-badge, .enc-rel img { flex: 0 0 auto; }
+.enc-rel-body { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.enc-rel-name { font-size: 12.5px; font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.enc-rel-meta { font-size: 10.5px; color: var(--muted); line-height: 1.4; }
+.enc-rel-type { color: var(--sea); font-weight: 600; }
+.enc-rel-type--sequel, .enc-rel-type--prequel { color: var(--beam); }
+.enc-rel-type--adaptation { color: var(--sea); }
+.enc-rel-arrow { color: var(--muted); font-size: 12px; flex: 0 0 auto; }
+.enc-links { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.enc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: var(--beam-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 99px;
+  background: var(--beam-soft);
+  text-decoration: none;
+}
+.enc-link:hover, .enc-link:focus-visible { border-color: var(--beam); }
+.enc-link-note { font-size: 10.5px; color: var(--muted); }
+.enc-sources { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 11.5px; }
+.enc-sources a { color: var(--ink-2); text-decoration: underline dotted; text-underline-offset: 3px; }
+.enc-sources a:hover { color: var(--beam); }
+
+@media (max-width: 620px) {
+  .enc-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .enc-related { grid-template-columns: 1fr; }
+  .enc-fact { padding: 8px 10px; }
+}
+
 /* ------------------------------------------------------------- 상세 모달 보강 */
 
 .modal--method { width: min(860px, 94vw); max-width: 860px; }
