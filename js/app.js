@@ -77,6 +77,8 @@ const state = {
     history: [],
     skips: 0,
     lastGameId: null,
+    /** 항해 서약 체크 — 저장하지 않는다. 목표 탐색을 누를 때마다 새로 서약한다. */
+    pledgeAccepted: false,
   },
 };
 
@@ -2654,6 +2656,8 @@ function closeMethod() {
 const LH_TIERS = [1, 2, 3];
 const LH_DIFFICULTIES = ['all', 'chill', 'normal', 'hardcore'];
 const LH_STEP_TOTAL = 3;
+/** 서약 화면의 단계 표식 — 조건 단계(1~3)와 숫자를 섞지 않으려고 문자열로 둔다. */
+const LH_PLEDGE = 'pledge';
 const lhText = (row, field) =>
   String((getLang() === 'en' ? row?.[`${field}_en`] : row?.[`${field}_ko`]) ?? '');
 
@@ -2728,9 +2732,11 @@ function lhPruneCurrent() {
   }
 }
 
-/** 위저드 단계 — 진행 중인 퀘스트가 있으면 언제나 4(결과 카드). */
+/** 위저드 단계 — 진행 중인 퀘스트가 있으면 언제나 4(결과 카드).
+ *  0 랜딩 · 'pledge' 항해 서약 · 1 플랫폼·가격 · 2 소요 시간 · 3 난이도 · 4 결과 */
 function lhStep() {
   if (state.lh.current) return 4;
+  if (state.lh.step === LH_PLEDGE) return LH_PLEDGE;
   const step = Number(state.lh.step);
   return Number.isInteger(step) && step >= 0 && step <= LH_STEP_TOTAL ? step : 0;
 }
@@ -2748,9 +2754,15 @@ function lhPoolGames() {
 
 function lhSetStep(step) {
   if (state.lh.current) return;
-  state.lh.step = Math.max(0, Math.min(LH_STEP_TOTAL, Number(step) || 0));
+  if (step === LH_PLEDGE) {
+    state.lh.step = LH_PLEDGE;
+    // 서약은 매번 새로 — 체크는 저장하지 않고, 화면에 들어올 때 늘 비어 있다.
+    state.lh.pledgeAccepted = false;
+  } else {
+    state.lh.step = Math.max(0, Math.min(LH_STEP_TOTAL, Number(step) || 0));
+  }
   renderLighthouse();
-  document.querySelector('.lh-q')?.focus?.({ preventScroll: true });
+  document.querySelector('.lh-pledge-title, .lh-q')?.focus?.({ preventScroll: true });
 }
 
 function lhPick(group, value) {
@@ -2967,10 +2979,54 @@ function lhLandingHtml() {
           <span>${esc(t('lh.landing.l1'))}</span>
           <span class="hl">${esc(t('lh.landing.l2'))}</span>
         </h1>
-        <button type="button" class="primary-btn lh-start" data-lh-goto="1">${esc(t('lh.start'))}</button>
+        <button type="button" class="primary-btn lh-start" data-lh-goto="pledge">${esc(t('lh.start'))}</button>
       </div>
       ${lhHistoryHtml()}
       ${lhCatalogBanner()}
+    </section>`;
+}
+
+/** 약정일 — 서약서 서명줄에 찍을 오늘 날짜(로컬 시간). */
+function lhPledgeDate() {
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${now.getFullYear()}.${pad(now.getMonth() + 1)}.${pad(now.getDate())}`;
+}
+
+/** 항해 서약(Pledge) — 목표 탐색 직후, 조건을 고르기 전에 서는 각서 화면. */
+function lhPledgeHtml() {
+  const clauses = ['lh.pledge.body1', 'lh.pledge.body2', 'lh.pledge.body3'];
+  return `
+    <section class="lh lh--pledge${state.lh.pledgeAccepted ? ' is-sworn' : ''}" aria-labelledby="lhPledgeTitle">
+      <div class="lh-pledge">
+        <div class="lh-pledge-head">
+          <picture class="lh-pledge-rune">
+            <source srcset="./assets/brand/pharos-rune-96.webp" type="image/webp" />
+            <img src="./assets/brand/pharos-rune-96.png" alt="" width="56" height="56" aria-hidden="true" decoding="async" />
+          </picture>
+          <p class="lh-pledge-kicker">${esc(t('lh.pledge.kicker'))}</p>
+          <h1 class="lh-pledge-title" id="lhPledgeTitle" tabindex="-1">${esc(t('lh.pledge.title'))}</h1>
+        </div>
+        <div class="lh-pledge-rule" aria-hidden="true"><span></span></div>
+        <ol class="lh-pledge-clauses">
+          ${clauses
+            .map(
+              (key, i) => `<li><span class="lh-pledge-no" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span><p>${esc(t(key))}</p></li>`,
+            )
+            .join('')}
+        </ol>
+        <label class="lh-pledge-check">
+          <input type="checkbox" data-lh-oath-check${state.lh.pledgeAccepted ? ' checked' : ''} />
+          <span class="lh-pledge-box" aria-hidden="true"></span>
+          <span class="lh-pledge-check-text">${esc(t('lh.pledge.check'))}</span>
+        </label>
+        <div class="lh-pledge-actions">
+          <button type="button" class="primary-btn lh-pledge-go" data-lh-oath${state.lh.pledgeAccepted ? '' : ' disabled'}>${esc(t('lh.pledge.accept'))}</button>
+          <button type="button" class="text-btn lh-pledge-back" data-lh-goto="0">${esc(t('lh.pledge.back'))}</button>
+        </div>
+        <p class="lh-pledge-hint">${esc(t('lh.pledge.hint'))}</p>
+        <p class="lh-pledge-sign" aria-hidden="true">PHAROS · LIGHTHOUSE · ${esc(lhPledgeDate())}</p>
+      </div>
     </section>`;
 }
 
@@ -3111,6 +3167,7 @@ function renderLighthouse() {
     return;
   }
   if (step === 0) wrap.innerHTML = lhLandingHtml();
+  else if (step === LH_PLEDGE) wrap.innerHTML = lhPledgeHtml();
   else if (step === 1) wrap.innerHTML = lhStep1Html();
   else if (step === 2) wrap.innerHTML = lhStep2Html();
   else if (step === 3) wrap.innerHTML = lhStep3Html();
@@ -3280,7 +3337,18 @@ async function onClick(event) {
   // 등대 — 위저드 단계 이동·조건 선택·추첨·완료·광고 슬롯·상세 열기
   const lhGoto = target.closest('[data-lh-goto]');
   if (lhGoto) {
-    lhSetStep(Number(lhGoto.dataset.lhGoto));
+    const to = lhGoto.dataset.lhGoto;
+    lhSetStep(to === LH_PLEDGE ? LH_PLEDGE : Number(to));
+    return;
+  }
+  const lhOath = target.closest('[data-lh-oath]');
+  if (lhOath) {
+    // 체크 없이는 서약할 수 없다 — 버튼이 disabled 라 보통은 닿지 않는다.
+    if (lhOath.disabled || !state.lh.pledgeAccepted) {
+      document.querySelector('[data-lh-oath-check]')?.focus?.({ preventScroll: true });
+      return;
+    }
+    lhSetStep(1);
     return;
   }
   const lhPickBtn = target.closest('[data-lh-pick]');
@@ -3455,6 +3523,13 @@ function onInput(event) {
 
 function onChange(event) {
   const target = event.target;
+  if (target.matches?.('input[data-lh-oath-check]')) {
+    state.lh.pledgeAccepted = Boolean(target.checked);
+    document.querySelector('.lh--pledge')?.classList.toggle('is-sworn', state.lh.pledgeAccepted);
+    const go = document.querySelector('[data-lh-oath]');
+    if (go) go.disabled = !state.lh.pledgeAccepted;
+    return;
+  }
   if (target.matches?.('input[data-compare]')) {
     toggleCompare(target.dataset.compare);
     return;

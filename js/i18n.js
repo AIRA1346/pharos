@@ -949,6 +949,29 @@ const M = {
   'lh.landing.l1': ['지금 해볼 만한 명작', 'One masterpiece.'],
   'lh.landing.l2': ['목표 하나를 비춥니다', 'One real goal.'],
   'lh.start': ['목표 탐색', 'Find a goal'],
+  /* 항해 서약(Pledge) — 목표 탐색 직후, 조건을 고르기 전에 한 번 서는 각서 화면 */
+  'lh.pledge.aria': ['항해 서약서', 'Voyage pledge'],
+  'lh.pledge.kicker': ['LIGHTHOUSE PLEDGE · 항해 서약', 'LIGHTHOUSE PLEDGE'],
+  'lh.pledge.title': ['시작 전 각오', 'Before we set sail'],
+  'lh.pledge.body1': [
+    '아무거나 대충 구경만 할 거면 지금 돌아가도 좋습니다.',
+    'If you are only here to look around, turn back now.',
+  ],
+  'lh.pledge.body2': [
+    '등대는 룰렛을 돌리는 곳이 아니라, 한 번 비춘 목표를 끝까지 걸어가는 사람을 위한 곳입니다.',
+    'The lighthouse is no roulette wheel — it is for people who walk the path to the end once a goal is lit.',
+  ],
+  'lh.pledge.body3': [
+    '오늘 받는 좌표는 변명 없이, 다시 뽑을 수 없습니다.',
+    'The coordinates you receive today cannot be drawn again. No excuses.',
+  ],
+  'lh.pledge.check': [
+    '오늘 받는 목표를 끝까지 완수할 각오가 되어 있습니다.',
+    'I accept these terms and will not turn back.',
+  ],
+  'lh.pledge.accept': ['서약하고 나아가기', 'Take the Oath'],
+  'lh.pledge.back': ['돌아가기', 'Turn Back'],
+  'lh.pledge.hint': ['각오를 체크하면 서약 버튼이 열립니다.', 'Tick the box above to unlock the oath.'],
   'lh.q.platform': ['어디서 플레이하나요?', 'Where do you play?'],
   'lh.q.price': ['가격 조건', 'Price'],
   'lh.q.time': ['얼마나 몰입할까요?', 'How deep do you want to go?'],

@@ -3119,6 +3119,212 @@ html[data-theme="light"] .lh-symbol::before {
 }
 .lh-start:focus-visible { outline: 2px solid var(--beam); outline-offset: 3px; }
 
+/* --- 항해 서약(v23) — 목표 탐색 직후의 각서 화면 ---------------------------- */
+
+.lh--pledge {
+  display: grid;
+  align-content: center;
+  min-height: calc(100vh - 230px);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(4px, 2vh, 20px) 0;
+}
+.lh-pledge {
+  position: relative;
+  display: grid;
+  gap: clamp(15px, 2.4vw, 24px);
+  padding: clamp(26px, 4vw, 42px) clamp(20px, 4vw, 40px) clamp(20px, 3vw, 28px);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(560px 300px at 50% -14%, var(--beam-soft), transparent 68%),
+    var(--panel);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+/* 계약서 내지 — 안쪽에 한 겹 더 그은 가는 선 */
+.lh-pledge::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 6px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+/* 상단 빛줄기 */
+.lh-pledge::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--beam), transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.lh-pledge-head { display: grid; justify-items: center; gap: 7px; text-align: center; }
+.lh-pledge-rune { display: block; filter: drop-shadow(0 0 16px rgba(244, 183, 94, 0.3)); }
+.lh-pledge-rune img { display: block; width: clamp(36px, 4vw, 48px); height: auto; }
+html[data-theme="light"] .lh-pledge-rune { filter: drop-shadow(0 2px 6px rgba(20, 32, 44, 0.18)); }
+html[data-theme="light"] .lh-pledge-rune img {
+  filter: drop-shadow(0 0 1px rgba(20, 32, 44, 0.6)) drop-shadow(0 1px 1px rgba(20, 32, 44, 0.35));
+}
+.lh-pledge-kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--beam);
+}
+.lh-pledge-title {
+  margin: 0;
+  font-size: clamp(22px, 3.2vw, 30px);
+  line-height: 1.26;
+  letter-spacing: -0.025em;
+  outline: none;
+}
+.lh-pledge-rule { display: flex; align-items: center; gap: 10px; }
+.lh-pledge-rule::before,
+.lh-pledge-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+.lh-pledge-rule span {
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--beam);
+  transform: rotate(45deg);
+}
+.lh-pledge-clauses { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.lh-pledge-clauses li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 3px 10px;
+  align-items: start;
+}
+.lh-pledge-no {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--beam);
+  padding-top: 4px;
+}
+.lh-pledge-clauses p {
+  margin: 0;
+  font-size: clamp(14.5px, 1.5vw, 16.5px);
+  line-height: 1.72;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.lh-pledge-clauses li:first-child p { color: var(--ink-2); }
+.lh-pledge-clauses li:last-child p { font-weight: 600; }
+.lh-pledge-check {
+  position: relative;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 14px 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  background: var(--card);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.lh-pledge-check:hover { border-color: var(--beam); }
+.lh-pledge-check input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.lh-pledge-box {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  background: var(--panel);
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.lh-pledge-box::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--beam);
+  border-width: 0 2px 2px 0;
+  transform: rotate(42deg) scale(0.6);
+  opacity: 0;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.lh-pledge-check input:checked + .lh-pledge-box {
+  border-color: var(--beam);
+  background: var(--beam-soft);
+  box-shadow: inset 0 0 0 1px var(--beam);
+}
+.lh-pledge-check input:checked + .lh-pledge-box::after { opacity: 1; transform: rotate(42deg) scale(1); }
+.lh-pledge-check input:focus-visible + .lh-pledge-box { outline: 2px solid var(--beam); outline-offset: 2px; }
+.lh-pledge-check-text { font-size: 13.5px; line-height: 1.55; font-weight: 600; color: var(--ink); }
+.lh--pledge.is-sworn .lh-pledge-check { border-style: solid; border-color: var(--beam); background: var(--beam-soft); }
+.lh-pledge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+}
+.lh-pledge-go {
+  font-size: 16px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  box-shadow: 0 16px 40px -20px var(--beam);
+  transition: opacity 0.15s ease;
+}
+.lh-pledge-go:disabled {
+  background: var(--card);
+  border-color: var(--line-strong);
+  color: var(--muted);
+  opacity: 1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.lh-pledge-hint {
+  margin: -6px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+.lh--pledge.is-sworn .lh-pledge-hint { display: none; }
+.lh-pledge-go:focus-visible { outline: 2px solid var(--beam); outline-offset: 3px; }
+.lh-pledge-back {
+  width: auto;
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 4px;
+  color: var(--muted);
+}
+.lh-pledge-back:hover { color: var(--beam); border: 0; }
+.lh-pledge-sign {
+  margin: 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
 .lh--wizard,
 .lh--result {
   display: grid;
@@ -3269,6 +3475,18 @@ html[data-theme="light"] .lh-symbol::before {
   .lh--landing,
   .lh--wizard,
   .lh--result { padding-top: 0; }
+  .lh--pledge { min-height: auto; padding: 0; }
+  .lh-pledge { padding: 22px 16px 18px; gap: 15px; }
+  .lh-pledge::before { inset: 6px; }
+  .lh-pledge-title { font-size: 21px; }
+  .lh-pledge-clauses { gap: 12px; }
+  .lh-pledge-clauses li { grid-template-columns: 24px minmax(0, 1fr); gap: 2px 8px; }
+  .lh-pledge-clauses p { font-size: 14px; line-height: 1.66; }
+  .lh-pledge-check { padding: 12px 13px; gap: 10px; }
+  .lh-pledge-check-text { font-size: 12.8px; }
+  .lh-pledge-actions { flex-direction: column; gap: 4px; }
+  .lh-pledge-go { width: 100%; padding: 14px 18px; }
+  .lh-pledge-back { width: 100%; }
   .lh-landing { padding: clamp(16px, 4.5vh, 40px) 4px 10px; gap: 16px; }
   .lh-symbol { margin-bottom: 0; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.55)); }
   .lh-symbol img { height: clamp(104px, 17vh, 140px); }
