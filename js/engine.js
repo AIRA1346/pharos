@@ -52,8 +52,6 @@ export const PLATFORM_LABEL = {
   get cinema() { return t('platform.cinema'); },
   get streaming() { return t('platform.streaming'); },
   get print() { return t('platform.print'); },
-  get anilist() { return t('platform.anilist'); },
-  get letterboxd() { return t('platform.letterboxd'); },
 };
 
 export const EXPOSURE_LABEL = {

@@ -556,6 +556,10 @@ function sectionTiers(view) {
 }
 
 /* --- 05 축별 --- */
+function isMediaWork(item) {
+  return ['movie', 'anime', 'manga'].includes(item?.domain);
+}
+
 function sectionAxes(view) {
   const cards = view.recordEval.axisStates
     .map((axis) => {
@@ -587,6 +591,9 @@ function sectionAxes(view) {
       <span class="pill">🟢 ≥ ${contract().signal_thresholds?.green_min ?? 75} · 🟡 ≥ ${contract().signal_thresholds?.yellow_min ?? 50}</span>
     </div>
     <div class="axis-grid">${cards}</div>
+    ${isMediaWork(view.item)
+      ? `<p class="m-sec-note">${esc(t('axes.mediaNote'))}</p><p class="m-sec-note">${esc(t('axes.mediaCraftNote'))}</p>`
+      : ''}
     ${view.item.one_liner ? `<p class="m-sec-note">${esc(t('axes.note', { text: view.item.one_liner }))}</p>` : ''}
     ${scoreNoteHtml(view.item)}
   </section>`;

@@ -863,6 +863,9 @@ export async function renderCompare(seq) {
     { id: 'grade', label: t('compare.row.grade'), render: (v) => esc(engine.gradeWeakest(v.item.data_quality?.overall_grade)) },
     { id: 'more', label: '', render: (v) => `<button type="button" class="ghost-btn" data-action="item" data-item="${esc(v.item.id)}">${esc(t('card.more'))}</button>` },
   ];
+  // 미디어는 외부 평점을 쓰지 않는다(v0.8.0) — 별점·최근 리뷰 줄은 미디어만 비교할 때 뺀다.
+  const mediaOnly = views.every((v) => ['movie', 'anime', 'manga'].includes(v.item.domain));
+  const shownRows = mediaOnly ? rows.filter((row) => row.id !== 'stars' && row.id !== 'recent') : rows;
   const bestOf = (def) => {
     if (!def.num) return -1;
     let at = -1;
@@ -917,7 +920,7 @@ export async function renderCompare(seq) {
           </tr>
         </thead>
         <tbody>
-          ${rows
+          ${shownRows
             .map((def) => {
               const best = bestOf(def);
               return `<tr class="${def.id === 'score' ? 'cmp-row--score' : ''}"><th scope="row" class="compare-rowlabel">${esc(def.label)}</th>${views

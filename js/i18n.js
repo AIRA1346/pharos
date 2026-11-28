@@ -452,7 +452,15 @@ const M = {
   'axes.weightZero': ['가중치 0 · 판정 미포함', 'Weight 0 · not counted'],
   'axes.noSummary': ['서술 없음', 'No description'],
   'axes.overrideNote': ['앱 공통 점수 {base} → 이 티어 {score} (사유: {note})', 'App-wide score {base} → this tier {score} (reason: {note})'],
-  'axes.scoreNotes': ['v0.5.0 산정 메모', 'v0.5.0 scoring note'],
+  'axes.scoreNotes': ['v0.8.0 산정 메모', 'v0.8.0 scoring note'],
+  'axes.mediaNote': [
+    '영화·애니·만화는 외부 평점 서비스를 쓰지 않는다 — 사실은 Wikidata(CC0), 판정은 객관 축(완결성·접근 경로·작품 수명)과 파로스 작품성 축(수상·교차 검증 폭)으로 한다.',
+    'Films, anime and manga use no external rating service — facts come from Wikidata (CC0), and the verdict rests on the objective axis (completion, access routes, age) and the Pharos craft axis (awards, cross-check breadth).',
+  ],
+  'axes.mediaCraftNote': [
+    '작품성 기록은 수상 이력과 위키백과 언어판 문서 수로 만든 자동 기록이다 — 심층 검수 전 값이다.',
+    'The craft record is automatic, built from award history and the number of Wikipedia language editions — a pre-review value.',
+  ],
 
   /* 06 대체제 */
   'alt.scope': ['{arena} 안에서만', '{arena} only'],
@@ -888,8 +896,6 @@ const M = {
   'platform.cinema': ['극장', 'Cinema'],
   'platform.streaming': ['스트리밍', 'Streaming'],
   'platform.print': ['단행본', 'Print'],
-  'platform.anilist': ['AniList', 'AniList'],
-  'platform.letterboxd': ['Letterboxd', 'Letterboxd'],
   'exposure.none': ['없음', 'None'],
   'exposure.low': ['낮음', 'Low'],
   'exposure.medium': ['보통', 'Medium'],

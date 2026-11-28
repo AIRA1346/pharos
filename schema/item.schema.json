@@ -22,7 +22,6 @@
     "tiers",
     "axes",
     "verdict",
-    "review_snapshot",
     "update_profile",
     "monetization",
     "data_quality"
@@ -433,7 +432,7 @@
       "properties": {
         "user_rating": {
           "$ref": "#/$defs/axis",
-          "description": "축1 사용자(대중) 평가. 최근 구간 우선, 없으면 누적. v0.5.0은 표본 규모를 검증해(수십만~수백만 누적 + 4.4★ 이상) 수백 건짜리 3자 최근 표본이 큰 누적을 통째로 덮지 않게 하고, v0.6.0은 누적 표본 수를 연속 로그 보정해 점수에 반영한다(x-pharos.client.sample_scale·scale_adjustment, 축의 scale_adjustment 기록)."
+          "description": "축1 사용자(대중) 평가. 앱·게임·AI 도구는 최근 구간 우선·누적 보정(v0.6.0 scale_adjustment)으로 채운다. 미디어(v0.8.0)는 외부 평점 서비스를 쓰지 않으므로 score=null(⚪)로 비우고, 판정은 객관 축·작품성 축으로 계산한다."
         },
         "objective": {
           "$ref": "#/$defs/axis",
@@ -441,7 +440,7 @@
         },
         "ai_review": {
           "$ref": "#/$defs/axis",
-          "description": "축3 AI 자동 검토(본질·완성도·정직성)."
+          "description": "축3 AI 자동 검토(본질·완성도·정직성). 미디어(v0.8.0)에서는 파로스 작품성 기록 — 기저 62 + 수상(P166)·수상 후보(P1411)·교차 검증 폭(위키백과 언어판 문서 수). 완결성·접근성은 객관 축에만 둔다(중복 감점 금지)."
         },
         "personal_fit": {
           "$ref": "#/$defs/axis",
@@ -773,10 +772,34 @@
   },
   "x-pharos": {
     "schema_version": "0.4.0",
-    "criteria_version": "0.6.0",
+    "criteria_version": "v0.8.0",
     "criteria_doc": "projects/pharos/criteria.md",
     "client": {
       "note": "정적 웹 프론트엔드가 서버 없이 계산하는 계약. 아이템 1건 × 티어 1개 단위로 적용한다.",
+      "media_independence": {
+        "version": "v0.8.0",
+        "domains": ["movie", "anime", "manga"],
+        "user_axis": "empty",
+        "note": "미디어는 외부 평점 서비스(점수·인기도·URL)를 쓰지 않는다. 사용자 축은 비우고(score=null), 판정은 객관 축(완결성·접근 경로·작품 수명)과 작품성 축(수상·수상 후보·교차 검증 폭)으로 한다.",
+        "fact_source": {
+          "id": "wikidata",
+          "label": "Wikidata",
+          "license": "CC0",
+          "url": "https://www.wikidata.org",
+          "grade": "B",
+          "unmatched": {"id": "pharos-record", "label": "파로스 자체 기록", "grade": "C"}
+        },
+        "merit_axis": {
+          "axis": "ai_review",
+          "base": 62,
+          "cap": 95,
+          "awards": [{"min": 3, "delta": 14}, {"min": 1, "delta": 9}],
+          "nominations": [{"min": 3, "delta": 6}, {"min": 1, "delta": 3}],
+          "documentation": [{"min": 80, "delta": 12}, {"min": 30, "delta": 9}, {"min": 10, "delta": 6}, {"min": 3, "delta": 3}],
+          "note": "수상·후보는 Wikidata 진술(등급 B), 문서 폭은 위키백과 언어판 수(등급 C). 작품성 심층 검수 전 자동 기록."
+        },
+        "forbidden_hosts": ["anilist.co", "letterboxd.com"]
+      },
       "domain_ids": ["app", "game", "ai", "movie", "anime", "manga"],
       "catalog": {
         "file": "data/catalog.json",
