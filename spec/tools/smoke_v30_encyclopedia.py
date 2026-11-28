@@ -122,9 +122,10 @@ def main() -> int:
     by_domain = Counter(row["domain"] for iid, row in items.items() if row.get("encyclopedia"))
     expect(len(with_enc) >= 150, f"데이터: 사전 수록 {len(with_enc)}종(150종 이상)", str(len(with_enc)))
     expect(len(with_enc) == len(bundle.get("items") or {}) or True, "데이터: 영문 번들 로드", "")
-    expect(by_domain.get("game", 0) >= 60 and by_domain.get("media", 0) >= 70
+    works = sum(by_domain.get(d, 0) for d in ("movie", "anime", "manga"))
+    expect(by_domain.get("game", 0) >= 60 and works >= 70
            and by_domain.get("app", 0) >= 15 and by_domain.get("ai", 0) >= 5,
-           "데이터: 도메인별 분포(게임 60+·미디어 70+·앱 15+·AI 5+)", str(dict(by_domain)))
+           "데이터: 도메인별 분포(게임 60+·작품(영화·애니·만화) 70+·앱 15+·AI 5+)", str(dict(by_domain)))
 
     bad_facts = [iid for iid, enc in with_enc.items()
                  if not isinstance(enc.get("key_facts"), list) or len(enc["key_facts"]) < 3

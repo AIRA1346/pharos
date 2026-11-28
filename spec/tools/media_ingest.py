@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""파로스 미디어 도메인(애니·만화·영화) 적재 — media_ingest.py (v1.1)
+"""파로스 작품 도메인(영화·애니·만화) 적재 — media_ingest.py (v1.2)
 
-새 도메인 `media`(🎬 영화 · 애니 · 만화)를 3개 대분류·3개 비교군으로 만들고,
-대표 명작 90종을 **공개 API 사실**로 스키마 100% 채워 `data/media/{arena}.json` ·
+v31 부터 통합 `media` 도메인을 영화(movie)·애니(anime)·만화(manga) 3개 도메인으로 나눴다.
+도메인마다 대분류 2개·장르 비교군 7개(총 21비교군)를 만들고, 대표 작품을 **공개 API 사실**로
+스키마 100% 채워 `data/{movie|anime|manga}/{arena}.json` ·
 `data/en.json` · `data/catalog.json` 에 기록한다.
 
 수집 소스 (무료 공개 API, 키 불필요)
@@ -67,14 +68,76 @@ NOW_YEAR = date.today().year
 UA = {"User-Agent": "PharosBot/1.0 (Pharos catalog; contact: none)"}
 ACCESSED = TODAY
 
-ARENA = {
-    "anime": {"category": "anime", "arena": "anime-tv", "file": "media/anime.json",
-              "label": "TV · 극장 애니메이션", "label_en": "TV & Film Animation"},
-    "manga": {"category": "manga", "arena": "manga-volumes", "file": "media/manga.json",
-              "label": "만화 · 단행본", "label_en": "Manga & Volumes"},
-    "movie": {"category": "movie", "arena": "feature-films", "file": "media/movie.json",
-              "label": "실사 영화", "label_en": "Feature Films"},
+# v31 — 통합 media 대신 영화(movie)·애니(anime)·만화(manga) 3개 도메인, 도메인마다 7개 장르 비교군.
+# 새 항목의 비교군은 장르·형식으로 고른다(pick_arena). 표에 없는 장르는 도메인 기본 비교군으로 갈긴다.
+ARENA_META = {
+    "movie-sf-fantasy": {"domain": "movie", "category": "movie-live", "label": "SF · 판타지", "label_en": "Sci-Fi & Fantasy"},
+    "movie-action-thriller": {"domain": "movie", "category": "movie-live", "label": "액션 · 스릴러", "label_en": "Action & Thriller"},
+    "movie-crime": {"domain": "movie", "category": "movie-live", "label": "범죄 · 느와르", "label_en": "Crime & Noir"},
+    "movie-drama": {"domain": "movie", "category": "movie-live", "label": "드라마 · 휴먼", "label_en": "Drama"},
+    "movie-horror": {"domain": "movie", "category": "movie-live", "label": "공포 · 미스터리", "label_en": "Horror & Mystery"},
+    "movie-romance-comedy": {"domain": "movie", "category": "movie-live", "label": "로맨스 · 코미디 · 음악", "label_en": "Romance, Comedy & Music"},
+    "movie-animated-features": {"domain": "movie", "category": "movie-animation", "label": "극장 애니메이션 · 가족", "label_en": "Animated Features"},
+    "anime-action": {"domain": "anime", "category": "anime-tv", "label": "액션 · 소년", "label_en": "Action & Shonen"},
+    "anime-fantasy": {"domain": "anime", "category": "anime-tv", "label": "판타지 · 이세계", "label_en": "Fantasy & Isekai"},
+    "anime-scifi-mecha": {"domain": "anime", "category": "anime-tv", "label": "SF · 메카", "label_en": "Sci-Fi & Mecha"},
+    "anime-drama": {"domain": "anime", "category": "anime-tv", "label": "드라마 · 로맨스", "label_en": "Drama & Romance"},
+    "anime-slice": {"domain": "anime", "category": "anime-tv", "label": "일상 · 청춘", "label_en": "Slice of Life"},
+    "anime-sports": {"domain": "anime", "category": "anime-tv", "label": "스포츠 · 음악", "label_en": "Sports & Music"},
+    "anime-films": {"domain": "anime", "category": "anime-film", "label": "극장 애니메이션", "label_en": "Anime Films"},
+    "manga-action": {"domain": "manga", "category": "manga-story", "label": "액션 · 소년", "label_en": "Action & Shonen"},
+    "manga-fantasy": {"domain": "manga", "category": "manga-story", "label": "판타지 · 모험", "label_en": "Fantasy & Adventure"},
+    "manga-drama": {"domain": "manga", "category": "manga-story", "label": "청년 드라마 · 휴먼", "label_en": "Seinen Drama"},
+    "manga-sf-horror": {"domain": "manga", "category": "manga-story", "label": "SF · 미스터리 · 공포", "label_en": "Sci-Fi, Mystery & Horror"},
+    "manga-sports": {"domain": "manga", "category": "manga-life", "label": "스포츠 · 청춘", "label_en": "Sports & Youth"},
+    "manga-romance": {"domain": "manga", "category": "manga-life", "label": "로맨스 · 러브코미디", "label_en": "Romance & Rom-Com"},
+    "manga-slice": {"domain": "manga", "category": "manga-life", "label": "일상 · 코미디 · 음식", "label_en": "Slice of Life & Comedy"},
 }
+# (비교군, 그 비교군으로 보낼 장르) — 위에서부터 먼저 맞는 규칙을 쓴다.
+ARENA_RULES = {
+    "movie": [
+        ("movie-animated-features", {"Animation"}),
+        ("movie-horror", {"Horror", "Mystery"}),
+        ("movie-crime", {"Crime"}),
+        ("movie-sf-fantasy", {"Science Fiction", "Sci-Fi", "Fantasy", "Adventure"}),
+        ("movie-action-thriller", {"Action", "Thriller", "War"}),
+        ("movie-romance-comedy", {"Romance", "Comedy", "Music"}),
+    ],
+    "anime": [
+        ("anime-films", {"__format_movie__"}),
+        ("anime-sports", {"Sports", "Music"}),
+        ("anime-slice", {"Slice of Life", "Comedy"}),
+        ("anime-drama", {"Drama", "Romance", "Psychological", "Mystery"}),
+        ("anime-scifi-mecha", {"Sci-Fi", "Mecha"}),
+        ("anime-fantasy", {"Fantasy", "Supernatural"}),
+    ],
+    "manga": [
+        ("manga-sports", {"Sports"}),
+        ("manga-romance", {"Romance"}),
+        ("manga-slice", {"Slice of Life", "Comedy"}),
+        ("manga-sf-horror", {"Horror", "Mystery", "Psychological", "Sci-Fi"}),
+        ("manga-fantasy", {"Fantasy", "Adventure"}),
+        ("manga-drama", {"Drama"}),
+    ],
+}
+ARENA_DEFAULT = {"movie": "movie-drama", "anime": "anime-action", "manga": "manga-action"}
+
+
+def pick_arena(kind: str, genres_raw: list[str], fmt: str, override: str | None = None) -> str:
+    """장르·형식으로 새 장르 비교군을 고른다 — 확실한 규칙이 없으면 도메인 기본 비교군.
+
+    `override` 는 스펙이 지정한 비교군(v1.3) — 장르 태그가 여러 비교군에 걸치는 작품
+    (예: 코미디 태그가 붙은 소년 액션)을 사람이 제자리에 둘 때 쓴다. 도메인이 다르면 무시한다.
+    """
+    if override and ARENA_META.get(override, {}).get("domain") == kind:
+        return override
+    genres = set(genres_raw or [])
+    for arena_id, rule in ARENA_RULES.get(kind, []):
+        if "__format_movie__" in rule and fmt == "MOVIE":
+            return arena_id
+        if genres & (rule - {"__format_movie__"}):
+            return arena_id
+    return ARENA_DEFAULT[kind]
 
 GENRE_KO = {
     "Action": "액션", "Adventure": "모험", "Comedy": "코미디", "Drama": "드라마", "Fantasy": "판타지",
@@ -248,8 +311,6 @@ def clamp(x: float, lo: float = 0.0, hi: float = 100.0) -> float:
 def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, scale: dict,
                life: str | None = None) -> tuple[dict, dict]:
     kind = work["type"]
-    meta = ARENA[kind]
-    arena_id = meta["arena"]
 
     if kind in ("anime", "manga"):
         m = media
@@ -296,6 +357,9 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         fmt = "MOVIE"
         credit_ko = credit_en = (f.get("director") or [{}])[0].get("name", "")
         release = start
+
+    arena_id = pick_arena(kind, genres_raw, fmt, work.get("arena"))
+    meta = ARENA_META[arena_id]
 
     year = int((start or work.get("year") or NOW_YEAR)[:4]) if start else work["year"]
     life = life or hook.get("life") or "complete"
@@ -552,7 +616,7 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
         "id": work["id"],
         "name": work["ko"] + suffix_ko,
         "aliases": [title_en + suffix_en],
-        "domain": "media",
+        "domain": meta["domain"],
         "category": meta["category"],
         "arenas": [arena_id],
         "arena_notes": {},
@@ -757,7 +821,7 @@ def build_item(work: dict, hook: dict, media: dict | None, film: dict | None, sc
     kind_en = {"anime": "animated work", "manga": "manga", "movie": "film"}[kind]
     path_ko = " · ".join(enc.PLATFORM_KO.get(p, p) for p in platforms)
     path_en = " · ".join(enc.PLATFORM_EN.get(p, p) for p in platforms)
-    head_ko, head_en = enc.summary_line("media", name_ko=item["name"], name_en=title_en + suffix_en,
+    head_ko, head_en = enc.summary_line(kind, name_ko=item["name"], name_en=title_en + suffix_en,
                                         developer_ko=credit_ko, developer_en=credit_en,
                                         release=release, genres_ko=item["genres"], genres_en=en_genres)
     enc_facts = [
@@ -814,94 +878,108 @@ def make_icon(data: bytes, out: Path) -> None:
 # ------------------------------------------------------------------ 카탈로그·EN 병합
 
 def update_catalog(catalog: dict) -> None:
-    catalog["domains"] = [d for d in catalog["domains"] if d["id"] != "media"]
-    catalog["categories"] = [c for c in catalog["categories"] if c["domain"] != "media"]
-    catalog["arenas"] = [a for a in catalog["arenas"] if a["domain"] != "media"]
+    """v31 — 영화·애니·만화 3개 도메인과 6개 대분류·21개 장르 비교군을 카탈로그에 맞춘다."""
+    ids = ("movie", "anime", "manga")
+    catalog["domains"] = [d for d in catalog["domains"] if d["id"] not in ids]
+    catalog["categories"] = [c for c in catalog["categories"] if c.get("domain") not in ids]
+    catalog["arenas"] = [a for a in catalog["arenas"] if a.get("domain") not in ids]
     catalog["filter_packs"]["media"] = {
-        "label": "미디어 팩",
+        "label": "작품 팩",
         "description": "작품 자체보다 감상 경로를 먼저 본다 — 구독·계정·지역 잠금, 완결 여부, 광고 삽입.",
         "filters": ["forced_ads", "gacha_random_items", "p2w", "stale_over_12m",
                     "subscription_required", "account_required", "data_collection"],
     }
-    catalog["domains"].append({
-        "id": "media", "label": "영화 · 애니 · 만화", "icon": "🎬",
-        "description": "보고 읽는 작품 — 완결 여부와 감상 경로(구독·구매·지역)가 판정을 가른다.",
-        "filter_pack": "media", "default_preset": "balanced",
-        "filter_labels": {
-            "forced_ads": "작품 내 광고·홍보 삽입 제외",
-            "gacha_random_items": "확률형 수집 요소 제외",
-            "p2w": "과금 우위 요소 제외",
-            "stale_over_12m": "휴재·중단 작품 제외",
-            "subscription_required": "구독 필수 작품 제외",
-            "account_required": "계정·지역 잠금 제외",
-            "data_collection": "과도한 개인정보 요구 제외",
-        },
-    })
-    catalog["categories"] += [
-        {"id": "anime", "domain": "media", "label": "애니메이션",
-         "description": "TV·극장 애니메이션 — 원작 진행도와 후속 시즌, 스튜디오가 판정을 가른다."},
-        {"id": "manga", "domain": "media", "label": "만화",
-         "description": "만화·단행본 — 완결 여부와 권수, 작가의 필력이 판정을 가른다."},
-        {"id": "movie", "domain": "media", "label": "영화",
+    filter_labels = {
+        "forced_ads": "작품 내 광고·홍보 삽입 제외",
+        "gacha_random_items": "확률형 수집 요소 제외",
+        "p2w": "과금 우위 요소 제외",
+        "stale_over_12m": "휴재·중단 작품 제외",
+        "subscription_required": "구독 필수 작품 제외",
+        "account_required": "계정·지역 잠금 제외",
+        "data_collection": "과도한 개인정보 요구 제외",
+    }
+    for row in (
+        {"id": "movie", "label": "영화", "icon": "🎬",
          "description": "실사 영화 — 한 편으로 완결되는 작품성과 재감상 가치를 본다."},
+        {"id": "anime", "label": "애니", "icon": "📺",
+         "description": "애니메이션 — 원작 진행도와 후속 시즌, 스튜디오가 판정을 가른다."},
+        {"id": "manga", "label": "만화", "icon": "📖",
+         "description": "만화·단행본 — 완결 여부와 권수, 작가의 필력이 판정을 가른다."},
+    ):
+        catalog["domains"].append({**row, "filter_pack": "media", "default_preset": "balanced",
+                                   "filter_labels": dict(filter_labels)})
+    catalog["categories"] += [
+        {"id": "movie-live", "domain": "movie", "label": "실사 영화",
+         "description": "실사로 만든 영화 — 한 편의 완성도와 재감상 가치를 본다."},
+        {"id": "movie-animation", "domain": "movie", "label": "극장 애니메이션",
+         "description": "극장에서 만나는 애니메이션 — 가족과 함께 보는 작품부터 성인 취향까지."},
+        {"id": "anime-tv", "domain": "anime", "label": "TV 애니메이션",
+         "description": "시리즈로 이어 보는 애니메이션 — 화수와 원작 진행도, 완결 여부가 판정을 가른다."},
+        {"id": "anime-film", "domain": "anime", "label": "극장 애니메이션",
+         "description": "한 편으로 완결되는 극장 애니메이션 — 상영 시간과 제작사가 판정을 가른다."},
+        {"id": "manga-story", "domain": "manga", "label": "이야기 만화",
+         "description": "서사로 끌고 가는 만화 — 장르와 완결 여부, 권수가 판정을 가른다."},
+        {"id": "manga-life", "domain": "manga", "label": "청춘 · 생활 만화",
+         "description": "스포츠와 로맨스, 일상의 감정을 그리는 만화 — 분위기와 완결 여부가 판정을 가른다."},
     ]
-    catalog["arenas"] += [
-        {"id": "anime-tv", "domain": "media", "category": "anime", "label": "TV · 극장 애니메이션",
-         "description": "같은 자리에서 겨루는 애니메이션 — AniList 평균 점수와 채점 수, 원작 진행도와 후속 시즌으로 비교한다.",
-         "data_file": "media/anime.json"},
-        {"id": "manga-volumes", "domain": "media", "category": "manga", "label": "만화 · 단행본",
-         "description": "같은 자리에서 겨루는 만화 — AniList 평균 점수와 채점 수, 완결 여부와 권수로 비교한다.",
-         "data_file": "media/manga.json"},
-        {"id": "feature-films", "domain": "media", "category": "movie", "label": "실사 영화",
-         "description": "같은 자리에서 겨루는 영화 — Letterboxd 평점과 평가 수, 개봉 연도로 비교한다.",
-         "data_file": "media/movie.json"},
-    ]
+    for arena_id, meta in ARENA_META.items():
+        domain = meta["domain"]
+        source = "Letterboxd 평점과 평가 수, 개봉 연도" if domain == "movie" else "AniList 평균 점수와 채점 수, 화수"
+        catalog["arenas"].append({
+            "id": arena_id, "domain": domain, "category": meta["category"],
+            "label": meta["label"],
+            "description": f"같은 자리에서 겨루는 {meta['label']} — {source}로 비교한다.",
+            "data_file": f"{domain}/{arena_id}.json",
+        })
     featured = catalog["home"]["featured_arenas"]
-    for aid in ("anime-tv", "manga-volumes", "feature-films"):
-        if aid not in featured:
-            featured.insert(0, aid)
+    for arena_id in reversed(list(ARENA_META)):
+        if arena_id not in featured:
+            featured.insert(0, arena_id)
     catalog["planned_domains"] = [d for d in catalog.get("planned_domains") or [] if d["id"] != "content"]
     note = catalog.get("note") or ""
-    tag = " 2026-11-27 미디어 도메인(v26)으로 영화·애니·만화 3개 비교군 90종이 들어왔다(도메인 4 · 대분류 13 · 비교군 83)."
-    if "미디어 도메인(v26)" not in note:
+    tag = " 2026-11-28 v31 도메인 분리: 통합 미디어(media)를 영화(movie)·애니(anime)·만화(manga) 3개 도메인으로 나누고, 도메인마다 대분류 2개·장르별 비교군 7개로 재편했다."
+    if "v31 도메인 분리" not in note:
         catalog["note"] = note.rstrip() + tag
-        note = catalog["note"]
-    tag2 = " 2026-11-27 2차 대량 적재(v27)로 미디어가 애니 100 · 만화 100 · 영화 100, 합계 300종이 됐다."
-    if "2차 대량 적재(v27)" not in note:
-        catalog["note"] = note.rstrip() + tag2
 
 
 def update_en(bundle: dict, items_en: dict[str, dict]) -> None:
-    bundle.setdefault("domains", {})["media"] = {
-        "label": "Film · Anime · Manga",
-        "description": "Works you watch and read — completion and the route to them (subscription, purchase, region) decide the verdict.",
-        "filter_labels": {
-            "forced_ads": "Ads or promos inside the work",
-            "gacha_random_items": "Random-collectible mechanics",
-            "p2w": "Pay-to-win elements",
-            "stale_over_12m": "On hiatus or abandoned",
-            "subscription_required": "Subscription-only",
-            "account_required": "Account or region lock",
-            "data_collection": "Heavy personal data demands",
-        },
+    """v31 — 영화·애니·만화 도메인·대분류·장르 비교군의 영문 이름을 번들에 맞춘다."""
+    for domain in ("media",):
+        bundle.setdefault("domains", {}).pop(domain, None)
+    filter_labels = {
+        "forced_ads": "Ads or promos inside the work",
+        "gacha_random_items": "Random-collectible mechanics",
+        "p2w": "Pay-for-advantage elements",
+        "stale_over_12m": "Hiatus or dropped works",
+        "subscription_required": "Subscription-only works",
+        "account_required": "Account or region locks",
+        "data_collection": "Heavy personal-data demands",
     }
-    for key, label, desc in (
-        ("anime", "Anime", "TV and film animation — how far the source has come, sequel seasons and the studio decide the verdict."),
-        ("manga", "Manga", "Manga and volumes — completion, length and the author's craft decide the verdict."),
+    for domain, label, desc in (
         ("movie", "Film", "Live-action film — a single sitting's craft and rewatch value."),
+        ("anime", "Anime", "Anime — how far the source has come, sequel seasons and the studio decide the verdict."),
+        ("manga", "Manga", "Manga and volumes — completion, length and the author's craft decide the verdict."),
+    ):
+        bundle.setdefault("domains", {})[domain] = {"label": label, "description": desc,
+                                                    "filter_labels": dict(filter_labels)}
+    for key, label, desc in (
+        ("movie-live", "Live-Action Films", "Live-action films — the craft of a single sitting and its rewatch value."),
+        ("movie-animation", "Animated Features", "Animation for the cinema — from family films to adult-minded features."),
+        ("anime-tv", "TV Anime", "Anime you follow as a series — episode count, source progress and completion decide the verdict."),
+        ("anime-film", "Anime Films", "Anime features that complete in one sitting — running time and studio decide the verdict."),
+        ("manga-story", "Story Manga", "Manga driven by story — genre, completion and volume count decide the verdict."),
+        ("manga-life", "Youth & Slice of Life", "Sports, romance and everyday feeling — mood and completion decide the verdict."),
     ):
         bundle.setdefault("categories", {})[key] = {"label": label, "description": desc}
-    for key, label, desc in (
-        ("anime-tv", "TV & Film Animation",
-         "Animation works side by side — AniList average score and rating count, progress of the source, sequel seasons."),
-        ("manga-volumes", "Manga & Volumes",
-         "Manga side by side — AniList average score and rating count, completion and volume count."),
-        ("feature-films", "Feature Films",
-         "Films side by side — Letterboxd rating and rating count, release year."),
-    ):
-        bundle.setdefault("arenas", {})[key] = {"label": label, "description": desc}
+    for arena_id, meta in ARENA_META.items():
+        source = "Letterboxd rating and rating count, release year" if meta["domain"] == "movie" \
+            else "AniList average score and rating count, episode count"
+        bundle.setdefault("arenas", {})[arena_id] = {
+            "label": meta["label_en"],
+            "description": f"{meta['label_en']} side by side — {source}.",
+        }
     bundle.setdefault("filter_packs", {})["media"] = {
-        "label": "Media pack",
+        "label": "Works pack",
         "description": "Look at how the work is reached before the work itself — subscription, account and region locks, completion, ads.",
     }
     genres = bundle.setdefault("genres", {})
@@ -932,8 +1010,13 @@ def normalized(text: str) -> str:
     return re.sub(r"[^a-z0-9가-힣]", "", (text or "").lower())
 
 
-def loaded_items(kind: str) -> list[dict]:
-    path = DATA / ARENA[kind]["file"]
+def arena_path(arena_id: str) -> Path:
+    meta = ARENA_META[arena_id]
+    return DATA / meta["domain"] / f"{arena_id}.json"
+
+
+def loaded_items(arena_id: str) -> list[dict]:
+    path = arena_path(arena_id)
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
 
 
@@ -982,7 +1065,7 @@ def guard_duplicates(spec: list[dict], existing: list[dict]) -> list[str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", choices=list(ARENA), help="한 비교군만 적재")
+    ap.add_argument("--only", choices=list(ARENA_RULES), help="한 도메인(anime·manga·movie)만 적재")
     ap.add_argument("--no-icon", action="store_true")
     ap.add_argument("--spec", default=str(DRAFT / "spec.json"), help="작품·ID·슬러그 스펙")
     ap.add_argument("--hooks", default=str(DRAFT / "hooks.json"), help="한 줄 소개·작가")
@@ -1035,8 +1118,8 @@ def main() -> int:
         print(f"→ 아이콘 {done}개 생성")
         return 0
 
-    existing_by_kind = {kind: loaded_items(kind) for kind in ARENA}
-    existing_all = [item for rows in existing_by_kind.values() for item in rows]
+    existing_by_arena = {arena_id: loaded_items(arena_id) for arena_id in ARENA_META}
+    existing_all = [item for rows in existing_by_arena.values() for item in rows]
     existing_ids = {item["id"] for item in existing_all}
     spec = [w for w in spec if w["id"] not in existing_ids] if args.merge else spec
     if args.merge:
@@ -1076,7 +1159,7 @@ def main() -> int:
             print("   ", row)
         return 1
 
-    by_type: dict[str, list[tuple[dict, dict]]] = {k: [] for k in ARENA}
+    by_arena: dict[str, list[tuple[dict, dict]]] = {arena_id: [] for arena_id in ARENA_META}
     en_items: dict[str, dict] = {}
     icon_done = 0
     for w in spec:
@@ -1084,7 +1167,7 @@ def main() -> int:
         film = films.get(w["id"]) if w["type"] == "movie" else None
         life = life_from(w, media)
         item, en = build_item(w, hooks[w["id"]], media, film, scale, life)
-        by_type[w["type"]].append((item, en))
+        by_arena[item["arenas"][0]].append((item, en))
         en_items[w["id"]] = en
         icon_path = WEB / "assets" / "icons" / f"{w['id']}.webp"
         if not args.no_icon and not args.dry_run and not icon_path.exists():
@@ -1102,14 +1185,14 @@ def main() -> int:
 
     # 파일 기록 — merge 면 기존 항목 앞에 그대로 두고 새 항목을 뒤에 붙인다.
     if args.dry_run:
-        enc_count = sum(1 for rows in by_type.values() for item, _en in rows if item.get("encyclopedia"))
-        print(f"(dry-run — 기록 없음) 빌드 {sum(len(r) for r in by_type.values())}종 · 사전 {enc_count}종")
-    for kind, rows in by_type.items():
+        enc_count = sum(1 for rows in by_arena.values() for item, _en in rows if item.get("encyclopedia"))
+        print(f"(dry-run — 기록 없음) 빌드 {sum(len(r) for r in by_arena.values())}종 · 사전 {enc_count}종")
+    for arena_id, rows in by_arena.items():
         if not rows or args.dry_run:
             continue
-        keep = existing_by_kind[kind] if args.merge else []
+        keep = existing_by_arena[arena_id] if args.merge else []
         merged = list(keep) + [item for item, _en in rows]
-        path = DATA / ARENA[kind]["file"]
+        path = arena_path(arena_id)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(merged, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         verdicts = {}
@@ -1133,13 +1216,13 @@ def main() -> int:
     from jsonschema import Draft202012Validator, FormatChecker
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     fails = 0
-    for kind, rows in by_type.items():
+    for _arena_id, rows in by_arena.items():
         for item, _en in rows:
             errs_ = sorted(validator.iter_errors(item), key=lambda e: list(e.path))
             if errs_:
                 fails += 1
                 print(f"  × {item['id']}: {len(errs_)}건 — {errs_[0].message[:120]}")
-    print(f"스키마 검사: {sum(len(r) for r in by_type.values()) - fails}통과 / {fails}실패")
+    print(f"스키마 검사: {sum(len(r) for r in by_arena.values()) - fails}통과 / {fails}실패")
     return 0 if fails == 0 else 1
 
 

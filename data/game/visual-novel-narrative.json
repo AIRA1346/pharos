@@ -5241,5 +5241,1215 @@
    "ai_review": "자동 추정 67.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/long-live-the-queen.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "muv-luv",
+  "name": "Muv-Luv",
+  "aliases": [
+   "무브러브"
+  ],
+  "domain": "game",
+  "category": "visual-novel",
+  "arenas": [
+   "visual-novel-narrative"
+  ],
+  "arena_notes": {
+   "visual-novel-narrative": "Steam 누적 93% 긍정(1,895건) · 최근 30일 85%(20건). ₩33,000 · 마지막 업데이트 2026-06-25. 「비주얼 노벨 · 인터랙티브 스토리」 안에서 aNCHOR Inc.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "캐주얼"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "aNCHOR Inc.",
+  "publisher": "aNCHOR Inc.",
+  "release_date": "2018-02-28",
+  "one_liner": "One of the most highly-acclaimed visual novel series arrives on Steam, newly revamped and officially in English! An interdimensional love…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-06-25(156일 전).",
+  "sources": [
+   {
+    "id": "steam-muv-luv",
+    "title": "Steam — Muv-Luv",
+    "url": "https://store.steampowered.com/app/802880/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2018-02-28, 개발사 aNCHOR Inc.. 평가 Steam 누적 93% 긍정(1,895건) · 최근 30일 85%(20건)."
+   },
+   {
+    "id": "steamspy-muv-luv",
+    "title": "SteamSpy — Muv-Luv",
+    "url": "https://steamspy.com/app/802880",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 1,762 / 부정 132 (긍정률 93.0%). 보유자 규모 50,000 .. 100,000."
+   },
+   {
+    "id": "steam-news-muv-luv",
+    "title": "Steam — Muv-Luv 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165548342",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Muv-Luv Girls Garden Steam Store Page Now Live!' (2026-06-25)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-muv-luv"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-muv-luv"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-muv-luv"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-muv-luv"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-muv-luv"
+    ],
+    "note": "마지막 업데이트 2026-06-25(156일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 33000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩33,000"
+    },
+    "limits": [
+     "DLC 5건 별도 판매",
+     "미국 스토어 $29.99"
+    ],
+    "one_liner": "1회 구매 ₩33,000 — DLC 5건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-muv-luv"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-muv-luv"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-06-25(156일 전) — 활발.",
+      "source_ids": [
+       "steam-muv-luv"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-muv-luv"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.6,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 93% 긍정(1,895건) · 최근 30일 85%(20건) — 표본 가중 평균 93.0 · v0.6.0 규모 보정 -1.40(표본 1,895) → 91.6.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1895,
+     "sample_source": "reviews",
+     "base_score": 93.0,
+     "log_delta": -1.4448,
+     "gate": 1.0,
+     "applied": -1.4,
+     "final_score": 91.6,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-muv-luv",
+     "steamspy-muv-luv"
+    ]
+   },
+   "objective": {
+    "score": 77.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 77.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-06-25(+5) · 플랫폼 2종(+2) · 출시 8년(+4).",
+    "source_ids": [
+     "steam-news-muv-luv"
+    ]
+   },
+   "ai_review": {
+    "score": 65.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 65.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 180일 내 업데이트(+2). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-muv-luv"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — Steam 93% 긍정(1,895건), 최근 업데이트 2026-06-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 93% 긍정(1,895건) · 최근 30일 85%(20건).",
+    "₩33,000 · 마지막 업데이트 2026-06-25(156일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 93,
+      "scale": "percent",
+      "count": 1895,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 85,
+      "scale": "percent",
+      "count": 20,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,895건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 93% 긍정(1,895건) · 최근 30일 85%(20건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-06-25",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-06-25",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-muv-luv"
+     ],
+     "note": "업데이트 공지 'Muv-Luv Girls Garden Steam Store Page Now Live!'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-06-25(156일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-muv-luv"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-muv-luv"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩33,000. DLC 5건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 93% 긍정(1,895건) · 최근 30일 85%(20건) → 표본 가중 평균 93.0. 표본 1,895건. v0.6.0 표본 규모 보정: 누적 표본 1,895건 → 로그 보정 -1.44 × 평점 게이트 1.00 = -1.40 (93.0 → 91.6).",
+   "objective": "자동 산정 77.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-06-25(+5) · 플랫폼 2종(+2) · 출시 8년(+4).",
+   "ai_review": "자동 추정 65.2: 본질 검토 전 중립값 60 · 스토어 평점 93.0(+3.2) · 180일 내 업데이트(+2)."
+  },
+  "icon": "assets/icons/muv-luv.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "witch-on-the-holy-night",
+  "name": "Witch on the Holy Night",
+  "aliases": [
+   "마법사의 밤"
+  ],
+  "domain": "game",
+  "category": "visual-novel",
+  "arenas": [
+   "visual-novel-narrative"
+  ],
+  "arena_notes": {
+   "visual-novel-narrative": "Steam 누적 97% 긍정(1,503건) · 최근 30일 97%(171건). ₩63,000 (할인 50% ₩31,500) · 마지막 업데이트 2026-06-25. 「비주얼 노벨 · 인터랙티브 스토리」 안에서 TYPE-MOON의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "TYPE-MOON",
+  "publisher": "Aniplex Inc.",
+  "release_date": "2023-12-14",
+  "one_liner": "다채롭고 선려한 비주얼, 풍성한 보이스와 함께, TYPE-MOON 정통파 비주얼 노벨이 찾아옵니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-06-25(156일 전).",
+  "sources": [
+   {
+    "id": "steam-witch-on-the-holy-night",
+    "title": "Steam — WITCH ON THE HOLY NIGHT",
+    "url": "https://store.steampowered.com/app/2052410/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 63,000, 출시 2023-12-14, 개발사 TYPE-MOON, Lasengle Inc., Hunex. 평가 Steam 누적 97% 긍정(1,503건) · 최근 30일 97%(171건)."
+   },
+   {
+    "id": "steamspy-witch-on-the-holy-night",
+    "title": "SteamSpy — WITCH ON THE HOLY NIGHT",
+    "url": "https://steamspy.com/app/2052410",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 5,376 / 부정 90 (긍정률 98.4%). 보유자 규모 50,000 .. 100,000."
+   },
+   {
+    "id": "steam-news-witch-on-the-holy-night",
+    "title": "Steam — WITCH ON THE HOLY NIGHT 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165551091",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'On sale at 50% off!' (2026-06-25)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ],
+    "note": "마지막 업데이트 2026-06-25(156일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 63000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩63,000 (할인 50% ₩31,500)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $39.99"
+    ],
+    "one_liner": "1회 구매 ₩63,000 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-witch-on-the-holy-night"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-witch-on-the-holy-night"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-06-25(156일 전) — 활발.",
+      "source_ids": [
+       "steam-witch-on-the-holy-night"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-witch-on-the-holy-night"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.3,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 97% 긍정(1,503건) · 최근 30일 97%(171건) — 표본 가중 평균 97.0 · v0.6.0 규모 보정 -1.70(표본 1,503) → 95.3.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1503,
+     "sample_source": "reviews",
+     "base_score": 97.0,
+     "log_delta": -1.6461,
+     "gate": 1.0,
+     "applied": -1.7,
+     "final_score": 95.3,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-witch-on-the-holy-night",
+     "steamspy-witch-on-the-holy-night"
+    ]
+   },
+   "objective": {
+    "score": 73.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 73.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-06-25(+5) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-witch-on-the-holy-night"
+    ]
+   },
+   "ai_review": {
+    "score": 66.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 180일 내 업데이트(+2). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 97% 긍정(1,503건), 최근 업데이트 2026-06-25. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 97% 긍정(1,503건) · 최근 30일 97%(171건).",
+    "₩63,000 (할인 50% ₩31,500) · 마지막 업데이트 2026-06-25(156일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 1503,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 171,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,503건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 97% 긍정(1,503건) · 최근 30일 97%(171건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-06-25",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-06-25",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-witch-on-the-holy-night"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'On sale at 50% off!'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-06-25(156일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-witch-on-the-holy-night"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-witch-on-the-holy-night"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩63,000 (할인 50% ₩31,500). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 97% 긍정(1,503건) · 최근 30일 97%(171건) → 표본 가중 평균 97.0. 표본 1,503건. v0.6.0 표본 규모 보정: 누적 표본 1,503건 → 로그 보정 -1.65 × 평점 게이트 1.00 = -1.70 (97.0 → 95.3).",
+   "objective": "자동 산정 73.0: 가격·무료 여부를 스토어에서 확인(+4) · 180일 내 업데이트 2026-06-25(+5) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 66.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 180일 내 업데이트(+2)."
+  },
+  "icon": "assets/icons/witch-on-the-holy-night.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "little-busters",
+  "name": "Little Busters! English Edition",
+  "aliases": [
+   "리틀 버스터즈"
+  ],
+  "domain": "game",
+  "category": "visual-novel",
+  "arenas": [
+   "visual-novel-narrative"
+  ],
+  "arena_notes": {
+   "visual-novel-narrative": "Steam 누적 97% 긍정(1,153건) · 최근 30일 100%(25건). ₩36,000 (할인 65% ₩12,600) · 마지막 업데이트 2018-03-29. 「비주얼 노벨 · 인터랙티브 스토리」 안에서 VisualArts/Key의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "캐주얼",
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "VisualArts/Key",
+  "publisher": "VisualArts",
+  "release_date": "2017-11-01",
+  "one_liner": "Capturing the hearts of countless fans since 2007, Little Busters! is an emotional visual novel from Key, the minds behind Angel Beats! and…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2018-03-29(3166일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-little-busters",
+    "title": "Steam — Little Busters! English Edition",
+    "url": "https://store.steampowered.com/app/635940/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 36,000, 출시 2017-11-01, 개발사 VisualArts/Key. 평가 Steam 누적 97% 긍정(1,153건) · 최근 30일 100%(25건)."
+   },
+   {
+    "id": "steamspy-little-busters",
+    "title": "SteamSpy — Little Busters! English Edition",
+    "url": "https://steamspy.com/app/635940",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 1,125 / 부정 26 (긍정률 97.7%). 보유자 규모 20,000 .. 50,000."
+   },
+   {
+    "id": "steam-news-little-busters",
+    "title": "Steam — Little Busters! English Edition 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/2383968106568302357",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Patch fixing several spell/translation-misses and improving game stability (Ver. 1.2.4)' (2018-03-29)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-little-busters"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-little-busters"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-little-busters"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-little-busters"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-little-busters"
+    ],
+    "note": "마지막 업데이트 2018-03-29 — 12개월(3166일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 36000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩36,000 (할인 65% ₩12,600)"
+    },
+    "limits": [
+     "DLC 7건 별도 판매",
+     "미국 스토어 $34.99"
+    ],
+    "one_liner": "1회 구매 ₩36,000 — DLC 7건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-little-busters"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-little-busters"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2018-03-29 — 12개월(3166일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-little-busters"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-little-busters"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.1,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 97% 긍정(1,153건) · 최근 30일 100%(25건) — 표본 가중 평균 97.0 · v0.6.0 규모 보정 -1.90(표본 1,153) → 95.1.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1153,
+     "sample_source": "reviews",
+     "base_score": 97.0,
+     "log_delta": -1.8763,
+     "gate": 1.0,
+     "applied": -1.9,
+     "final_score": 95.1,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-little-busters",
+     "steamspy-little-busters"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2018-03-29(-14) · 플랫폼 2종(+2) · 출시 9년(+4).",
+    "source_ids": [
+     "steam-news-little-busters"
+    ]
+   },
+   "ai_review": {
+    "score": 56.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-little-busters"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 97% 긍정(1,153건), 최근 업데이트 2018-03-29. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 97% 긍정(1,153건) · 최근 30일 100%(25건).",
+    "₩36,000 (할인 65% ₩12,600) · 마지막 업데이트 2018-03-29(3166일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "마지막 업데이트가 2018-03-29 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 1153,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 100,
+      "scale": "percent",
+      "count": 25,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,153건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 97% 긍정(1,153건) · 최근 30일 100%(25건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2018-03-29",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2018-03-29",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-little-busters"
+     ],
+     "note": "업데이트 공지 'Patch fixing several spell/translation-misses and improving game stability (Ver. 1.2.4)'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2018-03-29(3166일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-little-busters"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-little-busters"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩36,000 (할인 65% ₩12,600). DLC 7건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 97% 긍정(1,153건) · 최근 30일 100%(25건) → 표본 가중 평균 97.0. 표본 1,153건. v0.6.0 표본 규모 보정: 누적 표본 1,153건 → 로그 보정 -1.88 × 평점 게이트 1.00 = -1.90 (97.0 → 95.1).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2018-03-29(-14) · 플랫폼 2종(+2) · 출시 9년(+4).",
+   "ai_review": "자동 추정 56.2: 본질 검토 전 중립값 60 · 스토어 평점 97.0(+4.2) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/little-busters.webp"
  }
 ]

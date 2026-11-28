@@ -55,7 +55,6 @@ MIN_GAMES, MAX_GAMES = 50, 70
 MIN_QUESTS, MIN_FREE_GAMES = 100, 10
 MIN_PER_COMBO = 2
 MEDIA_CATEGORIES = ("anime", "movie", "manga")
-MEDIA_ARENA = {"anime": "anime-tv", "movie": "feature-films", "manga": "manga-volumes"}
 MEDIA_FILES = {"anime": "media-anime.json", "movie": "media-movie.json", "manga": "media-manga.json"}
 MEDIA_MIN_ITEMS, MEDIA_MAX_ITEMS = 20, 40
 MEDIA_MIN_QUESTS = 40
@@ -376,7 +375,11 @@ def _check_quests(entry: dict, label: str, errs: list[str]) -> list[dict]:
 
 def validate(games: list[dict], media: dict[str, list[dict]]) -> list[str]:
     errs: list[str] = []
-    index = {row["id"]: row for row in json.loads(INDEX.read_text(encoding="utf-8"))["items"]}
+    index_rows = json.loads(INDEX.read_text(encoding="utf-8"))["items"]
+    index = {row["id"]: row for row in index_rows}
+    domain_cats: dict[str, set[str]] = {}
+    for row in index_rows:
+        domain_cats.setdefault(row.get("domain"), set()).add(row.get("category"))
     seen = set()
     free = 0
     if not MIN_GAMES <= len(games) <= MAX_GAMES:
@@ -412,12 +415,10 @@ def validate(games: list[dict], media: dict[str, list[dict]]) -> list[str]:
             if not rec:
                 errs.append(f"{category}/{iid}: search-index.json 에 없음")
                 continue
-            if rec.get("domain") != "media":
-                errs.append(f"{category}/{iid}: media 도메인이 아님({rec.get('domain')})")
-            elif rec.get("category") != category:
-                errs.append(f"{category}/{iid}: 카탈로그 카테고리는 {rec.get('category')}")
-            elif MEDIA_ARENA[category] not in (rec.get("arenas") or []):
-                errs.append(f"{category}/{iid}: 비교군 {MEDIA_ARENA[category]} 소속이 아님")
+            if rec.get("domain") != category:
+                errs.append(f"{category}/{iid}: {category} 도메인이 아님({rec.get('domain')})")
+            elif rec.get("category") not in domain_cats.get(category, set()):
+                errs.append(f"{category}/{iid}: 대분류 {rec.get('category')} 가 {category} 도메인 소속이 아님")
             if iid in seen:
                 errs.append(f"{category}/{iid}: id 중복")
             seen.add(iid)

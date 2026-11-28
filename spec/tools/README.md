@@ -313,17 +313,19 @@ python3 projects/pharos/scripts/fetch_icons.py --ids todoist,cline
 수집 로그: `drafts/logs/2026-11-25-auto-collect.json` · 초안/리뷰: `drafts/*.draft.json`, `drafts/*.review.json`,
 `drafts/reviewed/*.json`
 
-## 7. media_ingest.py — 미디어 도메인(영화·애니·만화) 적재
+## 7. media_ingest.py — 작품 도메인(영화·애니·만화) 적재
 
 ```bash
-python3 projects/pharos/scripts/media_ingest.py            # 90종 수집·생성·기록(포스터 아이콘 포함)
+python3 projects/pharos/scripts/media_ingest.py            # 수집·생성·기록(포스터 아이콘 포함)
 python3 projects/pharos/scripts/media_ingest.py --no-icon  # 아이콘 생략
 python3 projects/pharos/scripts/media_ingest.py --only anime
 ```
 
-새 도메인 `media`(🎬 영화 · 애니 · 만화)를 대분류 3개(애니메이션·만화·영화)와 비교군 3개
-(`anime-tv` · `manga-volumes` · `feature-films`)로 만들고, 스펙(`drafts/media-2026-11-27/spec.json`)의
-90종을 **AniList GraphQL**(평균 점수·채점 분포·표지·장르·방영/연재 기간·스튜디오·작가)과
+v31(2026-11-28)부터 통합 `media` 도메인 대신 **영화(movie)·애니(anime)·만화(manga) 3개 도메인**을 쓰고,
+도메인마다 대분류 2개·장르 비교군 7개(총 21비교군)에 항목을 나눠 적재한다. 새 항목의 비교군은
+`pick_arena()` 가 AniList·Letterboxd 장르와 형식(극장판)으로 고르고, 규칙에 없는 장르는 도메인 기본
+비교군(`movie-drama`·`anime-action`·`manga-action`)으로 간다. 스펙(`drafts/media-2026-11-27/spec.json`)의
+작품을 **AniList GraphQL**(평균 점수·채점 분포·표지·장르·방영/연재 기간·스튜디오·작가)과
 **Letterboxd 영화 페이지 JSON-LD**(평점·평가 수·감독·장르·개봉일·포스터)로 채운다. 키가 필요 없다.
 
 | 축 | 계산 |
@@ -339,16 +341,17 @@ python3 projects/pharos/scripts/media_ingest.py --only anime
 최근 화 공개일)은 `unknown`·`data_quality.unverified` 로 남기고, 가격 표기는 `amount: null`(통화 `none`)이다.
 
 ```bash
-python3 projects/pharos/scripts/smoke_v26_media.py                     # 로컬 미디어 도메인 스모크 30항목
-python3 projects/pharos/scripts/smoke_v26_media.py --live --shots-dir projects/pharos/live
+python3 projects/pharos/scripts/smoke_v26_media.py                     # 구 미디어 URL 호환 스모크 20항목
+python3 projects/pharos/scripts/smoke_v31_split_media.py               # 분리 3도메인·21비교군 스모크 67항목
+python3 projects/pharos/scripts/smoke_v31_split_media.py --live --shots-dir projects/pharos/live
 ```
 
 ## 8. verify_ui.py 상태 (2026-11-27)
 
 `web/tests/verify_ui.py` 는 v3 홈(`.hero`) 시절 선택자를 아직 들고 있어 현재 등대 첫 화면에서는
 `Page.inner_text(.hero)` 대기로 멈춘다(이번 배치 이전부터의 상태). 지금의 회귀 검증은
-`smoke_v21.py`(120항목) · `smoke_v22_brand.py`(69) · `smoke_v23_pledge.py`(61) · `smoke_v26_media.py`(31) ·
-`smoke_v28_lighthouse_v3.py`(101, 등대 4분야·전체 랜덤)가 맡는다.
+`smoke_v21.py`(120항목) · `smoke_v22_brand.py`(69) · `smoke_v23_pledge.py`(61) · `smoke_v26_media.py`(20, 구 URL 호환) ·
+`smoke_v28_lighthouse_v3.py`(101, 등대 4분야·전체 랜덤) · `smoke_v30_encyclopedia.py`(41) · `smoke_v31_split_media.py`(67, 도메인 분리)가 맡는다.
 
 ## 9. v29 (2026-11-28) — 미디어 3차 225종 + 게임·앱·AI 80종 = 2,072종
 

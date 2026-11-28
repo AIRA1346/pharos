@@ -34,6 +34,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import encyclopedia as enc  # noqa: E402
 
 DATA = ROOT / "data"
+# v31 — 작품 도메인(영화·애니·만화). 미디어 제원·제작진 라벨을 쓰는 세 도메인이다.
+WORK_DOMAINS = {"movie", "anime", "manga"}
 EN_PATH = DATA / "en.json"
 CURATED_DIR = ROOT / "drafts" / "encyclopedia-2026-11-28"
 STEAM_ENRICH = CURATED_DIR / "steam_enrich.json"
@@ -141,7 +143,7 @@ def media_facts(item: dict, en_entry: dict | None = None) -> list[dict]:
 
 def auto_facts(item: dict, enrich: dict | None, tier: dict | None, en_price: str | None = None,
                en_entry: dict | None = None) -> list[dict]:
-    if item.get("domain") == "media":
+    if item.get("domain") in WORK_DOMAINS:
         rows = media_facts(item, en_entry)
         if tier:
             kind_ko = KIND_KO.get(tier.get("kind"), tier.get("kind") or "")
@@ -186,10 +188,10 @@ def auto_facts(item: dict, enrich: dict | None, tier: dict | None, en_price: str
     if rating_ko:
         rows.append(enc.fact("평가", "Rating", rating_ko, rating_en))
     release = item.get("release_date")
-    if release and item.get("domain") != "media":
+    if release and item.get("domain") not in WORK_DOMAINS:
         rows.append(enc.fact("출시", "Released", release, release))
     latest = (item.get("update_profile") or {}).get("latest_update")
-    if latest and item.get("domain") != "media":
+    if latest and item.get("domain") not in WORK_DOMAINS:
         rows.append(enc.fact("최근 업데이트", "Latest update", latest, latest,
                              "수집 시점 스토어·저장소 표기", "As listed when collected"))
     return rows
@@ -215,7 +217,7 @@ def auto_highlights(item: dict, enrich: dict | None, tier: dict | None,
         ko.append(f"공개 평가 {rating_ko}.")
         en.append(f"Public ratings: {rating_en}.")
     latest = (item.get("update_profile") or {}).get("latest_update")
-    if latest and item.get("domain") != "media" and len(ko) < 4:
+    if latest and item.get("domain") not in WORK_DOMAINS and len(ko) < 4:
         ko.append(f"최근 업데이트 {latest}.")
         en.append(f"Latest update {latest}.")
     return ko, en
@@ -247,7 +249,7 @@ def build(item: dict, curated: dict, enrich: dict | None, en_entry: dict | None 
     if len(highlights_ko) > 4:
         highlights_ko, highlights_en = highlights_ko[:4], highlights_en[:4]
 
-    if item.get("domain") == "media":
+    if item.get("domain") in WORK_DOMAINS:
         credit = item.get("developer") or ""
         if not credit:
             warns.append(f"{item['id']}: 제작진 표기 없음")

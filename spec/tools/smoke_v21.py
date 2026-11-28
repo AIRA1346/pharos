@@ -296,7 +296,7 @@ def main() -> int:
         expect(page.query_selector(".lh-empty") is None, "Step 0: 빈 점선 결과 박스·`완료한 퀘스트가 없습니다` 없음", "")
         banner = page.query_selector(".lh-catalog-banner")
         banner_text = page.inner_text(".lh-catalog-banner").replace("\n", " | ") if banner else ""
-        expect(f"{total_items:,}개 앱·게임·AI 도구 직접 비교해 보기" in banner_text,
+        expect(f"{total_items:,}개 앱·게임·AI 도구·작품 직접 비교해 보기" in banner_text,
                f"Step 0: 카탈로그 배너 `{total_items:,}개 … 비교해 보기` 유지", banner_text[:90])
         expect(tab_labels(page)[:2] == ["🚨 등대", "🧭 전체 탐색"] and active_tab(page) == "🚨 등대",
                "상단 탭 순서·활성 = 등대", str(tab_labels(page)))

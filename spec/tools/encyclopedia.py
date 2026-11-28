@@ -21,6 +21,8 @@
 from __future__ import annotations
 
 RELATIONS = ("sequel", "prequel", "adaptation", "series", "alternative")
+# v31 — 작품 도메인(영화·애니·만화). 개요 문장이 제작사·작품 문법을 쓴다.
+WORK_DOMAINS = {"movie", "anime", "manga"}
 MAX_FACTS = 12
 MIN_FACTS = 3
 
@@ -127,7 +129,7 @@ def summary_line(domain: str, *, name_ko: str, name_en: str, developer_ko: str, 
     year = (release or "")[:4]
     gen_ko = " · ".join(genres_ko[:3]) or "작품"
     gen_en = " · ".join(genres_en[:3]) or "work"
-    if domain == "media":
+    if domain in WORK_DOMAINS:
         return (f"『{name_ko}』은(는) {developer_ko or '제작사 미상'}의 {year or '연도 미상'} {gen_ko} 작품이다."
                 if year else f"『{name_ko}』은(는) {developer_ko or '제작사 미상'}의 {gen_ko} 작품이다.",
                 f"{name_en} is a {gen_en} work by {developer_en or 'an unlisted studio'}"

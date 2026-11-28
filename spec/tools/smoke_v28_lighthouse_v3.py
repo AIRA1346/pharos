@@ -225,9 +225,8 @@ def main() -> int:
         quests = sum(len(row["quests"]) for row in rows.values())
         expect(len(rows) == 25 and quests >= 40,
                f"데이터: {cat} 25종 · 목표 {quests}개(40개 이상)", f"{len(rows)}종/{quests}개")
-        bad_ids = [iid for iid in rows if iid not in index or index[iid].get("domain") != "media"
-                   or index[iid].get("category") != cat]
-        expect(not bad_ids, f"데이터: {cat} 모든 item_id 가 카탈로그 media/{cat} 항목과 일치", str(bad_ids[:4]))
+        bad_ids = [iid for iid in rows if iid not in index or index[iid].get("domain") != cat]
+        expect(not bad_ids, f"데이터: {cat} 모든 item_id 가 카탈로그 {cat} 도메인 항목과 일치", str(bad_ids[:4]))
     expect(all(row["game_id"] in index and index[row["game_id"]].get("domain") == "game" for row in lh["games"]),
            "데이터: 게임 game_id 전부 카탈로그 game 항목", "")
     expect(counts["items"] == len(games) + sum(len(media[c]) for c in MEDIA) and counts["items"] >= 120,

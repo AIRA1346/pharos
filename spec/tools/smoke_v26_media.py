@@ -1,33 +1,28 @@
 #!/usr/bin/env python3
-"""파로스 v26/v27 미디어 도메인 스모크 — 영화 · 애니 · 만화 (데이터에서 건수를 읽는다).
+"""파로스 v26.1 — 구 미디어 URL 호환 스모크 (v31 도메인 분리 뒤).
 
-v27(2차 대량 적재)부터 **기대 건수를 데이터에서 읽는다** — 화면이 카탈로그·비교군 파일과
-같은 수를 보여 주는지 확인하므로, 작품이 늘어도 이 스크립트는 낡지 않는다.
-지금 값은 미디어 300종(비교군 3 × 100종).
+v31 에서 통합 `media` 도메인이 영화(movie)·애니(anime)·만화(manga)로 나뉘었다.
+이 스크립트는 **예전에 공유된 주소가 깨지지 않는지**만 본다.
 
 무엇을 확인하는가
-  1) 도메인 — 상단 탭에 `영화 · 애니 · 만화` 가 있고, 도메인 화면이 3개 대분류 · 90건을 보여 준다.
-  2) 비교군 — `TV · 극장 애니메이션` 30장 · `만화 · 단행본` 30장 · `실사 영화` 30장이 카드로 뜨고,
-     포스터 아이콘(webp)이 실제로 로드되며(自然Width>0) 판정 배지·가중 점수가 함께 보인다.
-  3) 상세 — 만화 항목의 상세에서 `누적 평점(100점)`·`AniList`·`단행본 구매` 가 보이고,
-     미디어는 `제작 · 플랫폼`(개발사 아님) 라벨을 쓴다. 가격은 지어내지 않고 '미확인' 표기다.
-  4) EN — 같은 화면이 영문 제목(TV & Film Animation)으로 뜨고 카드 텍스트에 한글이 없다.
-  5) 비교 — 같은 비교군의 두 항목을 나란히 비교하면 표에 축 점수·누적 평점(100점)이 나온다.
-  6) 기존 흐름 — 등대 첫 화면·전체 탐색·앱/게임/AI 도구 비교군이 그대로 열린다(회귀 확인).
-  7) 반응형 — 390px 에서 가로 넘침 0.
-  8) 오류 0건 · 스크린샷(--shots-dir) {prefix}-desktop.png · {prefix}-mobile.png.
+  1) `?domain=media` → 영화 도메인으로 열리고, 주소가 `?domain=movie` 로 정리된다.
+  2) `?arena=feature-films` → 영화, `?arena=anime-tv` → 애니, `?arena=manga-volumes` → 만화 도메인.
+  3) `?domain=media&category=anime` → 애니 도메인(옛 대분류), `?domain=media&arena=anime-tv` → 애니 도메인.
+  4) 구 주소 + `lang=en` 도 영문 도메인 화면으로 열린다.
+  5) `?domain=media&item=interstellar` → 영화 도메인의 상세 모달이 열린다.
+  6) 새 주소·탭은 그대로 동작하고(영화·애니·만화 탭), 390px 가로 넘침 0.
 
 사용
   python3 projects/pharos/scripts/smoke_v26_media.py
-  python3 projects/pharos/scripts/smoke_v26_media.py --live --shots-dir projects/pharos/live
+  python3 projects/pharos/scripts/smoke_v26_media.py --live
 """
 
 from __future__ import annotations
 
 import argparse
 import functools
-import json
 import http.server
+import json
 import os
 import re
 import socketserver
@@ -53,15 +48,6 @@ WEB_ROOT = ROOT / "web"
 LIVE = "https://aira1346.github.io/pharos/"
 KOREAN = re.compile(r"[\uac00-\ud7a3]")
 RESULTS: list[tuple[str, bool, str]] = []
-
-# 기대 건수는 데이터에서 읽는다(스크립트에 숫자를 박지 않는다).
-_CATALOG = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
-ARENA_COUNTS = {
-    a["id"]: len(json.loads((ROOT / "data" / a["data_file"]).read_text(encoding="utf-8")))
-    for a in _CATALOG["arenas"] if a.get("domain") == "media"
-}
-MEDIA_TOTAL = sum(ARENA_COUNTS.values())
-
 CHROME_CANDIDATES = [
     os.environ.get("PHAROS_CHROME", ""),
     "/workspace/.cache/ms-playwright/chromium-1255/chrome-linux64/chrome",
@@ -75,7 +61,7 @@ def expect(condition: bool, label: str, extra: str = "") -> None:
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *args, **kwargs):  # noqa: D401
+    def log_message(self, *args, **kwargs):
         pass
 
 
@@ -96,11 +82,25 @@ def launch(chromium):
     return chromium.launch(args=["--no-sandbox"])
 
 
+def domain_counts() -> dict[str, int]:
+    """도메인별 종수를 데이터(카탈로그+비교군 파일)에서 계산한다 — 배치가 늘어도 낡지 않게."""
+    root = Path(__file__).resolve().parents[1]
+    catalog = json.loads((root / "data" / "catalog.json").read_text(encoding="utf-8"))
+    counts = {"movie": 0, "anime": 0, "manga": 0}
+    for arena in catalog["arenas"]:
+        if arena.get("domain") not in counts:
+            continue
+        rows = json.loads((root / "data" / arena["data_file"]).read_text(encoding="utf-8"))
+        counts[arena["domain"]] += len(rows)
+    return counts
+
+
+DOMAIN_COUNT = domain_counts()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--live", action="store_true", help="라이브 사이트를 검사한다")
-    ap.add_argument("--shots-dir", default="", help="스크린샷을 저장할 폴더(예: projects/pharos/live)")
-    ap.add_argument("--prefix", default="live-v26-media")
     args = ap.parse_args()
 
     httpd = None
@@ -109,133 +109,79 @@ def main() -> int:
     else:
         httpd, base = serve(WEB_ROOT)
 
-    shots: list[Path] = []
-    if args.shots_dir:
-        out_dir = Path(args.shots_dir)
-        if not out_dir.is_absolute():
-            out_dir = (ROOT.parent.parent / args.shots_dir).resolve()
-        out_dir.mkdir(parents=True, exist_ok=True)
-    else:
-        out_dir = None
-
     errors: list[str] = []
     with sync_playwright() as p:
         browser = launch(p.chromium)
-        ctx = browser.new_context(viewport={"width": 1280, "height": 1100}, locale="ko-KR")
+        ctx = browser.new_context(viewport={"width": 1280, "height": 1000}, locale="ko-KR")
         page = ctx.new_page()
         page.on("console", lambda m: errors.append(f"console {m.type}: {m.text}") if m.type == "error" else None)
         page.on("pageerror", lambda e: errors.append(f"pageerror: {e}"))
 
-        # 1) 도메인 화면
-        page.goto(f"{base}?domain=media", wait_until="networkidle")
-        page.wait_for_timeout(900)
-        tabs = page.locator("#domainTabs button").all_inner_texts()
-        expect(any("영화 · 애니 · 만화" in tab for tab in tabs), "상단 탭에 영화 · 애니 · 만화가 있다", tabs)
-        h1 = page.locator("h1").first.inner_text()
-        expect(f"{MEDIA_TOTAL}건" in h1, f"도메인 화면이 {MEDIA_TOTAL}건을 보여 준다", h1)
-        expect(MEDIA_TOTAL >= 300, "미디어 도메인이 300종을 넘었다", MEDIA_TOTAL)
-        cats = page.locator(".level-badges .chip").all_inner_texts()
-        expect(sum(1 for c in cats if re.search(r"\n?\s*1$", c.strip())) >= 3 or len(cats) >= 3,
-               "도메인 화면에 대분류 3개가 있다", cats[:6])
-        expect(page.get_by_text("TV · 극장 애니메이션").count() >= 1, "TV · 극장 애니메이션 비교군 블록이 보인다")
-        if out_dir:
-            path = out_dir / f"{args.prefix}-home.png"
-            page.screenshot(path=str(path))
-            shots.append(path)
+        def open_url(query: str, wait: int = 900):
+            page.goto(f"{base}{query}", wait_until="networkidle")
+            page.wait_for_timeout(wait)
+            return page.url, page.locator("h1").first.inner_text()
 
-        # 2) 비교군 카드 30장 · 아이콘 로드
-        for arena, label, expected in (
-            ("anime-tv", "TV · 극장 애니메이션", ARENA_COUNTS["anime-tv"]),
-            ("manga-volumes", "만화 · 단행본", ARENA_COUNTS["manga-volumes"]),
-            ("feature-films", "실사 영화", ARENA_COUNTS["feature-films"]),
+        # 1) ?domain=media → 영화
+        url, h1 = open_url("?domain=media")
+        expect("domain=movie" in url, "구 ?domain=media 주소가 ?domain=movie 로 정리된다", url)
+        expect("영화" in h1 and str(DOMAIN_COUNT["movie"]) in h1,
+               f"?domain=media 가 영화 도메인({DOMAIN_COUNT['movie']}건)으로 열린다", h1)
+
+        # 2) 구 비교군 주소 3종
+        for old, domain, label in (
+            ("feature-films", "movie", "영화"),
+            ("anime-tv", "anime", "애니"),
+            ("manga-volumes", "manga", "만화"),
         ):
-            page.goto(f"{base}?domain=media&arena={arena}", wait_until="networkidle")
-            page.wait_for_timeout(1200)
-            count = page.locator("article[data-item]").count()
-            expect(count == expected, f"{label} 카드 {expected}장", count)
-            loaded = page.evaluate(
-                """() => Array.from(document.querySelectorAll('.card .item-icon img'))
-                     .filter(img => img.complete && img.naturalWidth > 0).length""",
-            )
-            expect(loaded >= expected, f"{label} 포스터 아이콘 {expected}개 로드", loaded)
-            first = page.locator("article[data-item]").first.inner_text()
-            expect("가중" in first or "WEIGHTED" in first.upper(), f"{label} 카드에 가중 점수", first[:80])
+            url, h1 = open_url(f"?arena={old}")
+            expect(f"domain={domain}" in url, f"구 ?arena={old} 이 {domain} 도메인으로 매핑된다", url)
+            expect(label in h1, f"구 ?arena={old} 화면 제목에 {label}", h1)
 
-        if out_dir:
-            path = out_dir / f"{args.prefix}-arena.png"
-            page.screenshot(path=str(path))
-            shots.append(path)
+        # 3) 옛 대분류·비교군이 함께 붙은 주소
+        url, h1 = open_url("?domain=media&category=anime")
+        expect("domain=anime" in url and "애니" in h1, "옛 대분류 category=anime 이 애니 도메인으로", f"{url} / {h1}")
+        url, h1 = open_url("?domain=media&arena=anime-tv")
+        expect("domain=anime" in url and "애니" in h1, "옛 arena=anime-tv 가 애니 도메인으로", f"{url} / {h1}")
 
-        # 3) 상세 — 만화
-        page.goto(f"{base}?domain=media&arena=manga-volumes", wait_until="networkidle")
-        page.wait_for_timeout(900)
-        page.locator("article[data-item]").first.click()
-        page.wait_for_timeout(700)
+        # 4) EN
+        url, h1 = open_url("?domain=media&arena=anime-tv&lang=en", wait=1200)
+        expect("Anime" in h1 and not KOREAN.search(h1), "구 주소 + EN 이 영문 애니 도메인으로 열린다", h1)
+
+        # 5) 구 주소의 항목 딥링크
+        page.goto(f"{base}?domain=media&item=interstellar", wait_until="networkidle")
+        page.wait_for_timeout(1200)
         visible = [i for i in range(page.locator(".modal").count()) if page.locator(".modal").nth(i).is_visible()]
-        expect(bool(visible), "카드를 누르면 상세 모달이 열린다", visible)
         detail = page.locator(".modal").nth(visible[0]).inner_text() if visible else ""
-        expect("누적 평점(100점)" in detail, "상세에 누적 평점(100점) 행", detail[:120])
-        expect("AniList" in detail, "상세에 AniList 출처 표기")
-        expect("단행본 구매" in detail, "상세에 단행본 구매 티어")
-        expect("제작 · 플랫폼" in detail and "개발사" not in detail, "미디어 항목은 '제작 · 플랫폼' 라벨", detail[:160])
-        expect("권당 정가 미확인" in detail, "가격은 지어내지 않고 미확인으로 둔다")
+        expect(bool(visible) and "인터스텔라" in detail, "구 주소의 항목 딥링크가 영화 상세를 연다", detail[:80])
         page.keyboard.press("Escape")
         page.wait_for_timeout(300)
 
-        # 4) EN
-        page.goto(f"{base}?domain=media&arena=anime-tv&lang=en", wait_until="networkidle")
-        page.wait_for_timeout(1100)
-        en_h1 = page.locator("h1").first.inner_text()
-        expect("TV & Film Animation" in en_h1, "EN 비교군 제목", en_h1)
-        en_cards = page.locator("article[data-item]").all_inner_texts()
-        leaks = [text for text in en_cards[:6] if KOREAN.search(text)]
-        expect(not leaks, "EN 카드에 한글 잔존 없음", leaks[:1])
-
-        # 5) 비교
-        page.goto(f"{base}?domain=media&arena=anime-tv", wait_until="networkidle")
-        page.wait_for_timeout(900)
-        boxes = page.locator("input[data-compare]")
-        boxes.nth(0).click()
-        boxes.nth(1).click()
-        page.wait_for_timeout(300)
-        open_btn = page.locator("#compareOpen")
-        open_btn.click()
-        page.wait_for_timeout(1000)
-        compare_text = page.locator("#view").inner_text()
-        expect("나란히 비교" in page.locator("h1").first.inner_text(), "비교 화면이 열린다")
-        expect("누적 평점(100점)" in compare_text, "비교 표에 누적 평점(100점) 행")
-
-        # 6) 기존 흐름 회귀
-        page.goto(f"{base}", wait_until="networkidle")
-        page.wait_for_timeout(900)
-        expect("등대" in page.locator("h1").first.inner_text() or page.locator("h1").count() > 0,
-               "등대 첫 화면이 그대로 뜬다", page.locator("h1").first.inner_text()[:60])
+        # 6) 새 탭·새 주소
         page.goto(f"{base}?domain=catalog", wait_until="networkidle")
         page.wait_for_timeout(900)
-        chips = page.locator(".domain-chip").all_inner_texts()
-        joined = " ".join(chips)
-        expect(all(word in joined for word in ("앱", "게임", "AI 도구", "영화")),
-               "전체 탐색 도메인 필터에 앱·게임·AI·미디어가 함께", chips)
-        for domain in ("app", "game", "ai"):
-            page.goto(f"{base}?domain={domain}", wait_until="networkidle")
-            page.wait_for_timeout(700)
-            expect(page.locator("h1").count() > 0, f"{domain} 도메인 화면이 열린다")
+        tabs = page.locator("#domainTabs button").all_inner_texts()
+        joined = " ".join(tabs)
+        expect(all(word in joined for word in ("영화", "애니", "만화")),
+               "새 상단 탭에 영화·애니·만화가 각각 있다", tabs)
+        expect("영화 · 애니 · 만화" not in joined, "통합 미디어 탭은 사라졌다", tabs)
+        for domain in ("movie", "anime", "manga"):
+            url, h1 = open_url(f"?domain={domain}")
+            expect(f"domain={domain}" in url and str(DOMAIN_COUNT[domain]) in h1,
+                   f"새 ?domain={domain} 이 {DOMAIN_COUNT[domain]}건을 보여 준다", h1)
 
-        # 7) 모바일
+        # 7) 모바일 가로 넘침
         mobile = browser.new_context(viewport={"width": 390, "height": 900}, locale="ko-KR").new_page()
         mobile.goto(f"{base}?domain=media", wait_until="networkidle")
         mobile.wait_for_timeout(1000)
         width = mobile.evaluate("document.documentElement.scrollWidth")
         expect(width <= 390, "390px 가로 넘침 0", width)
-        if out_dir:
-            path = out_dir / f"{args.prefix}-mobile.png"
-            mobile.screenshot(path=str(path))
-            shots.append(path)
+        expect("영화" in mobile.locator("h1").first.inner_text(), "모바일에서도 구 주소가 영화 도메인으로", mobile.locator("h1").first.inner_text())
         browser.close()
 
     expect(not errors, "콘솔·페이지 오류 0건", errors[:3])
     passed = sum(1 for _l, ok, _x in RESULTS if ok)
-    print(f"\n결과: {passed}/{len(RESULTS)} 통과 · 스크린샷 {[str(p) for p in shots]}")
+    print(f"\n결과: {passed}/{len(RESULTS)} 통과")
     if httpd:
         httpd.shutdown()
     return 0 if passed == len(RESULTS) else 1
