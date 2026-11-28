@@ -1,4 +1,4 @@
-# 파로스 Pharos — 정적 웹 v3.17 (영문 번들 분할·지연 로딩 · 3,661종 첫 화면 4.45MB · 사전 226종 · 등대 v3 4분야 271목표 · KO/EN · 기준표 v0.6.0 · 스키마 v0.4.0)
+# 파로스 Pharos — 정적 웹 v3.18 (JS 모듈 분리 · 영문 번들 분할·지연 로딩 · 3,661종 첫 화면 4.45MB · 사전 226종 · 등대 v3 4분야 271목표 · KO/EN · 기준표 v0.7.1 · 스키마 v0.4.0)
 
 빌드 도구 없이 **순수 HTML/CSS/ES Module** 만으로 동작하는 파로스 프론트엔드입니다.
 서버는 파일만 배포하고, 점수·신호·판정은 전부 브라우저에서 `schema/item.schema.json` 의
@@ -15,6 +15,28 @@ v3.5 는 **2단계 발행 구조**를 드러냅니다. 항목에는 선택 필�
 `auto_fact`(공개 스토어·저장소 API 로 대량 적재한 1차 판정)는 카드에 점선 **`자동 수집` 배지**,
 상세 모달 상단에 "공개 스토어·저장소 API 데이터 기반 1차 판정이며, 세부 약관·과금 함정은 순차 검수 중" 안내가 붙습니다.
 확인하지 못한 값은 지어내지 않고 ⚪(`unknown`)로 두며, 배지·안내 문자열은 `js/i18n.js`(`reviewTier.badge`·`reviewTier.notice`)에 있습니다.
+
+## v36 — 자바스크립트 모듈 분리 · 저장소 대청소 (2026-11-28)
+
+3,904줄 단일 `js/app.js` 를 역할별 ES 모듈로 나눴습니다. **화면과 동작은 그대로**이고, 다음 확장이
+파일 크기 때문에 막히지 않게 하는 바닥 공사입니다. 데이터 3,661종·사전 226종·등대 139종/271목표는 한 건도 바뀌지 않았습니다.
+
+| 파일 | 역할 |
+| :--- | :--- |
+| `js/app.js` | 엔트리 — 초기화·라우팅(URL 딥링크)·미세조정 드로어·방법론 모달·보관함·공유·이벤트·오류 UI (`init()` 호출) |
+| `js/state.js` | 공유 상태·`localStorage`·테마·언어·가중치 프리셋·공용 포매터(`$`·`esc`·`iconHtml` …) |
+| `js/catalog.js` | 상단 탭·경로, 홈(전체 탐색)·도메인·대분류·비교군 목록, 카드, 비교 바·비교 표 |
+| `js/detail.js` | 상세 모달 — 판정 요약·사실·의견·축별 점수·사전(제원표·관련작)·과금·업데이트·근거 |
+| `js/lighthouse.js` | 등대 — 랜딩·항해 서약·분야·조건 위저드·결과 카드·잠금·리롤(모의 광고) |
+
+- `index.html` 은 지금처럼 `js/app.js` 하나만 부르고, 나머지는 그 안에서 import 합니다. 데이터 경로·`data.js`·`engine.js`·
+  `i18n.js` 계약은 그대로입니다.
+- **저장소 정리** — `scripts/archive/` 에 구형 `live_check*` 14개·`smoke_v12`~`v20` 9개·일회성 캡처 5개를 옮기고
+  `scripts/README.md` 를 현행 파이프라인(운영 스크립트 + 스모크 8종) 기준으로 다시 썼습니다.
+  구형 `web/tests/verify_ui.py` 는 삭제했고, 완료된 배치의 API 캐시(`drafts/*/cache/`)와 지난 버전 라이브 캡처를 정리했습니다.
+- **검증** — `validate.py` PASS(3,661종 · 계층 6/70/101 · 등대 139종/271 · 사전 226건/관련작 361) ·
+  `check_en_leaks.py --all` 0건 · `smoke_v21` 120/120 · `v22` 69/69 · `v23` 61/61 · `v26` 20/20 · `v28` 101/101 ·
+  `v30` 41/41 · `v31` 67/67 · `v35` 40/40 (로컬·라이브 동일).
 
 ## v35 — 영문 번들 분할·지연 로딩 (2026-11-28)
 
@@ -324,7 +346,11 @@ web/
   js/i18n.js            UI 문자열 사전 KO/EN · 언어 감지·저장 · 숫자·일수 표기 · 정적 마크업 번역
   js/data.js            카탈로그·인덱스·영문 요약 로드, en 청크 오버레이 병합, 비교군 파일 지연 로딩/캐시, 통합 검색
   js/engine.js          계산 엔진 — x-pharos.client 계약 (DOM 비의존 순수 함수, 신선도·대체제·완결작 면제)
-  js/app.js             상태·라우팅(URL 딥링크)·렌더링·이벤트
+  js/app.js             엔트리 — 초기화·라우팅(URL 딥링크)·드로어·방법론·보관함·이벤트
+  js/state.js           공유 상태·localStorage·테마·언어·프리셋·공용 포매터
+  js/catalog.js         상단 탭·경로·홈·도메인·대분류·비교군·카드·비교
+  js/detail.js          상세 모달(판정·사실·의견·축·사전·근거)
+  js/lighthouse.js      등대(랜딩·서약·위저드·결과·잠금·리롤)
   data/catalog.json     도메인·대분류·비교군 정의 + 필터 팩 + 홈 리포트 규칙
   data/search-index.json 경량 인덱스 (자동 생성 — 통합 검색·홈 리포트)
   data/en/core.json     영문 공통부 — 카탈로그 라벨·필터 팩·장르 사전·홈 문구(영어 모드에서만)
@@ -345,7 +371,6 @@ web/
   data/ai/ai-coding-tools.json         AI 코딩 에디터·에이전트 4건
   assets/icons/        57종 공식 아이콘 192×192 webp + manifest.json(출처·확보 방법)
   schema/item.schema.json  배포용 스키마 사본 (v0.4.0)
-  tests/verify_ui.py    Playwright 검증 스크립트
   preview-v3-home.png        홈 — 장르별 추천 타일 (1440px)
   preview-v3-game.png        게임 도메인 — 장르별 추천 타일
   preview-v3-arena.png       비교군 목록 — 핵심만 남긴 카드 (덱빌딩 게임)
@@ -500,32 +525,25 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
 - **UI 사전 `js/i18n.js`**: 헤더·히어로·검색·도메인/대분류/비교군·필터 칩·미세조정 드로어(프리셋·가중치·하드 필터·용어 도움말)·판정 배지(`Recommended`/`Conditional`/`Filtered`)·3축(`User Rating`/`Objective Trust`/`AI Review`)·상세 모달(`Facts`/`Opinion`/`Verdict by tier`/`Signals`/`Alternatives`/`Reviews`/`Monetization`/`Updates`/`Sources`)·비교 표(`Best` 배지·`Basis` 열)·방법론 모달·토스트·오류 화면·푸터까지 100% 영문.
 - **영문 데이터 `data/en/` (v35 분할)**: 예전 단일 `data/en.json`(3,661종 32.33MB)을 첫 화면에서 받지 않도록 나눴다 — `core.json`(53.7KB: 카탈로그 라벨·필터 팩·장르·홈 문구) + `index.json`(1.17MB: 항목 요약 — 이름·한 줄·대표 티어 한 줄·장르·개발사)을 먼저 받고, 상세 문장은 비교군 청크 `data/en/{domain}/{arena}.json`(101개 · 중앙 164KB · 최대 773KB)으로 그 비교군을 열 때만 받는다. 원본은 계속 `projects/pharos/data/en.json` 하나이고 `sync_web_data.py` 가 사본만 나눈다. 오버레이 내용은 그대로다: 카탈로그 + 항목의 `one_liner`·`tagline`·`verdict.one_liner/reasons/condition_notes`·`arena_notes`·3축 서술·티어 라벨·가격 표기·`limits`·`notes`·`facts`·리뷰 서술·과금·업데이트·한계·`score_notes`·출처·flags 메모. 영어 모드에서만 받고, `data.js` 가 원본 항목에 오버레이로 병합한다(원본 한국어 데이터는 그대로 단일 소스).
 - **카드·타일 헤드라인은 직접 쓴 영어**: 대표 티어 한 줄과 판정 한 줄은 기계 번역이 아니라 문맥을 살려 다시 썼다(`Start free and the files stay yours`, `High stars, filtered out` 등).
-- **검증**: `validate.py` 가 67/67·14/14·10/10·3/3 커버리지와 한글 잔존 0을 검사(누락 시 FAIL), `verify_ui.py` 가 EN 전 화면을 한국어 없이 통과하는지 확인(690/690).
+- **검증**: `validate.py` 가 67/67·14/14·10/10·3/3 커버리지와 한글 잔존 0을 검사(누락 시 FAIL). EN 화면의 한글 잔존은 지금 `smoke_v21`·`smoke_v26`·`smoke_v28`·`smoke_v31`·`smoke_v35` 가 화면별로 확인합니다.
 
 ## 검증
 
 ```bash
-pip install playwright
-python3 -m playwright install chromium      # 또는 CHROME_PATH=<chromium 실행 파일>
-python3 projects/pharos/web/tests/verify_ui.py
+python3 projects/pharos/schema/validate.py                    # 데이터 전량(3,661종) — 배포 전 필수
+python3 projects/pharos/scripts/check_en_leaks.py --all       # 영문 화면 한글 누출 0건
+python3 projects/pharos/scripts/smoke_v21.py                  # 로컬 web/ (임의 포트로 서버를 띄운다)
+# … smoke_v22_brand · v23_pledge · v26_media · v28_lighthouse_v3 · v30_encyclopedia · v31_split_media · v35_split_data
+python3 projects/pharos/scripts/smoke_v35_split_data.py --live   # 같은 항목을 라이브에서
 ```
 
-- 스크립트가 `web/` 폴더를 임시 HTTP 서버 루트로 띄우고(포트 자동 할당) 종료 시 정리합니다.
-  따라서 **web/ 폴더 단독 배포** 조건 그대로 검증됩니다(모든 요청이 배포 루트 안에서 해결되는지 확인).
-- 690개 항목 통과: 로드·콘솔/네트워크 에러 0, 홈에서 비교군 파일 미로딩(지연 로딩), 홈 리포트(Hero Wars 4.6★/34.6 · MS To Do 4.6★/60.45),
-  통합 검색(한글 별칭·비교군 라벨), 4단 탐색과 비교군별 요약 재계산, 필터 팩 우선 노출, 프리셋·슬라이더 재계산,
-  비교 2~3개 표(4개째 차단), 상세 Fact/Opinion·대체제·공유 복사·정정 링크, URL 딥링크 5종, 북마크 지속,
-  방법론 모달, 모바일 레이아웃·드로어, 엔진 단위 테스트(가중 평균·6단 규칙·면제·신선도·대체제·impact 3단계), 선택 과금 배지·`strict_monetization` 토글·상세 강도 블록,
-  본질 경험 기준 재평가(니케 81.2 🟢 · 160벽 카드 표기 유지 · strict ON 시 거름),
-  분야 확장(할 일 5건·비밀번호 4건·AI 코딩 4건, AI 도구 탭·장르 블록·필터 표시 이름, 구독 필수 필터로 1Password·Dashlane 거름, 신규 아이콘 42종),
-  2차 분야 확장(v0.4.3: 웹 브라우저 5건·클라우드 5건·AI 어시스턴트 5건 = 57건·12비교군, 새 대분류 `인터넷 · 프라이버시`·`대화 · 리서치`, AI 탭의 두 비교군 전환, 신규 아이콘 15종 192×192),
-  **v3.4 KO/EN 다국어**(EN 홈·도메인·비교군·상세·비교·방법론·드로어 한글 잔존 0건, 390px 넘침 0, `?lang=en` 링크 복사·언어 전환 딥링크·브라우저 언어 감지·URL 우선순위, KO 회귀),
-  **v3.3 화면·UX 마감**(홈 도메인 필터 4칩 = 12/5/5/2 와 필터링·상단 고정, 플로팅 비교 바 문구·fixed 위치·스크롤 후 동일 위치,
-  비교 표 첫 열 sticky·`최고` 셀·점수 차이·최고/최저/차이 요약, 링크 복사 클립보드 값과 토스트, 390px 홈/도메인/목록/비교/상세·방법론·드로어
-  가로 넘침 0과 터치 영역 34px, 라이트 테마 텍스트 대비 4.2:1 이상과 가로 넘침 0).
-- `--shots-dir` 로 스크린샷 저장 위치를 바꿀 수 있습니다(기본: `web/`).
+- 8종 스모크는 `web/` 폴더를 임시 HTTP 서버 루트로 띄워(포트 자동 할당) **web/ 단독 배포 조건** 그대로 검증하고,
+  `--live` 로 `https://aira1346.github.io/pharos/` 를 같은 항목으로 검사합니다. 건수 단언은 카탈로그·인덱스에서
+  계산하므로 데이터를 늘려도 테스트가 낡지 않습니다.
+- 각 스모크가 보는 범위는 `../scripts/README.md` 5절 표에 있습니다. 회귀 검증의 정본은 이 8종이며,
+  구형 `tests/verify_ui.py` 는 v36 에서 삭제했습니다.
 - 데이터 쪽은 `python3 projects/pharos/schema/validate.py` 로 별도 검증합니다
-  (스키마·카탈로그 계층·의미 규칙·판정 재계산·인덱스 신선도·음성 테스트·완결작 면제·impact 3단계·아이콘·**영문 번들 커버리지 67/67**·웹 사본 일치).
+  (스키마·카탈로그 계층·의미 규칙·판정 재계산·인덱스 신선도·음성 테스트·완결작 면제·impact 3단계·아이콘·**영문 3,661/3,661**·웹 사본 일치·등대·사전).
 
 ## 계산 외 원칙
 
