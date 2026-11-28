@@ -28,7 +28,7 @@ if (
 
 from playwright.sync_api import sync_playwright  # noqa: E402
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]  # repo root (spec/tools/…)
 LIVE = "https://aira1346.github.io/pharos/"
 DETAIL_ITEM = "sazae-san"
 DETAIL_DOMAIN = "manga"
