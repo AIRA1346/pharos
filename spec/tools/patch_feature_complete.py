@@ -41,6 +41,19 @@ ONLINE_CATS = {"Multiplayer", "Online PvP", "Online Co-op", "Co-op", "PvP", "MMO
                "Cross-Platform Multiplayer", "Shared/Split Screen Co-op", "LAN Co-op", "LAN PvP"}
 # 온라인 협동이 선택 모드이고 본편이 오프라인 싱글 캠페인인 완결작 — 예외로 인정(등급 B)
 CURATED = {
+    # 8차 배치 — 본편이 끝난 1회 구매작이고 온라인은 선택 모드(등급 B). 출시 후 추가 콘텐츠가 끝나
+    # 12개월 넘게 새 소식이 없는 것은 방치가 아니라 완결로 본다.
+    "half-life": "1998년작 1인칭 슈터로 본편 캠페인이 완결됐고, 데스매치 등 온라인 모드는 본편과 별개의 선택 모드다",
+    "far-cry-3": "본편 캠페인이 완결된 1회 구매작이고 협동은 별도 모드로만 붙는다",
+    "battletech": "2018년작 턴제 전술 게임으로 본편 캠페인과 DLC가 완결됐고 PvP는 선택 모드다",
+    "nioh-complete-edition": "본편과 DLC가 모두 포함된 완결판이고 협동·PvP는 선택 모드다",
+    "salt-and-sacrifice": "본편 캠페인이 완결된 1회 구매작이고 협동·PvP는 선택 모드다",
+    "streets-of-rogue": "본편이 완결된 1인 플레이 로그라이크이고 협동·PvP는 선택 모드다",
+    "the-casting-of-frank-stone": "한 편으로 끝나는 내러티브 호러이고 협동은 선택 모드다",
+    "beyond-two-souls": "한 편으로 끝나는 내러티브 작품이고 협동은 선택 모드다",
+    "dirt-5": "커리어가 완결된 1회 구매 레이싱 게임이고 온라인 대전은 선택 모드다",
+    "need-for-speed-unbound": "스토리 커리어와 차량 콘텐츠가 완결됐고 온라인은 선택 모드다",
+    "tekken-7": "본편과 시즌 패스 DLC로 로스터가 완결된 1회 구매 격투 게임이고, 온라인 대전은 서비스 중인 선택 모드다",
     "dark-souls-iii": "본편과 DLC(Ashes of Ariandel·The Ringed City)로 완결됐고, 온라인 협동·침입은 선택 모드라 "
                       "오프라인에서도 싱글 캠페인을 끝까지 진행할 수 있다",
     "dark-souls-2-sotfs": "Scholar of the First Sin로 본편·DLC가 완결됐고, 온라인 협동은 선택 모드다",
