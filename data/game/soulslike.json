@@ -11450,5 +11450,443 @@
    "ai_review": "자동 추정 47.5: 본질 검토 전 중립값 60 · 스토어 평점 62.0(-4.5) · 12개월 방치(-8)."
   },
   "icon": "assets/icons/salt-and-sacrifice.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "stellar-blade",
+  "name": "Stellar Blade",
+  "aliases": [
+   "스텔라 블레이드"
+  ],
+  "domain": "game",
+  "category": "action-rpg",
+  "arenas": [
+   "soulslike"
+  ],
+  "arena_notes": {
+   "soulslike": "Steam 누적 95% 긍정(18,244건) · 최근 30일 90%(814건). ₩62,800 (할인 33% ₩42,080) · 마지막 업데이트 2026-11-05. 「소울라이크 · 하드코어 액션」 안에서 SHIFT UP Corporation의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "SHIFT UP Corporation",
+  "publisher": "PlayStation Publishing LLC (excluding China)",
+  "release_date": "2025-06-11",
+  "one_liner": "포스트 아포칼립스 액션 어드벤처, 스텔라 블레이드™에서 멸종 위기의 인류를 구원하세요. 지구 몰락의 비밀을 풀며 맹렬한 전투와 뜻밖의 스토리를 경험하세요.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-05(23일 전).",
+  "sources": [
+   {
+    "id": "steam-stellar-blade",
+    "title": "Steam — Stellar Blade™",
+    "url": "https://store.steampowered.com/app/3489700/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 62,800, 출시 2025-06-11, 개발사 SHIFT UP Corporation. 평가 Steam 누적 95% 긍정(18,244건) · 최근 30일 90%(814건)."
+   },
+   {
+    "id": "steam-news-stellar-blade",
+    "title": "Steam — Stellar Blade™ 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643341688",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 '《Stellar Blade》PC - 1.5.0 Patch notes' (2026-11-05)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-stellar-blade"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-stellar-blade"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-stellar-blade"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-stellar-blade"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-stellar-blade"
+    ],
+    "note": "마지막 업데이트 2026-11-05(23일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 62800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩62,800 (할인 33% ₩42,080)"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $59.99"
+    ],
+    "one_liner": "1회 구매 ₩62,800 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-stellar-blade"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-stellar-blade"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-05(23일 전) — 활발.",
+      "source_ids": [
+       "steam-stellar-blade"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-stellar-blade"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "recommend",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 95% 긍정(18,244건) · 최근 30일 90%(814건) — 표본 가중 평균 95.0 · v0.6.0 규모 보정 +0.80(표본 18,244) → 95.8.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 18244,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": 0.7834,
+     "gate": 1.0,
+     "applied": 0.8,
+     "final_score": 95.8,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-stellar-blade"
+    ]
+   },
+   "objective": {
+    "score": 76.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-05(+8) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-stellar-blade"
+    ]
+   },
+   "ai_review": {
+    "score": 68.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 90일 내 업데이트(+4) · 표본 18,244건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-stellar-blade"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — Steam 95% 긍정(18,244건), 최근 업데이트 2026-11-05. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 95% 긍정(18,244건) · 최근 30일 90%(814건).",
+    "₩62,800 (할인 33% ₩42,080) · 마지막 업데이트 2026-11-05(23일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 18244,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 90,
+      "scale": "percent",
+      "count": 814,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 18,244건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 95% 긍정(18,244건) · 최근 30일 90%(814건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-05",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-05",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-stellar-blade"
+     ],
+     "note": "업데이트 공지 '《Stellar Blade》PC - 1.5.0 Patch notes'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-05(23일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-stellar-blade"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-stellar-blade"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩62,800 (할인 33% ₩42,080). 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 95% 긍정(18,244건) · 최근 30일 90%(814건) → 표본 가중 평균 95.0. 표본 18,244건. v0.6.0 표본 규모 보정: 누적 표본 18,244건 → 로그 보정 +0.78 × 평점 게이트 1.00 = +0.80 (95.0 → 95.8).",
+   "objective": "자동 산정 76.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-05(+8) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 68.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 90일 내 업데이트(+4) · 표본 18,244건(+1)."
+  },
+  "encyclopedia": {
+   "summary": "시프트업이 2024년에 플레이스테이션 5로 내놓고 2025년에 PC로 옮긴 액션 게임이다. 멸망한 지구에서 돌아온 전사가 폐허가 된 도시와 사막을 지나며 인류의 마지막 거점을 지킨다. 빠른 근접 전투와 후반부의 서사적 반전, 그리고 캐릭터 디자인이 함께 화제가 됐다.",
+   "key_facts": [
+    {
+     "key": "개발",
+     "value": "시프트업"
+    },
+    {
+     "key": "출시",
+     "value": "2024",
+     "note": "PS5 · 2025년 PC"
+    },
+    {
+     "key": "장르",
+     "value": "근접 액션 어드벤처"
+    },
+    {
+     "key": "배경",
+     "value": "멸망한 지구와 우주 정거장"
+    }
+   ],
+   "highlights": [
+    "회피와 패링의 타이밍을 중심으로 한 전투가 후반까지 난도를 올린다.",
+    "폐허가 된 지구를 탐색하며 인류의 기록을 모으는 구조를 갖는다.",
+    "한국 스튜디오가 만든 콘솔 액션으로 세계 시장에서 판매량을 올렸다."
+   ],
+   "related": [
+    {
+     "id": "nier-automata",
+     "relation": "alternative",
+     "note": "안드로이드와 폐허를 다룬 액션 RPG"
+    },
+    {
+     "id": "lies-of-p",
+     "relation": "alternative",
+     "note": "같은 시기의 근접 액션 — 패링 중심 전투"
+    },
+    {
+     "id": "black-myth-wukong",
+     "relation": "alternative",
+     "note": "2024년 동아시아 스튜디오의 액션 대작"
+    }
+   ]
+  },
+  "icon": "assets/icons/stellar-blade.webp"
  }
 ]

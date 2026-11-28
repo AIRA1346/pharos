@@ -16684,5 +16684,1628 @@
    "ai_review": "자동 추정 64.5: 본질 검토 전 중립값 60 · 스토어 평점 82.0(+0.5) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/lens-island.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "subnautica-below-zero",
+  "name": "Subnautica: Below Zero",
+  "aliases": [
+   "서브노티카: 빌로우 제로"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "Steam 누적 89% 긍정(55,810건) · 최근 30일 88%(267건). ₩33,700 · 마지막 업데이트 2025-10-03. 「서바이벌 · 크래프팅」 안에서 Unknown Worlds Entertainment의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "Unknown Worlds Entertainment",
+  "publisher": "Unknown Worlds Entertainment",
+  "release_date": "2021-05-13",
+  "one_liner": "외계 행성에서 얼어붙을 듯 추운 수중 모험에 빠져보세요. 빌로우 제로는 오리지널 서브노티카의 스토리보다 2년 전의 이야기를 다룹니다. 행성 4546B로 돌아와 치밀한 위장 뒤에 숨은 진실을 밝혀내십시오. 거주 시설을 짓고 도구를 만들어 극한의…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — 본편이 오프라인 싱글 캠페인, 온라인 협동은 선택(본편 이야기가 완결된 1회 구매 생존 게임이다). 마지막 업데이트 2025-10-03(421일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 B).",
+  "sources": [
+   {
+    "id": "steam-subnautica-below-zero",
+    "title": "Steam — Subnautica: Below Zero",
+    "url": "https://store.steampowered.com/app/848450/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2021-05-13, 개발사 Unknown Worlds Entertainment. 평가 Steam 누적 89% 긍정(55,810건) · 최근 30일 88%(267건)."
+   },
+   {
+    "id": "steamspy-subnautica-below-zero",
+    "title": "SteamSpy — Subnautica: Below Zero",
+    "url": "https://steamspy.com/app/848450",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 89,966 / 부정 9,933 (긍정률 90.1%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-subnautica-below-zero",
+    "title": "Steam — Subnautica: Below Zero 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1811772772522405",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Below Zero Security Hotfix' (2025-10-03)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ],
+    "note": "마지막 업데이트 2025-10-03 — 12개월(421일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 33700,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩33,700"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $29.99"
+    ],
+    "one_liner": "1회 구매 ₩33,700 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-subnautica-below-zero"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-subnautica-below-zero"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-10-03 — 12개월(421일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-subnautica-below-zero"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-subnautica-below-zero"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.2,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 89% 긍정(55,810건) · 최근 30일 88%(267건) — 표본 가중 평균 89.0 · v0.6.0 규모 보정 +2.20(표본 55,810) → 91.2.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 55810,
+     "sample_source": "reviews",
+     "base_score": 89.0,
+     "log_delta": 2.2401,
+     "gate": 1.0,
+     "applied": 2.2,
+     "final_score": 91.2,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-subnautica-below-zero",
+     "steamspy-subnautica-below-zero"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-03(-14) · 플랫폼 3종(+2) · 출시 5년(+2).",
+    "source_ids": [
+     "steam-news-subnautica-below-zero"
+    ]
+   },
+   "ai_review": {
+    "score": 55.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.2: 본질 검토 전 중립값 60 · 스토어 평점 89.0(+2.2) · 12개월 방치(-8) · 표본 55,810건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩33,700 · 마지막 업데이트 2025-10-03. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 89% 긍정(55,810건) · 최근 30일 88%(267건).",
+    "₩33,700 · 마지막 업데이트 2025-10-03(421일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 B)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 공개 정보(온라인은 선택 모드)에 근거한 자동 판단(등급 B)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 89,
+      "scale": "percent",
+      "count": 55810,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 88,
+      "scale": "percent",
+      "count": 267,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 55,810건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 89% 긍정(55,810건) · 최근 30일 88%(267건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2025-10-03",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-10-03",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-subnautica-below-zero"
+     ],
+     "note": "업데이트 공지 'Below Zero Security Hotfix'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-10-03(421일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-subnautica-below-zero"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-subnautica-below-zero"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩33,700. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 89% 긍정(55,810건) · 최근 30일 88%(267건) → 표본 가중 평균 89.0. 표본 55,810건. v0.6.0 표본 규모 보정: 누적 표본 55,810건 → 로그 보정 +2.24 × 평점 게이트 1.00 = +2.20 (89.0 → 91.2).",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-03(-14) · 플랫폼 3종(+2) · 출시 5년(+2).",
+   "ai_review": "자동 추정 55.2: 본질 검토 전 중립값 60 · 스토어 평점 89.0(+2.2) · 12개월 방치(-8) · 표본 55,810건(+1)."
+  },
+  "icon": "assets/icons/subnautica-below-zero.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "conan-exiles",
+  "name": "Conan Exiles",
+  "aliases": [
+   "코난 엑자일"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "Steam 누적 79% 긍정(40,057건) · 최근 30일 84%(323건). ₩45,000 (할인 50% ₩22,500) · 마지막 업데이트 2026-11-15. 「서바이벌 · 크래프팅」 안에서 Funcom의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "대규모 멀티플레이어"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Funcom",
+  "publisher": "Funcom",
+  "release_date": "2018-05-08",
+  "one_liner": "Conan Exiles Enhanced는 하이보리아의 신화적인 땅을 배경으로 하는 오픈 월드 생존 게임으로, 이제 놀라운 시각 효과와 함께 언리얼 엔진 5로 완전히 업그레이드되었습니다. 모험이 넘치는 세계에서 혼자 또는 친구들과 함께 생존하고…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-15(13일 전).",
+  "sources": [
+   {
+    "id": "steam-conan-exiles",
+    "title": "Steam — Conan Exiles Enhanced",
+    "url": "https://store.steampowered.com/app/440900/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 45,000, 출시 2018-05-08, 개발사 Funcom, Inflexion Games. 평가 Steam 누적 79% 긍정(40,057건) · 최근 30일 84%(323건)."
+   },
+   {
+    "id": "steamspy-conan-exiles",
+    "title": "SteamSpy — Conan Exiles Enhanced",
+    "url": "https://steamspy.com/app/440900",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 63,556 / 부정 16,880 (긍정률 79.0%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-conan-exiles",
+    "title": "Steam — Conan Exiles Enhanced 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849458702686207",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 '(Re-release) November Hotfix 3.1.1' (2026-11-15)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-conan-exiles"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-conan-exiles"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-conan-exiles"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-conan-exiles"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-conan-exiles"
+    ],
+    "note": "마지막 업데이트 2026-11-15(13일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 45000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩45,000 (할인 50% ₩22,500)"
+    },
+    "limits": [
+     "DLC 12건 별도 판매",
+     "미국 스토어 $39.99"
+    ],
+    "one_liner": "1회 구매 ₩45,000 — DLC 12건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-conan-exiles"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-conan-exiles"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-15(13일 전) — 활발.",
+      "source_ids": [
+       "steam-conan-exiles"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-conan-exiles"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 80.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 79% 긍정(40,057건) · 최근 30일 84%(323건) — 표본 가중 평균 79.0 · v0.6.0 규모 보정 +1.80(표본 40,057) → 80.8.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 40057,
+     "sample_source": "reviews",
+     "base_score": 79.0,
+     "log_delta": 1.808,
+     "gate": 1.0,
+     "applied": 1.8,
+     "final_score": 80.8,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-conan-exiles",
+     "steamspy-conan-exiles"
+    ]
+   },
+   "objective": {
+    "score": 80.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-15(+8) · 플랫폼 2종(+2) · 출시 8년(+4).",
+    "source_ids": [
+     "steam-news-conan-exiles"
+    ]
+   },
+   "ai_review": {
+    "score": 64.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 79.0(-0.2) · 90일 내 업데이트(+4) · 표본 40,057건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-conan-exiles"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 79% 긍정(40,057건), 최근 업데이트 2026-11-15. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 79% 긍정(40,057건) · 최근 30일 84%(323건).",
+    "₩45,000 (할인 50% ₩22,500) · 마지막 업데이트 2026-11-15(13일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 79,
+      "scale": "percent",
+      "count": 40057,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 84,
+      "scale": "percent",
+      "count": 323,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 40,057건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 79% 긍정(40,057건) · 최근 30일 84%(323건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-15",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-15",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-conan-exiles"
+     ],
+     "note": "업데이트 공지 '(Re-release) November Hotfix 3.1.1'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-15(13일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-conan-exiles"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-conan-exiles"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩45,000 (할인 50% ₩22,500). DLC 12건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 79% 긍정(40,057건) · 최근 30일 84%(323건) → 표본 가중 평균 79.0. 표본 40,057건. v0.6.0 표본 규모 보정: 누적 표본 40,057건 → 로그 보정 +1.81 × 평점 게이트 1.00 = +1.80 (79.0 → 80.8).",
+   "objective": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-15(+8) · 플랫폼 2종(+2) · 출시 8년(+4).",
+   "ai_review": "자동 추정 64.8: 본질 검토 전 중립값 60 · 스토어 평점 79.0(-0.2) · 90일 내 업데이트(+4) · 표본 40,057건(+1)."
+  },
+  "icon": "assets/icons/conan-exiles.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "starbound",
+  "name": "Starbound",
+  "aliases": [
+   "스타바운드"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "Steam 누적 88% 긍정(51,888건) · 최근 30일 80%(95건). ₩16,000 · 마지막 업데이트 2024-11-19. 「서바이벌 · 크래프팅」 안에서 Chucklefish의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "캐주얼"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Chucklefish",
+  "publisher": "Chucklefish",
+  "release_date": "2016-07-22",
+  "one_liner": "You’ve fled your home, only to find yourself lost in space with a damaged ship. Your only option is to beam down to the planet below…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — 본편이 오프라인 싱글 캠페인, 온라인 협동은 선택(본편 탐험·제작 진행이 완결된 1회 구매작이고 협동은 선택 모드다). 마지막 업데이트 2024-11-19(739일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 B).",
+  "sources": [
+   {
+    "id": "steam-starbound",
+    "title": "Steam — Starbound",
+    "url": "https://store.steampowered.com/app/211820/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2016-07-22, 개발사 Chucklefish. 평가 Steam 누적 88% 긍정(51,888건) · 최근 30일 80%(95건)."
+   },
+   {
+    "id": "steamspy-starbound",
+    "title": "SteamSpy — Starbound",
+    "url": "https://steamspy.com/app/211820",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 79,008 / 부정 8,471 (긍정률 90.3%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-starbound",
+    "title": "Steam — Starbound 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1783238125376046",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 '1.4.4 Hotfix Patch Notes' (2024-11-19)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starbound"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starbound"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starbound"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-starbound"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-starbound"
+    ],
+    "note": "마지막 업데이트 2024-11-19 — 12개월(739일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 16000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩16,000"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $14.99"
+    ],
+    "one_liner": "1회 구매 ₩16,000 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-starbound"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-starbound"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-11-19 — 12개월(739일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-starbound"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-starbound"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 90.2,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 88% 긍정(51,888건) · 최근 30일 80%(95건) — 표본 가중 평균 88.0 · v0.6.0 규모 보정 +2.20(표본 51,888) → 90.2.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 51888,
+     "sample_source": "reviews",
+     "base_score": 88.0,
+     "log_delta": 2.1452,
+     "gate": 1.0,
+     "applied": 2.2,
+     "final_score": 90.2,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-starbound",
+     "steamspy-starbound"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-11-19(-14) · 플랫폼 4종(+4) · 출시 10년(+4).",
+    "source_ids": [
+     "steam-news-starbound"
+    ]
+   },
+   "ai_review": {
+    "score": 55.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 12개월 방치(-8) · 표본 51,888건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-starbound"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩16,000 · 마지막 업데이트 2024-11-19. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 88% 긍정(51,888건) · 최근 30일 80%(95건).",
+    "₩16,000 · 마지막 업데이트 2024-11-19(739일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 B)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 공개 정보(온라인은 선택 모드)에 근거한 자동 판단(등급 B)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 88,
+      "scale": "percent",
+      "count": 51888,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 80,
+      "scale": "percent",
+      "count": 95,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 51,888건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 88% 긍정(51,888건) · 최근 30일 80%(95건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-11-19",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-11-19",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-starbound"
+     ],
+     "note": "업데이트 공지 '1.4.4 Hotfix Patch Notes'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-11-19(739일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-starbound"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starbound"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩16,000. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 88% 긍정(51,888건) · 최근 30일 80%(95건) → 표본 가중 평균 88.0. 표본 51,888건. v0.6.0 표본 규모 보정: 누적 표본 51,888건 → 로그 보정 +2.15 × 평점 게이트 1.00 = +2.20 (88.0 → 90.2).",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-11-19(-14) · 플랫폼 4종(+4) · 출시 10년(+4).",
+   "ai_review": "자동 추정 55.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 12개월 방치(-8) · 표본 51,888건(+1)."
+  },
+  "icon": "assets/icons/starbound.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "dont-starve",
+  "name": "Don't Starve",
+  "aliases": [
+   "돈 스타브"
+  ],
+  "domain": "game",
+  "category": "survival-sim",
+  "arenas": [
+   "survival-crafting"
+  ],
+  "arena_notes": {
+   "survival-crafting": "Steam 누적 96% 긍정(33,151건) · 최근 30일 94%(256건). ₩10,500 · 마지막 업데이트 2023-04-27. 「서바이벌 · 크래프팅」 안에서 Klei Entertainment의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디",
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Klei Entertainment",
+  "publisher": "Klei Entertainment",
+  "release_date": "2013-04-23",
+  "one_liner": "Don’t Starve is an uncompromising wilderness survival game full of science and magic. Enter a strange and unexplored world full of strange…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — 본편이 오프라인 싱글 캠페인, 온라인 협동은 선택(본편 생존 진행이 완결된 1회 구매작이고 협동은 별도 작품(DST)으로 분리돼 있다). 마지막 업데이트 2023-04-27(1311일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 B).",
+  "sources": [
+   {
+    "id": "steam-dont-starve",
+    "title": "Steam — Don't Starve",
+    "url": "https://store.steampowered.com/app/219740/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2013-04-23, 개발사 Klei Entertainment. 평가 Steam 누적 96% 긍정(33,151건) · 최근 30일 94%(256건)."
+   },
+   {
+    "id": "steamspy-dont-starve",
+    "title": "SteamSpy — Don't Starve",
+    "url": "https://steamspy.com/app/219740",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 94,007 / 부정 3,418 (긍정률 96.5%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-dont-starve",
+    "title": "Steam — Don't Starve 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5133583642651804530",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Major Quality of Life and Big Fix Update Now Live!' (2023-04-27)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dont-starve"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dont-starve"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dont-starve"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-dont-starve"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dont-starve"
+    ],
+    "note": "마지막 업데이트 2023-04-27 — 12개월(1311일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 10500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩10,500"
+    },
+    "limits": [
+     "DLC 4건 별도 판매",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩10,500 — DLC 4건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-dont-starve"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-dont-starve"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2023-04-27 — 12개월(1311일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-dont-starve"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-dont-starve"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 97.6,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 96% 긍정(33,151건) · 최근 30일 94%(256건) — 표본 가중 평균 96.0 · v0.6.0 규모 보정 +1.60(표본 33,151) → 97.6.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 33151,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": 1.5615,
+     "gate": 1.0,
+     "applied": 1.6,
+     "final_score": 97.6,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-dont-starve",
+     "steamspy-dont-starve"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-04-27(-14) · 플랫폼 4종(+4) · 출시 13년(+4).",
+    "source_ids": [
+     "steam-news-dont-starve"
+    ]
+   },
+   "ai_review": {
+    "score": 57.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 57.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 12개월 방치(-8) · 표본 33,151건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-dont-starve"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩10,500 · 마지막 업데이트 2023-04-27. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 96% 긍정(33,151건) · 최근 30일 94%(256건).",
+    "₩10,500 · 마지막 업데이트 2023-04-27(1311일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 B)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 공개 정보(온라인은 선택 모드)에 근거한 자동 판단(등급 B)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 33151,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 94,
+      "scale": "percent",
+      "count": 256,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 33,151건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 96% 긍정(33,151건) · 최근 30일 94%(256건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2023-04-27",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2023-04-27",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-dont-starve"
+     ],
+     "note": "업데이트 공지 'Major Quality of Life and Big Fix Update Now Live!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2023-04-27(1311일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-dont-starve"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dont-starve"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩10,500. DLC 4건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 96% 긍정(33,151건) · 최근 30일 94%(256건) → 표본 가중 평균 96.0. 표본 33,151건. v0.6.0 표본 규모 보정: 누적 표본 33,151건 → 로그 보정 +1.56 × 평점 게이트 1.00 = +1.60 (96.0 → 97.6).",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-04-27(-14) · 플랫폼 4종(+4) · 출시 13년(+4).",
+   "ai_review": "자동 추정 57.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 12개월 방치(-8) · 표본 33,151건(+1)."
+  },
+  "icon": "assets/icons/dont-starve.webp"
  }
 ]

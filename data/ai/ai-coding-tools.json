@@ -8234,5 +8234,1026 @@
    "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/langflow.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "void-editor",
+  "name": "Void",
+  "aliases": [
+   "보이드"
+  ],
+  "domain": "ai",
+  "category": "ai-coding",
+  "arenas": [
+   "ai-coding-tools"
+  ],
+  "arena_notes": {
+   "ai-coding-tools": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-06-02. 「AI 코딩 에디터 · 에이전트」 안에서 voideditor의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "chatgpt",
+   "claude",
+   "copilot"
+  ],
+  "platforms": [
+   "other"
+  ],
+  "developer": "voideditor",
+  "publisher": "voideditor",
+  "release_date": "2024-09-11",
+  "one_liner": "voideditor/void 오픈소스 저장소",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-06-02(179일 전).",
+  "sources": [
+   {
+    "id": "github-void-editor",
+    "title": "GitHub — voideditor/void",
+    "url": "https://github.com/voideditor/void",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "스타 28,699 · 라이선스 Apache-2.0 · 최근 푸시 2026-06-02 · 아카이브 true."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-void-editor"
+    ],
+    "note": "마지막 업데이트 2026-06-02(179일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 Apache-2.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 Apache-2.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-06-02(179일 전) — 활발.",
+      "source_ids": [
+       "github-void-editor"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 75.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 75.0: 오픈소스 라이선스 Apache-2.0(+8) · 180일 내 업데이트 2026-06-02(+5).",
+    "source_ids": [
+     "github-void-editor"
+    ]
+   },
+   "ai_review": {
+    "score": 66.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 180일 내 업데이트(+2). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-void-editor"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-06-02. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-06-02(179일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-06-02",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-06-02",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-void-editor"
+     ],
+     "note": "저장소 최근 푸시 'voideditor/void push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-06-02(179일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "v0.6.0 표본 규모 보정: 스토어 평점 표본이 없어 사용자 축을 비워 두어 보정 대상이 아니다.",
+   "objective": "자동 산정 75.0: 오픈소스 라이선스 Apache-2.0(+8) · 180일 내 업데이트 2026-06-02(+5).",
+   "ai_review": "자동 추정 66.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 180일 내 업데이트(+2)."
+  },
+  "icon": "assets/icons/void-editor.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "kilo-code",
+  "name": "Kilo Code",
+  "aliases": [
+   "킬로 코드"
+  ],
+  "domain": "ai",
+  "category": "ai-coding",
+  "arenas": [
+   "ai-coding-tools"
+  ],
+  "arena_notes": {
+   "ai-coding-tools": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-28. 「AI 코딩 에디터 · 에이전트」 안에서 Kilo-Org의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "ai age",
+   "ai coding",
+   "ai developer tools"
+  ],
+  "platforms": [
+   "other"
+  ],
+  "developer": "Kilo-Org",
+  "publisher": "Kilo-Org",
+  "release_date": "2025-03-10",
+  "one_liner": "Kilo is the all-in-one agentic engineering platform. Build, ship, and iterate faster with the most popular open source coding agent.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-28(0일 전).",
+  "sources": [
+   {
+    "id": "github-kilo-code",
+    "title": "GitHub — Kilo-Org/kilocode",
+    "url": "https://github.com/Kilo-Org/kilocode",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "스타 28,146 · 라이선스 MIT · 최근 푸시 2026-11-28 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-kilo-code"
+    ],
+    "note": "마지막 업데이트 2026-11-28(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-28(0일 전) — 활발.",
+      "source_ids": [
+       "github-kilo-code"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-28(+8).",
+    "source_ids": [
+     "github-kilo-code"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-kilo-code"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-28. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-28(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-28",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-28",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-kilo-code"
+     ],
+     "note": "저장소 최근 푸시 'Kilo-Org/kilocode push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-28(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "v0.6.0 표본 규모 보정: 스토어 평점 표본이 없어 사용자 축을 비워 두어 보정 대상이 아니다.",
+   "objective": "자동 산정 78.0: 오픈소스 라이선스 MIT(+8) · 최근 90일 내 업데이트 2026-11-28(+8).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/kilo-code.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "pearai",
+  "name": "PearAI",
+  "aliases": [
+   "페어AI"
+  ],
+  "domain": "ai",
+  "category": "ai-coding",
+  "arenas": [
+   "ai-coding-tools"
+  ],
+  "arena_notes": {
+   "ai-coding-tools": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2025-05-20. 「AI 코딩 에디터 · 에이전트」 안에서 trypear의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "code editor",
+   "pear",
+   "vscode"
+  ],
+  "platforms": [
+   "other"
+  ],
+  "developer": "trypear",
+  "publisher": "trypear",
+  "release_date": "2024-10-03",
+  "one_liner": "PearAI: Open Source AI Code Editor (Fork of VSCode). The PearAI Submodule (https://github.com/trypear/pearai-submodule) is a fork of…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2025-05-20(557일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "github-pearai",
+    "title": "GitHub — trypear/pearai-app",
+    "url": "https://github.com/trypear/pearai-app",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "스타 713 · 라이선스 MIT · 최근 푸시 2025-05-20 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-pearai"
+    ],
+    "note": "마지막 업데이트 2025-05-20 — 12개월(557일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 MIT — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 MIT)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-05-20 — 12개월(557일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "github-pearai"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 오픈소스 라이선스 MIT(+8) · 12개월 넘게 업데이트 없음 2025-05-20(-14).",
+    "source_ids": [
+     "github-pearai"
+    ]
+   },
+   "ai_review": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-pearai"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — 스토어 평점 표본 없음, 최근 업데이트 2025-05-20. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2025-05-20(557일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "마지막 업데이트가 2025-05-20 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2025-05-20",
+   "latest_update_platform": "other",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-05-20",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-pearai"
+     ],
+     "note": "저장소 최근 푸시 'trypear/pearai-app push'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-05-20(557일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "v0.6.0 표본 규모 보정: 스토어 평점 표본이 없어 사용자 축을 비워 두어 보정 대상이 아니다.",
+   "objective": "자동 산정 56.0: 오픈소스 라이선스 MIT(+8) · 12개월 넘게 업데이트 없음 2025-05-20(-14).",
+   "ai_review": "자동 추정 56.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/pearai.webp"
  }
 ]

@@ -11933,5 +11933,6265 @@
    "ai_review": "자동 추정 57.5: 본질 검토 전 중립값 60 · 사용자 평균 65.0 (-10.5) · 표본 108건 (+2.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
   },
   "icon": "assets/icons/aim-for-the-ace.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "rough",
+  "name": "러프",
+  "aliases": [
+   "Rough"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 77/100 · 채점 915건 · 만화 119화·12권 (1987~1989) · 아다치 미쓰루. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "드라마",
+   "로맨스"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "아다치 미쓰루",
+  "release_date": "1987-04-08",
+  "one_liner": "수영부 소년과 다이빙 소녀가 같은 수영장에서 서로를 의식한다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "러프",
+   "Rough",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 1989-09-20 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-31184",
+    "title": "AniList — Rough",
+    "url": "https://anilist.co/manga/31184",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 77/100 · 채점 915건 · 만화 119화·12권 (1987~1989) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 12권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 74.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 77/100 · 채점 915건 — 표본 가중 평균 77.0. v0.6.0 표본 규모 보정 -2.10 → 74.9.",
+    "source_ids": [
+     "anilist-31184"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 915,
+     "sample_source": "reviews",
+     "base_score": 77.0,
+     "log_delta": -2.116,
+     "gate": 1.0,
+     "applied": -2.1,
+     "final_score": 74.9,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
+    "source_ids": [
+     "anilist-31184"
+    ]
+   },
+   "ai_review": {
+    "score": 66.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.9: 본질 검토 전 중립값 60 · 사용자 평균 77.0 (-2.1) · 표본 915건 (+3.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-31184"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 77/100 · 채점 915건 · 만화 119화·12권 (1987~1989). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 77/100 · 채점 915건 (표본 보정 -2.10 → 74.9).",
+    "만화 119화·12권 (1987~1989) · 아다치 미쓰루.",
+    "완결 — AniList 종료일 1989-09-20."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(1989-09-20)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 77.0,
+      "scale": "out_of_100",
+      "count": 915,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "77/100 · 915건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 77/100 · 채점 915건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "1989-09-20",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1989-09-20",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-31184"
+     ],
+     "note": "최종화·최종권 공개(1989-09-20) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 1989-09-20 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-31184"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31184"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 77/100 · 채점 915건 → 표본 가중 평균 77.0. 표본 915건. v0.6.0 표본 규모 보정: 누적 표본 915건 → 로그 보정 -2.12 × 평점 게이트 1.00 = -2.10 (77.0 → 74.9).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
+   "ai_review": "자동 추정 66.9: 본질 검토 전 중립값 60 · 사용자 평균 77.0 (-2.1) · 표본 915건 (+3.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/rough.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "h2",
+  "name": "H2",
+  "aliases": [
+   "H2"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 82/100 · 채점 1,346건 · 만화 338화·34권 (1992~1999) · 아다치 미쓰루. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "드라마",
+   "로맨스"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "아다치 미쓰루",
+  "release_date": "1992-07-29",
+  "one_liner": "야구를 그만둔 소년이 라이벌과 같은 학교에서 다시 배트를 잡는다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "H2",
+   "H2",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 1999-11-24 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-31014",
+    "title": "AniList — H2",
+    "url": "https://anilist.co/manga/31014",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 82/100 · 채점 1,346건 · 만화 338화·34권 (1992~1999) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 34권",
+    "recommended_path": true,
+    "verdict": "recommend"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 80.3,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 82/100 · 채점 1,346건 — 표본 가중 평균 82.0. v0.6.0 표본 규모 보정 -1.70 → 80.3.",
+    "source_ids": [
+     "anilist-31014"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1346,
+     "sample_source": "reviews",
+     "base_score": 82.0,
+     "log_delta": -1.742,
+     "gate": 1.0,
+     "applied": -1.7,
+     "final_score": 80.3,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 34년 (+8).",
+    "source_ids": [
+     "anilist-31014"
+    ]
+   },
+   "ai_review": {
+    "score": 70.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 70.5: 본질 검토 전 중립값 60 · 사용자 평균 82.0 (+1.4) · 표본 1,346건 (+3.1) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-31014"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — AniList 82/100 · 채점 1,346건 · 만화 338화·34권 (1992~1999). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 82/100 · 채점 1,346건 (표본 보정 -1.70 → 80.3).",
+    "만화 338화·34권 (1992~1999) · 아다치 미쓰루.",
+    "완결 — AniList 종료일 1999-11-24."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(1999-11-24)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 82.0,
+      "scale": "out_of_100",
+      "count": 1346,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "82/100 · 1,346건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 82/100 · 채점 1,346건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "1999-11-24",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1999-11-24",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-31014"
+     ],
+     "note": "최종화·최종권 공개(1999-11-24) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 1999-11-24 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-31014"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31014"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 82/100 · 채점 1,346건 → 표본 가중 평균 82.0. 표본 1,346건. v0.6.0 표본 규모 보정: 누적 표본 1,346건 → 로그 보정 -1.74 × 평점 게이트 1.00 = -1.70 (82.0 → 80.3).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 34년 (+8).",
+   "ai_review": "자동 추정 70.5: 본질 검토 전 중립값 60 · 사용자 평균 82.0 (+1.4) · 표본 1,346건 (+3.1) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/h2.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "katsu",
+  "name": "캇츠!",
+  "aliases": [
+   "Katsu!"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 75/100 · 채점 1,036건 · 만화 157화·16권 (2001~2005) · 아다치 미쓰루. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "코미디",
+   "드라마"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "아다치 미쓰루",
+  "release_date": "2001-08-08",
+  "one_liner": "권투를 시작한 소년이 아버지의 길과 자기 길을 겹쳐 본다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "캇츠!",
+   "Katsu!",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2005-02-16 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-31185",
+    "title": "AniList — Katsu!",
+    "url": "https://anilist.co/manga/31185",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 75/100 · 채점 1,036건 · 만화 157화·16권 (2001~2005) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 16권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 73.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 75/100 · 채점 1,036건 — 표본 가중 평균 75.0. v0.6.0 표본 규모 보정 -2.00 → 73.0.",
+    "source_ids": [
+     "anilist-31185"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1036,
+     "sample_source": "reviews",
+     "base_score": 75.0,
+     "log_delta": -1.969,
+     "gate": 1.0,
+     "applied": -2.0,
+     "final_score": 73.0,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
+    "source_ids": [
+     "anilist-31185"
+    ]
+   },
+   "ai_review": {
+    "score": 65.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 65.5: 본질 검토 전 중립값 60 · 사용자 평균 75.0 (-3.5) · 표본 1,036건 (+3.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-31185"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 75/100 · 채점 1,036건 · 만화 157화·16권 (2001~2005). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 75/100 · 채점 1,036건 (표본 보정 -2.00 → 73.0).",
+    "만화 157화·16권 (2001~2005) · 아다치 미쓰루.",
+    "완결 — AniList 종료일 2005-02-16."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2005-02-16)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 75.0,
+      "scale": "out_of_100",
+      "count": 1036,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "75/100 · 1,036건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 75/100 · 채점 1,036건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2005-02-16",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2005-02-16",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-31185"
+     ],
+     "note": "최종화·최종권 공개(2005-02-16) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2005-02-16 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-31185"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31185"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 75/100 · 채점 1,036건 → 표본 가중 평균 75.0. 표본 1,036건. v0.6.0 표본 규모 보정: 누적 표본 1,036건 → 로그 보정 -1.97 × 평점 게이트 1.00 = -2.00 (75.0 → 73.0).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
+   "ai_review": "자동 추정 65.5: 본질 검토 전 중립값 60 · 사용자 평균 75.0 (-3.5) · 표본 1,036건 (+3.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/katsu.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "miyuki",
+  "name": "미유키",
+  "aliases": [
+   "Miyuki"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 63/100 · 채점 296건 · 만화 95화·12권 (1980~1984) · 아다치 미쓰루. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "드라마",
+   "로맨스"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "아다치 미쓰루",
+  "release_date": "1980-09-12",
+  "one_liner": "같은 집에 사는 소년과 소녀의 거리가 야구 시즌을 따라 흔들린다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "미유키",
+   "Miyuki",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 1984-09-28 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-31015",
+    "title": "AniList — Miyuki",
+    "url": "https://anilist.co/manga/31015",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 63/100 · 채점 296건 · 만화 95화·12권 (1980~1984) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 12권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 61.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 63/100 · 채점 296건 — 표본 가중 평균 63.0. v0.6.0 표본 규모 보정 -1.10 → 61.9.",
+    "source_ids": [
+     "anilist-31015"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 296,
+     "sample_source": "reviews",
+     "base_score": 63.0,
+     "log_delta": -3.586,
+     "gate": 0.3,
+     "applied": -1.1,
+     "final_score": 61.9,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 46년 (+8).",
+    "source_ids": [
+     "anilist-31015"
+    ]
+   },
+   "ai_review": {
+    "score": 56.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.6: 본질 검토 전 중립값 60 · 사용자 평균 63.0 (-11.9) · 표본 296건 (+2.5) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-31015"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 63/100 · 채점 296건 · 만화 95화·12권 (1980~1984). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 63/100 · 채점 296건 (표본 보정 -1.10 → 61.9).",
+    "만화 95화·12권 (1980~1984) · 아다치 미쓰루.",
+    "완결 — AniList 종료일 1984-09-28."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(1984-09-28)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 63.0,
+      "scale": "out_of_100",
+      "count": 296,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "63/100 · 296건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 63/100 · 채점 296건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "1984-09-28",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1984-09-28",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-31015"
+     ],
+     "note": "최종화·최종권 공개(1984-09-28) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 1984-09-28 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-31015"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31015"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 63/100 · 채점 296건 → 표본 가중 평균 63.0. 표본 296건. v0.6.0 표본 규모 보정: 누적 표본 296건 → 로그 보정 -3.59 × 평점 게이트 0.30 = -1.10 (63.0 → 61.9).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 46년 (+8).",
+   "ai_review": "자동 추정 56.6: 본질 검토 전 중립값 60 · 사용자 평균 63.0 (-11.9) · 표본 296건 (+2.5) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/miyuki.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "slow-step",
+  "name": "슬로 스텝",
+  "aliases": [
+   "Slow Step"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 61/100 · 채점 291건 · 만화 55화·7권 (1986~1991) · 아다치 미쓰루. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "로맨스",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "아다치 미쓰루",
+  "release_date": "1986-09-01",
+  "one_liner": "권투와 수영을 오가는 소년이 두 여자 사이에서 자기 마음을 정한다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "슬로 스텝",
+   "Slow Step",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 1991-03-01 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-31203",
+    "title": "AniList — Slow Step",
+    "url": "https://anilist.co/manga/31203",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 61/100 · 채점 291건 · 만화 55화·7권 (1986~1991) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 7권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 60.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 61/100 · 채점 291건 — 표본 가중 평균 61.0. v0.6.0 표본 규모 보정 -0.40 → 60.6.",
+    "source_ids": [
+     "anilist-31203"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 291,
+     "sample_source": "reviews",
+     "base_score": 61.0,
+     "log_delta": -3.608,
+     "gate": 0.1,
+     "applied": -0.4,
+     "final_score": 60.6,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 40년 (+8).",
+    "source_ids": [
+     "anilist-31203"
+    ]
+   },
+   "ai_review": {
+    "score": 55.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.2: 본질 검토 전 중립값 60 · 사용자 평균 61.0 (-13.3) · 표본 291건 (+2.5) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-31203"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 61/100 · 채점 291건 · 만화 55화·7권 (1986~1991). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 61/100 · 채점 291건 (표본 보정 -0.40 → 60.6).",
+    "만화 55화·7권 (1986~1991) · 아다치 미쓰루.",
+    "완결 — AniList 종료일 1991-03-01."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(1991-03-01)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 61.0,
+      "scale": "out_of_100",
+      "count": 291,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "61/100 · 291건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 61/100 · 채점 291건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "1991-03-01",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1991-03-01",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-31203"
+     ],
+     "note": "최종화·최종권 공개(1991-03-01) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 1991-03-01 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-31203"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-31203"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 61/100 · 채점 291건 → 표본 가중 평균 61.0. 표본 291건. v0.6.0 표본 규모 보정: 누적 표본 291건 → 로그 보정 -3.61 × 평점 게이트 0.10 = -0.40 (61.0 → 60.6).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 40년 (+8).",
+   "ai_review": "자동 추정 55.2: 본질 검토 전 중립값 60 · 사용자 평균 61.0 (-13.3) · 표본 291건 (+2.5) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/slow-step.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "nine",
+  "name": "나인",
+  "aliases": [
+   "Nine"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 59/100 · 채점 222건 · 만화 29화·5권 (1978~1980) · 아다치 미쓰루. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "로맨스",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "아다치 미쓰루",
+  "release_date": "1978-09-25",
+  "one_liner": "야구부를 만든 소년이 라이벌 학교와 마지막 승부를 벌인다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "나인",
+   "Nine",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 1980-10-25 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-33169",
+    "title": "AniList — Nine",
+    "url": "https://anilist.co/manga/33169",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 59/100 · 채점 222건 · 만화 29화·5권 (1978~1980) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 5권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 59.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 59/100 · 채점 222건 — 표본 가중 평균 59.0. v0.6.0 표본 규모 보정 +0.00 → 59.0.",
+    "source_ids": [
+     "anilist-33169"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 222,
+     "sample_source": "reviews",
+     "base_score": 59.0,
+     "log_delta": -3.961,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": 59.0,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 48년 (+8).",
+    "source_ids": [
+     "anilist-33169"
+    ]
+   },
+   "ai_review": {
+    "score": 53.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 53.6: 본질 검토 전 중립값 60 · 사용자 평균 59.0 (-14.7) · 표본 222건 (+2.3) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-33169"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 59/100 · 채점 222건 · 만화 29화·5권 (1978~1980). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 59/100 · 채점 222건 (표본 보정 +0.00 → 59.0).",
+    "만화 29화·5권 (1978~1980) · 아다치 미쓰루.",
+    "완결 — AniList 종료일 1980-10-25."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(1980-10-25)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 59.0,
+      "scale": "out_of_100",
+      "count": 222,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "59/100 · 222건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 59/100 · 채점 222건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "1980-10-25",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1980-10-25",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-33169"
+     ],
+     "note": "최종화·최종권 공개(1980-10-25) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 1980-10-25 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-33169"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33169"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 59/100 · 채점 222건 → 표본 가중 평균 59.0. 표본 222건. v0.6.0 표본 규모 보정: 누적 표본 222건 → 로그 보정 -3.96 × 평점 게이트 0.00 = +0.00 (59.0 → 59.0).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 48년 (+8).",
+   "ai_review": "자동 추정 53.6: 본질 검토 전 중립값 60 · 사용자 평균 59.0 (-14.7) · 표본 222건 (+2.3) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/nine.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "be-blues",
+  "name": "비 블루스!",
+  "aliases": [
+   "Be Blues!"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 82/100 · 채점 1,572건 · 만화 489화·49권 (2011~2022) · 타나카 모토유키. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "드라마",
+   "일상",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "타나카 모토유키",
+  "release_date": "2011-01-26",
+  "one_liner": "한 번 다친 다리의 소년이 프로 축구를 향해 다시 뛴다.",
+  "taste_tags": [
+   "completed"
+  ],
+  "keywords": [
+   "비 블루스!",
+   "Be Blues!",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2022-09-28 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-88867",
+    "title": "AniList — Be Blues!",
+    "url": "https://anilist.co/manga/88867",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 82/100 · 채점 1,572건 · 만화 489화·49권 (2011~2022) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 49권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 80.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 82/100 · 채점 1,572건 — 표본 가중 평균 82.0. v0.6.0 표본 규모 보정 -1.60 → 80.4.",
+    "source_ids": [
+     "anilist-88867"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1572,
+     "sample_source": "reviews",
+     "base_score": 82.0,
+     "log_delta": -1.607,
+     "gate": 1.0,
+     "applied": -1.6,
+     "final_score": 80.4,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 87,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 15년 (+5).",
+    "source_ids": [
+     "anilist-88867"
+    ]
+   },
+   "ai_review": {
+    "score": 70.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 70.6: 본질 검토 전 중립값 60 · 사용자 평균 82.0 (+1.4) · 표본 1,572건 (+3.2) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-88867"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 82/100 · 채점 1,572건 · 만화 489화·49권 (2011~2022). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 82/100 · 채점 1,572건 (표본 보정 -1.60 → 80.4).",
+    "만화 489화·49권 (2011~2022) · 타나카 모토유키.",
+    "완결 — AniList 종료일 2022-09-28."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2022-09-28)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 82.0,
+      "scale": "out_of_100",
+      "count": 1572,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "82/100 · 1,572건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 82/100 · 채점 1,572건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2022-09-28",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2022-09-28",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-88867"
+     ],
+     "note": "최종화·최종권 공개(2022-09-28) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2022-09-28 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-88867"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-88867"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 82/100 · 채점 1,572건 → 표본 가중 평균 82.0. 표본 1,572건. v0.6.0 표본 규모 보정: 누적 표본 1,572건 → 로그 보정 -1.61 × 평점 게이트 1.00 = -1.60 (82.0 → 80.4).",
+   "objective": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 15년 (+5).",
+   "ai_review": "자동 추정 70.6: 본질 검토 전 중립값 60 · 사용자 평균 82.0 (+1.4) · 표본 1,572건 (+3.2) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/be-blues.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "area-no-kishi",
+  "name": "에어리어의 기사",
+  "aliases": [
+   "The Knight in the Area"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 69/100 · 채점 559건 · 만화 498화·57권 (2006~2017) · . '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "",
+  "release_date": "2006-08-01",
+  "one_liner": "형의 꿈을 이어받은 동생이 축구부에서 자기 재능을 찾는다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "에어리어의 기사",
+   "The Knight in the Area",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2017-03-29 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-38795",
+    "title": "AniList — The Knight in the Area",
+    "url": "https://anilist.co/manga/38795",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 69/100 · 채점 559건 · 만화 498화·57권 (2006~2017) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 57권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 66.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 69/100 · 채점 559건 — 표본 가중 평균 69.0. v0.6.0 표본 규모 보정 -2.50 → 66.5.",
+    "source_ids": [
+     "anilist-38795"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 559,
+     "sample_source": "reviews",
+     "base_score": 69.0,
+     "log_delta": -2.758,
+     "gate": 0.9,
+     "applied": -2.5,
+     "final_score": 66.5,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 20년 (+8).",
+    "source_ids": [
+     "anilist-38795"
+    ]
+   },
+   "ai_review": {
+    "score": 61.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 61.0: 본질 검토 전 중립값 60 · 사용자 평균 69.0 (-7.7) · 표본 559건 (+2.7) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-38795"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 69/100 · 채점 559건 · 만화 498화·57권 (2006~2017). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 69/100 · 채점 559건 (표본 보정 -2.50 → 66.5).",
+    "만화 498화·57권 (2006~2017) · .",
+    "완결 — AniList 종료일 2017-03-29."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2017-03-29)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 69.0,
+      "scale": "out_of_100",
+      "count": 559,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "69/100 · 559건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 69/100 · 채점 559건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2017-03-29",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2017-03-29",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-38795"
+     ],
+     "note": "최종화·최종권 공개(2017-03-29) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2017-03-29 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-38795"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-38795"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 69/100 · 채점 559건 → 표본 가중 평균 69.0. 표본 559건. v0.6.0 표본 규모 보정: 누적 표본 559건 → 로그 보정 -2.76 × 평점 게이트 0.90 = -2.50 (69.0 → 66.5).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 20년 (+8).",
+   "ai_review": "자동 추정 61.0: 본질 검토 전 중립값 60 · 사용자 평균 69.0 (-7.7) · 표본 559건 (+2.7) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/area-no-kishi.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "whistle",
+  "name": "휘슬!",
+  "aliases": [
+   "Whistle!"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 73/100 · 채점 552건 · 만화 216화·24권 (1998~2002) · 히구치 다이스케. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "히구치 다이스케",
+  "release_date": "1998-02-24",
+  "one_liner": "작은 체구의 소년이 프로 선수가 되려 축구 학교에 들어간다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "휘슬!",
+   "Whistle!",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2002-10-08 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-30052",
+    "title": "AniList — Whistle!",
+    "url": "https://anilist.co/manga/30052",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 73/100 · 채점 552건 · 만화 216화·24권 (1998~2002) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 24권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 70.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 73/100 · 채점 552건 — 표본 가중 평균 73.0. v0.6.0 표본 규모 보정 -2.80 → 70.2.",
+    "source_ids": [
+     "anilist-30052"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 552,
+     "sample_source": "reviews",
+     "base_score": 73.0,
+     "log_delta": -2.774,
+     "gate": 1.0,
+     "applied": -2.8,
+     "final_score": 70.2,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 28년 (+8).",
+    "source_ids": [
+     "anilist-30052"
+    ]
+   },
+   "ai_review": {
+    "score": 63.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 63.8: 본질 검토 전 중립값 60 · 사용자 평균 73.0 (-4.9) · 표본 552건 (+2.7) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-30052"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 73/100 · 채점 552건 · 만화 216화·24권 (1998~2002). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 73/100 · 채점 552건 (표본 보정 -2.80 → 70.2).",
+    "만화 216화·24권 (1998~2002) · 히구치 다이스케.",
+    "완결 — AniList 종료일 2002-10-08."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2002-10-08)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 73.0,
+      "scale": "out_of_100",
+      "count": 552,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "73/100 · 552건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 73/100 · 채점 552건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2002-10-08",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2002-10-08",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-30052"
+     ],
+     "note": "최종화·최종권 공개(2002-10-08) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2002-10-08 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-30052"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-30052"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 73/100 · 채점 552건 → 표본 가중 평균 73.0. 표본 552건. v0.6.0 표본 규모 보정: 누적 표본 552건 → 로그 보정 -2.77 × 평점 게이트 1.00 = -2.80 (73.0 → 70.2).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 28년 (+8).",
+   "ai_review": "자동 추정 63.8: 본질 검토 전 중립값 60 · 사용자 평균 73.0 (-4.9) · 표본 552건 (+2.7) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/whistle.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "fantasista",
+  "name": "판타지스타",
+  "aliases": [
+   "Fantasista"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 70/100 · 채점 342건 · 만화 222화·25권 (1999~2004) · . '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "",
+  "release_date": "1999-07-28",
+  "one_liner": "작은 소년이 스카우트에게 발견되어 프로 무대를 향해 간다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "판타지스타",
+   "Fantasista",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2004-03-10 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-40259",
+    "title": "AniList — Fantasista",
+    "url": "https://anilist.co/manga/40259",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 70/100 · 채점 342건 · 만화 222화·25권 (1999~2004) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 25권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 66.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 70/100 · 채점 342건 — 표본 가중 평균 70.0. v0.6.0 표본 규모 보정 -3.40 → 66.6.",
+    "source_ids": [
+     "anilist-40259"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 342,
+     "sample_source": "reviews",
+     "base_score": 70.0,
+     "log_delta": -3.398,
+     "gate": 1.0,
+     "applied": -3.4,
+     "final_score": 66.6,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
+    "source_ids": [
+     "anilist-40259"
+    ]
+   },
+   "ai_review": {
+    "score": 61.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 61.5: 본질 검토 전 중립값 60 · 사용자 평균 70.0 (-7.0) · 표본 342건 (+2.5) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-40259"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 70/100 · 채점 342건 · 만화 222화·25권 (1999~2004). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 70/100 · 채점 342건 (표본 보정 -3.40 → 66.6).",
+    "만화 222화·25권 (1999~2004) · .",
+    "완결 — AniList 종료일 2004-03-10."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2004-03-10)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 70.0,
+      "scale": "out_of_100",
+      "count": 342,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "70/100 · 342건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 70/100 · 채점 342건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2004-03-10",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2004-03-10",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-40259"
+     ],
+     "note": "최종화·최종권 공개(2004-03-10) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2004-03-10 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-40259"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-40259"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 70/100 · 채점 342건 → 표본 가중 평균 70.0. 표본 342건. v0.6.0 표본 규모 보정: 누적 표본 342건 → 로그 보정 -3.40 × 평점 게이트 1.00 = -3.40 (70.0 → 66.6).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
+   "ai_review": "자동 추정 61.5: 본질 검토 전 중립값 60 · 사용자 평균 70.0 (-7.0) · 표본 342건 (+2.5) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/fantasista.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "days-manga",
+  "name": "데이즈 (만화)",
+  "aliases": [
+   "Days (manga)"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 76/100 · 채점 1,120건 · 만화 376화·42권 (2013~2021) · 야스다 츠요시. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "드라마",
+   "일상"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "야스다 츠요시",
+  "release_date": "2013-04-24",
+  "one_liner": "한 번도 축구를 해본 적 없는 소년이 고교 팀에서 뛰기 시작한다.",
+  "taste_tags": [
+   "completed"
+  ],
+  "keywords": [
+   "데이즈",
+   "Days",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2021-01-20 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-86600",
+    "title": "AniList — Days",
+    "url": "https://anilist.co/manga/86600",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 76/100 · 채점 1,120건 · 만화 376화·42권 (2013~2021) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 42권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 74.1,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 76/100 · 채점 1,120건 — 표본 가중 평균 76.0. v0.6.0 표본 규모 보정 -1.90 → 74.1.",
+    "source_ids": [
+     "anilist-86600"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1120,
+     "sample_source": "reviews",
+     "base_score": 76.0,
+     "log_delta": -1.902,
+     "gate": 1.0,
+     "applied": -1.9,
+     "final_score": 74.1,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 87,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
+    "source_ids": [
+     "anilist-86600"
+    ]
+   },
+   "ai_review": {
+    "score": 66.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 66.2: 본질 검토 전 중립값 60 · 사용자 평균 76.0 (-2.8) · 표본 1,120건 (+3.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-86600"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 76/100 · 채점 1,120건 · 만화 376화·42권 (2013~2021). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 76/100 · 채점 1,120건 (표본 보정 -1.90 → 74.1).",
+    "만화 376화·42권 (2013~2021) · 야스다 츠요시.",
+    "완결 — AniList 종료일 2021-01-20."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2021-01-20)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 76.0,
+      "scale": "out_of_100",
+      "count": 1120,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "76/100 · 1,120건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 76/100 · 채점 1,120건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2021-01-20",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-01-20",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-86600"
+     ],
+     "note": "최종화·최종권 공개(2021-01-20) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2021-01-20 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-86600"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-86600"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 76/100 · 채점 1,120건 → 표본 가중 평균 76.0. 표본 1,120건. v0.6.0 표본 규모 보정: 누적 표본 1,120건 → 로그 보정 -1.90 × 평점 게이트 1.00 = -1.90 (76.0 → 74.1).",
+   "objective": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
+   "ai_review": "자동 추정 66.2: 본질 검토 전 중립값 60 · 사용자 평균 76.0 (-2.8) · 표본 1,120건 (+3.0) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/days-manga.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ahiru-no-sora-manga",
+  "name": "오리의 하늘",
+  "aliases": [
+   "Ahiru no Sora"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 76/100 · 채점 963건 · 연재 중 (2003~) · 히나타 타케시. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "드라마",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "히나타 타케시",
+  "release_date": "2003-12-10",
+  "one_liner": "작은 체구의 소년이 농구부에서 자기 자리를 만든다.",
+  "taste_tags": [
+   "ongoing",
+   "classic"
+  ],
+  "keywords": [
+   "오리의 하늘",
+   "Ahiru no Sora",
+   "연재·방영 중"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "연재·방영 중 — 원작이나 후속 시즌이 이어지는 작품이다. 최근 화 공개일은 확인하지 않았다.",
+  "sources": [
+   {
+    "id": "anilist-33367",
+    "title": "AniList — Ahiru no Sora",
+    "url": "https://anilist.co/manga/33367",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 76/100 · 채점 963건 · 연재 중 (2003~) · 연재·방영 중."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "note": "원작·후속 시즌이 이어지는 작품 — 12개월 공백으로 보지 않는다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "연재 중이면 최신 권까지 따로 산다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "원작·후속 시즌이 이어지는 작품 — 12개월 공백으로 보지 않는다."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본·전자책으로 읽기",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 76/100 · 채점 963건 — 표본 가중 평균 76.0. v0.6.0 표본 규모 보정 -2.00 → 74.0.",
+    "source_ids": [
+     "anilist-33367"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 963,
+     "sample_source": "reviews",
+     "base_score": 76.0,
+     "log_delta": -2.049,
+     "gate": 1.0,
+     "applied": -2.0,
+     "final_score": 74.0,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 68,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 23년 (+8).",
+    "source_ids": [
+     "anilist-33367"
+    ]
+   },
+   "ai_review": {
+    "score": 60.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 60.2: 본질 검토 전 중립값 60 · 사용자 평균 76.0 (-2.8) · 표본 963건 (+3.0) · 연재·방영 중 (+0). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-33367"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 76/100 · 채점 963건 · 연재 중 (2003~). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 76/100 · 채점 963건 (표본 보정 -2.00 → 74.0).",
+    "연재 중 (2003~) · 히나타 타케시.",
+    "연재·방영 중 — 후속 시즌·연재가 이어지고 있다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "연재·방영이 이어지는 작품 — 최근 화 공개일은 확인하지 않았다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 76.0,
+      "scale": "out_of_100",
+      "count": 963,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "76/100 · 963건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 76/100 · 채점 963건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": null,
+   "latest_update_platform": "print",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": null,
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-33367"
+     ],
+     "note": "연재·방영이 이어지는 작품 — 최근 화 공개일은 확인하지 않았다."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "연재·방영 중 — 원작이나 후속 시즌이 이어지는 작품이다. 최근 화 공개일은 확인하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-33367"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-33367"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 76/100 · 채점 963건 → 표본 가중 평균 76.0. 표본 963건. v0.6.0 표본 규모 보정: 누적 표본 963건 → 로그 보정 -2.05 × 평점 게이트 1.00 = -2.00 (76.0 → 74.0).",
+   "objective": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 23년 (+8).",
+   "ai_review": "자동 추정 60.2: 본질 검토 전 중립값 60 · 사용자 평균 76.0 (-2.8) · 표본 963건 (+3.0) · 연재·방영 중 (+0). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/ahiru-no-sora-manga.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "medalist-manga",
+  "name": "메달리스트",
+  "aliases": [
+   "Medalist"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 88/100 · 채점 2,574건 · 연재 중 (2020~) · 츠루마이카다. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "드라마",
+   "심리",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "츠루마이카다",
+  "release_date": "2020-05-25",
+  "one_liner": "피겨를 시작한 소년과 코치가 서로의 마지막 기회를 건다.",
+  "taste_tags": [
+   "ongoing"
+  ],
+  "keywords": [
+   "메달리스트",
+   "Medalist",
+   "연재·방영 중"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "연재·방영 중 — 원작이나 후속 시즌이 이어지는 작품이다. 최근 화 공개일은 확인하지 않았다.",
+  "sources": [
+   {
+    "id": "anilist-118371",
+    "title": "AniList — Medalist",
+    "url": "https://anilist.co/manga/118371",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 88/100 · 채점 2,574건 · 연재 중 (2020~) · 연재·방영 중."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "note": "원작·후속 시즌이 이어지는 작품 — 12개월 공백으로 보지 않는다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "연재 중이면 최신 권까지 따로 산다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "원작·후속 시즌이 이어지는 작품 — 12개월 공백으로 보지 않는다."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본·전자책으로 읽기",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 86.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 88/100 · 채점 2,574건 — 표본 가중 평균 88.0. v0.6.0 표본 규모 보정 -1.20 → 86.8.",
+    "source_ids": [
+     "anilist-118371"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 2574,
+     "sample_source": "reviews",
+     "base_score": 88.0,
+     "log_delta": -1.179,
+     "gate": 1.0,
+     "applied": -1.2,
+     "final_score": 86.8,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 62,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 6년 (+2).",
+    "source_ids": [
+     "anilist-118371"
+    ]
+   },
+   "ai_review": {
+    "score": 69.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 69.0: 본질 검토 전 중립값 60 · 사용자 평균 88.0 (+5.6) · 표본 2,574건 (+3.4) · 연재·방영 중 (+0). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-118371"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 88/100 · 채점 2,574건 · 연재 중 (2020~). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 88/100 · 채점 2,574건 (표본 보정 -1.20 → 86.8).",
+    "연재 중 (2020~) · 츠루마이카다.",
+    "연재·방영 중 — 후속 시즌·연재가 이어지고 있다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "연재·방영이 이어지는 작품 — 최근 화 공개일은 확인하지 않았다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 88.0,
+      "scale": "out_of_100",
+      "count": 2574,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "88/100 · 2,574건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 88/100 · 채점 2,574건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": null,
+   "latest_update_platform": "print",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": null,
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-118371"
+     ],
+     "note": "연재·방영이 이어지는 작품 — 최근 화 공개일은 확인하지 않았다."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "연재·방영 중 — 원작이나 후속 시즌이 이어지는 작품이다. 최근 화 공개일은 확인하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-118371"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-118371"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 88/100 · 채점 2,574건 → 표본 가중 평균 88.0. 표본 2,574건. v0.6.0 표본 규모 보정: 누적 표본 2,574건 → 로그 보정 -1.18 × 평점 게이트 1.00 = -1.20 (88.0 → 86.8).",
+   "objective": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 6년 (+2).",
+   "ai_review": "자동 추정 69.0: 본질 검토 전 중립값 60 · 사용자 평균 88.0 (+5.6) · 표본 2,574건 (+3.4) · 연재·방영 중 (+0). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/medalist-manga.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "blue-box-manga",
+  "name": "푸른 상자",
+  "aliases": [
+   "Blue Box"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 81/100 · 채점 17,702건 · 만화 250화·28권 (2021~2026) · 미우라 코지. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "드라마",
+   "로맨스",
+   "일상"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "미우라 코지",
+  "release_date": "2021-04-12",
+  "one_liner": "배드민턴 소년과 농구 소녀가 같은 체육관에서 마음을 키운다.",
+  "taste_tags": [
+   "completed"
+  ],
+  "keywords": [
+   "푸른 상자",
+   "Blue Box",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2026-07-13 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-132182",
+    "title": "AniList — Blue Box",
+    "url": "https://anilist.co/manga/132182",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 81/100 · 채점 17,702건 · 만화 250화·28권 (2021~2026) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 28권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 81.7,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 81/100 · 채점 17,702건 — 표본 가중 평균 81.0. v0.6.0 표본 규모 보정 +0.70 → 81.7.",
+    "source_ids": [
+     "anilist-132182"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 17702,
+     "sample_source": "reviews",
+     "base_score": 81.0,
+     "log_delta": 0.744,
+     "gate": 1.0,
+     "applied": 0.7,
+     "final_score": 81.7,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 84,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "source_ids": [
+     "anilist-132182"
+    ]
+   },
+   "ai_review": {
+    "score": 70.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 70.9: 본질 검토 전 중립값 60 · 사용자 평균 81.0 (+0.7) · 표본 17,702건 (+4.2) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-132182"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 81/100 · 채점 17,702건 · 만화 250화·28권 (2021~2026). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 81/100 · 채점 17,702건 (표본 보정 +0.70 → 81.7).",
+    "만화 250화·28권 (2021~2026) · 미우라 코지.",
+    "완결 — AniList 종료일 2026-07-13."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2026-07-13)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 81.0,
+      "scale": "out_of_100",
+      "count": 17702,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "81/100 · 17,702건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 81/100 · 채점 17,702건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2026-07-13",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2026-07-13",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-132182"
+     ],
+     "note": "최종화·최종권 공개(2026-07-13) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2026-07-13 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-132182"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-132182"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 81/100 · 채점 17,702건 → 표본 가중 평균 81.0. 표본 17,702건. v0.6.0 표본 규모 보정: 누적 표본 17,702건 → 로그 보정 +0.74 × 평점 게이트 1.00 = +0.70 (81.0 → 81.7).",
+   "objective": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+   "ai_review": "자동 추정 70.9: 본질 검토 전 중립값 60 · 사용자 평균 81.0 (+0.7) · 표본 17,702건 (+4.2) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/blue-box-manga.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "mf-ghost-manga",
+  "name": "MF 고스트",
+  "aliases": [
+   "MF GHOST"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 70/100 · 채점 813건 · 만화 275화·23권 (2017~2025) · 시게노 슈이치. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "SF",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "시게노 슈이치",
+  "release_date": "2017-09-04",
+  "one_liner": "산길 레이서가 프로를 꿈꾸며 도로에서 기록을 깎는다.",
+  "taste_tags": [
+   "completed"
+  ],
+  "keywords": [
+   "MF 고스트",
+   "MF GHOST",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2025-02-17 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-100238",
+    "title": "AniList — MF GHOST",
+    "url": "https://anilist.co/manga/100238",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 70/100 · 채점 813건 · 만화 275화·23권 (2017~2025) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 23권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 67.7,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 70/100 · 채점 813건 — 표본 가중 평균 70.0. v0.6.0 표본 규모 보정 -2.30 → 67.7.",
+    "source_ids": [
+     "anilist-100238"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 813,
+     "sample_source": "reviews",
+     "base_score": 70.0,
+     "log_delta": -2.27,
+     "gate": 1.0,
+     "applied": -2.3,
+     "final_score": 67.7,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 84,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
+    "source_ids": [
+     "anilist-100238"
+    ]
+   },
+   "ai_review": {
+    "score": 61.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 61.9: 본질 검토 전 중립값 60 · 사용자 평균 70.0 (-7.0) · 표본 813건 (+2.9) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-100238"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 70/100 · 채점 813건 · 만화 275화·23권 (2017~2025). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 70/100 · 채점 813건 (표본 보정 -2.30 → 67.7).",
+    "만화 275화·23권 (2017~2025) · 시게노 슈이치.",
+    "완결 — AniList 종료일 2025-02-17."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2025-02-17)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 70.0,
+      "scale": "out_of_100",
+      "count": 813,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "70/100 · 813건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 70/100 · 채점 813건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2025-02-17",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-02-17",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-100238"
+     ],
+     "note": "최종화·최종권 공개(2025-02-17) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2025-02-17 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-100238"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-100238"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 70/100 · 채점 813건 → 표본 가중 평균 70.0. 표본 813건. v0.6.0 표본 규모 보정: 누적 표본 813건 → 로그 보정 -2.27 × 평점 게이트 1.00 = -2.30 (70.0 → 67.7).",
+   "objective": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
+   "ai_review": "자동 추정 61.9: 본질 검토 전 중립값 60 · 사용자 평균 70.0 (-7.0) · 표본 813건 (+2.9) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/mf-ghost-manga.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "harukana-receive-manga",
+  "name": "하루카나 리시브",
+  "aliases": [
+   "Harukana Receive"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 66/100 · 채점 263건 · 만화 62화·10권 (2015~2020) · . '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "에치",
+   "일상",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "",
+  "release_date": "2015-08-24",
+  "one_liner": "해변에 온 소녀들이 비치발리볼 팀을 만들어 대회에 나간다.",
+  "taste_tags": [
+   "completed"
+  ],
+  "keywords": [
+   "하루카나 리시브",
+   "Harukana Receive",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2020-09-24 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-101391",
+    "title": "AniList — Harukana Receive",
+    "url": "https://anilist.co/manga/101391",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 66/100 · 채점 263건 · 만화 62화·10권 (2015~2020) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 10권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 63.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 66/100 · 채점 263건 — 표본 가중 평균 66.0. v0.6.0 표본 규모 보정 -2.20 → 63.8.",
+    "source_ids": [
+     "anilist-101391"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 263,
+     "sample_source": "reviews",
+     "base_score": 66.0,
+     "log_delta": -3.74,
+     "gate": 0.6,
+     "applied": -2.2,
+     "final_score": 63.8,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 87,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "source_ids": [
+     "anilist-101391"
+    ]
+   },
+   "ai_review": {
+    "score": 58.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 58.6: 본질 검토 전 중립값 60 · 사용자 평균 66.0 (-9.8) · 표본 263건 (+2.4) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-101391"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 66/100 · 채점 263건 · 만화 62화·10권 (2015~2020). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 66/100 · 채점 263건 (표본 보정 -2.20 → 63.8).",
+    "만화 62화·10권 (2015~2020) · .",
+    "완결 — AniList 종료일 2020-09-24."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2020-09-24)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 66.0,
+      "scale": "out_of_100",
+      "count": 263,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "66/100 · 263건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 66/100 · 채점 263건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2020-09-24",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2020-09-24",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-101391"
+     ],
+     "note": "최종화·최종권 공개(2020-09-24) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2020-09-24 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-101391"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-101391"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 66/100 · 채점 263건 → 표본 가중 평균 66.0. 표본 263건. v0.6.0 표본 규모 보정: 누적 표본 263건 → 로그 보정 -3.74 × 평점 게이트 0.60 = -2.20 (66.0 → 63.8).",
+   "objective": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+   "ai_review": "자동 추정 58.6: 본질 검토 전 중립값 60 · 사용자 평균 66.0 (-9.8) · 표본 263건 (+2.4) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/harukana-receive-manga.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "capeta",
+  "name": "카페타",
+  "aliases": [
+   "Capeta"
+  ],
+  "domain": "manga",
+  "category": "manga-life",
+  "arenas": [
+   "manga-sports"
+  ],
+  "arena_notes": {
+   "manga-sports": "AniList 80/100 · 채점 708건 · 만화 119화·32권 (2003~2013) · 소다 마사히토. '스포츠 · 청춘' 안에서 이 작품의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "코미디",
+   "드라마",
+   "스포츠"
+  ],
+  "platforms": [
+   "print",
+   "web"
+  ],
+  "developer": "소다 마사히토",
+  "release_date": "2003-02-06",
+  "one_liner": "카트를 타고 놀던 소년이 레이서의 길로 들어선다.",
+  "taste_tags": [
+   "completed",
+   "classic"
+  ],
+  "keywords": [
+   "카페타",
+   "Capeta",
+   "완결"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — AniList 종료일 2013-03-06 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다.",
+  "sources": [
+   {
+    "id": "anilist-39546",
+    "title": "AniList — Capeta",
+    "url": "https://anilist.co/manga/39546",
+    "type": "aggregator",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "평균 80/100 · 채점 708건 · 만화 119화·32권 (2003~2013) · 완결."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+   },
+   "account_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "volumes",
+    "kind": "one_time",
+    "label": "단행본 구매",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "권당 정가 미확인 — 판매처별 상이"
+    },
+    "limits": [
+     "전자책·종이책 판매처별 가격이 다르다",
+     "절판·품절 여부는 확인하지 않았다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "단행본 구매로 읽는다 — 구독 상품이 작품의 전제가 아니다."
+     },
+     "account_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "종이책 구매만으로 읽을 수 있어 계정이 필수는 아니다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "단행본 구매 — 32권",
+    "recommended_path": true,
+    "verdict": "conditional"
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 77.5,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: AniList 평균 80/100 · 채점 708건 — 표본 가중 평균 80.0. v0.6.0 표본 규모 보정 -2.50 → 77.5.",
+    "source_ids": [
+     "anilist-39546"
+    ],
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 708,
+     "sample_source": "reviews",
+     "base_score": 80.0,
+     "log_delta": -2.45,
+     "gate": 1.0,
+     "applied": -2.5,
+     "final_score": 77.5,
+     "applied_flag": true
+    }
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 23년 (+8).",
+    "source_ids": [
+     "anilist-39546"
+    ]
+   },
+   "ai_review": {
+    "score": 68.9,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.9: 본질 검토 전 중립값 60 · 사용자 평균 80.0 (+0.0) · 표본 708건 (+2.9) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "anilist-39546"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "volumes",
+   "signals": {
+    "user_rating": "green",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — AniList 80/100 · 채점 708건 · 만화 119화·32권 (2003~2013). 자동 수집 1차 판정.",
+   "reasons": [
+    "AniList 80/100 · 채점 708건 (표본 보정 -2.50 → 77.5).",
+    "만화 119화·32권 (2003~2013) · 소다 마사히토.",
+    "완결 — AniList 종료일 2013-03-06."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 본질·완성도 판단은 순차 심층 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 AniList 종료일(2013-03-06)에 근거한 자동 판단이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "anilist",
+     "cumulative": {
+      "metric": "score",
+      "value": 80.0,
+      "scale": "out_of_100",
+      "count": 708,
+      "window": "전체 누적",
+      "evidence_grade": "A"
+     },
+     "note": "80/100 · 708건 (전체 누적)"
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: AniList 80/100 · 채점 708건. 표본 규칙(100건) 충족."
+  },
+  "update_profile": {
+   "latest_update": "2013-03-06",
+   "latest_update_platform": "print",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2013-03-06",
+     "type": "content",
+     "platform": "print",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "anilist-39546"
+     ],
+     "note": "최종화·최종권 공개(2013-03-06) — AniList 종료일."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — AniList 종료일 2013-03-06 기준으로 공개가 끝난 작품이다. 후속작·외전은 이 항목에서 다루지 않는다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "anilist-39546"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "anilist-39546"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "권당 정가 미확인 — 판매처별 상이"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 열람은 단행본 구매가 기본이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "AniList 공개 API 값만으로 만든 1차 기록(auto_fact) — 작품성·완성도 판단과 시청 가능 경로·가격은 순차 심층 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "AniList 80/100 · 채점 708건 → 표본 가중 평균 80.0. 표본 708건. v0.6.0 표본 규모 보정: 누적 표본 708건 → 로그 보정 -2.45 × 평점 게이트 1.00 = -2.50 (80.0 → 77.5).",
+   "objective": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 23년 (+8).",
+   "ai_review": "자동 추정 68.9: 본질 검토 전 중립값 60 · 사용자 평균 80.0 (+0.0) · 표본 708건 (+2.9) · 완결 (+6). 본질 검토는 순차 심층 검수에서 이 값을 대체한다."
+  },
+  "icon": "assets/icons/capeta.webp"
  }
 ]
