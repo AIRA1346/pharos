@@ -42014,8 +42014,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2014-08-08 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q15293047",
@@ -42107,10 +42107,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -42158,9 +42158,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -42180,7 +42180,7 @@
     },
     "one_liner": "구독 서비스로 시청 — 극장판",
     "recommended_path": true,
-    "verdict": "conditional",
+    "verdict": "recommend",
     "axis_overrides": {}
    }
   ],
@@ -42194,12 +42194,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
     "source_ids": [
      "wikidata-q15293047"
     ]
@@ -42217,33 +42217,45 @@
    }
   },
   "verdict": {
-   "overall": "conditional",
+   "overall": "recommend",
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "green"
    },
-   "one_liner": "조건부 — 2014 · 객관 65 · 작품성 80. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "추천 — 2014 · 객관 87 · 작품성 80. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
     "작품성 80: 수상 1건 · 위키백과 43개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2014-08-08 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2014-08-08)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2014-08-08",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2014-08-08",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q15293047"
+     ],
+     "note": "최종화·최종권 공개(2014-08-08) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2014-08-08 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -42334,8 +42346,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2020-11-20 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q78185552",
@@ -42427,10 +42439,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -42478,9 +42490,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -42514,12 +42526,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 6년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 6년 (+2).",
     "source_ids": [
      "wikidata-q78185552"
     ]
@@ -42541,29 +42553,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2020 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2020 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 6년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 6년 (+2).",
     "작품성 68: 위키백과 24개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2020-11-20 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2020-11-20)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2020-11-20",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2020-11-20",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q78185552"
+     ],
+     "note": "최종화·최종권 공개(2020-11-20) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2020-11-20 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -42654,8 +42678,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1998-07-18 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q834799",
@@ -42747,10 +42771,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -42798,9 +42822,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -42820,7 +42844,7 @@
     },
     "one_liner": "구독 서비스로 시청 — 극장판",
     "recommended_path": true,
-    "verdict": "conditional",
+    "verdict": "recommend",
     "axis_overrides": {}
    }
   ],
@@ -42834,12 +42858,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 28년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 28년 (+8).",
     "source_ids": [
      "wikidata-q834799"
     ]
@@ -42857,33 +42881,45 @@
    }
   },
   "verdict": {
-   "overall": "conditional",
+   "overall": "recommend",
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "green"
    },
-   "one_liner": "조건부 — 1998 · 객관 68 · 작품성 83. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "추천 — 1998 · 객관 90 · 작품성 83. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 28년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 28년 (+8).",
     "작품성 83: 수상 1건 · 수상 후보 1건 · 위키백과 35개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1998-07-18 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1998-07-18)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1998-07-18",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1998-07-18",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q834799"
+     ],
+     "note": "최종화·최종권 공개(1998-07-18) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1998-07-18 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -42973,8 +43009,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1999-07-17 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q868048",
@@ -43066,10 +43102,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -43117,9 +43153,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -43139,7 +43175,7 @@
     },
     "one_liner": "구독 서비스로 시청 — 극장판",
     "recommended_path": true,
-    "verdict": "conditional",
+    "verdict": "recommend",
     "axis_overrides": {}
    }
   ],
@@ -43153,12 +43189,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
     "source_ids": [
      "wikidata-q868048"
     ]
@@ -43176,33 +43212,45 @@
    }
   },
   "verdict": {
-   "overall": "conditional",
+   "overall": "recommend",
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1999 · 객관 68 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "추천 — 1999 · 객관 90 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
     "작품성 71: 위키백과 33개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1999-07-17 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1999-07-17)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1999-07-17",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1999-07-17",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q868048"
+     ],
+     "note": "최종화·최종권 공개(1999-07-17) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1999-07-17 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -43293,8 +43341,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2001-09-01 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1334287",
@@ -43386,10 +43434,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -43437,9 +43485,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -43473,12 +43521,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
     "source_ids": [
      "wikidata-q1334287"
     ]
@@ -43500,29 +43548,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2001 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2001 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
     "작품성 68: 위키백과 26개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2001-09-01 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2001-09-01)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2001-09-01",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2001-09-01",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1334287"
+     ],
+     "note": "최종화·최종권 공개(2001-09-01) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2001-09-01 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -44252,8 +44312,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2009-12-12 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q303929",
@@ -44345,10 +44405,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -44396,9 +44456,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -44432,12 +44492,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "source_ids": [
      "wikidata-q303929"
     ]
@@ -44459,29 +44519,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2009 · 객관 65 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2009 · 객관 87 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "작품성 71: 수상 후보 1건 · 위키백과 14개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2009-12-12 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2009-12-12)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2009-12-12",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2009-12-12",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q303929"
+     ],
+     "note": "최종화·최종권 공개(2009-12-12) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2009-12-12 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -44892,8 +44964,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2009-04-18 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1207394",
@@ -44985,10 +45057,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -45036,9 +45108,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -45072,12 +45144,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "source_ids": [
      "wikidata-q1207394"
     ]
@@ -45099,29 +45171,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2009 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2009 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "작품성 68: 위키백과 18개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2009-04-18 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2009-04-18)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2009-04-18",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2009-04-18",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1207394"
+     ],
+     "note": "최종화·최종권 공개(2009-04-18) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2009-04-18 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -45210,8 +45294,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2018-04-13 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q43984092",
@@ -45303,10 +45387,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -45354,9 +45438,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -45390,12 +45474,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 8년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 8년 (+2).",
     "source_ids": [
      "wikidata-q43984092"
     ]
@@ -45417,29 +45501,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2018 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2018 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 8년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 8년 (+2).",
     "작품성 68: 위키백과 20개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2018-04-13 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2018-04-13)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2018-04-13",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2018-04-13",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q43984092"
+     ],
+     "note": "최종화·최종권 공개(2018-04-13) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2018-04-13 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -45530,8 +45626,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2023-04-14 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q115182766",
@@ -45623,10 +45719,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -45674,9 +45770,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -45710,12 +45806,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
     "source_ids": [
      "wikidata-q115182766"
     ]
@@ -45737,29 +45833,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2023 · 객관 62 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2023 · 객관 84 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
     "작품성 71: 수상 후보 1건 · 위키백과 16개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2023-04-14 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2023-04-14)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2023-04-14",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2023-04-14",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q115182766"
+     ],
+     "note": "최종화·최종권 공개(2023-04-14) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2023-04-14 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -45849,8 +45957,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2013-03-30 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1150595",
@@ -45942,10 +46050,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -45993,9 +46101,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -46029,12 +46137,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
     "source_ids": [
      "wikidata-q1150595"
     ]
@@ -46056,29 +46164,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2013 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2013 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
     "작품성 68: 위키백과 23개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2013-03-30 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2013-03-30)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2013-03-30",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2013-03-30",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1150595"
+     ],
+     "note": "최종화·최종권 공개(2013-03-30) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2013-03-30 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -46168,8 +46288,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2015-03-30 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q17476655",
@@ -46261,10 +46381,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -46312,9 +46432,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -46348,12 +46468,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "source_ids": [
      "wikidata-q17476655"
     ]
@@ -46375,29 +46495,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2015 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2015 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "작품성 68: 위키백과 24개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2015-03-30 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2015-03-30)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2015-03-30",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2015-03-30",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q17476655"
+     ],
+     "note": "최종화·최종권 공개(2015-03-30) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2015-03-30 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -46486,8 +46618,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1980-03-15 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q703301",
@@ -46579,10 +46711,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -46630,9 +46762,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -46666,12 +46798,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 46년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 46년 (+8).",
     "source_ids": [
      "wikidata-q703301"
     ]
@@ -46693,29 +46825,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1980 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1980 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 46년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 46년 (+8).",
     "작품성 68: 위키백과 19개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1980-03-15 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1980-03-15)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1980-03-15",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1980-03-15",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q703301"
+     ],
+     "note": "최종화·최종권 공개(1980-03-15) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1980-03-15 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -46804,8 +46948,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2006-09-01 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q764897",
@@ -46897,10 +47041,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -46948,9 +47092,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -46984,12 +47128,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 20년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 20년 (+8).",
     "source_ids": [
      "wikidata-q764897"
     ]
@@ -47011,29 +47155,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2006 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2006 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 20년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 20년 (+8).",
     "작품성 68: 위키백과 15개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2006-09-01 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2006-09-01)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2006-09-01",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2006-09-01",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q764897"
+     ],
+     "note": "최종화·최종권 공개(2006-09-01) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2006-09-01 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -47442,8 +47598,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2011-07-02 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1004318",
@@ -47535,10 +47691,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -47586,9 +47742,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -47622,12 +47778,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 15년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 15년 (+5).",
     "source_ids": [
      "wikidata-q1004318"
     ]
@@ -47649,29 +47805,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2011 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2011 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 15년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 15년 (+5).",
     "작품성 68: 위키백과 16개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2011-07-02 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2011-07-02)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2011-07-02",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2011-07-02",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1004318"
+     ],
+     "note": "최종화·최종권 공개(2011-07-02) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2011-07-02 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -48401,8 +48569,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2008-10-18 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q284042",
@@ -48494,10 +48662,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -48545,9 +48713,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -48581,12 +48749,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 18년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 18년 (+5).",
     "source_ids": [
      "wikidata-q284042"
     ]
@@ -48608,29 +48776,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2008 · 객관 65 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2008 · 객관 87 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 18년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 18년 (+5).",
     "작품성 71: 위키백과 32개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2008-10-18 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2008-10-18)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2008-10-18",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2008-10-18",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q284042"
+     ],
+     "note": "최종화·최종권 공개(2008-10-18) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2008-10-18 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -48721,8 +48901,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2002-02-02 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q264812",
@@ -48814,10 +48994,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -48865,9 +49045,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -48901,12 +49081,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 24년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 24년 (+8).",
     "source_ids": [
      "wikidata-q264812"
     ]
@@ -48928,29 +49108,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2002 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2002 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 24년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 24년 (+8).",
     "작품성 68: 위키백과 23개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2002-02-02 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2002-02-02)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2002-02-02",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2002-02-02",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q264812"
+     ],
+     "note": "최종화·최종권 공개(2002-02-02) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2002-02-02 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -49039,8 +49231,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1999-10-01 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q584204",
@@ -49132,10 +49324,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -49183,9 +49375,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -49219,12 +49411,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
     "source_ids": [
      "wikidata-q584204"
     ]
@@ -49246,29 +49438,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1999 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1999 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 27년 (+8).",
     "작품성 68: 위키백과 22개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1999-10-01 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1999-10-01)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1999-10-01",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1999-10-01",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q584204"
+     ],
+     "note": "최종화·최종권 공개(1999-10-01) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1999-10-01 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -49359,8 +49563,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1985-12-15 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1754057",
@@ -49452,10 +49656,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -49503,9 +49707,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -49539,12 +49743,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
     "source_ids": [
      "wikidata-q1754057"
     ]
@@ -49566,29 +49770,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1985 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1985 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
     "작품성 68: 위키백과 22개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1985-12-15 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1985-12-15)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1985-12-15",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1985-12-15",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1754057"
+     ],
+     "note": "최종화·최종권 공개(1985-12-15) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1985-12-15 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -49719,8 +49935,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1973-06-30 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q2088741",
@@ -49812,10 +50028,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -49863,9 +50079,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -49899,12 +50115,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 53년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 53년 (+8).",
     "source_ids": [
      "wikidata-q2088741"
     ]
@@ -49926,29 +50142,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1973 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1973 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 53년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 53년 (+8).",
     "작품성 68: 위키백과 20개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1973-06-30 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1973-06-30)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1973-06-30",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1973-06-30",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q2088741"
+     ],
+     "note": "최종화·최종권 공개(1973-06-30) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1973-06-30 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -50038,8 +50266,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1987-09-25 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q2525680",
@@ -50131,10 +50359,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -50182,9 +50410,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -50218,12 +50446,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
     "source_ids": [
      "wikidata-q2525680"
     ]
@@ -50245,29 +50473,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1987 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1987 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
     "작품성 68: 위키백과 13개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1987-09-25 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1987-09-25)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1987-09-25",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1987-09-25",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q2525680"
+     ],
+     "note": "최종화·최종권 공개(1987-09-25) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1987-09-25 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -50356,8 +50596,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1987-07-21 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1628801",
@@ -50449,10 +50689,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -50500,9 +50740,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -50536,12 +50776,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
     "source_ids": [
      "wikidata-q1628801"
     ]
@@ -50563,29 +50803,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1987 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1987 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 39년 (+8).",
     "작품성 68: 위키백과 11개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1987-07-21 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1987-07-21)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1987-07-21",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1987-07-21",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1628801"
+     ],
+     "note": "최종화·최종권 공개(1987-07-21) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1987-07-21 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -50676,8 +50928,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2001-02-21 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q2629677",
@@ -50769,10 +51021,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -50820,9 +51072,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -50842,7 +51094,7 @@
     },
     "one_liner": "구독 서비스로 시청 — 극장판",
     "recommended_path": true,
-    "verdict": "conditional",
+    "verdict": "recommend",
     "axis_overrides": {}
    }
   ],
@@ -50856,12 +51108,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
     "source_ids": [
      "wikidata-q2629677"
     ]
@@ -50879,33 +51131,45 @@
    }
   },
   "verdict": {
-   "overall": "conditional",
+   "overall": "recommend",
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "green"
    },
-   "one_liner": "조건부 — 2001 · 객관 68 · 작품성 77. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "추천 — 2001 · 객관 90 · 작품성 77. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 25년 (+8).",
     "작품성 77: 수상 1건 · 위키백과 11개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2001-02-21 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2001-02-21)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2001-02-21",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2001-02-21",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q2629677"
+     ],
+     "note": "최종화·최종권 공개(2001-02-21) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2001-02-21 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -50995,8 +51259,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1991-09-14 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q2346325",
@@ -51088,10 +51352,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -51139,9 +51403,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -51175,12 +51439,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 35년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 35년 (+8).",
     "source_ids": [
      "wikidata-q2346325"
     ]
@@ -51202,29 +51466,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1991 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1991 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 35년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 35년 (+8).",
     "작품성 68: 위키백과 10개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1991-09-14 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1991-09-14)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1991-09-14",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1991-09-14",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q2346325"
+     ],
+     "note": "최종화·최종권 공개(1991-09-14) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1991-09-14 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -51632,8 +51908,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2009-11-21 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1169881",
@@ -51725,10 +52001,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -51776,9 +52052,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -51812,12 +52088,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "source_ids": [
      "wikidata-q1169881"
     ]
@@ -51839,29 +52115,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2009 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2009 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "작품성 68: 위키백과 10개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2009-11-21 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2009-11-21)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2009-11-21",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2009-11-21",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1169881"
+     ],
+     "note": "최종화·최종권 공개(2009-11-21) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2009-11-21 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -51952,8 +52240,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2014-02-22 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q15733151",
@@ -52045,10 +52333,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -52096,9 +52384,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -52118,7 +52406,7 @@
     },
     "one_liner": "구독 서비스로 시청 — 극장판",
     "recommended_path": true,
-    "verdict": "conditional",
+    "verdict": "recommend",
     "axis_overrides": {}
    }
   ],
@@ -52132,12 +52420,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
     "source_ids": [
      "wikidata-q15733151"
     ]
@@ -52155,33 +52443,45 @@
    }
   },
   "verdict": {
-   "overall": "conditional",
+   "overall": "recommend",
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "green"
    },
-   "one_liner": "조건부 — 2014 · 객관 65 · 작품성 85. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "추천 — 2014 · 객관 87 · 작품성 85. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
     "작품성 85: 수상 3건 · 수상 후보 1건 · 위키백과 12개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2014-02-22 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2014-02-22)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2014-02-22",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2014-02-22",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q15733151"
+     ],
+     "note": "최종화·최종권 공개(2014-02-22) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2014-02-22 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -52272,8 +52572,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2015-10-12 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q6940888",
@@ -52365,10 +52665,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -52416,9 +52716,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -52452,12 +52752,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "source_ids": [
      "wikidata-q6940888"
     ]
@@ -52479,29 +52779,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2015 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2015 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "작품성 68: 위키백과 13개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2015-10-12 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2015-10-12)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2015-10-12",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2015-10-12",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q6940888"
+     ],
+     "note": "최종화·최종권 공개(2015-10-12) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2015-10-12 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -52592,8 +52904,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2014-11-15 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q7286814",
@@ -52685,10 +52997,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -52736,9 +53048,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -52772,12 +53084,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
     "source_ids": [
      "wikidata-q7286814"
     ]
@@ -52799,29 +53111,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2014 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2014 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 12년 (+5).",
     "작품성 68: 위키백과 13개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2014-11-15 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2014-11-15)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2014-11-15",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2014-11-15",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q7286814"
+     ],
+     "note": "최종화·최종권 공개(2014-11-15) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2014-11-15 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -52909,8 +53233,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2015-11-13 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q40085",
@@ -53002,10 +53326,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -53053,9 +53377,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -53089,12 +53413,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "source_ids": [
      "wikidata-q40085"
     ]
@@ -53116,29 +53440,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2015 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2015 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "작품성 68: 위키백과 13개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2015-11-13 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2015-11-13)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2015-11-13",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2015-11-13",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q40085"
+     ],
+     "note": "최종화·최종권 공개(2015-11-13) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2015-11-13 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -53228,8 +53564,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2013-06-08 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q5640689",
@@ -53321,10 +53657,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -53372,9 +53708,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -53408,12 +53744,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
     "source_ids": [
      "wikidata-q5640689"
     ]
@@ -53435,29 +53771,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2013 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2013 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 13년 (+5).",
     "작품성 68: 위키백과 10개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2013-06-08 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2013-06-08)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2013-06-08",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2013-06-08",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q5640689"
+     ],
+     "note": "최종화·최종권 공개(2013-06-08) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2013-06-08 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -53547,8 +53895,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2015-02-20 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q18389392",
@@ -53640,10 +53988,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -53691,9 +54039,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -53727,12 +54075,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "source_ids": [
      "wikidata-q18389392"
     ]
@@ -53754,29 +54102,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2015 · 객관 65 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2015 · 객관 87 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 11년 (+5).",
     "작품성 71: 수상 후보 1건 · 위키백과 11개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2015-02-20 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2015-02-20)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2015-02-20",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2015-02-20",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q18389392"
+     ],
+     "note": "최종화·최종권 공개(2015-02-20) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2015-02-20 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -53865,8 +54225,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2010-08-21 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1368665",
@@ -53958,10 +54318,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -54009,9 +54369,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -54045,12 +54405,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 16년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 16년 (+5).",
     "source_ids": [
      "wikidata-q1368665"
     ]
@@ -54072,29 +54432,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2010 · 객관 65 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2010 · 객관 87 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 16년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 16년 (+5).",
     "작품성 71: 수상 후보 1건 · 위키백과 17개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2010-08-21 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2010-08-21)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2010-08-21",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2010-08-21",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1368665"
+     ],
+     "note": "최종화·최종권 공개(2010-08-21) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2010-08-21 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -54184,8 +54556,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2007-07-28 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1305179",
@@ -54277,10 +54649,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -54328,9 +54700,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -54364,12 +54736,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 19년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 19년 (+5).",
     "source_ids": [
      "wikidata-q1305179"
     ]
@@ -54391,29 +54763,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2007 · 객관 65 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2007 · 객관 87 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 19년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 19년 (+5).",
     "작품성 68: 위키백과 11개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2007-07-28 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2007-07-28)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2007-07-28",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2007-07-28",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1305179"
+     ],
+     "note": "최종화·최종권 공개(2007-07-28) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2007-07-28 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -54504,8 +54888,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2017-03-18 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q26720673",
@@ -54597,10 +54981,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -54648,9 +55032,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -54684,12 +55068,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
     "source_ids": [
      "wikidata-q26720673"
     ]
@@ -54711,29 +55095,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2017 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2017 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
     "작품성 68: 위키백과 15개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2017-03-18 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2017-03-18)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2017-03-18",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2017-03-18",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q26720673"
+     ],
+     "note": "최종화·최종권 공개(2017-03-18) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2017-03-18 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -54823,8 +55219,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2024-08-30 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q115978240",
@@ -54916,10 +55312,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -54967,9 +55363,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -55003,12 +55399,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 60,
-    "signal": "yellow",
+    "score": 82,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 60: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 2년 (+0).",
+    "summary": "자동 산정 82: 완결 (+12) · 접근 경로 2개 (+8) · 출시 2년 (+0).",
     "source_ids": [
      "wikidata-q115978240"
     ]
@@ -55030,29 +55426,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2024 · 객관 60 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2024 · 객관 82 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 60: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 2년 (+0).",
+    "자동 산정 82: 완결 (+12) · 접근 경로 2개 (+8) · 출시 2년 (+0).",
     "작품성 68: 위키백과 17개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2024-08-30 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2024-08-30)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2024-08-30",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-08-30",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q115978240"
+     ],
+     "note": "최종화·최종권 공개(2024-08-30) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2024-08-30 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -55143,8 +55551,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2023-09-15 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q118552001",
@@ -55236,10 +55644,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -55287,9 +55695,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -55323,12 +55731,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
     "source_ids": [
      "wikidata-q118552001"
     ]
@@ -55350,29 +55758,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2023 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2023 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 3년 (+2).",
     "작품성 68: 위키백과 14개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2023-09-15 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2023-09-15)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2023-09-15",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2023-09-15",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q118552001"
+     ],
+     "note": "최종화·최종권 공개(2023-09-15) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2023-09-15 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -55463,8 +55883,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2022-09-16 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q109602795",
@@ -55556,10 +55976,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -55607,9 +56027,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -55643,12 +56063,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
     "source_ids": [
      "wikidata-q109602795"
     ]
@@ -55670,29 +56090,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2022 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2022 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
     "작품성 68: 위키백과 17개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2022-09-16 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2022-09-16)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2022-09-16",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2022-09-16",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q109602795"
+     ],
+     "note": "최종화·최종권 공개(2022-09-16) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2022-09-16 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -55781,8 +56213,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2022-02-18 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q109599231",
@@ -55874,10 +56306,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -55925,9 +56357,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -55961,12 +56393,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
     "source_ids": [
      "wikidata-q109599231"
     ]
@@ -55988,29 +56420,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2022 · 객관 62 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2022 · 객관 84 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 4년 (+2).",
     "작품성 71: 수상 후보 1건 · 위키백과 13개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2022-02-18 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2022-02-18)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2022-02-18",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2022-02-18",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q109599231"
+     ],
+     "note": "최종화·최종권 공개(2022-02-18) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2022-02-18 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -56099,8 +56543,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2021-07-22 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q85871409",
@@ -56192,10 +56636,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -56243,9 +56687,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -56279,12 +56723,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
     "source_ids": [
      "wikidata-q85871409"
     ]
@@ -56306,29 +56750,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2021 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2021 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
     "작품성 68: 위키백과 14개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2021-07-22 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2021-07-22)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2021-07-22",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-07-22",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q85871409"
+     ],
+     "note": "최종화·최종권 공개(2021-07-22) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2021-07-22 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -56419,8 +56875,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2021-10-29 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q107463193",
@@ -56512,10 +56968,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -56563,9 +57019,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -56599,12 +57055,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
     "source_ids": [
      "wikidata-q107463193"
     ]
@@ -56626,29 +57082,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2021 · 객관 62 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2021 · 객관 84 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
     "작품성 68: 위키백과 11개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2021-10-29 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2021-10-29)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2021-10-29",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-10-29",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q107463193"
+     ],
+     "note": "최종화·최종권 공개(2021-10-29) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2021-10-29 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -56738,8 +57206,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2021-06-11 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q107333474",
@@ -56831,10 +57299,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -56882,9 +57350,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -56918,12 +57386,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 62,
-    "signal": "yellow",
+    "score": 84,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
     "source_ids": [
      "wikidata-q107333474"
     ]
@@ -56945,29 +57413,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2021 · 객관 62 · 작품성 65. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2021 · 객관 84 · 작품성 65. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 62: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 5년 (+2).",
     "작품성 65: 위키백과 8개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2021-06-11 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2021-06-11)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2021-06-11",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-06-11",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q107333474"
+     ],
+     "note": "최종화·최종권 공개(2021-06-11) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2021-06-11 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -57371,8 +57851,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2009-07-28 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q5058811",
@@ -57464,10 +57944,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -57515,9 +57995,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -57551,12 +58031,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 65,
-    "signal": "yellow",
+    "score": 87,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "summary": "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "source_ids": [
      "wikidata-q5058811"
     ]
@@ -57578,29 +58058,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 2009 · 객관 65 · 작품성 65. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 2009 · 객관 87 · 작품성 65. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 65: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
+    "자동 산정 87: 완결 (+12) · 접근 경로 2개 (+8) · 출시 17년 (+5).",
     "작품성 65: 위키백과 7개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 2009-07-28 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(2009-07-28)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "2009-07-28",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2009-07-28",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q5058811"
+     ],
+     "note": "최종화·최종권 공개(2009-07-28) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 2009-07-28 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -57691,8 +58183,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1986-06-21 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q4316",
@@ -57784,10 +58276,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -57835,9 +58327,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -57871,12 +58363,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 40년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 40년 (+8).",
     "source_ids": [
      "wikidata-q4316"
     ]
@@ -57898,29 +58390,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1986 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1986 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 40년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 40년 (+8).",
     "작품성 68: 위키백과 13개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1986-06-21 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1986-06-21)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1986-06-21",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1986-06-21",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q4316"
+     ],
+     "note": "최종화·최종권 공개(1986-06-21) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1986-06-21 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -58010,8 +58514,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1984-02-11 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q1582185",
@@ -58103,10 +58607,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -58154,9 +58658,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -58190,12 +58694,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 42년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 42년 (+8).",
     "source_ids": [
      "wikidata-q1582185"
     ]
@@ -58217,29 +58721,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1984 · 객관 68 · 작품성 65. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1984 · 객관 90 · 작품성 65. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 42년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 42년 (+8).",
     "작품성 65: 위키백과 9개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1984-02-11 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1984-02-11)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1984-02-11",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1984-02-11",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q1582185"
+     ],
+     "note": "최종화·최종권 공개(1984-02-11) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1984-02-11 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -58326,8 +58842,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1985-07-13 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q16016999",
@@ -58419,10 +58935,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -58470,9 +58986,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -58506,12 +59022,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
     "source_ids": [
      "wikidata-q16016999"
     ]
@@ -58533,29 +59049,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1985 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1985 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 41년 (+8).",
     "작품성 68: 위키백과 11개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1985-07-13 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1985-07-13)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1985-07-13",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1985-07-13",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q16016999"
+     ],
+     "note": "최종화·최종권 공개(1985-07-13) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1985-07-13 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
@@ -58962,8 +59490,8 @@
   "assessed_at": "2026-11-28",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "active",
-  "maintenance_note": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1972-12-17 기준으로 공개가 끝난 작품이다.",
   "sources": [
    {
     "id": "wikidata-q2338099",
@@ -59055,10 +59583,10 @@
     "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
    },
    "stale_over_12m": {
-    "value": "no",
+    "value": "yes",
     "evidence_grade": "B",
     "source_ids": [],
-    "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다.",
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
     "verification": "direct"
    }
   },
@@ -59106,9 +59634,9 @@
       "note": "작품 감상에 추가 결제가 필요하지 않다."
      },
      "stale_over_12m": {
-      "status": "pass",
+      "status": "exempt",
       "evidence_grade": "B",
-      "note": "연재·방영 중 — 12개월 공백 규칙에 걸리지 않는다."
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
      },
      "subscription_required": {
       "status": "fail",
@@ -59142,12 +59670,12 @@
     "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
    },
    "objective": {
-    "score": 68,
-    "signal": "yellow",
+    "score": 90,
+    "signal": "green",
     "signal_basis": "score",
     "evidence_grade": "A",
     "confidence": "medium",
-    "summary": "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 54년 (+8).",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 54년 (+8).",
     "source_ids": [
      "wikidata-q2338099"
     ]
@@ -59169,29 +59697,41 @@
    "tier_of_record": "stream",
    "signals": {
     "user_rating": "unknown",
-    "objective": "yellow",
+    "objective": "green",
     "ai_review": "yellow"
    },
-   "one_liner": "조건부 — 1972 · 객관 68 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
+   "one_liner": "조건부 — 1972 · 객관 90 · 작품성 68. 외부 평점 없이 파로스 기록만으로 판정.",
    "reasons": [
-    "자동 산정 68: 연재·방영 중 (-10) · 접근 경로 2개 (+8) · 출시 54년 (+8).",
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 54년 (+8).",
     "작품성 68: 위키백과 15개 언어 문서.",
-    "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+    "완결 — 공개 종료일 1972-12-17 기준으로 공개가 끝난 작품이다."
    ],
    "hard_filter_blocked": false,
    "condition_notes": [
     "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
     "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
-    "휴재·중단 판단은 공개된 연재 기록에 근거한 자동 판단이다."
+    "완결작 면제는 공개 종료일(1972-12-17)에 근거한 자동 판단이다."
    ]
   },
   "update_profile": {
    "latest_update": "1972-12-17",
    "latest_update_platform": "tv",
-   "cadence": "active",
-   "entries": [],
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1972-12-17",
+     "type": "content",
+     "platform": "tv",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q2338099"
+     ],
+     "note": "최종화·최종권 공개(1972-12-17) — 파로스 기록."
+    }
+   ],
    "maintenance_quality": "healthy",
-   "assessment": "연재·방영 중 — 최근 화·판 공개일은 확인하지 않았다."
+   "assessment": "완결 — 공개 종료일 1972-12-17 기준으로 공개가 끝난 작품이다."
   },
   "monetization": {
    "ads": {
