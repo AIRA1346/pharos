@@ -29034,8 +29034,8 @@
   "assessed_at": "2026-11-29",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2023-12-12(1083일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2023-12-12(1083일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-counter-strike-condition-zero",
@@ -29200,7 +29200,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2023-12-12 — 12개월(1083일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -29228,8 +29228,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -29280,24 +29280,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 91% 긍정(7,665건), 최근 업데이트 2023-12-12. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩11,000 · 마지막 업데이트 2023-12-12. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 91% 긍정(7,665건) · 최근 30일 94%(109건).",
     "₩11,000 · 마지막 업데이트 2023-12-12(1083일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-29 스토어 표기 기준이다.",
-    "마지막 업데이트가 2023-12-12 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -31043,8 +31043,8 @@
   "assessed_at": "2026-11-29",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2025-06-26(521일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-06-26(521일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-bioshock",
@@ -31209,7 +31209,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2025-06-26 — 12개월(521일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -31237,8 +31237,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -31289,24 +31289,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 93% 긍정(12,833건), 최근 업데이트 2025-06-26. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩21,000 · 마지막 업데이트 2025-06-26. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 93% 긍정(12,833건) · 최근 30일 93%(73건).",
     "₩21,000 · 마지막 업데이트 2025-06-26(521일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-29 스토어 표기 기준이다.",
-    "마지막 업데이트가 2025-06-26 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -31444,8 +31444,8 @@
   "assessed_at": "2026-11-29",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2025-06-26(521일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-06-26(521일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-bioshock-2",
@@ -31610,7 +31610,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2025-06-26 — 12개월(521일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -31638,8 +31638,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -31690,24 +31690,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 86% 긍정(5,972건), 최근 업데이트 2025-06-26. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩21,000 · 마지막 업데이트 2025-06-26. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 86% 긍정(5,972건) · 최근 30일 83%(48건).",
     "₩21,000 · 마지막 업데이트 2025-06-26(521일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-29 스토어 표기 기준이다.",
-    "마지막 업데이트가 2025-06-26 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -34664,8 +34664,8 @@
   "assessed_at": "2026-11-29",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2024-02-07(1026일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-02-07(1026일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-shadow-warrior",
@@ -34830,7 +34830,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2024-02-07 — 12개월(1026일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -34858,8 +34858,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -34910,24 +34910,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 93% 긍정(8,134건), 최근 업데이트 2024-02-07. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩32,000 · 마지막 업데이트 2024-02-07. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 93% 긍정(8,134건) · 최근 30일 88%(25건).",
     "₩32,000 · 마지막 업데이트 2024-02-07(1026일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-29 스토어 표기 기준이다.",
-    "마지막 업데이트가 2024-02-07 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
@@ -40618,8 +40618,8 @@
   "assessed_at": "2026-11-29",
   "method": "desk_research",
   "review_tier": "auto_fact",
-  "maintenance_status": "stale_unknown",
-  "maintenance_note": "마지막 업데이트 2022-04-12(1692일 전) — 완결 선언인지 방치인지 확인 전.",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2022-04-12(1692일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
   "sources": [
    {
     "id": "steam-superhot",
@@ -40784,7 +40784,7 @@
       "source_ids": []
      },
      "stale_over_12m": {
-      "status": "fail",
+      "status": "exempt",
       "evidence_grade": "A",
       "note": "마지막 업데이트 2022-04-12 — 12개월(1692일) 넘게 새 공지·릴리스가 없다.",
       "source_ids": [
@@ -40812,8 +40812,8 @@
       "source_ids": []
      }
     },
-    "verdict": "avoid",
-    "recommended_path": false
+    "verdict": "conditional",
+    "recommended_path": true
    }
   ],
   "axes": {
@@ -40864,24 +40864,24 @@
    }
   },
   "verdict": {
-   "overall": "avoid",
+   "overall": "conditional",
    "tier_of_record": "steam",
    "signals": {
     "user_rating": "green",
     "objective": "yellow",
     "ai_review": "yellow"
    },
-   "one_liner": "거름 — Steam 90% 긍정(16,345건), 최근 업데이트 2022-04-12. 자동 수집 1차 판정.",
+   "one_liner": "조건부 — ₩25,000 (할인 70% ₩7,500) · 마지막 업데이트 2022-04-12. 완결작 면제 적용, 자동 수집 1차 판정.",
    "reasons": [
     "Steam 누적 90% 긍정(16,345건) · 최근 30일 97%(81건).",
     "₩25,000 (할인 70% ₩7,500) · 마지막 업데이트 2022-04-12(1692일 전).",
-    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
    ],
-   "hard_filter_blocked": true,
+   "hard_filter_blocked": false,
    "condition_notes": [
     "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
     "가격은 2026-11-29 스토어 표기 기준이다.",
-    "마지막 업데이트가 2022-04-12 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
    ]
   },
   "review_snapshot": {
