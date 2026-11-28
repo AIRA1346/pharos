@@ -17,8 +17,9 @@
 import * as engine from './engine.js';
 import { loadCore, createCatalogView, createArenaStore, searchRecords } from './data.js';
 import { t, labeled, initLang, applyStaticI18n } from './i18n.js';
-import { $, LS, PRESETS, applyDocumentLang, contract, esc, indexRecords, initTheme, loadPrefs, num, pct, presetHintOf, presetLabelOf, recordById, savePrefs, state, switchLang, toggleTheme, writeStore } from './state.js';
-import { bookmarkRowHtml, computeViews, presetLabel, renderArena, renderArenaResults, renderBreadcrumb, renderCategory, renderCompare, renderCompareBar, renderDatasetChip, renderDomain, renderDomainTabs, renderHome, renderHomeSearch, setHomeDomain, toggleCompare } from './catalog.js';
+import { $, ENC_FILTERS, ENC_PAGE, ENC_SORTS, LS, PRESETS, applyDocumentLang, contract, esc, indexRecords, initTheme, loadPrefs, num, pct, presetHintOf, presetLabelOf, recordById, savePrefs, state, switchLang, toggleTheme, writeStore } from './state.js';
+import { bookmarkRowHtml, computeViews, presetLabel, renderArena, renderArenaResults, renderBreadcrumb, renderCategory, renderCompare, renderCompareBar, renderDatasetChip, renderDomain, renderDomainFilter, renderDomainTabs, renderHome, renderHomeSearch, toggleCompare } from './catalog.js';
+import { renderEncyclopedia, renderEncResults, resetEncState } from './encyclopedia.js';
 import { calcRuleText, closeDetail, openDetail, showDetail } from './detail.js';
 import { LH_CATEGORY, LH_PLEDGE, lhCloseAd, lhComplete, lhDraw, lhOpenAd, lhPick, lhSetStep, lhSkipComplete, loadLighthouse, openLighthouseDetail, renderLighthouse } from './lighthouse.js';
 
@@ -79,13 +80,34 @@ function parseUrl() {
   const params = new URLSearchParams(location.search);
   const route = { view: 'home', domain: null, category: null, arena: null, item: null, compare: [] };
   const tab = params.get('tab');
+  const modeParam = params.get('mode') || params.get('view');
   const domainParam = params.get('domain');
   const legacyMedia = domainParam === 'media';
   const domain = legacyMedia ? legacyMediaTarget(params) : domainParam;
-  const wantsLighthouse = domain === 'lighthouse' || tab === 'lighthouse';
-  // `?domain=catalog` · `?domain=all` 은 카탈로그 홈(전체 탐색)으로 — 실제 도메인이 아니라 화면 이름이다.
-  const wantsCatalog = domain === 'catalog' || domain === 'all' || tab === 'catalog';
-  if (wantsLighthouse) {
+  const wantsEncyclopedia = modeParam === 'encyclopedia';
+  const wantsLighthouse = !wantsEncyclopedia && (domain === 'lighthouse' || tab === 'lighthouse' || modeParam === 'lighthouse');
+  // `?domain=catalog` · `?domain=all` · `?mode=recommend` 은 추천 모드 첫 화면이다.
+  const wantsCatalog =
+    !wantsEncyclopedia && (domain === 'catalog' || domain === 'all' || tab === 'catalog' || modeParam === 'recommend');
+  resetEncState();
+  if (wantsEncyclopedia) {
+    // 📖 도감 — 분야는 필터일 뿐이라 비교군·대분류 없이 인덱스 전체를 본다.
+    route.view = 'encyclopedia';
+    if (domain && domain !== 'all' && state.cat.domain(domain)) route.domain = domain;
+    state.enc.q = params.get('q') || '';
+    const sort = params.get('sort');
+    state.enc.sort = ENC_SORTS.includes(sort) ? sort : 'book';
+    const filters = (params.get('filter') || '')
+      .split(',')
+      .map((key) => key.trim())
+      .filter((key) => ENC_FILTERS.includes(key));
+    state.enc.filters = {
+      book: filters.includes('book'),
+      complete: filters.includes('complete'),
+      free: filters.includes('free'),
+    };
+    state.enc.limit = ENC_PAGE;
+  } else if (wantsLighthouse) {
     route.view = 'lighthouse';
     const category = params.get('lh_cat');
     if (['game', 'anime', 'movie', 'manga', 'all'].includes(category)) state.lh.filters.category = category;
@@ -137,7 +159,7 @@ function parseUrl() {
     const rec = recordById(item);
     if (rec) {
       route.item = item;
-      if (route.view !== 'lighthouse' && !route.arena && rec.arenas.length) {
+      if (route.view !== 'lighthouse' && route.view !== 'encyclopedia' && !route.arena && rec.arenas.length) {
         const arena = state.cat.arena(rec.arenas[0]);
         if (arena) {
           route.view = 'browse';
@@ -149,8 +171,8 @@ function parseUrl() {
     }
   }
 
-  // 기본 랜딩은 등대 — 주소에 화면·도메인·항목이 없을 때만(?lang·?preset 같은 설정 파라미터는 무시).
-  if (!domain && !tab && !route.domain && !route.item) route.view = 'lighthouse';
+  // 기본 랜딩은 등대 — 주소에 화면·모드·도메인·항목이 없을 때만(?lang·?preset 같은 설정 파라미터는 무시).
+  if (!domain && !tab && !modeParam && !route.domain && !route.item) route.view = 'lighthouse';
 
   const preset = params.get('preset');
   if (preset && PRESETS.some((p) => p.id === preset)) state.preset = preset;
@@ -205,6 +227,13 @@ function urlForRoute() {
     if (price !== 'all') params.set('lh_price', price);
     if (platform !== 'all') params.set('lh_platform', platform);
     if (difficulty !== 'all') params.set('lh_diff', difficulty);
+  } else if (route.view === 'encyclopedia') {
+    params.set('mode', 'encyclopedia');
+    if (route.domain) params.set('domain', route.domain);
+    if (state.enc.q.trim()) params.set('q', state.enc.q.trim());
+    if (state.enc.sort !== 'book') params.set('sort', state.enc.sort);
+    const on = ENC_FILTERS.filter((key) => state.enc.filters[key]);
+    if (on.length) params.set('filter', on.join(','));
   } else if (route.view === 'home' && !route.domain) {
     params.set('domain', 'catalog');
   } else if (route.domain) {
@@ -252,12 +281,16 @@ export async function render({ replace = false } = {}) {
   const seq = ++renderSeq;
   syncUrl(replace || state.route.item ? 'replace' : 'push');
   renderDomainTabs();
+  renderDomainFilter();
   renderBreadcrumb();
   renderCompareBar();
-  document.body.classList.toggle('is-home', !state.route.domain && state.route.view !== 'lighthouse');
+  document.body.classList.toggle('is-home', !state.route.domain && state.route.view !== 'lighthouse' && state.route.view !== 'encyclopedia');
   document.body.classList.toggle('is-lighthouse', state.route.view === 'lighthouse');
+  document.body.classList.toggle('is-encyclopedia', state.route.view === 'encyclopedia');
   if (state.route.view === 'lighthouse') {
     renderLighthouse();
+  } else if (state.route.view === 'encyclopedia') {
+    renderEncyclopedia();
   } else if (!state.route.domain) {
     renderHome();
   } else if (state.route.view === 'compare' && state.route.compare.length >= 2) {
@@ -272,7 +305,8 @@ export async function render({ replace = false } = {}) {
   if (seq !== renderSeq) return;
   if (state.route.item) {
     const rec = recordById(state.route.item);
-    const arenaOverride = state.route.view === 'lighthouse' ? rec?.arenas?.[0] : null;
+    const arenaOverride =
+      state.route.view === 'lighthouse' || state.route.view === 'encyclopedia' ? rec?.arenas?.[0] : null;
     await showDetail(state.route.item, arenaOverride);
   } else closeDetail({ silent: true });
   $('view').focus({ preventScroll: true });
@@ -309,10 +343,7 @@ export async function navigate(patch, options = {}) {
 }
 
 function goHome() {
-  state.query = '';
-  state.homeDomain = 'all';
-  state.route = { view: 'home', domain: null, category: null, arena: null, item: null, compare: [] };
-  return render();
+  return goRecommend();
 }
 
 /** 기본 화면인 등대 — 로고·첫 탭이 가리킨다. */
@@ -320,6 +351,30 @@ function goLighthouse() {
   state.query = '';
   state.lh.step = 0;
   state.route = { view: 'lighthouse', domain: null, category: null, arena: null, item: null, compare: [] };
+  return render();
+}
+
+/** 🧭 추천 모드 — 분야를 고르지 않으면 장르별 추천 첫 화면, 고르면 그 분야의 장르 목록. */
+function goRecommend(domain = null) {
+  state.query = '';
+  const valid = domain && state.cat?.domain(domain) ? domain : null;
+  state.route = {
+    view: valid ? 'browse' : 'home',
+    domain: valid,
+    category: null,
+    arena: null,
+    item: null,
+    compare: [],
+  };
+  return render();
+}
+
+/** 📖 도감 모드 — 분야는 필터로만 쓰고, 같은 분야를 유지한 채 모드를 넘어온다. */
+function goEncyclopedia(domain = state.route.domain || null) {
+  state.query = '';
+  state.enc.limit = ENC_PAGE;
+  const valid = domain && state.cat?.domain(domain) ? domain : null;
+  state.route = { view: 'encyclopedia', domain: valid, category: null, arena: null, item: null, compare: [] };
   return render();
 }
 
@@ -947,11 +1002,18 @@ async function onClick(event) {
     copyDeepLink();
     return;
   }
-  const domainChip = target.closest('[data-home-domain]');
+  const domainChip = target.closest('[data-action="mode-domain"]');
   if (domainChip) {
     event.preventDefault();
-    setHomeDomain(domainChip.dataset.homeDomain);
-    return;
+    const domain = domainChip.dataset.domain || null;
+    if (state.route.view === 'encyclopedia') {
+      if ((state.route.domain || null) === domain) return;
+      state.enc.limit = ENC_PAGE;
+      state.route = { ...state.route, domain, item: null };
+      render({ replace: true });
+      return;
+    }
+    return goRecommend(domain);
   }
   if (target.closest('label.compare-check')) return;
 
@@ -963,6 +1025,26 @@ async function onClick(event) {
       return goHome();
     }
     if (kind === 'lighthouse') return goLighthouse();
+    if (kind === 'recommend') return goRecommend(state.route.view === 'lighthouse' ? null : state.route.domain);
+    if (kind === 'encyclopedia') return goEncyclopedia();
+    if (kind === 'enc-domain') return goEncyclopedia(action.dataset.domain || null);
+    if (kind === 'enc-more') {
+      state.enc.limit += ENC_PAGE;
+      renderEncResults();
+      return;
+    }
+    if (kind === 'enc-clear') {
+      state.enc.q = '';
+      const input = $('encSearch');
+      if (input) {
+        input.value = '';
+        input.focus({ preventScroll: true });
+      }
+      state.enc.limit = ENC_PAGE;
+      renderEncResults();
+      syncUrl('replace');
+      return;
+    }
     if (kind === 'domain') return navigate({ view: 'browse', domain: action.dataset.domain, category: null });
     if (kind === 'category') return navigate({ domain: action.dataset.domain, category: action.dataset.category });
     if (kind === 'arena')
@@ -1046,6 +1128,13 @@ function onInput(event) {
   if (target.id === 'homeSearch') {
     state.query = target.value;
     renderHomeSearch();
+  } else if (target.id === 'encSearch') {
+    state.enc.q = target.value;
+    state.enc.limit = ENC_PAGE;
+    renderEncResults();
+    const clear = document.querySelector('[data-action="enc-clear"]');
+    if (clear) clear.hidden = !state.enc.q;
+    syncUrl('replace');
   } else if (target.id === 'arenaSearch') {
     state.query = target.value;
     renderArenaResults();
@@ -1097,6 +1186,21 @@ function onChange(event) {
   if (target.id === 'sort') {
     state.sort = target.value;
     renderArenaResults();
+    return;
+  }
+  if (target.id === 'encSort') {
+    state.enc.sort = target.value;
+    state.enc.limit = ENC_PAGE;
+    renderEncResults();
+    syncUrl('replace');
+    return;
+  }
+  if (target.matches?.('input[data-enc-filter]')) {
+    const key = target.dataset.encFilter;
+    if (ENC_FILTERS.includes(key)) state.enc.filters[key] = Boolean(target.checked);
+    state.enc.limit = ENC_PAGE;
+    renderEncResults();
+    syncUrl('replace');
     return;
   }
   if (target.id === 'showAvoided') {

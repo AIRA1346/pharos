@@ -16,25 +16,72 @@ import { navigate, render, renderSeq, syncUrl, toast } from './app.js';
 export function renderDomainTabs() {
   const wrap = $('domainTabs');
   if (!wrap) return;
-  const inCatalog = !state.route.domain && state.route.view !== 'lighthouse';
-  const items = [
-    { key: 'lighthouse', label: t('nav.lighthouse'), active: state.route.view === 'lighthouse', action: 'lighthouse' },
-    { key: 'catalog', label: t('nav.catalog'), active: inCatalog, action: 'catalog' },
-    ...(state.cat?.catalog.domains || []).map((dom) => ({
-      key: dom.id,
-      label: dom.label,
-      active: state.route.domain === dom.id,
-      action: 'domain',
-    })),
+  const view = state.route.view;
+  const active = view === 'lighthouse' ? 'lighthouse' : view === 'encyclopedia' ? 'encyclopedia' : 'recommend';
+  const modes = [
+    { key: 'lighthouse', label: t('nav.lighthouse'), action: 'lighthouse' },
+    { key: 'recommend', label: t('nav.recommend'), action: 'recommend' },
+    { key: 'encyclopedia', label: t('nav.encyclopedia'), action: 'encyclopedia' },
   ];
-  wrap.innerHTML = items
+  wrap.innerHTML = modes
     .map(
-      (item) =>
-        `<button type="button" role="tab" data-action="${item.action}"${
-          item.action === 'domain' ? ` data-domain="${esc(item.key)}"` : ''
-        } aria-selected="${item.active ? 'true' : 'false'}">${esc(item.label)}</button>`,
+      (mode) =>
+        `<button type="button" role="tab" data-action="${mode.action}" aria-selected="${
+          active === mode.key ? 'true' : 'false'
+        }">${esc(mode.label)}</button>`,
     )
     .join('');
+}
+
+/**
+ * 2차 분야 바 — 추천·도감 두 모드가 함께 쓴다.
+ * 추천은 분야의 장르(비교군)로, 도감은 분야의 작품 목록으로 들어간다.
+ * 등대(첫 화면)에서는 숨긴다 — 등대는 분야를 위저드 안에서 묻는다.
+ */
+export function renderDomainFilter() {
+  const wrap = $('domainFilter');
+  if (!wrap) return;
+  const view = state.route.view;
+  if (view === 'lighthouse' || !state.cat) {
+    wrap.hidden = true;
+    wrap.innerHTML = '';
+    return;
+  }
+  const encyclopedia = view === 'encyclopedia';
+  const counts = encyclopedia ? encDomainCounts() : null;
+  const domains = state.cat.catalog.domains || [];
+  const total = encyclopedia
+    ? domains.reduce((sum, dom) => sum + (counts[dom.id] || 0), 0)
+    : state.cat.arenasOf().length;
+  const rows = [
+    { id: 'all', label: t('home.domainAll'), count: total },
+    ...domains.map((dom) => ({
+      id: dom.id,
+      label: dom.label,
+      count: encyclopedia ? counts[dom.id] || 0 : state.cat.arenasOf(dom.id).length,
+    })),
+  ];
+  wrap.hidden = false;
+  wrap.dataset.mode = encyclopedia ? 'encyclopedia' : 'recommend';
+  wrap.innerHTML = rows
+    .map((row) => {
+      const on = row.id === 'all' ? !state.route.domain : state.route.domain === row.id;
+      return `<button type="button" class="domain-chip" data-action="mode-domain" data-domain="${
+        row.id === 'all' ? '' : esc(row.id)
+      }" aria-pressed="${on ? 'true' : 'false'}"><span>${esc(row.label)}</span><b>${num(row.count)}</b></button>`;
+    })
+    .join('');
+}
+
+let encCountCache = null;
+
+/** 도감 모드의 분야별 수록 수 — 인덱스는 판마다 같으므로 한 번만 센다. */
+function encDomainCounts() {
+  if (encCountCache) return encCountCache;
+  const counts = {};
+  for (const rec of indexRecords()) counts[rec.domain] = (counts[rec.domain] || 0) + 1;
+  encCountCache = counts;
+  return counts;
 }
 
 export function renderBreadcrumb() {
@@ -42,24 +89,30 @@ export function renderBreadcrumb() {
   const note = $('crumbNote');
   if (!wrap) return;
   const route = state.route;
-  const crumbs = [{ label: t('nav.lighthouse'), action: 'lighthouse' }];
+  const crumbs = [];
   if (route.view === 'lighthouse') {
     /* 등대는 첫 화면 — 경로 대신 화면 아래 안내를 쓴다. */
+    crumbs.push({ label: t('nav.lighthouse') });
+  } else if (route.view === 'encyclopedia') {
+    crumbs.push({ label: t('nav.encyclopedia'), action: 'encyclopedia' });
+    if (route.domain) {
+      crumbs.push({ label: state.cat.domainLabel(route.domain), action: 'enc-domain', domain: route.domain });
+    }
   } else {
-    crumbs.push({ label: t('nav.catalog'), action: 'catalog' });
-  }
-  if (route.view !== 'lighthouse' && route.domain) {
-    const dom = state.cat.domain(route.domain);
-    crumbs.push({ label: dom?.label || route.domain, action: 'domain', domain: route.domain });
-    if (route.category && !route.arena) {
-      crumbs.push({ label: state.cat.categoryLabel(route.category) });
+    crumbs.push({ label: t('nav.recommend'), action: 'recommend' });
+    if (route.domain) {
+      const dom = state.cat.domain(route.domain);
+      crumbs.push({ label: dom?.label || route.domain, action: 'domain', domain: route.domain });
+      if (route.category && !route.arena) {
+        crumbs.push({ label: state.cat.categoryLabel(route.category) });
+      }
+      if (route.arena) {
+        const cat = state.cat.category(state.cat.arena(route.arena)?.category);
+        crumbs.push({ label: cat?.label || '', action: 'category', domain: route.domain, category: cat?.id });
+        crumbs.push({ label: state.cat.arenaLabel(route.arena) });
+      }
+      if (route.view === 'compare') crumbs.push({ label: t('crumb.compare') });
     }
-    if (route.arena) {
-      const cat = state.cat.category(state.cat.arena(route.arena)?.category);
-      crumbs.push({ label: cat?.label || '', action: 'category', domain: route.domain, category: cat?.id });
-      crumbs.push({ label: state.cat.arenaLabel(route.arena) });
-    }
-    if (route.view === 'compare') crumbs.push({ label: t('crumb.compare') });
   }
   wrap.innerHTML = crumbs
     .map((crumb, i) => {
@@ -77,11 +130,13 @@ export function renderBreadcrumb() {
     note.textContent =
       route.view === 'lighthouse'
         ? t('lh.crumbNote')
-        : arena
-          ? `${shortText(arena.description, 64)}`
-          : route.domain
-            ? `${state.cat.domain(route.domain)?.description || ''}`
-            : t('crumb.homeNote');
+        : route.view === 'encyclopedia'
+          ? t('encmode.crumbNote')
+          : arena
+            ? `${shortText(arena.description, 64)}`
+            : route.domain
+              ? `${state.cat.domain(route.domain)?.description || ''}`
+              : t('crumb.homeNote');
   }
 }
 
@@ -150,9 +205,8 @@ export function renderHome() {
         <h2>${esc(t('home.genreTitle'))}</h2>
         <span class="section-hint" id="genreHint">${esc(homeGenreHint(arenas))}</span>
       </div>
-      ${homeDomainFilterHtml(arenas)}
-      <div class="genre-list" id="genreList">${homeArenas(arenas).map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
-      <p class="empty" id="genreEmpty" ${homeArenas(arenas).length ? 'hidden' : ''}>${esc(t('home.genreEmpty'))}</p>
+      <div class="genre-list" id="genreList">${arenas.map((arena) => genreBlockHtml(arena, { kicker: true })).join('')}</div>
+      <p class="empty" id="genreEmpty" hidden>${esc(t('home.genreEmpty'))}</p>
     </section>
 
     <section class="home-block" id="gapReport">
@@ -201,62 +255,13 @@ export function renderHome() {
 }
 
 /**
- * 홈 장르 쇼케이스의 도메인 필터 — 12개 장르가 세로로 길게 이어지므로
- * 전체 · 앱 · 게임 · AI 도구 건수를 먼저 보여 주고, 누른 도메인의 장르만 남긴다.
- * 필터 바는 스크롤해도 상단에 붙어 있어 목록 어디서든 도메인을 바꿀 수 있다.
+ * 홈(추천 모드 첫 화면)의 장르 쇼케이스 — 비교군 12개의 추천 타일을 한눈에.
+ * 분야(앱·게임·…)는 상단 2차 분야 바가 맡는다 — 예전의 홈 내부 도메인 칩은 그 바와 겹쳐서 없앴다.
  */
 
-function homeArenas(arenas) {
-  return state.homeDomain === 'all' ? arenas : arenas.filter((arena) => arena.domain === state.homeDomain);
-}
-
-function homeDomainFilterHtml(arenas) {
-  const rows = [
-    { id: 'all', label: t('home.domainAll'), count: arenas.length },
-    ...(state.cat.catalog.domains || [])
-      .map((dom) => ({ id: dom.id, label: dom.label, count: arenas.filter((a) => a.domain === dom.id).length }))
-      .filter((row) => row.count > 0),
-  ];
-  return `<div class="domain-filter" id="homeDomainFilter" role="group" aria-label="${esc(t('home.domainFilterAria'))}">${rows
-    .map(
-      (row) =>
-        `<button type="button" class="domain-chip" data-home-domain="${esc(row.id)}" aria-pressed="${
-          state.homeDomain === row.id ? 'true' : 'false'
-        }"><span>${esc(row.label)}</span><b>${row.count}</b></button>`,
-    )
-    .join('')}</div>`;
-}
-
 function homeGenreHint(arenas) {
-  const shown = homeArenas(arenas);
-  const scope =
-    state.homeDomain === 'all'
-      ? t('home.genreHint.all', { n: shown.length })
-      : t('home.genreHint.domain', { domain: state.cat.domainLabel(state.homeDomain), n: shown.length });
+  const scope = t('home.genreHint.all', { n: arenas.length });
   return t(state.preset === 'balanced' ? 'home.genreHint.one' : 'home.genreHint.mine', { scope });
-}
-
-/** 도메인 필터 클릭 — 목록 DOM만 다시 그려 검색어·스크롤 상태를 건드리지 않는다. */
-export function setHomeDomain(id) {
-  const valid = ['all', ...(state.cat.catalog.domains || []).map((dom) => dom.id)];
-  if (!valid.includes(id) || state.homeDomain === id) return;
-  state.homeDomain = id;
-  const featured = (state.cat.catalog.home?.featured_arenas || []).map((aid) => state.cat.arena(aid)).filter(Boolean);
-  const arenas = featured.length ? featured : state.cat.arenasOf();
-  const shown = homeArenas(arenas);
-  document.querySelectorAll('#homeDomainFilter [data-home-domain]').forEach((chip) => {
-    chip.setAttribute('aria-pressed', chip.dataset.homeDomain === id ? 'true' : 'false');
-  });
-  const list = $('genreList');
-  if (list) list.innerHTML = shown.map((arena) => genreBlockHtml(arena, { kicker: true })).join('');
-  const empty = $('genreEmpty');
-  if (empty) empty.hidden = shown.length > 0;
-  const hint = $('genreHint');
-  if (hint) hint.textContent = homeGenreHint(arenas);
-  const showcase = $('genreShowcase');
-  if (showcase && window.scrollY > showcase.offsetTop) {
-    showcase.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 }
 
 /**

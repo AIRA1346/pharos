@@ -3763,3 +3763,164 @@ html[data-theme="light"] .lh-pledge-rune img {
   .topbar-side .ghost-ico { display: none; }
   .topbar-side .ghost-btn { padding: 6px 8px; }
 }
+
+/* ==========================================================================
+   v38 — 상단 3축 모드(🚨 등대 · 🧭 추천 · 📖 도감) · 2차 분야 바 · 도감(📖) 목록
+   ========================================================================== */
+
+/* 상단 모드 바 — 8개 도메인 탭을 3개 굵직한 축으로 줄여 한 줄에 또렷하게 들어간다. */
+.mode-tabs { gap: 2px; padding: 5px; }
+.mode-tabs button { font-size: 14.5px; padding: 8px 20px; letter-spacing: -0.01em; }
+.mode-tabs button[aria-selected="true"] { background: var(--beam-soft); }
+
+/* 2차 분야 바 — 추천·도감 모드가 함께 쓴다. 스크롤해도 상단에 붙어 분야를 바꿀 수 있다. */
+.domain-bar {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 6px 22px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: linear-gradient(180deg, var(--bg) 62%, rgba(0, 0, 0, 0));
+}
+.domain-bar::-webkit-scrollbar { display: none; }
+.domain-bar .domain-chip { padding: 6px 12px; font-size: 12.5px; }
+.domain-bar .domain-chip b { font-size: 10px; }
+html[data-theme="light"] .domain-bar { background: linear-gradient(180deg, var(--bg) 62%, rgba(243, 239, 229, 0)); }
+
+/* 도감 화면 */
+.enc-mode { display: grid; gap: 14px; }
+.level-head--enc { padding-bottom: 4px; }
+.chip--book { border-color: var(--beam); color: var(--beam); background: var(--beam-soft); }
+.callout--enc { border-color: var(--beam); background: var(--beam-soft); }
+
+.enc-toolbar {
+  position: sticky;
+  top: 40px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-solid);
+  box-shadow: var(--shadow-soft);
+}
+.enc-search { flex: 1 1 260px; display: flex; align-items: center; gap: 6px; position: relative; }
+.enc-search input { width: 100%; }
+.enc-search-clear { flex: 0 0 auto; font-size: 11.5px; }
+.enc-filters { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.enc-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.enc-filter:hover { color: var(--ink); border-color: var(--line-strong); }
+.enc-filter:has(input:checked) { color: var(--beam); border-color: var(--beam); background: var(--beam-soft); }
+.enc-filter input { accent-color: var(--beam); margin: 0; }
+.enc-count { margin-left: auto; font-family: var(--mono); font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+
+.enc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 8px;
+}
+.enc-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.14s ease, background 0.14s ease, transform 0.14s ease;
+}
+.enc-card:hover { border-color: var(--line-strong); background: var(--card-2); transform: translateY(-1px); }
+.enc-card:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+.item-icon--enc { width: 54px; height: 54px; border-radius: 12px; }
+.item-icon--enc::before { font-size: 21px; }
+.enc-card-body { display: grid; gap: 3px; min-width: 0; }
+.enc-card-kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.enc-card-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.32;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.enc-book {
+  flex: 0 0 auto;
+  padding: 1px 7px;
+  border: 1px solid var(--beam);
+  border-radius: 999px;
+  background: var(--beam-soft);
+  color: var(--beam);
+  font-size: 10px;
+  font-weight: 700;
+}
+.enc-card-meta { margin: 0; font-size: 11.5px; color: var(--ink-2); }
+.enc-card-line {
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.enc-card-tags { margin: 2px 0 0; font-size: 10.5px; color: var(--muted); }
+.enc-foot { display: grid; justify-items: center; gap: 6px; padding: 10px 0 4px; }
+.enc-more { min-width: 200px; justify-content: center; }
+.enc-done { margin: 0; font-size: 11.5px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .enc-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+@media (max-width: 720px) {
+  .mode-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); border-radius: 16px; }
+  .mode-tabs button { padding: 8px 2px; font-size: 12.5px; text-align: center; }
+  .domain-bar { padding: 5px 14px 6px; }
+  .domain-bar .domain-chip { padding: 6px 9px; font-size: 12px; }
+  .enc-toolbar { position: static; padding: 9px 10px; gap: 8px; }
+  .enc-search { flex: 1 1 100%; }
+  .enc-count { margin-left: 0; }
+  .enc-grid { grid-template-columns: minmax(0, 1fr); }
+  .item-icon--enc { width: 46px; height: 46px; border-radius: 10px; }
+}
+
+/* 도감 머리말은 한 줄로 자르지 않는다 — 무엇을 하는 화면인지 읽히게 두 줄까지. */
+.level-head--enc .lede--line { -webkit-line-clamp: 2; }
+@media (max-width: 720px) {
+  .level-head--enc .lede--line { -webkit-line-clamp: 3; }
+  /* 분야 바는 가로 스크롤 대신 두 줄로 접어 모든 분야가 보이게 한다. */
+  .domain-bar { flex-wrap: wrap; overflow-x: visible; }
+}

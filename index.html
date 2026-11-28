@@ -35,7 +35,7 @@
     </span>
   </a>
 
-  <nav class="domain-tabs" id="domainTabs" aria-label="도메인 전환" data-i18n-aria-label="nav.domains"></nav>
+  <nav class="domain-tabs mode-tabs" id="domainTabs" role="tablist" aria-label="화면 모드 전환" data-i18n-aria-label="nav.modes"></nav>
 
   <div class="topbar-side">
     <span class="dataset-chip" id="datasetChip" title="데이터·스키마 버전" data-i18n-title="dataset.title" data-i18n="dataset.loading">불러오는 중…</span>
@@ -55,6 +55,8 @@
     </div>
   </div>
 </header>
+
+<nav class="domain-bar" id="domainFilter" aria-label="분야 선택" data-i18n-aria-label="nav.domains" hidden></nav>
 
 <div class="crumb-bar">
   <ol class="breadcrumb" id="breadcrumb" aria-label="탐색 경로" data-i18n-aria-label="crumb.label"></ol>

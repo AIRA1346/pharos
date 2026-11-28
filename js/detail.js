@@ -15,6 +15,13 @@ export async function openDetail(id) {
   if (!rec) return;
   const arena = state.cat.arena(rec.arenas[0]);
   if (!arena) return;
+  // 📖 도감 모드 — 목록을 그대로 둔 채 상세만 덮는다(모드를 옮기지 않는다).
+  if (state.route.view === 'encyclopedia') {
+    state.route = { ...state.route, item: id };
+    syncUrl('replace');
+    await showDetail(id, rec.arenas[0]);
+    return;
+  }
   const patch = {
     view: state.route.view === 'compare' ? 'compare' : 'browse',
     domain: arena.domain,
@@ -80,20 +87,31 @@ export async function showDetail(id, arenaOverride = null) {
   const tierNotice = item.review_tier === 'auto_fact'
     ? `<div class="callout callout--auto" role="note">${t('reviewTier.notice')}</div>`
     : '';
+  // 📖 도감 모드에서는 사전·제원·출처를 먼저, 점수·판정은 아래에서 참고한다.
+  const encyclopediaMode = state.route.view === 'encyclopedia';
+  const sections = {
+    enc: sectionEncyclopedia(view),
+    verdict: sectionVerdict(view, verdictMeta),
+    facts: sectionFacts(view),
+    opinion: sectionOpinion(view),
+    tiers: sectionTiers(view),
+    axes: sectionAxes(view),
+    alternatives: sectionAlternatives(view),
+    reviews: sectionReviews(view),
+    money: sectionMoney(view),
+    updates: sectionUpdates(view),
+    evidence: sectionEvidence(view),
+  };
+  const order = encyclopediaMode
+    ? ['enc', 'facts', 'evidence', 'verdict', 'opinion', 'tiers', 'axes', 'alternatives', 'reviews', 'money', 'updates']
+    : ['enc', 'verdict', 'facts', 'opinion', 'tiers', 'axes', 'alternatives', 'reviews', 'money', 'updates', 'evidence'];
   $('modalBody').innerHTML = [
     tierNotice,
-    sectionEncyclopedia(view),
-    sectionVerdict(view, verdictMeta),
-    sectionFacts(view),
-    sectionOpinion(view),
-    sectionTiers(view),
-    sectionAxes(view),
-    sectionAlternatives(view),
-    sectionReviews(view),
-    sectionMoney(view),
-    sectionUpdates(view),
-    sectionEvidence(view),
-  ].filter(Boolean).join('');
+    encyclopediaMode ? `<div class="callout callout--enc" role="note">${esc(t('encmode.detailNote'))}</div>` : '',
+    ...order.map((key) => sections[key]),
+  ]
+    .filter(Boolean)
+    .join('');
 
   const backdrop = $('modalBackdrop');
   backdrop.hidden = false;

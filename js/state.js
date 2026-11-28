@@ -38,6 +38,11 @@ export const isWorkDomain = (domain) => WORK_DOMAINS.has(domain);
 
 export const SORT_KEYS = ['score', 'score-asc', 'risk', 'name'];
 
+/* v38 — 📖 도감 모드의 정렬·필터. 점수 순서가 아니라 사전처럼 찾아보는 축이다. */
+export const ENC_SORTS = ['book', 'name', 'newest', 'scale'];
+export const ENC_FILTERS = ['book', 'complete', 'free'];
+export const ENC_PAGE = 120;
+
 export const sortLabel = (key) => t(`sort.${key === 'score-asc' ? 'scoreAsc' : key}`);
 
 /* 도메인·플랫폼·필터·축 라벨은 i18n.js 의 사전에서 온다. 데이터 라벨(비교군·대분류)은
@@ -62,7 +67,8 @@ export const state = {
   query: '',
   sort: 'score',
   showAvoided: true,
-  homeDomain: 'all',
+  /** 📖 도감 모드 — 검색어·정렬·필터·지금까지 그린 장수(더 보기). */
+  enc: { q: '', sort: 'book', filters: { book: false, complete: false, free: false }, limit: ENC_PAGE },
   weights: {},
   enabledFilters: [],
   strict: true,
