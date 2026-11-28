@@ -46,7 +46,7 @@
 - **등급 B (40종)** — 본편이 오프라인 싱글 캠페인으로 완결된 1회 구매작이고 온라인은 별도·선택 모드다
   (Watch Dogs · Assassin's Creed Unity · Divinity: Original Sin · Persona 5 Strikers · F.E.A.R. 등).
 
-결과적으로 신규 게임 판정이 추천 34 · 조건부 168 · 거름 11 → (복원 후) 추천 33 · 조건부 167 · 거름 10 이 됐다.
+중복 스킵으로 기존 항목이던 3종(honkai-star-rail·anno-1404 등)은 HEAD 값으로 되돌렸으므로, 신규 게임 210종 판정은 추천 33 · 조건부 167 · 거름 10 이다.
 남은 거름은 격투·파티 협동이 핵심인 작품(KOF XIII · DNF Duel · Killer Instinct · BlazBlue Cross Tag Battle ·
 Capcom Fighting Collection · Unrailed · Moving Out · Heave Ho)과 점수가 낮은 작품(Industry Giant 4.0 등)이다.
 
