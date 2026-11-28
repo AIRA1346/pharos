@@ -1,4 +1,4 @@
-# 파로스 Pharos — 정적 웹 v3.16 (10차 대량 적재 3,661종 · 게임 1,201 · 애니 645 · 만화 587 · 사전 226종 · 등대 v3 4분야 271목표 · KO/EN · 기준표 v0.6.0 · 스키마 v0.4.0)
+# 파로스 Pharos — 정적 웹 v3.17 (영문 번들 분할·지연 로딩 · 3,661종 첫 화면 4.45MB · 사전 226종 · 등대 v3 4분야 271목표 · KO/EN · 기준표 v0.6.0 · 스키마 v0.4.0)
 
 빌드 도구 없이 **순수 HTML/CSS/ES Module** 만으로 동작하는 파로스 프론트엔드입니다.
 서버는 파일만 배포하고, 점수·신호·판정은 전부 브라우저에서 `schema/item.schema.json` 의
@@ -15,6 +15,16 @@ v3.5 는 **2단계 발행 구조**를 드러냅니다. 항목에는 선택 필�
 `auto_fact`(공개 스토어·저장소 API 로 대량 적재한 1차 판정)는 카드에 점선 **`자동 수집` 배지**,
 상세 모달 상단에 "공개 스토어·저장소 API 데이터 기반 1차 판정이며, 세부 약관·과금 함정은 순차 검수 중" 안내가 붙습니다.
 확인하지 못한 값은 지어내지 않고 ⚪(`unknown`)로 두며, 배지·안내 문자열은 `js/i18n.js`(`reviewTier.badge`·`reviewTier.notice`)에 있습니다.
+
+## v35 — 영문 번들 분할·지연 로딩 (2026-11-28)
+
+첫 화면 로딩을 데이터 크기에서 떼어냈습니다. 영문 번들이 32.33MB 한 파일이라 영어 모드 첫 화면이 그 전부를 받던 것을, 공통부·항목 요약·비교군 청크로 나눠 필요한 것만 받게 했습니다. 3,661종·사전 226종·등대 139종/271목표는 한 건도 바뀌지 않았습니다.
+
+- **분할 구조** — 원본은 계속 `projects/pharos/data/en.json` 하나(수집·백필 스크립트가 여기에 쓴다). `sync_web_data.py` 가 배포용 사본만 `data/en/core.json`(53.7KB) · `data/en/index.json`(1.17MB) · `data/en/{domain}/{arena}.json` 101개(중앙 164KB · 최대 773KB) · `manifest.json`(파일별 sha256·건수)으로 만든다. 구 단일 사본 `data/en.json` 은 없앴다.
+- **첫 화면** — 영어 모드 초기 JSON **37.62MB → 4.45MB (88.2%↓, gzip 2.55MB → 0.93MB)**. 영문 항목 텍스트는 비교군을 열 때 그 청크 하나만 추가로 받는다.
+- **앱** — `data.js` 가 `loadCore` 에서 core·index 만 받아 카탈로그 라벨·검색·홈 타일을 그리고, `createArenaStore` 가 비교군 파일과 그 영문 청크를 병렬로 받아 항목별 오버레이를 합친다(청크가 없거나 실패하면 한국어로 폴백). 관련작 이동·`?item=` 딥링크도 그 비교군 청크를 새로 받아 연다.
+- **검색 인덱스 경량화** — 들여쓰기 없는 압축 JSON으로 쓰고, 홈 갭 리포트에서만 쓰는 `drivers`·`store_stars` 를 gap 15건에만 실어 **4.92MB → 2.85MB (42.2%↓, gzip 631KB → 550KB)**. `content_hash`·검색 결과는 그대로다. 첫 화면 통합 검색이 전 도메인을 즉시 훑어야 해서 인덱스는 도메인별로 쪼개지 않았다.
+- **검증** — `validate.py` [10-0] 이 원본에서 분할을 다시 만들어 `data/en/` 의 해시·건수·항목 집합을 비교하고 변조·누락 음성 테스트 2종을 돈다. `validate.py` PASS(3,661종 · 영문 3,661/3,661 · 사전 226건/관련작 361개 · 등대 139종/271퀘스트) · `check_en_leaks.py --all` 0건 · 스모크 `smoke_v21` 120/120 · `v22` 69/69 · `v23` 61/61 · `v26` 20/20 · `v28` 101/101 · `v30` 41/41 · `v31` 67/67 · 신규 `smoke_v35` 40/40 (로컬·라이브). 커밋 `3b48467`.
 
 ## v34 — 10차 대량 적재: 3,026 → 3,661종 (2026-11-28)
 
@@ -312,12 +322,15 @@ web/
   index.html            화면 골격 (도메인 탭 · 경로 · 홈/탐색/비교 뷰 · 상세·방법론 모달 · 드로어 · KO|EN 토글)
   styles.css            등대 테마 (다크 기본 / 라이트 토글), 반응형
   js/i18n.js            UI 문자열 사전 KO/EN · 언어 감지·저장 · 숫자·일수 표기 · 정적 마크업 번역
-  js/data.js            카탈로그·인덱스 로드, en.json 오버레이 병합, 비교군 파일 지연 로딩/캐시, 통합 검색
+  js/data.js            카탈로그·인덱스·영문 요약 로드, en 청크 오버레이 병합, 비교군 파일 지연 로딩/캐시, 통합 검색
   js/engine.js          계산 엔진 — x-pharos.client 계약 (DOM 비의존 순수 함수, 신선도·대체제·완결작 면제)
   js/app.js             상태·라우팅(URL 딥링크)·렌더링·이벤트
   data/catalog.json     도메인·대분류·비교군 정의 + 필터 팩 + 홈 리포트 규칙
   data/search-index.json 경량 인덱스 (자동 생성 — 통합 검색·홈 리포트)
-  data/en.json          영문 번들 — 3도메인·10대분류·14비교군·67종 표시 문자열(영어 모드에서만 로드)
+  data/en/core.json     영문 공통부 — 카탈로그 라벨·필터 팩·장르 사전·홈 문구(영어 모드에서만)
+  data/en/index.json    영문 항목 요약 — 이름·한 줄·대표 티어 한 줄·장르·개발사(검색·목록 카드용)
+  data/en/{domain}/{arena}.json  비교군별 영문 오버레이 — 그 비교군을 열 때만 지연 로딩
+  data/en/manifest.json 영문 분할 파일 해시·건수(원본 data/en.json 과의 일치 검증용)
   data/app/pkm-notes.json              노트·지식관리 5건
   data/app/task-managers.json          할 일·일정 관리 5건
   data/app/password-managers.json      비밀번호 관리 4건
@@ -485,7 +498,7 @@ python3 projects/pharos/scripts/sync_web_data.py --check  # 쓰지 않고 최신
 - **언어 결정 순서**: ① URL `?lang=ko|en` ② `localStorage`(`pharos-lang`) ③ `navigator.language` — `ko`로 시작하면 한국어, 그 외 모든 해외 브라우저는 영어.
 - **전환 시 함께 바뀌는 것**: `<html lang>`, `<title>`, 메타 설명·OG, URL의 `lang`, 🔗 링크 복사 딥링크. 도메인·비교군·비교·프리셋·필터 등 화면 상태는 URL로 유지된 채 다시 열린다.
 - **UI 사전 `js/i18n.js`**: 헤더·히어로·검색·도메인/대분류/비교군·필터 칩·미세조정 드로어(프리셋·가중치·하드 필터·용어 도움말)·판정 배지(`Recommended`/`Conditional`/`Filtered`)·3축(`User Rating`/`Objective Trust`/`AI Review`)·상세 모달(`Facts`/`Opinion`/`Verdict by tier`/`Signals`/`Alternatives`/`Reviews`/`Monetization`/`Updates`/`Sources`)·비교 표(`Best` 배지·`Basis` 열)·방법론 모달·토스트·오류 화면·푸터까지 100% 영문.
-- **영문 데이터 `data/en.json`**: 카탈로그(3도메인·10대분류·14비교군·필터 팩·갭 리포트) + 67종의 `one_liner`·`tagline`·`verdict.one_liner/reasons/condition_notes`·`arena_notes`·3축 서술·티어 라벨·가격 표기·`limits`·`notes`·`facts`·리뷰 서술·과금·업데이트·한계·`score_notes`·출처·flags 메모. 영어 모드에서만 내려받고, `data.js` 가 원본 항목에 오버레이로 병합한다(원본 한국어 데이터는 그대로 단일 소스).
+- **영문 데이터 `data/en/` (v35 분할)**: 예전 단일 `data/en.json`(3,661종 32.33MB)을 첫 화면에서 받지 않도록 나눴다 — `core.json`(53.7KB: 카탈로그 라벨·필터 팩·장르·홈 문구) + `index.json`(1.17MB: 항목 요약 — 이름·한 줄·대표 티어 한 줄·장르·개발사)을 먼저 받고, 상세 문장은 비교군 청크 `data/en/{domain}/{arena}.json`(101개 · 중앙 164KB · 최대 773KB)으로 그 비교군을 열 때만 받는다. 원본은 계속 `projects/pharos/data/en.json` 하나이고 `sync_web_data.py` 가 사본만 나눈다. 오버레이 내용은 그대로다: 카탈로그 + 항목의 `one_liner`·`tagline`·`verdict.one_liner/reasons/condition_notes`·`arena_notes`·3축 서술·티어 라벨·가격 표기·`limits`·`notes`·`facts`·리뷰 서술·과금·업데이트·한계·`score_notes`·출처·flags 메모. 영어 모드에서만 받고, `data.js` 가 원본 항목에 오버레이로 병합한다(원본 한국어 데이터는 그대로 단일 소스).
 - **카드·타일 헤드라인은 직접 쓴 영어**: 대표 티어 한 줄과 판정 한 줄은 기계 번역이 아니라 문맥을 살려 다시 썼다(`Start free and the files stay yours`, `High stars, filtered out` 등).
 - **검증**: `validate.py` 가 67/67·14/14·10/10·3/3 커버리지와 한글 잔존 0을 검사(누락 시 FAIL), `verify_ui.py` 가 EN 전 화면을 한국어 없이 통과하는지 확인(690/690).
 
