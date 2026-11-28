@@ -20,8 +20,8 @@ const M = {
   'skip.link': ['본문으로 건너뛰기', 'Skip to content'],
   'brand.home': ['파로스 등대 홈', 'Pharos Lighthouse home'],
   'brand.tagline': [
-    '별점 대신, 내 기준으로 거르는 앱·게임·AI 도구·영상 작품 선별',
-    'Apps, games, AI tools and screen works filtered by your standards, not star ratings',
+    '별점 대신, 내 기준으로 거르는 앱·게임·AI 도구·영화·애니·만화 선별',
+    'Apps, games, AI tools, films, anime and manga filtered by your standards, not star ratings',
   ],
   'brand.sub': ['파로스', ''],
   'nav.domains': ['화면 전환', 'Switch view'],
@@ -665,12 +665,12 @@ const M = {
 
   /* 페이지 메타 */
   'meta.title': [
-    '파로스 Pharos — 오늘 도전할 목표를 비추는 등대 · 앱·게임·AI 도구 선별',
-    'Pharos — a lighthouse for your next goal · apps, games and AI tools screened',
+    '파로스 Pharos — 오늘 도전할 목표를 비추는 등대 · 앱·게임·AI 도구·영화·애니·만화 선별',
+    'Pharos — a lighthouse for your next goal · apps, games, AI tools, films, anime and manga screened',
   ],
   'meta.description': [
-    '오늘 뭐 하지? 파로스 등대는 가격·플랫폼·기간을 고르면 검증한 명작 중 하나와 그 안의 실제 목표를 퀘스트로 비춥니다. 앱·게임·AI 도구는 사용자 평가·객관 신뢰 지표·AI 검토를 내 가중치로 합치고, 강제 광고·확률형 아이템·불투명 크레딧 같은 절대 거름 조건을 적용해 선별합니다. 모든 계산은 브라우저에서 실시간으로 이뤄집니다.',
-    'What do I play tonight? Pick price, platform and length, and the Pharos Lighthouse shines on one vetted masterwork and a real goal inside it. Apps, games and AI tools are screened by combining user ratings, objective trust metrics and AI review with your own weights, then applying hard filters — forced ads, gacha items, opaque credits. Every calculation runs live in your browser.',
+    '오늘 뭐 하지? 파로스 등대는 가격·플랫폼·기간을 고르면 검증한 명작 중 하나와 그 안의 실제 목표를 퀘스트로 비춥니다. 앱·게임·AI 도구·영화·애니·만화는 사용자 평가·객관 신뢰 지표·AI 검토를 내 가중치로 합치고, 강제 광고·확률형 아이템·불투명 크레딧 같은 절대 거름 조건을 적용해 선별합니다. 모든 계산은 브라우저에서 실시간으로 이뤄집니다.',
+    'What do I play tonight? Pick price, platform and length, and the Pharos Lighthouse shines on one vetted masterwork and a real goal inside it. Apps, games, AI tools, films, anime and manga are screened by combining user ratings, objective trust metrics and AI review with your own weights, then applying hard filters — forced ads, gacha items, opaque credits. Every calculation runs live in your browser.',
   ],
   'meta.ogTitle': [
     '파로스 Pharos — 오늘 도전할 목표를 비추는 등대',
@@ -1070,7 +1070,7 @@ const M = {
   'lh.stat.free': ['무료 게임', 'Free to play'],
   'lh.stat.done': ['내 완료', 'Done by you'],
   'lh.catalog.kicker': ['전체 카탈로그 · CATALOG', 'FULL CATALOG'],
-  'lh.catalog.link': ['{n}개 앱·게임·AI 도구 직접 비교해 보기', 'Compare all {n} apps, games and AI tools'],
+  'lh.catalog.link': ['{n}개 앱·게임·AI 도구·작품 직접 비교해 보기', 'Compare all {n} apps, games, AI tools and works'],
   'lh.catalog.sub': ['장르별 추천부터 3축 점수·근거까지 — 등대 뒤의 파로스 전체 데이터',
     'Genre picks, three-axis scores and evidence — the whole Pharos dataset'],
   'lh.filtersAria': ['등대 조건', 'Lighthouse conditions'],

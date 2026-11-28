@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pharos.local/schema/item.schema.json",
   "title": "Pharos Item Schema v0.4.0",
-  "description": "파로스 앱·게임 평가 1건. 정적 웹 프론트엔드가 서버 없이 하드 필터와 축별 가중치를 브라우저에서 계산할 수 있도록, 판정에 쓰이는 원자료(flags)와 티어별 필터 결과(hard_filters), 축 점수(axes), 근거 등급(evidence_grade), 출처(sources)를 모두 담는다. v0.3은 장르·용도별 비교군(arenas)을 더했고, v0.3.1은 maintenance_status(active·feature_complete·stale_unknown·abandoned)를 더해 '완결된 작품'과 '방치'를 구분한다. v0.4.0은 두 가지를 함께 담는다. ⑴ 4단 계층(도메인→대분류→비교군→항목) — 아이템에 domain(도메인 id)·category(대분류 id)를 명시하고 비교군·대분류·도메인 정의와 파일 위치를 data/catalog.json 으로 옮겼다(x-pharos.client.arenas 제거). ⑵ 확률형·P2W의 3단계 강제성 — hard_filters[gacha_random_items·p2w].impact(none·optional·core), item.monetization.free_play(무과금 충분성), strict_monetization 토글. 계산 계약은 최상위 x-pharos.client 참조.",
+  "description": "파로스 앱·게임·AI 도구·영화·애니·만화 평가 1건. 정적 웹 프론트엔드가 서버 없이 하드 필터와 축별 가중치를 브라우저에서 계산할 수 있도록, 판정에 쓰이는 원자료(flags)와 티어별 필터 결과(hard_filters), 축 점수(axes), 근거 등급(evidence_grade), 출처(sources)를 모두 담는다. v0.3은 장르·용도별 비교군(arenas)을 더했고, v0.3.1은 maintenance_status(active·feature_complete·stale_unknown·abandoned)를 더해 '완결된 작품'과 '방치'를 구분한다. v0.4.0은 두 가지를 함께 담는다. ⑴ 4단 계층(도메인→대분류→비교군→항목) — 아이템에 domain(도메인 id)·category(대분류 id)를 명시하고 비교군·대분류·도메인 정의와 파일 위치를 data/catalog.json 으로 옮겼다(x-pharos.client.arenas 제거). ⑵ 확률형·P2W의 3단계 강제성 — hard_filters[gacha_random_items·p2w].impact(none·optional·core), item.monetization.free_play(무과금 충분성), strict_monetization 토글. 계산 계약은 최상위 x-pharos.client 참조. v31(2026-11-28)은 통합 미디어(media) 도메인을 영화(movie)·애니(anime)·만화(manga) 3개 도메인으로 나눴다 — 항목은 domain·category·arenas 로 새 계층을 가리키고, 판정 계산 계약은 바뀌지 않는다.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -49,7 +49,7 @@
     "domain": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9_-]*$",
-      "description": "최상위 도메인 id — data/catalog.json 의 domains[].id 를 참조한다(app·game·ai, 추후 content·product). 목록·평균·순위는 도메인을 섞지 않는다. v0.4.2에서 ai(AI 도구) 도메인을 정식 등록했고, domain 값 자체는 기존 패턴(^[a-z0-9][a-z0-9_-]*$)으로 이미 허용된다."
+      "description": "최상위 도메인 id — data/catalog.json 의 domains[].id 를 참조한다(app·game·ai·movie·anime·manga, 추후 product). 목록·평균·순위는 도메인을 섞지 않는다. v0.4.2에서 ai(AI 도구)를 정식 등록했고, v31(2026-11-28)에서 통합 media 도메인을 movie(영화)·anime(애니)·manga(만화) 3개로 분리했다. 허용 목록은 x-pharos.client.domain_ids 이며 validate.py 가 catalog.json 과 대조한다."
     },
     "category": {
       "type": "string",
@@ -777,6 +777,7 @@
     "criteria_doc": "projects/pharos/criteria.md",
     "client": {
       "note": "정적 웹 프론트엔드가 서버 없이 계산하는 계약. 아이템 1건 × 티어 1개 단위로 적용한다.",
+      "domain_ids": ["app", "game", "ai", "movie", "anime", "manga"],
       "catalog": {
         "file": "data/catalog.json",
         "search_index": "data/search-index.json",
@@ -847,7 +848,9 @@
           "game": ["플랫폼", "한국어", "플레이 방식", "모드", "가격"],
           "app": ["지원 OS", "한국어", "오프라인", "오픈소스", "가격 모델"],
           "ai": ["모델·제공 방식", "로컬 실행", "라이선스", "가격 모델"],
-          "media": ["제작", "분량", "방영·출간", "원작", "평점"]
+          "movie": ["제작", "분량", "방영·출간", "원작", "평점"],
+          "anime": ["제작", "분량", "방영·출간", "원작", "평점"],
+          "manga": ["제작", "분량", "방영·출간", "원작", "평점"]
         },
         "integrity": "related[].id 는 파로스 카탈로그의 실제 항목 id 여야 하고(자기 참조 금지·중복 금지·최대 n개), relation 은 5개 열거형만 쓴다. 원본이 있으면 영문 번들도 같은 개수·같은 순서로 완역한다(validate.py 가 검사)."
       },

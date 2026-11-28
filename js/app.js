@@ -35,6 +35,10 @@ const PRESETS = [
 const presetLabelOf = (id) => t(`preset.${id}`);
 const presetHintOf = (id) => t(`preset.${id}.hint`);
 
+/* v31 — 영화·애니·만화는 제작진·감상 경로를 쓰는 '작품' 도메인이다. */
+const WORK_DOMAINS = new Set(['movie', 'anime', 'manga']);
+const isWorkDomain = (domain) => WORK_DOMAINS.has(domain);
+
 const SORT_KEYS = ['score', 'score-asc', 'risk', 'name'];
 const sortLabel = (key) => t(`sort.${key === 'score-asc' ? 'scoreAsc' : key}`);
 
@@ -285,11 +289,25 @@ function switchLang(lang) {
 
 /* --------------------------------------------------------------- 라우팅 */
 
+/* v31 — 통합 미디어 URL 호환. ?domain=media 와 구 비교군 주소를 새 영화·애니·만화 도메인으로 옮긴다. */
+const LEGACY_MEDIA_ARENA = { 'feature-films': 'movie', 'anime-tv': 'anime', 'manga-volumes': 'manga' };
+const LEGACY_MEDIA_CATEGORY = { movie: 'movie', anime: 'anime', manga: 'manga' };
+
+function legacyMediaTarget(params) {
+  const oldArena = params.get('arena');
+  const oldCategory = params.get('category');
+  if (oldArena && LEGACY_MEDIA_ARENA[oldArena]) return LEGACY_MEDIA_ARENA[oldArena];
+  if (oldCategory && LEGACY_MEDIA_CATEGORY[oldCategory]) return LEGACY_MEDIA_CATEGORY[oldCategory];
+  return 'movie';
+}
+
 function parseUrl() {
   const params = new URLSearchParams(location.search);
   const route = { view: 'home', domain: null, category: null, arena: null, item: null, compare: [] };
   const tab = params.get('tab');
-  const domain = params.get('domain');
+  const domainParam = params.get('domain');
+  const legacyMedia = domainParam === 'media';
+  const domain = legacyMedia ? legacyMediaTarget(params) : domainParam;
   const wantsLighthouse = domain === 'lighthouse' || tab === 'lighthouse';
   // `?domain=catalog` · `?domain=all` 은 카탈로그 홈(전체 탐색)으로 — 실제 도메인이 아니라 화면 이름이다.
   const wantsCatalog = domain === 'catalog' || domain === 'all' || tab === 'catalog';
@@ -310,11 +328,11 @@ function parseUrl() {
   } else if (domain && state.cat.domain(domain)) {
     route.view = 'browse';
     route.domain = domain;
-    const category = params.get('category');
+    const category = legacyMedia ? null : params.get('category');
     if (category && state.cat.category(category) && state.cat.category(category).domain === domain) {
       route.category = category;
     }
-    const arena = params.get('arena');
+    const arena = legacyMedia ? null : params.get('arena');
     if (arena && state.cat.arena(arena) && state.cat.arena(arena).domain === domain) {
       route.arena = arena;
       route.category = state.cat.arena(arena).category;
@@ -327,6 +345,10 @@ function parseUrl() {
       route.domain = def.domain;
       route.category = def.category;
       route.arena = def.id;
+    } else if (arena && LEGACY_MEDIA_ARENA[arena]) {
+      // 구 미디어 비교군 주소 — 해당 도메인의 장르별 비교군 목록으로 보낸다.
+      route.view = 'browse';
+      route.domain = LEGACY_MEDIA_ARENA[arena];
     }
   }
   const compare = params.get('compare');
@@ -1455,7 +1477,7 @@ async function renderCompare(seq) {
 const STORE_PLATFORMS = ['android', 'ios', 'steam'];
 
 /** 누적 별점 행의 이름 — 실제 스토어 표본이면 '스토어 누적 별점', G2 같은 3자 집계면 '누적 평점(3자 집계)'.
- *  미디어 도메인은 5점 척도가 아니라 100점 척도(AniList)만 있어 '누적 평점(100점)' 으로 부른다. */
+ *  작품 도메인(영화·애니·만화)은 5점·100점 척도를 섞어 쓰므로 표본 척도에 맞는 이름을 고른다. */
 function storeStarsLabel(item) {
   const rows = (item.review_snapshot?.platforms || []).filter((row) => row.cumulative);
   const stars = rows
@@ -1655,11 +1677,8 @@ function sectionEncyclopedia(view) {
     const rows = [];
     if (item.one_liner) rows.push({ key: t('enc.field.overview'), value: item.one_liner });
     if (item.developer || item.publisher) {
-      const creator =
-        item.domain === 'media'
-          ? [item.developer, item.publisher].filter(Boolean)
-          : [item.developer, item.publisher].filter(Boolean);
-      rows.push({ key: t(item.domain === 'media' ? 'enc.field.creator' : 'enc.field.developer'), value: creator.join(' · ') });
+      const creator = [item.developer, item.publisher].filter(Boolean);
+      rows.push({ key: t(isWorkDomain(item.domain) ? 'enc.field.creator' : 'enc.field.developer'), value: creator.join(' · ') });
     }
     if (item.release_date) rows.push({ key: t('enc.field.release'), value: item.release_date });
     if ((item.genres || []).length) rows.push({ key: t('enc.field.genres'), value: item.genres.join(' · ') });
@@ -1932,7 +1951,7 @@ function sectionFacts(view) {
   const stars = storeStarsText(item);
   const starsLabel = storeStarsLabel(item);
   const rows = [
-    [t(item.domain === 'media' ? 'facts.creator' : 'facts.developer'), `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
+    [t(isWorkDomain(item.domain) ? 'facts.creator' : 'facts.developer'), `${esc(item.developer)}<br><span class="muted">${(item.platforms || [])
       .map((p) => esc(engine.PLATFORM_LABEL[p] || p))
       .join(' · ')}${item.release_date ? ` · ${esc(t('facts.released', { date: item.release_date }))}` : ''}</span>`],
     [t('facts.price'), `${esc(tier?.price?.display || '—')}<br><span class="muted">${esc(tier?.label || '')}${
