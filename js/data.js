@@ -5,16 +5,19 @@
  *
  * 읽는 순서
  *   1) core  : data/catalog.json (도메인·대분류·비교군 정의) + data/search-index.json + schema/item.schema.json
- *              + data/en.json (영어 모드일 때만 — 카탈로그 라벨·항목 텍스트의 영문 번들)
+ *              + 영어 모드일 때만 data/en/core.json(카탈로그 라벨·장르 사전) 과 data/en/index.json(항목 요약).
+ *              v35 부터 영문은 32MB 단일 en.json 이 아니라 core·index 두 파일만 먼저 받는다.
  *   2) arena : 선택한 비교군의 data_file 만 지연 로딩(lazy load)하고 캐시한다.
- *              영어 모드에서는 en.json 의 항목 오버레이를 합쳐 돌려준다.
+ *              영어 모드에서는 같은 경로의 data/en/{domain}/{arena}.json 청크를 함께 받아 합친다.
+ *              그래서 상세 문장·출처·축 서술 같은 큰 텍스트는 그 비교군을 열 때만 내려온다.
  */
 
 export const DATA_PATHS = {
   catalog: './data/catalog.json',
   searchIndex: './data/search-index.json',
   schema: './schema/item.schema.json',
-  en: './data/en.json',
+  enCore: './data/en/core.json',
+  enIndex: './data/en/index.json',
 };
 
 async function fetchJson(url) {
@@ -46,72 +49,76 @@ export function mergeOverlay(base, overlay) {
   return out;
 }
 
-/** en.json 항목 오버레이를 한 항목에 적용한다. */
-export function localizeItem(item, bundle) {
-  const overlay = bundle?.items?.[item?.id];
+/** en 청크의 항목 오버레이를 한 항목에 적용한다. */
+export function localizeItem(item, overlays) {
+  const overlay = overlays?.[item?.id];
   if (!overlay) return item;
-  const merged = mergeOverlay(item, overlay);
-  return merged;
+  return mergeOverlay(item, overlay);
 }
 
-/** 카탈로그 라벨·설명을 영어 번들로 바꾼 사본을 만든다. */
-export function localizeCatalog(catalog, bundle) {
-  if (!bundle) return catalog;
+/** 카탈로그 라벨·설명을 영어 공통부(en/core.json)로 바꾼 사본을 만든다. */
+export function localizeCatalog(catalog, core) {
+  if (!core) return catalog;
   const copy = JSON.parse(JSON.stringify(catalog));
   for (const domain of copy.domains || []) {
-    const t = bundle.domains?.[domain.id];
+    const t = core.domains?.[domain.id];
     if (t?.label) domain.label = t.label;
     if (t?.description) domain.description = t.description;
     if (t?.filter_labels) domain.filter_labels = { ...(domain.filter_labels || {}), ...t.filter_labels };
   }
   for (const category of copy.categories || []) {
-    const t = bundle.categories?.[category.id];
+    const t = core.categories?.[category.id];
     if (t?.label) category.label = t.label;
     if (t?.description) category.description = t.description;
   }
   for (const arena of copy.arenas || []) {
-    const t = bundle.arenas?.[arena.id];
+    const t = core.arenas?.[arena.id];
     if (t?.label) arena.label = t.label;
     if (t?.description) arena.description = t.description;
   }
   for (const [key, pack] of Object.entries(copy.filter_packs || {})) {
-    const t = bundle.filter_packs?.[key];
+    const t = core.filter_packs?.[key];
     if (t?.label) pack.label = t.label;
     if (t?.description) pack.description = t.description;
   }
-  if (copy.home?.gap_report && bundle.home?.gap_report) {
-    if (bundle.home.gap_report.title) copy.home.gap_report.title = bundle.home.gap_report.title;
-    if (bundle.home.gap_report.note) copy.home.gap_report.note = bundle.home.gap_report.note;
+  if (copy.home?.gap_report && core.home?.gap_report) {
+    if (core.home.gap_report.title) copy.home.gap_report.title = core.home.gap_report.title;
+    if (core.home.gap_report.note) copy.home.gap_report.note = core.home.gap_report.note;
   }
   return copy;
 }
 
-/** 경량 인덱스(검색·홈 리포트)의 표시 문자열을 영어 번들로 바꾼 사본. */
-export function localizeIndex(index, catalog, bundle, contract = null) {
-  if (!bundle || !index) return index;
+/**
+ * 경량 인덱스(검색·홈 리포트·목록 카드)의 표시 문자열을 영어 요약(en/index.json)으로 바꾼 사본.
+ * 항목 요약에는 이름·한 줄·대표 티어 한 줄·장르·개발사만 있으므로 비교군 청크 없이도 그려진다.
+ */
+export function localizeIndex(index, catalog, en, contract = null) {
+  if (!en || !index) return index;
+  const core = en.core || {};
+  const light = en.index?.items || {};
   const AXES_EN = { user_rating: 'User Rating', objective: 'Objective Trust', ai_review: 'AI Review' };
   const filterKo = new Map(
-    (contract?.hard_filters || []).map((def) => [def.label, bundle.filter_labels?.[def.key] || def.label]),
+    (contract?.hard_filters || []).map((def) => [def.label, core.filter_labels?.[def.key] || def.label]),
   );
   for (const domain of catalog?.domains || []) {
     for (const [key, ko] of Object.entries(domain.filter_labels || {})) {
-      filterKo.set(ko, bundle.domains?.[domain.id]?.filter_labels?.[key] || bundle.filter_labels?.[key] || ko);
+      filterKo.set(ko, core.domains?.[domain.id]?.filter_labels?.[key] || core.filter_labels?.[key] || ko);
     }
   }
   const copy = JSON.parse(JSON.stringify(index));
   const names = new Map();
   for (const rec of copy.items || []) {
-    const t = bundle.items?.[rec.id];
+    const t = light[rec.id];
     if (!t) continue;
     if (t.name) {
       names.set(rec.id, t.name);
       rec.name = t.name;
     }
     if (t.one_liner) rec.one_liner = t.one_liner;
-    const tierLine = t.tiers?.[rec.tier_of_record]?.one_liner;
-    rec.tagline = tierLine || t.tagline || rec.tagline;
+    rec.tagline = t.tiers?.[rec.tier_of_record] || t.tagline || rec.tagline;
     if (Array.isArray(t.genres)) rec.genres = t.genres;
-    else rec.genres = (rec.genres || []).map((g) => bundle.genres?.[g] || g);
+    else rec.genres = (rec.genres || []).map((g) => core.genres?.[g] || g);
+    if (t.developer) rec.developer = t.developer;
     for (const driver of rec.drivers || []) {
       if (filterKo.has(driver.label)) {
         driver.label = filterKo.get(driver.label);
@@ -127,15 +134,25 @@ export function localizeIndex(index, catalog, bundle, contract = null) {
     }
   }
   for (const [arenaId, stat] of Object.entries(copy.arena_stats || {})) {
-    const t = bundle.arenas?.[arenaId];
+    const t = core.arenas?.[arenaId];
     if (t?.label) stat.label = t.label;
     if (stat.top_item && names.has(stat.top_item.id)) stat.top_item.name = names.get(stat.top_item.id);
   }
-  if (copy.gap_report && bundle.home?.gap_report?.title) copy.gap_report.title = bundle.home.gap_report.title;
+  if (copy.gap_report && core.home?.gap_report?.title) copy.gap_report.title = core.home.gap_report.title;
   return copy;
 }
 
 /* ------------------------------------------------------------------ 로더 */
+
+/** 영어 공통부 + 항목 요약. 한쪽이 없어도 나머지로 최대한 그린다(조용한 한국어 폴백). */
+async function loadEnglish() {
+  const [core, index] = await Promise.all([
+    fetchJson(DATA_PATHS.enCore).catch(() => null),
+    fetchJson(DATA_PATHS.enIndex).catch(() => null),
+  ]);
+  if (!core) return null;
+  return { core, index };
+}
 
 export async function loadCore(lang = 'ko') {
   const wantsEn = lang === 'en';
@@ -143,20 +160,19 @@ export async function loadCore(lang = 'ko') {
     fetchJson(DATA_PATHS.catalog),
     fetchJson(DATA_PATHS.searchIndex),
     fetchJson(DATA_PATHS.schema),
-    wantsEn ? fetchJson(DATA_PATHS.en).catch(() => null) : Promise.resolve(null),
+    wantsEn ? loadEnglish() : Promise.resolve(null),
   ]);
   const contract = schema?.['x-pharos']?.client;
   if (!contract) throw new Error('스키마에 x-pharos.client 계산 계약이 없습니다.');
   if (!Array.isArray(catalog?.arenas) || !catalog.arenas.length) {
     throw new Error('data/catalog.json 에 비교군 정의가 없습니다.');
   }
-  const bundle = wantsEn ? en : null;
   return {
-    catalog: localizeCatalog(catalog, bundle),
-    index: localizeIndex(index, catalog, bundle, contract),
+    catalog: localizeCatalog(catalog, en?.core),
+    index: localizeIndex(index, catalog, en, contract),
     schema,
     contract,
-    en: bundle,
+    en,
     raw: { catalog, index },
   };
 }
@@ -166,6 +182,13 @@ export function arenaPath(catalog, arenaId) {
   const arena = (catalog?.arenas || []).find((row) => row.id === arenaId);
   if (!arena) return null;
   return `./data/${arena.data_file}`;
+}
+
+/** 비교군 영문 청크 경로 — 원본 비교군 파일과 같은 경로를 data/en/ 아래에 둔다. */
+export function arenaEnPath(catalog, arenaId) {
+  const arena = (catalog?.arenas || []).find((row) => row.id === arenaId);
+  if (!arena) return null;
+  return `./data/en/${arena.data_file}`;
 }
 
 /** 카탈로그 조회 도우미 (도메인·대분류·비교군 라벨). */
@@ -196,9 +219,10 @@ export function createCatalogView(catalog) {
 /**
  * 비교군 데이터 지연 로딩 + 캐시.
  * 홈·검색은 경량 인덱스만 쓰고, 목록·상세·비교는 이 스토어로 필요한 파일만 읽는다.
- * 영어 번들이 있으면 항목 텍스트에 오버레이를 합쳐 돌려준다.
+ * 영어 모드에서는 비교군 파일과 그 영문 청크를 나란히 받아 항목마다 오버레이를 합친다
+ * (영문 청크가 없거나 실패하면 한국어 항목 그대로 — 화면이 비지 않는다).
  */
-export function createArenaStore(catalog, bundle = null) {
+export function createArenaStore(catalog, en = null) {
   const cache = new Map();
   const pending = new Map();
   async function load(arenaId) {
@@ -206,9 +230,14 @@ export function createArenaStore(catalog, bundle = null) {
     if (pending.has(arenaId)) return pending.get(arenaId);
     const url = arenaPath(catalog, arenaId);
     if (!url) throw new Error(`알 수 없는 비교군: ${arenaId}`);
-    const task = fetchJson(url)
-      .then((items) => {
-        const list = (Array.isArray(items) ? items : [items]).map((item) => localizeItem(item, bundle));
+    const enUrl = en ? arenaEnPath(catalog, arenaId) : null;
+    const task = Promise.all([
+      fetchJson(url),
+      enUrl ? fetchJson(enUrl).catch(() => null) : Promise.resolve(null),
+    ])
+      .then(([items, chunk]) => {
+        const overlays = chunk?.items || null;
+        const list = (Array.isArray(items) ? items : [items]).map((item) => localizeItem(item, overlays));
         cache.set(arenaId, list);
         pending.delete(arenaId);
         return list;

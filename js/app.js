@@ -43,7 +43,7 @@ const SORT_KEYS = ['score', 'score-asc', 'risk', 'name'];
 const sortLabel = (key) => t(`sort.${key === 'score-asc' ? 'scoreAsc' : key}`);
 
 /* 도메인·플랫폼·필터·축 라벨은 i18n.js 의 사전에서 온다. 데이터 라벨(비교군·대분류)은
-   data/catalog.json 과 data/en.json 번들이 맡는다. */
+   data/catalog.json 과 data/en/core.json 이 맡는다. */
 const RULE_INDEX = { 1: 0, '1w': 0, '1c': 6, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5 };
 
 const L = {

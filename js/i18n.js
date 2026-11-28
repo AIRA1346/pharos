@@ -3,7 +3,7 @@
  *
  * 규칙
  *   · 화면에 나가는 문자열은 전부 이 파일을 거친다. 데이터(카탈로그·항목)의 번역은
- *     `data/en.json` 번들이 맡고, 이 파일은 UI 문자열·메타 라벨만 담는다.
+ *     `data/en/core.json`(과 항목 요약 `data/en/index.json`)이 맡고, 이 파일은 UI 문자열·메타 라벨만 담는다.
  *   · 항목은 [한국어, 영어] 쌍으로 적는다. 키가 하나면 두 언어가 같이 움직인다.
  *   · 언어 결정 우선순위: URL `?lang=` → localStorage → navigator.language(ko* → ko, 그 외 en).
  *   · 언어를 바꾸면 `<html lang>`, `<title>`, URL 의 `lang`, 딥링크가 함께 바뀐다(app.js).
