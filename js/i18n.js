@@ -348,7 +348,6 @@ const M = {
   'encmode.empty': ['조건에 맞는 항목이 없습니다. 필터를 풀거나 검색어를 지워 보세요.', 'Nothing matches. Clear a filter or the search.'],
   'encmode.more': ['더 보기 ({shown} / {n})', 'Show more ({shown} / {n})'],
   'encmode.allShown': ['{n}종을 모두 보았습니다', 'That is all {n} entries'],
-  'encmode.book': ['📖 사전', '📖 Profile'],
   'encmode.badge.complete': ['완결', 'Completed'],
   'encmode.genreAll': ['전체', 'All'],
   'encmode.genreAria': ['장르로 좁히기', 'Narrow by genre'],
