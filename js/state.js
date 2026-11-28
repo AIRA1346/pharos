@@ -67,8 +67,15 @@ export const state = {
   query: '',
   sort: 'score',
   showAvoided: true,
-  /** 📖 도감 모드 — 검색어·정렬·필터·지금까지 그린 장수(더 보기). */
-  enc: { q: '', sort: 'book', filters: { book: false, complete: false, free: false }, limit: ENC_PAGE },
+  /** 📖 도감 모드 — 검색어·정렬·필터·대분류/비교군·지금까지 그린 장수(더 보기). */
+  enc: {
+    q: '',
+    sort: 'book',
+    filters: { book: false, complete: false, free: false },
+    category: null,
+    arena: null,
+    limit: ENC_PAGE,
+  },
   weights: {},
   enabledFilters: [],
   strict: true,

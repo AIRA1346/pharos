@@ -323,6 +323,7 @@ const M = {
   /* 📖 도감(encyclopedia) 모드 — 3,661종을 점수 순서가 아니라 사전처럼 찾아보는 화면 */
   'encmode.eyebrow': ['ENCYCLOPEDIA · 도감', 'ENCYCLOPEDIA'],
   'encmode.title': ['세상 모든 것의 도감', 'An encyclopedia of everything'],
+  'encmode.titleShort': ['도감', 'Encyclopedia'],
   'encmode.lede': [
     '점수로 줄을 세우지 않고 분야·제작·출시·사전 등재로 찾아보는 아카이브입니다. 사전에 실린 항목은 개요·핵심 제원·특징·관련작·출처까지 함께 펼쳐집니다.',
     'An archive you browse by field, creator, release and encyclopedia entry instead of by score. Entries with a profile open to an overview, key facts, highlights, related works and sources.',
@@ -348,6 +349,10 @@ const M = {
   'encmode.more': ['더 보기 ({shown} / {n})', 'Show more ({shown} / {n})'],
   'encmode.allShown': ['{n}종을 모두 보았습니다', 'That is all {n} entries'],
   'encmode.book': ['📖 사전', '📖 Profile'],
+  'encmode.badge.complete': ['완결', 'Completed'],
+  'encmode.genreAll': ['전체', 'All'],
+  'encmode.genreAria': ['장르로 좁히기', 'Narrow by genre'],
+  'encmode.arenaAria': ['비교군으로 좁히기', 'Narrow by arena'],
   'encmode.releaseYear': ['{year}년', '{year}'],
   'encmode.releaseUnknown': ['출시 미상', 'Release unknown'],
   'encmode.cardAria': ['{name} 도감 항목 열기', 'Open the {name} entry'],

@@ -106,6 +106,15 @@ function parseUrl() {
       complete: filters.includes('complete'),
       free: filters.includes('free'),
     };
+    // 도감의 2단 칩 — 분야 안의 대분류(장르)와 비교군. 주소에 남겨 새로고침·공유에도 유지한다.
+    const encCategory = params.get('category');
+    state.enc.category =
+      encCategory && route.domain && state.cat.category(encCategory)?.domain === route.domain ? encCategory : null;
+    const encArena = params.get('arena');
+    state.enc.arena =
+      encArena && state.enc.category && (state.cat.arenasOf(route.domain, state.enc.category) || []).some((a) => a.id === encArena)
+        ? encArena
+        : null;
     state.enc.limit = ENC_PAGE;
   } else if (wantsLighthouse) {
     route.view = 'lighthouse';
@@ -234,6 +243,8 @@ function urlForRoute() {
     if (state.enc.sort !== 'book') params.set('sort', state.enc.sort);
     const on = ENC_FILTERS.filter((key) => state.enc.filters[key]);
     if (on.length) params.set('filter', on.join(','));
+    if (state.enc.category) params.set('category', state.enc.category);
+    if (state.enc.arena) params.set('arena', state.enc.arena);
   } else if (route.view === 'home' && !route.domain) {
     params.set('domain', 'catalog');
   } else if (route.domain) {
@@ -1009,6 +1020,8 @@ async function onClick(event) {
     if (state.route.view === 'encyclopedia') {
       if ((state.route.domain || null) === domain) return;
       state.enc.limit = ENC_PAGE;
+      state.enc.category = null;
+      state.enc.arena = null;
       state.route = { ...state.route, domain, item: null };
       render({ replace: true });
       return;
@@ -1028,6 +1041,23 @@ async function onClick(event) {
     if (kind === 'recommend') return goRecommend(state.route.view === 'lighthouse' ? null : state.route.domain);
     if (kind === 'encyclopedia') return goEncyclopedia();
     if (kind === 'enc-domain') return goEncyclopedia(action.dataset.domain || null);
+    if (kind === 'enc-category') {
+      event.preventDefault();
+      const next = action.dataset.category || null;
+      state.enc.category = state.enc.category === next ? null : next;
+      state.enc.arena = null;
+      state.enc.limit = ENC_PAGE;
+      render({ replace: true });
+      return;
+    }
+    if (kind === 'enc-arena') {
+      event.preventDefault();
+      const next = action.dataset.arena || null;
+      state.enc.arena = state.enc.arena === next ? null : next;
+      state.enc.limit = ENC_PAGE;
+      render({ replace: true });
+      return;
+    }
     if (kind === 'enc-more') {
       state.enc.limit += ENC_PAGE;
       renderEncResults();

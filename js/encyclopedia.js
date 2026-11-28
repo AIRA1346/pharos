@@ -1,18 +1,22 @@
 /**
  * 파로스 — 📖 도감(encyclopedia) 모드.
  *
- * 점수·판정으로 줄을 세우는 '추천' 모드와 달리, 3,661종을 사전처럼 찾아보는 화면이다.
+ * 점수·판정으로 줄을 세우는 '추천' 모드와 달리, 4,436종을 사전처럼 찾아보는 화면이다.
  * 목록은 경량 인덱스(data/search-index.json)만으로 그린다 — 비교군 파일을 내려받지 않는다.
- * 카드에는 포스터/아이콘·제목·제작·출시연도·장르·한 줄 개요·📖 사전 배지만 두고,
- * 점수·거름/조건부 판정·비교 체크박스 같은 추천 전용 UI 는 싣지 않는다.
+ *
+ * v40 — 카드를 '포스터 + 제목' 으로 다시 짰다.
+ *   · 카드의 주인공은 큰 정사각 포스터(아이콘)다. 제목은 두 줄까지, 그 아래 보조 한 줄(장르 또는 출시연도)만.
+ *   · 📖 사전 꼬리표·한 줄 개요·제작사·대분류 텍스트 줄은 뺐다 — 이미 도감에 들어왔는데 또 붙일 이유가 없다.
+ *   · 모바일 3열 · 데스크톱 6열 고밀도 그리드라 한 화면에 여러 작품이 함께 보인다.
+ *   · 분야를 고르면 그 분야의 대분류(장르) 칩 바가, 대분류를 고르면 비교군 칩이 이어진다.
  *
  * 정렬은 사전 등재 우선 · 이름순 · 최신 출시순 · 인기·규모순 네 가지이고,
- * 필터는 사전 수록만 · 완결작 · 무료로 시작 세 가지다. 3,661장을 한 번에 그리지 않고
+ * 필터는 사전 수록만 · 완결작 · 무료로 시작 세 가지다. 4,436장을 한 번에 그리지 않고
  * ENC_PAGE(120)장씩 '더 보기'로 이어 그린다.
  */
 
 import { t } from './i18n.js';
-import { $, ENC_FILTERS, ENC_PAGE, ENC_SORTS, esc, iconHtml, indexRecords, locale, num, state } from './state.js';
+import { $, ENC_FILTERS, ENC_PAGE, ENC_SORTS, esc, num, state } from './state.js';
 
 /* ------------------------------------------------------------------ 상태 */
 
@@ -20,11 +24,13 @@ export function resetEncState() {
   state.enc.q = '';
   state.enc.sort = 'book';
   state.enc.filters = { book: false, complete: false, free: false };
+  state.enc.category = null;
+  state.enc.arena = null;
   state.enc.limit = ENC_PAGE;
 }
 
 /** 완결작 — 이미 끝난 작품(완결 태그)이거나 더 나올 콘텐츠가 없는 단계(feature_complete). */
-const isComplete = (rec) =>
+export const isComplete = (rec) =>
   (rec.taste_tags || []).includes('completed') || rec.maintenance_status === 'feature_complete';
 
 const haystack = (rec) =>
@@ -41,6 +47,8 @@ const haystack = (rec) =>
 
 function matches(rec, tokens) {
   if (state.route.domain && rec.domain !== state.route.domain) return false;
+  if (state.enc.category && rec.category !== state.enc.category) return false;
+  if (state.enc.arena && !(rec.arenas || []).includes(state.enc.arena)) return false;
   const filters = state.enc.filters;
   if (filters.book && !rec.enc) return false;
   if (filters.complete && !isComplete(rec)) return false;
@@ -54,7 +62,7 @@ function matches(rec, tokens) {
 
 function collator() {
   try {
-    return new Intl.Collator(locale(), { numeric: true, sensitivity: 'base' });
+    return new Intl.Collator(state.lang === 'en' ? 'en-US' : 'ko-KR', { numeric: true, sensitivity: 'base' });
   } catch {
     return { compare: (a, b) => a.localeCompare(b) };
   }
@@ -63,7 +71,7 @@ function collator() {
 export function encPool() {
   const q = state.enc.q.trim().toLowerCase();
   const tokens = q ? q.split(/\s+/).filter(Boolean) : [];
-  const rows = indexRecords().filter((rec) => matches(rec, tokens));
+  const rows = (state.core?.index?.items || []).filter((rec) => matches(rec, tokens));
   const cmp = collator();
   const byName = (a, b) => cmp.compare(a.name, b.name);
   const sorters = {
@@ -77,34 +85,103 @@ export function encPool() {
 
 export function domainCounts() {
   const counts = {};
-  for (const rec of indexRecords()) counts[rec.domain] = (counts[rec.domain] || 0) + 1;
+  for (const rec of (state.core?.index?.items || [])) counts[rec.domain] = (counts[rec.domain] || 0) + 1;
   return counts;
 }
 
 /* ------------------------------------------------------------------ 카드 */
 
 const yearOf = (rec) =>
-  rec.release_date ? t('encmode.releaseYear', { year: String(rec.release_date).slice(0, 4) }) : t('encmode.releaseUnknown');
+  rec.release_date
+    ? t('encmode.releaseYear', { year: String(rec.release_date).slice(0, 4) })
+    : t('encmode.releaseUnknown');
+
+const posterSrc = (icon) => {
+  const raw = String(icon || '').trim().replace(/^\.?\//, '');
+  return raw ? `./${raw}` : null;
+};
+
+/** 카드 보조 한 줄 — 장르 1~2개, 없으면 출시연도. 텍스트를 더 얹지 않는다. */
+function subLine(rec) {
+  const genres = (rec.genres || []).slice(0, 2).join(' · ');
+  return genres || yearOf(rec);
+}
 
 function encCard(rec) {
-  const kicker = `${state.cat.domainLabel(rec.domain)} · ${state.cat.categoryLabel(rec.category)}`;
-  const meta = [rec.developer, yearOf(rec)].filter(Boolean).join(' · ');
-  const genres = (rec.genres || []).slice(0, 3).join(' · ');
+  const src = posterSrc(rec.icon);
+  const initial = String(rec.name || '?').trim().slice(0, 1).toUpperCase();
+  const complete = isComplete(rec);
   return `
   <article class="enc-card" role="button" tabindex="0" data-item="${esc(rec.id)}" data-id="${esc(rec.id)}"
     data-release="${esc(rec.release_date || '')}" data-scale="${Number(rec.scale || 0)}" data-book="${rec.enc ? 1 : 0}"
     aria-label="${esc(t('encmode.cardAria', { name: rec.name }))}">
-    ${iconHtml(rec, 'enc')}
+    <span class="item-icon item-icon--poster" data-initial="${esc(initial)}" aria-hidden="true">${
+      src ? `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" />` : ''
+    }</span>
     <div class="enc-card-body">
-      <p class="enc-card-kicker">${esc(kicker)}</p>
-      <h3 class="enc-card-title">${esc(rec.name)}${
-        rec.enc ? `<span class="enc-book" title="${esc(t('encmode.filter.book'))}">${esc(t('encmode.book'))}</span>` : ''
-      }</h3>
-      <p class="enc-card-meta">${esc(meta)}</p>
-      <p class="enc-card-line">${esc(rec.one_liner || '')}</p>
-      ${genres ? `<p class="enc-card-tags">${esc(genres)}</p>` : ''}
+      <h3 class="enc-card-title" title="${esc(rec.name)}">${esc(rec.name)}</h3>
+      <p class="enc-card-sub">${esc(subLine(rec))}</p>
     </div>
+    ${complete ? `<span class="enc-done-chip">${esc(t('encmode.badge.complete'))}</span>` : ''}
   </article>`;
+}
+
+/* -------------------------------------------------------- 장르·비교군 칩 */
+
+/**
+ * 분야를 골랐을 때만 나오는 2단 칩 바.
+ * 1단은 그 분야의 대분류(장르), 대분류를 고르면 2단으로 그 안의 비교군이 이어진다.
+ * '전체' 칩은 상위 단계를 푸는 역할이라 항상 맨 앞에 둔다.
+ */
+function genreBar(records) {
+  const domain = state.route.domain;
+  if (!domain) return '';
+  const cats = state.cat.categoriesOf(domain);
+  if (!cats.length) return '';
+
+  const inDomain = records.filter((rec) => rec.domain === domain);
+  const catCount = new Map();
+  for (const rec of inDomain) catCount.set(rec.category, (catCount.get(rec.category) || 0) + 1);
+  const shape = (key, label, count) => {
+    const on = key ? state.enc.category === key : !state.enc.category;
+    return `<button type="button" class="enc-genre${on ? ' is-on' : ''}" data-action="enc-category"
+      data-category="${esc(key || '')}" aria-pressed="${on ? 'true' : 'false'}"><span>${esc(label)}</span><b>${num(
+      count,
+    )}</b></button>`;
+  };
+  const rows = [
+    `<nav class="enc-genres" id="encGenres" aria-label="${esc(t('encmode.genreAria'))}">`,
+    shape('', t('encmode.genreAll'), inDomain.length),
+    ...cats.map((cat) => shape(cat.id, cat.label, catCount.get(cat.id) || 0)),
+    '</nav>',
+  ];
+
+  if (state.enc.category) {
+    const arenas = state.cat.arenasOf(domain, state.enc.category);
+    const arenaCount = new Map();
+    for (const rec of inDomain) {
+      if (rec.category !== state.enc.category) continue;
+      for (const id of rec.arenas || []) arenaCount.set(id, (arenaCount.get(id) || 0) + 1);
+    }
+    if (arenas.length > 1) {
+      const on = (id) => (id ? state.enc.arena === id : !state.enc.arena);
+      rows.push(`<nav class="enc-genres enc-genres--sub" id="encArenas" aria-label="${esc(t('encmode.arenaAria'))}">`);
+      rows.push(
+        `<button type="button" class="enc-genre enc-genre--sm${on(null) ? ' is-on' : ''}" data-action="enc-arena"
+          data-arena="" aria-pressed="${on(null) ? 'true' : 'false'}"><span>${esc(t('encmode.genreAll'))}</span></button>`,
+      );
+      for (const arena of arenas) {
+        rows.push(
+          `<button type="button" class="enc-genre enc-genre--sm${on(arena.id) ? ' is-on' : ''}" data-action="enc-arena"
+            data-arena="${esc(arena.id)}" aria-pressed="${on(arena.id) ? 'true' : 'false'}"><span>${esc(
+            arena.label,
+          )}</span><b>${num(arenaCount.get(arena.id) || 0)}</b></button>`,
+        );
+      }
+      rows.push('</nav>');
+    }
+  }
+  return rows.join('');
 }
 
 /* ------------------------------------------------------------- 결과 그리기 */
@@ -122,7 +199,7 @@ export function renderEncResults() {
   if (count) {
     count.textContent = t('encmode.count', {
       shown: num(pool.length),
-      n: num(indexRecords().length),
+      n: num((state.core?.index?.items || []).length),
     });
   }
   const more = $('encMore');
@@ -142,12 +219,10 @@ export function renderEncResults() {
 /* ------------------------------------------------------------------ 화면 */
 
 export function renderEncyclopedia() {
-  const idx = state.core.index;
-  const counts = idx.counts;
-  const records = indexRecords();
+  const records = (state.core?.index?.items || []);
+  const counts = state.core.index.counts;
   const books = records.filter((rec) => rec.enc).length;
   const domain = state.route.domain ? state.cat.domain(state.route.domain) : null;
-  const title = domain ? `${domain.label} · ${t('encmode.title')}` : t('encmode.title');
   const last = records.map((rec) => rec.assessed_at).filter(Boolean).sort().pop();
 
   const filterCell = (key) =>
@@ -155,18 +230,23 @@ export function renderEncyclopedia() {
       state.enc.filters[key] ? 'checked' : ''
     } /><span>${esc(t(`encmode.filter.${key}`))}</span></label>`;
 
+  const meta = [
+    t('encmode.meta.items', { n: num(counts.items) }),
+    t('encmode.meta.books', { n: num(books) }),
+    t('encmode.meta.arena', { n: counts.arenas }),
+    last ? t('encmode.meta.last', { date: last }) : '',
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
   $('view').innerHTML = `
   <section class="level enc-mode">
-    <header class="level-head level-head--enc">
-      <p class="eyebrow">${esc(t('encmode.eyebrow'))}</p>
-      <h1>${esc(title)}</h1>
-      <p class="lede lede--line">${esc(domain ? domain.description : t('encmode.lede'))}</p>
-      <div class="level-badges">
-        <span class="chip">${esc(t('encmode.meta.items', { n: num(counts.items) }))}</span>
-        <span class="chip chip--book">${esc(t('encmode.meta.books', { n: num(books) }))}</span>
-        <span class="chip chip--muted">${esc(t('encmode.meta.arena', { n: counts.arenas }))}</span>
-        ${last ? `<span class="chip chip--muted">${esc(t('encmode.meta.last', { date: last }))}</span>` : ''}
+    <header class="enc-head">
+      <div class="enc-head-main">
+        <p class="eyebrow">${esc(t('encmode.eyebrow'))}</p>
+        <h1>${domain ? `${esc(domain.label)}<span class="enc-h1-sub">${esc(t('encmode.titleShort'))}</span>` : esc(t('encmode.title'))}</h1>
       </div>
+      <p class="enc-head-meta">${esc(meta)}</p>
     </header>
 
     <div class="enc-toolbar">
@@ -179,15 +259,16 @@ export function renderEncyclopedia() {
         }>${esc(t('encmode.searchClear'))}</button>
       </label>
       <div class="select-row">
-        <label class="select-label" for="encSort">${esc(t('encmode.sortAria'))}</label>
         <select id="encSort" aria-label="${esc(t('encmode.sortAria'))}">${ENC_SORTS.map(
           (key) =>
             `<option value="${key}" ${state.enc.sort === key ? 'selected' : ''}>${esc(t(`encmode.sort.${key}`))}</option>`,
         ).join('')}</select>
       </div>
       <div class="enc-filters">${ENC_FILTERS.map(filterCell).join('')}</div>
-      <span class="panel-hint enc-count" id="encCount"></span>
+      <span class="enc-count" id="encCount"></span>
     </div>
+
+    ${genreBar(records)}
 
     <div class="enc-grid" id="encGrid"></div>
     <p class="empty" id="encEmpty" hidden>${esc(t('encmode.empty'))}</p>
