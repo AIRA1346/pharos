@@ -1125,5 +1125,3 @@ function renderFatal(err) {
 }
 
 init();
-
-init();
