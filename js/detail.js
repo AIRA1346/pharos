@@ -422,6 +422,8 @@ function sectionFacts(view) {
   const ads = item.monetization?.ads || {};
   const iap = item.monetization?.iap || {};
   const tier = view.recordTier;
+  // 미디어는 외부 평점을 쓰지 않는다(v0.8.0) — 누적 별점 행 자체를 두지 않는다.
+  const hasRating = Boolean(item.review_snapshot?.platforms?.length);
   const stars = storeStarsText(item);
   const starsLabel = storeStarsLabel(item);
   const rows = [
@@ -440,7 +442,7 @@ function sectionFacts(view) {
         ? ` · ${esc(engine.PLATFORM_LABEL[item.update_profile.latest_update_platform] || item.update_profile.latest_update_platform)}`
         : ''
     }`],
-    [starsLabel, stars],
+    ...(hasRating ? [[starsLabel, stars]] : []),
     [t('facts.assessed'), esc(item.assessed_at)],
   ];
   return `
