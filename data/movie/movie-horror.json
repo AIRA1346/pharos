@@ -14846,5 +14846,1656 @@
   },
   "icon": "assets/icons/saw.webp",
   "publisher": null
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-birds",
+  "name": "새",
+  "aliases": [],
+  "domain": "movie",
+  "category": "movie-live",
+  "arenas": [
+   "movie-horror"
+  ],
+  "arena_notes": {
+   "movie-horror": "1963년 · 영화 · Universal Pictures · Alfred Hitchcock. '공포 · 미스터리' 안에서 이 작품의 자리는 완결성과 수상 1건 · 수상 후보 1건 · 위키백과 60개 언어 문서로 잡았다."
+  },
+  "genres": [
+   "adventure film",
+   "horror film",
+   "mystery film"
+  ],
+  "platforms": [
+   "cinema",
+   "streaming"
+  ],
+  "developer": "Universal Pictures · Alfred Hitchcock",
+  "release_date": "1963-03-28",
+  "one_liner": "바닷가 마을의 새떼가 사람들을 공격하기 시작한다.",
+  "taste_tags": [],
+  "keywords": [
+   "새",
+   "완결"
+  ],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1963-03-28 기준으로 공개가 끝난 작품이다.",
+  "sources": [
+   {
+    "id": "wikidata-q110043",
+    "title": "Wikidata — 새",
+    "url": "https://www.wikidata.org/wiki/Q110043",
+    "type": "aggregator",
+    "grade": "B",
+    "accessed_at": "2026-11-29",
+    "note": "CC0 공개 지식베이스 — 공개일·종료일·제작진·장르·수상·언어판 문서 수를 이 항목에서 읽었다."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q110043"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "watch",
+    "kind": "one_time",
+    "label": "극장 관람 · 스트리밍",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+    },
+    "limits": [
+     "극장 관람권 가격은 지역·관 종별로 다르다",
+     "스트리밍 포함 여부는 서비스별로 다르다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "B",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "극장 개봉 · 스트리밍 — 120분",
+    "recommended_path": true,
+    "verdict": "recommend",
+    "axis_overrides": {}
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 63년 (+8).",
+    "source_ids": [
+     "wikidata-q110043"
+    ]
+   },
+   "ai_review": {
+    "score": 83,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "B/C",
+    "confidence": "medium",
+    "summary": "파로스 작품성 기록 83: 기저 62 · 수상 1건 (+9) · 수상 후보 1건 (+3) · 교차 검증 폭 60개 언어 문서 (+9). 작품성 심층 검수 전 자동 기록이다.",
+    "source_ids": [
+     "wikidata-q110043"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "watch",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "green"
+   },
+   "one_liner": "추천 — 1963 · 객관 90 · 작품성 83. 외부 평점 없이 파로스 기록만으로 판정.",
+   "reasons": [
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 63년 (+8).",
+    "작품성 83: 수상 1건 · 수상 후보 1건 · 위키백과 60개 언어 문서.",
+    "완결 — 공개 종료일 1963-03-28 기준으로 공개가 끝난 작품이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 공개 종료일(1963-03-28)에 근거한 자동 판단이다."
+   ]
+  },
+  "update_profile": {
+   "latest_update": "1963-03-28",
+   "latest_update_platform": "cinema",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1963-03-28",
+     "type": "content",
+     "platform": "cinema",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q110043"
+     ],
+     "note": "개봉(1963-03-28) — 파로스 기록."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — 공개 종료일 1963-03-28 기준으로 공개가 끝난 작품이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "wikidata-q110043"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q110043"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 극장 관람 또는 스트리밍 구독으로 본다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)",
+    "파로스 작품성 심층 검수"
+   ],
+   "conflicts": [],
+   "limitations": "Wikidata(CC0) 공개 진술과 기존 확인 기록으로 만든 1차 기록(auto_fact) — 작품성 심층 검수와 시청 가능 경로·가격은 순차 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "외부 평점 없음 — 사용자 축을 비웠다(v0.8.0 규모 보정 대상 아님).",
+   "ai_review": "파로스 작품성 기록 83: 기저 62 + 수상 1건 (+9) + 수상 후보 1건 (+3) + 교차 검증 폭 60개 언어 (+9). 근거: Wikidata 진술(등급 B) · 위키백과 언어판 문서 수(등급 C)."
+  },
+  "icon": "assets/icons/the-birds.webp",
+  "publisher": null
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "nosferatu",
+  "name": "노스페라투: 공포의 교향곡",
+  "aliases": [
+   "Nosferatu"
+  ],
+  "domain": "movie",
+  "category": "movie-live",
+  "arenas": [
+   "movie-horror"
+  ],
+  "arena_notes": {
+   "movie-horror": "1922년 · 영화 · Prana Film · F. W. Murnau. '공포 · 미스터리' 안에서 이 작품의 자리는 완결성과 위키백과 60개 언어 문서로 잡았다."
+  },
+  "genres": [
+   "silent film",
+   "horror film",
+   "drama film"
+  ],
+  "platforms": [
+   "cinema",
+   "streaming"
+  ],
+  "developer": "Prana Film · F. W. Murnau",
+  "release_date": "1922-02-17",
+  "one_liner": "흡혈귀가 배를 타고 마을로 들어와 흑사병을 옮긴다.",
+  "taste_tags": [],
+  "keywords": [
+   "노스페라투: 공포의 교향곡",
+   "Nosferatu",
+   "완결"
+  ],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1922-02-17 기준으로 공개가 끝난 작품이다.",
+  "sources": [
+   {
+    "id": "wikidata-q151895",
+    "title": "Wikidata — Nosferatu",
+    "url": "https://www.wikidata.org/wiki/Q151895",
+    "type": "aggregator",
+    "grade": "B",
+    "accessed_at": "2026-11-29",
+    "note": "CC0 공개 지식베이스 — 공개일·종료일·제작진·장르·수상·언어판 문서 수를 이 항목에서 읽었다."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q151895"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "watch",
+    "kind": "one_time",
+    "label": "극장 관람 · 스트리밍",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+    },
+    "limits": [
+     "극장 관람권 가격은 지역·관 종별로 다르다",
+     "스트리밍 포함 여부는 서비스별로 다르다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "B",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "극장 개봉 · 스트리밍 — 120분",
+    "recommended_path": true,
+    "verdict": "recommend",
+    "axis_overrides": {}
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 104년 (+8).",
+    "source_ids": [
+     "wikidata-q151895"
+    ]
+   },
+   "ai_review": {
+    "score": 71,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "B/C",
+    "confidence": "low",
+    "summary": "파로스 작품성 기록 71: 기저 62 · 교차 검증 폭 60개 언어 문서 (+9). 작품성 심층 검수 전 자동 기록이다.",
+    "source_ids": [
+     "wikidata-q151895"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "watch",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — 1922 · 객관 90 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "reasons": [
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 104년 (+8).",
+    "작품성 71: 위키백과 60개 언어 문서.",
+    "완결 — 공개 종료일 1922-02-17 기준으로 공개가 끝난 작품이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 공개 종료일(1922-02-17)에 근거한 자동 판단이다."
+   ]
+  },
+  "update_profile": {
+   "latest_update": "1922-02-17",
+   "latest_update_platform": "cinema",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1922-02-17",
+     "type": "content",
+     "platform": "cinema",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q151895"
+     ],
+     "note": "개봉(1922-02-17) — 파로스 기록."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — 공개 종료일 1922-02-17 기준으로 공개가 끝난 작품이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "wikidata-q151895"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q151895"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 극장 관람 또는 스트리밍 구독으로 본다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)",
+    "파로스 작품성 심층 검수"
+   ],
+   "conflicts": [],
+   "limitations": "Wikidata(CC0) 공개 진술과 기존 확인 기록으로 만든 1차 기록(auto_fact) — 작품성 심층 검수와 시청 가능 경로·가격은 순차 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "외부 평점 없음 — 사용자 축을 비웠다(v0.8.0 규모 보정 대상 아님).",
+   "ai_review": "파로스 작품성 기록 71: 기저 62 + 수상 0건 (+0) + 수상 후보 0건 (+0) + 교차 검증 폭 60개 언어 (+9). 근거: Wikidata 진술(등급 B) · 위키백과 언어판 문서 수(등급 C)."
+  },
+  "icon": "assets/icons/nosferatu.webp",
+  "publisher": null
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "it",
+  "name": "그것",
+  "aliases": [
+   "It"
+  ],
+  "domain": "movie",
+  "category": "movie-live",
+  "arenas": [
+   "movie-horror"
+  ],
+  "arena_notes": {
+   "movie-horror": "2017년 · 영화 · New Line Cinema · Andy Muschietti. '공포 · 미스터리' 안에서 이 작품의 자리는 완결성과 위키백과 59개 언어 문서로 잡았다."
+  },
+  "genres": [
+   "supernatural horror film",
+   "psychological thriller film",
+   "horror film"
+  ],
+  "platforms": [
+   "cinema",
+   "streaming"
+  ],
+  "developer": "New Line Cinema · Andy Muschietti",
+  "release_date": "2017-09-07",
+  "one_liner": "실종된 아이들을 쫓는 다섯 아이가 광대 페니와이즈를 만난다.",
+  "taste_tags": [],
+  "keywords": [
+   "그것",
+   "It",
+   "완결"
+  ],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2017-09-07 기준으로 공개가 끝난 작품이다.",
+  "sources": [
+   {
+    "id": "wikidata-q25136484",
+    "title": "Wikidata — It",
+    "url": "https://www.wikidata.org/wiki/Q25136484",
+    "type": "aggregator",
+    "grade": "B",
+    "accessed_at": "2026-11-29",
+    "note": "CC0 공개 지식베이스 — 공개일·종료일·제작진·장르·수상·언어판 문서 수를 이 항목에서 읽었다."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q25136484"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "watch",
+    "kind": "one_time",
+    "label": "극장 관람 · 스트리밍",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+    },
+    "limits": [
+     "극장 관람권 가격은 지역·관 종별로 다르다",
+     "스트리밍 포함 여부는 서비스별로 다르다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "B",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "극장 개봉 · 스트리밍 — 120분",
+    "recommended_path": true,
+    "verdict": "conditional",
+    "axis_overrides": {}
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
+   },
+   "objective": {
+    "score": 84,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
+    "source_ids": [
+     "wikidata-q25136484"
+    ]
+   },
+   "ai_review": {
+    "score": 71,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "B/C",
+    "confidence": "low",
+    "summary": "파로스 작품성 기록 71: 기저 62 · 교차 검증 폭 59개 언어 문서 (+9). 작품성 심층 검수 전 자동 기록이다.",
+    "source_ids": [
+     "wikidata-q25136484"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "watch",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 2017 · 객관 84 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "reasons": [
+    "자동 산정 84: 완결 (+12) · 접근 경로 2개 (+8) · 출시 9년 (+2).",
+    "작품성 71: 위키백과 59개 언어 문서.",
+    "완결 — 공개 종료일 2017-09-07 기준으로 공개가 끝난 작품이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 공개 종료일(2017-09-07)에 근거한 자동 판단이다."
+   ]
+  },
+  "update_profile": {
+   "latest_update": "2017-09-07",
+   "latest_update_platform": "cinema",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2017-09-07",
+     "type": "content",
+     "platform": "cinema",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q25136484"
+     ],
+     "note": "개봉(2017-09-07) — 파로스 기록."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — 공개 종료일 2017-09-07 기준으로 공개가 끝난 작품이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "wikidata-q25136484"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q25136484"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 극장 관람 또는 스트리밍 구독으로 본다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)",
+    "파로스 작품성 심층 검수"
+   ],
+   "conflicts": [],
+   "limitations": "Wikidata(CC0) 공개 진술과 기존 확인 기록으로 만든 1차 기록(auto_fact) — 작품성 심층 검수와 시청 가능 경로·가격은 순차 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "외부 평점 없음 — 사용자 축을 비웠다(v0.8.0 규모 보정 대상 아님).",
+   "ai_review": "파로스 작품성 기록 71: 기저 62 + 수상 0건 (+0) + 수상 후보 0건 (+0) + 교차 검증 폭 59개 언어 (+9). 근거: Wikidata 진술(등급 B) · 위키백과 언어판 문서 수(등급 C)."
+  },
+  "icon": "assets/icons/it.webp",
+  "publisher": null
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "resident-evil",
+  "name": "레지던트 이블",
+  "aliases": [],
+  "domain": "movie",
+  "category": "movie-live",
+  "arenas": [
+   "movie-horror"
+  ],
+  "arena_notes": {
+   "movie-horror": "2002년 · 영화 · Constantin Film · Paul W. S. Anderson. '공포 · 미스터리' 안에서 이 작품의 자리는 완결성과 위키백과 57개 언어 문서로 잡았다."
+  },
+  "genres": [
+   "action film",
+   "horror film",
+   "science fiction film"
+  ],
+  "platforms": [
+   "cinema",
+   "streaming"
+  ],
+  "developer": "Constantin Film · Paul W. S. Anderson",
+  "release_date": "2002-03-21",
+  "one_liner": "지하 실험실의 바이러스가 도시 전체를 좀비로 만든다.",
+  "taste_tags": [],
+  "keywords": [
+   "레지던트 이블",
+   "완결"
+  ],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 2002-03-21 기준으로 공개가 끝난 작품이다.",
+  "sources": [
+   {
+    "id": "wikidata-q153484",
+    "title": "Wikidata — Resident Evil",
+    "url": "https://www.wikidata.org/wiki/Q153484",
+    "type": "aggregator",
+    "grade": "B",
+    "accessed_at": "2026-11-29",
+    "note": "CC0 공개 지식베이스 — 공개일·종료일·제작진·장르·수상·언어판 문서 수를 이 항목에서 읽었다."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q153484"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "watch",
+    "kind": "one_time",
+    "label": "극장 관람 · 스트리밍",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+    },
+    "limits": [
+     "극장 관람권 가격은 지역·관 종별로 다르다",
+     "스트리밍 포함 여부는 서비스별로 다르다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "B",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "극장 개봉 · 스트리밍 — 120분",
+    "recommended_path": true,
+    "verdict": "recommend",
+    "axis_overrides": {}
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 24년 (+8).",
+    "source_ids": [
+     "wikidata-q153484"
+    ]
+   },
+   "ai_review": {
+    "score": 71,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "B/C",
+    "confidence": "low",
+    "summary": "파로스 작품성 기록 71: 기저 62 · 교차 검증 폭 57개 언어 문서 (+9). 작품성 심층 검수 전 자동 기록이다.",
+    "source_ids": [
+     "wikidata-q153484"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "watch",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — 2002 · 객관 90 · 작품성 71. 외부 평점 없이 파로스 기록만으로 판정.",
+   "reasons": [
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 24년 (+8).",
+    "작품성 71: 위키백과 57개 언어 문서.",
+    "완결 — 공개 종료일 2002-03-21 기준으로 공개가 끝난 작품이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 공개 종료일(2002-03-21)에 근거한 자동 판단이다."
+   ]
+  },
+  "update_profile": {
+   "latest_update": "2002-03-21",
+   "latest_update_platform": "cinema",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2002-03-21",
+     "type": "content",
+     "platform": "cinema",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q153484"
+     ],
+     "note": "개봉(2002-03-21) — 파로스 기록."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — 공개 종료일 2002-03-21 기준으로 공개가 끝난 작품이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "wikidata-q153484"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q153484"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 극장 관람 또는 스트리밍 구독으로 본다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)",
+    "파로스 작품성 심층 검수"
+   ],
+   "conflicts": [],
+   "limitations": "Wikidata(CC0) 공개 진술과 기존 확인 기록으로 만든 1차 기록(auto_fact) — 작품성 심층 검수와 시청 가능 경로·가격은 순차 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "외부 평점 없음 — 사용자 축을 비웠다(v0.8.0 규모 보정 대상 아님).",
+   "ai_review": "파로스 작품성 기록 71: 기저 62 + 수상 0건 (+0) + 수상 후보 0건 (+0) + 교차 검증 폭 57개 언어 (+9). 근거: Wikidata 진술(등급 B) · 위키백과 언어판 문서 수(등급 C)."
+  },
+  "icon": "assets/icons/resident-evil.webp",
+  "publisher": null
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "interview-with-the-vampire",
+  "name": "뱀파이어와의 인터뷰",
+  "aliases": [],
+  "domain": "movie",
+  "category": "movie-live",
+  "arenas": [
+   "movie-horror"
+  ],
+  "arena_notes": {
+   "movie-horror": "1994년 · 영화 · The Geffen Film Company · Neil Jordan. '공포 · 미스터리' 안에서 이 작품의 자리는 완결성과 수상 후보 2건 · 위키백과 56개 언어 문서로 잡았다."
+  },
+  "genres": [
+   "horror film",
+   "fantasy film",
+   "romance film"
+  ],
+  "platforms": [
+   "cinema",
+   "streaming"
+  ],
+  "developer": "The Geffen Film Company · Neil Jordan",
+  "release_date": "1994-11-11",
+  "one_liner": "기자를 인터뷰한 뱀파이어가 200년의 이야기를 들려준다.",
+  "taste_tags": [],
+  "keywords": [
+   "뱀파이어와의 인터뷰",
+   "완결"
+  ],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결 — 공개 종료일 1994-11-11 기준으로 공개가 끝난 작품이다.",
+  "sources": [
+   {
+    "id": "wikidata-q318910",
+    "title": "Wikidata — 뱀파이어와의 인터뷰",
+    "url": "https://www.wikidata.org/wiki/Q318910",
+    "type": "aggregator",
+    "grade": "B",
+    "accessed_at": "2026-11-29",
+    "note": "CC0 공개 지식베이스 — 공개일·종료일·제작진·장르·수상·언어판 문서 수를 이 항목에서 읽었다."
+   }
+  ],
+  "flags": {
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "작품 안에 광고가 삽입되어 있지 않다.",
+    "verification": "inferred"
+   },
+   "gacha_random_items": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "작품 단위 확률형 상품이 없다.",
+    "verification": "direct"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "p2w": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "작품 감상에 과금 우위 요소가 없다.",
+    "verification": "direct"
+   },
+   "iap_required_to_progress": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "작품 감상에 추가 결제가 필요하지 않다.",
+    "verification": "direct"
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "wikidata-q318910"
+    ],
+    "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "B",
+    "source_ids": [],
+    "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제).",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "watch",
+    "kind": "one_time",
+    "label": "극장 관람 · 스트리밍",
+    "price": {
+     "amount": null,
+     "currency": "none",
+     "period": "none",
+     "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+    },
+    "limits": [
+     "극장 관람권 가격은 지역·관 종별로 다르다",
+     "스트리밍 포함 여부는 서비스별로 다르다"
+    ],
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 자체에 실행 전 광고가 없다 — 서비스 화면의 광고는 플랫폼의 몫으로 본다."
+     },
+     "gacha_random_items": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 단위 확률형 상품이 없다.",
+      "impact": "none"
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+     },
+     "p2w": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 과금 우위 요소가 없다.",
+      "impact": "none"
+     },
+     "iap_required_to_progress": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "작품 감상에 추가 결제가 필요하지 않다."
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "B",
+      "note": "연재·방영이 끝난 작품 — 12개월 이상 새 화·판이 없다(완결작 면제)."
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "극장 관람과 스트리밍이 모두 가능해 구독 필수 여부를 단정하지 않는다."
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "플랫폼에 따라 계정이 필요하지만 작품 단위로 확인하지 않았다."
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "시청·열람에 필요한 개인정보 수집 범위는 확인하지 않았다."
+     }
+    },
+    "one_liner": "극장 개봉 · 스트리밍 — 120분",
+    "recommended_path": true,
+    "verdict": "recommend",
+    "axis_overrides": {}
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "외부 사용자 평점을 수집하지 않는다(v0.8.0) — 이 축은 비어 있고, 판정은 객관 축과 파로스 작품성 축으로 계산한다."
+   },
+   "objective": {
+    "score": 90,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 32년 (+8).",
+    "source_ids": [
+     "wikidata-q318910"
+    ]
+   },
+   "ai_review": {
+    "score": 74,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "B/C",
+    "confidence": "low",
+    "summary": "파로스 작품성 기록 74: 기저 62 · 수상 후보 2건 (+3) · 교차 검증 폭 56개 언어 문서 (+9). 작품성 심층 검수 전 자동 기록이다.",
+    "source_ids": [
+     "wikidata-q318910"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "recommend",
+   "tier_of_record": "watch",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "추천 — 1994 · 객관 90 · 작품성 74. 외부 평점 없이 파로스 기록만으로 판정.",
+   "reasons": [
+    "자동 산정 90: 완결 (+12) · 접근 경로 2개 (+8) · 출시 32년 (+8).",
+    "작품성 74: 수상 후보 2건 · 위키백과 56개 언어 문서.",
+    "완결 — 공개 종료일 1994-11-11 기준으로 공개가 끝난 작품이다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 기록 항목(auto_fact) — 작품성 심층 검수는 순차 검수에서 확정한다.",
+    "한국 기준 시청·열람 가능 플랫폼과 작품 단위 가격은 확인하지 않았다.",
+    "완결작 면제는 공개 종료일(1994-11-11)에 근거한 자동 판단이다."
+   ]
+  },
+  "update_profile": {
+   "latest_update": "1994-11-11",
+   "latest_update_platform": "cinema",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "1994-11-11",
+     "type": "content",
+     "platform": "cinema",
+     "promise_status": "not_applicable",
+     "evidence_grade": "B",
+     "source_ids": [
+      "wikidata-q318910"
+     ],
+     "note": "개봉(1994-11-11) — 파로스 기록."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "완결 — 공개 종료일 1994-11-11 기준으로 공개가 끝난 작품이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "wikidata-q318910"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "no",
+    "first_purchase_prompt": "unknown",
+    "p2w": "no",
+    "required_to_progress": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "wikidata-q318910"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "작품 단위 가격 미확인 — 극장 관람권·스트리밍 구독"
+   },
+   "summary": "작품 단위 인앱 결제·확률형 요소 없음. 극장 관람 또는 스트리밍 구독으로 본다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "한국 시청·열람 가능 플랫폼",
+    "작품 단위 가격",
+    "최근 화·판 공개일",
+    "본질 완성도(AI 검토)",
+    "파로스 작품성 심층 검수"
+   ],
+   "conflicts": [],
+   "limitations": "Wikidata(CC0) 공개 진술과 기존 확인 기록으로 만든 1차 기록(auto_fact) — 작품성 심층 검수와 시청 가능 경로·가격은 순차 검수에서 확정한다. 한 줄 소개는 작품 소재를 요약해 직접 썼다."
+  },
+  "score_notes": {
+   "user_rating": "외부 평점 없음 — 사용자 축을 비웠다(v0.8.0 규모 보정 대상 아님).",
+   "ai_review": "파로스 작품성 기록 74: 기저 62 + 수상 0건 (+0) + 수상 후보 2건 (+3) + 교차 검증 폭 56개 언어 (+9). 근거: Wikidata 진술(등급 B) · 위키백과 언어판 문서 수(등급 C)."
+  },
+  "icon": "assets/icons/interview-with-the-vampire.webp",
+  "publisher": null
  }
 ]

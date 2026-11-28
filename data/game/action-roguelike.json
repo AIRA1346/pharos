@@ -19387,5 +19387,1211 @@
    "ai_review": "자동 추정 67.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/blazblue-entropy-effect.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "ghostrunner",
+  "name": "Ghostrunner",
+  "aliases": [],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "action-roguelike"
+  ],
+  "arena_notes": {
+   "action-roguelike": "Steam 누적 91% 긍정(19,380건) · 최근 30일 85%(151건). ₩35,000 (할인 75% ₩8,750) · 마지막 업데이트 2024-06-27. 「액션 로그라이크」 안에서 One More Level의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "One More Level",
+  "publisher": "505 Games",
+  "release_date": "2020-10-27",
+  "one_liner": "Ghostrunner는 유니크한 싱글 플레이어 체험을 제공합니다: 빠른 전개, 격렬한 전투, 그리고 공상 과학과 포스트 아포칼립스 테마가 버물린 독창적 설정을 즐겨 보세요. 이미 끝난 세계와 그 속에서 생존을 위해 싸우는 이들의 스토리를 담았습니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2024-06-27(885일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-ghostrunner",
+    "title": "Steam — Ghostrunner",
+    "url": "https://store.steampowered.com/app/1139900/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-29",
+    "note": "정가 ₩ 35,000, 출시 2020-10-27, 개발사 One More Level, 3D Realms, Slipgate Ironworks™, All in! Games. 평가 Steam 누적 91% 긍정(19,380건) · 최근 30일 85%(151건)."
+   },
+   {
+    "id": "steamspy-ghostrunner",
+    "title": "SteamSpy — Ghostrunner",
+    "url": "https://steamspy.com/app/1139900",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-29",
+    "note": "전체 언어 누적 긍정 43,176 / 부정 3,967 (긍정률 91.6%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-ghostrunner",
+    "title": "Steam — Ghostrunner 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5842939267310114873",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-29",
+    "note": "최근 업데이트 공지 'Ghostrunner 2 Heat Pack DLC and New Patch Available now!' (2024-06-27)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ghostrunner"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ghostrunner"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ghostrunner"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-ghostrunner"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-ghostrunner"
+    ],
+    "note": "마지막 업데이트 2024-06-27 — 12개월(885일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 35000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩35,000 (할인 75% ₩8,750)"
+    },
+    "limits": [
+     "DLC 7건 별도 판매",
+     "미국 스토어 $29.99"
+    ],
+    "one_liner": "1회 구매 ₩35,000 — DLC 7건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-ghostrunner"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-ghostrunner"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-06-27 — 12개월(885일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-ghostrunner"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-ghostrunner"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.9,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 91% 긍정(19,380건) · 최근 30일 85%(151건) — 표본 가중 평균 91.0 · v0.6.0 규모 보정 +0.90(표본 19,380) → 91.9.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 19380,
+     "sample_source": "reviews",
+     "base_score": 91.0,
+     "log_delta": 0.8621,
+     "gate": 1.0,
+     "applied": 0.9,
+     "final_score": 91.9,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-ghostrunner",
+     "steamspy-ghostrunner"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-27(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
+    "source_ids": [
+     "steam-news-ghostrunner"
+    ]
+   },
+   "ai_review": {
+    "score": 55.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 19,380건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-ghostrunner"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 91% 긍정(19,380건), 최근 업데이트 2024-06-27. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 91% 긍정(19,380건) · 최근 30일 85%(151건).",
+    "₩35,000 (할인 75% ₩8,750) · 마지막 업데이트 2024-06-27(885일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-29 스토어 표기 기준이다.",
+    "마지막 업데이트가 2024-06-27 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 19380,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 85,
+      "scale": "percent",
+      "count": 151,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 19,380건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 91% 긍정(19,380건) · 최근 30일 85%(151건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-06-27",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-06-27",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-ghostrunner"
+     ],
+     "note": "업데이트 공지 'Ghostrunner 2 Heat Pack DLC and New Patch Available now!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-06-27(885일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-ghostrunner"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-ghostrunner"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩35,000 (할인 75% ₩8,750). DLC 7건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-29 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 91% 긍정(19,380건) · 최근 30일 85%(151건) → 표본 가중 평균 91.0. 표본 19,380건. v0.6.0 표본 규모 보정: 누적 표본 19,380건 → 로그 보정 +0.86 × 평점 게이트 1.00 = +0.90 (91.0 → 91.9).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-27(-14) · 플랫폼 2종(+2) · 출시 6년(+4).",
+   "ai_review": "자동 추정 55.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8) · 표본 19,380건(+1)."
+  },
+  "icon": "assets/icons/ghostrunner.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-last-spell",
+  "name": "The Last Spell",
+  "aliases": [],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "action-roguelike"
+  ],
+  "arena_notes": {
+   "action-roguelike": "Steam 누적 92% 긍정(6,808건) · 최근 30일 87%(81건). ₩27,000 (할인 70% ₩8,100) · 마지막 업데이트 2026-04-02. 「액션 로그라이크」 안에서 Ishtar Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "인디",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Ishtar Games",
+  "publisher": "Nacon",
+  "release_date": "2023-03-09",
+  "one_liner": "영웅 부대를 움직여 인류의 마지막 보루를 수호해야 합니다. 지금 바로 로그라이트 시스템이 가미된 전술 RPG를 시작하세요. 밤에는 마법과 완력으로 사악한 괴물들을 쓸어버리고, 낮에는 손상된 도시 방어 시설을 복구해야 합니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-04-02(241일 전).",
+  "sources": [
+   {
+    "id": "steam-the-last-spell",
+    "title": "Steam — The Last Spell",
+    "url": "https://store.steampowered.com/app/1105670/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-29",
+    "note": "정가 ₩ 27,000, 출시 2023-03-09, 개발사 Ishtar Games. 평가 Steam 누적 92% 긍정(6,808건) · 최근 30일 87%(81건)."
+   },
+   {
+    "id": "steamspy-the-last-spell",
+    "title": "SteamSpy — The Last Spell",
+    "url": "https://steamspy.com/app/1105670",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-29",
+    "note": "전체 언어 누적 긍정 12,275 / 부정 1,151 (긍정률 91.4%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-the-last-spell",
+    "title": "Steam — The Last Spell 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1828894815557371",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-29",
+    "note": "최근 업데이트 공지 'Changelog 1.3.32.10' (2026-04-02)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-last-spell"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-last-spell"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-last-spell"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-the-last-spell"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-the-last-spell"
+    ],
+    "note": "마지막 업데이트 2026-04-02(241일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 27000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩27,000 (할인 70% ₩8,100)"
+    },
+    "limits": [
+     "DLC 4건 별도 판매",
+     "미국 스토어 $24.99"
+    ],
+    "one_liner": "1회 구매 ₩27,000 — DLC 4건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-the-last-spell"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-the-last-spell"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-04-02(241일 전) — 활발.",
+      "source_ids": [
+       "steam-the-last-spell"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-the-last-spell"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 91.7,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 92% 긍정(6,808건) · 최근 30일 87%(81건) — 표본 가중 평균 92.0 · v0.6.0 규모 보정 -0.30(표본 6,808) → 91.7.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 6808,
+     "sample_source": "reviews",
+     "base_score": 92.0,
+     "log_delta": -0.334,
+     "gate": 1.0,
+     "applied": -0.3,
+     "final_score": 91.7,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-the-last-spell",
+     "steamspy-the-last-spell"
+    ]
+   },
+   "objective": {
+    "score": 72.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 72.0: 가격·무료 여부를 스토어에서 확인(+4) · 1년 내 업데이트 2026-04-02(+2) · 플랫폼 2종(+2) · 출시 3년(+2).",
+    "source_ids": [
+     "steam-news-the-last-spell"
+    ]
+   },
+   "ai_review": {
+    "score": 63.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 63.0: 본질 검토 전 중립값 60 · 스토어 평점 92.0(+3.0). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-the-last-spell"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 92% 긍정(6,808건), 최근 업데이트 2026-04-02. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 92% 긍정(6,808건) · 최근 30일 87%(81건).",
+    "₩27,000 (할인 70% ₩8,100) · 마지막 업데이트 2026-04-02(241일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-29 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 92,
+      "scale": "percent",
+      "count": 6808,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 81,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 6,808건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 92% 긍정(6,808건) · 최근 30일 87%(81건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-04-02",
+   "latest_update_platform": "steam",
+   "cadence": "irregular",
+   "entries": [
+    {
+     "date": "2026-04-02",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-the-last-spell"
+     ],
+     "note": "업데이트 공지 'Changelog 1.3.32.10'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-04-02(241일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-the-last-spell"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-last-spell"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩27,000 (할인 70% ₩8,100). DLC 4건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-29 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 92% 긍정(6,808건) · 최근 30일 87%(81건) → 표본 가중 평균 92.0. 표본 6,808건. v0.6.0 표본 규모 보정: 누적 표본 6,808건 → 로그 보정 -0.33 × 평점 게이트 1.00 = -0.30 (92.0 → 91.7).",
+   "objective": "자동 산정 72.0: 가격·무료 여부를 스토어에서 확인(+4) · 1년 내 업데이트 2026-04-02(+2) · 플랫폼 2종(+2) · 출시 3년(+2).",
+   "ai_review": "자동 추정 63.0: 본질 검토 전 중립값 60 · 스토어 평점 92.0(+3.0)."
+  },
+  "icon": "assets/icons/the-last-spell.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "library-of-ruina",
+  "name": "Library Of Ruina",
+  "aliases": [],
+  "domain": "game",
+  "category": "action-indie",
+  "arenas": [
+   "action-roguelike"
+  ],
+  "arena_notes": {
+   "action-roguelike": "Steam 누적 96% 긍정(15,292건) · 최근 30일 95%(645건). ₩31,000 · 마지막 업데이트 2021-11-18. 「액션 로그라이크」 안에서 ProjectMoon의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "인디",
+   "RPG",
+   "전략"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "ProjectMoon",
+  "publisher": "ProjectMoon",
+  "release_date": "2021-08-10",
+  "one_liner": "\"부디 당신의 책을 찾으실 수 있기를\"손님들과 사서와의 전투가 무대처럼 펼쳐집니다. 패배한 손님은 책이 되고, 도서관은 성장합니다. 책을 얻어가며 도시의 비밀을 파헤쳐가세요. 그리고 손에 넣으세요. 단 하나의 완벽한 책을.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-29",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 2021-11-18(1837일 전) — 완결 선언인지 방치인지 확인 전.",
+  "sources": [
+   {
+    "id": "steam-library-of-ruina",
+    "title": "Steam — Library Of Ruina",
+    "url": "https://store.steampowered.com/app/1256670/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-29",
+    "note": "정가 미표기, 출시 2021-08-10, 개발사 ProjectMoon. 평가 Steam 누적 96% 긍정(15,292건) · 최근 30일 95%(645건)."
+   },
+   {
+    "id": "steamspy-library-of-ruina",
+    "title": "SteamSpy — Library Of Ruina",
+    "url": "https://steamspy.com/app/1256670",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-29",
+    "note": "전체 언어 누적 긍정 39,800 / 부정 2,237 (긍정률 94.7%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-library-of-ruina",
+    "title": "Steam — Library Of Ruina 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4227186657140930563",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-29",
+    "note": "최근 업데이트 공지 'Patch Note ver 1.1.0.6a12' (2021-11-18)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ],
+    "note": "마지막 업데이트 2021-11-18 — 12개월(1837일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 31000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩31,000"
+    },
+    "limits": [
+     "DLC 2건 별도 판매",
+     "미국 스토어 $29.99"
+    ],
+    "one_liner": "1회 구매 ₩31,000 — DLC 2건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-library-of-ruina"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-library-of-ruina"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "fail",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2021-11-18 — 12개월(1837일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-library-of-ruina"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-library-of-ruina"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "avoid",
+    "recommended_path": false
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 96.5,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 96% 긍정(15,292건) · 최근 30일 95%(645건) — 표본 가중 평균 96.0 · v0.6.0 규모 보정 +0.50(표본 15,292) → 96.5.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 15292,
+     "sample_source": "reviews",
+     "base_score": 96.0,
+     "log_delta": 0.5534,
+     "gate": 1.0,
+     "applied": 0.5,
+     "final_score": 96.5,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-library-of-ruina",
+     "steamspy-library-of-ruina"
+    ]
+   },
+   "objective": {
+    "score": 56.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-11-18(-14) · 플랫폼 2종(+2) · 출시 5년(+2).",
+    "source_ids": [
+     "steam-news-library-of-ruina"
+    ]
+   },
+   "ai_review": {
+    "score": 57.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 57.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 12개월 방치(-8) · 표본 15,292건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "avoid",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "거름 — Steam 96% 긍정(15,292건), 최근 업데이트 2021-11-18. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 96% 긍정(15,292건) · 최근 30일 95%(645건).",
+    "₩31,000 · 마지막 업데이트 2021-11-18(1837일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": true,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-29 스토어 표기 기준이다.",
+    "마지막 업데이트가 2021-11-18 인데 12개월이 넘었다 — 완결작으로 선언된 작품이면 면제 대상이라 심층 검수에서 maintenance_status 를 확정한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 96,
+      "scale": "percent",
+      "count": 15292,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 645,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 15,292건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 96% 긍정(15,292건) · 최근 30일 95%(645건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2021-11-18",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-11-18",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-library-of-ruina"
+     ],
+     "note": "업데이트 공지 'Patch Note ver 1.1.0.6a12'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2021-11-18(1837일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-library-of-ruina"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-library-of-ruina"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩31,000. DLC 2건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-29 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 96% 긍정(15,292건) · 최근 30일 95%(645건) → 표본 가중 평균 96.0. 표본 15,292건. v0.6.0 표본 규모 보정: 누적 표본 15,292건 → 로그 보정 +0.55 × 평점 게이트 1.00 = +0.50 (96.0 → 96.5).",
+   "objective": "자동 산정 56.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-11-18(-14) · 플랫폼 2종(+2) · 출시 5년(+2).",
+   "ai_review": "자동 추정 57.0: 본질 검토 전 중립값 60 · 스토어 평점 96.0(+4.0) · 12개월 방치(-8) · 표본 15,292건(+1)."
+  },
+  "icon": "assets/icons/library-of-ruina.webp"
  }
 ]
