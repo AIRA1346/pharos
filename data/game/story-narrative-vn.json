@@ -21649,5 +21649,2830 @@
    "ai_review": "자동 추정 66.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/painscreek-killings.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "life-is-strange-double-exposure",
+  "name": "Life is Strange: Double Exposure",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 67% 긍정(4,585건) · 최근 30일 82%(69건). ₩59,800 (할인 60% ₩23,920) · 마지막 업데이트 2024-12-05. 「스토리 · 내러티브 · 추리」 안에서 Deck Nine Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Deck Nine Games",
+  "publisher": "Square Enix",
+  "release_date": "2024-10-29",
+  "one_liner": "맥스 콜필드는 새 단짝 친구 사피가 눈 속에서 죽어 있는 것을 발견하면서 평행 시간선으로 향하는 길을 여는 능력을 깨우칩니다. 두 시간선 사이를 건너갈 수 있는 새로운 능력을 발견한 맥스. 과연 맥스는 같은 살인 사건을 해결하고 막을 수 있을까요?",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-12-05(723일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-life-is-strange-double-exposure",
+    "title": "Steam — Life is Strange: Double Exposure",
+    "url": "https://store.steampowered.com/app/1874000/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 59,800, 출시 2024-10-29, 개발사 Deck Nine Games. 평가 Steam 누적 67% 긍정(4,585건) · 최근 30일 82%(69건)."
+   },
+   {
+    "id": "steamspy-life-is-strange-double-exposure",
+    "title": "SteamSpy — Life is Strange: Double Exposure",
+    "url": "https://steamspy.com/app/1874000",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 5,213 / 부정 2,394 (긍정률 68.5%). 보유자 규모 100,000 .. 200,000."
+   },
+   {
+    "id": "steam-news-life-is-strange-double-exposure",
+    "title": "Steam — Life is Strange: Double Exposure 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1784506359245849",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Life is Strange: Double Exposure Patch Notes - December 5th 2024' (2024-12-05)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ],
+    "note": "마지막 업데이트 2024-12-05 — 12개월(723일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 59800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩59,800 (할인 60% ₩23,920)"
+    },
+    "limits": [
+     "DLC 2건 별도 판매",
+     "미국 스토어 $49.99"
+    ],
+    "one_liner": "1회 구매 ₩59,800 — DLC 2건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-life-is-strange-double-exposure"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-life-is-strange-double-exposure"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-12-05 — 12개월(723일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-life-is-strange-double-exposure"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-life-is-strange-double-exposure"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 66.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 67% 긍정(4,585건) · 최근 30일 82%(69건) — 표본 가중 평균 67.0 · v0.6.0 규모 보정 -0.50(표본 4,585) → 66.5.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 4585,
+     "sample_source": "reviews",
+     "base_score": 67.0,
+     "log_delta": -0.6773,
+     "gate": 0.7,
+     "applied": -0.5,
+     "final_score": 66.5,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-life-is-strange-double-exposure",
+     "steamspy-life-is-strange-double-exposure"
+    ]
+   },
+   "objective": {
+    "score": 54.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 54.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-12-05(-14) · 플랫폼 2종(+2).",
+    "source_ids": [
+     "steam-news-life-is-strange-double-exposure"
+    ]
+   },
+   "ai_review": {
+    "score": 48.8,
+    "signal": "red",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 48.8: 본질 검토 전 중립값 60 · 스토어 평점 67.0(-3.2) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "red"
+   },
+   "one_liner": "조건부 — ₩59,800 (할인 60% ₩23,920) · 마지막 업데이트 2024-12-05. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 67% 긍정(4,585건) · 최근 30일 82%(69건).",
+    "₩59,800 (할인 60% ₩23,920) · 마지막 업데이트 2024-12-05(723일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 67,
+      "scale": "percent",
+      "count": 4585,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 82,
+      "scale": "percent",
+      "count": 69,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 4,585건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 67% 긍정(4,585건) · 최근 30일 82%(69건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-12-05",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-12-05",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-life-is-strange-double-exposure"
+     ],
+     "note": "업데이트 공지 'Life is Strange: Double Exposure Patch Notes - December 5th 2024'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-12-05(723일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-life-is-strange-double-exposure"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-life-is-strange-double-exposure"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩59,800 (할인 60% ₩23,920). DLC 2건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 67% 긍정(4,585건) · 최근 30일 82%(69건) → 표본 가중 평균 67.0. 표본 4,585건. v0.6.0 표본 규모 보정: 누적 표본 4,585건 → 로그 보정 -0.68 × 평점 게이트 0.70 = -0.50 (67.0 → 66.5).",
+   "objective": "자동 산정 54.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-12-05(-14) · 플랫폼 2종(+2).",
+   "ai_review": "자동 추정 48.8: 본질 검토 전 중립값 60 · 스토어 평점 67.0(-3.2) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/life-is-strange-double-exposure.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-stanley-parable-ultra-deluxe",
+  "name": "The Stanley Parable: Ultra Deluxe",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 94% 긍정(24,674건) · 최근 30일 92%(177건). ₩26,000 · 마지막 업데이트 2024-03-28. 「스토리 · 내러티브 · 추리」 안에서 Crows Crows Crows의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "캐주얼",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Crows Crows Crows",
+  "publisher": "Crows Crows Crows",
+  "release_date": "2022-04-27",
+  "one_liner": "The Stanley Parable: Ultra Deluxe is an expanded re-imagining of 2013's The Stanley Parable. You will play as Stanley, and you will not…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-03-28(975일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-the-stanley-parable-ultra-deluxe",
+    "title": "Steam — The Stanley Parable: Ultra Deluxe",
+    "url": "https://store.steampowered.com/app/1703340/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2022-04-27, 개발사 Crows Crows Crows. 평가 Steam 누적 94% 긍정(24,674건) · 최근 30일 92%(177건)."
+   },
+   {
+    "id": "steamspy-the-stanley-parable-ultra-deluxe",
+    "title": "SteamSpy — The Stanley Parable: Ultra Deluxe",
+    "url": "https://steamspy.com/app/1703340",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 32,615 / 부정 2,042 (긍정률 94.1%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-the-stanley-parable-ultra-deluxe",
+    "title": "Steam — The Stanley Parable: Ultra Deluxe 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5749481331437544759",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'The Stanley Parable: Ultra Deluxe Collector's Edition' (2024-03-28)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ],
+    "note": "마지막 업데이트 2024-03-28 — 12개월(975일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 26000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩26,000"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $24.99"
+    ],
+    "one_liner": "1회 구매 ₩26,000 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-the-stanley-parable-ultra-deluxe"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-the-stanley-parable-ultra-deluxe"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-03-28 — 12개월(975일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-the-stanley-parable-ultra-deluxe"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-the-stanley-parable-ultra-deluxe"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.2,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 94% 긍정(24,674건) · 최근 30일 92%(177건) — 표본 가중 평균 94.0 · v0.6.0 규모 보정 +1.20(표본 24,674) → 95.2.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 24674,
+     "sample_source": "reviews",
+     "base_score": 94.0,
+     "log_delta": 1.1767,
+     "gate": 1.0,
+     "applied": 1.2,
+     "final_score": 95.2,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe",
+     "steamspy-the-stanley-parable-ultra-deluxe"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-03-28(-14) · 플랫폼 4종(+4) · 출시 4년(+2).",
+    "source_ids": [
+     "steam-news-the-stanley-parable-ultra-deluxe"
+    ]
+   },
+   "ai_review": {
+    "score": 56.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8) · 표본 24,674건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩26,000 · 마지막 업데이트 2024-03-28. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 94% 긍정(24,674건) · 최근 30일 92%(177건).",
+    "₩26,000 · 마지막 업데이트 2024-03-28(975일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 94,
+      "scale": "percent",
+      "count": 24674,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 92,
+      "scale": "percent",
+      "count": 177,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 24,674건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 94% 긍정(24,674건) · 최근 30일 92%(177건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-03-28",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-03-28",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-the-stanley-parable-ultra-deluxe"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'The Stanley Parable: Ultra Deluxe Collector's Edition'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-03-28(975일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-the-stanley-parable-ultra-deluxe"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-stanley-parable-ultra-deluxe"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩26,000. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 94% 긍정(24,674건) · 최근 30일 92%(177건) → 표본 가중 평균 94.0. 표본 24,674건. v0.6.0 표본 규모 보정: 누적 표본 24,674건 → 로그 보정 +1.18 × 평점 게이트 1.00 = +1.20 (94.0 → 95.2).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-03-28(-14) · 플랫폼 4종(+4) · 출시 4년(+2).",
+   "ai_review": "자동 추정 56.5: 본질 검토 전 중립값 60 · 스토어 평점 94.0(+3.5) · 12개월 방치(-8) · 표본 24,674건(+1)."
+  },
+  "icon": "assets/icons/the-stanley-parable-ultra-deluxe.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "the-beginners-guide",
+  "name": "The Beginner's Guide",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 88% 긍정(15,655건) · 최근 30일 89%(66건). ₩10,500 · 마지막 업데이트 2024-06-08. 「스토리 · 내러티브 · 추리」 안에서 Everything Unlimited Ltd.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Everything Unlimited Ltd.",
+  "publisher": "Everything Unlimited Ltd.",
+  "release_date": "2015-10-01",
+  "one_liner": "The Beginner's Guide is a narrative video game from Davey Wreden, the creator of The Stanley Parable. It lasts about an hour and a half and…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-06-08(903일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-the-beginners-guide",
+    "title": "Steam — The Beginner's Guide",
+    "url": "https://store.steampowered.com/app/303210/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2015-10-01, 개발사 Everything Unlimited Ltd.. 평가 Steam 누적 88% 긍정(15,655건) · 최근 30일 89%(66건)."
+   },
+   {
+    "id": "steamspy-the-beginners-guide",
+    "title": "SteamSpy — The Beginner's Guide",
+    "url": "https://steamspy.com/app/303210",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 17,756 / 부정 2,304 (긍정률 88.5%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-the-beginners-guide",
+    "title": "Steam — The Beginner's Guide 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5746109972556996588",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'New Game Announcement: Wanderstop' (2024-06-08)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ],
+    "note": "마지막 업데이트 2024-06-08 — 12개월(903일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 10500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩10,500"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩10,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-the-beginners-guide"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-the-beginners-guide"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-06-08 — 12개월(903일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-the-beginners-guide"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-the-beginners-guide"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 88.6,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 88% 긍정(15,655건) · 최근 30일 89%(66건) — 표본 가중 평균 88.0 · v0.6.0 규모 보정 +0.60(표본 15,655) → 88.6.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 15655,
+     "sample_source": "reviews",
+     "base_score": 88.0,
+     "log_delta": 0.584,
+     "gate": 1.0,
+     "applied": 0.6,
+     "final_score": 88.6,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-the-beginners-guide",
+     "steamspy-the-beginners-guide"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-08(-14) · 플랫폼 4종(+4) · 출시 11년(+4).",
+    "source_ids": [
+     "steam-news-the-beginners-guide"
+    ]
+   },
+   "ai_review": {
+    "score": 55.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 55.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 12개월 방치(-8) · 표본 15,655건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩10,500 · 마지막 업데이트 2024-06-08. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 88% 긍정(15,655건) · 최근 30일 89%(66건).",
+    "₩10,500 · 마지막 업데이트 2024-06-08(903일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 88,
+      "scale": "percent",
+      "count": 15655,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 89,
+      "scale": "percent",
+      "count": 66,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 15,655건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 88% 긍정(15,655건) · 최근 30일 89%(66건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-06-08",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-06-08",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-the-beginners-guide"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'New Game Announcement: Wanderstop'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-06-08(903일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-the-beginners-guide"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-the-beginners-guide"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩10,500. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 88% 긍정(15,655건) · 최근 30일 89%(66건) → 표본 가중 평균 88.0. 표본 15,655건. v0.6.0 표본 규모 보정: 누적 표본 15,655건 → 로그 보정 +0.58 × 평점 게이트 1.00 = +0.60 (88.0 → 88.6).",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-06-08(-14) · 플랫폼 4종(+4) · 출시 11년(+4).",
+   "ai_review": "자동 추정 55.0: 본질 검토 전 중립값 60 · 스토어 평점 88.0(+2.0) · 12개월 방치(-8) · 표본 15,655건(+1)."
+  },
+  "icon": "assets/icons/the-beginners-guide.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "dear-esther",
+  "name": "Dear Esther",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 75% 긍정(1,496건) · 최근 30일 77%(22건). ₩10,500 · 마지막 업데이트 2026-10-10. 「스토리 · 내러티브 · 추리」 안에서 The Chinese Room의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "캐주얼",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "The Chinese Room",
+  "publisher": "Secret Mode",
+  "release_date": "2017-02-14",
+  "one_liner": "Dear Esther immerses you in a stunningly realised world, a remote and desolate island somewhere in the outer Hebrides. As you step…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-10-10(49일 전).",
+  "sources": [
+   {
+    "id": "steam-dear-esther",
+    "title": "Steam — Dear Esther: Landmark Edition",
+    "url": "https://store.steampowered.com/app/520720/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2017-02-14, 개발사 The Chinese Room, Robert Briscoe. 평가 Steam 누적 75% 긍정(1,496건) · 최근 30일 77%(22건)."
+   },
+   {
+    "id": "steamspy-dear-esther",
+    "title": "SteamSpy — Dear Esther: Landmark Edition",
+    "url": "https://steamspy.com/app/520720",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 1,985 / 부정 526 (긍정률 79.1%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-dear-esther",
+    "title": "Steam — Dear Esther: Landmark Edition 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846018067936786",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Dear Esther: Landmark Edition is Steam Machine Verified!' (2026-10-10)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dear-esther"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dear-esther"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dear-esther"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-dear-esther"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-dear-esther"
+    ],
+    "note": "마지막 업데이트 2026-10-10(49일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 10500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩10,500"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩10,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-dear-esther"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-dear-esther"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-10-10(49일 전) — 활발.",
+      "source_ids": [
+       "steam-dear-esther"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-dear-esther"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 73.3,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 75% 긍정(1,496건) · 최근 30일 77%(22건) — 표본 가중 평균 75.0 · v0.6.0 규모 보정 -1.70(표본 1,496) → 73.3.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1496,
+     "sample_source": "reviews",
+     "base_score": 75.0,
+     "log_delta": -1.6501,
+     "gate": 1.0,
+     "applied": -1.7,
+     "final_score": 73.3,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-dear-esther",
+     "steamspy-dear-esther"
+    ]
+   },
+   "objective": {
+    "score": 80.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-10(+8) · 플랫폼 3종(+2) · 출시 9년(+4).",
+    "source_ids": [
+     "steam-news-dear-esther"
+    ]
+   },
+   "ai_review": {
+    "score": 62.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 62.8: 본질 검토 전 중립값 60 · 스토어 평점 75.0(-1.2) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-dear-esther"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 75% 긍정(1,496건), 최근 업데이트 2026-10-10. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 75% 긍정(1,496건) · 최근 30일 77%(22건).",
+    "₩10,500 · 마지막 업데이트 2026-10-10(49일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 75,
+      "scale": "percent",
+      "count": 1496,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 77,
+      "scale": "percent",
+      "count": 22,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,496건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 75% 긍정(1,496건) · 최근 30일 77%(22건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-10-10",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-10-10",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-dear-esther"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Dear Esther: Landmark Edition is Steam Machine Verified!'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-10-10(49일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-dear-esther"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-dear-esther"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩10,500. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 75% 긍정(1,496건) · 최근 30일 77%(22건) → 표본 가중 평균 75.0. 표본 1,496건. v0.6.0 표본 규모 보정: 누적 표본 1,496건 → 로그 보정 -1.65 × 평점 게이트 1.00 = -1.70 (75.0 → 73.3).",
+   "objective": "자동 산정 80.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-10-10(+8) · 플랫폼 3종(+2) · 출시 9년(+4).",
+   "ai_review": "자동 추정 62.8: 본질 검토 전 중립값 60 · 스토어 평점 75.0(-1.2) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/dear-esther.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "to-the-moon",
+  "name": "To the Moon",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 95% 긍정(19,605건) · 최근 30일 95%(545건). ₩10,800 · 마지막 업데이트 2025-10-09. 「스토리 · 내러티브 · 추리」 안에서 Freebird Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Freebird Games",
+  "publisher": "Freebird Games",
+  "release_date": "2012-09-07",
+  "one_liner": "두 명의 박사가 죽어가는 남자의 마지막 소원을 인공적으로 이루어주기 위해서 그의 기억 속으로 들어가 시간을 거슬러 가는 줄거리입니다.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-10-09(415일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-to-the-moon",
+    "title": "Steam — To the Moon",
+    "url": "https://store.steampowered.com/app/206440/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2012-09-07, 개발사 Freebird Games. 평가 Steam 누적 95% 긍정(19,605건) · 최근 30일 95%(545건)."
+   },
+   {
+    "id": "steamspy-to-the-moon",
+    "title": "SteamSpy — To the Moon",
+    "url": "https://steamspy.com/app/206440",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 67,752 / 부정 2,872 (긍정률 95.9%). 보유자 규모 2,000,000 .. 5,000,000."
+   },
+   {
+    "id": "steam-news-to-the-moon",
+    "title": "Steam — To the Moon 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1813041031214365",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 '16:9 remasters minor patch notes' (2025-10-09)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-to-the-moon"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-to-the-moon"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-to-the-moon"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-to-the-moon"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-to-the-moon"
+    ],
+    "note": "마지막 업데이트 2025-10-09 — 12개월(415일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 10800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩10,800"
+    },
+    "limits": [
+     "DLC 7건 별도 판매",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩10,800 — DLC 7건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-to-the-moon"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-to-the-moon"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-10-09 — 12개월(415일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-to-the-moon"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-to-the-moon"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 95.9,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "high",
+    "summary": "자동 수집: Steam 누적 95% 긍정(19,605건) · 최근 30일 95%(545건) — 표본 가중 평균 95.0 · v0.6.0 규모 보정 +0.90(표본 19,605) → 95.9.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 19605,
+     "sample_source": "reviews",
+     "base_score": 95.0,
+     "log_delta": 0.8771,
+     "gate": 1.0,
+     "applied": 0.9,
+     "final_score": 95.9,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-to-the-moon",
+     "steamspy-to-the-moon"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-09(-14) · 플랫폼 4종(+4) · 출시 14년(+4).",
+    "source_ids": [
+     "steam-news-to-the-moon"
+    ]
+   },
+   "ai_review": {
+    "score": 56.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 19,605건(+1). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-to-the-moon"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩10,800 · 마지막 업데이트 2025-10-09. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 95% 긍정(19,605건) · 최근 30일 95%(545건).",
+    "₩10,800 · 마지막 업데이트 2025-10-09(415일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 19605,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 95,
+      "scale": "percent",
+      "count": 545,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 19,605건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 95% 긍정(19,605건) · 최근 30일 95%(545건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2025-10-09",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-10-09",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-to-the-moon"
+     ],
+     "note": "업데이트 공지 '16:9 remasters minor patch notes'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-10-09(415일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-to-the-moon"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-to-the-moon"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩10,800. DLC 7건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 95% 긍정(19,605건) · 최근 30일 95%(545건) → 표본 가중 평균 95.0. 표본 19,605건. v0.6.0 표본 규모 보정: 누적 표본 19,605건 → 로그 보정 +0.88 × 평점 게이트 1.00 = +0.90 (95.0 → 95.9).",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-09(-14) · 플랫폼 4종(+4) · 출시 14년(+4).",
+   "ai_review": "자동 추정 56.8: 본질 검토 전 중립값 60 · 스토어 평점 95.0(+3.8) · 12개월 방치(-8) · 표본 19,605건(+1)."
+  },
+  "icon": "assets/icons/to-the-moon.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "finding-paradise",
+  "name": "Finding Paradise",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 98% 긍정(5,091건) · 최근 30일 97%(119건). ₩10,800 · 마지막 업데이트 2025-10-08. 「스토리 · 내러티브 · 추리」 안에서 Freebird Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처",
+   "인디",
+   "RPG"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Freebird Games",
+  "publisher": "Freebird Games",
+  "release_date": "2017-12-14",
+  "one_liner": "Two doctors traverse backwards through a dying man's memories to fulfill his last wish. This is To the Moon's standalone sequel, but can…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2025-10-08(416일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-finding-paradise",
+    "title": "Steam — Finding Paradise",
+    "url": "https://store.steampowered.com/app/337340/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2017-12-14, 개발사 Freebird Games. 평가 Steam 누적 98% 긍정(5,091건) · 최근 30일 97%(119건)."
+   },
+   {
+    "id": "steamspy-finding-paradise",
+    "title": "SteamSpy — Finding Paradise",
+    "url": "https://steamspy.com/app/337340",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 17,934 / 부정 375 (긍정률 98.0%). 보유자 규모 1,000,000 .. 2,000,000."
+   },
+   {
+    "id": "steam-news-finding-paradise",
+    "title": "Steam — Finding Paradise 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1813041031179588",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Finding Paradise 16:9 remaster+ now live!' (2025-10-08)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-finding-paradise"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-finding-paradise"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-finding-paradise"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-finding-paradise"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-finding-paradise"
+    ],
+    "note": "마지막 업데이트 2025-10-08 — 12개월(416일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 10800,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩10,800"
+    },
+    "limits": [
+     "DLC 2건 별도 판매",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩10,800 — DLC 2건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-finding-paradise"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-finding-paradise"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2025-10-08 — 12개월(416일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-finding-paradise"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-finding-paradise"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 97.4,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 98% 긍정(5,091건) · 최근 30일 97%(119건) — 표본 가중 평균 98.0 · v0.6.0 규모 보정 -0.60(표본 5,091) → 97.4.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 5091,
+     "sample_source": "reviews",
+     "base_score": 98.0,
+     "log_delta": -0.5864,
+     "gate": 1.0,
+     "applied": -0.6,
+     "final_score": 97.4,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-finding-paradise",
+     "steamspy-finding-paradise"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-08(-14) · 플랫폼 4종(+4) · 출시 8년(+4).",
+    "source_ids": [
+     "steam-news-finding-paradise"
+    ]
+   },
+   "ai_review": {
+    "score": 56.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 56.5: 본질 검토 전 중립값 60 · 스토어 평점 98.0(+4.5) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-finding-paradise"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩10,800 · 마지막 업데이트 2025-10-08. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 98% 긍정(5,091건) · 최근 30일 97%(119건).",
+    "₩10,800 · 마지막 업데이트 2025-10-08(416일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 98,
+      "scale": "percent",
+      "count": 5091,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 97,
+      "scale": "percent",
+      "count": 119,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 5,091건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 98% 긍정(5,091건) · 최근 30일 97%(119건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2025-10-08",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2025-10-08",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-finding-paradise"
+     ],
+     "note": "업데이트 공지 'Finding Paradise 16:9 remaster+ now live!'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2025-10-08(416일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-finding-paradise"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-finding-paradise"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩10,800. DLC 2건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 98% 긍정(5,091건) · 최근 30일 97%(119건) → 표본 가중 평균 98.0. 표본 5,091건. v0.6.0 표본 규모 보정: 누적 표본 5,091건 → 로그 보정 -0.59 × 평점 게이트 1.00 = -0.60 (98.0 → 97.4).",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2025-10-08(-14) · 플랫폼 4종(+4) · 출시 8년(+4).",
+   "ai_review": "자동 추정 56.5: 본질 검토 전 중립값 60 · 스토어 평점 98.0(+4.5) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/finding-paradise.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "batman-the-telltale-series",
+  "name": "Batman: The Telltale Series",
+  "aliases": [],
+  "domain": "game",
+  "category": "story-narrative",
+  "arenas": [
+   "story-narrative-vn"
+  ],
+  "arena_notes": {
+   "story-narrative-vn": "Steam 누적 87% 긍정(7,932건) · 최근 30일 92%(106건). ₩15,500 · 마지막 업데이트 2016-12-12. 「스토리 · 내러티브 · 추리」 안에서 Telltale의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "어드벤처"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Telltale",
+  "publisher": "Telltale",
+  "release_date": "2016-08-02",
+  "one_liner": "Enter the fractured psyche of Bruce Wayne and discover the powerful and far-reaching consequences of your choices as the Dark Knight.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2016-12-12(3638일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-batman-the-telltale-series",
+    "title": "Steam — Batman - The Telltale Series",
+    "url": "https://store.steampowered.com/app/498240/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2016-08-02, 개발사 Telltale. 평가 Steam 누적 87% 긍정(7,932건) · 최근 30일 92%(106건)."
+   },
+   {
+    "id": "steamspy-batman-the-telltale-series",
+    "title": "SteamSpy — Batman - The Telltale Series",
+    "url": "https://steamspy.com/app/498240",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 13,353 / 부정 1,917 (긍정률 87.4%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-batman-the-telltale-series",
+    "title": "Steam — Batman - The Telltale Series 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/91592690505459501",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 ''BATMAN - The Telltale Series' Patch Notes' (2016-12-12)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ],
+    "note": "마지막 업데이트 2016-12-12 — 12개월(3638일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 15500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩15,500"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $14.99"
+    ],
+    "one_liner": "1회 구매 ₩15,500 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-batman-the-telltale-series"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-batman-the-telltale-series"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2016-12-12 — 12개월(3638일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-batman-the-telltale-series"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-batman-the-telltale-series"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 86.8,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 87% 긍정(7,932건) · 최근 30일 92%(106건) — 표본 가중 평균 87.0 · v0.6.0 규모 보정 -0.20(표본 7,932) → 86.8.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 7932,
+     "sample_source": "reviews",
+     "base_score": 87.0,
+     "log_delta": -0.2012,
+     "gate": 1.0,
+     "applied": -0.2,
+     "final_score": 86.8,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-batman-the-telltale-series",
+     "steamspy-batman-the-telltale-series"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2016-12-12(-14) · 플랫폼 2종(+2) · 출시 10년(+4).",
+    "source_ids": [
+     "steam-news-batman-the-telltale-series"
+    ]
+   },
+   "ai_review": {
+    "score": 53.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 53.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩15,500 · 마지막 업데이트 2016-12-12. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 87% 긍정(7,932건) · 최근 30일 92%(106건).",
+    "₩15,500 · 마지막 업데이트 2016-12-12(3638일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 87,
+      "scale": "percent",
+      "count": 7932,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 92,
+      "scale": "percent",
+      "count": 106,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 7,932건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 87% 긍정(7,932건) · 최근 30일 92%(106건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2016-12-12",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2016-12-12",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-batman-the-telltale-series"
+     ],
+     "note": "업데이트 공지 ''BATMAN - The Telltale Series' Patch Notes'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2016-12-12(3638일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-batman-the-telltale-series"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-batman-the-telltale-series"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩15,500. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 87% 긍정(7,932건) · 최근 30일 92%(106건) → 표본 가중 평균 87.0. 표본 7,932건. v0.6.0 표본 규모 보정: 누적 표본 7,932건 → 로그 보정 -0.20 × 평점 게이트 1.00 = -0.20 (87.0 → 86.8).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2016-12-12(-14) · 플랫폼 2종(+2) · 출시 10년(+4).",
+   "ai_review": "자동 추정 53.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/batman-the-telltale-series.webp"
  }
 ]

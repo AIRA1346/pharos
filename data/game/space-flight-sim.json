@@ -9663,5 +9663,2370 @@
    "ai_review": "자동 추정 65.8: 본질 검토 전 중립값 60 · 스토어 평점 87.0(+1.8) · 90일 내 업데이트(+4)."
   },
   "icon": "assets/icons/x-plane-12.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "x3-albion-prelude",
+  "name": "X3: Albion Prelude",
+  "aliases": [],
+  "domain": "game",
+  "category": "space-flight",
+  "arenas": [
+   "space-flight-sim"
+  ],
+  "arena_notes": {
+   "space-flight-sim": "Steam 누적 91% 긍정(1,759건). ₩11,000 · 마지막 업데이트 2021-07-09. 「우주 · 비행 · SF 시뮬」 안에서 Egosoft의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos",
+   "linux"
+  ],
+  "developer": "Egosoft",
+  "publisher": "Egosoft",
+  "release_date": "2011-12-15",
+  "one_liner": "X3: Albion Prelude is the latest game in the X3 space game series. TRADE, FIGHT, BUILD, THINK in a living and breathing universe. A new…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2021-07-09(1968일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-x3-albion-prelude",
+    "title": "Steam — X3: Albion Prelude",
+    "url": "https://store.steampowered.com/app/201310/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2011-12-15, 개발사 Egosoft. 평가 Steam 누적 91% 긍정(1,759건)."
+   },
+   {
+    "id": "steamspy-x3-albion-prelude",
+    "title": "SteamSpy — X3: Albion Prelude",
+    "url": "https://steamspy.com/app/201310",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 1,237 / 부정 97 (긍정률 92.7%). 보유자 규모 0 .. 20,000."
+   },
+   {
+    "id": "steam-news-x3-albion-prelude",
+    "title": "Steam — X3: Albion Prelude 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4036897704055077282",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'Small Technical Update' (2021-07-09)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ],
+    "note": "마지막 업데이트 2021-07-09 — 12개월(1968일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 11000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩11,000"
+    },
+    "limits": [
+     "DLC 1건 별도 판매",
+     "미국 스토어 $9.99"
+    ],
+    "one_liner": "1회 구매 ₩11,000 — DLC 1건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-x3-albion-prelude"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-x3-albion-prelude"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2021-07-09 — 12개월(1968일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-x3-albion-prelude"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-x3-albion-prelude"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 89.5,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 91% 긍정(1,759건) — 표본 가중 평균 91.0 · v0.6.0 규모 보정 -1.50(표본 1,759) → 89.5.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1759,
+     "sample_source": "reviews",
+     "base_score": 91.0,
+     "log_delta": -1.5095,
+     "gate": 1.0,
+     "applied": -1.5,
+     "final_score": 89.5,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-x3-albion-prelude",
+     "steamspy-x3-albion-prelude"
+    ]
+   },
+   "objective": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-07-09(-14) · 플랫폼 4종(+4) · 출시 14년(+4).",
+    "source_ids": [
+     "steam-news-x3-albion-prelude"
+    ]
+   },
+   "ai_review": {
+    "score": 54.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 54.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩11,000 · 마지막 업데이트 2021-07-09. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 91% 긍정(1,759건).",
+    "₩11,000 · 마지막 업데이트 2021-07-09(1968일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 91,
+      "scale": "percent",
+      "count": 1759,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,759건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 91% 긍정(1,759건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2021-07-09",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2021-07-09",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-x3-albion-prelude"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'Small Technical Update'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2021-07-09(1968일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-x3-albion-prelude"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-x3-albion-prelude"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩11,000. DLC 1건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 91% 긍정(1,759건) → 표본 가중 평균 91.0. 표본 1,759건. v0.6.0 표본 규모 보정: 누적 표본 1,759건 → 로그 보정 -1.51 × 평점 게이트 1.00 = -1.50 (91.0 → 89.5).",
+   "objective": "자동 산정 60.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2021-07-09(-14) · 플랫폼 4종(+4) · 출시 14년(+4).",
+   "ai_review": "자동 추정 54.8: 본질 검토 전 중립값 60 · 스토어 평점 91.0(+2.8) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/x3-albion-prelude.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "starpoint-gemini-warlords",
+  "name": "Starpoint Gemini Warlords",
+  "aliases": [],
+  "domain": "game",
+  "category": "space-flight",
+  "arenas": [
+   "space-flight-sim"
+  ],
+  "arena_notes": {
+   "space-flight-sim": "Steam 누적 75% 긍정(1,901건). ₩36,000 (할인 85% ₩5,400) · 마지막 업데이트 2024-11-27. 「우주 · 비행 · SF 시뮬」 안에서 Little Green Men Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "RPG",
+   "시뮬레이션"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "Little Green Men Games",
+  "publisher": "Little Green Men Games",
+  "release_date": "2017-05-23",
+  "one_liner": "Strategy from the front lines! Starpoint Gemini Warlords combines 3rd person capital spaceship combat with 4X strategy and RPG gameplay…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2024-11-27(731일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-starpoint-gemini-warlords",
+    "title": "Steam — Starpoint Gemini Warlords",
+    "url": "https://store.steampowered.com/app/419480/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 36,000, 출시 2017-05-23, 개발사 Little Green Men Games. 평가 Steam 누적 75% 긍정(1,901건)."
+   },
+   {
+    "id": "steamspy-starpoint-gemini-warlords",
+    "title": "SteamSpy — Starpoint Gemini Warlords",
+    "url": "https://steamspy.com/app/419480",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 2,228 / 부정 850 (긍정률 72.4%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-starpoint-gemini-warlords",
+    "title": "Steam — Starpoint Gemini Warlords 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1784506358988802",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 개발사 공지(업데이트 공지 아님) 'New Kaiserpunk Playtest is around the corner' (2024-11-27)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ],
+    "note": "마지막 업데이트 2024-11-27 — 12개월(731일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 36000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩36,000 (할인 85% ₩5,400)"
+    },
+    "limits": [
+     "DLC 6건 별도 판매",
+     "미국 스토어 $34.99"
+    ],
+    "one_liner": "1회 구매 ₩36,000 — DLC 6건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-starpoint-gemini-warlords"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-starpoint-gemini-warlords"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2024-11-27 — 12개월(731일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-starpoint-gemini-warlords"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-starpoint-gemini-warlords"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 73.6,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 75% 긍정(1,901건) — 표본 가중 평균 75.0 · v0.6.0 규모 보정 -1.40(표본 1,901) → 73.6.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 1901,
+     "sample_source": "reviews",
+     "base_score": 75.0,
+     "log_delta": -1.442,
+     "gate": 1.0,
+     "applied": -1.4,
+     "final_score": 73.6,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-starpoint-gemini-warlords",
+     "steamspy-starpoint-gemini-warlords"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-11-27(-14) · 플랫폼 2종(+2) · 출시 9년(+4).",
+    "source_ids": [
+     "steam-news-starpoint-gemini-warlords"
+    ]
+   },
+   "ai_review": {
+    "score": 50.8,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 50.8: 본질 검토 전 중립값 60 · 스토어 평점 75.0(-1.2) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩36,000 (할인 85% ₩5,400) · 마지막 업데이트 2024-11-27. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 75% 긍정(1,901건).",
+    "₩36,000 (할인 85% ₩5,400) · 마지막 업데이트 2024-11-27(731일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 75,
+      "scale": "percent",
+      "count": 1901,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 1,901건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 75% 긍정(1,901건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2024-11-27",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2024-11-27",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-starpoint-gemini-warlords"
+     ],
+     "note": "개발사 공지(업데이트 공지 아님) 'New Kaiserpunk Playtest is around the corner'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2024-11-27(731일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-starpoint-gemini-warlords"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-starpoint-gemini-warlords"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩36,000 (할인 85% ₩5,400). DLC 6건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 75% 긍정(1,901건) → 표본 가중 평균 75.0. 표본 1,901건. v0.6.0 표본 규모 보정: 누적 표본 1,901건 → 로그 보정 -1.44 × 평점 게이트 1.00 = -1.40 (75.0 → 73.6).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2024-11-27(-14) · 플랫폼 2종(+2) · 출시 9년(+4).",
+   "ai_review": "자동 추정 50.8: 본질 검토 전 중립값 60 · 스토어 평점 75.0(-1.2) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/starpoint-gemini-warlords.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "rebel-galaxy",
+  "name": "Rebel Galaxy",
+  "aliases": [],
+  "domain": "game",
+  "category": "space-flight",
+  "arenas": [
+   "space-flight-sim"
+  ],
+  "arena_notes": {
+   "space-flight-sim": "Steam 누적 86% 긍정(5,330건) · 최근 30일 86%(15건). ₩22,000 · 마지막 업데이트 2016-06-15. 「우주 · 비행 · SF 시뮬」 안에서 Double Damage Games의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "액션",
+   "어드벤처",
+   "인디"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "Double Damage Games",
+  "publisher": "Double Damage Games",
+  "release_date": "2015-10-20",
+  "one_liner": "Rebel Galaxy is a swashbuckling space adventure, with action-packed combat, exploration, discovery, trade, and “negotiation” with the…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2016-06-15(3818일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-rebel-galaxy",
+    "title": "Steam — Rebel Galaxy",
+    "url": "https://store.steampowered.com/app/290300/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2015-10-20, 개발사 Double Damage Games. 평가 Steam 누적 86% 긍정(5,330건) · 최근 30일 86%(15건)."
+   },
+   {
+    "id": "steamspy-rebel-galaxy",
+    "title": "SteamSpy — Rebel Galaxy",
+    "url": "https://steamspy.com/app/290300",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 6,187 / 부정 1,088 (긍정률 85.0%). 보유자 규모 500,000 .. 1,000,000."
+   },
+   {
+    "id": "steam-news-rebel-galaxy",
+    "title": "Steam — Rebel Galaxy 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/3819571572131210657",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 '1.08b Hotfix Patch' (2016-06-15)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ],
+    "note": "마지막 업데이트 2016-06-15 — 12개월(3818일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 22000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩22,000"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $19.99"
+    ],
+    "one_liner": "1회 구매 ₩22,000 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-rebel-galaxy"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-rebel-galaxy"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2016-06-15 — 12개월(3818일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-rebel-galaxy"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-rebel-galaxy"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 85.5,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 86% 긍정(5,330건) · 최근 30일 86%(15건) — 표본 가중 평균 86.0 · v0.6.0 규모 보정 -0.50(표본 5,330) → 85.5.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 5330,
+     "sample_source": "reviews",
+     "base_score": 86.0,
+     "log_delta": -0.5465,
+     "gate": 1.0,
+     "applied": -0.5,
+     "final_score": 85.5,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-rebel-galaxy",
+     "steamspy-rebel-galaxy"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2016-06-15(-14) · 플랫폼 3종(+2) · 출시 11년(+4).",
+    "source_ids": [
+     "steam-news-rebel-galaxy"
+    ]
+   },
+   "ai_review": {
+    "score": 53.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 53.5: 본질 검토 전 중립값 60 · 스토어 평점 86.0(+1.5) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩22,000 · 마지막 업데이트 2016-06-15. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 86% 긍정(5,330건) · 최근 30일 86%(15건).",
+    "₩22,000 · 마지막 업데이트 2016-06-15(3818일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 86,
+      "scale": "percent",
+      "count": 5330,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 86,
+      "scale": "percent",
+      "count": 15,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 5,330건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 86% 긍정(5,330건) · 최근 30일 86%(15건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2016-06-15",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2016-06-15",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-rebel-galaxy"
+     ],
+     "note": "업데이트 공지 '1.08b Hotfix Patch'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2016-06-15(3818일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-rebel-galaxy"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-rebel-galaxy"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩22,000. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 86% 긍정(5,330건) · 최근 30일 86%(15건) → 표본 가중 평균 86.0. 표본 5,330건. v0.6.0 표본 규모 보정: 누적 표본 5,330건 → 로그 보정 -0.55 × 평점 게이트 1.00 = -0.50 (86.0 → 85.5).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2016-06-15(-14) · 플랫폼 3종(+2) · 출시 11년(+4).",
+   "ai_review": "자동 추정 53.5: 본질 검토 전 중립값 60 · 스토어 평점 86.0(+1.5) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/rebel-galaxy.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "distant-worlds-2",
+  "name": "Distant Worlds 2",
+  "aliases": [],
+  "domain": "game",
+  "category": "space-flight",
+  "arenas": [
+   "space-flight-sim"
+  ],
+  "arena_notes": {
+   "space-flight-sim": "Steam 누적 70% 긍정(2,127건) · 최근 30일 40%(15건). ₩53,000 · 마지막 업데이트 2026-09-21. 「우주 · 비행 · SF 시뮬」 안에서 CodeForce의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "시뮬레이션",
+   "전략"
+  ],
+  "platforms": [
+   "steam",
+   "windows"
+  ],
+  "developer": "CodeForce",
+  "publisher": "Slitherine Ltd.",
+  "release_date": "2022-03-10",
+  "one_liner": "Distant Worlds 2 is a vast, pausable real-time 4X space strategy game.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-09-21(68일 전).",
+  "sources": [
+   {
+    "id": "steam-distant-worlds-2",
+    "title": "Steam — Distant Worlds 2",
+    "url": "https://store.steampowered.com/app/1531540/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2022-03-10, 개발사 CodeForce. 평가 Steam 누적 70% 긍정(2,127건) · 최근 30일 40%(15건)."
+   },
+   {
+    "id": "steamspy-distant-worlds-2",
+    "title": "SteamSpy — Distant Worlds 2",
+    "url": "https://steamspy.com/app/1531540",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 2,304 / 부정 933 (긍정률 71.2%). 보유자 규모 100,000 .. 200,000."
+   },
+   {
+    "id": "steam-news-distant-worlds-2",
+    "title": "Steam — Distant Worlds 2 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844115010501518",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Regular Update now available' (2026-09-21)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ],
+    "note": "마지막 업데이트 2026-09-21(68일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 53000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩53,000"
+    },
+    "limits": [
+     "DLC 5건 별도 판매",
+     "미국 스토어 $49.99"
+    ],
+    "one_liner": "1회 구매 ₩53,000 — DLC 5건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-distant-worlds-2"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-distant-worlds-2"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-09-21(68일 전) — 활발.",
+      "source_ids": [
+       "steam-distant-worlds-2"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-distant-worlds-2"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 68.7,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 70% 긍정(2,127건) · 최근 30일 40%(15건) — 표본 가중 평균 70.0 · v0.6.0 규모 보정 -1.30(표본 2,127) → 68.7.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 2127,
+     "sample_source": "reviews",
+     "base_score": 70.0,
+     "log_delta": -1.3445,
+     "gate": 1.0,
+     "applied": -1.3,
+     "final_score": 68.7,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-distant-worlds-2",
+     "steamspy-distant-worlds-2"
+    ]
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-21(+8) · 플랫폼 2종(+2) · 출시 4년(+2).",
+    "source_ids": [
+     "steam-news-distant-worlds-2"
+    ]
+   },
+   "ai_review": {
+    "score": 61.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 61.5: 본질 검토 전 중립값 60 · 스토어 평점 70.0(-2.5) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 70% 긍정(2,127건), 최근 업데이트 2026-09-21. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 70% 긍정(2,127건) · 최근 30일 40%(15건).",
+    "₩53,000 · 마지막 업데이트 2026-09-21(68일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 70,
+      "scale": "percent",
+      "count": 2127,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 40,
+      "scale": "percent",
+      "count": 15,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 2,127건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 70% 긍정(2,127건) · 최근 30일 40%(15건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-09-21",
+   "latest_update_platform": "steam",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-09-21",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-distant-worlds-2"
+     ],
+     "note": "업데이트 공지 'Regular Update now available'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-09-21(68일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-distant-worlds-2"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-distant-worlds-2"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩53,000. DLC 5건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 70% 긍정(2,127건) · 최근 30일 40%(15건) → 표본 가중 평균 70.0. 표본 2,127건. v0.6.0 표본 규모 보정: 누적 표본 2,127건 → 로그 보정 -1.34 × 평점 게이트 1.00 = -1.30 (70.0 → 68.7).",
+   "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-09-21(+8) · 플랫폼 2종(+2) · 출시 4년(+2).",
+   "ai_review": "자동 추정 61.5: 본질 검토 전 중립값 60 · 스토어 평점 70.0(-2.5) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/distant-worlds-2.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "homeworld-2",
+  "name": "Homeworld 2",
+  "aliases": [],
+  "domain": "game",
+  "category": "space-flight",
+  "arenas": [
+   "space-flight-sim"
+  ],
+  "arena_notes": {
+   "space-flight-sim": "Steam 누적 80% 긍정(21건). ₩8,500 · 마지막 업데이트 미확인. 「우주 · 비행 · SF 시뮬」 안에서 Gearbox Software의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "시뮬레이션",
+   "전략"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "Gearbox Software",
+  "publisher": null,
+  "release_date": "2015-03-04",
+  "one_liner": "The official soundtrack of Homeworld 2 Remastered by Paul Ruskay!",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "stale_unknown",
+  "maintenance_note": "마지막 업데이트 날짜를 확인하지 못했다 — 완결·방치 여부도 미확인.",
+  "sources": [
+   {
+    "id": "steam-homeworld-2",
+    "title": "Steam — Homeworld 2 Remastered Soundtrack",
+    "url": "https://store.steampowered.com/app/352710/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 미표기, 출시 2015-03-04, 개발사 Gearbox Software. 평가 Steam 누적 80% 긍정(21건)."
+   },
+   {
+    "id": "steamspy-homeworld-2",
+    "title": "SteamSpy — Homeworld 2 Remastered Soundtrack",
+    "url": "https://steamspy.com/app/352710",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 13 / 부정 0 (긍정률 100.0%). 보유자 규모 0 .. 20,000."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-2"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-2"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-2"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-homeworld-2"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 8500,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩8,500"
+    },
+    "limits": [
+     "유료 DLC 없음(스토어 목록 기준)",
+     "미국 스토어 $7.99"
+    ],
+    "one_liner": "1회 구매 ₩8,500 — DLC 0건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-homeworld-2"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-homeworld-2"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-homeworld-2"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 74.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "low",
+    "summary": "자동 수집: Steam 누적 80% 긍정(21건) — 표본 가중 평균 80.0 · v0.6.0 규모 보정 -6.00(표본 21) → 74.0.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 21,
+     "sample_source": "reviews",
+     "base_score": 80.0,
+     "log_delta": -6.0,
+     "gate": 1.0,
+     "applied": -6.0,
+     "final_score": 74.0,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-homeworld-2",
+     "steamspy-homeworld-2"
+    ]
+   },
+   "objective": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 68.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 업데이트 확인 실패(-4) · 플랫폼 3종(+2) · 출시 11년(+4).",
+    "source_ids": [
+     "steam-homeworld-2"
+    ]
+   },
+   "ai_review": {
+    "score": 60.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 60.0: 본질 검토 전 중립값 60 · 스토어 평점 80.0(+0.0). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-homeworld-2"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — Steam 80% 긍정(21건), 업데이트 기록 없음. 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 80% 긍정(21건).",
+    "₩8,500 · 마지막 업데이트 미확인.",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 80,
+      "scale": "percent",
+      "count": 21,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 21건)."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 80% 긍정(21건). 표본 규칙(100건) 미달 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": null,
+   "cadence": "unknown",
+   "entries": [],
+   "maintenance_quality": "unknown",
+   "assessment": "최근 업데이트 기록을 찾지 못했다 — 완결·방치 여부도 검수 전이다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-homeworld-2"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-2"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩8,500. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 80% 긍정(21건) → 표본 가중 평균 80.0. 표본 21건. v0.6.0 표본 규모 보정: 누적 표본 21건 → 로그 보정 -6.00 × 평점 게이트 1.00 = -6.00 (80.0 → 74.0).",
+   "objective": "자동 산정 68.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 업데이트 확인 실패(-4) · 플랫폼 3종(+2) · 출시 11년(+4).",
+   "ai_review": "자동 추정 60.0: 본질 검토 전 중립값 60 · 스토어 평점 80.0(+0.0)."
+  },
+  "icon": "assets/icons/homeworld-2.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "homeworld-deserts-of-kharak",
+  "name": "Homeworld: Deserts of Kharak",
+  "aliases": [],
+  "domain": "game",
+  "category": "space-flight",
+  "arenas": [
+   "space-flight-sim"
+  ],
+  "arena_notes": {
+   "space-flight-sim": "Steam 누적 78% 긍정(5,376건) · 최근 30일 94%(17건). ₩54,000 (할인 90% ₩5,400) · 마지막 업데이트 2023-10-04. 「우주 · 비행 · SF 시뮬」 안에서 Blackbird Interactive의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "전략"
+  ],
+  "platforms": [
+   "steam",
+   "windows",
+   "macos"
+  ],
+  "developer": "Blackbird Interactive",
+  "publisher": "Gearbox Publishing",
+  "release_date": "2016-01-20",
+  "one_liner": "A ground-based RTS prequel to the classic Homeworld games. Assemble your fleet and lead them to victory on the shifting sands of Kharak in…",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "feature_complete",
+  "maintenance_note": "완결형 싱글플레이 패키지 — Steam 상점 분류가 Single-player 단독(본편이 완결된 1회 구매 패키지이며 온라인 모드가 없다). 마지막 업데이트 2023-10-04(1151일 전) 이후 추가 콘텐츠가 없으나 구독·서버 없이 본편이 완결된 1회 구매작이라 완료로 판단한다(근거 등급 A).",
+  "sources": [
+   {
+    "id": "steam-homeworld-deserts-of-kharak",
+    "title": "Steam — Homeworld: Deserts of Kharak",
+    "url": "https://store.steampowered.com/app/281610/",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "정가 ₩ 54,000, 출시 2016-01-20, 개발사 Blackbird Interactive. 평가 Steam 누적 78% 긍정(5,376건) · 최근 30일 94%(17건)."
+   },
+   {
+    "id": "steamspy-homeworld-deserts-of-kharak",
+    "title": "SteamSpy — Homeworld: Deserts of Kharak",
+    "url": "https://steamspy.com/app/281610",
+    "type": "aggregator",
+    "grade": "C",
+    "accessed_at": "2026-11-28",
+    "note": "전체 언어 누적 긍정 6,220 / 부정 1,609 (긍정률 79.4%). 보유자 규모 200,000 .. 500,000."
+   },
+   {
+    "id": "steam-news-homeworld-deserts-of-kharak",
+    "title": "Steam — Homeworld: Deserts of Kharak 개발사 공지",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5220292521177286233",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "최근 업데이트 공지 'Patch 1.4.4' (2023-10-04)."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ],
+    "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+    "verification": "inferred"
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ],
+    "note": "Steam 단품 게임 — 스토어에 인게임 광고 표기가 없고 실행 전 광고도 없다.",
+    "verification": "inferred"
+   },
+   "forced_ad_before_use": {
+    "value": "no",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ],
+    "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+    "verification": "inferred"
+   },
+   "bait_ad": {
+    "value": "no",
+    "evidence_grade": "C",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ],
+    "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+    "verification": "absent"
+   },
+   "stale_over_12m": {
+    "value": "yes",
+    "evidence_grade": "A",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ],
+    "note": "마지막 업데이트 2023-10-04 — 12개월(1151일) 넘게 새 공지·릴리스가 없다.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "steam",
+    "kind": "one_time",
+    "label": "Steam 1회 구매",
+    "price": {
+     "amount": 54000,
+     "currency": "KRW",
+     "period": "one_time",
+     "display": "₩54,000 (할인 90% ₩5,400)"
+    },
+    "limits": [
+     "DLC 4건 별도 판매",
+     "미국 스토어 $49.99"
+    ],
+    "one_liner": "1회 구매 ₩54,000 — DLC 4건 별도",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "Steam 단품 게임 — 실행 전 광고가 없다.",
+      "source_ids": [
+       "steam-homeworld-deserts-of-kharak"
+      ]
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "pass",
+      "evidence_grade": "C",
+      "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거).",
+      "source_ids": [
+       "steam-homeworld-deserts-of-kharak"
+      ]
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "exempt",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2023-10-04 — 12개월(1151일) 넘게 새 공지·릴리스가 없다.",
+      "source_ids": [
+       "steam-homeworld-deserts-of-kharak"
+      ]
+     },
+     "subscription_required": {
+      "status": "pass",
+      "evidence_grade": "B",
+      "note": "1회 구매 단품 — 구독 상품이 없다(스토어 가격 구조).",
+      "source_ids": [
+       "steam-homeworld-deserts-of-kharak"
+      ]
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 77.5,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: Steam 누적 78% 긍정(5,376건) · 최근 30일 94%(17건) — 표본 가중 평균 78.0 · v0.6.0 규모 보정 -0.50(표본 5,376) → 77.5.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 5376,
+     "sample_source": "reviews",
+     "base_score": 78.0,
+     "log_delta": -0.5391,
+     "gate": 1.0,
+     "applied": -0.5,
+     "final_score": 77.5,
+     "applied_flag": true
+    },
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak",
+     "steamspy-homeworld-deserts-of-kharak"
+    ]
+   },
+   "objective": {
+    "score": 58.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-10-04(-14) · 플랫폼 3종(+2) · 출시 10년(+4).",
+    "source_ids": [
+     "steam-news-homeworld-deserts-of-kharak"
+    ]
+   },
+   "ai_review": {
+    "score": 51.5,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 51.5: 본질 검토 전 중립값 60 · 스토어 평점 78.0(-0.5) · 12개월 방치(-8). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "steam",
+   "signals": {
+    "user_rating": "green",
+    "objective": "yellow",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — ₩54,000 (할인 90% ₩5,400) · 마지막 업데이트 2023-10-04. 완결작 면제 적용, 자동 수집 1차 판정.",
+   "reasons": [
+    "Steam 누적 78% 긍정(5,376건) · 최근 30일 94%(17건).",
+    "₩54,000 (할인 90% ₩5,400) · 마지막 업데이트 2023-10-04(1151일 전).",
+    "완결형 싱글플레이 패키지로 maintenance_status=feature_complete — 12개월 공백은 판정에서 면제(근거 등급 A)."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다.",
+    "완결작 면제는 Steam 상점 분류(Single-player 단독)에 근거한 자동 판단(등급 A)이다. 서버가 닫히거나 치명적 버그가 방치되면 재검토한다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "steam",
+     "cumulative": {
+      "metric": "positive_rate",
+      "value": 78,
+      "scale": "percent",
+      "count": 5376,
+      "window": "전체(영어 리뷰)",
+      "evidence_grade": "A"
+     },
+     "recent": {
+      "metric": "positive_rate",
+      "value": 94,
+      "scale": "percent",
+      "count": 17,
+      "window": "최근 30일",
+      "evidence_grade": "A"
+     },
+     "note": "Steam 상점 평가 요약(영어 리뷰 전체 5,376건)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: Steam 누적 78% 긍정(5,376건) · 최근 30일 94%(17건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2023-10-04",
+   "latest_update_platform": "steam",
+   "cadence": "dormant",
+   "entries": [
+    {
+     "date": "2023-10-04",
+     "type": "other",
+     "platform": "steam",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "steam-news-homeworld-deserts-of-kharak"
+     ],
+     "note": "업데이트 공지 'Patch 1.4.4'."
+    }
+   ],
+   "maintenance_quality": "unknown",
+   "assessment": "마지막 업데이트 2023-10-04(1151일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "none",
+    "ad_types": [
+     "none"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "no",
+     "honesty": "not_assessed",
+     "evidence_grade": "C",
+     "source_ids": [
+      "steam-homeworld-deserts-of-kharak"
+     ],
+     "note": "미끼형 유입 광고 보도·불만을 확인하지 못했다(부재 근거)."
+    }
+   },
+   "iap": {
+    "present": "no",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "B",
+    "source_ids": [
+     "steam-homeworld-deserts-of-kharak"
+    ]
+   },
+   "subscription": {
+    "present": "no",
+    "display": "구독 상품 없음(1회 구매)"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "₩54,000 (할인 90% ₩5,400). DLC 4건 별도. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "Steam 누적 78% 긍정(5,376건) · 최근 30일 94%(17건) → 표본 가중 평균 78.0. 표본 5,376건. v0.6.0 표본 규모 보정: 누적 표본 5,376건 → 로그 보정 -0.54 × 평점 게이트 1.00 = -0.50 (78.0 → 77.5).",
+   "objective": "자동 산정 58.0: 가격·무료 여부를 스토어에서 확인(+4) · 12개월 넘게 업데이트 없음 2023-10-04(-14) · 플랫폼 3종(+2) · 출시 10년(+4).",
+   "ai_review": "자동 추정 51.5: 본질 검토 전 중립값 60 · 스토어 평점 78.0(-0.5) · 12개월 방치(-8)."
+  },
+  "icon": "assets/icons/homeworld-deserts-of-kharak.webp"
  }
 ]

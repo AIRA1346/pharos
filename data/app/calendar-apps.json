@@ -4710,5 +4710,699 @@
    "ai_review": "자동 추정 69.6: 본질 검토 전 중립값 60 · 스토어 평점 90.6(+2.6) · 90일 내 업데이트(+4) · 표본 274,837건(+3)."
   },
   "icon": "assets/icons/business-calendar-2.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "naver-calendar",
+  "name": "Naver Calendar",
+  "aliases": [
+   "네이버 캘린더"
+  ],
+  "domain": "app",
+  "category": "productivity",
+  "arenas": [
+   "calendar-apps"
+  ],
+  "arena_notes": {
+   "calendar-apps": "App Store 2.86★(7,022건). 무료 · 마지막 업데이트 2026-11-26. 「캘린더 · 시간 관리」 안에서 NAVER Corp.의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "생산성"
+  ],
+  "platforms": [
+   "ios"
+  ],
+  "developer": "NAVER Corp.",
+  "publisher": "NAVER Corp.",
+  "release_date": "2013-02-07",
+  "one_liner": "* 일상을 계획하는 즐거움, 네이버 캘린더 앱 - 다양한 캘린더 뷰와 취향에 맞는 일러스트 테마 지원 - 총 700여종의 무료 스티커 제공 - 날씨 정보 및 스마트 브리핑 - 모바일 앱과 PC웹 동기화 - iPad, Apple Watch 지원 ※…",
+  "taste_tags": [],
+  "keywords": [
+   "Naver Calendar",
+   "네이버 캘린더"
+  ],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-26(2일 전).",
+  "sources": [
+   {
+    "id": "itunes-naver-calendar",
+    "title": "Apple App Store — 네이버 캘린더 - Naver Calendar",
+    "url": "https://apps.apple.com/kr/app/%EB%84%A4%EC%9D%B4%EB%B2%84-%EC%BA%98%EB%A6%B0%EB%8D%94-naver-calendar/id592346243?uo=4",
+    "type": "store",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "가격 무료, 2.86★(7,022건), 버전 4.7.12, 최근 릴리스 2026-11-26."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "itunes-naver-calendar"
+    ],
+    "note": "마지막 업데이트 2026-11-26(2일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "ios",
+    "kind": "freemium",
+    "label": "iOS 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "앱 내 구입·구독 구조는 검수 전"
+    ],
+    "one_liner": "무료 · 평점 2.9★",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-26(2일 전) — 활발.",
+      "source_ids": [
+       "itunes-naver-calendar"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": 57.2,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "A",
+    "confidence": "medium",
+    "summary": "자동 수집: App Store 2.86★(7,022건) — 표본 가중 평균 57.2 · v0.6.0 규모 보정 +0.00(표본 7,022) → 57.2.",
+    "scale_adjustment": {
+     "rule": "v0.6.0",
+     "sample_count": 7022,
+     "sample_source": "reviews",
+     "base_score": 57.2,
+     "log_delta": -0.3071,
+     "gate": 0.0,
+     "applied": 0.0,
+     "final_score": 57.2,
+     "applied_flag": false
+    },
+    "source_ids": [
+     "itunes-naver-calendar"
+    ]
+   },
+   "objective": {
+    "score": 78.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 13년(+4).",
+    "source_ids": [
+     "itunes-naver-calendar"
+    ]
+   },
+   "ai_review": {
+    "score": 58.3,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 58.3: 본질 검토 전 중립값 60 · 스토어 평점 57.2(-5.7) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "itunes-naver-calendar"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "ios",
+   "signals": {
+    "user_rating": "yellow",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — App Store 2.86★(7,022건), 최근 업데이트 2026-11-26. 자동 수집 1차 판정.",
+   "reasons": [
+    "App Store 2.86★(7,022건).",
+    "무료 · 마지막 업데이트 2026-11-26(2일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "ios",
+     "cumulative": {
+      "metric": "stars",
+      "value": 2.86,
+      "scale": "stars5",
+      "count": 7022,
+      "window": "전체(KR 스토어)",
+      "evidence_grade": "A"
+     },
+     "note": "KR 2.86★ · 7,022건 표본(한국·미국 중 큰 쪽)."
+    }
+   ],
+   "sample_sufficient": true,
+   "downgrade_applied": false,
+   "summary": "자동 수집 표본: App Store 2.86★(7,022건). 표본 규칙(100건) 충족 — 최근 구간 해석은 검수 전이다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-26",
+   "latest_update_platform": "ios",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-26",
+     "type": "other",
+     "platform": "ios",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "itunes-naver-calendar"
+     ],
+     "note": "앱 버전 4.7.12 릴리스 '네이버 캘린더 - Naver Calendar 4.7.12'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-26(2일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [
+     "itunes-naver-calendar"
+    ]
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "App Store 2.86★(7,022건) → 표본 가중 평균 57.2. 표본 7,022건. v0.6.0 표본 규모 보정: 누적 표본 7,022건 → 로그 보정 -0.31이지만 기본 평점 57.2가 게이트 하한(60) 미만이라 적용 0 — 낮은 평점을 표본 규모로 미화하지 않는다(최종 57.2).",
+   "objective": "자동 산정 78.0: 가격·무료 여부를 스토어에서 확인(+4) · 최근 90일 내 업데이트 2026-11-26(+8) · 출시 13년(+4).",
+   "ai_review": "자동 추정 58.3: 본질 검토 전 중립값 60 · 스토어 평점 57.2(-5.7) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/naver-calendar.webp"
+ },
+ {
+  "schema_version": "0.4.0",
+  "id": "radicale",
+  "name": "Radicale",
+  "aliases": [],
+  "domain": "app",
+  "category": "productivity",
+  "arenas": [
+   "calendar-apps"
+  ],
+  "arena_notes": {
+   "calendar-apps": "스토어 평점 표본 없음. 무료 · 마지막 업데이트 2026-11-28. 「캘린더 · 시간 관리」 안에서 Kozea의 자리는 이 수치로 잡았다."
+  },
+  "genres": [
+   "caldav",
+   "carddav",
+   "icalendar"
+  ],
+  "platforms": [
+   "other"
+  ],
+  "developer": "Kozea",
+  "publisher": "Kozea",
+  "release_date": "2011-08-11",
+  "one_liner": "A simple CalDAV (calendar) and CardDAV (contact) server.",
+  "taste_tags": [],
+  "keywords": [],
+  "assessed_at": "2026-11-28",
+  "method": "desk_research",
+  "review_tier": "auto_fact",
+  "maintenance_status": "active",
+  "maintenance_note": "마지막 업데이트 2026-11-28(0일 전).",
+  "sources": [
+   {
+    "id": "github-radicale",
+    "title": "GitHub — Kozea/Radicale",
+    "url": "https://github.com/Kozea/Radicale",
+    "type": "official",
+    "grade": "A",
+    "accessed_at": "2026-11-28",
+    "note": "스타 5,262 · 라이선스 GPL-3.0 · 최근 푸시 2026-11-28 · 아카이브 false."
+   }
+  ],
+  "flags": {
+   "gacha_random_items": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "p2w": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "iap_required_to_progress": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "subscription_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "account_required": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_collected": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "data_export": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "내보내기·이전 방법은 확인하지 못했다."
+   },
+   "contains_ads": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "forced_ad_before_use": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "bait_ad": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+   },
+   "stale_over_12m": {
+    "value": "no",
+    "evidence_grade": "A",
+    "source_ids": [
+     "github-radicale"
+    ],
+    "note": "마지막 업데이트 2026-11-28(0일 전) — 활발.",
+    "verification": "direct"
+   }
+  },
+  "tiers": [
+   {
+    "tier_id": "oss",
+    "kind": "free",
+    "label": "오픈소스 무료",
+    "price": {
+     "amount": 0,
+     "currency": "KRW",
+     "period": "none",
+     "display": "무료"
+    },
+    "limits": [
+     "라이선스 GPL-3.0 — 무료로 설치·사용"
+    ],
+    "one_liner": "오픈소스 · 무료(라이선스 GPL-3.0)",
+    "hard_filters": {
+     "forced_ads": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "gacha_random_items": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "bait_ad": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "p2w": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "iap_required_to_progress": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "stale_over_12m": {
+      "status": "pass",
+      "evidence_grade": "A",
+      "note": "마지막 업데이트 2026-11-28(0일 전) — 활발.",
+      "source_ids": [
+       "github-radicale"
+      ]
+     },
+     "subscription_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "account_required": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     },
+     "data_collection": {
+      "status": "unknown",
+      "evidence_grade": "unknown",
+      "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상.",
+      "source_ids": []
+     }
+    },
+    "verdict": "conditional",
+    "recommended_path": true
+   }
+  ],
+  "axes": {
+   "user_rating": {
+    "score": null,
+    "signal": "unknown",
+    "signal_basis": "score",
+    "evidence_grade": "unknown",
+    "confidence": "low",
+    "summary": "공개 스토어 평점 표본을 찾지 못해 사용자 축을 비웠다(판정에서 제외).",
+    "source_ids": []
+   },
+   "objective": {
+    "score": 82.0,
+    "signal": "green",
+    "signal_basis": "score",
+    "evidence_grade": "A/C",
+    "confidence": "low",
+    "summary": "자동 산정 82.0: 오픈소스 라이선스 GPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-28(+8) · 출시 15년(+4).",
+    "source_ids": [
+     "github-radicale"
+    ]
+   },
+   "ai_review": {
+    "score": 68.0,
+    "signal": "yellow",
+    "signal_basis": "score",
+    "evidence_grade": "C",
+    "confidence": "low",
+    "summary": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4). 본질 검토는 순차 심층 검수에서 이 값을 대체한다.",
+    "source_ids": [
+     "github-radicale"
+    ]
+   }
+  },
+  "verdict": {
+   "overall": "conditional",
+   "tier_of_record": "oss",
+   "signals": {
+    "user_rating": "unknown",
+    "objective": "green",
+    "ai_review": "yellow"
+   },
+   "one_liner": "조건부 — 스토어 평점 표본 없음, 최근 업데이트 2026-11-28. 자동 수집 1차 판정.",
+   "reasons": [
+    "스토어 평점 표본 없음.",
+    "무료 · 마지막 업데이트 2026-11-28(0일 전).",
+    "공개 스토어·저장소 API 값만으로 만든 1차 판정 — 확률형 상품·구독·약관은 아직 검수하지 않았다."
+   ],
+   "hard_filter_blocked": false,
+   "condition_notes": [
+    "자동 수집 항목 — 세부 약관·과금 함정은 순차 심층 검수에서 확정한다.",
+    "가격은 2026-11-28 스토어 표기 기준이다."
+   ]
+  },
+  "review_snapshot": {
+   "min_sample": 100,
+   "platforms": [
+    {
+     "platform": "other",
+     "cumulative": {
+      "metric": "stars",
+      "value": 0,
+      "scale": "stars5",
+      "count": 0,
+      "window": "표본 없음",
+      "evidence_grade": "unknown"
+     },
+     "note": "공개 API 에서 평점 표본을 찾지 못했다."
+    }
+   ],
+   "sample_sufficient": false,
+   "downgrade_applied": false,
+   "summary": "공개 API 에 평점 표본이 없어 사용자 축을 판정에서 제외했다."
+  },
+  "update_profile": {
+   "latest_update": "2026-11-28",
+   "latest_update_platform": "other",
+   "cadence": "active",
+   "entries": [
+    {
+     "date": "2026-11-28",
+     "type": "other",
+     "platform": "other",
+     "promise_status": "not_applicable",
+     "evidence_grade": "A",
+     "source_ids": [
+      "github-radicale"
+     ],
+     "note": "저장소 최근 푸시 'Kozea/Radicale push'."
+    }
+   ],
+   "maintenance_quality": "healthy",
+   "assessment": "마지막 업데이트 2026-11-28(0일 전). 자동 수집은 업데이트 시점만 보고, 과금·약관 변경과의 관계는 검수하지 않았다."
+  },
+  "monetization": {
+   "ads": {
+    "in_app_exposure": "unknown",
+    "ad_types": [
+     "unknown"
+    ],
+    "store_declares_ads": null,
+    "inflow_ad": {
+     "present": "unknown",
+     "honesty": "not_assessed",
+     "evidence_grade": "unknown",
+     "source_ids": [],
+     "note": "공개 API 로는 확인하지 못했다 — 순차 심층 검수 대상."
+    }
+   },
+   "iap": {
+    "present": "unknown",
+    "random_items": "unknown",
+    "first_purchase_prompt": "unknown",
+    "p2w": "unknown",
+    "required_to_progress": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": []
+   },
+   "subscription": {
+    "present": "unknown",
+    "display": "구독 여부는 검수 전"
+   },
+   "free_play": {
+    "value": "unknown",
+    "evidence_grade": "unknown",
+    "source_ids": [],
+    "note": "무과금으로 어디까지 쓸 수 있는지는 아직 확인하지 않았다."
+   },
+   "summary": "무료. 확률형 상품·구독·앱 내 구입 구조는 검수 전이다."
+  },
+  "data_quality": {
+   "overall_grade": "A/C",
+   "unverified": [
+    "확률형 상품·과금 함정",
+    "구독·계정 필수 여부",
+    "개인정보 수집·내보내기 범위",
+    "본질 완성도(AI 검토)"
+   ],
+   "conflicts": [],
+   "limitations": "자동 수집(auto_fact) — 2026-11-28 공개 API 값만으로 만든 1차 기록. 세부 약관·과금 구조·문장은 순차 심층 검수에서 대체된다. 한 줄 소개는 스토어 표기를 다듬어 썼다."
+  },
+  "score_notes": {
+   "user_rating": "v0.6.0 표본 규모 보정: 스토어 평점 표본이 없어 사용자 축을 비워 두어 보정 대상이 아니다.",
+   "objective": "자동 산정 82.0: 오픈소스 라이선스 GPL-3.0(+8) · 최근 90일 내 업데이트 2026-11-28(+8) · 출시 15년(+4).",
+   "ai_review": "자동 추정 68.0: 본질 검토 전 중립값 60 · 오픈소스 소스 공개(+4) · 90일 내 업데이트(+4)."
+  },
+  "icon": "assets/icons/radicale.webp"
  }
 ]
